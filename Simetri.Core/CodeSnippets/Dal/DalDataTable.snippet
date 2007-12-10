@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DalDataTable</Title>
+      <Shortcut>dalt</Shortcut>
+      <Description>
+      </Description>
+      <Author>Atilla Ozgur</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>ParamA</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>
+          </Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>ParamB</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>
+          </Default>
+          <Function>
+          </Function>
+        </Literal>
+        </Declarations>
+      <Code Language="csharp"><![CDATA[public DataTable Sorgula$ParamA$Ve$ParamB$Ile(Guid p$ParamA$,string p$ParamB$)
+        {
+			List<$ListeTipi$> liste = new List<$ListeTipi$>();
+			AdoTemplate template = new AdoTemplate();
+			string sqlString = @"SELECT * FROM ORTAK.KISI
+						$ParamA$ = @$ParamA$
+						AND
+						$ParamB$ = @$ParamB$";
+			ParameterBuilder builder = new ParameterBuilder();
+			builder.parameterEkle("@$ParamA$", SqlDbType.UniqueIdentifier, p$ParamA$);
+			builder.parameterEkle("@$ParamB$", SqlDbType.Varchar, p$ParamB$,50);
+            return template.DataTableOlustur(sqlString, builder.GetParameterArray());
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

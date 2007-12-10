@@ -1,0 +1,62 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{29D76493-FFF2-42E2-8EF0-6F0AE71CB80E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Simetri.Core.Validation</RootNamespace>
+    <AssemblyName>Simetri.Core.Validation</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Simetri.Core.Validation.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseTypeLibrary.cs" />
+    <Compile Include="BaseTypeLibraryList.cs" />
+    <Compile Include="CompareOperator.cs" />
+    <Compile Include="ForPonos\AlwaysFail.cs" />
+    <Compile Include="ForPonos\BaseValidator.cs" />
+    <Compile Include="ForPonos\CompareValidator.cs" />
+    <Compile Include="ForPonos\IValidator.cs" />
+    <Compile Include="ForPonos\OnlyCharacterAndNumberValidator.cs" />
+    <Compile Include="ForPonos\OnlyCharacterValidator.cs" />
+    <Compile Include="ForPonos\OnlyNumberValidator.cs" />
+    <Compile Include="ForPonos\OnlyTheseCharactersValidator.cs" />
+    <Compile Include="ForPonos\RegExValidator.cs" />
+    <Compile Include="ForPonos\RequiredFieldValidator.cs" />
+    <Compile Include="ForPonos\Validator.cs" />
+    <Compile Include="OnaylamaHatasi.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
