@@ -15,7 +15,6 @@ namespace Simetri.Core.DataUtil
     /// <typeparam name="M"></typeparam>
     public abstract class BaseDal<T> where T : BaseTypeLibrary, new()
     {
-
         public BaseDal()
         {
 
@@ -77,13 +76,8 @@ namespace Simetri.Core.DataUtil
                     break;
             }
         }
-
-        public void Ekle(T row)
+        private void SorguHariciKomutCalistirInternal(SqlCommand cmd)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = InsertString;
-            cmd.Connection = Connection;
-            InsertCommandParametersAdd(cmd, row);
             try
             {
                 Connection.Open();
@@ -91,13 +85,22 @@ namespace Simetri.Core.DataUtil
             }
             catch (SqlException ex)
             {
-                ExceptionDegistirici.Degistir(ex, InsertString);
+
+                ExceptionDegistirici.Degistir(ex, cmd.CommandText);
             }
             finally
             {
                 Connection.Close();
             }
+        }
 
+        public void Ekle(T row)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = InsertString;
+            cmd.Connection = Connection;
+            InsertCommandParametersAdd(cmd, row);
+            SorguHariciKomutCalistirInternal(cmd);
         }
 
         protected void SorguHariciKomutCalistirUpdate(string cmdText, T row)
@@ -106,41 +109,16 @@ namespace Simetri.Core.DataUtil
             cmd.CommandText = cmdText;
             cmd.Connection = Connection;
             UpdateCommandParametersAdd(cmd, row);
-            try
-            {
-                Connection.Open();
-                cmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-
-                ExceptionDegistirici.Degistir(ex, cmdText);
-            }
-            finally
-            {
-                Connection.Close();
-            }
+            SorguHariciKomutCalistirInternal(cmd);
         }
+
         protected void SorguHariciKomutCalistirDelete(string cmdText, T row)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = cmdText;
             cmd.Connection = Connection;
             DeleteCommandParametersAdd(cmd, row);
-            try
-            {
-                Connection.Open();
-                cmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-
-                ExceptionDegistirici.Degistir(ex, cmdText);
-            }
-            finally
-            {
-                Connection.Close();
-            }
+            SorguHariciKomutCalistirInternal(cmd);
         }
 
         public void SorguCalistir(List<T> liste)
