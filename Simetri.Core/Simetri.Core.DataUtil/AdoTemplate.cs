@@ -4,11 +4,15 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 using System.Globalization;
+using log4net;
 
 namespace Simetri.Core.DataUtil
 {
     public class AdoTemplate
     {
+
+        private static ILog logger = LogManager.GetLogger(typeof(AdoTemplate));
+
         private SqlConnection connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
         public SqlConnection Connection
         {
@@ -48,28 +52,54 @@ namespace Simetri.Core.DataUtil
             }
         }
 
-
+        private object SorguHariciKomutCalistirSonucGetirInternal(SqlCommand cmd)
+        {
+            object son = 0;
+            try
+            {
+                logger.Info(cmd.CommandText);
+                Connection.Open();
+                son = cmd.ExecuteScalar();
+            }
+            catch (SqlException ex)
+            {
+                logger.Info(cmd.CommandText, ex);
+                ExceptionDegistirici.Degistir(ex, cmd.CommandText);
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return son;
+        }
+        private void SorguHariciKomutCalistirInternal(SqlCommand cmd)
+        {
+            try
+            {
+                logger.Info(cmd.CommandText);
+                Connection.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                logger.Info(cmd.CommandText, ex);
+                ExceptionDegistirici.Degistir(ex, cmd.CommandText);
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
         public Object TekDegerGetir(string cmdText)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = cmdText;
             cmd.Connection = Connection;
             object sonuc = 0;
-            try
-            {
-                Connection.Open();
-                sonuc = cmd.ExecuteScalar();
-            }
-            catch (SqlException ex)
-            {
-                ExceptionDegistirici.Degistir(ex, cmdText);
-            }
-            finally
-            {
-                Connection.Close();
-            }
+            sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
             return sonuc;
         }
+
         public Object TekDegerGetir(string cmdText, SqlParameter[] parameters)
         {
             SqlCommand cmd = new SqlCommand();
@@ -80,20 +110,7 @@ namespace Simetri.Core.DataUtil
                 cmd.Parameters.Add(p);
             }
 
-            object sonuc = 0;
-            try
-            {
-                Connection.Open();
-                sonuc = cmd.ExecuteScalar();
-            }
-            catch (SqlException ex)
-            {
-                ExceptionDegistirici.Degistir(ex, cmdText);
-            }
-            finally
-            {
-                Connection.Close();
-            }
+            object sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
             return sonuc;
         }
 
@@ -102,19 +119,7 @@ namespace Simetri.Core.DataUtil
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = cmdText;
             cmd.Connection = Connection;
-            try
-            {
-                Connection.Open();
-                cmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                ExceptionDegistirici.Degistir(ex, cmdText);
-            }
-            finally
-            {
-                Connection.Close();
-            }
+            SorguHariciKomutCalistirInternal(cmd);
         }
 
 
@@ -122,19 +127,7 @@ namespace Simetri.Core.DataUtil
         public void SorguHariciKomutCalistir(SqlCommand cmd)
         {
             cmd.Connection = Connection;
-            try
-            {
-                Connection.Open();
-                cmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                ExceptionDegistirici.Degistir(ex, cmd.CommandText);
-            }
-            finally
-            {
-                Connection.Close();
-            }
+            SorguHariciKomutCalistirInternal(cmd);
         }
 
 
@@ -148,22 +141,7 @@ namespace Simetri.Core.DataUtil
                 cmd.Parameters.Add(p);
             }
 
-
-
-            try
-            {
-                Connection.Open();
-                cmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                ExceptionDegistirici.Degistir(ex, sql);
-            }
-            finally
-            {
-                Connection.Close();
-            }
-
+            SorguHariciKomutCalistirInternal(cmd);
 
         }
 

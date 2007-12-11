@@ -4,6 +4,7 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 using Simetri.Core.TypeLibrary;
+using log4net;
 
 namespace Simetri.Core.DataUtil
 {
@@ -15,6 +16,7 @@ namespace Simetri.Core.DataUtil
     /// <typeparam name="M"></typeparam>
     public abstract class BaseDal<T> where T : BaseTypeLibrary, new()
     {
+        private static ILog logger = LogManager.GetLogger(typeof(BaseDal<T>));
         public BaseDal()
         {
 
@@ -81,11 +83,12 @@ namespace Simetri.Core.DataUtil
             try
             {
                 Connection.Open();
+                logger.Info(cmd.CommandText);
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
-
+                logger.Info(cmd.CommandText, ex);
                 ExceptionDegistirici.Degistir(ex, cmd.CommandText);
             }
             finally
@@ -166,6 +169,7 @@ namespace Simetri.Core.DataUtil
             try
             {
                 Connection.Open();
+                logger.Debug(cmd.CommandText);
                 reader = cmd.ExecuteReader();
 
                 T row = default(T);
