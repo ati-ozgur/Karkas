@@ -32,7 +32,9 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.Interop.Security.AzRoles" />
+    <Reference Include="Microsoft.Interop.Security.AzRoles">
+      <HintPath>..\ThirdParty\Microsoft.Interop.Security.AzRoles.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AzmanHelper.cs" />
