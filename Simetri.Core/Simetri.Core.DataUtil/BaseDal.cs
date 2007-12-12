@@ -22,7 +22,7 @@ namespace Simetri.Core.DataUtil
 
         }
 
-        private Guid komutuCalistiranKullaniciKisiKey = Guid.Empty;
+        private Guid komutuCalistiranKullaniciKisiKey;
         /// <summary>
         /// Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
         /// Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
