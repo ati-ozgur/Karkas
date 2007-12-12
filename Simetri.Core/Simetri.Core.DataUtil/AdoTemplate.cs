@@ -10,7 +10,13 @@ namespace Simetri.Core.DataUtil
 {
     public class AdoTemplate
     {
+        private Guid kisiKey;
 
+        public Guid KisiKey
+        {
+            get { return kisiKey; }
+            set { kisiKey = value; }
+        }
         private static ILog logger = LogManager.GetLogger(typeof(AdoTemplate));
 
         private SqlConnection connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
@@ -57,13 +63,13 @@ namespace Simetri.Core.DataUtil
             object son = 0;
             try
             {
-                logger.Info(cmd.CommandText);
+                logger.Info(new LoggingInfo(KisiKey, cmd));
                 Connection.Open();
                 son = cmd.ExecuteScalar();
             }
             catch (SqlException ex)
             {
-                logger.Info(cmd.CommandText, ex);
+                logger.Info(new LoggingInfo(KisiKey, cmd), ex);
                 ExceptionDegistirici.Degistir(ex, cmd.CommandText);
             }
             finally
@@ -76,13 +82,13 @@ namespace Simetri.Core.DataUtil
         {
             try
             {
-                logger.Info(cmd.CommandText);
+                logger.Info(new LoggingInfo(KisiKey, cmd));
                 Connection.Open();
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
-                logger.Info(cmd.CommandText, ex);
+                logger.Info(new LoggingInfo(KisiKey, cmd), ex);
                 ExceptionDegistirici.Degistir(ex, cmd.CommandText);
             }
             finally

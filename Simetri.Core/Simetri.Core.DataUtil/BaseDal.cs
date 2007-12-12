@@ -22,6 +22,20 @@ namespace Simetri.Core.DataUtil
 
         }
 
+        private Guid komutuCalistiranKullaniciKisiKey = Guid.Empty;
+        /// <summary>
+        /// Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
+        /// Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
+        /// Otomatik olarak Bs tarafindan yapilacak
+        /// </summary>
+        public Guid KomutuCalistiranKullaniciKisiKey
+        {
+            get { return komutuCalistiranKullaniciKisiKey; }
+            set { komutuCalistiranKullaniciKisiKey = value; }
+        }
+	
+
+
         private SqlConnection connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
 
         public SqlConnection Connection
@@ -83,12 +97,12 @@ namespace Simetri.Core.DataUtil
             try
             {
                 Connection.Open();
-                logger.Info(cmd.CommandText);
+                logger.Info(new LoggingInfo(komutuCalistiranKullaniciKisiKey,cmd));
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
-                logger.Info(cmd.CommandText, ex);
+                logger.Info(new LoggingInfo(komutuCalistiranKullaniciKisiKey, cmd), ex);
                 ExceptionDegistirici.Degistir(ex, cmd.CommandText);
             }
             finally
@@ -169,7 +183,7 @@ namespace Simetri.Core.DataUtil
             try
             {
                 Connection.Open();
-                logger.Debug(cmd.CommandText);
+                logger.Debug(new LoggingInfo(komutuCalistiranKullaniciKisiKey,cmd));
                 reader = cmd.ExecuteReader();
 
                 T row = default(T);

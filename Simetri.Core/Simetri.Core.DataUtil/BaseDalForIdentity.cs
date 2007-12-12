@@ -37,7 +37,7 @@ namespace Simetri.Core.DataUtil
                 Connection.Open();
                 if (IdentityVarMi)
                 {
-                    logger.Info(cmd.CommandText);
+                    logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
                     object o = cmd.ExecuteScalar();
                     sonuc =(M) Convert.ChangeType(o, sonuc.GetType());
                 }
