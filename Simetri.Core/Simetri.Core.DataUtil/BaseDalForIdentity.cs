@@ -16,7 +16,7 @@ namespace Simetri.Core.DataUtil
     /// <typeparam name="M"></typeparam>
     public abstract class BaseDalForIdentity<T, M> : BaseDal<T> where T : BaseTypeLibrary,new()
     {
-        private static ILog logger = LogManager.GetLogger(typeof(BaseDalForIdentity<T,M>));
+        private static ILog logger = LogManager.GetLogger("Dal");
 
         public BaseDalForIdentity()
         {

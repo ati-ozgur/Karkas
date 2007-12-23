@@ -17,7 +17,7 @@ namespace Simetri.Core.DataUtil
             get { return kisiKey; }
             set { kisiKey = value; }
         }
-        private static ILog logger = LogManager.GetLogger(typeof(AdoTemplate));
+        private static ILog logger = LogManager.GetLogger("Dal");
 
         private SqlConnection connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
         public SqlConnection Connection
