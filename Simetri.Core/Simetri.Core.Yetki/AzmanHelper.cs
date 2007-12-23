@@ -22,7 +22,7 @@ namespace Simetri.Core.Yetki
 
        
         const string AZ_MAN_STORE_KEY = "LocalPolicyStore";
-        const string APPLICATION = "Ito";
+        readonly string APPLICATION = ConfigurationManager.AppSettings["AzmanApplicationName"];
         const int VALID_OPERATION = 0;
         readonly string store = ConfigurationManager.ConnectionStrings[AZ_MAN_STORE_KEY].ConnectionString;
         IAzAuthorizationStore azManStore;
