@@ -106,6 +106,22 @@ namespace Simetri.Core.DataUtil
             return sonuc;
         }
 
+        public Object TekDegerGetir(string cmdText,CommandType cmdType, SqlParameter[] parameters)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = cmdText;
+            cmd.CommandType = cmdType;
+            cmd.Connection = Connection;
+            foreach (SqlParameter p in parameters)
+            {
+                cmd.Parameters.Add(p);
+            }
+
+            object sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
+            return sonuc;
+        }
+
+
         public Object TekDegerGetir(string cmdText, SqlParameter[] parameters)
         {
             SqlCommand cmd = new SqlCommand();
