@@ -49,9 +49,9 @@ namespace Simetri.Core.DataUtil
             whereListesi.Add(wk);
         }
 
-        public void WhereKriterineEkle(string pKolonIsmi, WhereOperatorEnum whereOperator,string pParameterIsmi)
+        public void WhereKriterineEkle(string pKolonIsmi, WhereOperatorEnum whereOperator, string pParameterIsmi)
         {
-            WhereKriter wk = new WhereKriter(pKolonIsmi,whereOperator,pParameterIsmi);
+            WhereKriter wk = new WhereKriter(pKolonIsmi, whereOperator, pParameterIsmi);
             whereListesi.Add(wk);
         }
 
@@ -87,7 +87,13 @@ namespace Simetri.Core.DataUtil
 
         public void WhereKriterineTercihliEkle(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum)
         {
-            WhereKriterineTercihliEkle(pKolonIsmi, pWhereOperatorEnum,"@" + pKolonIsmi);
+            WhereKriterineTercihliEkle(pKolonIsmi, pWhereOperatorEnum, "@" + pKolonIsmi);
+        }
+
+        public void WhereKriterineTercihliEkle(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum, string pParameterIsmi, LikeYeriEnum pLikeYeriEnum)
+        {
+            WhereKriterTercihli wk = new WhereKriterTercihli(pKolonIsmi, pWhereOperatorEnum, pParameterIsmi,pLikeYeriEnum);
+            whereTercihliListesi.Add(wk);
         }
     }
 
@@ -100,6 +106,20 @@ namespace Simetri.Core.DataUtil
             kolonIsmi = pKolonIsmi;
             parameterIsmi = pParamaterIsmi;
         }
+        public WhereKriterTercihli(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi, LikeYeriEnum pLikeYeriEnum)
+            : this(pKolonIsmi, pWhereOperator, pParamaterIsmi)
+        {
+            likeYeri = pLikeYeriEnum;
+        }
+
+        private LikeYeriEnum likeYeri = LikeYeriEnum.Yok;
+
+        public LikeYeriEnum LikeYeri
+        {
+            get { return likeYeri; }
+            set { likeYeri = value; }
+        }
+
         private string parameterIsmi;
 
         public string ParameterIsmi
@@ -156,20 +176,68 @@ namespace Simetri.Core.DataUtil
                         s = " LIKE ";
                         break;
                 }
-                return string.Format("(({2} IS NULL) OR ({0} {1} {2}))", kolonIsmi, s, parameterIsmi);
+                if (WhereOperator != WhereOperatorEnum.Like)
+                {
+                    return string.Format("(({2} IS NULL) OR ({0} {1} {2}))", kolonIsmi, s, parameterIsmi);
+                }
+                else
+                {
+                    string son = "";
+                    switch (likeYeri)
+                    {
+                        case LikeYeriEnum.Yok:
+                            son = string.Format("(({2} IS NULL) OR ( {0} {1} {2}))", kolonIsmi, s, parameterIsmi);
+                            break;
+                        case LikeYeriEnum.Basinda:
+                            son = string.Format("(({2} IS NULL) OR ( {0} {1} {2} + '%'))", kolonIsmi, s, parameterIsmi);
+                            break;
+                        case LikeYeriEnum.Sonunda:
+                            son = string.Format("(({2} IS NULL) OR ( {0} {1} '%' + {2}))", kolonIsmi, s, parameterIsmi);
+                            break;
+                        case LikeYeriEnum.Icinde:
+                            son = string.Format("(({2} IS NULL) OR ({0} {1} '%' + {2} + '%'))", kolonIsmi, s, parameterIsmi);
+                            break;
+                    }
+                    return son;
+                }
+
             }
         }
     }
 
+    public enum LikeYeriEnum
+    {
+        Yok = 1,
+        Basinda = 2,
+        Sonunda = 3,
+        Icinde = 4
+    }
 
     internal class WhereKriter
     {
-        public WhereKriter(string pKolonIsmi, WhereOperatorEnum pWhereOperator,string pParamaterIsmi)
+        public WhereKriter(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi)
         {
             whereOperator = pWhereOperator;
             kolonIsmi = pKolonIsmi;
             parameterIsmi = pParamaterIsmi;
+
         }
+
+        public WhereKriter(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi, LikeYeriEnum pLikeYeriEnum)
+            : this(pKolonIsmi, pWhereOperator, pParamaterIsmi)
+        {
+            likeYeri = pLikeYeriEnum;
+        }
+
+        private LikeYeriEnum likeYeri = LikeYeriEnum.Yok;
+
+        public LikeYeriEnum LikeYeri
+        {
+            get { return likeYeri; }
+            set { likeYeri = value; }
+        }
+
+
         private string parameterIsmi;
 
         public string ParameterIsmi
@@ -177,7 +245,7 @@ namespace Simetri.Core.DataUtil
             get { return parameterIsmi; }
             set { parameterIsmi = value; }
         }
-	
+
 
         private WhereOperatorEnum whereOperator;
 
@@ -205,7 +273,7 @@ namespace Simetri.Core.DataUtil
                 switch (whereOperator)
                 {
                     case WhereOperatorEnum.BuyukEsittir:
-                        s =" >= ";
+                        s = " >= ";
                         break;
                     case WhereOperatorEnum.Buyuktur:
                         s = ">";
@@ -226,7 +294,30 @@ namespace Simetri.Core.DataUtil
                         s = " LIKE ";
                         break;
                 }
-                return string.Format("{0} {1} {2}",kolonIsmi,s,parameterIsmi);
+                if (WhereOperator != WhereOperatorEnum.Like)
+                {
+                    return string.Format("{0} {1} {2}", kolonIsmi, s, parameterIsmi);
+                }
+                else
+                {
+                    string son = "";
+                    switch (likeYeri)
+                    {
+                        case LikeYeriEnum.Yok:
+                            son = string.Format("{0} {1} {2}", kolonIsmi, s, parameterIsmi);
+                            break;
+                        case LikeYeriEnum.Basinda:
+                            son = string.Format("{0} {1} {2} + '%'", kolonIsmi, s, parameterIsmi);
+                            break;
+                        case LikeYeriEnum.Sonunda:
+                            son = string.Format("{0} {1} '%' + {2}", kolonIsmi, s, parameterIsmi);
+                            break;
+                        case LikeYeriEnum.Icinde:
+                            son = string.Format("{0} {1} '%' + {2} + '%'", kolonIsmi, s, parameterIsmi);
+                            break;
+                    }
+                    return son;
+                }
             }
         }
     }
