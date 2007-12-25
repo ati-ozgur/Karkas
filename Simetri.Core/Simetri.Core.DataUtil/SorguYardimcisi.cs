@@ -73,6 +73,10 @@ namespace Simetri.Core.DataUtil
             {
                 sb.Append(Environment.NewLine + s.SqlHali + " AND ");
             }
+            foreach (WhereKriterTercihliNullDegeri s in whereTercihliNullDegeriListesi)
+            {
+                sb.Append(Environment.NewLine + s.SqlHali + " AND ");
+            }
             sb.Remove(sb.Length - 5, 5);
             sb.Append(Environment.NewLine);
             return sb.ToString();
@@ -124,6 +128,12 @@ namespace Simetri.Core.DataUtil
             whereTercihliNullDegeriListesi.Add(wk);
         }
 
+
+        public void WhereKriterineTercihliEkleNullDegeriVer(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum, string pParameterIsmi ,LikeYeriEnum pLikeYeriEnum, string pNullDegeri)
+        {
+            WhereKriterTercihliNullDegeri wk = new WhereKriterTercihliNullDegeri(pKolonIsmi, pWhereOperatorEnum, pParameterIsmi, pNullDegeri, pLikeYeriEnum);
+            whereTercihliNullDegeriListesi.Add(wk);
+        }
     }
 }
 
