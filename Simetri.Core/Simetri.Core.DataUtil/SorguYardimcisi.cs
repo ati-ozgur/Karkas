@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Simetri.Core.DataUtil.SorguYardimcisiSiniflari;
 
 namespace Simetri.Core.DataUtil
 {
@@ -9,7 +10,7 @@ namespace Simetri.Core.DataUtil
         List<Siralama> siralamaListesi = new List<Siralama>();
         List<WhereKriter> whereListesi = new List<WhereKriter>();
         List<WhereKriterTercihli> whereTercihliListesi = new List<WhereKriterTercihli>();
-
+        List<WhereKriterTercihliNullDegeri> whereTercihliNullDegeriListesi = new List<WhereKriterTercihliNullDegeri>();
 
 
         public void OrderByEkle(string pKolonIsmi, SiralamaEnum pSiralamaTuru)
@@ -93,7 +94,7 @@ namespace Simetri.Core.DataUtil
 
         public void WhereKriterineTercihliEkle(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum, string pParameterIsmi, LikeYeriEnum pLikeYeriEnum)
         {
-            WhereKriterTercihli wk = new WhereKriterTercihli(pKolonIsmi, pWhereOperatorEnum, pParameterIsmi,pLikeYeriEnum);
+            WhereKriterTercihli wk = new WhereKriterTercihli(pKolonIsmi, pWhereOperatorEnum, pParameterIsmi, pLikeYeriEnum);
             whereTercihliListesi.Add(wk);
         }
         public void WhereKriterineArasindaEkle(string pKolonIsmi, string pParameterIsmi1, string pParameterIsmi2)
@@ -112,304 +113,20 @@ namespace Simetri.Core.DataUtil
             WhereKriterTercihli wk2 = new WhereKriterTercihli(pKolonIsmi, WhereOperatorEnum.KucukEsittir, pParameterIsmi2);
             whereTercihliListesi.Add(wk2);
         }
+
+        public void WhereKriterineTercihliEkleNullDegeriVer(
+            string pKolonIsmi
+            , WhereOperatorEnum pWhereOperatorEnum
+            , string pParameterIsmi, string pNullDegeri
+            )
+        {
+            WhereKriterTercihliNullDegeri wk = new WhereKriterTercihliNullDegeri(pKolonIsmi, pWhereOperatorEnum, pParameterIsmi, pNullDegeri);
+            whereTercihliNullDegeriListesi.Add(wk);
+        }
+
     }
-
-
-    internal class WhereKriterTercihli
-    {
-        public WhereKriterTercihli(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi)
-        {
-            whereOperator = pWhereOperator;
-            kolonIsmi = pKolonIsmi;
-            parameterIsmi = pParamaterIsmi;
-        }
-        public WhereKriterTercihli(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi, LikeYeriEnum pLikeYeriEnum)
-            : this(pKolonIsmi, pWhereOperator, pParamaterIsmi)
-        {
-            likeYeri = pLikeYeriEnum;
-        }
-
-        private LikeYeriEnum likeYeri = LikeYeriEnum.Yok;
-
-        public LikeYeriEnum LikeYeri
-        {
-            get { return likeYeri; }
-            set { likeYeri = value; }
-        }
-
-        private string parameterIsmi;
-
-        public string ParameterIsmi
-        {
-            get { return parameterIsmi; }
-            set { parameterIsmi = value; }
-        }
-
-
-        private WhereOperatorEnum whereOperator;
-
-        public WhereOperatorEnum WhereOperator
-        {
-            get { return whereOperator; }
-            set { whereOperator = value; }
-        }
-
-
-
-        private string kolonIsmi;
-
-        public string KolonIsmi
-        {
-            get { return kolonIsmi; }
-            set { kolonIsmi = value; }
-        }
-
-        public string SqlHali
-        {
-            get
-            {
-                string s = "";
-                switch (whereOperator)
-                {
-                    case WhereOperatorEnum.BuyukEsittir:
-                        s = " >= ";
-                        break;
-                    case WhereOperatorEnum.Buyuktur:
-                        s = ">";
-                        break;
-                    case WhereOperatorEnum.EsitDegildir:
-                        s = "<>";
-                        break;
-                    case WhereOperatorEnum.Esittir:
-                        s = "=";
-                        break;
-                    case WhereOperatorEnum.KucukEsittir:
-                        s = "<=";
-                        break;
-                    case WhereOperatorEnum.Kucuktur:
-                        s = "<";
-                        break;
-                    case WhereOperatorEnum.Like:
-                        s = " LIKE ";
-                        break;
-                }
-                if (WhereOperator != WhereOperatorEnum.Like)
-                {
-                    return string.Format("(({2} IS NULL) OR ({0} {1} {2}))", kolonIsmi, s, parameterIsmi);
-                }
-                else
-                {
-                    string son = "";
-                    switch (likeYeri)
-                    {
-                        case LikeYeriEnum.Yok:
-                            son = string.Format("(({2} IS NULL) OR ( {0} {1} {2}))", kolonIsmi, s, parameterIsmi);
-                            break;
-                        case LikeYeriEnum.Basinda:
-                            son = string.Format("(({2} IS NULL) OR ( {0} {1} {2} + '%'))", kolonIsmi, s, parameterIsmi);
-                            break;
-                        case LikeYeriEnum.Sonunda:
-                            son = string.Format("(({2} IS NULL) OR ( {0} {1} '%' + {2}))", kolonIsmi, s, parameterIsmi);
-                            break;
-                        case LikeYeriEnum.Icinde:
-                            son = string.Format("(({2} IS NULL) OR ({0} {1} '%' + {2} + '%'))", kolonIsmi, s, parameterIsmi);
-                            break;
-                    }
-                    return son;
-                }
-
-            }
-        }
-    }
-
-    public enum LikeYeriEnum
-    {
-        Yok = 1,
-        Basinda = 2,
-        Sonunda = 3,
-        Icinde = 4
-    }
-
-
-
-
-    internal class WhereKriter
-    {
-        public WhereKriter(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi)
-        {
-            whereOperator = pWhereOperator;
-            kolonIsmi = pKolonIsmi;
-            parameterIsmi = pParamaterIsmi;
-
-        }
-
-        public WhereKriter(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi, LikeYeriEnum pLikeYeriEnum)
-            : this(pKolonIsmi, pWhereOperator, pParamaterIsmi)
-        {
-            likeYeri = pLikeYeriEnum;
-        }
-
-        private LikeYeriEnum likeYeri = LikeYeriEnum.Yok;
-
-        public LikeYeriEnum LikeYeri
-        {
-            get { return likeYeri; }
-            set { likeYeri = value; }
-        }
-
-
-        private string parameterIsmi;
-
-        public string ParameterIsmi
-        {
-            get { return parameterIsmi; }
-            set { parameterIsmi = value; }
-        }
-
-
-        private WhereOperatorEnum whereOperator;
-
-        public WhereOperatorEnum WhereOperator
-        {
-            get { return whereOperator; }
-            set { whereOperator = value; }
-        }
-
-
-
-        private string kolonIsmi;
-
-        public string KolonIsmi
-        {
-            get { return kolonIsmi; }
-            set { kolonIsmi = value; }
-        }
-
-        public string SqlHali
-        {
-            get
-            {
-                string s = "";
-                switch (whereOperator)
-                {
-                    case WhereOperatorEnum.BuyukEsittir:
-                        s = " >= ";
-                        break;
-                    case WhereOperatorEnum.Buyuktur:
-                        s = ">";
-                        break;
-                    case WhereOperatorEnum.EsitDegildir:
-                        s = "<>";
-                        break;
-                    case WhereOperatorEnum.Esittir:
-                        s = "=";
-                        break;
-                    case WhereOperatorEnum.KucukEsittir:
-                        s = "<=";
-                        break;
-                    case WhereOperatorEnum.Kucuktur:
-                        s = "<";
-                        break;
-                    case WhereOperatorEnum.Like:
-                        s = " LIKE ";
-                        break;
-                }
-                if (WhereOperator != WhereOperatorEnum.Like)
-                {
-                    return string.Format("{0} {1} {2}", kolonIsmi, s, parameterIsmi);
-                }
-                else
-                {
-                    string son = "";
-                    switch (likeYeri)
-                    {
-                        case LikeYeriEnum.Yok:
-                            son = string.Format("{0} {1} {2}", kolonIsmi, s, parameterIsmi);
-                            break;
-                        case LikeYeriEnum.Basinda:
-                            son = string.Format("{0} {1} {2} + '%'", kolonIsmi, s, parameterIsmi);
-                            break;
-                        case LikeYeriEnum.Sonunda:
-                            son = string.Format("{0} {1} '%' + {2}", kolonIsmi, s, parameterIsmi);
-                            break;
-                        case LikeYeriEnum.Icinde:
-                            son = string.Format("{0} {1} '%' + {2} + '%'", kolonIsmi, s, parameterIsmi);
-                            break;
-                    }
-                    return son;
-                }
-            }
-        }
-    }
-
-
-    public enum WhereOperatorEnum
-    {
-        Like = 1,
-        Esittir = 2,
-        EsitDegildir = 3,
-        Kucuktur = 4,
-        KucukEsittir = 5,
-        Buyuktur = 6,
-        BuyukEsittir = 7,
-        Arasinda = 8,
-    }
-
-
-
-    internal class Siralama
-    {
-        public Siralama(string pKolonIsmi, SiralamaEnum pSiralamaTuru)
-        {
-            siralamaTuru = pSiralamaTuru;
-            kolonIsmi = pKolonIsmi;
-        }
-
-        private SiralamaEnum siralamaTuru;
-
-        public SiralamaEnum SiralamaTuru
-        {
-            get { return siralamaTuru; }
-            set { siralamaTuru = value; }
-        }
-
-
-
-        private string kolonIsmi;
-
-        public string KolonIsmi
-        {
-            get { return kolonIsmi; }
-            set { kolonIsmi = value; }
-        }
-
-        public string SqlHali
-        {
-            get
-            {
-                string s = "";
-                switch (siralamaTuru)
-                {
-                    case SiralamaEnum.ASC:
-                        s = "ASC";
-                        break;
-                    case SiralamaEnum.Azalarak:
-                        s = "DESC";
-                        break;
-                }
-                return kolonIsmi + " " + s;
-            }
-        }
-    }
-
-
-    public enum SiralamaEnum
-    {
-        ASC = 1,
-        DESC = 2,
-        Artarak = 1,
-        Azalarak = 2
-    }
-
-
 }
+
+
+
+
