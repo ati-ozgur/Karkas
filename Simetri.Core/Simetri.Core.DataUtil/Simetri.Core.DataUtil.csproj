@@ -54,6 +54,7 @@
     <Compile Include="PagingTemplate.cs" />
     <Compile Include="ParameterBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SorguYardimcisi.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Simetri.Core.Validation\Simetri.Core.Validation.csproj">

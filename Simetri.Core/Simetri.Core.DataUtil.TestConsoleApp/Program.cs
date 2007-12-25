@@ -7,6 +7,7 @@ using Simetri.Core.Utility.ReportingServicesHelper;
 using Simetri.Core.Utility.ReportingServicesHelper.Generated;
 using log4net;
 using System.IO;
+using Simetri.Core.DataUtil.TestConsoleApp.Tests;
 
 namespace Simetri.Core.DataUtil.TestConsoleApp
 {
@@ -14,17 +15,19 @@ namespace Simetri.Core.DataUtil.TestConsoleApp
     {
         public static void Main(string[] args)
         {
+            SorguYardimcisiTests t = new SorguYardimcisiTests();
+            t.NormalArama();
 
-            log4net.Config.XmlConfigurator.Configure(new FileInfo("Development.log4net"));
+            //log4net.Config.XmlConfigurator.Configure(new FileInfo("Development.log4net"));
 
 
-            AdoTemplate template = new AdoTemplate();
-            template.KisiKey = new Guid("488B1F2F-0DC7-4534-96DE-5FA0FAC35B71");
+            //AdoTemplate template = new AdoTemplate();
+            //template.KisiKey = new Guid("488B1F2F-0DC7-4534-96DE-5FA0FAC35B71");
 
-            int sonuc = (int) template.TekDegerGetir("SELECT COUNT(*) FROM ORTAK.KISI");
-            Console.WriteLine(sonuc);
+            //int sonuc = (int) template.TekDegerGetir("SELECT COUNT(*) FROM ORTAK.KISI");
+            //Console.WriteLine(sonuc);
 
-            Console.ReadLine();
+            //Console.ReadLine();
         }
 
         private static void disardanDegerleriSetleyerekRaporAl()
