@@ -26,7 +26,7 @@ namespace Simetri.Core.DataUtil.TestConsoleApp.Tests
 
             //yardimci.OrderByEkle(pKolonIsmi, SiralamaEnum.Artarak);
             //yardimci.OrderByEkle("MTKNo", SiralamaEnum.Azalarak);
-            string sqlSonuc = yardimci.SorguSonucuGetir();
+            string sqlSonuc = yardimci.KriterSonucunuGetir();
 
             Console.WriteLine(sqlSonuc);
 

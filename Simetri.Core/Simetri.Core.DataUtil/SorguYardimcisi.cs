@@ -21,7 +21,7 @@ namespace Simetri.Core.DataUtil
             }
         }
 
-        public string SorguSonucuGetir()
+        public string KriterSonucunuGetir()
         {
             string sonuc = "";
             sonuc += whereKriterlerininSonucunuGetir();
