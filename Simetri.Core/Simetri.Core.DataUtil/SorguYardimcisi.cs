@@ -8,6 +8,7 @@ namespace Simetri.Core.DataUtil
     {
         List<Siralama> siralamaListesi = new List<Siralama>();
         List<WhereKriter> whereListesi = new List<WhereKriter>();
+        List<WhereKriterTercihli> whereTercihliListesi = new List<WhereKriterTercihli>();
 
 
         public void OrderByEkle(string pKolonIsmi, SiralamaEnum pSiralamaTuru)
@@ -56,7 +57,7 @@ namespace Simetri.Core.DataUtil
 
         private string whereKriterlerininSonucunuGetir()
         {
-            if (whereListesi.Count == 0)
+            if ((whereListesi.Count == 0) && (whereTercihliListesi.Count == 0))
             {
                 return "";
             }
@@ -66,15 +67,99 @@ namespace Simetri.Core.DataUtil
             {
                 sb.Append(Environment.NewLine + s.SqlHali + " AND ");
             }
+            foreach (WhereKriterTercihli s in whereTercihliListesi)
+            {
+                sb.Append(Environment.NewLine + s.SqlHali + " AND ");
+            }
             sb.Remove(sb.Length - 5, 5);
             sb.Append(Environment.NewLine);
             return sb.ToString();
 
         }
 
+
+        public void WhereKriterineTercihliEkle(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum, string pParameterIsmi)
+        {
+            WhereKriterTercihli wk = new WhereKriterTercihli(pKolonIsmi, pWhereOperatorEnum, pParameterIsmi);
+            whereTercihliListesi.Add(wk);
+
+        }
+
+        public void WhereKriterineTercihliEkle(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum)
+        {
+            WhereKriterineTercihliEkle(pKolonIsmi, pWhereOperatorEnum,"@" + pKolonIsmi);
+        }
     }
 
 
+    internal class WhereKriterTercihli
+    {
+        public WhereKriterTercihli(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi)
+        {
+            whereOperator = pWhereOperator;
+            kolonIsmi = pKolonIsmi;
+            parameterIsmi = pParamaterIsmi;
+        }
+        private string parameterIsmi;
+
+        public string ParameterIsmi
+        {
+            get { return parameterIsmi; }
+            set { parameterIsmi = value; }
+        }
+
+
+        private WhereOperatorEnum whereOperator;
+
+        public WhereOperatorEnum WhereOperator
+        {
+            get { return whereOperator; }
+            set { whereOperator = value; }
+        }
+
+
+
+        private string kolonIsmi;
+
+        public string KolonIsmi
+        {
+            get { return kolonIsmi; }
+            set { kolonIsmi = value; }
+        }
+
+        public string SqlHali
+        {
+            get
+            {
+                string s = "";
+                switch (whereOperator)
+                {
+                    case WhereOperatorEnum.BuyukEsittir:
+                        s = " >= ";
+                        break;
+                    case WhereOperatorEnum.Buyuktur:
+                        s = ">";
+                        break;
+                    case WhereOperatorEnum.EsitDegildir:
+                        s = "<>";
+                        break;
+                    case WhereOperatorEnum.Esittir:
+                        s = "=";
+                        break;
+                    case WhereOperatorEnum.KucukEsittir:
+                        s = "<=";
+                        break;
+                    case WhereOperatorEnum.Kucuktur:
+                        s = "<";
+                        break;
+                    case WhereOperatorEnum.Like:
+                        s = " LIKE ";
+                        break;
+                }
+                return string.Format("(({2} IS NULL) OR ({0} {1} {2}))", kolonIsmi, s, parameterIsmi);
+            }
+        }
+    }
 
 
     internal class WhereKriter
