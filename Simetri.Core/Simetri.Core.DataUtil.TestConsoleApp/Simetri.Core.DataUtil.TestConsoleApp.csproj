@@ -39,14 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dal\FirmaDal.cs" />
-    <Compile Include="Dal\FirmaDal.generated.cs" />
     <Compile Include="OrnekYetkiEnum.cs" />
     <Compile Include="OrnekYetkiEnum.generated.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\SorguYardimcisiTests.cs" />
-    <Compile Include="TypeLibrary\Firma.generated.cs" />
     <Compile Include="YetkiControlDeneme.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,9 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="azmanStore.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferences Include="Web References\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

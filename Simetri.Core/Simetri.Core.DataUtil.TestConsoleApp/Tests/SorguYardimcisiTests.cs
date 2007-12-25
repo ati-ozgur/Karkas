@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Simetri.Core.DataUtil.TestConsoleApp.Dal;
-using Simetri.Core.DataUtil.TestConsoleApp.TypeLibrary;
+using Simetri.Core.DataUtil.SorguYardimcisiSiniflari;
 
 namespace Simetri.Core.DataUtil.TestConsoleApp.Tests
 {
@@ -22,6 +21,7 @@ namespace Simetri.Core.DataUtil.TestConsoleApp.Tests
             yardimci.WhereKriterineTercihliEkle("MTKNo", WhereOperatorEnum.Esittir);
             yardimci.WhereKriterineTercihliEkle("VergiNo", WhereOperatorEnum.Esittir);
             yardimci.WhereKriterineTercihliEkle("IlTipNo", WhereOperatorEnum.Esittir);
+            yardimci.WhereKriterineTercihliEkleNullDegeriVer("IlTipNo", WhereOperatorEnum.Esittir,"@IlTipNo","0");
             yardimci.WhereKriterineArasindaTercihliEkle("TescilTarihi", "@TescilTarihiBaslangic", "@TescilTarihiBitis");
 
             //yardimci.OrderByEkle(pKolonIsmi, SiralamaEnum.Artarak);
