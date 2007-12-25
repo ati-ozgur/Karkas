@@ -18,16 +18,6 @@ namespace Simetri.Core.DataUtil.TestConsoleApp
             SorguYardimcisiTests t = new SorguYardimcisiTests();
             t.NormalArama();
 
-            //log4net.Config.XmlConfigurator.Configure(new FileInfo("Development.log4net"));
-
-
-            //AdoTemplate template = new AdoTemplate();
-            //template.KisiKey = new Guid("488B1F2F-0DC7-4534-96DE-5FA0FAC35B71");
-
-            //int sonuc = (int) template.TekDegerGetir("SELECT COUNT(*) FROM ORTAK.KISI");
-            //Console.WriteLine(sonuc);
-
-            //Console.ReadLine();
         }
 
         private static void disardanDegerleriSetleyerekRaporAl()

@@ -11,6 +11,7 @@ namespace Simetri.Core.DataUtil
         List<WhereKriterTercihli> whereTercihliListesi = new List<WhereKriterTercihli>();
 
 
+
         public void OrderByEkle(string pKolonIsmi, SiralamaEnum pSiralamaTuru)
         {
             Siralama s = new Siralama(pKolonIsmi, pSiralamaTuru);
@@ -94,6 +95,22 @@ namespace Simetri.Core.DataUtil
         {
             WhereKriterTercihli wk = new WhereKriterTercihli(pKolonIsmi, pWhereOperatorEnum, pParameterIsmi,pLikeYeriEnum);
             whereTercihliListesi.Add(wk);
+        }
+        public void WhereKriterineArasindaEkle(string pKolonIsmi, string pParameterIsmi1, string pParameterIsmi2)
+        {
+
+            WhereKriter wk1 = new WhereKriter(pKolonIsmi, WhereOperatorEnum.BuyukEsittir, pParameterIsmi1);
+            whereListesi.Add(wk1);
+            WhereKriter wk2 = new WhereKriter(pKolonIsmi, WhereOperatorEnum.KucukEsittir, pParameterIsmi2);
+            whereListesi.Add(wk2);
+        }
+
+        public void WhereKriterineArasindaTercihliEkle(string pKolonIsmi, string pParameterIsmi1, string pParameterIsmi2)
+        {
+            WhereKriterTercihli wk1 = new WhereKriterTercihli(pKolonIsmi, WhereOperatorEnum.BuyukEsittir, pParameterIsmi1);
+            whereTercihliListesi.Add(wk1);
+            WhereKriterTercihli wk2 = new WhereKriterTercihli(pKolonIsmi, WhereOperatorEnum.KucukEsittir, pParameterIsmi2);
+            whereTercihliListesi.Add(wk2);
         }
     }
 
@@ -213,6 +230,9 @@ namespace Simetri.Core.DataUtil
         Icinde = 4
     }
 
+
+
+
     internal class WhereKriter
     {
         public WhereKriter(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi)
@@ -331,7 +351,8 @@ namespace Simetri.Core.DataUtil
         Kucuktur = 4,
         KucukEsittir = 5,
         Buyuktur = 6,
-        BuyukEsittir = 7
+        BuyukEsittir = 7,
+        Arasinda = 8,
     }
 
 
