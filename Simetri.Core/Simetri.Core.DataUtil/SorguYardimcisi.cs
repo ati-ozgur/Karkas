@@ -29,6 +29,13 @@ namespace Simetri.Core.DataUtil
             sonuc += OrderBylarinSonucunuGetir();
             return sonuc;
         }
+        public string KriterSonucunuWhereOlmadanGetir()
+        {
+            string sonuc = KriterSonucunuGetir();
+            return sonuc.Replace("WHERE","");
+
+        }
+
 
         private string OrderBylarinSonucunuGetir()
         {
