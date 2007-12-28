@@ -52,8 +52,7 @@ namespace Simetri.Core.DataUtil
             }
             catch (SqlException ex)
             {
-                logger.Info(cmd.CommandText, ex);
-                ExceptionDegistirici.Degistir(ex, InsertString);
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
             }
             finally
             {

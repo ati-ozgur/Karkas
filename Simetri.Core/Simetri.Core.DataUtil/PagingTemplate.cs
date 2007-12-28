@@ -12,10 +12,27 @@ namespace Simetri.Core.DataUtil
         private string selectSql;
         private string countSql;
         private SqlParameter[] parameters = null;
-        private PagingHelper pHelper = new PagingHelper(ConnectionSingleton.Instance.Connection);
+        private PagingHelper pHelper = null;
+        
+
+
+        //TODO bunu disaridan setleyen bir yontem bulmak gerekiyor.
+        private Guid komutuCalistiranKullaniciKisiKey;
+        /// <summary>
+        /// Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
+        /// Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
+        /// Otomatik olarak Bs tarafindan yapilacak
+        /// </summary>
+        public Guid KomutuCalistiranKullaniciKisiKey
+        {
+            get { return komutuCalistiranKullaniciKisiKey; }
+            set { komutuCalistiranKullaniciKisiKey = value; }
+        }
+	
 
         public PagingTemplate(string pSql)
         {
+            new PagingHelper(ConnectionSingleton.Instance.Connection, KomutuCalistiranKullaniciKisiKey);
             this.selectSql = pSql;
             this.countSql = sqlCumlesiniCountIleDegistir(pSql);
         }

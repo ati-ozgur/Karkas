@@ -9,10 +9,24 @@ namespace Simetri.Core.DataUtil
 {
     internal class PagingHelper
     {
-
-        public PagingHelper(SqlConnection pConnection)
+        private Guid komutuCalistiranKullaniciKisiKey;
+        /// <summary>
+        /// Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
+        /// Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
+        /// Otomatik olarak Bs tarafindan yapilacak
+        /// </summary>
+        public Guid KomutuCalistiranKullaniciKisiKey
         {
-            helper = new HelperFunctions(pConnection);
+            get { return komutuCalistiranKullaniciKisiKey; }
+            set { komutuCalistiranKullaniciKisiKey = value; }
+        }
+	
+
+
+        public PagingHelper(SqlConnection pConnection,Guid pKisiKey)
+        {
+            helper = new HelperFunctions(pConnection,pKisiKey);
+            this.komutuCalistiranKullaniciKisiKey = pKisiKey;
         }
 
         private HelperFunctions helper;

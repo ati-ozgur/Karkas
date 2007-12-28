@@ -9,10 +9,24 @@ namespace Simetri.Core.DataUtil
     internal class HelperFunctions
     {
 
+        private Guid komutuCalistiranKullaniciKisiKey;
+        /// <summary>
+        /// Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
+        /// Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
+        /// Otomatik olarak Bs tarafindan yapilacak
+        /// </summary>
+        public Guid KomutuCalistiranKullaniciKisiKey
+        {
+            get { return komutuCalistiranKullaniciKisiKey; }
+            set { komutuCalistiranKullaniciKisiKey = value; }
+        }
+	
+
         SqlConnection conn;
-        public HelperFunctions(SqlConnection pConnection)
+        public HelperFunctions(SqlConnection pConnection,Guid pKisiKey)
         {
             conn = pConnection;
+            komutuCalistiranKullaniciKisiKey = pKisiKey;
         }
 
         internal void SorguCalistir(DataTable dt, string sql, CommandType cmdType)
@@ -27,7 +41,7 @@ namespace Simetri.Core.DataUtil
             }
             catch (SqlException ex)
             {
-                ExceptionDegistirici.Degistir(ex, sql);
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
             }
             finally
             {
@@ -52,7 +66,8 @@ namespace Simetri.Core.DataUtil
             }
             catch (SqlException ex)
             {
-                ExceptionDegistirici.Degistir(ex, sql);
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
+
             }
             finally
             {

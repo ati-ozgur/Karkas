@@ -10,12 +10,12 @@ namespace Simetri.Core.DataUtil
 {
     public class AdoTemplate
     {
-        private Guid kisiKey;
+        private Guid komutuCalistiranKullaniciKisiKey;
 
-        public Guid KisiKey
+        public Guid KomutuCalistiranKullaniciKisiKey
         {
-            get { return kisiKey; }
-            set { kisiKey = value; }
+            get { return komutuCalistiranKullaniciKisiKey; }
+            set { komutuCalistiranKullaniciKisiKey = value; }
         }
         private static ILog logger = LogManager.GetLogger("Dal");
 
@@ -38,7 +38,7 @@ namespace Simetri.Core.DataUtil
             {
                 if (_helper == null)
                 {
-                    _helper = new HelperFunctions(Connection);
+                    _helper = new HelperFunctions(Connection,KomutuCalistiranKullaniciKisiKey);
                 }
                 return _helper;
             }
@@ -52,7 +52,7 @@ namespace Simetri.Core.DataUtil
             {
                 if (_pagingHelper == null)
                 {
-                    _pagingHelper = new PagingHelper(Connection);
+                    _pagingHelper = new PagingHelper(Connection,KomutuCalistiranKullaniciKisiKey);
                 }
                 return _pagingHelper;
             }
@@ -63,14 +63,13 @@ namespace Simetri.Core.DataUtil
             object son = 0;
             try
             {
-                logger.Info(new LoggingInfo(KisiKey, cmd));
+                logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
                 Connection.Open();
                 son = cmd.ExecuteScalar();
             }
             catch (SqlException ex)
             {
-                logger.Info(new LoggingInfo(KisiKey, cmd), ex);
-                ExceptionDegistirici.Degistir(ex, cmd.CommandText);
+                ExceptionDegistirici.Degistir(ex,new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
             }
             finally
             {
@@ -82,14 +81,13 @@ namespace Simetri.Core.DataUtil
         {
             try
             {
-                logger.Info(new LoggingInfo(KisiKey, cmd));
+                logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
                 Connection.Open();
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
-                logger.Info(new LoggingInfo(KisiKey, cmd), ex);
-                ExceptionDegistirici.Degistir(ex, cmd.CommandText);
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
             }
             finally
             {
