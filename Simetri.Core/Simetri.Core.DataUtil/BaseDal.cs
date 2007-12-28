@@ -33,7 +33,7 @@ namespace Simetri.Core.DataUtil
             get { return komutuCalistiranKullaniciKisiKey; }
             set { komutuCalistiranKullaniciKisiKey = value; }
         }
-	
+
 
 
         private SqlConnection connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
@@ -59,10 +59,15 @@ namespace Simetri.Core.DataUtil
         public void Guncelle(T row)
         {
             SorguHariciKomutCalistirUpdate(UpdateString, row);
+
+            //rowstate'i unchanged yapiyoruz
+            row.RowState = DataRowState.Unchanged;
         }
         public void Sil(T row)
         {
             SorguHariciKomutCalistirDelete(DeleteString, row);
+            //rowstate'i unchanged yapiyoruz
+            row.RowState = DataRowState.Unchanged;
         }
 
         public void TopluEkleGuncelleVeyaSil(List<T> liste)
@@ -97,7 +102,7 @@ namespace Simetri.Core.DataUtil
             try
             {
                 Connection.Open();
-                logger.Info(new LoggingInfo(komutuCalistiranKullaniciKisiKey,cmd));
+                logger.Info(new LoggingInfo(komutuCalistiranKullaniciKisiKey, cmd));
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -118,6 +123,9 @@ namespace Simetri.Core.DataUtil
             cmd.Connection = Connection;
             InsertCommandParametersAdd(cmd, row);
             SorguHariciKomutCalistirInternal(cmd);
+
+            //rowstate'i unchanged yapiyoruz
+            row.RowState = DataRowState.Unchanged;
         }
 
         protected void SorguHariciKomutCalistirUpdate(string cmdText, T row)
@@ -183,7 +191,7 @@ namespace Simetri.Core.DataUtil
             try
             {
                 Connection.Open();
-                logger.Debug(new LoggingInfo(komutuCalistiranKullaniciKisiKey,cmd));
+                logger.Debug(new LoggingInfo(komutuCalistiranKullaniciKisiKey, cmd));
                 reader = cmd.ExecuteReader();
 
                 T row = default(T);

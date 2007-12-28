@@ -14,7 +14,7 @@ namespace Simetri.Core.DataUtil
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="M"></typeparam>
-    public abstract class BaseDalForIdentity<T, M> : BaseDal<T> where T : BaseTypeLibrary,new()
+    public abstract class BaseDalForIdentity<T, M> : BaseDal<T> where T : BaseTypeLibrary, new()
     {
         private static ILog logger = LogManager.GetLogger("Dal");
 
@@ -32,6 +32,10 @@ namespace Simetri.Core.DataUtil
             cmd.CommandText = InsertString;
             cmd.Connection = Connection;
             InsertCommandParametersAdd(cmd, row);
+
+            //rowstate'i unchanged yapiyoruz
+            row.RowState = DataRowState.Unchanged;
+
             try
             {
                 Connection.Open();
@@ -39,7 +43,7 @@ namespace Simetri.Core.DataUtil
                 {
                     logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
                     object o = cmd.ExecuteScalar();
-                    sonuc =(M) Convert.ChangeType(o, sonuc.GetType());
+                    sonuc = (M)Convert.ChangeType(o, sonuc.GetType());
                 }
                 else
                 {
