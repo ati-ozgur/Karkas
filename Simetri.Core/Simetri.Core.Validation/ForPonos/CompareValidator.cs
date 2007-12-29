@@ -28,6 +28,19 @@ namespace Simetri.Core.Validation.ForPonos
 
         public override bool Perform(object instance, object fieldValue)
         {
+             if (
+                    (fieldValue is Byte)
+                || (fieldValue is Int16) 
+                || (fieldValue is Int32) 
+                || (fieldValue is Int64)
+                || (fieldValue is SByte)
+                || (fieldValue is UInt16) 
+                || (fieldValue is UInt32) 
+                || (fieldValue is UInt64) 
+                )
+            {
+                fieldValue = Convert.ChangeType(fieldValue, value.GetType());
+            }
             IComparable val = fieldValue as IComparable;
             if (val == null)
             {
@@ -37,6 +50,7 @@ namespace Simetri.Core.Validation.ForPonos
             {
                 val = val.ToString().Length;
             }
+  
             bool sonuc = false;
             switch (compareOperator)
             {

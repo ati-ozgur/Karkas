@@ -32,6 +32,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ThirdParty\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="MbUnit.Framework, Version=1.0.2700.29885, Culture=neutral, PublicKeyToken=5e72ecd30bc408d5">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdParty\MbUnit.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.EnterpriseServices" />
@@ -43,7 +47,9 @@
     <Compile Include="OrnekYetkiEnum.generated.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\OnaylamaTestleri\KarsilastirmaTestleri.cs" />
     <Compile Include="Tests\SorguYardimcisiTests.cs" />
+    <Compile Include="TypeLibrary\OrnekA.cs" />
     <Compile Include="YetkiControlDeneme.cs" />
   </ItemGroup>
   <ItemGroup>
