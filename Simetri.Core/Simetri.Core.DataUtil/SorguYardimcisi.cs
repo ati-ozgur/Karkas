@@ -32,7 +32,7 @@ namespace Simetri.Core.DataUtil
         public string KriterSonucunuWhereOlmadanGetir()
         {
             string sonuc = KriterSonucunuGetir();
-            return sonuc.Replace("WHERE","");
+            return sonuc.Replace("WHERE", "");
 
         }
 
@@ -66,7 +66,8 @@ namespace Simetri.Core.DataUtil
 
         private string whereKriterlerininSonucunuGetir()
         {
-            if ((whereListesi.Count == 0) && (whereTercihliListesi.Count == 0))
+            if ((whereListesi.Count == 0) && (whereTercihliListesi.Count == 0)
+                && (whereTercihliNullDegeriListesi.Count == 0))
             {
                 return "";
             }
@@ -125,6 +126,15 @@ namespace Simetri.Core.DataUtil
             whereTercihliListesi.Add(wk2);
         }
 
+        public void WhereKriterineArasindaTercihliEkleNullDegeriVer(string pKolonIsmi, string pParameterIsmi1, string pParameterIsmi2, string pNullDegeri)
+        {
+            WhereKriterTercihliNullDegeri wk1 = new WhereKriterTercihliNullDegeri(pKolonIsmi, WhereOperatorEnum.BuyukEsittir, pParameterIsmi1, pNullDegeri);
+            whereTercihliNullDegeriListesi.Add(wk1);
+            WhereKriterTercihliNullDegeri wk2 = new WhereKriterTercihliNullDegeri(pKolonIsmi, WhereOperatorEnum.KucukEsittir, pParameterIsmi2, pNullDegeri);
+            whereTercihliNullDegeriListesi.Add(wk2);
+        }
+
+
         public void WhereKriterineTercihliEkleNullDegeriVer(
             string pKolonIsmi
             , WhereOperatorEnum pWhereOperatorEnum
@@ -136,7 +146,7 @@ namespace Simetri.Core.DataUtil
         }
 
 
-        public void WhereKriterineTercihliEkleNullDegeriVer(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum, string pParameterIsmi ,LikeYeriEnum pLikeYeriEnum, string pNullDegeri)
+        public void WhereKriterineTercihliEkleNullDegeriVer(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum, string pParameterIsmi, LikeYeriEnum pLikeYeriEnum, string pNullDegeri)
         {
             WhereKriterTercihliNullDegeri wk = new WhereKriterTercihliNullDegeri(pKolonIsmi, pWhereOperatorEnum, pParameterIsmi, pNullDegeri, pLikeYeriEnum);
             whereTercihliNullDegeriListesi.Add(wk);
