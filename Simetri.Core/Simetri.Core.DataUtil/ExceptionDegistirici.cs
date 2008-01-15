@@ -13,7 +13,7 @@ namespace Simetri.Core.DataUtil
 
         public static void Degistir(SqlException ex)
         {
-            Degistir(ex,"SQL CUMLESI YOK");
+            Degistir(ex, "SQL CUMLESI YOK");
         }
 
 
@@ -67,6 +67,7 @@ namespace Simetri.Core.DataUtil
                     break;
             }
             logger.Info(pMesaj, firlatilacakException);
+            throw firlatilacakException;
         }
 
     }
