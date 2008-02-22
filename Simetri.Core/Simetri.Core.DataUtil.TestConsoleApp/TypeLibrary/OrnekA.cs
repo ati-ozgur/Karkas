@@ -17,6 +17,16 @@ namespace Simetri.Core.DataUtil.TestConsoleApp.TypeLibrary
             set { shortDegisken = value; }
         }
 
+
+        private string emailDegisken;
+
+        public string EmailDegisken
+        {
+            get { return emailDegisken; }
+            set { emailDegisken = value; }
+        }
+	
+
         protected override void ValidationListesiniOlustur()
         {
             this.Validator.ValidatorList.Add(new CompareValidator(this, "ShortDegisken", 18, CompareOperator.GreatThanEqual));

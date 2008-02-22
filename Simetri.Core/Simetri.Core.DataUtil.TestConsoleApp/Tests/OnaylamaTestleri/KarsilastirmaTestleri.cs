@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Simetri.Core.DataUtil.TestConsoleApp.TypeLibrary;
 
 namespace Simetri.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri

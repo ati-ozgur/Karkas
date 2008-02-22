@@ -8,6 +8,7 @@ using Simetri.Core.Utility.ReportingServicesHelper.Generated;
 using log4net;
 using System.IO;
 using Simetri.Core.DataUtil.TestConsoleApp.Tests;
+using Simetri.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri.Email;
 
 namespace Simetri.Core.DataUtil.TestConsoleApp
 {
@@ -15,9 +16,8 @@ namespace Simetri.Core.DataUtil.TestConsoleApp
     {
         public static void Main(string[] args)
         {
-            SorguYardimcisiTests t = new SorguYardimcisiTests();
-            t.NormalArama();
-
+            EmailTest et = new EmailTest();
+            et.TestGmail();
         }
 
         private static void disardanDegerleriSetleyerekRaporAl()

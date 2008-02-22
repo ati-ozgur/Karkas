@@ -35,7 +35,10 @@ namespace Simetri.Core.TypeLibrary
 
         public bool Validate()
         {
-            validationListeleriniOlustur();
+            if (validator == null)
+            {
+                validationListeleriniOlustur();
+            }
             return Validator.Validate();
         }
 
