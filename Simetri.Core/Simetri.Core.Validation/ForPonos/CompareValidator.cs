@@ -9,7 +9,21 @@ namespace Simetri.Core.Validation.ForPonos
     {
         IComparable karsilastirilacakDeger;
         CompareOperator compareOperator;
-
+        /// <summary>
+        /// Verilen Nesnenin = pUzerindeCalisilacakNesne
+        /// verilen propertisinin = pPropertyName
+        /// verilen bir deger ile = pKarsilastirilacakDeger
+        /// karsilastirmasini yapar.
+        /// <example>
+        /// // bu ornek uzerinde Kisinin 18 yasindan buyuk olmasi lazim.
+        ///  // this.DogumTarihi >= DateTime.Now.AddYears(-18)
+        ///   this.Validator.ValidatorList.Add(new CompareValidator(this, "DogumTarihi",DateTime.Now.AddYears(-19),CompareOperator.GreatThanEqual,"Kisi 18 yaþýndan büyük olmalýdýr"));
+        /// </example>
+        /// </summary>
+        /// <param name="pUzerindeCalisilacakNesne"></param>
+        /// <param name="pPropertyName"></param>
+        /// <param name="pKarsilastirilacakDeger"></param>
+        /// <param name="pCompareOperator"></param>
         public CompareValidator(object pUzerindeCalisilacakNesne, string pPropertyName
             , IComparable pKarsilastirilacakDeger, CompareOperator pCompareOperator)
             : base(pUzerindeCalisilacakNesne, pPropertyName)
@@ -19,8 +33,8 @@ namespace Simetri.Core.Validation.ForPonos
         }
 
         public CompareValidator(object pUzerindeCalisilacakNesne, string pPropertyName
-            , IComparable pKarsilastirilacakDeger, CompareOperator pCompareOperator,string pErrorMessage)
-            : base(pUzerindeCalisilacakNesne, pPropertyName,pErrorMessage)
+            , IComparable pKarsilastirilacakDeger, CompareOperator pCompareOperator, string pErrorMessage)
+            : base(pUzerindeCalisilacakNesne, pPropertyName, pErrorMessage)
         {
             karsilastirilacakDeger = pKarsilastirilacakDeger;
             compareOperator = pCompareOperator;
@@ -28,16 +42,16 @@ namespace Simetri.Core.Validation.ForPonos
 
         public override bool Perform(object instance, object fieldValue)
         {
-             if (
-                    (fieldValue is Byte)
-                || (fieldValue is Int16) 
-                || (fieldValue is Int32) 
-                || (fieldValue is Int64)
-                || (fieldValue is SByte)
-                || (fieldValue is UInt16) 
-                || (fieldValue is UInt32) 
-                || (fieldValue is UInt64) 
-                )
+            if (
+                   (fieldValue is Byte)
+               || (fieldValue is Int16)
+               || (fieldValue is Int32)
+               || (fieldValue is Int64)
+               || (fieldValue is SByte)
+               || (fieldValue is UInt16)
+               || (fieldValue is UInt32)
+               || (fieldValue is UInt64)
+               )
             {
                 fieldValue = Convert.ChangeType(fieldValue, karsilastirilacakDeger.GetType());
             }
@@ -50,7 +64,7 @@ namespace Simetri.Core.Validation.ForPonos
             {
                 val = val.ToString().Length;
             }
-  
+
             bool sonuc = false;
             switch (compareOperator)
             {
