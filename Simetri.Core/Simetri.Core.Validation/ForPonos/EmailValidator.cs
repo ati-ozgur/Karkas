@@ -23,7 +23,7 @@ namespace Simetri.Core.Validation.ForPonos
 
         protected override string BuildErrorMessage()
         {
-            return string.Format("{0} d\x00fczg\x00fcn bir email deðildir.", base.Property.Name);
+            return string.Format("{0} düzgün bir email deðildir.", base.Property.Name);
         }
     }
 
