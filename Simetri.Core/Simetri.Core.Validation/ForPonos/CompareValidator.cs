@@ -7,22 +7,22 @@ namespace Simetri.Core.Validation.ForPonos
     [Serializable]
     public class CompareValidator : BaseValidator
     {
-        IComparable value;
+        IComparable karsilastirilacakDeger;
         CompareOperator compareOperator;
 
         public CompareValidator(object pUzerindeCalisilacakNesne, string pPropertyName
-            , IComparable pValue, CompareOperator pCompareOperator)
+            , IComparable pKarsilastirilacakDeger, CompareOperator pCompareOperator)
             : base(pUzerindeCalisilacakNesne, pPropertyName)
         {
-            value = pValue;
+            karsilastirilacakDeger = pKarsilastirilacakDeger;
             compareOperator = pCompareOperator;
         }
 
         public CompareValidator(object pUzerindeCalisilacakNesne, string pPropertyName
-            , IComparable pValue, CompareOperator pCompareOperator,string pErrorMessage)
+            , IComparable pKarsilastirilacakDeger, CompareOperator pCompareOperator,string pErrorMessage)
             : base(pUzerindeCalisilacakNesne, pPropertyName,pErrorMessage)
         {
-            value = pValue;
+            karsilastirilacakDeger = pKarsilastirilacakDeger;
             compareOperator = pCompareOperator;
         }
 
@@ -39,7 +39,7 @@ namespace Simetri.Core.Validation.ForPonos
                 || (fieldValue is UInt64) 
                 )
             {
-                fieldValue = Convert.ChangeType(fieldValue, value.GetType());
+                fieldValue = Convert.ChangeType(fieldValue, karsilastirilacakDeger.GetType());
             }
             IComparable val = fieldValue as IComparable;
             if (val == null)
@@ -55,22 +55,22 @@ namespace Simetri.Core.Validation.ForPonos
             switch (compareOperator)
             {
                 case CompareOperator.Equal:
-                    sonuc = val.CompareTo(value) == 0;
+                    sonuc = val.CompareTo(karsilastirilacakDeger) == 0;
                     break;
                 case CompareOperator.GreaterThan:
-                    sonuc = val.CompareTo(value) > 0;
+                    sonuc = val.CompareTo(karsilastirilacakDeger) > 0;
                     break;
                 case CompareOperator.GreatThanEqual:
-                    sonuc = val.CompareTo(value) >= 0;
+                    sonuc = val.CompareTo(karsilastirilacakDeger) >= 0;
                     break;
                 case CompareOperator.LessThan:
-                    sonuc = val.CompareTo(value) < 0;
+                    sonuc = val.CompareTo(karsilastirilacakDeger) < 0;
                     break;
                 case CompareOperator.LessThanEqual:
-                    sonuc = val.CompareTo(value) >= 0;
+                    sonuc = val.CompareTo(karsilastirilacakDeger) >= 0;
                     break;
                 case CompareOperator.NotEqual:
-                    sonuc = val.CompareTo(value) != 0;
+                    sonuc = val.CompareTo(karsilastirilacakDeger) != 0;
                     break;
                 default:
                     throw new ArgumentException("Beklenmeyen CompareOption");
@@ -84,22 +84,22 @@ namespace Simetri.Core.Validation.ForPonos
             switch (compareOperator)
             {
                 case CompareOperator.Equal:
-                    str = "{0} " + value + "'ye eþit olmalýdýr.";
+                    str = "{0} " + karsilastirilacakDeger + "'ye eþit olmalýdýr.";
                     break;
                 case CompareOperator.GreaterThan:
-                    str = "{0} " + value + "'den büyük olmalýdýr.";
+                    str = "{0} " + karsilastirilacakDeger + "'den büyük olmalýdýr.";
                     break;
                 case CompareOperator.GreatThanEqual:
-                    str = "{0} " + value + "'den büyük veya eþit olmalýdýr.";
+                    str = "{0} " + karsilastirilacakDeger + "'den büyük veya eþit olmalýdýr.";
                     break;
                 case CompareOperator.LessThan:
-                    str = "{0} " + value + "'den küçük olmalýdýr.";
+                    str = "{0} " + karsilastirilacakDeger + "'den küçük olmalýdýr.";
                     break;
                 case CompareOperator.LessThanEqual:
-                    str = "{0} " + value + "'den küçük veya eþit olmalýdýr.";
+                    str = "{0} " + karsilastirilacakDeger + "'den küçük veya eþit olmalýdýr.";
                     break;
                 case CompareOperator.NotEqual:
-                    str = "{0} " + value + "'ye eþit olmamalýdýr.";
+                    str = "{0} " + karsilastirilacakDeger + "'ye eþit olmamalýdýr.";
                     break;
                 default:
                     throw new ArgumentException("Beklenmeyen CompareOption");

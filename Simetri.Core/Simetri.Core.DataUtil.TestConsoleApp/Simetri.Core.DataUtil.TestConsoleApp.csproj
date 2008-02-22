@@ -48,10 +48,12 @@
     <Compile Include="OrnekYetkiEnum.generated.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\OnaylamaTestleri\CompareTest.cs" />
     <Compile Include="Tests\OnaylamaTestleri\Email\EmailTest.cs" />
     <Compile Include="Tests\OnaylamaTestleri\KarsilastirmaTestleri.cs" />
     <Compile Include="Tests\SorguYardimcisiTests.cs" />
     <Compile Include="TypeLibrary\OrnekA.cs" />
+    <Compile Include="TypeLibrary\OrnekKarsilastirma.cs" />
     <Compile Include="YetkiControlDeneme.cs" />
   </ItemGroup>
   <ItemGroup>
