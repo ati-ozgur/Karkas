@@ -27,8 +27,7 @@ namespace Simetri.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
             OrnekA a = TestEsittirIcinOrneklustur();
             a.ShortDegisken = Deger1;
             Assert.IsTrue(a.Validate());
-            Deger1 = (short) (Deger1 + 1);
-            a.ShortDegisken =Deger1;
+            a.ShortDegisken = (short) (Deger1 + 1);
             Assert.IsFalse(a.Validate());
         }
 
@@ -38,8 +37,7 @@ namespace Simetri.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
             OrnekA a = TestEsitDegildirIcinOrneklustur();
             a.ShortDegisken = Deger1;
             Assert.IsFalse(a.Validate());
-            Deger1 = (short)(Deger1 + 1);
-            a.ShortDegisken = Deger1;
+            a.ShortDegisken = (short)(Deger1 + 1);
             Assert.IsTrue(a.Validate());
         }
 
