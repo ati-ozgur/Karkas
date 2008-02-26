@@ -13,6 +13,11 @@ namespace Simetri.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
     {
         private short Deger1 = 18;
 
+
+        /// <summary>
+        /// Bu test, 1,2 gibi yazilan sayilarin
+        /// int32 olarak dusunulmesi yuzunden cikan sorun icin yazilmistir.
+        /// </summary>
         [Test]
         public void TestCastIntToShort()
         {
@@ -24,37 +29,40 @@ namespace Simetri.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
         [Test]
         public void TestEsittir()
         {
-            OrnekA a = TestEsittirIcinOrneklustur();
+            OrnekA a = TestEsittirIcinOrnekOlustur();
             a.ShortDegisken = Deger1;
             Assert.IsTrue(a.Validate());
-            a.ShortDegisken = (short) (Deger1 + 1);
+            a.ShortDegisken = (short)(Deger1 + 1);
             Assert.IsFalse(a.Validate());
         }
 
         [Test]
         public void TestEsitDegildir()
         {
-            OrnekA a = TestEsitDegildirIcinOrneklustur();
+            OrnekA a = TestEsitDegildirIcinOrnekOlustur();
             a.ShortDegisken = Deger1;
             Assert.IsFalse(a.Validate());
             a.ShortDegisken = (short)(Deger1 + 1);
             Assert.IsTrue(a.Validate());
         }
 
-        
-        private OrnekA TestEsitDegildirIcinOrneklustur()
+
+        private OrnekA TestEsitDegildirIcinOrnekOlustur()
         {
             OrnekA a = ValidatorTemizAOlustur();
             a.Validator.ValidatorList.Add(new CompareValidator(a, "ShortDegisken", Deger1, CompareOperator.NotEqual));
             return a;
         }
 
-        private OrnekA TestEsittirIcinOrneklustur()
+        private OrnekA TestEsittirIcinOrnekOlustur()
         {
             OrnekA a = ValidatorTemizAOlustur();
             a.Validator.ValidatorList.Add(new CompareValidator(a, "ShortDegisken", Deger1, CompareOperator.Equal));
             return a;
         }
+
+
+
 
         private static OrnekA ValidatorTemizAOlustur()
         {
