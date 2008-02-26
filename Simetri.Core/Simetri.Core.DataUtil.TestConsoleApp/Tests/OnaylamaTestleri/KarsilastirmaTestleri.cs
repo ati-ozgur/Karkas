@@ -46,19 +46,23 @@ namespace Simetri.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
         
         private OrnekA TestEsitDegildirIcinOrneklustur()
         {
-            OrnekA a = new OrnekA();
-            a.Validator.ValidatorList.Clear();
-            a.Validator.ValidatorList = new List<BaseValidator>();
+            OrnekA a = ValidatorTemizAOlustur();
             a.Validator.ValidatorList.Add(new CompareValidator(a, "ShortDegisken", Deger1, CompareOperator.NotEqual));
             return a;
         }
 
         private OrnekA TestEsittirIcinOrneklustur()
         {
+            OrnekA a = ValidatorTemizAOlustur();
+            a.Validator.ValidatorList.Add(new CompareValidator(a, "ShortDegisken", Deger1, CompareOperator.Equal));
+            return a;
+        }
+
+        private static OrnekA ValidatorTemizAOlustur()
+        {
             OrnekA a = new OrnekA();
             a.Validator.ValidatorList.Clear();
             a.Validator.ValidatorList = new List<BaseValidator>();
-            a.Validator.ValidatorList.Add(new CompareValidator(a, "ShortDegisken", Deger1, CompareOperator.Equal));
             return a;
         }
 
