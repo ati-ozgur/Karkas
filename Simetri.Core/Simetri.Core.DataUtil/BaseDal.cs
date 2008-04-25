@@ -16,37 +16,15 @@ namespace Simetri.Core.DataUtil
     /// <typeparam name="M"></typeparam>
     public abstract class BaseDal<T> where T : BaseTypeLibrary, new()
     {
-        private bool isInTransaction = false;
 
-        public bool IsInTransaction
-        {
-            get { return isInTransaction = false; }
-        }
-        private SqlTransaction trans;
-        /// <summary>
-        /// Starts a transaction and open a database connection
-        /// </summary>
-        public void BeginTransaction()
-        {
-            if (Connection.State != ConnectionState.Open)
-            {
-                Connection.Open();
-            }
-            trans = Connection.BeginTransaction();
-            isInTransaction = true;
-        }
-        /// <summary>
-        /// Commit a transaction and close database connection
-        /// </summary>
-        public void EndTransaction()
-        {
-            trans.Commit();
-            isInTransaction = false;
-            Connection.Close();
-        }
-        
 
-	
+        private TransactionHelper transactionHelper;
+
+        public TransactionHelper TransactionHelper
+        {
+            get { return transactionHelper; }
+            set { transactionHelper = value; }
+        }
 
 
         private static ILog logger = LogManager.GetLogger("Dal");
@@ -69,11 +47,51 @@ namespace Simetri.Core.DataUtil
 
 
 
-        private SqlConnection connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
+        public bool IsInTransaction
+        {
+            get
+            {
+                if (transactionHelper == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return transactionHelper.IsInTransaction;
+                }
+            }
+        }
+
+        public void BeginTransaction()
+        {
+            TransactionHelper = new TransactionHelper();
+            TransactionHelper.BeginTransaction();
+        }
+        public void EndTransaction()
+        {
+            TransactionHelper.EndTransaction();
+        }
+
+
+        private SqlConnection connection = null;
 
         public SqlConnection Connection
         {
-            get { return connection; }
+            get
+            {
+                if (connection == null)
+                {
+                    if (IsInTransaction)
+                    {
+                        connection = transactionHelper.CurrentConnection;
+                    }
+                    else
+                    {
+                        connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
+                    }
+                }
+                return connection;
+            }
             set { connection = value; }
         }
 
@@ -139,6 +157,10 @@ namespace Simetri.Core.DataUtil
                     Connection.Open();
                 }
                 logger.Info(new LoggingInfo(komutuCalistiranKullaniciKisiKey, cmd));
+                if (transactionHelper != null && transactionHelper.IsInTransaction)
+                {
+                    cmd.Transaction = transactionHelper.CurrentTransaction;
+                }
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)

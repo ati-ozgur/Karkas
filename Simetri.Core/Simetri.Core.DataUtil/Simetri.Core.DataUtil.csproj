@@ -62,6 +62,7 @@
     <Compile Include="SorguYardimcisiSiniflari\WhereKriterTercihli.cs" />
     <Compile Include="SorguYardimcisiSiniflari\WhereKriterTercihliNullDegeri.cs" />
     <Compile Include="SorguYardimcisiSiniflari\WhereOperatorEnum.cs" />
+    <Compile Include="TransactionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Simetri.Core.Validation\Simetri.Core.Validation.csproj">
