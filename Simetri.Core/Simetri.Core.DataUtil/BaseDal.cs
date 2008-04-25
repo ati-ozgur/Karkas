@@ -16,6 +16,39 @@ namespace Simetri.Core.DataUtil
     /// <typeparam name="M"></typeparam>
     public abstract class BaseDal<T> where T : BaseTypeLibrary, new()
     {
+        private bool isInTransaction = false;
+
+        public bool IsInTransaction
+        {
+            get { return isInTransaction = false; }
+        }
+        private SqlTransaction trans;
+        /// <summary>
+        /// Starts a transaction and open a database connection
+        /// </summary>
+        public void BeginTransaction()
+        {
+            if (Connection.State != ConnectionState.Open)
+            {
+                Connection.Open();
+            }
+            trans = Connection.BeginTransaction();
+            isInTransaction = true;
+        }
+        /// <summary>
+        /// Commit a transaction and close database connection
+        /// </summary>
+        public void EndTransaction()
+        {
+            trans.Commit();
+            isInTransaction = false;
+            Connection.Close();
+        }
+        
+
+	
+
+
         private static ILog logger = LogManager.GetLogger("Dal");
         public BaseDal()
         {
@@ -101,7 +134,10 @@ namespace Simetri.Core.DataUtil
         {
             try
             {
-                Connection.Open();
+                if (Connection.State != ConnectionState.Open)
+                {
+                    Connection.Open();
+                }
                 logger.Info(new LoggingInfo(komutuCalistiranKullaniciKisiKey, cmd));
                 cmd.ExecuteNonQuery();
             }
@@ -111,7 +147,10 @@ namespace Simetri.Core.DataUtil
             }
             finally
             {
-                Connection.Close();
+                if (Connection.State != ConnectionState.Closed)
+                {
+                    Connection.Close();
+                }
             }
         }
 
