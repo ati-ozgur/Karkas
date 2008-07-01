@@ -36,7 +36,7 @@ namespace Simetri.Core.DataUtil
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("KisiKey = " + KisiKey);
-            sb.Append("SqlCumlesi = " + SqlCommand.CommandText);
+            sb.Append(" SqlCumlesi = " + SqlCommand.CommandText);
             foreach (SqlParameter param in SqlCommand.Parameters)
             {
                 sb.Append(param.ParameterName + " = " + param.Value);

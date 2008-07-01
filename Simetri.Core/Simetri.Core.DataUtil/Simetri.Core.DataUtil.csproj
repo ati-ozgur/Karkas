@@ -42,6 +42,7 @@
     <Compile Include="AdoTemplate.cs" />
     <Compile Include="BaseDal.cs" />
     <Compile Include="BaseDalForIdentity.cs" />
+    <Compile Include="CommandFactory.cs" />
     <Compile Include="ConnectionSingleton.cs" />
     <Compile Include="ExceptionDegistirici.cs" />
     <Compile Include="Exceptions\IkincilAnahtarHatasi.cs" />
@@ -69,6 +70,9 @@
       <Project>{29D76493-FFF2-42E2-8EF0-6F0AE71CB80E}</Project>
       <Name>Simetri.Core.Validation</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MainClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
