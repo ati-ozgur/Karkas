@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Simetri.Core.Validation.ForPonos;
 using System.Data;
+using System.Xml.Serialization;
 
 namespace Simetri.Core.TypeLibrary
 {
@@ -48,9 +49,11 @@ namespace Simetri.Core.TypeLibrary
             ValidationListesiniOlusturCodeGeneration();
             ValidationListesiniOlustur();
         }
-
+        
+        [XmlIgnore]
         private DataRowState rowState;
 
+        [XmlIgnore]
         public DataRowState RowState
         {
             get 
