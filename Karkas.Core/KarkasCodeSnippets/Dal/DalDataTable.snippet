@@ -34,7 +34,6 @@
         </Declarations>
       <Code Language="csharp"><![CDATA[public DataTable Sorgula$ParamA$Ve$ParamB$Ile(Guid p$ParamA$,string p$ParamB$)
         {
-			List<$ListeTipi$> liste = new List<$ListeTipi$>();
 			AdoTemplate template = new AdoTemplate();
 			string sqlString = @"SELECT * FROM ORTAK.KISI
 						$ParamA$ = @$ParamA$
@@ -42,7 +41,7 @@
 						$ParamB$ = @$ParamB$";
 			ParameterBuilder builder = new ParameterBuilder();
 			builder.parameterEkle("@$ParamA$", SqlDbType.UniqueIdentifier, p$ParamA$);
-			builder.parameterEkle("@$ParamB$", SqlDbType.Varchar, p$ParamB$,50);
+			builder.parameterEkle("@$ParamB$", SqlDbType.VarChar, p$ParamB$,50);
             return template.DataTableOlustur(sqlString, builder.GetParameterArray());
         }]]></Code>
     </Snippet>
