@@ -7,8 +7,8 @@
     <ProjectGuid>{29D76493-FFF2-42E2-8EF0-6F0AE71CB80E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simetri.Core.Validation</RootNamespace>
-    <AssemblyName>Simetri.Core.Validation</AssemblyName>
+    <RootNamespace>Karkas.Core.Validation</RootNamespace>
+    <AssemblyName>Karkas.Core.Validation</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

@@ -7,8 +7,8 @@
     <ProjectGuid>{4451CDAC-F8E6-4AF8-AA4E-011A4792E915}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simetri.Core.DataUtil</RootNamespace>
-    <AssemblyName>Simetri.Core.DataUtil</AssemblyName>
+    <RootNamespace>Karkas.Core.DataUtil</RootNamespace>
+    <AssemblyName>Karkas.Core.DataUtil</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

@@ -7,8 +7,8 @@
     <ProjectGuid>{A4B4B2C0-CC59-4B4C-8B67-FA2158BCE192}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simetri.Core.Yetki</RootNamespace>
-    <AssemblyName>Simetri.Core.Yetki</AssemblyName>
+    <RootNamespace>Karkas.Core.Yetki</RootNamespace>
+    <AssemblyName>Karkas.Core.Yetki</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

@@ -7,8 +7,8 @@
     <ProjectGuid>{080B5FFC-3533-4414-B5DC-EBC39ED8CCF8}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simetri.Core.DataUtil.TestConsoleApp</RootNamespace>
-    <AssemblyName>Simetri.Core.DataUtil.TestConsoleApp</AssemblyName>
+    <RootNamespace>Karkas.Core.DataUtil.TestConsoleApp</RootNamespace>
+    <AssemblyName>Karkas.Core.DataUtil.TestConsoleApp</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
