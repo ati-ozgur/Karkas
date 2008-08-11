@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Simetri.Core.Validation
+namespace Karkas.Core.Validation
 {
     public enum CompareOperator
     {

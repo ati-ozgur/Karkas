@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Text.RegularExpressions;
 
-namespace Simetri.Core.DataUtil
+namespace Karkas.Core.DataUtil
 {
     public class PagingTemplate
     {

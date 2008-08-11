@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace Simetri.Core.DataUtil.Exceptions
+namespace Karkas.Core.DataUtil.Exceptions
 {
     [Serializable]
-    public class IkincilAnahtarHatasi : SimetriVeriHatasi
+    public class IkincilAnahtarHatasi : KarkasVeriHatasi
     {
         public IkincilAnahtarHatasi()
             : base()

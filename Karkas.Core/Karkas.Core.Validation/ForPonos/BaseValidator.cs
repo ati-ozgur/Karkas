@@ -4,7 +4,7 @@ using System.Text;
 using System.Reflection;
 using System.Diagnostics;
 
-namespace Simetri.Core.Validation.ForPonos
+namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
     [DebuggerDisplay("PropertyName={PropertyName},ErrorMessage={ErrorMessage}")]

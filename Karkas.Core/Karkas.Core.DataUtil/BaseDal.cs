@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
-using Simetri.Core.TypeLibrary;
+using Karkas.Core.TypeLibrary;
 using log4net;
 
-namespace Simetri.Core.DataUtil
+namespace Karkas.Core.DataUtil
 {
     /// <summary>
     /// T TypeLibrary Class

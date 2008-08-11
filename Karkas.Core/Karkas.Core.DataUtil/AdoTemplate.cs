@@ -6,7 +6,7 @@ using System.Data;
 using System.Globalization;
 using log4net;
 
-namespace Simetri.Core.DataUtil
+namespace Karkas.Core.DataUtil
 {
     public class AdoTemplate
     {

@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Simetri.Core.DataUtil.TestConsoleApp.TypeLibrary;
+using Karkas.Core.DataUtil.TestConsoleApp.TypeLibrary;
 using NUnit.Framework;
-using Simetri.Core.Validation.ForPonos;
+using Karkas.Core.Validation.ForPonos;
 
-namespace Simetri.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri.Email
+namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri.Email
 {
     [TestFixture]
     public class EmailTest

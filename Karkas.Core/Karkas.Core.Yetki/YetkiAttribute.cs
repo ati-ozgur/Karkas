@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Simetri.Core.Yetki
+namespace Karkas.Core.Yetki
 {
     
     // TODO Hepsine yetkili yada en az birine yetkiliyi nasil yapicaz.

@@ -4,7 +4,7 @@ using System.Text;
 using System.Net.Mail;
 using System.IO;
 
-namespace Simetri.Core.Utility
+namespace Karkas.Core.Utility
 {
     /// <summary>
     ///  Email gondermek icin gerekli yardimci sinif. Bu sinifin duzgun calismasi icin asagidaki

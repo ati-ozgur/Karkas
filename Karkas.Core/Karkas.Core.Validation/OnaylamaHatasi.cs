@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace Simetri.Core.Validation
+namespace Karkas.Core.Validation
 {
     [Serializable]
     public class OnaylamaHatasi : Exception

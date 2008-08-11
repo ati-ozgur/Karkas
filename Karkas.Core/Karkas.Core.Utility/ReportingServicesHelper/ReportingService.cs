@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace Simetri.Core.Utility.ReportingServicesHelper.Generated
+namespace Karkas.Core.Utility.ReportingServicesHelper.Generated
 {
     using System.Diagnostics;
     using System.Web.Services;
@@ -235,7 +235,6 @@ namespace Simetri.Core.Utility.ReportingServicesHelper.Generated
         public ReportingService()
         {
             this.Url = System.Configuration.ConfigurationManager.AppSettings["RaporSunucuURL"].ToString();
-            //global::Simetri.Core.DataUtil.TestConsoleApp.Properties.Settings.Default.Simetri_Core_DataUtil_TestConsoleApp_localhost_ReportingService;
             if ((this.IsLocalFileSystemWebService(this.Url) == true))
             {
                 this.UseDefaultCredentials = true;

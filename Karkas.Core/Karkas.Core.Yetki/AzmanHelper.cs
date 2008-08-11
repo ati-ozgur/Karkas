@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 using System.Configuration;
 using System.IO;
 
-namespace Simetri.Core.Yetki
+namespace Karkas.Core.Yetki
 {
     public class AzmanHelper
     {

@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Simetri.Core.DataUtil.SorguYardimcisiSiniflari;
+using Karkas.Core.DataUtil.SorguYardimcisiSiniflari;
 
-namespace Simetri.Core.DataUtil
+namespace Karkas.Core.DataUtil
 {
     public class SorguYardimcisi
     {

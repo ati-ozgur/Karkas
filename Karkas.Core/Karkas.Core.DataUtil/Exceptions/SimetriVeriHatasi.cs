@@ -3,27 +3,27 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace Simetri.Core.DataUtil.Exceptions
+namespace Karkas.Core.DataUtil.Exceptions
 {
     [Serializable]
-    public class SimetriVeriHatasi : Exception
+    public class KarkasVeriHatasi : Exception
     {
-        public SimetriVeriHatasi()
+        public KarkasVeriHatasi()
             : base()
         {
 
         }
-        public SimetriVeriHatasi(SerializationInfo pInfo, StreamingContext pContext)
+        public KarkasVeriHatasi(SerializationInfo pInfo, StreamingContext pContext)
             : base(pInfo, pContext)
         {
 
         }
-        public SimetriVeriHatasi(string pMessage)
+        public KarkasVeriHatasi(string pMessage)
             : base(pMessage)
         {
 
         }
-        public SimetriVeriHatasi(string pMessage, Exception pInnerException)
+        public KarkasVeriHatasi(string pMessage, Exception pInnerException)
             : base(pMessage, pInnerException)
         {
 

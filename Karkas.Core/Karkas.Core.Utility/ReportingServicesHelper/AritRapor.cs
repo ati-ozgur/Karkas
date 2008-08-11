@@ -8,9 +8,9 @@ using System.Web;
 using System.Collections.Generic;
 
 
-using Simetri.Core.Utility.ReportingServicesHelper.Generated;
+using Karkas.Core.Utility.ReportingServicesHelper.Generated;
 
-namespace Simetri.Core.Utility.ReportingServicesHelper
+namespace Karkas.Core.Utility.ReportingServicesHelper
 {
     public class AritRapor
     {

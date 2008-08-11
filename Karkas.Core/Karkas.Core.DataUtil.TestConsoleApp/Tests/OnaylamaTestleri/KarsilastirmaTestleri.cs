@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
-using Simetri.Core.DataUtil.TestConsoleApp.TypeLibrary;
-using Simetri.Core.Validation;
-using Simetri.Core.Validation.ForPonos;
+using Karkas.Core.DataUtil.TestConsoleApp.TypeLibrary;
+using Karkas.Core.Validation;
+using Karkas.Core.Validation.ForPonos;
 
-namespace Simetri.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
+namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
 {
     [TestFixture]
     public class KarsilastirmaTestleri

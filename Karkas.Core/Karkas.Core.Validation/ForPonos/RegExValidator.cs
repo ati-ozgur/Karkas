@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Simetri.Core.Validation.ForPonos
+namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
     public class RegExValidator : BaseValidator

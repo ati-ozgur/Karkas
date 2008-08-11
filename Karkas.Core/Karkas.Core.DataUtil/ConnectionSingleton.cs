@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
-namespace Simetri.Core.DataUtil
+namespace Karkas.Core.DataUtil
 {
     public class ConnectionSingleton
     {

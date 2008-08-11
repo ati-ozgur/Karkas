@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AzAdminManager MajorVersion="1" MinorVersion="0" Description="Simetri'de azman bilgilerini saklayacak xml dosyası">
+<AzAdminManager MajorVersion="1" MinorVersion="0" Description="Karkas'de azman bilgilerini saklayacak xml dosyası">
 	<AzApplication Guid="37bafc04-dc47-4c50-ac07-353cdbb46a38" Name="Ito" Description="AzManDemo " ApplicationVersion="">
 		<AzOperation Guid="3b2b5699-92b1-48f2-b5cc-b04bb39b55f2" Name="KisiEkle" Description="">
 			<OperationID>1</OperationID>

@@ -4,7 +4,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 
-namespace Simetri.Core.Yetki
+namespace Karkas.Core.Yetki
 {
     public class LogOnUser
     {

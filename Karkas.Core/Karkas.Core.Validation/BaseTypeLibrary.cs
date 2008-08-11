@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Simetri.Core.Validation.ForPonos;
+using Karkas.Core.Validation.ForPonos;
 using System.Data;
 using System.Xml.Serialization;
 
-namespace Simetri.Core.TypeLibrary
+namespace Karkas.Core.TypeLibrary
 {
     [Serializable]
     public abstract class BaseTypeLibrary

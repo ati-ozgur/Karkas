@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Simetri.Core.TypeLibrary;
-using Simetri.Core.Validation.ForPonos;
-using Simetri.Core.Validation;
+using Karkas.Core.TypeLibrary;
+using Karkas.Core.Validation.ForPonos;
+using Karkas.Core.Validation;
 
-namespace Simetri.Core.DataUtil.TestConsoleApp.TypeLibrary
+namespace Karkas.Core.DataUtil.TestConsoleApp.TypeLibrary
 {
     public partial class OrnekA : BaseTypeLibrary
     {

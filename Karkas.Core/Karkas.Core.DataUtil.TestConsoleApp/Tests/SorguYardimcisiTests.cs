@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Simetri.Core.DataUtil.SorguYardimcisiSiniflari;
+using Karkas.Core.DataUtil.SorguYardimcisiSiniflari;
 
-namespace Simetri.Core.DataUtil.TestConsoleApp.Tests
+namespace Karkas.Core.DataUtil.TestConsoleApp.Tests
 {
     public class SorguYardimcisiTests
     {

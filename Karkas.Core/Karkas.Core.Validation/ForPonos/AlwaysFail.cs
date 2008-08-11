@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Simetri.Core.Validation.ForPonos
+namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
     public class AlwaysFail : BaseValidator

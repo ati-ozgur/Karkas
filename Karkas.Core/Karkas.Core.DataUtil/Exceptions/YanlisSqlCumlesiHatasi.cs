@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace Simetri.Core.DataUtil.Exceptions
+namespace Karkas.Core.DataUtil.Exceptions
 {
     [Serializable]
-    public class YanlisSqlCumlesiHatasi : SimetriVeriHatasi
+    public class YanlisSqlCumlesiHatasi : KarkasVeriHatasi
     {
         public YanlisSqlCumlesiHatasi()
             : base()

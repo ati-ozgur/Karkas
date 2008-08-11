@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Simetri.Core.DataUtil.TestConsoleApp.TypeLibrary;
-using Simetri.Core.Validation.ForPonos;
-using Simetri.Core.Validation;
+using Karkas.Core.DataUtil.TestConsoleApp.TypeLibrary;
+using Karkas.Core.Validation.ForPonos;
+using Karkas.Core.Validation;
 using NUnit.Framework;
 using NUnitExtension.RowTest;
 
-namespace Simetri.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
+namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
 {
 
     [TestFixture]

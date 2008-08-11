@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace Simetri.Core.Validation.ForPonos
+namespace Karkas.Core.Validation.ForPonos
 {
 
 	/// <summary>

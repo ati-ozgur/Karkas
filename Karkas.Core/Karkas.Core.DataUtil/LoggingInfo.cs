@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 
-namespace Simetri.Core.DataUtil
+namespace Karkas.Core.DataUtil
 {
     [Serializable]
     public class LoggingInfo

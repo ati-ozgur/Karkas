@@ -4,7 +4,7 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace Simetri.Core.DataUtil
+namespace Karkas.Core.DataUtil
 {
     internal class HelperFunctions
     {
