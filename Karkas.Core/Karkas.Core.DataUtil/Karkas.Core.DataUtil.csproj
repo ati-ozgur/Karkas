@@ -66,13 +66,13 @@
     <Compile Include="TransactionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Simetri.Core.Validation\Simetri.Core.Validation.csproj">
-      <Project>{29D76493-FFF2-42E2-8EF0-6F0AE71CB80E}</Project>
-      <Name>Simetri.Core.Validation</Name>
-    </ProjectReference>
+    <None Include="MainClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MainClassDiagram.cd" />
+    <ProjectReference Include="..\Karkas.Core.Validation\Karkas.Core.Validation.csproj">
+      <Project>{29D76493-FFF2-42E2-8EF0-6F0AE71CB80E}</Project>
+      <Name>Karkas.Core.Validation</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

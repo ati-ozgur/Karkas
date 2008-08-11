@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Net;
-using Simetri.Core.Utility.ReportingServicesHelper;
-using Simetri.Core.Utility.ReportingServicesHelper.Generated;
 using log4net;
 using System.IO;
 using Simetri.Core.DataUtil.TestConsoleApp.Tests;
 using Simetri.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri.Email;
 using Simetri.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri;
+using Simetri.Core.Utility.ReportingServicesHelper;
 
 namespace Simetri.Core.DataUtil.TestConsoleApp
 {
