@@ -562,7 +562,6 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 	
 
 	protected override void ValidationListesiniOlusturCodeGeneration()
-	{		
-		}
+	{		}
 	}
 }

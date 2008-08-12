@@ -132,7 +132,6 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 	protected override void ValidationListesiniOlusturCodeGeneration()
 	{			
 			this.Validator.ValidatorList.Add(new RequiredFieldValidator(this, "Adi"));			
-			this.Validator.ValidatorList.Add(new RequiredFieldValidator(this, "Soyadi"));		
-		}
+			this.Validator.ValidatorList.Add(new RequiredFieldValidator(this, "Soyadi"));		}
 	}
 }
