@@ -81,19 +81,38 @@ namespace Karkas.Core.DataUtil
             {
                 if (connection == null)
                 {
-                    if (IsInTransaction)
+                    if (string.IsNullOrEmpty(DatabaseName))
                     {
-                        connection = transactionHelper.CurrentConnection;
+                        connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
                     }
                     else
                     {
-                        connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
+                        connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString(DatabaseName));
                     }
                 }
                 return connection;
             }
             set { connection = value; }
         }
+
+        public virtual string DatabaseName
+        {
+            get
+            {
+                return "";
+            }
+        }
+
+        public AdoTemplate Template
+        {
+            get
+            {
+                AdoTemplate t = new AdoTemplate();
+                t.Connection = Connection;
+                return t;
+            }
+        }
+
 
 
         public int TablodakiSatirSayisi
@@ -316,5 +335,8 @@ namespace Karkas.Core.DataUtil
         protected abstract void InsertCommandParametersAdd(SqlCommand Cmd, T row);
         protected abstract void UpdateCommandParametersAdd(SqlCommand Cmd, T row);
         protected abstract void DeleteCommandParametersAdd(SqlCommand Cmd, T row);
+
+
+
     }
 }

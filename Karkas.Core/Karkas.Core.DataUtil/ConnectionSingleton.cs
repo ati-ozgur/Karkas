@@ -42,7 +42,7 @@ namespace Karkas.Core.DataUtil
         {
             if (connectionString == null)
             {
-                if (ConfigurationManager.ConnectionStrings["Main"].ConnectionString != null)
+                if (ConfigurationManager.ConnectionStrings["Main"] != null)
                 {
                     connectionString = ConfigurationManager.ConnectionStrings["Main"].ConnectionString;
                 }
@@ -51,6 +51,26 @@ namespace Karkas.Core.DataUtil
                     throw new ArgumentException("Connection Stringler arasýnda Main bulunamadý, lütfen config dosyasýný(web.config/app.config) kontrol ediniz");
                 }
 
+            }
+        }
+        private Dictionary<string, string> connectionStringList = new Dictionary<string, string>();
+        public string getConnectionString(string pDatabaseName)
+        {
+            if (connectionStringList.ContainsKey(pDatabaseName))
+            {
+                return connectionStringList[pDatabaseName];
+            }
+            else
+            {
+                if (ConfigurationManager.ConnectionStrings[pDatabaseName] != null)
+                {
+                    connectionStringList.Add(pDatabaseName, ConfigurationManager.ConnectionStrings[pDatabaseName].ConnectionString);
+                    return connectionStringList[pDatabaseName];
+                }
+                else
+                {
+                    throw new ArgumentException(string.Format("Connection Stringler arasýnda {0} bulunamadý, lütfen config dosyasýný(web.config/app.config) kontrol ediniz",pDatabaseName));
+                }
             }
         }
 

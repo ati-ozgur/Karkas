@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Karkas.Ornek.TypeLibrary.Ornekler;
 using Karkas.Ornek.BsWrapper.Ornekler;
+using Karkas.Ornek.Dal.Ornekler;
 
 namespace Karkas.Ornek.ConsoleApp
 {
@@ -18,6 +19,9 @@ namespace Karkas.Ornek.ConsoleApp
 
             MusteriBsWrapper wrapper = new MusteriBsWrapper();
             wrapper.Ekle(m);
+
+
+            MusteriDal dal = new MusteriDal();
         }
     }
 }

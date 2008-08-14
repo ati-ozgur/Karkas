@@ -13,6 +13,13 @@ namespace Karkas.Ornek.Dal.Ornekler
 	public partial class OrnekTabloDal : BaseDal<OrnekTablo>
 	{
 		
+		public override string DatabaseName
+		{
+			get
+			{
+				return "KARKAS_ORNEK";
+			}
+		}
 		protected override string SelectCountString
 		{
 			get
