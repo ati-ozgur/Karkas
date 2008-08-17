@@ -17,25 +17,21 @@
             this.calisanSayfa = p;
         }
 
-        public static string Alert(string message, string key)
+        public string Alert(string message, string key)
         {
-            return Alert(null, message, key);
+            return JavascriptHelper.Alert(this.calisanSayfa, message, key);
         }
 
-        public static string Alert(System.Web.UI.Page page, string message, string key)
+        public static string Alert(Page page, string message, string key)
         {
-            return Custom(page, string.Format("alert('{0}');", message), key);
+            return JavascriptHelper.Custom(page, string.Format("alert('{0}');", message), key);
         }
 
-        public static string Custom(string script, string key)
-        {
-            return Custom(null, script, key);
-        }
 
-        public static string Custom(System.Web.UI.Page page, string script, string key)
+        public static string Custom(Page page, string script, string key)
         {
             string js = string.Format("<script type=\"text/javascript\">\r\n                                    <!--\r\n                                    {0}\r\n                                    // -->\r\n                                    </script>", script);
-            Register(page, js, key);
+            JavascriptHelper.Register(page, js, key);
             return js;
         }
 
@@ -122,7 +118,12 @@
             this.PopUpWindowEventiEkle(pControl, pPageUrl, 600, 800);
         }
 
-        private static void Register(System.Web.UI.Page page, string javascript, string key)
+        public void Register(string javascript, string key)
+        {
+            JavascriptHelper.Register(this.calisanSayfa, javascript, key);
+        }
+
+        private static void Register(Page page, string javascript, string key)
         {
             if ((page != null) && !page.ClientScript.IsClientScriptBlockRegistered(key))
             {
@@ -130,12 +131,14 @@
             }
         }
 
+
+
         public static string ScriptTaglariArasinaAl(string pYazi)
         {
             return string.Format("<script type=\"text/javascript\">\r\n                                    <!--\r\n                                    {0}\r\n                                    // -->\r\n                                    </script>", pYazi);
         }
 
-        public System.Web.UI.Page Page
+        public Page Page
         {
             get
             {
