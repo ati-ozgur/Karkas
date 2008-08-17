@@ -31,6 +31,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Core.Utility", "Kark
 		Release.AspNetCompiler.Debug = "False"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Web.Helpers", "Karkas.Web.Helpers\Karkas.Web.Helpers.csproj", "{0B5C1C9A-E030-48D2-BE24-2548F56DA4B6}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +63,10 @@ Global
 		{92A3FD0E-F64B-4F57-A69D-306874E7F2D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92A3FD0E-F64B-4F57-A69D-306874E7F2D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92A3FD0E-F64B-4F57-A69D-306874E7F2D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B5C1C9A-E030-48D2-BE24-2548F56DA4B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B5C1C9A-E030-48D2-BE24-2548F56DA4B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B5C1C9A-E030-48D2-BE24-2548F56DA4B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B5C1C9A-E030-48D2-BE24-2548F56DA4B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
