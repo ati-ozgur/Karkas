@@ -17,22 +17,26 @@
             this.calisanSayfa = p;
         }
 
-        public string Alert(string message, string key)
+        public void Alert(string message)
         {
-            return JavascriptHelper.Alert(this.calisanSayfa, message, key);
+            Alert(message, "Alert");
         }
 
-        public static string Alert(Page page, string message, string key)
+        public void Alert(string message, string key)
         {
-            return JavascriptHelper.Custom(page, string.Format("alert('{0}');", message), key);
+            JavascriptHelper.Alert(this.calisanSayfa, message, key);
+        }
+
+        public static void Alert(Page page, string message, string key)
+        {
+            JavascriptHelper.Custom(page, string.Format("alert('{0}');", message), key);
         }
 
 
-        public static string Custom(Page page, string script, string key)
+        public static void Custom(Page page, string script, string key)
         {
             string js = string.Format("<script type=\"text/javascript\">\r\n                                    <!--\r\n                                    {0}\r\n                                    // -->\r\n                                    </script>", script);
             JavascriptHelper.Register(page, js, key);
-            return js;
         }
 
         public void PopUpiKapatAcanPencereyiRefresh()
