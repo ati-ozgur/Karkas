@@ -92,9 +92,6 @@
     <Compile Include="HelperClasses\JavascriptHelper.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HelperClasses\SessionHelper.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="HelperClasses\PrinterControl.cs">
       <SubType>Code</SubType>
     </Compile>
