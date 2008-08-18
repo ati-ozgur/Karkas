@@ -11,29 +11,19 @@
 
     public abstract class KarkasBasePage : Page
     {
-        private readonly Karkas.Web.Helpers.HelperClasses.JavascriptHelper jsHelper;
+        private readonly JavascriptHelper jsHelper;
+        private readonly ListHelper listHelper;
+
         private IMessageBox mBox = null;
 
         public KarkasBasePage()
         {
-            this.jsHelper = new Karkas.Web.Helpers.HelperClasses.JavascriptHelper(this);
+            this.jsHelper = new JavascriptHelper(this);
+            this.listHelper = new ListHelper();
         }
 
-        public void DropDownlaraBindEt(IList list, DropDownList dropDownList, string valueField, string textField)
-        {
-            DropDownlaraBindEtStatic(list, dropDownList, valueField, textField);
-        }
 
-        public static void DropDownlaraBindEtStatic(IList list, DropDownList dropDownList, string valueField, string textField)
-        {
-            if (list.Count > 0)
-            {
-                dropDownList.DataSource = list;
-                dropDownList.DataTextField = textField;
-                dropDownList.DataValueField = valueField;
-                dropDownList.DataBind();
-            }
-        }
+
 
         public void MessageBox(string pMessage)
         {
@@ -81,31 +71,12 @@
             base.OnLoad(e);
         }
 
-        public Guid FirmaKey
+        public ListHelper ListHelper
         {
-            get
-            {
-                return (Guid) this.Session["FirmaKey"];
-            }
-            set
-            {
-                this.Session["FirmaKey"] = value;
-            }
-        }
+            get { return listHelper; }
+        } 
 
-        public short FirmaNeviNo
-        {
-            get
-            {
-                return (short) this.Session["FirmaNeviNo"];
-            }
-            set
-            {
-                this.Session["FirmaNeviNo"] = value;
-            }
-        }
-
-        public Karkas.Web.Helpers.HelperClasses.JavascriptHelper JavascriptHelper
+        public JavascriptHelper JavascriptHelper
         {
             get
             {

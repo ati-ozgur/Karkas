@@ -92,6 +92,7 @@
     <Compile Include="HelperClasses\JavascriptHelper.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="HelperClasses\ListHelper.cs" />
     <Compile Include="HelperClasses\PrinterControl.cs">
       <SubType>Code</SubType>
     </Compile>
