@@ -11,15 +11,15 @@
 
     public abstract class KarkasBasePage : Page
     {
-        private readonly JavascriptHelper jsHelper;
-        private readonly ListHelper listHelper;
+        private readonly KarkasWebHelper.JavascriptHelper jsHelper;
+        private readonly KarkasWebHelper.ListHelper listHelper;
 
         private IMessageBox mBox = null;
 
         public KarkasBasePage()
         {
-            this.jsHelper = new JavascriptHelper(this);
-            this.listHelper = new ListHelper();
+            this.jsHelper = new KarkasWebHelper.JavascriptHelper(this);
+            this.listHelper = new  KarkasWebHelper.ListHelper();
         }
 
 
@@ -62,7 +62,7 @@
             }
             if (base.Master != null)
             {
-                this.mBox = (IMessageBox) base.Master.FindControl("MessageBox1");
+                this.mBox = (IMessageBox)base.Master.FindControl("MessageBox1");
                 if (this.mBox != null)
                 {
                     this.mBox.Show("", MesajTuruEnum.None);
@@ -71,12 +71,12 @@
             base.OnLoad(e);
         }
 
-        public ListHelper ListHelper
+        public KarkasWebHelper.ListHelper ListHelper
         {
             get { return listHelper; }
-        } 
+        }
 
-        public JavascriptHelper JavascriptHelper
+        public KarkasWebHelper.JavascriptHelper JavascriptHelper
         {
             get
             {

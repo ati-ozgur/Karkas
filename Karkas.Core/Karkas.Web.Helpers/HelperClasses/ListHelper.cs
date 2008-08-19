@@ -6,53 +6,57 @@ using System.Web.UI.WebControls;
 
 namespace Karkas.Web.Helpers.HelperClasses
 {
-    public class ListHelper
+    public partial class KarkasWebHelper
     {
-        public void ListControlaBindEt(IList list, ListControl listControl, string valueField, string textField)
+        public class ListHelper
         {
-            if (list.Count > 0)
+            public static void ListControlaBindEt(IList list, ListControl listControl, string valueField, string textField)
             {
-                listControlBindOrtak(list, listControl, valueField, textField);
+                if (list.Count > 0)
+                {
+                    listControlBindOrtak(list, listControl, valueField, textField);
+                }
             }
-        }
-        public void ListControlaBindEtLutfenEkle(IList list, ListControl listControl, string valueField, string textField)
-        {
-            if (list.Count > 0)
+            public static void ListControlaBindEtLutfenEkle(IList list, ListControl listControl, string valueField, string textField)
             {
-                listControlBindOrtak(list, listControl, valueField, textField);
-                listControl.Items.Insert(0, new ListItem("Lütfen Seçiniz", "0"));
+                if (list.Count > 0)
+                {
+                    listControlBindOrtak(list, listControl, valueField, textField);
+                    listControl.Items.Insert(0, new ListItem("Lütfen Seçiniz", "0"));
+                }
             }
-        }
 
-        private static void listControlBindOrtak(IList list, ListControl listControl, string valueField, string textField)
-        {
-            listControl.DataSource = list;
-            listControl.DataTextField = textField;
-            listControl.DataValueField = valueField;
-            listControl.DataBind();
-        }
-        public void ListControlaBindEtLutfenEkle(IList list, ListControl listControl
-                        , string valueField, string textField
-                        , string yazi)
-        {
-            if (list.Count > 0)
+            private static void listControlBindOrtak(IList list, ListControl listControl, string valueField, string textField)
             {
-                listControlBindOrtak(list, listControl, valueField, textField);
-                listControl.Items.Insert(0, new ListItem(yazi, "0"));
+                listControl.DataSource = list;
+                listControl.DataTextField = textField;
+                listControl.DataValueField = valueField;
+                listControl.DataBind();
             }
-        }
-
-        public void ListControlaBindEtLutfenEkle(IList list, ListControl listControl
-                        , string valueField, string textField
-                        , string yazi, string deger)
-        {
-            if (list.Count > 0)
+            public static void ListControlaBindEtLutfenEkle(IList list, ListControl listControl
+                            , string valueField, string textField
+                            , string yazi)
             {
-                listControlBindOrtak(list, listControl, valueField, textField);
-                listControl.Items.Insert(0, new ListItem(yazi, deger));
+                if (list.Count > 0)
+                {
+                    listControlBindOrtak(list, listControl, valueField, textField);
+                    listControl.Items.Insert(0, new ListItem(yazi, "0"));
+                }
             }
+
+            public static void ListControlaBindEtLutfenEkle(IList list, ListControl listControl
+                            , string valueField, string textField
+                            , string yazi, string deger)
+            {
+                if (list.Count > 0)
+                {
+                    listControlBindOrtak(list, listControl, valueField, textField);
+                    listControl.Items.Insert(0, new ListItem(yazi, deger));
+                }
+            }
+
+
         }
-
-
     }
+
 }
