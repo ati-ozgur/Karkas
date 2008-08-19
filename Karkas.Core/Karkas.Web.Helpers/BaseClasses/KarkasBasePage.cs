@@ -13,6 +13,9 @@
     {
         private readonly KarkasWebHelper.JavascriptHelper jsHelper;
         private readonly KarkasWebHelper.ListHelper listHelper;
+        private readonly KarkasWebHelper.GridHelper gridHelper;
+
+
 
         private IMessageBox mBox = null;
 
@@ -20,6 +23,7 @@
         {
             this.jsHelper = new KarkasWebHelper.JavascriptHelper(this);
             this.listHelper = new  KarkasWebHelper.ListHelper();
+            this.gridHelper = new KarkasWebHelper.GridHelper(this);
         }
 
 
@@ -83,6 +87,11 @@
                 return this.jsHelper;
             }
         }
+        public KarkasWebHelper.GridHelper GridHelper
+        {
+            get { return gridHelper; }
+        } 
+
 
     }
 }

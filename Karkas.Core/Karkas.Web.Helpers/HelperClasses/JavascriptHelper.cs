@@ -26,7 +26,7 @@
 
             public void Alert(string message, string key)
             {
-                Alert(this.calisanSayfa , message, key);
+                Alert(this.calisanSayfa, message, key);
             }
 
 
@@ -42,6 +42,14 @@
                 string js = string.Format("<script type=\"text/javascript\">\r\n                                    <!--\r\n                                    {0}\r\n                                    // -->\r\n                                    </script>", script);
                 JavascriptHelper.ScriptRegister(page, js, key);
             }
+
+            public void PopUpiKapat()
+            {
+                HttpContext.Current.Response.Clear();
+                HttpContext.Current.Response.Write(ScriptTaglariArasinaAl("javascript:window.close();"));
+                HttpContext.Current.Response.End();
+            }
+
 
             public void PopUpiKapatAcanPencereyiRefresh()
             {

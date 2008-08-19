@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ay.cs" />
     <Compile Include="ReportingServicesHelper\AritRapor.cs" />
     <Compile Include="EPostaYardimcisi.cs" />
     <Compile Include="ReportingServicesHelper\ReportingService.cs" />

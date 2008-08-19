@@ -89,6 +89,7 @@
     <Compile Include="Classes\Utils.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="HelperClasses\GridHelper.cs" />
     <Compile Include="HelperClasses\KarkasWebHelper.cs" />
     <Compile Include="HelperClasses\JavascriptHelper.cs">
       <SubType>Code</SubType>
@@ -114,6 +115,12 @@
       <ProductName>.NET Framework 3.5</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Karkas.Core.Utility\Karkas.Core.Utility.csproj">
+      <Project>{92A3FD0E-F64B-4F57-A69D-306874E7F2D8}</Project>
+      <Name>Karkas.Core.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
