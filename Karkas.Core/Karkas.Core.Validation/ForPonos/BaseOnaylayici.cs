@@ -22,7 +22,6 @@ namespace Karkas.Core.Validation.ForPonos
             this.propertyName = pPropertyIsmi;
             Type t = uzerindeCalisilacakNesne.GetType();
             property = t.GetProperty(propertyName);
-            HataMesaji = HataMesajlariniOlustur();
         }
         public BaseOnaylayici(object uzerindeCalisilacakNesne, string pPropertyIsmi, string pHataMesaji)
         {
@@ -43,11 +42,6 @@ namespace Karkas.Core.Validation.ForPonos
         public void baslangicDurumunaGetir(PropertyInfo property)
         {
             this.property = property;
-
-            if (hataMesaji == null)
-            {
-                hataMesaji = HataMesajlariniOlustur();
-            }
         }
 
         /// <summary>
@@ -63,7 +57,14 @@ namespace Karkas.Core.Validation.ForPonos
         /// </summary>
         public String HataMesaji
         {
-            get { return hataMesaji; }
+            get 
+            {
+                if (hataMesaji == null)
+                {
+                    hataMesaji = HataMesajlariniOlustur();
+                }
+                return hataMesaji; 
+            }
             set { hataMesaji = value; }
         }
 
