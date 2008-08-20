@@ -42,6 +42,7 @@
     <Compile Include="ForPonos\GerekliAlanOnaylayici.cs" />
     <Compile Include="ForPonos\IValidator.cs" />
     <Compile Include="ForPonos\KarsilastirmaOnaylayici.cs" />
+    <Compile Include="ForPonos\MinDegerOnaylayici.cs" />
     <Compile Include="ForPonos\Onaylayici.cs" />
     <Compile Include="ForPonos\RegExOnaylayici.cs" />
     <Compile Include="ForPonos\SadaceBuKarakterler.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="OnaylamaHatasi.cs" />
     <Compile Include="OnaylamaOperatoru.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VeriTipiOperatoru.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
