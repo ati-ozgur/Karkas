@@ -5,10 +5,10 @@ using System.Text;
 namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
-    public class Validator
+    public class Onaylayici
     {
         private object uzerindeCalisilacakNesne;
-        public Validator(Object pUzerindeCalisilacakNesne)
+        public Onaylayici(Object pUzerindeCalisilacakNesne)
         {
             uzerindeCalisilacakNesne = pUzerindeCalisilacakNesne;
         }

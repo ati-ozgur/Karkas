@@ -16,19 +16,19 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri.Email
         {
             OrnekA a = this.testIcinOrnekAOlustur();
             a.EmailDegisken = "Deneme";
-            Assert.IsFalse(a.Validate());
+            Assert.IsFalse(a.Onayla());
             a.EmailDegisken = "deneme@gmail.com";
-            Assert.IsTrue(a.Validate());
+            Assert.IsTrue(a.Onayla());
             a.EmailDegisken = "Deneme_Deneme.com";
-            Assert.IsFalse(a.Validate());
+            Assert.IsFalse(a.Onayla());
         }
 
         private OrnekA testIcinOrnekAOlustur()
         {
             OrnekA a = new OrnekA();
-            a.Validator.ValidatorList.Clear();
-            a.Validator.ValidatorList = new List<BaseValidator>();
-            a.Validator.ValidatorList.Add(new EmailValidator(a, "EmailDegisken"));
+            a.Onaylayici.ValidatorList.Clear();
+            a.Onaylayici.ValidatorList = new List<BaseValidator>();
+            a.Onaylayici.ValidatorList.Add(new EmailValidator(a, "EmailDegisken"));
             return a;
         }
     }

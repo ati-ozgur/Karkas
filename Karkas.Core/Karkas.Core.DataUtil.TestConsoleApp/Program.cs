@@ -16,8 +16,9 @@ namespace Karkas.Core.DataUtil.TestConsoleApp
     {
         public static void Main(string[] args)
         {
-            CompareTest ct = new CompareTest();
-            ct.TestDogumTarihi();
+            SorguYardimcisiTests syt = new SorguYardimcisiTests();
+            syt.NormalArama();
+
         }
 
         private static void disardanDegerleriSetleyerekRaporAl()

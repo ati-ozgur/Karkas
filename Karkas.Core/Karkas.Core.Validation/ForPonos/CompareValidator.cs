@@ -8,7 +8,7 @@ namespace Karkas.Core.Validation.ForPonos
     public class CompareValidator : BaseValidator
     {
         IComparable karsilastirilacakDeger;
-        CompareOperator compareOperator;
+        KarsilastirmaOperatoru compareOperator;
         /// <summary>
         /// Verilen Nesnenin = pUzerindeCalisilacakNesne
         /// verilen propertisinin = pPropertyName
@@ -25,7 +25,7 @@ namespace Karkas.Core.Validation.ForPonos
         /// <param name="pKarsilastirilacakDeger"></param>
         /// <param name="pCompareOperator"></param>
         public CompareValidator(object pUzerindeCalisilacakNesne, string pPropertyName
-            , IComparable pKarsilastirilacakDeger, CompareOperator pCompareOperator)
+            , IComparable pKarsilastirilacakDeger, KarsilastirmaOperatoru pCompareOperator)
             : base(pUzerindeCalisilacakNesne, pPropertyName)
         {
             karsilastirilacakDeger = pKarsilastirilacakDeger;
@@ -33,7 +33,7 @@ namespace Karkas.Core.Validation.ForPonos
         }
 
         public CompareValidator(object pUzerindeCalisilacakNesne, string pPropertyName
-            , IComparable pKarsilastirilacakDeger, CompareOperator pCompareOperator, string pErrorMessage)
+            , IComparable pKarsilastirilacakDeger, KarsilastirmaOperatoru pCompareOperator, string pErrorMessage)
             : base(pUzerindeCalisilacakNesne, pPropertyName, pErrorMessage)
         {
             karsilastirilacakDeger = pKarsilastirilacakDeger;
@@ -68,22 +68,22 @@ namespace Karkas.Core.Validation.ForPonos
             bool sonuc = false;
             switch (compareOperator)
             {
-                case CompareOperator.Equal:
+                case KarsilastirmaOperatoru.Equal:
                     sonuc = val.CompareTo(karsilastirilacakDeger) == 0;
                     break;
-                case CompareOperator.GreaterThan:
+                case KarsilastirmaOperatoru.GreaterThan:
                     sonuc = val.CompareTo(karsilastirilacakDeger) > 0;
                     break;
-                case CompareOperator.GreatThanEqual:
+                case KarsilastirmaOperatoru.GreatThanEqual:
                     sonuc = val.CompareTo(karsilastirilacakDeger) >= 0;
                     break;
-                case CompareOperator.LessThan:
+                case KarsilastirmaOperatoru.LessThan:
                     sonuc = val.CompareTo(karsilastirilacakDeger) < 0;
                     break;
-                case CompareOperator.LessThanEqual:
+                case KarsilastirmaOperatoru.LessThanEqual:
                     sonuc = val.CompareTo(karsilastirilacakDeger) >= 0;
                     break;
-                case CompareOperator.NotEqual:
+                case KarsilastirmaOperatoru.NotEqual:
                     sonuc = val.CompareTo(karsilastirilacakDeger) != 0;
                     break;
                 default:
@@ -97,22 +97,22 @@ namespace Karkas.Core.Validation.ForPonos
             string str;
             switch (compareOperator)
             {
-                case CompareOperator.Equal:
+                case KarsilastirmaOperatoru.Equal:
                     str = "{0} " + karsilastirilacakDeger + "'ye eþit olmalýdýr.";
                     break;
-                case CompareOperator.GreaterThan:
+                case KarsilastirmaOperatoru.GreaterThan:
                     str = "{0} " + karsilastirilacakDeger + "'den büyük olmalýdýr.";
                     break;
-                case CompareOperator.GreatThanEqual:
+                case KarsilastirmaOperatoru.GreatThanEqual:
                     str = "{0} " + karsilastirilacakDeger + "'den büyük veya eþit olmalýdýr.";
                     break;
-                case CompareOperator.LessThan:
+                case KarsilastirmaOperatoru.LessThan:
                     str = "{0} " + karsilastirilacakDeger + "'den küçük olmalýdýr.";
                     break;
-                case CompareOperator.LessThanEqual:
+                case KarsilastirmaOperatoru.LessThanEqual:
                     str = "{0} " + karsilastirilacakDeger + "'den küçük veya eþit olmalýdýr.";
                     break;
-                case CompareOperator.NotEqual:
+                case KarsilastirmaOperatoru.NotEqual:
                     str = "{0} " + karsilastirilacakDeger + "'ye eþit olmamalýdýr.";
                     break;
                 default:

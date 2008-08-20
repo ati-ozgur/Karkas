@@ -27,13 +27,13 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.TypeLibrary
         }
 	
 
-        protected override void ValidationListesiniOlustur()
+        protected override void OnaylamaListesiniOlustur()
         {
-            this.Validator.ValidatorList.Add(new CompareValidator(this, "ShortDegisken", 18, CompareOperator.GreatThanEqual));
-            base.ValidationListesiniOlustur();
+            this.Onaylayici.ValidatorList.Add(new CompareValidator(this, "ShortDegisken", 18, KarsilastirmaOperatoru.GreatThanEqual));
+            base.OnaylamaListesiniOlustur();
         }
 
-        protected override void ValidationListesiniOlusturCodeGeneration()
+        protected override void OnaylamaListesiniOlusturCodeGeneration()
         {
         }
     }

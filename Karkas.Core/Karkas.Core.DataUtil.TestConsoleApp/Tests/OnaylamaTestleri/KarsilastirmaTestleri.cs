@@ -23,7 +23,7 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
         {
             OrnekA a = new OrnekA();
             a.ShortDegisken = Deger1;
-            Assert.IsTrue(a.Validate());
+            Assert.IsTrue(a.Onayla());
         }
 
         [Test]
@@ -31,9 +31,9 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
         {
             OrnekA a = TestEsittirIcinOrnekOlustur();
             a.ShortDegisken = Deger1;
-            Assert.IsTrue(a.Validate());
+            Assert.IsTrue(a.Onayla());
             a.ShortDegisken = (short)(Deger1 + 1);
-            Assert.IsFalse(a.Validate());
+            Assert.IsFalse(a.Onayla());
         }
 
         [Test]
@@ -41,30 +41,30 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
         {
             OrnekA a = TestEsitDegildirIcinOrnekOlustur();
             a.ShortDegisken = Deger1;
-            Assert.IsFalse(a.Validate());
+            Assert.IsFalse(a.Onayla());
             a.ShortDegisken = (short)(Deger1 + 1);
-            Assert.IsTrue(a.Validate());
+            Assert.IsTrue(a.Onayla());
         }
 
 
         private OrnekA TestEsitDegildirIcinOrnekOlustur()
         {
             OrnekA a = ValidatorTemizAOlustur();
-            a.Validator.ValidatorList.Add(new CompareValidator(a, "ShortDegisken", Deger1, CompareOperator.NotEqual));
+            a.Onaylayici.ValidatorList.Add(new CompareValidator(a, "ShortDegisken", Deger1, KarsilastirmaOperatoru.NotEqual));
             return a;
         }
 
         private OrnekA TestEsittirIcinOrnekOlustur()
         {
             OrnekA a = ValidatorTemizAOlustur();
-            a.Validator.ValidatorList.Add(new CompareValidator(a, "ShortDegisken", Deger1, CompareOperator.Equal));
+            a.Onaylayici.ValidatorList.Add(new CompareValidator(a, "ShortDegisken", Deger1, KarsilastirmaOperatoru.Equal));
             return a;
         }
 
         private OrnekA TestKucukturIcinOrnekOlustur()
         {
             OrnekA a = ValidatorTemizAOlustur();
-            a.Validator.ValidatorList.Add(new CompareValidator(a, "ShortDegisken", Deger1, CompareOperator.LessThanEqual));
+            a.Onaylayici.ValidatorList.Add(new CompareValidator(a, "ShortDegisken", Deger1, KarsilastirmaOperatoru.LessThanEqual));
             return a;
         }
 
@@ -75,8 +75,8 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
         private static OrnekA ValidatorTemizAOlustur()
         {
             OrnekA a = new OrnekA();
-            a.Validator.ValidatorList.Clear();
-            a.Validator.ValidatorList = new List<BaseValidator>();
+            a.Onaylayici.ValidatorList.Clear();
+            a.Onaylayici.ValidatorList = new List<BaseValidator>();
             return a;
         }
 

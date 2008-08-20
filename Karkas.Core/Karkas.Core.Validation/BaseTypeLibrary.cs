@@ -10,44 +10,44 @@ namespace Karkas.Core.TypeLibrary
     [Serializable]
     public abstract class BaseTypeLibrary
     {
-        private Validator validator;
+        private Onaylayici validator;
 
 
         public BaseTypeLibrary()
         {
             rowState = DataRowState.Added;
         }
-        public Validator Validator
+        public Onaylayici Onaylayici
         {
             get
             {
                 if (validator == null)
                 {
-                    validationListeleriniOlustur();
+                    onaylamaListeleriniOlustur();
                 }
                 return validator;
             }
         }
-        protected abstract void ValidationListesiniOlusturCodeGeneration();
+        protected abstract void OnaylamaListesiniOlusturCodeGeneration();
 
-        protected virtual void ValidationListesiniOlustur()
+        protected virtual void OnaylamaListesiniOlustur()
         {
         }
 
-        public bool Validate()
+        public bool Onayla()
         {
             if (validator == null)
             {
-                validationListeleriniOlustur();
+                onaylamaListeleriniOlustur();
             }
-            return Validator.Validate();
+            return Onaylayici.Validate();
         }
 
-        private void validationListeleriniOlustur()
+        private void onaylamaListeleriniOlustur()
         {
-            validator = new Validator(this);
-            ValidationListesiniOlusturCodeGeneration();
-            ValidationListesiniOlustur();
+            validator = new Onaylayici(this);
+            OnaylamaListesiniOlusturCodeGeneration();
+            OnaylamaListesiniOlustur();
         }
         
         [XmlIgnore]
@@ -96,19 +96,19 @@ namespace Karkas.Core.TypeLibrary
         /// <param name="pMessage"></param>
         public void HataliOlarakIsaretle(string pPropertyName,string pErrorMessage)
         {
-            this.Validator.SetError(pPropertyName, pErrorMessage);
+            this.Onaylayici.SetError(pPropertyName, pErrorMessage);
         }
 
         public void HataliOlarakIsaretle(string pErrorMessage)
         {
-            this.Validator.SetError("", pErrorMessage);
+            this.Onaylayici.SetError("", pErrorMessage);
         }
 
         public String Hatalar
         {
             get
             {
-                return Validator.Hatalar;
+                return Onaylayici.Hatalar;
             }
         }
 

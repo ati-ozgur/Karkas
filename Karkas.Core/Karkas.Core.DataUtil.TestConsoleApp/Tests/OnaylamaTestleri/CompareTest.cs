@@ -31,16 +31,16 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
             foreach (DateTime pDogumTarihi in liste)
             {
                 k.DogumTarihi = pDogumTarihi;
-                Assert.IsFalse(k.Validate());
+                Assert.IsFalse(k.Onayla());
             }
         }
         
         private OrnekKarsilastirma testIcinOrnekKarsilastirmaOlustur()
         {
             OrnekKarsilastirma a = new OrnekKarsilastirma();
-            a.Validator.ValidatorList.Clear();
-            a.Validator.ValidatorList = new List<BaseValidator>();
-            a.Validator.ValidatorList.Add(new CompareValidator(a, "DogumTarihi",DateTime.Now.AddYears(-19),CompareOperator.GreatThanEqual,"Kisi 18 yaþýndan büyük olmalýdýr"));
+            a.Onaylayici.ValidatorList.Clear();
+            a.Onaylayici.ValidatorList = new List<BaseValidator>();
+            a.Onaylayici.ValidatorList.Add(new CompareValidator(a, "DogumTarihi",DateTime.Now.AddYears(-19),KarsilastirmaOperatoru.GreatThanEqual,"Kisi 18 yaþýndan büyük olmalýdýr"));
             return a;
 
 

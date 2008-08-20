@@ -4,13 +4,20 @@ using System.Text;
 
 namespace Karkas.Core.Validation
 {
-    public enum CompareOperator
+    public enum KarsilastirmaOperatoru
     {
-        Equal,
-        NotEqual,
-        GreaterThan,
-        GreatThanEqual,
-        LessThan,
-        LessThanEqual
+        Equal = 1,
+        Esittir = 1,
+        NotEqual = 2,
+        EsitDegilder = 2,
+        GreaterThan = 3,
+        Buyuktur = 3,
+        GreatThanEqual = 4,
+        BuyukEsittir = 4,
+        LessThan = 5,
+        Kucuktur = 5,
+        LessThanEqual = 6,
+        KucukEsittir = 6
+
     }
 }
