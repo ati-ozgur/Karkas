@@ -4,18 +4,18 @@ using System.Text;
 
 namespace Karkas.Core.Validation.ForPonos
 {
-    public class MinDegerOnaylayici : KarsilastirmaOnaylayici
+    public class MaxDegerOnaylayici : KarsilastirmaOnaylayici
     {
-        private const KarsilastirmaOperatoru KARSILASTIRMA_OP = KarsilastirmaOperatoru.BuyukEsittir;
+        private const KarsilastirmaOperatoru KARSILASTIRMA_OP = KarsilastirmaOperatoru.KucukEsittir;
 
-        public MinDegerOnaylayici(object pUzerindeCalisilacakNesne
+        public MaxDegerOnaylayici(object pUzerindeCalisilacakNesne
                         , string pPropertyName,
                         IComparable pKarsilastirilacakDeger)
-                        : base( pUzerindeCalisilacakNesne, pPropertyName, pKarsilastirilacakDeger, KARSILASTIRMA_OP)
+            : base(pUzerindeCalisilacakNesne, pPropertyName, pKarsilastirilacakDeger, KARSILASTIRMA_OP)
         {
 
         }
-        public MinDegerOnaylayici(object pUzerindeCalisilacakNesne, string pPropertyName,
+        public MaxDegerOnaylayici(object pUzerindeCalisilacakNesne, string pPropertyName,
             IComparable pKarsilastirilacakDeger, string pErrorMessage)
             : base(pUzerindeCalisilacakNesne, pPropertyName, pKarsilastirilacakDeger, KARSILASTIRMA_OP, pErrorMessage)
         {

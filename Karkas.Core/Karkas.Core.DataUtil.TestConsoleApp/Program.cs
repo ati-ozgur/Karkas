@@ -9,6 +9,7 @@ using Karkas.Core.DataUtil.TestConsoleApp.Tests;
 using Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri.Email;
 using Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri;
 using Karkas.Core.Utility.ReportingServicesHelper;
+using Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri.KarsilastirmaTestleri;
 
 namespace Karkas.Core.DataUtil.TestConsoleApp
 {
@@ -16,8 +17,8 @@ namespace Karkas.Core.DataUtil.TestConsoleApp
     {
         public static void Main(string[] args)
         {
-            SorguYardimcisiTests syt = new SorguYardimcisiTests();
-            syt.NormalArama();
+            MaxDegerTest test = new MaxDegerTest();
+            test.TestMaxDeger5();
 
         }
 

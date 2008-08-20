@@ -71,20 +71,20 @@ namespace Karkas.Core.Validation.ForPonos
                 case KarsilastirmaOperatoru.Equal:
                     sonuc = val.CompareTo(karsilastirilacakDeger) == 0;
                     break;
+                case KarsilastirmaOperatoru.NotEqual:
+                    sonuc = val.CompareTo(karsilastirilacakDeger) != 0;
+                    break;
                 case KarsilastirmaOperatoru.GreaterThan:
-                    sonuc = val.CompareTo(karsilastirilacakDeger) > 0;
+                    sonuc = val.CompareTo(karsilastirilacakDeger) == 1;
+                    break;
+                case KarsilastirmaOperatoru.LessThan:
+                    sonuc = val.CompareTo(karsilastirilacakDeger) == -1;
                     break;
                 case KarsilastirmaOperatoru.GreatThanEqual:
                     sonuc = val.CompareTo(karsilastirilacakDeger) >= 0;
                     break;
-                case KarsilastirmaOperatoru.LessThan:
-                    sonuc = val.CompareTo(karsilastirilacakDeger) < 0;
-                    break;
                 case KarsilastirmaOperatoru.LessThanEqual:
-                    sonuc = val.CompareTo(karsilastirilacakDeger) >= 0;
-                    break;
-                case KarsilastirmaOperatoru.NotEqual:
-                    sonuc = val.CompareTo(karsilastirilacakDeger) != 0;
+                    sonuc = val.CompareTo(karsilastirilacakDeger) <= 0;
                     break;
                 default:
                     throw new ArgumentException("Beklenmeyen CompareOption");

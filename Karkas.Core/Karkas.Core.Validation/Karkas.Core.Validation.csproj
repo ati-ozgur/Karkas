@@ -42,6 +42,7 @@
     <Compile Include="ForPonos\GerekliAlanOnaylayici.cs" />
     <Compile Include="ForPonos\IValidator.cs" />
     <Compile Include="ForPonos\KarsilastirmaOnaylayici.cs" />
+    <Compile Include="ForPonos\MaxDegerOnaylayici.cs" />
     <Compile Include="ForPonos\MinDegerOnaylayici.cs" />
     <Compile Include="ForPonos\Onaylayici.cs" />
     <Compile Include="ForPonos\RegExOnaylayici.cs" />
