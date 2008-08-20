@@ -26,7 +26,6 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri.Email
         private OrnekA testIcinOrnekAOlustur()
         {
             OrnekA a = new OrnekA();
-            a.Onaylayici.OnaylayiciListesi.Clear();
             a.Onaylayici.OnaylayiciListesi = new List<BaseOnaylayici>();
             a.Onaylayici.OnaylayiciListesi.Add(new EmailOnaylayici(a, "EmailDegisken"));
             return a;

@@ -5,7 +5,6 @@ using Karkas.Core.DataUtil.TestConsoleApp.TypeLibrary;
 using Karkas.Core.Validation.ForPonos;
 using Karkas.Core.Validation;
 using NUnit.Framework;
-using NUnitExtension.RowTest;
 
 namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
 {
