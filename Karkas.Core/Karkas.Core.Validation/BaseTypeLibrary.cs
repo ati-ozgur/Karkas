@@ -40,7 +40,7 @@ namespace Karkas.Core.TypeLibrary
             {
                 onaylamaListeleriniOlustur();
             }
-            return Onaylayici.Validate();
+            return Onaylayici.Onayla();
         }
 
         private void onaylamaListeleriniOlustur()
@@ -96,12 +96,12 @@ namespace Karkas.Core.TypeLibrary
         /// <param name="pMessage"></param>
         public void HataliOlarakIsaretle(string pPropertyName,string pErrorMessage)
         {
-            this.Onaylayici.SetError(pPropertyName, pErrorMessage);
+            this.Onaylayici.HataSetle(pPropertyName, pErrorMessage);
         }
 
         public void HataliOlarakIsaretle(string pErrorMessage)
         {
-            this.Onaylayici.SetError("", pErrorMessage);
+            this.Onaylayici.HataSetle("", pErrorMessage);
         }
 
         public String Hatalar

@@ -19,7 +19,7 @@ namespace Karkas.Core.Validation.ForPonos
         }
 
 
-        protected override string BuildErrorMessage()
+        protected override string HataMesajlariniOlustur()
         {
             return string.Format("{0} sadace harf girilmelidir",this.Property.Name);
         }

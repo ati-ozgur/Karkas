@@ -13,15 +13,15 @@ namespace Karkas.Core.Validation.ForPonos
             uzerindeCalisilacakNesne = pUzerindeCalisilacakNesne;
         }
 
-        protected List<string> errorList = new List<string>();
+        protected List<string> hataListesi = new List<string>();
 
         /// <summary>
         /// Validate Ýþlemi sonucunda oluþan hatalar bir liste halinde alýnabilir
         /// </summary>
-        public List<string> ErrorList
+        public List<string> HataListesi
         {
-            get { return errorList; }
-            set { errorList = value; }
+            get { return hataListesi; }
+            set { hataListesi = value; }
         }
 
         private bool isValid = false;
@@ -30,17 +30,17 @@ namespace Karkas.Core.Validation.ForPonos
         /// Onaylama testleri nesne uzerinde calistirir.
         /// </summary>
         /// <returns>onaylama testlerinden herhangi bir yanlis ise false, hepsi dogru ise true dondurur.</returns>
-        public bool Validate()
+        public bool Onayla()
         {
             isValid = true;
-            errorList = new List<string>();
-            foreach (BaseValidator v in validatorList)
+            hataListesi = new List<string>();
+            foreach (BaseOnaylayici v in onaylayiciListesi)
             {
-                bool onaySonucu =v.Perform(uzerindeCalisilacakNesne);
+                bool onaySonucu =v.IslemYap(uzerindeCalisilacakNesne);
                 isValid = onaySonucu && isValid;
                 if (!onaySonucu)
                 {
-                    errorList.Add(v.ErrorMessage);
+                    hataListesi.Add(v.HataMesaji);
                 }
                 
             }
@@ -50,7 +50,7 @@ namespace Karkas.Core.Validation.ForPonos
         /// Uzerinde calisan nesnenin onaylama testlerine gore sonucunu verir. Validate cagrilmadi ise
         /// default olarak false alirsiniz.
         /// </summary>
-        public bool IsValid
+        public bool DogruMu
         {
             get 
             {
@@ -60,18 +60,18 @@ namespace Karkas.Core.Validation.ForPonos
 
 
 
-        private List<BaseValidator> validatorList = new List<BaseValidator>();
+        private List<BaseOnaylayici> onaylayiciListesi = new List<BaseOnaylayici>();
 
-        public List<BaseValidator> ValidatorList
+        public List<BaseOnaylayici> OnaylayiciListesi
         {
-            get { return validatorList; }
-            set { validatorList = value; }
+            get { return onaylayiciListesi; }
+            set { onaylayiciListesi = value; }
         }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            foreach (string s in errorList)
+            foreach (string s in hataListesi)
             {
                 sb.Append(s);
                 sb.Append(Environment.NewLine);
@@ -86,9 +86,9 @@ namespace Karkas.Core.Validation.ForPonos
             }
         }
 
-        public void SetError(string pPropertyName, string pErrorMessage)
+        public void HataSetle(string pPropertyIsmi, string pHataMesaji)
         {
-            this.ValidatorList.Add(new AlwaysFail(null, pPropertyName, pErrorMessage));
+            this.OnaylayiciListesi.Add(new AlwaysFail(null, pPropertyIsmi, pHataMesaji));
         }
     }
 }

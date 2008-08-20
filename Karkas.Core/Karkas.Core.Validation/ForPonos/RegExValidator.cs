@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
-    public class RegExValidator : BaseValidator
+    public class RegExValidator : BaseOnaylayici
     {
         private string regularExpression;
         private RegexOptions regExOptions;
@@ -28,7 +28,7 @@ namespace Karkas.Core.Validation.ForPonos
         }
         
         
-        public override bool Perform(object instance, object fieldValue)
+        public override bool IslemYap(object instance, object fieldValue)
         {
             if (instance == null || fieldValue == null)
             {
@@ -37,7 +37,7 @@ namespace Karkas.Core.Validation.ForPonos
             return new Regex(regularExpression, regExOptions).IsMatch(fieldValue.ToString());
         }
 
-        protected override string BuildErrorMessage()
+        protected override string HataMesajlariniOlustur()
         {
             return string.Format("{0} kabul edilen bir formatta deðildir",this.Property.Name);
         }

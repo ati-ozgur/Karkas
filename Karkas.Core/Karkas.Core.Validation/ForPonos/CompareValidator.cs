@@ -5,7 +5,7 @@ using System.Text;
 namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
-    public class CompareValidator : BaseValidator
+    public class CompareValidator : BaseOnaylayici
     {
         IComparable karsilastirilacakDeger;
         KarsilastirmaOperatoru compareOperator;
@@ -40,7 +40,7 @@ namespace Karkas.Core.Validation.ForPonos
             compareOperator = pCompareOperator;
         }
 
-        public override bool Perform(object instance, object fieldValue)
+        public override bool IslemYap(object instance, object fieldValue)
         {
             if (
                    (fieldValue is Byte)
@@ -92,7 +92,7 @@ namespace Karkas.Core.Validation.ForPonos
             return sonuc;
         }
 
-        protected override string BuildErrorMessage()
+        protected override string HataMesajlariniOlustur()
         {
             string str;
             switch (compareOperator)

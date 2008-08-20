@@ -7,46 +7,46 @@ using System.Diagnostics;
 namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
-    [DebuggerDisplay("PropertyName={PropertyName},ErrorMessage={ErrorMessage}")]
-    public abstract class BaseValidator
+    [DebuggerDisplay("PropertyIsmi={PropertyIsmi},HataMesaji={HataMesaji}")]
+    public abstract class BaseOnaylayici
     {
         string propertyName;
 
-        public string PropertyName
+        public string PropertyIsmi
         {
             get { return propertyName; }
             set { propertyName = value; }
         }
-        public BaseValidator(object uzerindeCalisilacakNesne, string pPropertyName)
+        public BaseOnaylayici(object uzerindeCalisilacakNesne, string pPropertyIsmi)
         {
-            this.propertyName = pPropertyName;
+            this.propertyName = pPropertyIsmi;
             Type t = uzerindeCalisilacakNesne.GetType();
             property = t.GetProperty(propertyName);
-            ErrorMessage = BuildErrorMessage();
+            HataMesaji = HataMesajlariniOlustur();
         }
-        public BaseValidator(object uzerindeCalisilacakNesne, string pPropertyName, string pErrorMessage)
+        public BaseOnaylayici(object uzerindeCalisilacakNesne, string pPropertyIsmi, string pHataMesaji)
         {
-            this.propertyName = pPropertyName;
+            this.propertyName = pPropertyIsmi;
             Type t = uzerindeCalisilacakNesne.GetType();
             property = t.GetProperty(propertyName);
-            ErrorMessage = pErrorMessage;
+            HataMesaji = pHataMesaji;
         }
 
 
-        private String errorMessage;
+        private String hataMesaji;
         private PropertyInfo property;
 
         /// <summary>
         /// Implementors should perform any initialization logic
         /// </summary>
         /// <param name="property">The target property</param>
-        public void Initialize(PropertyInfo property)
+        public void baslangicDurumunaGetir(PropertyInfo property)
         {
             this.property = property;
 
-            if (errorMessage == null)
+            if (hataMesaji == null)
             {
-                errorMessage = BuildErrorMessage();
+                hataMesaji = HataMesajlariniOlustur();
             }
         }
 
@@ -61,10 +61,10 @@ namespace Karkas.Core.Validation.ForPonos
         /// <summary>
         /// The error message to be displayed if the validation fails
         /// </summary>
-        public String ErrorMessage
+        public String HataMesaji
         {
-            get { return errorMessage; }
-            set { errorMessage = value; }
+            get { return hataMesaji; }
+            set { hataMesaji = value; }
         }
 
         /// <summary>
@@ -73,9 +73,9 @@ namespace Karkas.Core.Validation.ForPonos
         /// </summary>
         /// <param name="instance"></param>
         /// <returns><c>true</c> if the field is OK</returns>
-        public bool Perform(object instance)
+        public bool IslemYap(object instance)
         {
-            return this.Perform(instance, Property.GetValue(instance, null));
+            return this.IslemYap(instance, Property.GetValue(instance, null));
         }
 
         /// <summary>
@@ -85,9 +85,9 @@ namespace Karkas.Core.Validation.ForPonos
         /// <param name="instance"></param>
         /// <param name="fieldValue"></param>
         /// <returns><c>true</c> if the field is OK</returns>
-        public abstract bool Perform(object instance, object fieldValue);
+        public abstract bool IslemYap(object instance, object fieldValue);
 
-        protected abstract string BuildErrorMessage();
+        protected abstract string HataMesajlariniOlustur();
     }
 
 }

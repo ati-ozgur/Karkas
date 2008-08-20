@@ -6,7 +6,7 @@ using System.Reflection;
 namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
-    public class RequiredFieldValidator : BaseValidator
+    public class RequiredFieldValidator : BaseOnaylayici
     {
         public RequiredFieldValidator(object pUzerindeCalisilacakNesne,string pPropertyName) : base(pUzerindeCalisilacakNesne,pPropertyName)
         {
@@ -17,12 +17,12 @@ namespace Karkas.Core.Validation.ForPonos
         }
 
 
-        public override bool Perform(object instance, object fieldValue)
+        public override bool IslemYap(object instance, object fieldValue)
         {
             return fieldValue != null && fieldValue.ToString().Length != 0;
         }
 
-        protected override string BuildErrorMessage()
+        protected override string HataMesajlariniOlustur()
         {
             return String.Format("{0} Gereklidir.", Property.Name);
         }

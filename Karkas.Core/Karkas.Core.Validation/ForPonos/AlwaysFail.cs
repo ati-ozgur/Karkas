@@ -5,7 +5,7 @@ using System.Text;
 namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
-    public class AlwaysFail : BaseValidator
+    public class AlwaysFail : BaseOnaylayici
     {
         /// <summary>
         /// Set Error Message icin daima fail edecek.
@@ -28,14 +28,14 @@ namespace Karkas.Core.Validation.ForPonos
         /// <param name="instance"></param>
         /// <param name="fieldValue"></param>
         /// <returns></returns>
-        public override bool Perform(object instance, object fieldValue)
+        public override bool IslemYap(object instance, object fieldValue)
         {
             return false;
         }
 
-        protected override string BuildErrorMessage()
+        protected override string HataMesajlariniOlustur()
         {
-            return string.Format("{0} hatalý", this.PropertyName);
+            return string.Format("{0} hatalý", this.PropertyIsmi);
         }
     }
 }
