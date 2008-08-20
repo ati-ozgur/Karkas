@@ -6,16 +6,16 @@ using System.Text.RegularExpressions;
 namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
-    public class OnlyTheseCharactersValidator : RegExValidator
+    public class SadaceBuKarakterler : RegExOnaylayici
     {
         private const string REGEX_ONLY_THESECHARACTERS = "^[{0}]*$";
-        public OnlyTheseCharactersValidator(object pUzerindeCalisilacakNesne, string pPropertyName,char[] pCharList)
+        public SadaceBuKarakterler(object pUzerindeCalisilacakNesne, string pPropertyName,char[] pCharList)
             : base(pUzerindeCalisilacakNesne, pPropertyName, getRegexString(pCharList)
             , RegexOptions.None)
         {
 
         }
-        public OnlyTheseCharactersValidator(object pUzerindeCalisilacakNesne, string pPropertyName, char[] pCharList,string pErrorMessage)
+        public SadaceBuKarakterler(object pUzerindeCalisilacakNesne, string pPropertyName, char[] pCharList,string pErrorMessage)
             : base(pUzerindeCalisilacakNesne, pPropertyName, getRegexString(pCharList)
             , RegexOptions.None,pErrorMessage)
         {

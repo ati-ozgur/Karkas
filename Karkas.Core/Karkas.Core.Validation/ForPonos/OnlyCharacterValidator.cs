@@ -6,14 +6,14 @@ using System.Text.RegularExpressions;
 namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
-    public class OnlyCharacterValidator : RegExValidator
+    public class SadaceKarekterOnaylayici : RegExOnaylayici
     {
         protected const string REGEX_ONLY_CHARACTER = "^[a-zA-ZüðiþçöýÜÐÝÞÇÖI ]*$";
-        public OnlyCharacterValidator(object pUzerindeCalisilacakNesne, string pPropertyName)
+        public SadaceKarekterOnaylayici(object pUzerindeCalisilacakNesne, string pPropertyName)
             : base(pUzerindeCalisilacakNesne, pPropertyName, REGEX_ONLY_CHARACTER, RegexOptions.None)
         {
         }
-        public OnlyCharacterValidator(object pUzerindeCalisilacakNesne, string pPropertyName,string pErrorMessage)
+        public SadaceKarekterOnaylayici(object pUzerindeCalisilacakNesne, string pPropertyName,string pErrorMessage)
             : base(pUzerindeCalisilacakNesne, pPropertyName, REGEX_ONLY_CHARACTER, RegexOptions.None,pErrorMessage)
         {
         }

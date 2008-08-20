@@ -5,18 +5,18 @@ using System.Text.RegularExpressions;
 
 namespace Karkas.Core.Validation.ForPonos
 {
-    public class EmailValidator : RegExValidator
+    public class EmailOnaylayici : RegExOnaylayici
     {
         // Fields
         protected const string REGEX_ONLY_CHARACTER = @"^[\w\.\-]+@[a-zA-Z0-9\-]+(\.[a-zA-Z0-9\-]{1,})*(\.[a-zA-Z]{2,3}){1,2}$";
 
         // Methods
-        public EmailValidator(object pUzerindeCalisilacakNesne, string pPropertyName)
+        public EmailOnaylayici(object pUzerindeCalisilacakNesne, string pPropertyName)
             : base(pUzerindeCalisilacakNesne, pPropertyName, @"^[\w\.\-]+@[a-zA-Z0-9\-]+(\.[a-zA-Z0-9\-]{1,})*(\.[a-zA-Z]{2,3}){1,2}$", RegexOptions.None)
         {
         }
 
-        public EmailValidator(object pUzerindeCalisilacakNesne, string pPropertyName, string pErrorMessage)
+        public EmailOnaylayici(object pUzerindeCalisilacakNesne, string pPropertyName, string pErrorMessage)
             : base(pUzerindeCalisilacakNesne, pPropertyName, @"^[\w\.\-]+@[a-zA-Z0-9\-]+(\.[a-zA-Z0-9\-]{1,})*(\.[a-zA-Z]{2,3}){1,2}$", RegexOptions.None, pErrorMessage)
         {
         }

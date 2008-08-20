@@ -6,12 +6,12 @@ using System.Text.RegularExpressions;
 namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
-    public class RegExValidator : BaseOnaylayici
+    public class RegExOnaylayici : BaseOnaylayici
     {
         private string regularExpression;
         private RegexOptions regExOptions;
 
-        public RegExValidator(object pUzerindeCalisilacakNesne, string pPropertyName,
+        public RegExOnaylayici(object pUzerindeCalisilacakNesne, string pPropertyName,
             string pRegularExpression,RegexOptions pRegExOptions) 
             : base(pUzerindeCalisilacakNesne,pPropertyName)
         {
@@ -19,7 +19,7 @@ namespace Karkas.Core.Validation.ForPonos
             this.regularExpression = pRegularExpression;
         }
 
-        public RegExValidator(object pUzerindeCalisilacakNesne, string pPropertyName,
+        public RegExOnaylayici(object pUzerindeCalisilacakNesne, string pPropertyName,
             string pRegularExpression, RegexOptions pRegExOptions,string pErrorMessage)
             : base(pUzerindeCalisilacakNesne, pPropertyName,pErrorMessage)
         {

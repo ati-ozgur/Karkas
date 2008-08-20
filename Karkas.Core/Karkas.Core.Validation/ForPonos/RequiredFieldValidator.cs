@@ -6,12 +6,12 @@ using System.Reflection;
 namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
-    public class RequiredFieldValidator : BaseOnaylayici
+    public class GerekliAlanOnaylayici : BaseOnaylayici
     {
-        public RequiredFieldValidator(object pUzerindeCalisilacakNesne,string pPropertyName) : base(pUzerindeCalisilacakNesne,pPropertyName)
+        public GerekliAlanOnaylayici(object pUzerindeCalisilacakNesne,string pPropertyName) : base(pUzerindeCalisilacakNesne,pPropertyName)
         {
         }
-        public RequiredFieldValidator(object pUzerindeCalisilacakNesne, string pPropertyName,string pErrorMessage)
+        public GerekliAlanOnaylayici(object pUzerindeCalisilacakNesne, string pPropertyName,string pErrorMessage)
             : base(pUzerindeCalisilacakNesne, pPropertyName,pErrorMessage)
         {
         }

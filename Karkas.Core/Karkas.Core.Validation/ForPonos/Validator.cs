@@ -88,7 +88,7 @@ namespace Karkas.Core.Validation.ForPonos
 
         public void HataSetle(string pPropertyIsmi, string pHataMesaji)
         {
-            this.OnaylayiciListesi.Add(new AlwaysFail(null, pPropertyIsmi, pHataMesaji));
+            this.OnaylayiciListesi.Add(new DaimaBasarisiz(null, pPropertyIsmi, pHataMesaji));
         }
     }
 }

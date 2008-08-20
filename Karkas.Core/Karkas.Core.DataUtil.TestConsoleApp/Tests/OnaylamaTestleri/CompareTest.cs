@@ -38,9 +38,9 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
         private OrnekKarsilastirma testIcinOrnekKarsilastirmaOlustur()
         {
             OrnekKarsilastirma a = new OrnekKarsilastirma();
-            a.Onaylayici.ValidatorList.Clear();
-            a.Onaylayici.ValidatorList = new List<BaseValidator>();
-            a.Onaylayici.ValidatorList.Add(new CompareValidator(a, "DogumTarihi",DateTime.Now.AddYears(-19),KarsilastirmaOperatoru.GreatThanEqual,"Kisi 18 yaþýndan büyük olmalýdýr"));
+            a.Onaylayici.OnaylayiciListesi.Clear();
+            a.Onaylayici.OnaylayiciListesi = new List<BaseOnaylayici>();
+            a.Onaylayici.OnaylayiciListesi.Add(new KarsilastirmaOnaylayici(a, "DogumTarihi",DateTime.Now.AddYears(-19),KarsilastirmaOperatoru.GreatThanEqual,"Kisi 18 yaþýndan büyük olmalýdýr"));
             return a;
 
 

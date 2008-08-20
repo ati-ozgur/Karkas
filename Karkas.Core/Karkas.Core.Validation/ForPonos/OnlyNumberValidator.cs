@@ -6,15 +6,15 @@ using System.Text.RegularExpressions;
 namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
-    public class OnlyNumberValidator : RegExValidator
+    public class SadaceSayiOnaylayici : RegExOnaylayici
     {
         private const string REGEX_ONLY_NUMBER = "^[0-9]*$";
-        public OnlyNumberValidator(object pUzerindeCalisilacakNesne, string pPropertyName)
+        public SadaceSayiOnaylayici(object pUzerindeCalisilacakNesne, string pPropertyName)
             : base(pUzerindeCalisilacakNesne, pPropertyName, REGEX_ONLY_NUMBER, RegexOptions.None)
         {
 
         }
-        public OnlyNumberValidator(object pUzerindeCalisilacakNesne, string pPropertyName,string pErrorMessage)
+        public SadaceSayiOnaylayici(object pUzerindeCalisilacakNesne, string pPropertyName,string pErrorMessage)
             : base(pUzerindeCalisilacakNesne, pPropertyName, REGEX_ONLY_NUMBER, RegexOptions.None,pErrorMessage)
         {
 

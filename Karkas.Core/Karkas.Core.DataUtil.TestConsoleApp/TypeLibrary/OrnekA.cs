@@ -29,7 +29,7 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.TypeLibrary
 
         protected override void OnaylamaListesiniOlustur()
         {
-            this.Onaylayici.ValidatorList.Add(new CompareValidator(this, "ShortDegisken", 18, KarsilastirmaOperatoru.GreatThanEqual));
+            this.Onaylayici.OnaylayiciListesi.Add(new KarsilastirmaOnaylayici(this, "ShortDegisken", 18, KarsilastirmaOperatoru.GreatThanEqual));
             base.OnaylamaListesiniOlustur();
         }
 

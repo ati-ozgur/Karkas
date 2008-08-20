@@ -5,18 +5,18 @@ using System.Text;
 namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
-    public class AlwaysFail : BaseOnaylayici
+    public class DaimaBasarisiz : BaseOnaylayici
     {
         /// <summary>
-        /// Set Error Message icin daima fail edecek.
+        /// Hata Mesajlarinda hep basarisiz.
         /// </summary>
         /// <param name="pUzerindeCalisilacakNesne"></param>
         /// <param name="pPropertyName"></param>
-        public AlwaysFail(object pUzerindeCalisilacakNesne, string pPropertyName)
+        public DaimaBasarisiz(object pUzerindeCalisilacakNesne, string pPropertyName)
             : base(pUzerindeCalisilacakNesne, pPropertyName)
         {
         }
-        public AlwaysFail(object pUzerindeCalisilacakNesne, string pPropertyName, string pErrorMessage)
+        public DaimaBasarisiz(object pUzerindeCalisilacakNesne, string pPropertyName, string pErrorMessage)
             : base(pUzerindeCalisilacakNesne, pPropertyName, pErrorMessage)
         {
         }

@@ -36,7 +36,6 @@
   <ItemGroup>
     <Compile Include="BaseTypeLibrary.cs" />
     <Compile Include="BaseTypeLibraryList.cs" />
-    <Compile Include="CompareOperator.cs" />
     <Compile Include="ForPonos\AlwaysFail.cs" />
     <Compile Include="ForPonos\BaseValidator.cs" />
     <Compile Include="ForPonos\CompareValidator.cs" />
@@ -50,6 +49,7 @@
     <Compile Include="ForPonos\RequiredFieldValidator.cs" />
     <Compile Include="ForPonos\Validator.cs" />
     <Compile Include="OnaylamaHatasi.cs" />
+    <Compile Include="OnaylamaOperatoru.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

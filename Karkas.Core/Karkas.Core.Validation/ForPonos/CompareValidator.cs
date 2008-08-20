@@ -5,7 +5,7 @@ using System.Text;
 namespace Karkas.Core.Validation.ForPonos
 {
     [Serializable]
-    public class CompareValidator : BaseOnaylayici
+    public class KarsilastirmaOnaylayici : BaseOnaylayici
     {
         IComparable karsilastirilacakDeger;
         KarsilastirmaOperatoru compareOperator;
@@ -24,7 +24,7 @@ namespace Karkas.Core.Validation.ForPonos
         /// <param name="pPropertyName"></param>
         /// <param name="pKarsilastirilacakDeger"></param>
         /// <param name="pCompareOperator"></param>
-        public CompareValidator(object pUzerindeCalisilacakNesne, string pPropertyName
+        public KarsilastirmaOnaylayici(object pUzerindeCalisilacakNesne, string pPropertyName
             , IComparable pKarsilastirilacakDeger, KarsilastirmaOperatoru pCompareOperator)
             : base(pUzerindeCalisilacakNesne, pPropertyName)
         {
@@ -32,7 +32,7 @@ namespace Karkas.Core.Validation.ForPonos
             compareOperator = pCompareOperator;
         }
 
-        public CompareValidator(object pUzerindeCalisilacakNesne, string pPropertyName
+        public KarsilastirmaOnaylayici(object pUzerindeCalisilacakNesne, string pPropertyName
             , IComparable pKarsilastirilacakDeger, KarsilastirmaOperatoru pCompareOperator, string pErrorMessage)
             : base(pUzerindeCalisilacakNesne, pPropertyName, pErrorMessage)
         {
