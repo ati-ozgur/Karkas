@@ -9,6 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Karkas.Core.DataUtil.TestConsoleApp</RootNamespace>
     <AssemblyName>Karkas.Core.DataUtil.TestConsoleApp</AssemblyName>
+    <StartupObject>Karkas.Core.DataUtil.TestConsoleApp.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,6 +55,7 @@
     <Compile Include="Tests\OnaylamaTestleri\CompareTest.cs" />
     <Compile Include="Tests\OnaylamaTestleri\Email\EmailTest.cs" />
     <Compile Include="Tests\OnaylamaTestleri\KarsilastirmaTestleri.cs" />
+    <Compile Include="Tests\OnaylamaTestleri\KarsilastirmaTestleri\MinDegerTest.cs" />
     <Compile Include="Tests\SorguYardimcisiTests.cs" />
     <Compile Include="TypeLibrary\OrnekA.cs" />
     <Compile Include="TypeLibrary\OrnekKarsilastirma.cs" />

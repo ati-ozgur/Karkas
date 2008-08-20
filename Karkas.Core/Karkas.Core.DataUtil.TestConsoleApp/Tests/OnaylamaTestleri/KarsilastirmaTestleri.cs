@@ -9,7 +9,7 @@ using Karkas.Core.Validation.ForPonos;
 namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
 {
     [TestFixture]
-    public class KarsilastirmaTestleri
+    public class KarsilastirmaTestleri1
     {
         private short Deger1 = 18;
 
