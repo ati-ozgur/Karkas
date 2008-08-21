@@ -9,7 +9,7 @@ namespace Karkas.Core.Onaylama
         Equal = 1,
         Esittir = 1,
         NotEqual = 2,
-        EsitDegilder = 2,
+        EsitDegildir = 2,
         GreaterThan = 3,
         Buyuktur = 3,
         GreatThanEqual = 4,

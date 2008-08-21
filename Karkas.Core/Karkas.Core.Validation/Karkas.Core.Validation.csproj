@@ -7,8 +7,8 @@
     <ProjectGuid>{29D76493-FFF2-42E2-8EF0-6F0AE71CB80E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Karkas.Core.Validation</RootNamespace>
-    <AssemblyName>Karkas.Core.Validation</AssemblyName>
+    <RootNamespace>Karkas.Core.Onaylama</RootNamespace>
+    <AssemblyName>Karkas.Core.Onaylama</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +39,8 @@
     <Compile Include="ForPonos\BaseOnaylayici.cs" />
     <Compile Include="ForPonos\DaimaBasarisiz.cs" />
     <Compile Include="ForPonos\EmailOnaylayici.cs" />
+    <Compile Include="ForPonos\EsitDegerOnaylayici.cs" />
+    <Compile Include="ForPonos\EsitDegilDegerOnaylayici.cs" />
     <Compile Include="ForPonos\GerekliAlanOnaylayici.cs" />
     <Compile Include="ForPonos\IValidator.cs" />
     <Compile Include="ForPonos\KarsilastirmaOnaylayici.cs" />
