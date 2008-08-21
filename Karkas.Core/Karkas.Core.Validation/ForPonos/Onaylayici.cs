@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Karkas.Core.Validation.ForPonos
+namespace Karkas.Core.Onaylama.ForPonos
 {
     [Serializable]
     public class Onaylayici

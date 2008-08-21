@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
 using Karkas.Core.DataUtil.TestConsoleApp.TypeLibrary;
-using Karkas.Core.Validation;
-using Karkas.Core.Validation.ForPonos;
+using Karkas.Core.Onaylama;
+using Karkas.Core.Onaylama.ForPonos;
 
 namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
 {

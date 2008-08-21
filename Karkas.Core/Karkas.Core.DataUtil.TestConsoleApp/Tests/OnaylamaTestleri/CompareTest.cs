@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Karkas.Core.DataUtil.TestConsoleApp.TypeLibrary;
-using Karkas.Core.Validation.ForPonos;
-using Karkas.Core.Validation;
+using Karkas.Core.Onaylama.ForPonos;
+using Karkas.Core.Onaylama;
 using NUnit.Framework;
 
 namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri

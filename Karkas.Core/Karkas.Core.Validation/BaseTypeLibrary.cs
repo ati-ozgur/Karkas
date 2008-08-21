@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Karkas.Core.Validation.ForPonos;
+using Karkas.Core.Onaylama.ForPonos;
 using System.Data;
 using System.Xml.Serialization;
 

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Karkas.Core.Validation
+namespace Karkas.Core.Onaylama
 {
     public enum VeriTipiOperatoru
     {

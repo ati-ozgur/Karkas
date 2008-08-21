@@ -4,7 +4,7 @@ using System.Text;
 using System.Reflection;
 using System.Diagnostics;
 
-namespace Karkas.Core.Validation.ForPonos
+namespace Karkas.Core.Onaylama.ForPonos
 {
     [Serializable]
     [DebuggerDisplay("PropertyIsmi={PropertyIsmi},HataMesaji={HataMesaji}")]

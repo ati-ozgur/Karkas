@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Karkas.Core.Validation")]
+[assembly: AssemblyTitle("Karkas.Core.Onaylama")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Karkas")]
-[assembly: AssemblyProduct("Karkas.Core.Validation")]
+[assembly: AssemblyProduct("Karkas.Core.Onaylama")]
 [assembly: AssemblyCopyright("Copyright © Karkas 2007")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

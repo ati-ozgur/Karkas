@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Reflection;
 
-namespace Karkas.Core.Validation.ForPonos
+namespace Karkas.Core.Onaylama.ForPonos
 {
     [Serializable]
     public class GerekliAlanOnaylayici : BaseOnaylayici

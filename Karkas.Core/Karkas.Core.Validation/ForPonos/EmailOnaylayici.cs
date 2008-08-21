@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Karkas.Core.Validation.ForPonos
+namespace Karkas.Core.Onaylama.ForPonos
 {
     public class EmailOnaylayici : RegExOnaylayici
     {

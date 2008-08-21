@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace Karkas.Core.Validation.ForPonos
+namespace Karkas.Core.Onaylama.ForPonos
 {
 
 	/// <summary>

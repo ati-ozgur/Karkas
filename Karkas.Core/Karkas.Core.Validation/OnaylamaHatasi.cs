@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace Karkas.Core.Validation
+namespace Karkas.Core.Onaylama
 {
     [Serializable]
     public class OnaylamaHatasi : Exception
