@@ -10,6 +10,7 @@ using Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri.Email;
 using Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri;
 using Karkas.Core.Utility.ReportingServicesHelper;
 using Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri.KarsilastirmaTestleri;
+using Karkas.Core.DataUtil.TestConsoleApp.Tests.WebHelperTestleri;
 
 namespace Karkas.Core.DataUtil.TestConsoleApp
 {
@@ -17,9 +18,9 @@ namespace Karkas.Core.DataUtil.TestConsoleApp
     {
         public static void Main(string[] args)
         {
-            MaxDegerTest test = new MaxDegerTest();
-            test.TestMaxDeger5();
 
+            JavascriptHelperTest test = new JavascriptHelperTest();
+            test.alertIcinDuzgunMesajOlusturTest();
         }
 
         private static void disardanDegerleriSetleyerekRaporAl()

@@ -33,7 +33,33 @@
 
             public void Alert(Page page, string message, string key)
             {
-                JavascriptHelper.ScriptEkle(page, string.Format("alert('{0}');", message), key);
+                message = alertIcinDuzgunMesajOlustur(message);
+                JavascriptHelper.ScriptEkle(page, message, key);
+            }
+
+            public static string alertIcinDuzgunMesajOlustur(string message)
+            {
+                message = message.Replace("'", "\'");
+
+                if (message.Contains("\n"))
+                {
+                    message = message.Replace("\r\n", "\n");
+                    string[] satirlar = message.Split('\n');
+                    string yeniMesaj = "var a = ";
+                    for (int i=0;i < satirlar.Length -1; i++)
+                    {
+                        string satir = satirlar[i];
+                        yeniMesaj += string.Format("'{0} \\n'+ {1}", satir, Environment.NewLine);
+                    }
+                    yeniMesaj = yeniMesaj.Remove(yeniMesaj.Length-4);
+                    yeniMesaj += "; alert(a);";
+                    message = yeniMesaj;
+                }
+                else
+                {
+                    message = string.Format("alert('{0}');", message);
+                }
+                return message;
             }
 
 

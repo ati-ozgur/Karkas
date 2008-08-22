@@ -70,13 +70,25 @@ namespace Karkas.Core.Onaylama.ForPonos
 
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            foreach (string s in hataListesi)
+            if (hataListesi.Count > 1)
             {
-                sb.Append(s);
-                sb.Append(Environment.NewLine);
+                StringBuilder sb = new StringBuilder();
+                foreach (string s in hataListesi)
+                {
+                    sb.Append(s);
+                    sb.Append(Environment.NewLine);
+                }
+                return sb.ToString();
             }
-            return sb.ToString();
+            else if (hataListesi.Count == 1)
+            {
+                return hataListesi[0];
+            }
+            else
+            {
+                return "";
+            }
+
         }
         public string Hatalar
         {

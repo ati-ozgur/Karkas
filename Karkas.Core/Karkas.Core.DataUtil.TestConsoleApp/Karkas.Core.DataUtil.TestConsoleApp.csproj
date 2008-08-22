@@ -60,6 +60,7 @@
     <Compile Include="Tests\OnaylamaTestleri\KarsilastirmaTestleri\MaxDegerTest.cs" />
     <Compile Include="Tests\OnaylamaTestleri\KarsilastirmaTestleri\MinDegerTest.cs" />
     <Compile Include="Tests\SorguYardimcisiTests.cs" />
+    <Compile Include="Tests\WebHelperTestleri\JavascriptHelperTest.cs" />
     <Compile Include="TypeLibrary\OrnekA.cs" />
     <Compile Include="TypeLibrary\OrnekKarsilastirma.cs" />
     <Compile Include="YetkiControlDeneme.cs" />
@@ -86,6 +87,10 @@
     <ProjectReference Include="..\Karkas.Core.Validation\Karkas.Core.Validation.csproj">
       <Project>{29D76493-FFF2-42E2-8EF0-6F0AE71CB80E}</Project>
       <Name>Karkas.Core.Validation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Karkas.Web.Helpers\Karkas.Web.Helpers.csproj">
+      <Project>{0B5C1C9A-E030-48D2-BE24-2548F56DA4B6}</Project>
+      <Name>Karkas.Web.Helpers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
