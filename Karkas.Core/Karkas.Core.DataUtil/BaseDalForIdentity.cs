@@ -23,7 +23,7 @@ namespace Karkas.Core.DataUtil
 
         }
 
-
+        protected abstract void identityKolonDegeriniSetle(T pTypeLibrary, M pIdentityKolonValue);
 
         public new M Ekle(T row)
         {
@@ -44,6 +44,7 @@ namespace Karkas.Core.DataUtil
                     logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
                     object o = cmd.ExecuteScalar();
                     sonuc = (M)Convert.ChangeType(o, sonuc.GetType());
+                    identityKolonDegeriniSetle(row, sonuc);
                 }
                 else
                 {

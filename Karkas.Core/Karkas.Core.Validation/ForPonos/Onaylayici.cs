@@ -24,7 +24,7 @@ namespace Karkas.Core.Onaylama.ForPonos
             set { hataListesi = value; }
         }
 
-        private bool isValid = false;
+        private bool dogruMu = false;
 
         /// <summary>
         /// Onaylama testleri nesne uzerinde calistirir.
@@ -32,19 +32,19 @@ namespace Karkas.Core.Onaylama.ForPonos
         /// <returns>onaylama testlerinden herhangi bir yanlis ise false, hepsi dogru ise true dondurur.</returns>
         public bool Onayla()
         {
-            isValid = true;
+            dogruMu = true;
             hataListesi = new List<string>();
             foreach (BaseOnaylayici v in onaylayiciListesi)
             {
                 bool onaySonucu =v.IslemYap(uzerindeCalisilacakNesne);
-                isValid = onaySonucu && isValid;
+                dogruMu = onaySonucu && dogruMu;
                 if (!onaySonucu)
                 {
                     hataListesi.Add(v.HataMesaji);
                 }
                 
             }
-            return isValid;
+            return dogruMu;
         }
         /// <summary>
         /// Uzerinde calisan nesnenin onaylama testlerine gore sonucunu verir. Validate cagrilmadi ise
@@ -54,9 +54,25 @@ namespace Karkas.Core.Onaylama.ForPonos
         {
             get 
             {
-                return isValid; 
+                if (OnaylamayiTersCalistir)
+                {
+                    return !dogruMu;
+                }
+                else
+                {
+                    return dogruMu;
+                }
             }
         }
+
+        private bool onaylamayiTersCalistir = false;
+
+        public bool OnaylamayiTersCalistir
+        {
+            get { return onaylamayiTersCalistir;  }
+            set { onaylamayiTersCalistir =  value; }
+        }
+	
 
 
 

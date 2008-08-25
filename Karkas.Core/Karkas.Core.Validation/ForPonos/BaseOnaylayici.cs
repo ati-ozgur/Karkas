@@ -69,17 +69,18 @@ namespace Karkas.Core.Onaylama.ForPonos
         }
 
         /// <summary>
-        /// Implementors should perform the actual validation upon
-        /// the property value
+        /// Bunu inherit edenlerin , propert degerine gore
+        /// islem yapmasý gerekli.
         /// </summary>
         /// <param name="instance"></param>
-        /// <returns><c>true</c> if the field is OK</returns>
+        /// <returns><c>true</c> field duzgun ise true</returns>
         public bool IslemYap(object instance)
         {
             return this.IslemYap(instance, Property.GetValue(instance, null));
         }
 
         /// <summary>
+        /// 
         /// Implementors should perform the actual validation upon
         /// the property value
         /// </summary>
