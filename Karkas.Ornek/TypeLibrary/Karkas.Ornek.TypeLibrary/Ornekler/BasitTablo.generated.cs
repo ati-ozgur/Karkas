@@ -75,6 +75,12 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			return obj;
 		}
 	
+	public class PropertyIsimleri
+	{
+		public const string BasitTabloKey = "BasitTabloKey";
+		public const string Adi = "Adi";
+		public const string Soyadi = "Soyadi";
+	}
 
 	protected override void OnaylamaListesiniOlusturCodeGeneration()
 	{

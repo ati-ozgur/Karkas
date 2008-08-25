@@ -561,6 +561,39 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			return obj;
 		}
 	
+	public class PropertyIsimleri
+	{
+		public const string OrnekTabloKey = "OrnekTabloKey";
+		public const string KolonBigInt = "KolonBigInt";
+		public const string KolonBinary = "KolonBinary";
+		public const string KolonBit = "KolonBit";
+		public const string KolonChar = "KolonChar";
+		public const string KolonDateTime = "KolonDateTime";
+		public const string KolonDecimal = "KolonDecimal";
+		public const string KolonFloat = "KolonFloat";
+		public const string KolonImage = "KolonImage";
+		public const string KolonInt = "KolonInt";
+		public const string KolonMoney = "KolonMoney";
+		public const string KolonNChar = "KolonNChar";
+		public const string KolonNText = "KolonNText";
+		public const string KolonNumeric = "KolonNumeric";
+		public const string KolonNVarchar = "KolonNVarchar";
+		public const string KolonNVarcharMax = "KolonNVarcharMax";
+		public const string KolonReal = "KolonReal";
+		public const string KolonSmallDateTime = "KolonSmallDateTime";
+		public const string KolonSmallInt = "KolonSmallInt";
+		public const string KolonSmallMoney = "KolonSmallMoney";
+		public const string KolonSqlVariant = "KolonSqlVariant";
+		public const string KolonText = "KolonText";
+		public const string KolonTimeStamp = "KolonTimeStamp";
+		public const string KolonTinyInt = "KolonTinyInt";
+		public const string KolonUniqueIdentifier = "KolonUniqueIdentifier";
+		public const string KolonVarBinary = "KolonVarBinary";
+		public const string KolonVarBinaryMax = "KolonVarBinaryMax";
+		public const string KolonVarchar = "KolonVarchar";
+		public const string KolonVarcharMax = "KolonVarcharMax";
+		public const string KolonXml = "KolonXml";
+	}
 
 	protected override void OnaylamaListesiniOlusturCodeGeneration()
 	{

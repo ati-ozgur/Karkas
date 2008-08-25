@@ -129,6 +129,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			return obj;
 		}
 	
+	public class PropertyIsimleri
+	{
+		public const string MusteriKey = "MusteriKey";
+		public const string Adi = "Adi";
+		public const string Soyadi = "Soyadi";
+		public const string IkinciAdi = "IkinciAdi";
+		public const string DogumTarihi = "DogumTarihi";
+		public const string TamAdi = "TamAdi";
+	}
 
 	protected override void OnaylamaListesiniOlusturCodeGeneration()
 	{

@@ -75,6 +75,12 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			return obj;
 		}
 	
+	public class PropertyIsimleri
+	{
+		public const string DenemeKey = "DenemeKey";
+		public const string DenemeNo = "DenemeNo";
+		public const string DenemeKolon = "DenemeKolon";
+	}
 
 	protected override void OnaylamaListesiniOlusturCodeGeneration()
 	{
