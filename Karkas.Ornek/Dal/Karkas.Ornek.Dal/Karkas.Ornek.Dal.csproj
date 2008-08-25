@@ -37,9 +37,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ThirdParty\Karkas.Core.DataUtil.dll</HintPath>
     </Reference>
-    <Reference Include="Karkas.Core.Validation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Karkas.Core.Onaylama, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ThirdParty\Karkas.Core.Validation.dll</HintPath>
+      <HintPath>..\..\ThirdParty\Karkas.Core.Onaylama.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -57,9 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ornekler\BasitTabloDal.generated.cs" />
+    <Compile Include="Ornekler\DenemeGuidIdentityDal.generated.cs" />
     <Compile Include="Ornekler\MusteriDal.generated.cs" />
     <Compile Include="Ornekler\OrnekTabloDal.generated.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

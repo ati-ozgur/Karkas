@@ -1,9 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using Karkas.Core.TypeLibrary;
-using Karkas.Core.Validation.ForPonos;
 using System.Data;
+using System.Text;
+using System.Collections.Generic;
+using Karkas.Core.TypeLibrary;
+using Karkas.Core.Onaylama;
+using Karkas.Core.Onaylama.ForPonos;
 
 namespace Karkas.Ornek.TypeLibrary.Ornekler
 {
@@ -129,9 +130,10 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 		}
 	
 
-	protected override void ValidationListesiniOlusturCodeGeneration()
-	{			
-			this.Validator.ValidatorList.Add(new RequiredFieldValidator(this, "Adi"));			
-			this.Validator.ValidatorList.Add(new RequiredFieldValidator(this, "Soyadi"));		}
+	protected override void OnaylamaListesiniOlusturCodeGeneration()
+	{
+		
+		this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "Adi"));		
+		this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "Soyadi"));	}
 	}
 }

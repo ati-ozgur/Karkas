@@ -12,16 +12,12 @@ namespace Karkas.Ornek.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Musteri m = new Musteri();
-            m.MusteriKey = Guid.NewGuid();
-            m.Adi = "Deneme";
-            m.Soyadi = "Deneme" + DateTime.Now.ToShortTimeString();
-
-            MusteriBsWrapper wrapper = new MusteriBsWrapper();
-            wrapper.Ekle(m);
-
-
-            MusteriDal dal = new MusteriDal();
+            DenemeGuidIdentity dgi = new DenemeGuidIdentity();
+            dgi.DenemeKey = Guid.NewGuid();
+            dgi.DenemeKolon = "addd";
+            DenemeGuidIdentityDal dal = new DenemeGuidIdentityDal();
+            int sonuc = dal.Ekle(dgi);
+            Console.WriteLine(sonuc);
         }
     }
 }

@@ -236,7 +236,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 			builder.parameterEkle("@KolonNText",SqlDbType.NText, row.KolonNText,1073741823);
 			builder.parameterEkle("@KolonNumeric",SqlDbType.Decimal, row.KolonNumeric);
 			builder.parameterEkle("@KolonNVarchar",SqlDbType.NVarChar, row.KolonNVarchar,50);
-			builder.parameterEkle("@KolonNVarcharMax",SqlDbType.NVarChar, row.KolonNVarcharMax,1073741823);
+			builder.parameterEkle("@KolonNVarcharMax",SqlDbType.NVarChar, row.KolonNVarcharMax);
 			builder.parameterEkle("@KolonReal",SqlDbType.Real, row.KolonReal);
 			builder.parameterEkle("@KolonSmallDateTime",SqlDbType.SmallDateTime, row.KolonSmallDateTime);
 			builder.parameterEkle("@KolonSmallInt",SqlDbType.SmallInt, row.KolonSmallInt);
@@ -247,10 +247,10 @@ namespace Karkas.Ornek.Dal.Ornekler
 			builder.parameterEkle("@KolonTinyInt",SqlDbType.TinyInt, row.KolonTinyInt);
 			builder.parameterEkle("@KolonUniqueIdentifier",SqlDbType.UniqueIdentifier, row.KolonUniqueIdentifier);
 			builder.parameterEkle("@KolonVarBinary",SqlDbType.VarBinary, row.KolonVarBinary,50);
-			builder.parameterEkle("@KolonVarBinaryMax",SqlDbType.VarBinary, row.KolonVarBinaryMax,2147483647);
+			builder.parameterEkle("@KolonVarBinaryMax",SqlDbType.VarBinary, row.KolonVarBinaryMax);
 			builder.parameterEkle("@KolonVarchar",SqlDbType.VarChar, row.KolonVarchar,50);
-			builder.parameterEkle("@KolonVarcharMax",SqlDbType.VarChar, row.KolonVarcharMax,2147483647);
-			builder.parameterEkle("@KolonXml",SqlDbType.Xml, row.KolonXml,1073741823);
+			builder.parameterEkle("@KolonVarcharMax",SqlDbType.VarChar, row.KolonVarcharMax);
+			builder.parameterEkle("@KolonXml",SqlDbType.Xml, row.KolonXml);
 		}
 		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		OrnekTablo		 row)
 		{
@@ -270,7 +270,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 			builder.parameterEkle("@KolonNText",SqlDbType.NText, row.KolonNText,1073741823);
 			builder.parameterEkle("@KolonNumeric",SqlDbType.Decimal, row.KolonNumeric);
 			builder.parameterEkle("@KolonNVarchar",SqlDbType.NVarChar, row.KolonNVarchar,50);
-			builder.parameterEkle("@KolonNVarcharMax",SqlDbType.NVarChar, row.KolonNVarcharMax,1073741823);
+			builder.parameterEkle("@KolonNVarcharMax",SqlDbType.NVarChar, row.KolonNVarcharMax);
 			builder.parameterEkle("@KolonReal",SqlDbType.Real, row.KolonReal);
 			builder.parameterEkle("@KolonSmallDateTime",SqlDbType.SmallDateTime, row.KolonSmallDateTime);
 			builder.parameterEkle("@KolonSmallInt",SqlDbType.SmallInt, row.KolonSmallInt);
@@ -280,10 +280,10 @@ namespace Karkas.Ornek.Dal.Ornekler
 			builder.parameterEkle("@KolonTinyInt",SqlDbType.TinyInt, row.KolonTinyInt);
 			builder.parameterEkle("@KolonUniqueIdentifier",SqlDbType.UniqueIdentifier, row.KolonUniqueIdentifier);
 			builder.parameterEkle("@KolonVarBinary",SqlDbType.VarBinary, row.KolonVarBinary,50);
-			builder.parameterEkle("@KolonVarBinaryMax",SqlDbType.VarBinary, row.KolonVarBinaryMax,2147483647);
+			builder.parameterEkle("@KolonVarBinaryMax",SqlDbType.VarBinary, row.KolonVarBinaryMax);
 			builder.parameterEkle("@KolonVarchar",SqlDbType.VarChar, row.KolonVarchar,50);
-			builder.parameterEkle("@KolonVarcharMax",SqlDbType.VarChar, row.KolonVarcharMax,2147483647);
-			builder.parameterEkle("@KolonXml",SqlDbType.Xml, row.KolonXml,1073741823);
+			builder.parameterEkle("@KolonVarcharMax",SqlDbType.VarChar, row.KolonVarcharMax);
+			builder.parameterEkle("@KolonXml",SqlDbType.Xml, row.KolonXml);
 		}
 		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		OrnekTablo		 row)
 		{
