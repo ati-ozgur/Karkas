@@ -15,14 +15,14 @@ namespace Karkas.Web.Helpers.HelperClasses
 
 
 
-            public static void ListControlaBindEt(IList list, ListControl listControl, string valueField, string textField)
+            public void ListControlaBindEt(IList list, ListControl listControl, string valueField, string textField)
             {
                 if (list.Count > 0)
                 {
                     listControlBindOrtak(list, listControl, valueField, textField);
                 }
             }
-            public static void ListControlaBindEtLutfenEkle(IList list, ListControl listControl, string valueField, string textField)
+            public void ListControlaBindEtLutfenEkle(IList list, ListControl listControl, string valueField, string textField)
             {
                 if (list.Count > 0)
                 {
@@ -31,14 +31,14 @@ namespace Karkas.Web.Helpers.HelperClasses
                 }
             }
 
-            private static void listControlBindOrtak(IList list, ListControl listControl, string valueField, string textField)
+            private void listControlBindOrtak(IList list, ListControl listControl, string valueField, string textField)
             {
                 listControl.DataSource = list;
                 listControl.DataTextField = textField;
                 listControl.DataValueField = valueField;
                 listControl.DataBind();
             }
-            public static void ListControlaBindEtLutfenEkle(IList list, ListControl listControl
+            public void ListControlaBindEtLutfenEkle(IList list, ListControl listControl
                             , string valueField, string textField
                             , string yazi)
             {
@@ -49,7 +49,7 @@ namespace Karkas.Web.Helpers.HelperClasses
                 }
             }
 
-            public static void ListControlaBindEtLutfenEkle(IList list, ListControl listControl
+            public void ListControlaBindEtLutfenEkle(IList list, ListControl listControl
                             , string valueField, string textField
                             , string yazi, string deger)
             {
@@ -63,27 +63,27 @@ namespace Karkas.Web.Helpers.HelperClasses
 
 
 
-            public static void ListAyDoldur(ListControl listControl)
+            public void ListAyDoldur(ListControl listControl)
             {
                 ListControlaBindEt(Ay.AyListesi,listControl,Ay.PropertyIsimleri.AyDeger,Ay.PropertyIsimleri.AyIsmi);
             }
-            public static void ListAyDoldur(ListControl listControl, int piSecili)
+            public void ListAyDoldur(ListControl listControl, int piSecili)
             {
                 ListAyDoldur(listControl);
                 listControl.SelectedValue = piSecili.ToString();
             }
 
-            public static void ListAyDoldurLutfenEkle(ListControl listControl)
+            public void ListAyDoldurLutfenEkle(ListControl listControl)
             {
                 ListAyDoldur(listControl);
                 listControl.Items.Insert(0, new ListItem("Lütfen Seçiniz","0" ));
             }
-            public static void ListAyDoldurLutfenEkle(ListControl listControl,string yazi)
+            public void ListAyDoldurLutfenEkle(ListControl listControl,string yazi)
             {
                 ListAyDoldur(listControl);
                 listControl.Items.Insert(0, new ListItem(yazi,"0"));
             }
-            public static void ListAyDoldurLutfenEkle(ListControl listControl, string yazi,string deger)
+            public void ListAyDoldurLutfenEkle(ListControl listControl, string yazi,string deger)
             {
                 ListAyDoldur(listControl);
                 listControl.Items.Insert(0, new ListItem(yazi, deger));
