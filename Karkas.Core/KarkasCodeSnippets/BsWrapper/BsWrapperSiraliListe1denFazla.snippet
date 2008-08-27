@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>BsWrapper Sıralı Liste 1den fazla</Title>
+      <Shortcut>sirax</Shortcut>
+      <Description>
+      </Description>
+      <Author>Atilla Ozgur</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>ParamA</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>Musteri
+          </Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[
+            $ParamA$BsWrapper wrapper = new $ParamA$BsWrapper();
+            List<$ParamA$> liste = wrapper.SorgulaHepsiniGetirSirali(
+                                          $ParamA$.PropertyIsimleri.Adi
+                                          , "ASC"
+                                          ,$ParamA$.PropertyIsimleri.Soyadi
+                                          ,"DESC");
+      ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
