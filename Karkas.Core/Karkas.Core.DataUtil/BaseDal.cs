@@ -195,6 +195,35 @@ namespace Karkas.Core.DataUtil
             }
         }
 
+        public List<T> SorgulaHepsiniGetir()
+        {
+            List<T> liste = new List<T>();
+            SorguCalistir(liste);
+            return liste;
+        }
+
+        public List<T> SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
+        {
+            List<T> liste = new List<T>();
+            SorguYardimcisi sy = new SorguYardimcisi();
+            int listeUzunluk = pSiraListesi.Length;
+            for(int i =0;i < listeUzunluk;i++)
+            {
+                if (i + 1 < listeUzunluk)
+                {
+                    sy.OrderByEkle(pSiraListesi[i], pSiraListesi[i + 1]);
+                    i++;
+                }
+                else
+                {
+                    sy.OrderByEkle(pSiraListesi[i]);
+                }
+            }
+            // HACK buna daha duzgun bir cozum lazim;
+            SorguCalistir(liste, " 1 = 1 " + sy.KriterSonucunuWhereOlmadanGetir());
+            return liste;
+        }
+
         public void Ekle(T row)
         {
             SqlCommand cmd = new SqlCommand();
@@ -335,6 +364,15 @@ namespace Karkas.Core.DataUtil
         protected abstract void InsertCommandParametersAdd(SqlCommand Cmd, T row);
         protected abstract void UpdateCommandParametersAdd(SqlCommand Cmd, T row);
         protected abstract void DeleteCommandParametersAdd(SqlCommand Cmd, T row);
+
+
+        public class Siralama
+        {
+            public const string Azalarak = "DESC";
+            public const string Artarak = "ASC";
+            public const string Ascending = "ASC";
+            public const string Descending = "DESC";
+        }
 
 
 

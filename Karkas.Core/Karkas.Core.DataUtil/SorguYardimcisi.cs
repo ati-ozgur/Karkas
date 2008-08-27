@@ -21,6 +21,22 @@ namespace Karkas.Core.DataUtil
                 siralamaListesi.Add(s);
             }
         }
+        public void OrderByEkle(string pKolonIsmi)
+        {
+            Siralama s = new Siralama(pKolonIsmi);
+            if (!siralamaListesi.Contains(s))
+            {
+                siralamaListesi.Add(s);
+            }
+        }
+        public void OrderByEkle(string pKolonIsmi, String pSiralamaTuru)
+        {
+            Siralama s = new Siralama(pKolonIsmi, pSiralamaTuru);
+            if (!siralamaListesi.Contains(s))
+            {
+                siralamaListesi.Add(s);
+            }
+        }
 
         public string KriterSonucunuGetir()
         {

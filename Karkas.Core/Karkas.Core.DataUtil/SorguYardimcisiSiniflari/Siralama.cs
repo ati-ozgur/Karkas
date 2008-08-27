@@ -6,9 +6,18 @@ namespace Karkas.Core.DataUtil.SorguYardimcisiSiniflari
 {
     internal class Siralama
     {
+
+        public Siralama(string pKolonIsmi) : this(pKolonIsmi,"")
+        {
+        }
         public Siralama(string pKolonIsmi, SiralamaEnum pSiralamaTuru)
         {
             siralamaTuru = pSiralamaTuru;
+            kolonIsmi = pKolonIsmi;
+        }
+        public Siralama(string pKolonIsmi, String pSiralamaTuru)
+        {
+            siralamaTuruAsString = pSiralamaTuru;
             kolonIsmi = pKolonIsmi;
         }
 
@@ -18,6 +27,13 @@ namespace Karkas.Core.DataUtil.SorguYardimcisiSiniflari
         {
             get { return siralamaTuru; }
             set { siralamaTuru = value; }
+        }
+        private string siralamaTuruAsString;
+
+        public string SiralamaTuruAsString
+        {
+            get { return siralamaTuruAsString; }
+            set { siralamaTuruAsString = value; }
         }
 
 
@@ -35,14 +51,21 @@ namespace Karkas.Core.DataUtil.SorguYardimcisiSiniflari
             get
             {
                 string s = "";
-                switch (siralamaTuru)
+                if (string.IsNullOrEmpty(siralamaTuruAsString))
                 {
-                    case SiralamaEnum.ASC:
-                        s = "ASC";
-                        break;
-                    case SiralamaEnum.Azalarak:
-                        s = "DESC";
-                        break;
+                    switch (siralamaTuru)
+                    {
+                        case SiralamaEnum.ASC:
+                            s = "ASC";
+                            break;
+                        case SiralamaEnum.Azalarak:
+                            s = "DESC";
+                            break;
+                    }
+                }
+                else
+                {
+                    s = siralamaTuruAsString;
                 }
                 return kolonIsmi + " " + s;
             }
