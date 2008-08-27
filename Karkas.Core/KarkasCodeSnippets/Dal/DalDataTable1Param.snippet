@@ -2,8 +2,8 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
   <CodeSnippet Format="1.0.0">
     <Header>
-      <Title>DalDataTable</Title>
-      <Shortcut>dalt</Shortcut>
+      <Title>DalDataTable1Param</Title>
+      <Shortcut>dalt1</Shortcut>
       <Description>
       </Description>
       <Author>Atilla Ozgur</Author>
@@ -12,6 +12,12 @@
       </SnippetTypes>
     </Header>
     <Snippet>
+          <Imports>
+                <Import>
+                    <Namespace>System.Data</Namespace> 
+                    <Namespace>Karkas.Core.DataUtil</Namespace> 
+                </Import>
+            </Imports> 
       <Declarations>
         <Literal Editable="true">
           <ID>ParamA</ID>
@@ -22,25 +28,13 @@
           <Function>
           </Function>
         </Literal>
-        <Literal Editable="true">
-          <ID>ParamB</ID>
-          <ToolTip>
-          </ToolTip>
-          <Default>
-          </Default>
-          <Function>
-          </Function>
-        </Literal>
         </Declarations>
-      <Code Language="csharp"><![CDATA[       public DataTable Sorgula$ParamA$Ve$ParamB$Ile(Guid p$ParamA$,string p$ParamB$)
+      <Code Language="csharp"><![CDATA[       public DataTable Sorgula$ParamA$Ve$ParamB$Ile(Guid p$ParamA$)
         {
 			string sqlString = @"SELECT * FROM ORTAK.KISI
-						$ParamA$ = @$ParamA$
-						AND
-						$ParamB$ = @$ParamB$";
+						$ParamA$ = @$ParamA$";
 			ParameterBuilder builder = new ParameterBuilder();
 			builder.parameterEkle("@$ParamA$", SqlDbType.UniqueIdentifier, p$ParamA$);
-			builder.parameterEkle("@$ParamB$", SqlDbType.VarChar, p$ParamB$,50);
             return Template.DataTableOlustur(sqlString, builder.GetParameterArray());
         }]]></Code>
     </Snippet>
