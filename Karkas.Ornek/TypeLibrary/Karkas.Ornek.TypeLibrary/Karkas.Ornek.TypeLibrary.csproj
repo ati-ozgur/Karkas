@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Ornekler\BasitTablo.generated.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentity.generated.cs" />
+    <Compile Include="Ornekler\Musteri.cs" />
     <Compile Include="Ornekler\Musteri.generated.cs" />
     <Compile Include="Ornekler\OrnekTablo.generated.cs" />
     <Compile Include="SessionEnumHelper.cs" />

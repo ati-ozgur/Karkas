@@ -38,7 +38,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 		{
 			get 
 			{
-				return @"DELETE   FROM ORNEKLER.MUSTERI WHERE MusteriKey =";
+				return @"DELETE   FROM ORNEKLER.MUSTERI WHERE MusteriKey = @MusteriKey";
 			}
 		}
 		protected override string UpdateString
@@ -62,7 +62,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 								(@MusteriKey,@Adi,@Soyadi,@IkinciAdi,@DogumTarihi)";
 			}
 		}
-		public List<Musteri>SorgulaHepsiniGetir()
+		public List<Musteri> SorgulaHepsiniGetir()
 		{
 			List<Musteri> liste = new List<Musteri>();
 			SorguCalistir(liste);

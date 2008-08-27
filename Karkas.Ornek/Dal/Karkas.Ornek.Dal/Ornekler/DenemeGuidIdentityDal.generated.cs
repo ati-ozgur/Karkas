@@ -42,7 +42,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 		{
 			get 
 			{
-				return @"DELETE   FROM ORNEKLER.DENEME_GUID_IDENTITY WHERE DenemeKey = ";
+				return @"DELETE   FROM ORNEKLER.DENEME_GUID_IDENTITY WHERE DenemeKey = @DenemeKey";
 			}
 		}
 		protected override string UpdateString

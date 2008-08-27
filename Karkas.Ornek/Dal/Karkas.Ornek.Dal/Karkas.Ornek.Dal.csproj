@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Ornekler\BasitTabloDal.generated.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentityDal.generated.cs" />
+    <Compile Include="Ornekler\MusteriDal.cs" />
     <Compile Include="Ornekler\MusteriDal.generated.cs" />
     <Compile Include="Ornekler\OrnekTabloDal.generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

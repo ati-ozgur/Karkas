@@ -38,7 +38,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 		{
 			get 
 			{
-				return @"DELETE   FROM ORNEKLER.BASIT_TABLO WHERE BasitTabloKe";
+				return @"DELETE   FROM ORNEKLER.BASIT_TABLO WHERE BasitTabloKey = @BasitTabloKey";
 			}
 		}
 		protected override string UpdateString
