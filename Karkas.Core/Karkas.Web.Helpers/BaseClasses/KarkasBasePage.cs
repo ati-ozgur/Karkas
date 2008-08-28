@@ -26,9 +26,6 @@
             this.listHelper = new KarkasWebHelper.ListHelper();
             this.gridHelper = new KarkasWebHelper.GridHelper(this);
             this.queryHelper = new KarkasWebHelper.QueryStringHelper();
-
-            System.Data.DataTable dt = new System.Data.DataTable();
-            this.listHelper.ListControlaBindEt(dt, null, "", "");
         }
 
 

@@ -16,9 +16,10 @@ namespace Karkas.Web.Helpers.HelperClasses
 
             public void ListControlaBindEt(IListSource list, ListControl listControl, string valueField, string textField)
             {
-                if (list.ContainsListCollection)
+                IList l = list.GetList();
+                if (l != null)
                 {
-                    listControlBindOrtak(list.GetList(), listControl, valueField, textField);
+                    listControlBindOrtak(l, listControl, valueField, textField);
                 }
             }
 
@@ -32,9 +33,10 @@ namespace Karkas.Web.Helpers.HelperClasses
             }
             public void ListControlaBindEtLutfenEkle(IListSource list, ListControl listControl, string valueField, string textField)
             {
-                if (list.ContainsListCollection)
+                IList l = list.GetList();
+                if (l != null)
                 {
-                    listControlBindOrtak(list.GetList(), listControl, valueField, textField);
+                    listControlBindOrtak(l, listControl, valueField, textField);
                     listControl.Items.Insert(0, new ListItem("Lütfen Seçiniz", "0"));
                 }
             }
@@ -69,9 +71,10 @@ namespace Karkas.Web.Helpers.HelperClasses
                             , string valueField, string textField
                             , string yazi)
             {
-                if (list.ContainsListCollection)
+                IList l = list.GetList();
+                if (l != null)
                 {
-                    listControlBindOrtak(list.GetList(), listControl, valueField, textField);
+                    listControlBindOrtak(l, listControl, valueField, textField);
                     listControl.Items.Insert(0, new ListItem(yazi, "0"));
                 }
             }
