@@ -14,7 +14,13 @@
         private readonly KarkasWebHelper.JavascriptHelper jsHelper;
         private readonly KarkasWebHelper.ListHelper listHelper;
         private readonly KarkasWebHelper.GridHelper gridHelper;
-        private readonly KarkasWebHelper.QueryStringHelper queryHelper;
+        private readonly KarkasWebHelper.QueryStringHelper queryStringHelper;
+
+        public KarkasWebHelper.QueryStringHelper QueryStringHelper
+        {
+            get { return queryStringHelper; }
+        } 
+
 
 
 
@@ -25,7 +31,7 @@
             this.jsHelper = new KarkasWebHelper.JavascriptHelper(this);
             this.listHelper = new KarkasWebHelper.ListHelper();
             this.gridHelper = new KarkasWebHelper.GridHelper(this);
-            this.queryHelper = new KarkasWebHelper.QueryStringHelper();
+            this.queryStringHelper = new KarkasWebHelper.QueryStringHelper();
         }
 
 
