@@ -98,6 +98,7 @@
     <Compile Include="HelperClasses\PrinterControl.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="HelperClasses\QueryStringHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">

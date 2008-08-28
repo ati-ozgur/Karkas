@@ -14,16 +14,21 @@
         private readonly KarkasWebHelper.JavascriptHelper jsHelper;
         private readonly KarkasWebHelper.ListHelper listHelper;
         private readonly KarkasWebHelper.GridHelper gridHelper;
+        private readonly KarkasWebHelper.QueryStringHelper queryHelper;
 
 
 
-        private IMessageBox mBox = null;
+        IMessageBox mBox = null;
 
         public KarkasBasePage()
         {
             this.jsHelper = new KarkasWebHelper.JavascriptHelper(this);
-            this.listHelper = new  KarkasWebHelper.ListHelper();
+            this.listHelper = new KarkasWebHelper.ListHelper();
             this.gridHelper = new KarkasWebHelper.GridHelper(this);
+            this.queryHelper = new KarkasWebHelper.QueryStringHelper();
+
+            System.Data.DataTable dt = new System.Data.DataTable();
+            this.listHelper.ListControlaBindEt(dt, null, "", "");
         }
 
 
@@ -31,7 +36,14 @@
 
         public void MessageBox(string pMessage)
         {
-            this.mBox.Show(pMessage);
+            if (mBox != null)
+            {
+                this.mBox.Show(pMessage);
+            }
+            else
+            {
+                this.JavascriptHelper.Alert(pMessage);
+            }
         }
 
         public void MessageBox(string[] pMessageList)
@@ -51,12 +63,22 @@
 
         public void MessageBox(string pMesaj, MesajTuruEnum pMesajTur)
         {
-            this.mBox.Show(pMesaj, pMesajTur);
+            if (mBox != null)
+            {
+                this.mBox.Show(pMesaj, pMesajTur);
+            }
+            else
+            {
+                this.JavascriptHelper.Alert(pMesaj);
+            }
         }
 
         public void MessageBoxClose()
         {
-            this.mBox.Close();
+            if (mBox != null)
+            {
+                this.mBox.Close();
+            }
         }
 
         protected override void OnLoad(EventArgs e)
@@ -66,11 +88,11 @@
             }
             if (base.Master != null)
             {
-                this.mBox = (IMessageBox)base.Master.FindControl("MessageBox1");
-                if (this.mBox != null)
-                {
-                    this.mBox.Show("", MesajTuruEnum.None);
-                }
+                this.mBox = base.Master.FindControl("MessageBox1") as IMessageBox;
+            }
+            if (mBox == null)
+            {
+                this.mBox = this.FindControl("MessageBox1") as IMessageBox;
             }
             base.OnLoad(e);
         }
@@ -90,7 +112,7 @@
         public KarkasWebHelper.GridHelper GridHelper
         {
             get { return gridHelper; }
-        } 
+        }
 
 
     }
