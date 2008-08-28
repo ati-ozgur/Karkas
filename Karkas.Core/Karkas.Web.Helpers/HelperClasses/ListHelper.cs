@@ -4,6 +4,7 @@ using System.Text;
 using System.Collections;
 using System.Web.UI.WebControls;
 using Karkas.Core.Utility;
+using System.ComponentModel;
 
 namespace Karkas.Web.Helpers.HelperClasses
 {
@@ -13,6 +14,13 @@ namespace Karkas.Web.Helpers.HelperClasses
         {
 
 
+            public void ListControlaBindEt(IListSource list, ListControl listControl, string valueField, string textField)
+            {
+                if (list.ContainsListCollection)
+                {
+                    listControlBindOrtak(list.GetList(), listControl, valueField, textField);
+                }
+            }
 
 
             public void ListControlaBindEt(IList list, ListControl listControl, string valueField, string textField)
@@ -22,6 +30,15 @@ namespace Karkas.Web.Helpers.HelperClasses
                     listControlBindOrtak(list, listControl, valueField, textField);
                 }
             }
+            public void ListControlaBindEtLutfenEkle(IListSource list, ListControl listControl, string valueField, string textField)
+            {
+                if (list.ContainsListCollection)
+                {
+                    listControlBindOrtak(list.GetList(), listControl, valueField, textField);
+                    listControl.Items.Insert(0, new ListItem("Lütfen Seçiniz", "0"));
+                }
+            }
+
             public void ListControlaBindEtLutfenEkle(IList list, ListControl listControl, string valueField, string textField)
             {
                 if (list.Count > 0)
@@ -48,6 +65,16 @@ namespace Karkas.Web.Helpers.HelperClasses
                     listControl.Items.Insert(0, new ListItem(yazi, "0"));
                 }
             }
+            public void ListControlaBindEtLutfenEkle(IListSource list, ListControl listControl
+                            , string valueField, string textField
+                            , string yazi)
+            {
+                if (list.ContainsListCollection)
+                {
+                    listControlBindOrtak(list.GetList(), listControl, valueField, textField);
+                    listControl.Items.Insert(0, new ListItem(yazi, "0"));
+                }
+            }
 
             public void ListControlaBindEtLutfenEkle(IList list, ListControl listControl
                             , string valueField, string textField
@@ -60,6 +87,16 @@ namespace Karkas.Web.Helpers.HelperClasses
                 }
             }
 
+            public void ListControlaBindEtLutfenEkle(IListSource list, ListControl listControl
+                            , string valueField, string textField
+                            , string yazi, string deger)
+            {
+                if (list.ContainsListCollection)
+                {
+                    listControlBindOrtak(list.GetList(), listControl, valueField, textField);
+                    listControl.Items.Insert(0, new ListItem(yazi, deger));
+                }
+            }
 
 
 
