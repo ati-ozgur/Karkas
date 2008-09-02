@@ -3,8 +3,9 @@
   <CodeSnippet Format="1.0.0">
     <Header>
       <Title>BsWrapper Ekle ve Guncelle</Title>
-      <Shortcut>sira</Shortcut>
+      <Shortcut>Ekle</Shortcut>
       <Description>
+      Otomatik Ekle veya Güncelle Kodu Yazar.
       </Description>
       <Author>Fatih ÖZKAN</Author>
       <SnippetTypes>
@@ -29,7 +30,7 @@
       {
         $ParamA$ p$ParamA$ = new $ParamA$();
         $ParamA$BsWrapper wrapper = new $ParamA$BsWrapper();
-        if(BilgileriDoldur($ParamA$ p$ParamA$))
+        if(BilgileriDoldur(p$ParamA$,wrapper))
         {
             wrapper.Ekle(p$ParamA$);   
         }
@@ -40,10 +41,10 @@
       }
       
       
-      private bool BilgileriDoldur($ParamA$ p$ParamA$)
+      private bool BilgileriDoldur($ParamA$ p$ParamA$,$ParamA$BsWarpper wrapper)
       {
             bool yeniMi=false;
-            $ParamA$BsWrapper wrapper = new $ParamA$BsWrapper();
+            
             if(Request.QueryString["Key"] != null)
             {
                 int pk = Convert.ToInt32(Request.QueryString["Key"].ToString());
@@ -59,6 +60,7 @@
                 }
                 
             }
+            return yeniMi;
       }
       
       
