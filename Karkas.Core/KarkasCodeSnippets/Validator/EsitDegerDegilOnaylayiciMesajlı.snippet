@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>EsitDegerDeğilOnaylayici</Title>
+      <Shortcut>
+      </Shortcut>
+      <Description>
+      </Description>
+      <Author>Fatih ÖZKAN</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+          <Declarations>
+        <Literal Editable="true">
+          <ID>ParamA</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default> ObjeIsmi
+          </Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>ParamB</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default> KarsilastirilacakDeger
+          </Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>ParamC</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default> Hata Mesajı
+          </Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[
+            this.Onaylayici.OnaylayiciListesi.Add(
+                new EsitDegilDegerOnaylayici(this, $ParamA$.PropertyIsimleri.TabloDeger
+                    , $ParamB$, "Verilen değer $ParamB$ değerine eşittir."));
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
