@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Transaction Ornek</Title>
+      <Shortcut>trOrnek</Shortcut>
+      <Description>
+      </Description>
+      <Author>Atilla Ozgur</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Musteri</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>Musteri
+          </Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>BasitTablo</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>BasitTablo
+          </Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[        public void TransactionOrnek($Musteri$ p$Musteri$, $BasitTablo$ p$BasitTablo$)
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                $Musteri$Dal dal = new $Musteri$Dal();
+                $BasitTablo$Dal btDal = new $BasitTablo$Dal();
+
+                dal.Ekle(p$Musteri$);
+                btDal.Ekle(p$BasitTablo$);
+                scope.Complete();
+
+            }
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
