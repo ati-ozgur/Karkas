@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -61,12 +61,6 @@ namespace Karkas.Ornek.Dal.Ornekler
 				 VALUES 
 								(@OrnekTabloKey,@KolonBigInt,@KolonBinary,@KolonBit,@KolonChar,@KolonDateTime,@KolonDecimal,@KolonFloat,@KolonImage,@KolonInt,@KolonMoney,@KolonNChar,@KolonNText,@KolonNumeric,@KolonNVarchar,@KolonNVarcharMax,@KolonReal,@KolonSmallDateTime,@KolonSmallInt,@KolonSmallMoney,@KolonSqlVariant,@KolonText,@KolonTinyInt,@KolonUniqueIdentifier,@KolonVarBinary,@KolonVarBinaryMax,@KolonVarchar,@KolonVarcharMax,@KolonXml)";
 			}
-		}
-		public List<OrnekTablo>SorgulaHepsiniGetir()
-		{
-			List<OrnekTablo> liste = new List<OrnekTablo>();
-			SorguCalistir(liste);
-			return liste;
 		}
 		public OrnekTablo SorgulaOrnekTabloKeyIle(Guid p1)
 		{
@@ -243,7 +237,6 @@ namespace Karkas.Ornek.Dal.Ornekler
 			builder.parameterEkle("@KolonSmallMoney",SqlDbType.SmallMoney, row.KolonSmallMoney);
 			builder.parameterEkle("@KolonSqlVariant",SqlDbType.Variant, row.KolonSqlVariant);
 			builder.parameterEkle("@KolonText",SqlDbType.Text, row.KolonText,2147483647);
-			builder.parameterEkle("@KolonTimeStamp",SqlDbType.Timestamp, row.KolonTimeStamp,8);
 			builder.parameterEkle("@KolonTinyInt",SqlDbType.TinyInt, row.KolonTinyInt);
 			builder.parameterEkle("@KolonUniqueIdentifier",SqlDbType.UniqueIdentifier, row.KolonUniqueIdentifier);
 			builder.parameterEkle("@KolonVarBinary",SqlDbType.VarBinary, row.KolonVarBinary,50);

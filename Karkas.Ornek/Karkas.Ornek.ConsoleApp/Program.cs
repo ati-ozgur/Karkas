@@ -5,6 +5,7 @@ using System.Text;
 using Karkas.Ornek.TypeLibrary.Ornekler;
 using Karkas.Ornek.BsWrapper.Ornekler;
 using Karkas.Ornek.Dal.Ornekler;
+using System.Transactions;
 
 namespace Karkas.Ornek.ConsoleApp
 {
@@ -13,13 +14,30 @@ namespace Karkas.Ornek.ConsoleApp
         static void Main(string[] args)
         {
 
+            MusteriDal dal = new MusteriDal();
+            List<Musteri> liste =  dal.SorgulaAdiVeSoyadiIle("ati", "");
 
-            MusteriDal mDal = new MusteriDal();
-            List<Musteri> liste1 = mDal.SorgulaHepsiniGetirSirali(Musteri.PropertyIsimleri.Adi, "ASC" , Musteri.PropertyIsimleri.Soyadi, "DESC");
-            List<Musteri> liste2 = mDal.SorgulaHepsiniGetirSirali(Musteri.PropertyIsimleri.Adi, "", Musteri.PropertyIsimleri.Soyadi, "ASC");
-            List<Musteri> liste3 = mDal.SorgulaHepsiniGetirSirali(Musteri.PropertyIsimleri.Adi, MusteriDal.Siralama.Azalarak, Musteri.PropertyIsimleri.Soyadi, "DESC");
-            List<Musteri> liste4 = mDal.SorgulaHepsiniGetirSirali(Musteri.PropertyIsimleri.Adi);
         }
+
+
+
+
+        
+        public void TransactionOrnek(Musteri pMusteri, BasitTablo pBasitTablo)
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                MusteriDal dal = new MusteriDal();
+                BasitTabloDal btDal = new BasitTabloDal();
+
+                dal.Ekle(pMusteri);
+                btDal.Ekle(pBasitTablo);
+                scope.Complete();
+
+            }
+        }
+
+
 
     }
 }

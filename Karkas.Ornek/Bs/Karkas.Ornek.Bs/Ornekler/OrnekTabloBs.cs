@@ -11,7 +11,7 @@ using Karkas.Ornek.Dal.Ornekler;
 
 namespace Karkas.Ornek.Bs.Ornekler
 {
-public partial class MusteriBs
+public partial class OrnekTabloBs
 {
 }
 }

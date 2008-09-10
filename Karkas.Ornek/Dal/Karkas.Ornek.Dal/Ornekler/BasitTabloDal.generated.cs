@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -61,12 +61,6 @@ namespace Karkas.Ornek.Dal.Ornekler
 				 VALUES 
 								(@BasitTabloKey,@Adi,@Soyadi)";
 			}
-		}
-		public List<BasitTablo>SorgulaHepsiniGetir()
-		{
-			List<BasitTablo> liste = new List<BasitTablo>();
-			SorguCalistir(liste);
-			return liste;
 		}
 		public BasitTablo SorgulaBasitTabloKeyIle(Guid p1)
 		{

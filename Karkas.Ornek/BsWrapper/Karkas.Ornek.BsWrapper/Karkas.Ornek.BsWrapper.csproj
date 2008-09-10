@@ -48,8 +48,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Ornekler\BasitTabloBsWrapper.cs" />
     <Compile Include="Ornekler\BasitTabloBsWrapper.generated.cs" />
+    <Compile Include="Ornekler\DenemeGuidIdentityBsWrapper.cs" />
+    <Compile Include="Ornekler\DenemeGuidIdentityBsWrapper.generated.cs" />
+    <Compile Include="Ornekler\MusteriBsWrapper.cs" />
     <Compile Include="Ornekler\MusteriBsWrapper.generated.cs" />
+    <Compile Include="Ornekler\OrnekTabloBsWrapper.cs" />
     <Compile Include="Ornekler\OrnekTabloBsWrapper.generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

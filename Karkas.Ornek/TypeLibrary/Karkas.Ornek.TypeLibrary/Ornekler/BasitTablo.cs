@@ -10,7 +10,7 @@ using System.Configuration;
 namespace Karkas.Ornek.TypeLibrary.Ornekler
 
 {
-	public partial class 	Musteri
+	public partial class 	BasitTablo
 	{
 	}
 }

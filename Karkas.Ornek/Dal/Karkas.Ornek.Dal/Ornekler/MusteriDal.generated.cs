@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -62,12 +62,6 @@ namespace Karkas.Ornek.Dal.Ornekler
 								(@MusteriKey,@Adi,@Soyadi,@IkinciAdi,@DogumTarihi)";
 			}
 		}
-		public List<Musteri> SorgulaHepsiniGetir()
-		{
-			List<Musteri> liste = new List<Musteri>();
-			SorguCalistir(liste);
-			return liste;
-		}
 		public Musteri SorgulaMusteriKeyIle(Guid p1)
 		{
 			List<Musteri> liste = new List<Musteri>();
@@ -124,7 +118,6 @@ namespace Karkas.Ornek.Dal.Ornekler
 			builder.parameterEkle("@Soyadi",SqlDbType.VarChar, row.Soyadi,50);
 			builder.parameterEkle("@IkinciAdi",SqlDbType.VarChar, row.IkinciAdi,50);
 			builder.parameterEkle("@DogumTarihi",SqlDbType.DateTime, row.DogumTarihi);
-			builder.parameterEkle("@TamAdi",SqlDbType.VarChar, row.TamAdi,152);
 		}
 		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		Musteri		 row)
 		{

@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,7 +11,8 @@ using Karkas.Ornek.Dal.Ornekler;
 
 namespace Karkas.Ornek.Bs.Ornekler
 {
-    public partial class MusteriBs 
+	public partial class 	MusteriBs
+ 
     {
         MusteriDal dal = new MusteriDal();
         public void Ekle(Musteri k)
@@ -36,6 +37,11 @@ namespace Karkas.Ornek.Bs.Ornekler
         public List<Musteri> SorgulaHepsiniGetir()
         {
             return dal.SorgulaHepsiniGetir();
+        }
+
+        public List<Musteri> SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
+        {
+            return dal.SorgulaHepsiniGetirSirali(pSiraListesi);
         }
 
 		public Musteri SorgulaMusteriKeyIle(Guid p1)
@@ -66,6 +72,5 @@ namespace Karkas.Ornek.Bs.Ornekler
 				dal.KomutuCalistiranKullaniciKisiKey = value;
 			}
         }
-
-    }
+}
 }

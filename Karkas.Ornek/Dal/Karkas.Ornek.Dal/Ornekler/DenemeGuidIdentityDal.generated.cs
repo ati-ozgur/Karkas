@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -51,7 +51,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 			{
 				return @"UPDATE ORNEKLER.DENEME_GUID_IDENTITY
 				 SET 
-				DenemeNo = @DenemeNo,DenemeKolon = @DenemeKolon				
+				DenemeKolon = @DenemeKolon				
 				WHERE 
 				DenemeKey = @DenemeKey ";
 			}
@@ -65,12 +65,6 @@ namespace Karkas.Ornek.Dal.Ornekler
 				 VALUES 
 								(@DenemeKey,@DenemeKolon);SELECT scope_identity();";
 			}
-		}
-		public List<DenemeGuidIdentity>SorgulaHepsiniGetir()
-		{
-			List<DenemeGuidIdentity> liste = new List<DenemeGuidIdentity>();
-			SorguCalistir(liste);
-			return liste;
 		}
 		public DenemeGuidIdentity SorgulaDenemeKeyIle(Guid p1)
 		{
@@ -118,7 +112,6 @@ namespace Karkas.Ornek.Dal.Ornekler
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
 			builder.parameterEkle("@DenemeKey",SqlDbType.UniqueIdentifier, row.DenemeKey);
-			builder.parameterEkle("@DenemeNo",SqlDbType.Int, row.DenemeNo);
 			builder.parameterEkle("@DenemeKolon",SqlDbType.VarChar, row.DenemeKolon,50);
 		}
 		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		DenemeGuidIdentity		 row)

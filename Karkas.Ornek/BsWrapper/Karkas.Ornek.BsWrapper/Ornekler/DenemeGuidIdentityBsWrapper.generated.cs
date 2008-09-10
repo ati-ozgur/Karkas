@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -52,10 +52,16 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
         }
 
 
-        [DataObjectMethod(DataObjectMethodType.Select, true)]
+      [DataObjectMethod(DataObjectMethodType.Select, true)]
         public List<DenemeGuidIdentity> SorgulaHepsiniGetir()
         {
             return bs.SorgulaHepsiniGetir();
+        }
+
+      [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<DenemeGuidIdentity> SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
+        {
+            return bs.SorgulaHepsiniGetirSirali(pSiraListesi);
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]

@@ -51,9 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Ornekler\BasitTabloBs.cs" />
     <Compile Include="Ornekler\BasitTabloBs.generated.cs" />
+    <Compile Include="Ornekler\DenemeGuidIdentityBs.cs" />
+    <Compile Include="Ornekler\DenemeGuidIdentityBs.generated.cs" />
     <Compile Include="Ornekler\MusteriBs.cs" />
     <Compile Include="Ornekler\MusteriBs.generated.cs" />
+    <Compile Include="Ornekler\OrnekTabloBs.cs" />
     <Compile Include="Ornekler\OrnekTabloBs.generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
