@@ -60,6 +60,7 @@ namespace Karkas.Core.DataUtil
                 return "";
             }
             StringBuilder sb = new StringBuilder();
+            sb.Append(Environment.NewLine);
             sb.Append("ORDER BY ");
             foreach (Siralama s in siralamaListesi)
             {
@@ -88,6 +89,7 @@ namespace Karkas.Core.DataUtil
                 return "";
             }
             StringBuilder sb = new StringBuilder();
+            sb.Append(Environment.NewLine);
             sb.Append("WHERE ");
             foreach (WhereKriter s in whereListesi)
             {
