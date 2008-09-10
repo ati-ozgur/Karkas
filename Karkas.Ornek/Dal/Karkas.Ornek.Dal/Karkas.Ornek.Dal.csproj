@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="Ornekler\BasitTabloDal.cs" />
     <Compile Include="Ornekler\BasitTabloDal.generated.cs" />
+    <Compile Include="Ornekler\BasitTabloIdentityDal.cs" />
+    <Compile Include="Ornekler\BasitTabloIdentityDal.generated.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentityDal.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentityDal.generated.cs" />
     <Compile Include="Ornekler\MusteriDal.cs" />

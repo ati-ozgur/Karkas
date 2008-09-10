@@ -42,9 +42,15 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ornekler\BasitTablo.cs" />
     <Compile Include="Ornekler\BasitTablo.generated.cs" />
+    <Compile Include="Ornekler\BasitTabloIdentity.cs" />
+    <Compile Include="Ornekler\BasitTabloIdentity.generated.cs" />
+    <Compile Include="Ornekler\DenemeGuidIdentity.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentity.generated.cs" />
+    <Compile Include="Ornekler\Musteri.cs" />
     <Compile Include="Ornekler\Musteri.generated.cs" />
+    <Compile Include="Ornekler\OrnekTablo.cs" />
     <Compile Include="Ornekler\OrnekTablo.generated.cs" />
     <Compile Include="SessionEnumHelper.cs" />
   </ItemGroup>
