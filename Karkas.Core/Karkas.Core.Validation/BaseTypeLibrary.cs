@@ -50,10 +50,10 @@ namespace Karkas.Core.TypeLibrary
             OnaylamaListesiniOlustur();
         }
         
-        [XmlIgnore]
+        [XmlIgnore, SoapIgnore]
         private DataRowState rowState;
 
-        [XmlIgnore]
+        [XmlIgnore, SoapIgnore]
         public DataRowState RowState
         {
             get 
