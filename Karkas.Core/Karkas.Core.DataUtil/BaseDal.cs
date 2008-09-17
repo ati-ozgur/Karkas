@@ -115,7 +115,7 @@ namespace Karkas.Core.DataUtil
 
 
 
-        public int TablodakiSatirSayisi
+        public virtual int TablodakiSatirSayisi
         {
             get
             {
@@ -126,21 +126,22 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        public void Guncelle(T row)
+        public virtual void Guncelle(T row)
         {
             SorguHariciKomutCalistirUpdate(UpdateString, row);
 
             //rowstate'i unchanged yapiyoruz
             row.RowState = DataRowState.Unchanged;
         }
-        public void Sil(T row)
+        public virtual void Sil(T row)
         {
             SorguHariciKomutCalistirDelete(DeleteString, row);
             //rowstate'i unchanged yapiyoruz
             row.RowState = DataRowState.Unchanged;
         }
 
-        public void TopluEkleGuncelleVeyaSil(List<T> liste)
+
+        public virtual void TopluEkleGuncelleVeyaSil(List<T> liste)
         {
             if (liste == null)
             {
@@ -152,7 +153,7 @@ namespace Karkas.Core.DataUtil
             }
         }
 
-        public void DurumaGoreEkleGuncelleVeyaSil(T t)
+        public virtual void DurumaGoreEkleGuncelleVeyaSil(T t)
         {
             switch (t.RowState)
             {
@@ -167,7 +168,7 @@ namespace Karkas.Core.DataUtil
                     break;
             }
         }
-        private void SorguHariciKomutCalistirInternal(SqlCommand cmd)
+        protected void SorguHariciKomutCalistirInternal(SqlCommand cmd)
         {
             try
             {
@@ -195,14 +196,14 @@ namespace Karkas.Core.DataUtil
             }
         }
 
-        public List<T> SorgulaHepsiniGetir()
+        public virtual List<T> SorgulaHepsiniGetir()
         {
             List<T> liste = new List<T>();
             SorguCalistir(liste);
             return liste;
         }
 
-        public List<T> SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
+        public virtual List<T> SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
         {
             List<T> liste = new List<T>();
             SorguYardimcisi sy = new SorguYardimcisi();
@@ -224,7 +225,7 @@ namespace Karkas.Core.DataUtil
             return liste;
         }
 
-        public void Ekle(T row)
+        public virtual void Ekle(T row)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = InsertString;
