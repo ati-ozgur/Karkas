@@ -5,7 +5,7 @@ using System.Text;
 namespace Karkas.Core.DataUtil.SorguYardimcisiSiniflari
 {
 
-    internal class WhereKriter
+    internal class WhereKriter : BaseWhereKriter
     {
         public WhereKriter(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi)
         {
@@ -21,71 +21,13 @@ namespace Karkas.Core.DataUtil.SorguYardimcisiSiniflari
             likeYeri = pLikeYeriEnum;
         }
 
-        private LikeYeriEnum likeYeri = LikeYeriEnum.Yok;
-
-        public LikeYeriEnum LikeYeri
-        {
-            get { return likeYeri; }
-            set { likeYeri = value; }
-        }
 
 
-        private string parameterIsmi;
-
-        public string ParameterIsmi
-        {
-            get { return parameterIsmi; }
-            set { parameterIsmi = value; }
-        }
-
-
-        private WhereOperatorEnum whereOperator;
-
-        public WhereOperatorEnum WhereOperator
-        {
-            get { return whereOperator; }
-            set { whereOperator = value; }
-        }
-
-
-
-        private string kolonIsmi;
-
-        public string KolonIsmi
-        {
-            get { return kolonIsmi; }
-            set { kolonIsmi = value; }
-        }
-
-        public string SqlHali
+        public override string SqlHali
         {
             get
             {
-                string s = "";
-                switch (whereOperator)
-                {
-                    case WhereOperatorEnum.BuyukEsittir:
-                        s = " >= ";
-                        break;
-                    case WhereOperatorEnum.Buyuktur:
-                        s = ">";
-                        break;
-                    case WhereOperatorEnum.EsitDegildir:
-                        s = "<>";
-                        break;
-                    case WhereOperatorEnum.Esittir:
-                        s = "=";
-                        break;
-                    case WhereOperatorEnum.KucukEsittir:
-                        s = "<=";
-                        break;
-                    case WhereOperatorEnum.Kucuktur:
-                        s = "<";
-                        break;
-                    case WhereOperatorEnum.Like:
-                        s = " LIKE ";
-                        break;
-                }
+                string s = whereOperatorDegeriniAl();
                 if (WhereOperator != WhereOperatorEnum.Like)
                 {
                     return string.Format("{0} {1} {2}", kolonIsmi, s, parameterIsmi);

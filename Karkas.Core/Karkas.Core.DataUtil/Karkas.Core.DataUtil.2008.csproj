@@ -80,6 +80,7 @@
     <Compile Include="ParameterBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SorguYardimcisi.cs" />
+    <Compile Include="SorguYardimcisiSiniflari\BaseWhereKriter.cs" />
     <Compile Include="SorguYardimcisiSiniflari\LikeYeriEnum.cs" />
     <Compile Include="SorguYardimcisiSiniflari\Siralama.cs" />
     <Compile Include="SorguYardimcisiSiniflari\SiralamaEnum.cs" />
