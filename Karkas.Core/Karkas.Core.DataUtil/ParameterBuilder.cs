@@ -26,17 +26,18 @@ namespace Karkas.Core.DataUtil
         {
             parameterList = new List<SqlParameter>();
         }
-        public void parameterEkle(string parameterName, SqlDbType dbType, object value,ParameterDirection paramDirection)
-        {
-            SqlParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
-            prm.Direction = paramDirection;
-            parameteriyiCommandYadaListeyeEkle(prm);
-        }
 
         public void parameterEkle(string parameterName,SqlDbType dbType, object value)
         {
             SqlParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
             parameteriyiCommandYadaListeyeEkle(prm);
+        }
+        private static SqlParameter parameterDegerleriniSetle(string parameterName, SqlDbType dbType)
+        {
+            SqlParameter prm = new SqlParameter();
+            prm.ParameterName = parameterName;
+            prm.SqlDbType = dbType;
+            return prm;
         }
 
         private static SqlParameter parameterDegerleriniSetle(string parameterName, SqlDbType dbType, object value)
@@ -60,11 +61,16 @@ namespace Karkas.Core.DataUtil
             prm.Size = size;
             parameteriyiCommandYadaListeyeEkle(prm);
         }
-        public void parameterEkle(string parameterName, SqlDbType dbType, object value, int size,ParameterDirection paramDirection)
+        public void parameterEkleReturnValue(string parameterName, SqlDbType dbType)
         {
-            SqlParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
-            prm.Size = size;
-            prm.Direction = paramDirection;
+            SqlParameter prm = parameterDegerleriniSetle(parameterName, dbType);
+            prm.Direction = ParameterDirection.ReturnValue;
+            parameteriyiCommandYadaListeyeEkle(prm);
+        }
+        public void parameterEkleOutput(string parameterName, SqlDbType dbType)
+        {
+            SqlParameter prm = parameterDegerleriniSetle(parameterName, dbType);
+            prm.Direction = ParameterDirection.Output;
             parameteriyiCommandYadaListeyeEkle(prm);
         }
 
