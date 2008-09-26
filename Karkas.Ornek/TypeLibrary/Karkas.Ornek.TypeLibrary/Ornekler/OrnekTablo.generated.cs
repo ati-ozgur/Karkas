@@ -621,7 +621,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string OrnekTabloKeyAsString
 			{
 				[DebuggerStepThrough]
@@ -645,7 +645,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonBigIntAsString
 			{
 				[DebuggerStepThrough]
@@ -669,7 +669,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonBinaryAsString
 			{
 				[DebuggerStepThrough]
@@ -693,7 +693,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonBitAsString
 			{
 				[DebuggerStepThrough]
@@ -717,7 +717,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonCharAsString
 			{
 				[DebuggerStepThrough]
@@ -733,7 +733,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonDateTimeAsString
 			{
 				[DebuggerStepThrough]
@@ -757,7 +757,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonDecimalAsString
 			{
 				[DebuggerStepThrough]
@@ -781,7 +781,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonFloatAsString
 			{
 				[DebuggerStepThrough]
@@ -805,7 +805,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonImageAsString
 			{
 				[DebuggerStepThrough]
@@ -821,7 +821,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonIntAsString
 			{
 				[DebuggerStepThrough]
@@ -845,7 +845,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonMoneyAsString
 			{
 				[DebuggerStepThrough]
@@ -869,7 +869,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonNCharAsString
 			{
 				[DebuggerStepThrough]
@@ -885,7 +885,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonNTextAsString
 			{
 				[DebuggerStepThrough]
@@ -901,7 +901,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonNumericAsString
 			{
 				[DebuggerStepThrough]
@@ -925,7 +925,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonNVarcharAsString
 			{
 				[DebuggerStepThrough]
@@ -941,7 +941,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonNVarcharMaxAsString
 			{
 				[DebuggerStepThrough]
@@ -957,7 +957,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonRealAsString
 			{
 				[DebuggerStepThrough]
@@ -981,7 +981,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonSmallDateTimeAsString
 			{
 				[DebuggerStepThrough]
@@ -1005,7 +1005,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonSmallIntAsString
 			{
 				[DebuggerStepThrough]
@@ -1029,7 +1029,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonSmallMoneyAsString
 			{
 				[DebuggerStepThrough]
@@ -1053,7 +1053,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonSqlVariantAsString
 			{
 				[DebuggerStepThrough]
@@ -1077,7 +1077,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonTextAsString
 			{
 				[DebuggerStepThrough]
@@ -1093,7 +1093,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonTimeStampAsString
 			{
 				[DebuggerStepThrough]
@@ -1109,7 +1109,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonTinyIntAsString
 			{
 				[DebuggerStepThrough]
@@ -1133,7 +1133,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonUniqueIdentifierAsString
 			{
 				[DebuggerStepThrough]
@@ -1157,7 +1157,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonVarBinaryAsString
 			{
 				[DebuggerStepThrough]
@@ -1173,7 +1173,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonVarBinaryMaxAsString
 			{
 				[DebuggerStepThrough]
@@ -1189,7 +1189,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonVarcharAsString
 			{
 				[DebuggerStepThrough]
@@ -1205,7 +1205,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonVarcharMaxAsString
 			{
 				[DebuggerStepThrough]
@@ -1221,7 +1221,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string KolonXmlAsString
 			{
 				[DebuggerStepThrough]

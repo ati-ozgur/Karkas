@@ -141,7 +141,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string MusteriKeyAsString
 			{
 				[DebuggerStepThrough]
@@ -165,7 +165,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string AdiAsString
 			{
 				[DebuggerStepThrough]
@@ -181,7 +181,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string SoyadiAsString
 			{
 				[DebuggerStepThrough]
@@ -197,7 +197,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string IkinciAdiAsString
 			{
 				[DebuggerStepThrough]
@@ -213,7 +213,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string DogumTarihiAsString
 			{
 				[DebuggerStepThrough]
@@ -237,7 +237,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string TamAdiAsString
 			{
 				[DebuggerStepThrough]
