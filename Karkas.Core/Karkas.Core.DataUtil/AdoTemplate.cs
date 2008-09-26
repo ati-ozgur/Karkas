@@ -170,6 +170,7 @@ namespace Karkas.Core.DataUtil
         public DataTable DataTableOlustur(SqlCommand cmd)
         {
             DataTable dataTable = CreateDataTable();
+            cmd.Connection = Connection;
             helper.SorguCalistir(dataTable, cmd);
             return dataTable;
         }
