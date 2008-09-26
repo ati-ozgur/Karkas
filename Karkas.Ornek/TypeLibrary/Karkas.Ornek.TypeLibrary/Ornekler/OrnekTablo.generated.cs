@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Data;
 using System.Text;
+using System.Configuration;
+using System.Diagnostics;
+using System.Xml.Serialization;
 using System.Collections.Generic;
 using Karkas.Core.TypeLibrary;
 using Karkas.Core.Onaylama;
 using Karkas.Core.Onaylama.ForPonos;
-using System.Configuration;
 
 namespace Karkas.Ornek.TypeLibrary.Ornekler
 
 {
 		[Serializable]
+		[DebuggerDisplay("OrnekTabloKey = {OrnekTabloKey}")]
 		public partial class 		OrnekTablo		
 //::PRESERVE_BEGIN inheritance::// 
 : BaseTypeLibrary 
@@ -47,12 +50,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			private string kolonVarcharMax;
 			private string kolonXml;
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Guid OrnekTabloKey
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return ornekTabloKey;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (ornekTabloKey!= value))
@@ -63,12 +69,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Nullable<long> KolonBigInt
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonBigInt;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonBigInt!= value))
@@ -79,12 +88,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public object KolonBinary
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonBinary;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonBinary!= value))
@@ -95,12 +107,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Nullable<bool> KolonBit
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonBit;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonBit!= value))
@@ -111,12 +126,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string KolonChar
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonChar;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonChar!= value))
@@ -127,12 +145,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Nullable<DateTime> KolonDateTime
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonDateTime;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonDateTime!= value))
@@ -143,12 +164,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Nullable<decimal> KolonDecimal
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonDecimal;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonDecimal!= value))
@@ -159,12 +183,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Nullable<double> KolonFloat
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonFloat;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonFloat!= value))
@@ -175,12 +202,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public byte[] KolonImage
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonImage;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonImage!= value))
@@ -191,12 +221,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Nullable<int> KolonInt
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonInt;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonInt!= value))
@@ -207,12 +240,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Nullable<decimal> KolonMoney
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonMoney;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonMoney!= value))
@@ -223,12 +259,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string KolonNChar
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonNChar;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonNChar!= value))
@@ -239,12 +278,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string KolonNText
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonNText;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonNText!= value))
@@ -255,12 +297,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Nullable<decimal> KolonNumeric
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonNumeric;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonNumeric!= value))
@@ -271,12 +316,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string KolonNVarchar
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonNVarchar;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonNVarchar!= value))
@@ -287,12 +335,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string KolonNVarcharMax
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonNVarcharMax;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonNVarcharMax!= value))
@@ -303,12 +354,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Nullable<float> KolonReal
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonReal;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonReal!= value))
@@ -319,12 +373,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Nullable<DateTime> KolonSmallDateTime
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonSmallDateTime;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonSmallDateTime!= value))
@@ -335,12 +392,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Nullable<short> KolonSmallInt
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonSmallInt;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonSmallInt!= value))
@@ -351,12 +411,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Nullable<decimal> KolonSmallMoney
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonSmallMoney;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonSmallMoney!= value))
@@ -367,12 +430,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public object KolonSqlVariant
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonSqlVariant;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonSqlVariant!= value))
@@ -383,12 +449,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string KolonText
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonText;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonText!= value))
@@ -399,12 +468,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public byte[] KolonTimeStamp
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonTimeStamp;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonTimeStamp!= value))
@@ -415,12 +487,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Nullable<byte> KolonTinyInt
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonTinyInt;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonTinyInt!= value))
@@ -431,12 +506,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Nullable<Guid> KolonUniqueIdentifier
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonUniqueIdentifier;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonUniqueIdentifier!= value))
@@ -447,12 +525,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public byte[] KolonVarBinary
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonVarBinary;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonVarBinary!= value))
@@ -463,12 +544,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public byte[] KolonVarBinaryMax
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonVarBinaryMax;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonVarBinaryMax!= value))
@@ -479,12 +563,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string KolonVarchar
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonVarchar;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonVarchar!= value))
@@ -495,12 +582,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string KolonVarcharMax
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonVarcharMax;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonVarcharMax!= value))
@@ -511,12 +601,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string KolonXml
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return kolonXml;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (kolonXml!= value))
@@ -527,12 +620,16 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string OrnekTabloKeyAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return ornekTabloKey.ToString();
+					 return ornekTabloKey.ToString(); 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -540,19 +637,23 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						Guid _a = new Guid(value);
 					OrnekTabloKey = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"OrnekTabloKey","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonBigIntAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonBigInt.ToString();
+					 return kolonBigInt != null ? kolonBigInt.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -560,19 +661,23 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						long _a = Convert.ToInt64(value);
 					KolonBigInt = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonBigInt","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonBinaryAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonBinary.ToString();
+					 return kolonBinary != null ? kolonBinary.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -580,19 +685,23 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 					object _a =(object) value;
 					KolonBinary = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonBinary","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonBitAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonBit.ToString();
+					 return kolonBit != null ? kolonBit.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -600,31 +709,39 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						bool _a = Convert.ToBoolean(value);
 					KolonBit = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonBit","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonCharAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonChar.ToString();
+					 return kolonChar != null ? kolonChar.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					KolonChar = value;
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonDateTimeAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonDateTime.ToString();
+					 return kolonDateTime != null ? kolonDateTime.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -632,19 +749,23 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						DateTime _a = Convert.ToDateTime(value);
 					KolonDateTime = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonDateTime","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonDecimalAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonDecimal.ToString();
+					 return kolonDecimal != null ? kolonDecimal.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -652,19 +773,23 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						decimal _a = Convert.ToDecimal(value);
 					KolonDecimal = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonDecimal","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonFloatAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonFloat.ToString();
+					 return kolonFloat != null ? kolonFloat.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -672,31 +797,39 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						double _a = Convert.ToDouble(value);
 					KolonFloat = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonFloat","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonImageAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonImage.ToString();
+					 return kolonImage != null ? kolonImage.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					throw new ArgumentException("String'ten byte[] array'e cevirim desteklenmemektedir");
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonIntAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonInt.ToString();
+					 return kolonInt != null ? kolonInt.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -704,19 +837,23 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						int _a = Convert.ToInt32(value);
 					KolonInt = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonInt","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonMoneyAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonMoney.ToString();
+					 return kolonMoney != null ? kolonMoney.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -724,43 +861,55 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						decimal _a = Convert.ToDecimal(value);
 					KolonMoney = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonMoney","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonNCharAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonNChar.ToString();
+					 return kolonNChar != null ? kolonNChar.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					KolonNChar = value;
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonNTextAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonNText.ToString();
+					 return kolonNText != null ? kolonNText.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					KolonNText = value;
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonNumericAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonNumeric.ToString();
+					 return kolonNumeric != null ? kolonNumeric.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -768,43 +917,55 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						decimal _a = Convert.ToDecimal(value);
 					KolonNumeric = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonNumeric","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonNVarcharAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonNVarchar.ToString();
+					 return kolonNVarchar != null ? kolonNVarchar.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					KolonNVarchar = value;
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonNVarcharMaxAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonNVarcharMax.ToString();
+					 return kolonNVarcharMax != null ? kolonNVarcharMax.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					KolonNVarcharMax = value;
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonRealAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonReal.ToString();
+					 return kolonReal != null ? kolonReal.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -812,19 +973,23 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						float _a = Convert.ToSingle(value);
 					KolonReal = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonReal","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonSmallDateTimeAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonSmallDateTime.ToString();
+					 return kolonSmallDateTime != null ? kolonSmallDateTime.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -832,19 +997,23 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						DateTime _a = Convert.ToDateTime(value);
 					KolonSmallDateTime = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonSmallDateTime","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonSmallIntAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonSmallInt.ToString();
+					 return kolonSmallInt != null ? kolonSmallInt.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -852,19 +1021,23 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						short _a = Convert.ToInt16(value);
 					KolonSmallInt = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonSmallInt","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonSmallMoneyAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonSmallMoney.ToString();
+					 return kolonSmallMoney != null ? kolonSmallMoney.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -872,19 +1045,23 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						decimal _a = Convert.ToDecimal(value);
 					KolonSmallMoney = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonSmallMoney","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonSqlVariantAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonSqlVariant.ToString();
+					 return kolonSqlVariant != null ? kolonSqlVariant.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -892,43 +1069,55 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 					object _a =(object) value;
 					KolonSqlVariant = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonSqlVariant","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonTextAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonText.ToString();
+					 return kolonText != null ? kolonText.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					KolonText = value;
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonTimeStampAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonTimeStamp.ToString();
+					 return kolonTimeStamp != null ? kolonTimeStamp.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					throw new ArgumentException("String'ten byte[] array'e cevirim desteklenmemektedir");
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonTinyIntAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonTinyInt.ToString();
+					 return kolonTinyInt != null ? kolonTinyInt.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -936,19 +1125,23 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						byte _a = Convert.ToByte(value);
 					KolonTinyInt = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonTinyInt","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonUniqueIdentifierAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonUniqueIdentifier.ToString();
+					 return kolonUniqueIdentifier != null ? kolonUniqueIdentifier.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -956,67 +1149,87 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						Guid _a = new Guid(value);
 					KolonUniqueIdentifier = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonUniqueIdentifier","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonVarBinaryAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonVarBinary.ToString();
+					 return kolonVarBinary != null ? kolonVarBinary.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					throw new ArgumentException("String'ten byte[] array'e cevirim desteklenmemektedir");
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonVarBinaryMaxAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonVarBinaryMax.ToString();
+					 return kolonVarBinaryMax != null ? kolonVarBinaryMax.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					throw new ArgumentException("String'ten byte[] array'e cevirim desteklenmemektedir");
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonVarcharAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonVarchar.ToString();
+					 return kolonVarchar != null ? kolonVarchar.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					KolonVarchar = value;
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonVarcharMaxAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonVarcharMax.ToString();
+					 return kolonVarcharMax != null ? kolonVarcharMax.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					KolonVarcharMax = value;
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string KolonXmlAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return kolonXml.ToString();
+					 return kolonXml != null ? kolonXml.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					KolonXml = value;

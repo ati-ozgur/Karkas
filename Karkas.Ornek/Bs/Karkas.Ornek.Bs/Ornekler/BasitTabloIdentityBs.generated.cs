@@ -29,6 +29,10 @@ namespace Karkas.Ornek.Bs.Ornekler
             dal.Sil(k);
         }
 
+		public void Sil(int BasitTabloIdentityKey)
+		{
+			dal.Sil(BasitTabloIdentityKey);
+		}
         public void DurumaGoreEkleGuncelleVeyaSil(BasitTabloIdentity k)
         {
             dal.DurumaGoreEkleGuncelleVeyaSil(k);
@@ -72,5 +76,5 @@ namespace Karkas.Ornek.Bs.Ornekler
 				dal.KomutuCalistiranKullaniciKisiKey = value;
 			}
         }
-}
+	}
 }

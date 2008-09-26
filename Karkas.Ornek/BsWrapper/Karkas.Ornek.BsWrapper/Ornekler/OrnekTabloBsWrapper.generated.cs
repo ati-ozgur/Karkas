@@ -46,6 +46,10 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
             bs.Sil(k);
         }
 
+		public void Sil(Guid OrnekTabloKey)
+		{
+			bs.Sil(OrnekTabloKey);
+		}
         public void DurumaGoreEkleGuncelleVeyaSil(OrnekTablo k)
         {
             bs.DurumaGoreEkleGuncelleVeyaSil(k);

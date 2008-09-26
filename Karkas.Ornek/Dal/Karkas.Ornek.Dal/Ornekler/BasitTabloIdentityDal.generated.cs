@@ -96,6 +96,12 @@ namespace Karkas.Ornek.Dal.Ornekler
 			}
 		}
 		
+		public virtual void Sil(int BasitTabloIdentityKey)
+		{
+			BasitTabloIdentity row = new BasitTabloIdentity();
+			row.BasitTabloIdentityKey = BasitTabloIdentityKey;
+			base.Sil(row);
+		}
 		protected override void ProcessRow(System.Data.IDataReader dr, BasitTabloIdentity row)
 		{
 			row.BasitTabloIdentityKey = dr.GetInt32(0);

@@ -96,6 +96,12 @@ namespace Karkas.Ornek.Dal.Ornekler
 			}
 		}
 		
+		public virtual void Sil(Guid DenemeKey)
+		{
+			DenemeGuidIdentity row = new DenemeGuidIdentity();
+			row.DenemeKey = DenemeKey;
+			base.Sil(row);
+		}
 		protected override void ProcessRow(System.Data.IDataReader dr, DenemeGuidIdentity row)
 		{
 			row.DenemeKey = dr.GetGuid(0);

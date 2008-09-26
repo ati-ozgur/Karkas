@@ -92,6 +92,12 @@ namespace Karkas.Ornek.Dal.Ornekler
 			}
 		}
 		
+		public virtual void Sil(Guid MusteriKey)
+		{
+			Musteri row = new Musteri();
+			row.MusteriKey = MusteriKey;
+			base.Sil(row);
+		}
 		protected override void ProcessRow(System.Data.IDataReader dr, Musteri row)
 		{
 			row.MusteriKey = dr.GetGuid(0);

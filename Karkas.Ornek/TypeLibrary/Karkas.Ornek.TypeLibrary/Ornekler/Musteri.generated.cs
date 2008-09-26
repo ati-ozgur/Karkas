@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Data;
 using System.Text;
+using System.Configuration;
+using System.Diagnostics;
+using System.Xml.Serialization;
 using System.Collections.Generic;
 using Karkas.Core.TypeLibrary;
 using Karkas.Core.Onaylama;
 using Karkas.Core.Onaylama.ForPonos;
-using System.Configuration;
 
 namespace Karkas.Ornek.TypeLibrary.Ornekler
 
 {
 		[Serializable]
+		[DebuggerDisplay("MusteriKey = {MusteriKey}")]
 		public partial class 		Musteri		
 //::PRESERVE_BEGIN inheritance::// 
 : BaseTypeLibrary 
@@ -23,12 +26,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			private Nullable<DateTime> dogumTarihi;
 			private string tamAdi;
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Guid MusteriKey
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return musteriKey;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (musteriKey!= value))
@@ -39,12 +45,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string Adi
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return adi;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (adi!= value))
@@ -55,12 +64,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string Soyadi
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return soyadi;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (soyadi!= value))
@@ -71,12 +83,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string IkinciAdi
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return ikinciAdi;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (ikinciAdi!= value))
@@ -87,12 +102,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Nullable<DateTime> DogumTarihi
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return dogumTarihi;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (dogumTarihi!= value))
@@ -103,12 +121,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string TamAdi
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return tamAdi;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (tamAdi!= value))
@@ -119,12 +140,16 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string MusteriKeyAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return musteriKey.ToString();
+					 return musteriKey.ToString(); 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -132,55 +157,71 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						Guid _a = new Guid(value);
 					MusteriKey = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"MusteriKey","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string AdiAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return adi.ToString();
+					 return adi != null ? adi.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					Adi = value;
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string SoyadiAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return soyadi.ToString();
+					 return soyadi != null ? soyadi.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					Soyadi = value;
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string IkinciAdiAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return ikinciAdi.ToString();
+					 return ikinciAdi != null ? ikinciAdi.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					IkinciAdi = value;
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string DogumTarihiAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return dogumTarihi.ToString();
+					 return dogumTarihi != null ? dogumTarihi.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -188,19 +229,23 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						DateTime _a = Convert.ToDateTime(value);
 					DogumTarihi = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"DogumTarihi","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string TamAdiAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return tamAdi.ToString();
+					 return tamAdi != null ? tamAdi.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					TamAdi = value;

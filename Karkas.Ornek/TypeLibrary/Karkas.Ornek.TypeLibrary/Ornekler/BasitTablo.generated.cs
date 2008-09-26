@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Data;
 using System.Text;
+using System.Configuration;
+using System.Diagnostics;
+using System.Xml.Serialization;
 using System.Collections.Generic;
 using Karkas.Core.TypeLibrary;
 using Karkas.Core.Onaylama;
 using Karkas.Core.Onaylama.ForPonos;
-using System.Configuration;
 
 namespace Karkas.Ornek.TypeLibrary.Ornekler
 
 {
 		[Serializable]
+		[DebuggerDisplay("BasitTabloKey = {BasitTabloKey}")]
 		public partial class 		BasitTablo		
 //::PRESERVE_BEGIN inheritance::// 
 : BaseTypeLibrary 
@@ -20,12 +23,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			private string adi;
 			private string soyadi;
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Guid BasitTabloKey
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return basitTabloKey;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (basitTabloKey!= value))
@@ -36,12 +42,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string Adi
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return adi;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (adi!= value))
@@ -52,12 +61,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string Soyadi
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return soyadi;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (soyadi!= value))
@@ -68,12 +80,16 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string BasitTabloKeyAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return basitTabloKey.ToString();
+					 return basitTabloKey.ToString(); 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -81,31 +97,39 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						Guid _a = new Guid(value);
 					BasitTabloKey = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"BasitTabloKey","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string AdiAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return adi.ToString();
+					 return adi != null ? adi.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					Adi = value;
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string SoyadiAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return soyadi.ToString();
+					 return soyadi != null ? soyadi.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					Soyadi = value;

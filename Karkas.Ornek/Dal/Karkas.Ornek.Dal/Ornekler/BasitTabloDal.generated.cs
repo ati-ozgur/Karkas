@@ -92,6 +92,12 @@ namespace Karkas.Ornek.Dal.Ornekler
 			}
 		}
 		
+		public virtual void Sil(Guid BasitTabloKey)
+		{
+			BasitTablo row = new BasitTablo();
+			row.BasitTabloKey = BasitTabloKey;
+			base.Sil(row);
+		}
 		protected override void ProcessRow(System.Data.IDataReader dr, BasitTablo row)
 		{
 			row.BasitTabloKey = dr.GetGuid(0);

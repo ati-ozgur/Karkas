@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Data;
 using System.Text;
+using System.Configuration;
+using System.Diagnostics;
+using System.Xml.Serialization;
 using System.Collections.Generic;
 using Karkas.Core.TypeLibrary;
 using Karkas.Core.Onaylama;
 using Karkas.Core.Onaylama.ForPonos;
-using System.Configuration;
 
 namespace Karkas.Ornek.TypeLibrary.Ornekler
 
 {
 		[Serializable]
+		[DebuggerDisplay("DenemeKey = {DenemeKey}DenemeNo = {DenemeNo}")]
 		public partial class 		DenemeGuidIdentity		
 //::PRESERVE_BEGIN inheritance::// 
 : BaseTypeLibrary 
@@ -20,12 +23,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			private int denemeNo;
 			private string denemeKolon;
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public Guid DenemeKey
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return denemeKey;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (denemeKey!= value))
@@ -36,12 +42,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public int DenemeNo
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return denemeNo;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (denemeNo!= value))
@@ -52,12 +61,15 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			public string DenemeKolon
 			{
+				[DebuggerStepThrough]
 				get
 				{
 					return denemeKolon;
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					if ((this.RowState == DataRowState.Unchanged) && (denemeKolon!= value))
@@ -68,12 +80,16 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string DenemeKeyAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return denemeKey.ToString();
+					 return denemeKey.ToString(); 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -81,19 +97,23 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						Guid _a = new Guid(value);
 					DenemeKey = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"DenemeKey","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string DenemeNoAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return denemeNo.ToString();
+					 return denemeNo.ToString(); 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					try
@@ -101,19 +121,23 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						int _a = Convert.ToInt32(value);
 					DenemeNo = _a;
 					}
-					catch(Exception ex)
+					catch(Exception)
 					{
 						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"DenemeNo","Ceviri islemi Başarısız oldu"));
 					}
 				}
 			}
 
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore]
 			public string DenemeKolonAsString
 			{
+				[DebuggerStepThrough]
 				get
 				{
-					return denemeKolon.ToString();
+					 return denemeKolon != null ? denemeKolon.ToString() : ""; 
 				}
+				[DebuggerStepThrough]
 				set
 				{
 					DenemeKolon = value;

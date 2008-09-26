@@ -50,6 +50,8 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Ornekler\BasitTabloBsWrapper.cs" />
     <Compile Include="Ornekler\BasitTabloBsWrapper.generated.cs" />
+    <Compile Include="Ornekler\BasitTabloIdentityBsWrapper.cs" />
+    <Compile Include="Ornekler\BasitTabloIdentityBsWrapper.generated.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentityBsWrapper.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentityBsWrapper.generated.cs" />
     <Compile Include="Ornekler\MusteriBsWrapper.cs" />
