@@ -26,6 +26,12 @@ namespace Karkas.Core.DataUtil
         {
             parameterList = new List<SqlParameter>();
         }
+        public void parameterEkle(string parameterName, SqlDbType dbType, object value,ParameterDirection paramDirection)
+        {
+            SqlParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
+            prm.Direction = paramDirection;
+            parameteriyiCommandYadaListeyeEkle(prm);
+        }
 
         public void parameterEkle(string parameterName,SqlDbType dbType, object value)
         {
@@ -52,6 +58,13 @@ namespace Karkas.Core.DataUtil
         {
             SqlParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
             prm.Size = size;
+            parameteriyiCommandYadaListeyeEkle(prm);
+        }
+        public void parameterEkle(string parameterName, SqlDbType dbType, object value, int size,ParameterDirection paramDirection)
+        {
+            SqlParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
+            prm.Size = size;
+            prm.Direction = paramDirection;
             parameteriyiCommandYadaListeyeEkle(prm);
         }
 
