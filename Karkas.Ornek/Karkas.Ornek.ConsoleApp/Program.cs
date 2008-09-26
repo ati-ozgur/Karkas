@@ -9,6 +9,7 @@ using System.Transactions;
 using Karkas.Ornek.ConsoleApp.Testler;
 using System.Xml.Serialization;
 using System.IO;
+using System.Data;
 
 namespace Karkas.Ornek.ConsoleApp
 {
@@ -16,8 +17,20 @@ namespace Karkas.Ornek.ConsoleApp
     {
         static void Main(string[] args)
         {
+            StoredProcedures.MusteriEkle("Deneme From Console", "Deneme FROM Console Soyadi", null, DateTime.Now);
 
+            DataTable dt = StoredProcedures.MusteriSorgulaHepsiniGetir();
 
+            foreach (DataRow row in dt.Rows)
+            {
+                Console.WriteLine(row["Adi"]);
+                Console.WriteLine(row["Soyadi"]);
+            }
+
+        }
+
+        private static void listeHepsiniGetir()
+        {
             MusteriDal dal = new MusteriDal();
             List<Musteri> liste = dal.SorgulaHepsiniGetir();
             foreach (var item in liste)

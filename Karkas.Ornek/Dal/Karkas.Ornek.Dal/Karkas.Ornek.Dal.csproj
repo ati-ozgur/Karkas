@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6AC6D414-DC7C-4092-9394-5E2BD1AEB777}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -66,8 +66,10 @@
     <Compile Include="Ornekler\MusteriDal.generated.cs" />
     <Compile Include="Ornekler\OrnekTabloDal.cs" />
     <Compile Include="Ornekler\OrnekTabloDal.generated.cs" />
+    <Compile Include="Ornekler\StoredProcedures\usp_MusteriEkle.generated.cs" />
+    <Compile Include="Ornekler\StoredProcedures\usp_MusteriSorgulaHepsiniGetir.generated.cs" />
+    <Compile Include="Ornekler\StoredProcedures\usp_MusteriSorgulaMusteriKeyIle.generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StoredProcedures.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\TypeLibrary\Karkas.Ornek.TypeLibrary\Karkas.Ornek.TypeLibrary.csproj">
