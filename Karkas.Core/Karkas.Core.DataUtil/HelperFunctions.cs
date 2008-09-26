@@ -50,15 +50,8 @@ namespace Karkas.Core.DataUtil
 
         }
 
-        internal void SorguCalistir(DataTable dt, string sql, CommandType cmdType, SqlParameter[] parameters)
+        internal void SorguCalistir(DataTable dt, SqlCommand cmd)
         {
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.CommandType = cmdType;
-            foreach (SqlParameter p in parameters)
-            {
-                cmd.Parameters.Add(p);
-            }
-
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             try
             {
@@ -73,6 +66,19 @@ namespace Karkas.Core.DataUtil
             {
                 conn.Close();
             }
+
+        }
+
+        internal void SorguCalistir(DataTable dt, string sql, CommandType cmdType, SqlParameter[] parameters)
+        {
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = cmdType;
+            foreach (SqlParameter p in parameters)
+            {
+                cmd.Parameters.Add(p);
+            }
+            SorguCalistir(dt, cmd);
+
 
         }
 

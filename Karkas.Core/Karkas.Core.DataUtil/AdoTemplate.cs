@@ -167,6 +167,15 @@ namespace Karkas.Core.DataUtil
 
 
         #region "DataTable Olusturma Methods"
+        public DataTable DataTableOlustur(SqlCommand cmd)
+        {
+            DataTable dataTable = CreateDataTable();
+            helper.SorguCalistir(dataTable, cmd);
+            return dataTable;
+        }
+
+
+
         public DataTable DataTableOlustur(string sql, CommandType commandType)
         {
             DataTable dataTable = CreateDataTable();
