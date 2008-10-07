@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
   <TopNode>[0-1000]C:\atilla\Projects\DotNetProjects\karkas\Karkas.Ornek\Karkas.Ornek.ConsoleApp\Karkas.Ornek.ConsoleApp.nunit</TopNode>
-  <SelectedNode>[0-1015]Karkas.Ornek.ConsoleApp</SelectedNode>
+  <SelectedNode>[0-1000]C:\atilla\Projects\DotNetProjects\karkas\Karkas.Ornek\Karkas.Ornek.ConsoleApp\Karkas.Ornek.ConsoleApp.nunit</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
     <Node UniqueName="[0-1000]C:\atilla\Projects\DotNetProjects\karkas\Karkas.Ornek\Karkas.Ornek.ConsoleApp\Karkas.Ornek.ConsoleApp.nunit" Expanded="true">
@@ -16,24 +16,24 @@
                       <Nodes>
                         <Node UniqueName="[0-1016]Karkas.Ornek.ConsoleApp.Testler" Expanded="true">
                           <Nodes>
-                            <Node UniqueName="[0-1008]Karkas.Ornek.ConsoleApp.Testler.BasitTabloIdentityTest" Expanded="true">
+                            <Node UniqueName="[0-1001]Karkas.Ornek.ConsoleApp.Testler.BasitTabloIdentityTest" Expanded="true">
                               <Nodes>
-                                <Node UniqueName="[0-1009]Karkas.Ornek.ConsoleApp.Testler.BasitTabloIdentityTest.Ekle" />
-                                <Node UniqueName="[0-1010]Karkas.Ornek.ConsoleApp.Testler.BasitTabloIdentityTest.Guncelle" />
-                                <Node UniqueName="[0-1011]Karkas.Ornek.ConsoleApp.Testler.BasitTabloIdentityTest.ornekMusteriEkleGuncelleSil" />
+                                <Node UniqueName="[0-1002]Karkas.Ornek.ConsoleApp.Testler.BasitTabloIdentityTest.Ekle" />
+                                <Node UniqueName="[0-1003]Karkas.Ornek.ConsoleApp.Testler.BasitTabloIdentityTest.Guncelle" />
+                                <Node UniqueName="[0-1004]Karkas.Ornek.ConsoleApp.Testler.BasitTabloIdentityTest.ornekMusteriEkleGuncelleSil" />
                               </Nodes>
                             </Node>
-                            <Node UniqueName="[0-1001]Karkas.Ornek.ConsoleApp.Testler.DenemeGuidIdentityTest" Expanded="true">
+                            <Node UniqueName="[0-1005]Karkas.Ornek.ConsoleApp.Testler.DenemeGuidIdentityTest" Expanded="true">
                               <Nodes>
-                                <Node UniqueName="[0-1002]Karkas.Ornek.ConsoleApp.Testler.DenemeGuidIdentityTest.Ekle" />
-                                <Node UniqueName="[0-1003]Karkas.Ornek.ConsoleApp.Testler.DenemeGuidIdentityTest.Guncelle" />
+                                <Node UniqueName="[0-1006]Karkas.Ornek.ConsoleApp.Testler.DenemeGuidIdentityTest.Ekle" />
+                                <Node UniqueName="[0-1007]Karkas.Ornek.ConsoleApp.Testler.DenemeGuidIdentityTest.Guncelle" />
                               </Nodes>
                             </Node>
-                            <Node UniqueName="[0-1004]Karkas.Ornek.ConsoleApp.Testler.MusteriTest" Expanded="true">
+                            <Node UniqueName="[0-1008]Karkas.Ornek.ConsoleApp.Testler.MusteriTest" Expanded="true">
                               <Nodes>
-                                <Node UniqueName="[0-1005]Karkas.Ornek.ConsoleApp.Testler.MusteriTest.Ekle" />
-                                <Node UniqueName="[0-1006]Karkas.Ornek.ConsoleApp.Testler.MusteriTest.Guncelle" />
-                                <Node UniqueName="[0-1007]Karkas.Ornek.ConsoleApp.Testler.MusteriTest.ornekMusteriEkleGuncelleSil" />
+                                <Node UniqueName="[0-1009]Karkas.Ornek.ConsoleApp.Testler.MusteriTest.Ekle" />
+                                <Node UniqueName="[0-1010]Karkas.Ornek.ConsoleApp.Testler.MusteriTest.Guncelle" />
+                                <Node UniqueName="[0-1011]Karkas.Ornek.ConsoleApp.Testler.MusteriTest.ornekMusteriEkleGuncelleSil" />
                               </Nodes>
                             </Node>
                           </Nodes>

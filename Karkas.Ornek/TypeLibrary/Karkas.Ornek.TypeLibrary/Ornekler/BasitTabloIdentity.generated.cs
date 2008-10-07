@@ -81,7 +81,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string BasitTabloIdentityKeyAsString
 			{
 				[DebuggerStepThrough]
@@ -105,7 +105,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string AdiAsString
 			{
 				[DebuggerStepThrough]
@@ -121,7 +121,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string SoyadiAsString
 			{
 				[DebuggerStepThrough]

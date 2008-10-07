@@ -81,7 +81,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string DenemeKeyAsString
 			{
 				[DebuggerStepThrough]
@@ -105,7 +105,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string DenemeNoAsString
 			{
 				[DebuggerStepThrough]
@@ -129,7 +129,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore]
+			[XmlIgnore, SoapIgnore]
 			public string DenemeKolonAsString
 			{
 				[DebuggerStepThrough]
