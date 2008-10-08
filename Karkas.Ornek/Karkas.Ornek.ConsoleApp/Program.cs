@@ -17,15 +17,22 @@ namespace Karkas.Ornek.ConsoleApp
     {
         static void Main(string[] args)
         {
-            StoredProcedures.MusteriEkle("Deneme From Console", "Deneme FROM Console Soyadi", null, DateTime.Now);
+            ConcurrencyOrnekDal dal = new ConcurrencyOrnekDal();
+            List<ConcurrencyOrnek> listeFatih = dal.SorgulaHepsiniGetir();
+            List<ConcurrencyOrnek> listeErkan = dal.SorgulaHepsiniGetir();
 
-            DataTable dt = StoredProcedures.MusteriSorgulaHepsiniGetir();
+            ConcurrencyOrnek ornekFatih = listeFatih[0];
 
-            foreach (DataRow row in dt.Rows)
-            {
-                Console.WriteLine(row["Adi"]);
-                Console.WriteLine(row["Soyadi"]);
-            }
+            ConcurrencyOrnek ornekErkan = listeErkan[0];
+
+
+            ornekFatih.Adi = ornekFatih.Adi + "_";
+
+            dal.Guncelle(ornekFatih);
+
+            ornekErkan.Adi = ornekErkan.Adi + "2";
+
+            dal.Guncelle(ornekErkan);
 
         }
 
@@ -33,10 +40,25 @@ namespace Karkas.Ornek.ConsoleApp
         {
             MusteriDal dal = new MusteriDal();
             List<Musteri> liste = dal.SorgulaHepsiniGetir();
-            foreach (var item in liste)
+
+            var sonuc = from m in liste
+                        where ((m.Adi.Contains("a")) && (m.Soyadi.Contains("Ö")))
+                        orderby m.MusteriKey
+                        select m;
+
+            IEnumerable<Musteri> sonucListesi = liste
+                                            .Where(m => m.Adi.Contains("a"))
+                                            .OrderBy(m => m.Adi)
+                                            .Select(m => m);
+
+            Musteri[] mList= sonucListesi.ToArray();
+
+            foreach (var item in sonuc)
             {
                 Console.WriteLine(item.Adi + " " + item.Soyadi);
             }
+
+
         }
 
         private static void SerializeDene()

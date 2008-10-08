@@ -46,6 +46,8 @@
     <Compile Include="Ornekler\BasitTablo.generated.cs" />
     <Compile Include="Ornekler\BasitTabloIdentity.cs" />
     <Compile Include="Ornekler\BasitTabloIdentity.generated.cs" />
+    <Compile Include="Ornekler\ConcurrencyOrnek.cs" />
+    <Compile Include="Ornekler\ConcurrencyOrnek.generated.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentity.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentity.generated.cs" />
     <Compile Include="Ornekler\Musteri.cs" />

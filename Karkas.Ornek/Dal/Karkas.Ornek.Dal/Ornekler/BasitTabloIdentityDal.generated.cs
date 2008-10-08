@@ -53,7 +53,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 				 SET 
 				Adi = @Adi,Soyadi = @Soyadi				
 				WHERE 
-				BasitTabloIdentityKey = @BasitTabloIdentityKey ";
+				 BasitTabloIdentityKey = @BasitTabloIdentityKey ";
 			}
 		}
 		protected override string InsertString

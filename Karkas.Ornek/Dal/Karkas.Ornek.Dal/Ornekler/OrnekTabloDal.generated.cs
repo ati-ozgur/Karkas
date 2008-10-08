@@ -49,7 +49,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 				 SET 
 				KolonBigInt = @KolonBigInt,KolonBinary = @KolonBinary,KolonBit = @KolonBit,KolonChar = @KolonChar,KolonDateTime = @KolonDateTime,KolonDecimal = @KolonDecimal,KolonFloat = @KolonFloat,KolonImage = @KolonImage,KolonInt = @KolonInt,KolonMoney = @KolonMoney,KolonNChar = @KolonNChar,KolonNText = @KolonNText,KolonNumeric = @KolonNumeric,KolonNVarchar = @KolonNVarchar,KolonNVarcharMax = @KolonNVarcharMax,KolonReal = @KolonReal,KolonSmallDateTime = @KolonSmallDateTime,KolonSmallInt = @KolonSmallInt,KolonSmallMoney = @KolonSmallMoney,KolonSqlVariant = @KolonSqlVariant,KolonText = @KolonText,KolonTinyInt = @KolonTinyInt,KolonUniqueIdentifier = @KolonUniqueIdentifier,KolonVarBinary = @KolonVarBinary,KolonVarBinaryMax = @KolonVarBinaryMax,KolonVarchar = @KolonVarchar,KolonVarcharMax = @KolonVarcharMax,KolonXml = @KolonXml				
 				WHERE 
-				OrnekTabloKey = @OrnekTabloKey ";
+				 OrnekTabloKey = @OrnekTabloKey ";
 			}
 		}
 		protected override string InsertString

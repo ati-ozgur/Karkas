@@ -53,7 +53,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 				 SET 
 				DenemeKolon = @DenemeKolon				
 				WHERE 
-				DenemeKey = @DenemeKey ";
+				 DenemeKey = @DenemeKey ";
 			}
 		}
 		protected override string InsertString

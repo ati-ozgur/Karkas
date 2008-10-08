@@ -49,7 +49,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 				 SET 
 				Adi = @Adi,Soyadi = @Soyadi,IkinciAdi = @IkinciAdi,DogumTarihi = @DogumTarihi				
 				WHERE 
-				MusteriKey = @MusteriKey ";
+				 MusteriKey = @MusteriKey ";
 			}
 		}
 		protected override string InsertString
