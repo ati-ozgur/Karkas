@@ -1,33 +1,32 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
 
 namespace Karkas.Core.DataUtil.Exceptions
 {
-    [Serializable]
-    public class KarkasVeriHatasi : Exception
+    public class AyniAndaKullanimHatasi : KarkasVeriHatasi
     {
-        public KarkasVeriHatasi()
+        public AyniAndaKullanimHatasi()
             : base()
         {
 
         }
-        public KarkasVeriHatasi(SerializationInfo pInfo, StreamingContext pContext)
+        public AyniAndaKullanimHatasi(SerializationInfo pInfo, StreamingContext pContext)
             : base(pInfo, pContext)
         {
 
         }
-        public KarkasVeriHatasi(string pMessage)
+        public AyniAndaKullanimHatasi(string pMessage)
             : base(pMessage)
         {
 
         }
-        public KarkasVeriHatasi(string pMessage, Exception pInnerException)
+        public AyniAndaKullanimHatasi(string pMessage, Exception pInnerException)
             : base(pMessage, pInnerException)
         {
 
         }
-
     }
 }

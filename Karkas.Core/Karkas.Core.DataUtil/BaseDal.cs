@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Data;
 using Karkas.Core.TypeLibrary;
 using log4net;
+using Karkas.Core.DataUtil.Exceptions;
 
 namespace Karkas.Core.DataUtil
 {
@@ -168,8 +169,9 @@ namespace Karkas.Core.DataUtil
                     break;
             }
         }
-        protected void SorguHariciKomutCalistirInternal(SqlCommand cmd)
+        protected int SorguHariciKomutCalistirInternal(SqlCommand cmd)
         {
+            int sonucRowSayisi = 0;
             try
             {
                 if (Connection.State != ConnectionState.Open)
@@ -181,7 +183,7 @@ namespace Karkas.Core.DataUtil
                 {
                     cmd.Transaction = transactionHelper.CurrentTransaction;
                 }
-                cmd.ExecuteNonQuery();
+                sonucRowSayisi = cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
@@ -194,6 +196,7 @@ namespace Karkas.Core.DataUtil
                     Connection.Close();
                 }
             }
+            return sonucRowSayisi;
         }
 
         public virtual List<T> SorgulaHepsiniGetir()
@@ -208,7 +211,7 @@ namespace Karkas.Core.DataUtil
             List<T> liste = new List<T>();
             SorguYardimcisi sy = new SorguYardimcisi();
             int listeUzunluk = pSiraListesi.Length;
-            for(int i =0;i < listeUzunluk;i++)
+            for (int i = 0; i < listeUzunluk; i++)
             {
                 if (i + 1 < listeUzunluk)
                 {
@@ -236,14 +239,23 @@ namespace Karkas.Core.DataUtil
             //rowstate'i unchanged yapiyoruz
             row.RowState = DataRowState.Unchanged;
         }
-
         protected void SorguHariciKomutCalistirUpdate(string cmdText, T row)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = cmdText;
             cmd.Connection = Connection;
             UpdateCommandParametersAdd(cmd, row);
-            SorguHariciKomutCalistirInternal(cmd);
+            int kayitSayisi = SorguHariciKomutCalistirInternal(cmd);
+            
+            bool updateSonucuBasarisiz = (kayitSayisi == 0);
+            // Bu kod TopluEkleGuncelle icinde patlamaya yol acacak,
+            // bunu kabul ederek birakiyoruz. Bu tur durumlar icin
+            // gerekirse yazilimci kendisi kod yazsin.
+
+            if (updateSonucuBasarisiz)
+            {
+                throw new AyniAndaKullanimHatasi("Guncellemeye calýstýgýnýz kayýt daha önce baþkasý tarafýndan güncellenmiþtir");
+            }
         }
 
         protected void SorguHariciKomutCalistirDelete(string cmdText, T row)
