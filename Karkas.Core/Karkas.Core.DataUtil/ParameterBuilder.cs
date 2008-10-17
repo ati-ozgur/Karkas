@@ -73,6 +73,12 @@ namespace Karkas.Core.DataUtil
             prm.Direction = ParameterDirection.Output;
             parameteriyiCommandYadaListeyeEkle(prm);
         }
+        public void parameterEkleInputOutput(string parameterName, SqlDbType dbType)
+        {
+            SqlParameter prm = parameterDegerleriniSetle(parameterName, dbType);
+            prm.Direction = ParameterDirection.InputOutput;
+            parameteriyiCommandYadaListeyeEkle(prm);
+        }
 
         private void parameteriyiCommandYadaListeyeEkle(SqlParameter prm)
         {
