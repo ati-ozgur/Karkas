@@ -13,60 +13,60 @@ namespace Karkas.Ornek.Bs.Ornekler
 {
 	public partial class 	MusteriBs
 		{
-			MusteriDal dal = new MusteriDal();			
-			public void Ekle(Musteri k)
-			{
-				dal.Ekle(k);
-			}
-			public void Guncelle(Musteri k)
-			{
-				dal.Guncelle(k);
-			}
-			public void Sil(Musteri k)
-			{
-				dal.Sil(k);
-			}
-			public void Sil(Guid MusteriKey)
-			{
-				dal.Sil(MusteriKey);
-			}
-			public void DurumaGoreEkleGuncelleVeyaSil(Musteri k)
-			{
-				dal.DurumaGoreEkleGuncelleVeyaSil(k);
-			}
-			public List< Musteri > SorgulaHepsiniGetir()
-			{
-				return dal.SorgulaHepsiniGetir();
-			}
-			public List< Musteri > SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
-			{
-				return dal.SorgulaHepsiniGetirSirali(pSiraListesi);
-			}
-			public Musteri SorgulaMusteriKeyIle(Guid p1)
-			{
-				return dal.SorgulaMusteriKeyIle(p1);
-			}
-			public void TopluEkleGuncelleVeyaSil(List<Musteri> liste)
-			{
-				dal.TopluEkleGuncelleVeyaSil(liste);
-			}
-			public int TablodakiSatirSayisi
-			{
-				get
+				MusteriDal dal = new MusteriDal();				
+				public void Ekle(Musteri k)
 				{
-					return dal.TablodakiSatirSayisi;
+					dal.Ekle(k);
 				}
-			}
-			public Guid KomutuCalistiranKullaniciKisiKey
-			{
-				get
+				public void Guncelle(Musteri k)
 				{
-					return dal.KomutuCalistiranKullaniciKisiKey;
+					dal.Guncelle(k);
 				}
-				set
+				public void Sil(Musteri k)
 				{
-					dal.KomutuCalistiranKullaniciKisiKey = value;
+					dal.Sil(k);
+				}
+				public void Sil(Guid MusteriKey)
+				{
+					dal.Sil(MusteriKey);
+				}
+				public void DurumaGoreEkleGuncelleVeyaSil(Musteri k)
+				{
+					dal.DurumaGoreEkleGuncelleVeyaSil(k);
+				}
+				public List< Musteri > SorgulaHepsiniGetir()
+				{
+					return dal.SorgulaHepsiniGetir();
+				}
+				public List< Musteri > SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
+				{
+					return dal.SorgulaHepsiniGetirSirali(pSiraListesi);
+				}
+				public Musteri SorgulaMusteriKeyIle(Guid p1)
+				{
+					return dal.SorgulaMusteriKeyIle(p1);
+				}
+				public void TopluEkleGuncelleVeyaSil(List<Musteri> liste)
+				{
+					dal.TopluEkleGuncelleVeyaSil(liste);
+				}
+				public int TablodakiSatirSayisi
+				{
+					get
+					{
+						return dal.TablodakiSatirSayisi;
+					}
+				}
+				public Guid KomutuCalistiranKullaniciKisiKey
+				{
+					get
+					{
+						return dal.KomutuCalistiranKullaniciKisiKey;
+					}
+					set
+					{
+						dal.KomutuCalistiranKullaniciKisiKey = value;
+					}
 				}
 			}
 		}
-	}

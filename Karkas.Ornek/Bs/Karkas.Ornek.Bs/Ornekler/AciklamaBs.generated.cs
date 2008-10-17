@@ -11,42 +11,42 @@ using Karkas.Ornek.Dal.Ornekler;
 
 namespace Karkas.Ornek.Bs.Ornekler
 {
-	public partial class 	OrnekTabloBs
+	public partial class 	AciklamaBs
 		{
-				OrnekTabloDal dal = new OrnekTabloDal();				
-				public void Ekle(OrnekTablo k)
+				AciklamaDal dal = new AciklamaDal();				
+				public void Ekle(Aciklama k)
 				{
 					dal.Ekle(k);
 				}
-				public void Guncelle(OrnekTablo k)
+				public void Guncelle(Aciklama k)
 				{
 					dal.Guncelle(k);
 				}
-				public void Sil(OrnekTablo k)
+				public void Sil(Aciklama k)
 				{
 					dal.Sil(k);
 				}
-				public void Sil(Guid OrnekTabloKey)
+				public void Sil(Guid AciklamaKey)
 				{
-					dal.Sil(OrnekTabloKey);
+					dal.Sil(AciklamaKey);
 				}
-				public void DurumaGoreEkleGuncelleVeyaSil(OrnekTablo k)
+				public void DurumaGoreEkleGuncelleVeyaSil(Aciklama k)
 				{
 					dal.DurumaGoreEkleGuncelleVeyaSil(k);
 				}
-				public List< OrnekTablo > SorgulaHepsiniGetir()
+				public List< Aciklama > SorgulaHepsiniGetir()
 				{
 					return dal.SorgulaHepsiniGetir();
 				}
-				public List< OrnekTablo > SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
+				public List< Aciklama > SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
 				{
 					return dal.SorgulaHepsiniGetirSirali(pSiraListesi);
 				}
-				public OrnekTablo SorgulaOrnekTabloKeyIle(Guid p1)
+				public Aciklama SorgulaAciklamaKeyIle(Guid p1)
 				{
-					return dal.SorgulaOrnekTabloKeyIle(p1);
+					return dal.SorgulaAciklamaKeyIle(p1);
 				}
-				public void TopluEkleGuncelleVeyaSil(List<OrnekTablo> liste)
+				public void TopluEkleGuncelleVeyaSil(List<Aciklama> liste)
 				{
 					dal.TopluEkleGuncelleVeyaSil(liste);
 				}

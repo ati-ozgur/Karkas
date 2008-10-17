@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Testler\AciklamaTest.cs" />
     <Compile Include="Testler\BasitTabloIdentityTest.cs" />
     <Compile Include="Testler\DenemeGuidIdentityTest.cs" />
     <Compile Include="Testler\MusteriTest.cs" />

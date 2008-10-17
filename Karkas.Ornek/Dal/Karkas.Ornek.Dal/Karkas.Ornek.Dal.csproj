@@ -56,6 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ornekler\AciklamaDal.cs" />
+    <Compile Include="Ornekler\AciklamaDal.generated.cs" />
     <Compile Include="Ornekler\BasitTabloDal.cs" />
     <Compile Include="Ornekler\BasitTabloDal.generated.cs" />
     <Compile Include="Ornekler\BasitTabloIdentityDal.cs" />
