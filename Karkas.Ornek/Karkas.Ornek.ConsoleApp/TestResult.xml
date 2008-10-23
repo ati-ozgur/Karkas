@@ -1,25 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\atilla\Projects\DotNetProjects\karkas\Karkas.Ornek\Karkas.Ornek.ConsoleApp\Karkas.Ornek.ConsoleApp.nunit" total="3" failures="0" not-run="0" date="2008-10-17" time="14:59:55">
+<test-results name="C:\atilla\Projects\DotNetProjects\karkas\Karkas.Ornek\Karkas.Ornek.ConsoleApp\Karkas.Ornek.ConsoleApp.nunit" total="1" failures="1" not-run="0" date="2008-10-23" time="14:36:08">
   <environment nunit-version="2.4.8.0" clr-version="2.0.50727.3053" os-version="Microsoft Windows NT 5.1.2600 Service Pack 3" platform="Win32NT" cwd="C:\Program Files\NUnit 2.4.8\bin" machine-name="BIM-FATIH" user="atilla.ozgur" user-domain="INTDOMAIN" />
   <culture-info current-culture="tr-TR" current-uiculture="tr-TR" />
-  <test-suite name="C:\atilla\Projects\DotNetProjects\karkas\Karkas.Ornek\Karkas.Ornek.ConsoleApp\Karkas.Ornek.ConsoleApp.nunit" success="True" time="1.156" asserts="0">
+  <test-suite name="C:\atilla\Projects\DotNetProjects\karkas\Karkas.Ornek\Karkas.Ornek.ConsoleApp\Karkas.Ornek.ConsoleApp.nunit" success="False" time="1.625" asserts="0">
     <results>
-      <test-suite name="C:\atilla\Projects\DotNetProjects\karkas\Karkas.Ornek\Karkas.Ornek.ConsoleApp\bin\Debug\Karkas.Ornek.ConsoleApp.exe" success="True" time="1.156" asserts="0">
+      <test-suite name="C:\atilla\Projects\DotNetProjects\karkas\Karkas.Ornek\Karkas.Ornek.ConsoleApp\bin\Debug\Karkas.Ornek.ConsoleApp.exe" success="False" time="1.609" asserts="0">
         <results>
-          <test-suite name="Karkas" success="True" time="1.141" asserts="0">
+          <test-suite name="Karkas" success="False" time="1.594" asserts="0">
             <results>
-              <test-suite name="Ornek" success="True" time="1.141" asserts="0">
+              <test-suite name="Ornek" success="False" time="1.594" asserts="0">
                 <results>
-                  <test-suite name="ConsoleApp" success="True" time="1.141" asserts="0">
+                  <test-suite name="ConsoleApp" success="False" time="1.594" asserts="0">
                     <results>
-                      <test-suite name="Testler" success="True" time="1.125" asserts="0">
+                      <test-suite name="Testler" success="False" time="1.594" asserts="0">
                         <results>
-                          <test-suite name="AciklamaTest" success="True" time="1.109" asserts="0">
+                          <test-suite name="DenemeGuidIdentityTest" success="False" time="1.516" asserts="0">
                             <results>
-                              <test-case name="Karkas.Ornek.ConsoleApp.Testler.AciklamaTest.Ekle" executed="True" success="True" time="0.234" asserts="0" />
-                              <test-case name="Karkas.Ornek.ConsoleApp.Testler.AciklamaTest.Guncelle" executed="True" success="True" time="0.078" asserts="1" />
-                              <test-case name="Karkas.Ornek.ConsoleApp.Testler.AciklamaTest.ornekMusteriEkleGuncelleSil" executed="True" success="True" time="0.016" asserts="5" />
+                              <test-case name="Karkas.Ornek.ConsoleApp.Testler.DenemeGuidIdentityTest.Guncelle" executed="True" success="False" time="1.516" asserts="0">
+                                <failure>
+                                  <message><![CDATA[Karkas.Core.DataUtil.Exceptions.AyniAndaKullanimHatasi : Guncellemeye calıstıgınız kayıt daha önce başkası tarafından güncellenmiştir]]></message>
+                                  <stack-trace><![CDATA[konum: Karkas.Core.DataUtil.BaseDal`1.SorguHariciKomutCalistirUpdate(String cmdText, T row) C:\atilla\Projects\DotNetProjects\karkas\Karkas.Core\Karkas.Core.DataUtil\BaseDal.cs içinde: satır 261
+konum: Karkas.Core.DataUtil.BaseDal`1.Guncelle(T row) C:\atilla\Projects\DotNetProjects\karkas\Karkas.Core\Karkas.Core.DataUtil\BaseDal.cs içinde: satır 136
+konum: Karkas.Ornek.ConsoleApp.Testler.DenemeGuidIdentityTest.Guncelle() C:\atilla\Projects\DotNetProjects\karkas\Karkas.Ornek\Karkas.Ornek.ConsoleApp\Testler\DenemeGuidIdentityTest.cs içinde: satır 31
+]]></stack-trace>
+                                </failure>
+                              </test-case>
                             </results>
                           </test-suite>
                         </results>

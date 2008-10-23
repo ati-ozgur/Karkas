@@ -68,6 +68,7 @@
     <Compile Include="Testler\BasitTabloIdentityTest.cs" />
     <Compile Include="Testler\DenemeGuidIdentityTest.cs" />
     <Compile Include="Testler\MusteriTest.cs" />
+    <Compile Include="Testler\StoredProcedureTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BsWrapper\Karkas.Ornek.BsWrapper\Karkas.Ornek.BsWrapper.csproj">

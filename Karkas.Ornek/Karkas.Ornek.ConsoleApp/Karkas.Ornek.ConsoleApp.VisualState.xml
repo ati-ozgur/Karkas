@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
   <TopNode>[0-1000]C:\atilla\Projects\DotNetProjects\karkas\Karkas.Ornek\Karkas.Ornek.ConsoleApp\Karkas.Ornek.ConsoleApp.nunit</TopNode>
-  <SelectedNode>[0-1000]C:\atilla\Projects\DotNetProjects\karkas\Karkas.Ornek\Karkas.Ornek.ConsoleApp\Karkas.Ornek.ConsoleApp.nunit</SelectedNode>
+  <SelectedNode>[0-1012]Karkas.Ornek.ConsoleApp.Testler.AciklamaTest</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
     <Node UniqueName="[0-1000]C:\atilla\Projects\DotNetProjects\karkas\Karkas.Ornek\Karkas.Ornek.ConsoleApp\Karkas.Ornek.ConsoleApp.nunit" Expanded="true">
       <Nodes>
-        <Node UniqueName="[0-1012]C:\atilla\Projects\DotNetProjects\karkas\Karkas.Ornek\Karkas.Ornek.ConsoleApp\bin\Debug\Karkas.Ornek.ConsoleApp.exe" Expanded="true">
+        <Node UniqueName="[0-1016]C:\atilla\Projects\DotNetProjects\karkas\Karkas.Ornek\Karkas.Ornek.ConsoleApp\bin\Debug\Karkas.Ornek.ConsoleApp.exe" Expanded="true">
           <Nodes>
-            <Node UniqueName="[0-1013]Karkas" Expanded="true">
+            <Node UniqueName="[0-1017]Karkas" Expanded="true">
               <Nodes>
-                <Node UniqueName="[0-1014]Karkas.Ornek" Expanded="true">
+                <Node UniqueName="[0-1018]Karkas.Ornek" Expanded="true">
                   <Nodes>
-                    <Node UniqueName="[0-1015]Karkas.Ornek.ConsoleApp" Expanded="true">
+                    <Node UniqueName="[0-1019]Karkas.Ornek.ConsoleApp" Expanded="true">
                       <Nodes>
-                        <Node UniqueName="[0-1016]Karkas.Ornek.ConsoleApp.Testler" Expanded="true">
+                        <Node UniqueName="[0-1020]Karkas.Ornek.ConsoleApp.Testler" Expanded="true">
                           <Nodes>
+                            <Node UniqueName="[0-1012]Karkas.Ornek.ConsoleApp.Testler.AciklamaTest" Expanded="true">
+                              <Nodes>
+                                <Node UniqueName="[0-1013]Karkas.Ornek.ConsoleApp.Testler.AciklamaTest.Ekle" />
+                                <Node UniqueName="[0-1014]Karkas.Ornek.ConsoleApp.Testler.AciklamaTest.Guncelle" />
+                                <Node UniqueName="[0-1015]Karkas.Ornek.ConsoleApp.Testler.AciklamaTest.ornekMusteriEkleGuncelleSil" />
+                              </Nodes>
+                            </Node>
                             <Node UniqueName="[0-1001]Karkas.Ornek.ConsoleApp.Testler.BasitTabloIdentityTest" Expanded="true">
                               <Nodes>
                                 <Node UniqueName="[0-1002]Karkas.Ornek.ConsoleApp.Testler.BasitTabloIdentityTest.Ekle" />

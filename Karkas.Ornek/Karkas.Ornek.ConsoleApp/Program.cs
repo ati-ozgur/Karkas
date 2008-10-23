@@ -10,12 +10,40 @@ using Karkas.Ornek.ConsoleApp.Testler;
 using System.Xml.Serialization;
 using System.IO;
 using System.Data;
+using Karkas.Core.DataUtil;
+using Karkas.Core.DataUtil.SorguYardimcisiSiniflari;
 
 namespace Karkas.Ornek.ConsoleApp
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            int sonuc = (int)StoredProcedures.BasitTabloIdentityEkle("Sevda", "Çam");
+            Console.WriteLine(sonuc);
+
+            //AciklamaDal dal = new AciklamaDal();
+            //Aciklama a = new Aciklama();
+            //a.AciklamaKey = Guid.NewGuid();
+            //a.AciklamaProperty = "deneme";
+
+            //dal.Ekle(a);
+
+
+            //SorguYardimcisi sy = new SorguYardimcisi();
+            //sy.WhereKriterineTercihliEkle("Adi", WhereOperatorEnum.Like, "@Adi", LikeYeriEnum.Sonunda);
+            //sy.WhereKriterineTercihliEkle("Soyadi", WhereOperatorEnum.Like, "@Soyadi", LikeYeriEnum.Sonunda);
+            //sy.WhereKriterineTercihliEkle("TcKimlikNo", WhereOperatorEnum.Esittir, "@TcKimlikNo");
+
+
+            //Console.WriteLine( sy.KriterSonucunuGetir());
+
+
+
+
+        }
+
+        private static void concurrenyDeneme()
         {
             ConcurrencyOrnekDal dal = new ConcurrencyOrnekDal();
             List<ConcurrencyOrnek> listeFatih = dal.SorgulaHepsiniGetir();
@@ -33,7 +61,6 @@ namespace Karkas.Ornek.ConsoleApp
             ornekErkan.Adi = ornekErkan.Adi + "2";
 
             dal.Guncelle(ornekErkan);
-
         }
 
         private static void listeHepsiniGetir()
