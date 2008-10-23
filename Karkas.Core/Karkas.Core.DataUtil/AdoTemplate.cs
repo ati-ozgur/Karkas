@@ -94,6 +94,14 @@ namespace Karkas.Core.DataUtil
                 Connection.Close();
             }
         }
+        public object TekDegerGetir(SqlCommand cmd)
+        {
+            cmd.Connection = Connection;
+            object sonuc = 0;
+            sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
+            return sonuc;
+        }
+
         public Object TekDegerGetir(string cmdText)
         {
             SqlCommand cmd = new SqlCommand();
