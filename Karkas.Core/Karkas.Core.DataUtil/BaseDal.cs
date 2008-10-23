@@ -104,13 +104,17 @@ namespace Karkas.Core.DataUtil
             }
         }
 
+        private AdoTemplate template;
         public AdoTemplate Template
         {
             get
             {
-                AdoTemplate t = new AdoTemplate();
-                t.Connection = Connection;
-                return t;
+                if (template == null)
+                {
+                    template = new AdoTemplate();
+                    template.Connection = Connection;
+                }
+                return template;
             }
         }
 
