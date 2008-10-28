@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdoTemplate.cs" />
+    <Compile Include="BaseBs.cs" />
     <Compile Include="BaseDal.cs" />
     <Compile Include="BaseDalForIdentity.cs" />
     <Compile Include="CommandFactory.cs" />

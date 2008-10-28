@@ -30,14 +30,6 @@ namespace Karkas.Core.DataUtil
             }
         }
 
-        private TransactionHelper transactionHelper;
-
-        public TransactionHelper TransactionHelper
-        {
-            get { return transactionHelper; }
-            set { transactionHelper = value; }
-        }
-
 
         private static ILog logger = LogManager.GetLogger("Dal");
         public BaseDal()
@@ -59,30 +51,6 @@ namespace Karkas.Core.DataUtil
 
 
 
-        public bool IsInTransaction
-        {
-            get
-            {
-                if (transactionHelper == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    return transactionHelper.IsInTransaction;
-                }
-            }
-        }
-
-        public void BeginTransaction()
-        {
-            TransactionHelper = new TransactionHelper();
-            TransactionHelper.BeginTransaction();
-        }
-        public void EndTransaction()
-        {
-            TransactionHelper.EndTransaction();
-        }
 
 
         private SqlConnection connection = null;
@@ -105,6 +73,14 @@ namespace Karkas.Core.DataUtil
                 return connection;
             }
             set { connection = value; }
+        }
+
+        private SqlTransaction currentTransaction;
+
+        public SqlTransaction CurrentTransaction
+        {
+            get { return currentTransaction; }
+            set { currentTransaction = value; }
         }
 
         public virtual string DatabaseName
@@ -193,15 +169,20 @@ namespace Karkas.Core.DataUtil
                 {
                     Connection.Open();
                 }
-                logger.Info(new LoggingInfo(komutuCalistiranKullaniciKisiKey, cmd));
-                if (transactionHelper != null && transactionHelper.IsInTransaction)
+                else if (currentTransaction != null)
                 {
-                    cmd.Transaction = transactionHelper.CurrentTransaction;
+                    cmd.Transaction = currentTransaction;
                 }
+                logger.Info(new LoggingInfo(komutuCalistiranKullaniciKisiKey, cmd));
+                
                 sonucRowSayisi = cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
+                if (currentTransaction != null)
+                {
+                    currentTransaction.Rollback();
+                }
                 ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
             }
             finally
