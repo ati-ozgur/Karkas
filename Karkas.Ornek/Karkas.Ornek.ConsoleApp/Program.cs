@@ -21,26 +21,6 @@ namespace Karkas.Ornek.ConsoleApp
     {
         static void Main(string[] args)
         {
-            MusteriBs bs = new MusteriBs();
-
-            try
-            {
-                bs.TransactionRollBackBekliyoruz();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-            bs.TransactionBasarili();
-            try
-            {
-                bs.TransactionRollBackBekliyoruz();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-
 
 
         }
