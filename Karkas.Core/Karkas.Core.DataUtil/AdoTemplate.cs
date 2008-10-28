@@ -12,6 +12,20 @@ namespace Karkas.Core.DataUtil
     {
         private Guid komutuCalistiranKullaniciKisiKey;
 
+
+        private bool otomatikConnectionYonetimi = true;
+        public bool OtomatikConnectionYonetimi 
+        {
+            get
+            {
+                return otomatikConnectionYonetimi;
+            }
+            set
+            {
+                otomatikConnectionYonetimi = value;
+            }
+        }
+
         public Guid KomutuCalistiranKullaniciKisiKey
         {
             get { return komutuCalistiranKullaniciKisiKey; }
@@ -71,7 +85,10 @@ namespace Karkas.Core.DataUtil
             try
             {
                 logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
-                Connection.Open();
+                if (OtomatikConnectionYonetimi)
+                {
+                    Connection.Open();
+                }
                 son = cmd.ExecuteScalar();
             }
             catch (SqlException ex)
@@ -80,7 +97,10 @@ namespace Karkas.Core.DataUtil
             }
             finally
             {
-                Connection.Close();
+                if (OtomatikConnectionYonetimi)
+                {
+                    Connection.Close();
+                }
             }
             return son;
         }
@@ -89,7 +109,10 @@ namespace Karkas.Core.DataUtil
             try
             {
                 logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
-                Connection.Open();
+                if (OtomatikConnectionYonetimi)
+                {
+                    Connection.Open();
+                }
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -98,7 +121,10 @@ namespace Karkas.Core.DataUtil
             }
             finally
             {
-                Connection.Close();
+                if (OtomatikConnectionYonetimi)
+                {
+                    Connection.Close();
+                }
             }
         }
         public object TekDegerGetir(SqlCommand cmd)

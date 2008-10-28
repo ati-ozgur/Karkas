@@ -17,7 +17,18 @@ namespace Karkas.Core.DataUtil
     /// <typeparam name="M"></typeparam>
     public abstract class BaseDal<T> where T : BaseTypeLibrary, new()
     {
-
+        private bool otomatikConnectionYonetimi = true;
+        public bool OtomatikConnectionYonetimi
+        {
+            get
+            {
+                return otomatikConnectionYonetimi;
+            }
+            set
+            {
+                otomatikConnectionYonetimi = value;
+            }
+        }
 
         private TransactionHelper transactionHelper;
 
@@ -178,7 +189,7 @@ namespace Karkas.Core.DataUtil
             int sonucRowSayisi = 0;
             try
             {
-                if (Connection.State != ConnectionState.Open)
+                if (Connection.State != ConnectionState.Open && OtomatikConnectionYonetimi)
                 {
                     Connection.Open();
                 }
@@ -195,7 +206,7 @@ namespace Karkas.Core.DataUtil
             }
             finally
             {
-                if (Connection.State != ConnectionState.Closed)
+                if (Connection.State != ConnectionState.Closed && OtomatikConnectionYonetimi)
                 {
                     Connection.Close();
                 }
@@ -315,7 +326,10 @@ namespace Karkas.Core.DataUtil
             SqlDataReader reader = null;
             try
             {
-                Connection.Open();
+                if (OtomatikConnectionYonetimi)
+                {
+                    Connection.Open();
+                }
                 logger.Debug(new LoggingInfo(komutuCalistiranKullaniciKisiKey, cmd));
                 reader = cmd.ExecuteReader();
 
@@ -339,7 +353,7 @@ namespace Karkas.Core.DataUtil
                 {
                     reader.Close();
                 }
-                if (connection != null)
+                if (connection != null && OtomatikConnectionYonetimi)
                 {
                     Connection.Close();
                 }
