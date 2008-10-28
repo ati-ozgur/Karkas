@@ -19,7 +19,7 @@
         public KarkasWebHelper.QueryStringHelper QueryStringHelper
         {
             get { return queryStringHelper; }
-        } 
+        }
 
 
 
@@ -86,13 +86,7 @@
 
         protected override void OnLoad(EventArgs e)
         {
-            if (!base.IsPostBack)
-            {
-                this.JavascriptHelper.ScriptRegisterFile("~/javascript/jquery.js", "jquery");
-                this.JavascriptHelper.ScriptRegisterFile("~/javascript/jqDnR.js", "jqDnR");
-                this.JavascriptHelper.ScriptRegisterFile("~/javascript/jqalert.js", "jqalert");
-                this.JavascriptHelper.ScriptRegisterFile("~/javascript/genel.js", "genel");
-            }
+            JavascriptDosyalariniEkle();
             if (base.Master != null)
             {
                 this.mBox = base.Master.FindControl("MessageBox1") as IMessageBox;
@@ -104,6 +98,14 @@
 
 
             base.OnLoad(e);
+        }
+
+        private void JavascriptDosyalariniEkle()
+        {
+            this.JavascriptHelper.ScriptRegisterFile("~/javascript/jquery.js", "jquery");
+            this.JavascriptHelper.ScriptRegisterFile("~/javascript/jqDnR.js", "jqDnR");
+            this.JavascriptHelper.ScriptRegisterFile("~/javascript/jqalert.js", "jqalert");
+            this.JavascriptHelper.ScriptRegisterFile("~/javascript/genel.js", "genel");
         }
 
         public KarkasWebHelper.ListHelper ListHelper
