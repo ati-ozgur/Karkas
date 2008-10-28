@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Karkas.Core.DataUtil, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\Karkas.Core.DataUtil.dll</HintPath>
+    </Reference>
     <Reference Include="Karkas.Core.Onaylama, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ThirdParty\Karkas.Core.Onaylama.dll</HintPath>
@@ -64,6 +68,10 @@
     <ProjectReference Include="..\..\Bs\Karkas.Ornek.Bs\Karkas.Ornek.Bs.csproj">
       <Project>{2975DEAB-C104-4ACB-90F5-0F80A774E3BC}</Project>
       <Name>Karkas.Ornek.Bs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Dal\Karkas.Ornek.Dal\Karkas.Ornek.Dal.csproj">
+      <Project>{6AC6D414-DC7C-4092-9394-5E2BD1AEB777}</Project>
+      <Name>Karkas.Ornek.Dal</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\TypeLibrary\Karkas.Ornek.TypeLibrary\Karkas.Ornek.TypeLibrary.csproj">
       <Project>{A74FFCF8-27F3-4839-B03C-4F80D0D863CC}</Project>

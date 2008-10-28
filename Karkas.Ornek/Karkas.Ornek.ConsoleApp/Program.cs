@@ -13,6 +13,7 @@ using System.Data;
 using Karkas.Core.DataUtil;
 using Karkas.Core.DataUtil.SorguYardimcisiSiniflari;
 using System.Globalization;
+using Karkas.Ornek.Bs.Ornekler;
 
 namespace Karkas.Ornek.ConsoleApp
 {
@@ -20,31 +21,25 @@ namespace Karkas.Ornek.ConsoleApp
     {
         static void Main(string[] args)
         {
+            MusteriBs bs = new MusteriBs();
 
-            DateTime d = DateTime.Now;
-            string s1 = d.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-            Console.WriteLine(s1);
-
-
-            //int sonuc = (int)StoredProcedures.BasitTabloIdentityEkle("Sevda", "Çam");
-            //Console.WriteLine(sonuc);
-
-            //AciklamaDal dal = new AciklamaDal();
-            //Aciklama a = new Aciklama();
-            //a.AciklamaKey = Guid.NewGuid();
-            //a.AciklamaProperty = "deneme";
-
-            //dal.Ekle(a);
-
-
-            //SorguYardimcisi sy = new SorguYardimcisi();
-            //sy.WhereKriterineTercihliEkle("Adi", WhereOperatorEnum.Like, "@Adi", LikeYeriEnum.Sonunda);
-            //sy.WhereKriterineTercihliEkle("Soyadi", WhereOperatorEnum.Like, "@Soyadi", LikeYeriEnum.Sonunda);
-            //sy.WhereKriterineTercihliEkle("TcKimlikNo", WhereOperatorEnum.Esittir, "@TcKimlikNo");
-
-
-            //Console.WriteLine( sy.KriterSonucunuGetir());
-
+            try
+            {
+                bs.TransactionRollBackBekliyoruz();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            bs.TransactionBasarili();
+            try
+            {
+                bs.TransactionRollBackBekliyoruz();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
 
 
 

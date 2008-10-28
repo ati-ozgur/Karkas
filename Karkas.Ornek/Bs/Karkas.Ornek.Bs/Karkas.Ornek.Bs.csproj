@@ -51,10 +51,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Ornekler\AciklamaBs.cs" />
+    <Compile Include="Ornekler\AciklamaBs.generated.cs" />
     <Compile Include="Ornekler\BasitTabloBs.cs" />
     <Compile Include="Ornekler\BasitTabloBs.generated.cs" />
     <Compile Include="Ornekler\BasitTabloIdentityBs.cs" />
     <Compile Include="Ornekler\BasitTabloIdentityBs.generated.cs" />
+    <Compile Include="Ornekler\ConcurrencyOrnekBs.cs" />
+    <Compile Include="Ornekler\ConcurrencyOrnekBs.generated.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentityBs.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentityBs.generated.cs" />
     <Compile Include="Ornekler\MusteriBs.cs" />

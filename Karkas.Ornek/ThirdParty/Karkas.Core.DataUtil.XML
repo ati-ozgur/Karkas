@@ -11,16 +11,6 @@
             Otomatik olarak Bs tarafindan yapilacak
             </summary>
         </member>
-        <member name="M:Karkas.Core.DataUtil.TransactionHelper.BeginTransaction">
-            <summary>
-            Starts a transaction and open a database connection
-            </summary>
-        </member>
-        <member name="M:Karkas.Core.DataUtil.TransactionHelper.EndTransaction">
-            <summary>
-            Commit a transaction and close database connection
-            </summary>
-        </member>
         <member name="T:Karkas.Core.DataUtil.BaseDal`1">
             <summary>
             T TypeLibrary Class

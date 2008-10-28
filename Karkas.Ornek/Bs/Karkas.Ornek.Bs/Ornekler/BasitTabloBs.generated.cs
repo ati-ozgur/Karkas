@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
+using Karkas.Core.DataUtil;
 using Karkas.Ornek.TypeLibrary;
 using Karkas.Ornek.TypeLibrary.Ornekler;
 using Karkas.Ornek.Dal.Ornekler;
@@ -11,62 +12,15 @@ using Karkas.Ornek.Dal.Ornekler;
 
 namespace Karkas.Ornek.Bs.Ornekler
 {
-	public partial class 	BasitTabloBs
+	public partial class 	BasitTabloBs : BaseBs<BasitTablo, BasitTabloDal>
 		{
-				BasitTabloDal dal = new BasitTabloDal();				
-				public void Ekle(BasitTablo k)
-				{
-					dal.Ekle(k);
-				}
-				public void Guncelle(BasitTablo k)
-				{
-					dal.Guncelle(k);
-				}
-				public void Sil(BasitTablo k)
-				{
-					dal.Sil(k);
-				}
-				public void Sil(Guid BasitTabloKey)
-				{
-					dal.Sil(BasitTabloKey);
-				}
-				public void DurumaGoreEkleGuncelleVeyaSil(BasitTablo k)
-				{
-					dal.DurumaGoreEkleGuncelleVeyaSil(k);
-				}
-				public List< BasitTablo > SorgulaHepsiniGetir()
-				{
-					return dal.SorgulaHepsiniGetir();
-				}
-				public List< BasitTablo > SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
-				{
-					return dal.SorgulaHepsiniGetirSirali(pSiraListesi);
-				}
-				public BasitTablo SorgulaBasitTabloKeyIle(Guid p1)
-				{
-					return dal.SorgulaBasitTabloKeyIle(p1);
-				}
-				public void TopluEkleGuncelleVeyaSil(List<BasitTablo> liste)
-				{
-					dal.TopluEkleGuncelleVeyaSil(liste);
-				}
-				public int TablodakiSatirSayisi
-				{
-					get
-					{
-						return dal.TablodakiSatirSayisi;
-					}
-				}
-				public Guid KomutuCalistiranKullaniciKisiKey
-				{
-					get
-					{
-						return dal.KomutuCalistiranKullaniciKisiKey;
-					}
-					set
-					{
-						dal.KomutuCalistiranKullaniciKisiKey = value;
-					}
-				}
+			public void Sil(Guid BasitTabloKey)
+			{
+				dal.Sil(BasitTabloKey);
+			}
+			public BasitTablo SorgulaBasitTabloKeyIle(Guid p1)
+			{
+				return dal.SorgulaBasitTabloKeyIle(p1);
 			}
 		}
+	}
