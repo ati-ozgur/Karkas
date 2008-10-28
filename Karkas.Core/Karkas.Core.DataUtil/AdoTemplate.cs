@@ -19,10 +19,17 @@ namespace Karkas.Core.DataUtil
         }
         private static ILog logger = LogManager.GetLogger("Dal");
 
-        private SqlConnection connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
+        private SqlConnection connection = null;
         public SqlConnection Connection
         {
-            get { return connection; }
+            get 
+            {
+                if (connection == null)
+                {
+                    connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
+                }
+                return connection; 
+            }
             set { connection = value; }
         }
 
