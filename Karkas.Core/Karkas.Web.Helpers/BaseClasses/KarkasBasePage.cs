@@ -88,6 +88,10 @@
         {
             if (!base.IsPostBack)
             {
+                this.JavascriptHelper.ScriptRegisterFile("~/javascript/jquery.js", "jquery");
+                this.JavascriptHelper.ScriptRegisterFile("~/javascript/jqDnR.js", "jqDnR");
+                this.JavascriptHelper.ScriptRegisterFile("~/javascript/jqalert.js", "jqalert");
+                this.JavascriptHelper.ScriptRegisterFile("~/javascript/genel.js", "genel");
             }
             if (base.Master != null)
             {
@@ -97,6 +101,8 @@
             {
                 this.mBox = this.FindControl("MessageBox1") as IMessageBox;
             }
+
+
             base.OnLoad(e);
         }
 

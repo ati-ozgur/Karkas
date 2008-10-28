@@ -164,6 +164,14 @@
             {
                 JavascriptHelper.ScriptRegister(this.calisanSayfa, javascript, key);
             }
+            public void ScriptRegisterFile(string javascriptFileName, string key)
+            {
+                if (!Page.ClientScript.IsClientScriptIncludeRegistered(key))
+                {
+                    string url = Page.ResolveClientUrl(javascriptFileName);
+                    this.Page.ClientScript.RegisterClientScriptInclude(key, url);
+                }
+            }
 
             private static void ScriptRegister(Page page, string javascript, string key)
             {
