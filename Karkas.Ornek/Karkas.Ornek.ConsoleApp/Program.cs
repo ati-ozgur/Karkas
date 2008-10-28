@@ -12,6 +12,7 @@ using System.IO;
 using System.Data;
 using Karkas.Core.DataUtil;
 using Karkas.Core.DataUtil.SorguYardimcisiSiniflari;
+using System.Globalization;
 
 namespace Karkas.Ornek.ConsoleApp
 {
@@ -19,8 +20,14 @@ namespace Karkas.Ornek.ConsoleApp
     {
         static void Main(string[] args)
         {
-            int sonuc = (int)StoredProcedures.BasitTabloIdentityEkle("Sevda", "Çam");
-            Console.WriteLine(sonuc);
+
+            DateTime d = DateTime.Now;
+            string s1 = d.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            Console.WriteLine(s1);
+
+
+            //int sonuc = (int)StoredProcedures.BasitTabloIdentityEkle("Sevda", "Çam");
+            //Console.WriteLine(sonuc);
 
             //AciklamaDal dal = new AciklamaDal();
             //Aciklama a = new Aciklama();

@@ -59,6 +59,17 @@ namespace Karkas.Ornek.ConsoleApp.Testler
             Assert.AreEqual(dt.Rows[0][Musteri.PropertyIsimleri.Adi].ToString(), ad);
             Assert.AreEqual(dt.Rows[0][Musteri.PropertyIsimleri.Soyadi].ToString(), soyad);
         }
+        [Test]
+        public void usp_ToplaOutputParamTest()
+        {
+            int sayi1 = 10;
+            int sayi2 = 15;
+            int toplam;
+
+            StoredProcedures.ToplaOutputParam(sayi1, sayi2, out toplam);
+            Assert.AreEqual(toplam, sayi1 + sayi2);
+
+        }
 
     }
 }

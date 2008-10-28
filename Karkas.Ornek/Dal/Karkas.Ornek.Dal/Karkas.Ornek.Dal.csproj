@@ -74,6 +74,7 @@
     <Compile Include="Ornekler\StoredProcedures\usp_MusteriEkle.generated.cs" />
     <Compile Include="Ornekler\StoredProcedures\usp_MusteriSorgulaHepsiniGetir.generated.cs" />
     <Compile Include="Ornekler\StoredProcedures\usp_MusteriSorgulaMusteriKeyIle.generated.cs" />
+    <Compile Include="Ornekler\StoredProcedures\usp_ToplaOutputParam.generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
