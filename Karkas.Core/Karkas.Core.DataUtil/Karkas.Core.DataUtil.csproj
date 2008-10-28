@@ -40,13 +40,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdoTemplate.cs" />
+    <Compile Include="BaseBs.cs" />
     <Compile Include="BaseDal.cs" />
     <Compile Include="BaseDalForIdentity.cs" />
     <Compile Include="CommandFactory.cs" />
     <Compile Include="ConnectionSingleton.cs" />
     <Compile Include="ExceptionDegistirici.cs" />
+    <Compile Include="Exceptions\AyniAndaKullanimHatasi.cs" />
     <Compile Include="Exceptions\IkincilAnahtarHatasi.cs" />
-    <Compile Include="Exceptions\SimetriVeriHatasi.cs" />
+    <Compile Include="Exceptions\KarkasVeriHatasi.cs" />
     <Compile Include="Exceptions\VeritabaniBaglantiHatasi.cs" />
     <Compile Include="Exceptions\YanlisSqlCumlesiHatasi.cs" />
     <Compile Include="HelperFunctions.cs" />
@@ -65,9 +67,6 @@
     <Compile Include="SorguYardimcisiSiniflari\WhereKriterTercihliNullDegeri.cs" />
     <Compile Include="SorguYardimcisiSiniflari\WhereOperatorEnum.cs" />
     <Compile Include="TransactionHelper.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MainClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Karkas.Core.Validation\Karkas.Core.Validation.csproj">
