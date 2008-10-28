@@ -18,6 +18,12 @@ namespace Karkas.Core.DataUtil
     public abstract class BaseDal<T> where T : BaseTypeLibrary, new()
     {
         private bool otomatikConnectionYonetimi = true;
+        /// <summary>
+        /// Eger varsayýlan deger, true býrakýlýrsa, connection yonetimi 
+        /// BaseDal tarafýndan yapýlýr. Komutlar cagrýlmadan once, connection getirme
+        /// Connection'u acma ve kapama BaseDal kontrolundedir.
+        /// Eger false ise connection olusturma, acma Kapama Kullanýcýya aittir.
+        /// </summary>
         public bool OtomatikConnectionYonetimi
         {
             get

@@ -14,6 +14,12 @@ namespace Karkas.Core.DataUtil
 
 
         private bool otomatikConnectionYonetimi = true;
+        /// <summary>
+        /// Eger varsayýlan deger, true býrakýlýrsa, connection yonetimi 
+        /// BaseDal tarafýndan yapýlýr. Komutlar cagrýlmadan once, connection getirme
+        /// Connection'u acma ve kapama BaseDal kontrolundedir.
+        /// Eger false ise connection olusturma, acma Kapama Kullanýcýya aittir.
+        /// </summary>
         public bool OtomatikConnectionYonetimi 
         {
             get
@@ -24,6 +30,13 @@ namespace Karkas.Core.DataUtil
             {
                 otomatikConnectionYonetimi = value;
             }
+        }
+        private SqlTransaction currentTransaction;
+
+        public SqlTransaction CurrentTransaction
+        {
+            get { return currentTransaction; }
+            set { currentTransaction = value; }
         }
 
         public Guid KomutuCalistiranKullaniciKisiKey
@@ -89,6 +102,10 @@ namespace Karkas.Core.DataUtil
                 {
                     Connection.Open();
                 }
+                else if (currentTransaction != null)
+                {
+                    cmd.Transaction = currentTransaction;
+                }
                 son = cmd.ExecuteScalar();
             }
             catch (SqlException ex)
@@ -113,6 +130,11 @@ namespace Karkas.Core.DataUtil
                 {
                     Connection.Open();
                 }
+                else if (currentTransaction != null)
+                {
+                    cmd.Transaction = currentTransaction;
+                }
+
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
