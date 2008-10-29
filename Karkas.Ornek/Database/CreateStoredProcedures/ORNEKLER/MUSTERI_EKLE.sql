@@ -1,3 +1,5 @@
+USE KARKAS_ORNEK
+GO
 /****** Object:  StoredProcedure [ORNEKLER].[MUSTERI_EKLE]    Script Date: 09/26/2008 18:06:37 ******/
 SET ANSI_NULLS ON
 GO
