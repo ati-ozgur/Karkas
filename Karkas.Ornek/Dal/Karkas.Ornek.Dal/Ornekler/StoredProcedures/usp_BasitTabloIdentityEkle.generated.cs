@@ -10,16 +10,16 @@ namespace Karkas.Ornek.Dal.Ornekler
 	{
 		public static int BasitTabloIdentityEkle
 		(
-			string @Adi			,
-			string @Soyadi			
+
+			string @Adi
+			,string @Soyadi
+			, AdoTemplate template
 			)
 			{
 				ParameterBuilder builder = new ParameterBuilder();
 				
 				 builder.parameterEkle( "@Adi",SqlDbType.VarChar,@Adi);
 				 builder.parameterEkle( "@Soyadi",SqlDbType.VarChar,@Soyadi);
-				AdoTemplate template = new AdoTemplate();
-				template.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
 				SqlCommand cmd = new SqlCommand();
 				cmd.CommandText = "ORNEKLER.BASIT_TABLO_IDENTITY_EKLE";
 				cmd.CommandType = CommandType.StoredProcedure;
@@ -27,5 +27,20 @@ namespace Karkas.Ornek.Dal.Ornekler
 				int tmp = Convert.ToInt32(template.TekDegerGetir(cmd));;
 				return tmp;
 			}
-		}
-	}
+			public static int BasitTabloIdentityEkle
+			(
+
+				string @Adi
+				,string @Soyadi
+				)
+				{
+					AdoTemplate template = new AdoTemplate();
+					template.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
+					return BasitTabloIdentityEkle(
+						@Adi
+						,@Soyadi
+						,template
+						);
+					}
+				}
+			}

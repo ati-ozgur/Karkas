@@ -10,10 +10,12 @@ namespace Karkas.Ornek.Dal.Ornekler
 	{
 		public static int MusteriEkle
 		(
-			string @Adi			,
-			string @Soyadi			,
-			string @IkinciAdi			,
-			DateTime @DogumTarihi			
+
+			string @Adi
+			,string @Soyadi
+			,string @IkinciAdi
+			,DateTime @DogumTarihi
+			, AdoTemplate template
 			)
 			{
 				ParameterBuilder builder = new ParameterBuilder();
@@ -22,8 +24,6 @@ namespace Karkas.Ornek.Dal.Ornekler
 				 builder.parameterEkle( "@Soyadi",SqlDbType.VarChar,@Soyadi);
 				 builder.parameterEkle( "@IkinciAdi",SqlDbType.VarChar,@IkinciAdi);
 				 builder.parameterEkle( "@DogumTarihi",SqlDbType.DateTime,@DogumTarihi);
-				AdoTemplate template = new AdoTemplate();
-				template.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
 				SqlCommand cmd = new SqlCommand();
 				cmd.CommandText = "ORNEKLER.MUSTERI_EKLE";
 				cmd.CommandType = CommandType.StoredProcedure;
@@ -31,5 +31,24 @@ namespace Karkas.Ornek.Dal.Ornekler
 				template.SorguHariciKomutCalistir(cmd);
 				return (int) cmd.Parameters["@RETURN_VALUE"].Value;
 			}
-		}
-	}
+			public static int MusteriEkle
+			(
+
+				string @Adi
+				,string @Soyadi
+				,string @IkinciAdi
+				,DateTime @DogumTarihi
+				)
+				{
+					AdoTemplate template = new AdoTemplate();
+					template.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
+					return MusteriEkle(
+						@Adi
+						,@Soyadi
+						,@IkinciAdi
+						,@DogumTarihi
+						,template
+						);
+					}
+				}
+			}

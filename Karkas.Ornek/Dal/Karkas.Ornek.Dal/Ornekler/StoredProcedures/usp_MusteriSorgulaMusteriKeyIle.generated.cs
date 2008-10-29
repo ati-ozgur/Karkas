@@ -10,14 +10,14 @@ namespace Karkas.Ornek.Dal.Ornekler
 	{
 		public static DataTable MusteriSorgulaMusteriKeyIle
 		(
-			Guid @MusteriKey			
+
+			Guid @MusteriKey
+			, AdoTemplate template
 			)
 			{
 				ParameterBuilder builder = new ParameterBuilder();
 				
 				 builder.parameterEkle( "@MusteriKey",SqlDbType.UniqueIdentifier,@MusteriKey);
-				AdoTemplate template = new AdoTemplate();
-				template.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
 				SqlCommand cmd = new SqlCommand();
 				cmd.CommandText = "ORNEKLER.MUSTERI_SORGULA_MUSTERI_KEY_ILE";
 				cmd.CommandType = CommandType.StoredProcedure;
@@ -25,5 +25,18 @@ namespace Karkas.Ornek.Dal.Ornekler
 				DataTable _tmpDataTable = template.DataTableOlustur(cmd);
 				return _tmpDataTable;
 			}
-		}
-	}
+			public static DataTable MusteriSorgulaMusteriKeyIle
+			(
+
+				Guid @MusteriKey
+				)
+				{
+					AdoTemplate template = new AdoTemplate();
+					template.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
+					return MusteriSorgulaMusteriKeyIle(
+						@MusteriKey
+						,template
+						);
+					}
+				}
+			}

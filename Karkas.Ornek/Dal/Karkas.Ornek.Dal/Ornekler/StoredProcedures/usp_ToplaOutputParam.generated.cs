@@ -10,9 +10,11 @@ namespace Karkas.Ornek.Dal.Ornekler
 	{
 		public static int ToplaOutputParam
 		(
-			int @SAYI1			,
-			int @SAYI2			,
-			out int @SONUC			
+
+			int @SAYI1
+			,int @SAYI2
+			,out int @SONUC
+			, AdoTemplate template
 			)
 			{
 				ParameterBuilder builder = new ParameterBuilder();
@@ -20,8 +22,6 @@ namespace Karkas.Ornek.Dal.Ornekler
 				 builder.parameterEkle( "@SAYI1",SqlDbType.Int,@SAYI1);
 				 builder.parameterEkle( "@SAYI2",SqlDbType.Int,@SAYI2);
 				 builder.parameterEkleOutput( "@SONUC",SqlDbType.Int);
-				AdoTemplate template = new AdoTemplate();
-				template.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
 				SqlCommand cmd = new SqlCommand();
 				cmd.CommandText = "ORNEKLER.TOPLA_OUTPUT_PARAM";
 				cmd.CommandType = CommandType.StoredProcedure;
@@ -30,5 +30,22 @@ namespace Karkas.Ornek.Dal.Ornekler
 				@SONUC = (int)cmd.Parameters["@SONUC"].Value;
 				return (int) cmd.Parameters["@RETURN_VALUE"].Value;
 			}
-		}
-	}
+			public static int ToplaOutputParam
+			(
+
+				int @SAYI1
+				,int @SAYI2
+				,out int @SONUC
+				)
+				{
+					AdoTemplate template = new AdoTemplate();
+					template.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
+					return ToplaOutputParam(
+						@SAYI1
+						,@SAYI2
+						,out @SONUC
+						,template
+						);
+					}
+				}
+			}

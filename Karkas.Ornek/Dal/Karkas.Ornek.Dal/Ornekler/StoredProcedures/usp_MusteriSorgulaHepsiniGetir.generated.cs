@@ -10,13 +10,12 @@ namespace Karkas.Ornek.Dal.Ornekler
 	{
 		public static DataTable MusteriSorgulaHepsiniGetir
 		(
-			
+
+			AdoTemplate template
 			)
 			{
 				ParameterBuilder builder = new ParameterBuilder();
 				
-				AdoTemplate template = new AdoTemplate();
-				template.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
 				SqlCommand cmd = new SqlCommand();
 				cmd.CommandText = "ORNEKLER.MUSTERI_SORGULA_HEPSINI_GETIR";
 				cmd.CommandType = CommandType.StoredProcedure;
@@ -24,5 +23,16 @@ namespace Karkas.Ornek.Dal.Ornekler
 				DataTable _tmpDataTable = template.DataTableOlustur(cmd);
 				return _tmpDataTable;
 			}
-		}
-	}
+			public static DataTable MusteriSorgulaHepsiniGetir
+			(
+
+				)
+				{
+					AdoTemplate template = new AdoTemplate();
+					template.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
+					return MusteriSorgulaHepsiniGetir(
+						template
+						);
+					}
+				}
+			}
