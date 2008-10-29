@@ -20,7 +20,7 @@ namespace Karkas.Core.DataUtil
         /// Connection'u acma ve kapama BaseDal kontrolundedir.
         /// Eger false ise connection olusturma, acma Kapama Kullanýcýya aittir.
         /// </summary>
-        public bool OtomatikConnectionYonetimi 
+        public bool OtomatikConnectionYonetimi
         {
             get
             {
@@ -29,6 +29,7 @@ namespace Karkas.Core.DataUtil
             set
             {
                 otomatikConnectionYonetimi = value;
+                this.helper.OtomatikConnectionYonetimi = value;
             }
         }
         private SqlTransaction currentTransaction;
@@ -49,13 +50,13 @@ namespace Karkas.Core.DataUtil
         private SqlConnection connection = null;
         public SqlConnection Connection
         {
-            get 
+            get
             {
                 if (connection == null)
                 {
                     connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
                 }
-                return connection; 
+                return connection;
             }
             set { connection = value; }
         }
@@ -72,7 +73,7 @@ namespace Karkas.Core.DataUtil
             {
                 if (_helper == null)
                 {
-                    _helper = new HelperFunctions(Connection,KomutuCalistiranKullaniciKisiKey);
+                    _helper = new HelperFunctions(Connection, KomutuCalistiranKullaniciKisiKey);
                 }
                 return _helper;
             }
@@ -86,7 +87,7 @@ namespace Karkas.Core.DataUtil
             {
                 if (_pagingHelper == null)
                 {
-                    _pagingHelper = new PagingHelper(Connection,KomutuCalistiranKullaniciKisiKey);
+                    _pagingHelper = new PagingHelper(Connection, KomutuCalistiranKullaniciKisiKey);
                 }
                 return _pagingHelper;
             }
@@ -110,7 +111,7 @@ namespace Karkas.Core.DataUtil
             }
             catch (SqlException ex)
             {
-                ExceptionDegistirici.Degistir(ex,new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
             }
             finally
             {
@@ -167,7 +168,7 @@ namespace Karkas.Core.DataUtil
             return sonuc;
         }
 
-        public Object TekDegerGetir(string cmdText,CommandType cmdType, SqlParameter[] parameters)
+        public Object TekDegerGetir(string cmdText, CommandType cmdType, SqlParameter[] parameters)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = cmdText;
@@ -234,6 +235,10 @@ namespace Karkas.Core.DataUtil
         {
             DataTable dataTable = CreateDataTable();
             cmd.Connection = Connection;
+            if (currentTransaction != null)
+            {
+                cmd.Transaction = currentTransaction;
+            }
             helper.SorguCalistir(dataTable, cmd);
             return dataTable;
         }

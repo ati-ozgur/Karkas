@@ -9,6 +9,26 @@ namespace Karkas.Core.DataUtil
     internal class HelperFunctions
     {
 
+        private bool otomatikConnectionYonetimi = true;
+        /// <summary>
+        /// Eger varsayýlan deger, true býrakýlýrsa, connection yonetimi 
+        /// BaseDal tarafýndan yapýlýr. Komutlar cagrýlmadan once, connection getirme
+        /// Connection'u acma ve kapama BaseDal kontrolundedir.
+        /// Eger false ise connection olusturma, acma Kapama Kullanýcýya aittir.
+        /// </summary>
+        public bool OtomatikConnectionYonetimi
+        {
+            get
+            {
+                return otomatikConnectionYonetimi;
+            }
+            set
+            {
+                otomatikConnectionYonetimi = value;
+            }
+        }
+
+
         private Guid komutuCalistiranKullaniciKisiKey;
         /// <summary>
         /// Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
@@ -20,10 +40,10 @@ namespace Karkas.Core.DataUtil
             get { return komutuCalistiranKullaniciKisiKey; }
             set { komutuCalistiranKullaniciKisiKey = value; }
         }
-	
+
 
         SqlConnection conn;
-        public HelperFunctions(SqlConnection pConnection,Guid pKisiKey)
+        public HelperFunctions(SqlConnection pConnection, Guid pKisiKey)
         {
             conn = pConnection;
             komutuCalistiranKullaniciKisiKey = pKisiKey;
@@ -45,7 +65,10 @@ namespace Karkas.Core.DataUtil
             }
             finally
             {
-                conn.Close();
+                if (otomatikConnectionYonetimi)
+                {
+                    conn.Close();
+                }
             }
 
         }
@@ -64,7 +87,10 @@ namespace Karkas.Core.DataUtil
             }
             finally
             {
-                conn.Close();
+                if (otomatikConnectionYonetimi)
+                {
+                    conn.Close();
+                }
             }
 
         }

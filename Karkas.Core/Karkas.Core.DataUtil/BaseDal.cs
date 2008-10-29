@@ -33,6 +33,7 @@ namespace Karkas.Core.DataUtil
             set
             {
                 otomatikConnectionYonetimi = value;
+                this.Template.OtomatikConnectionYonetimi = value;
             }
         }
 
