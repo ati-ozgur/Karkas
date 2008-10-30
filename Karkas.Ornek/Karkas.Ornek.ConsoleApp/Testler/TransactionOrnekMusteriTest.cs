@@ -13,12 +13,11 @@ namespace Karkas.Ornek.ConsoleApp.Testler
     {
         public void herseyiSil()
         {
-            
+
             MusteriDal dal = new MusteriDal();
             dal.Template.SorguHariciKomutCalistir("TRUNCATE TABLE ORNEKLER.MUSTERI");
             dal.Template.SorguHariciKomutCalistir("TRUNCATE TABLE ORNEKLER.ACIKLAMA");
         }
-
 
         [Test]
         public void TransactionRollBackBekliyoruz()
@@ -43,8 +42,33 @@ namespace Karkas.Ornek.ConsoleApp.Testler
             herseyiSil();
             MusteriBs bs = new MusteriBs();
             bs.TransactionBasarili();
-            Assert.Greater(bs.TablodakiSatirSayisi,0 );
+            Assert.Greater(bs.TablodakiSatirSayisi, 0);
         }
 
+        [Test]
+        public void TransactionRollBackBekliyoruzAdoTemplateConnectionYonetimiIle()
+        {
+            herseyiSil();
+            MusteriBs bs = new MusteriBs();
+
+            try
+            {
+                bs.TransactionRollBackBekliyoruzAdoTemplateConnectionYonetimiIle();
+                Assert.Fail("buraya gelmemeliydi, veritabaninda Aciklama kolonu not null olmali");
+            }
+            catch
+            {
+            }
+            Assert.AreEqual(0, bs.TablodakiSatirSayisi);
+        }
+
+        [Test]
+        public void TransactionBasariliAdoTemplateConnectionYonetimiIle()
+        {
+            herseyiSil();
+            MusteriBs bs = new MusteriBs();
+            bs.TransactionBasariliAdoTemplateConnectionYonetimiIle();
+            Assert.Greater(bs.TablodakiSatirSayisi, 0);
+        }
     }
 }

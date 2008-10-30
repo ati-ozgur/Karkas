@@ -37,8 +37,8 @@ namespace Karkas.Ornek.Bs.Ornekler
             finally
             {
                 this.ClearTransactionInformation();
-            } 
-            
+            }
+
         }
 
         public void TransactionBasarili()
@@ -50,7 +50,7 @@ namespace Karkas.Ornek.Bs.Ornekler
 
             Aciklama acik = new Aciklama();
             acik.AciklamaKey = Guid.NewGuid();
-            acik.AciklamaProperty = m.Adi + " " +  m.Soyadi;
+            acik.AciklamaProperty = m.Adi + " " + m.Soyadi;
 
             try
             {
@@ -63,8 +63,89 @@ namespace Karkas.Ornek.Bs.Ornekler
             finally
             {
                 this.ClearTransactionInformation();
-            } 
+            }
 
         }
+
+        public void TransactionRollBackBekliyoruzAdoTemplateConnectionYonetimiIle()
+        {
+            AdoTemplate adotemplate = new AdoTemplate();
+            adotemplate.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
+
+            Musteri m = new Musteri();
+            m.Adi = "Erkan";
+            m.Soyadi = "UYGUN";
+            m.MusteriKey = Guid.NewGuid();
+
+            Aciklama acik = new Aciklama();
+            acik.AciklamaKey = Guid.NewGuid();
+
+            try
+            {
+                adotemplate.OtomatikConnectionYonetimi = false;
+                adotemplate.Connection.Open();
+                adotemplate.CurrentTransaction = adotemplate.Connection.BeginTransaction();
+
+                AciklamaDal aciklamaDal = this.GetDalInstance<AciklamaDal, Aciklama>();
+                dal.Connection = adotemplate.Connection;
+                dal.OtomatikConnectionYonetimi = adotemplate.OtomatikConnectionYonetimi;
+                dal.CurrentTransaction = adotemplate.CurrentTransaction;
+
+                aciklamaDal.Connection = adotemplate.Connection;
+                aciklamaDal.OtomatikConnectionYonetimi = adotemplate.OtomatikConnectionYonetimi;
+                aciklamaDal.CurrentTransaction = adotemplate.CurrentTransaction;
+
+                dal.Ekle(m);
+                aciklamaDal.Ekle(acik);
+
+                adotemplate.CurrentTransaction.Commit();
+            }
+            finally
+            {
+                adotemplate.Connection.Close();
+                this.ClearTransactionInformation();
+            }
+        }
+
+        public void TransactionBasariliAdoTemplateConnectionYonetimiIle()
+        {
+            AdoTemplate adotemplate = new AdoTemplate();
+            adotemplate.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
+
+            Musteri m = new Musteri();
+            m.Adi = "Erkan";
+            m.Soyadi = "UYGUN";
+            m.MusteriKey = Guid.NewGuid();
+
+            Aciklama acik = new Aciklama();
+            acik.AciklamaKey = Guid.NewGuid();
+            acik.AciklamaProperty = m.Adi + " " + m.Soyadi;
+
+            try
+            {
+                adotemplate.OtomatikConnectionYonetimi = false;
+                adotemplate.Connection.Open();
+                adotemplate.CurrentTransaction = adotemplate.Connection.BeginTransaction();
+
+                AciklamaDal aciklamaDal = this.GetDalInstance<AciklamaDal, Aciklama>();
+                dal.Connection = adotemplate.Connection;
+                dal.OtomatikConnectionYonetimi = adotemplate.OtomatikConnectionYonetimi;
+                dal.CurrentTransaction = adotemplate.CurrentTransaction;
+
+                aciklamaDal.Connection = adotemplate.Connection;
+                aciklamaDal.OtomatikConnectionYonetimi = adotemplate.OtomatikConnectionYonetimi;
+                aciklamaDal.CurrentTransaction = adotemplate.CurrentTransaction;
+
+                dal.Ekle(m);
+                aciklamaDal.Ekle(acik);
+                adotemplate.CurrentTransaction.Commit();
+            }
+            finally
+            {
+                adotemplate.Connection.Close();
+                this.ClearTransactionInformation();
+            }
+        }
+
     }
 }
