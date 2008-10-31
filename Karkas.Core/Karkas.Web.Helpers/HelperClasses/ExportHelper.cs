@@ -22,7 +22,7 @@ namespace Karkas.Web.Helpers.HelperClasses
             {
                 calisanSayfa.Response.Clear();
                 calisanSayfa.Response.Charset = "UTF-8";
-                calisanSayfa.Response.ContentEncoding = System.Text.Encoding.Default;
+                calisanSayfa.Response.ContentEncoding = Encoding.UTF8;
                 calisanSayfa.Response.AppendHeader("content-disposition", "attachment; filename=" + dosyaAd + ".xls");
                 calisanSayfa.Response.ContentType = "application/vnd.ms-excel";
                 StringWriter sw = new StringWriter();
