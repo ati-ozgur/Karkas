@@ -21,9 +21,11 @@ namespace Karkas.Web.Helpers.HelperClasses
 
             public void ToExcel(DataTable kaynak, string dosyaAd, bool baslikYaz)
             {
+                Encoding encoding = Encoding.UTF8;
                 calisanSayfa.Response.Clear();
-                calisanSayfa.Response.Charset = "UTF-8";
-                calisanSayfa.Response.ContentEncoding = Encoding.UTF8;
+                calisanSayfa.Response.Charset = encoding.WebName;
+                calisanSayfa.Response.ContentEncoding = encoding;
+
                 calisanSayfa.Response.AppendHeader("content-disposition", "attachment; filename=" + dosyaAd + ".xls");
                 calisanSayfa.Response.ContentType = "application/vnd.ms-excel";
                 StringWriter sw = new StringWriter();
