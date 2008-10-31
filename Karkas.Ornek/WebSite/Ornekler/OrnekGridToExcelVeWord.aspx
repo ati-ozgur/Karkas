@@ -11,7 +11,7 @@
     <div>
         <table>
             <tr>
-                <td colspan="3">
+                <td colspan="4">
                     DataTable Ile
                 </td>
             </tr>
@@ -26,22 +26,27 @@
                 <td>
                     <asp:Button ID="ButtonExcelDataTable3" runat="server" Text="Excel'e Aktar 3" OnClick="ButtonExcelDataTable3_Click" />
                 </td>
+                <td>
+                    <asp:Button ID="ButtonExcelDataTable4" runat="server" Text="Excel'e Aktar 4" OnClick="ButtonExcelDataTable4_Click" />
+                </td>
             </tr>
             <tr>
-                <td colspan="3">
+                <td colspan="4">
                     DataView Ile
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="ButtonExcelDataView1" runat="server" Text="Excel'e Aktar 1"
-                        OnClick="ButtonExcelDataView1_Click" />
+                    <asp:Button ID="ButtonExcelDataView1" runat="server" Text="Excel'e Aktar 1" OnClick="ButtonExcelDataView1_Click" />
                 </td>
                 <td>
                     <asp:Button ID="ButtonExcelDataView2" runat="server" Text="Excel'e Aktar 2 " OnClick="ButtonExcelDataView2_Click" />
                 </td>
                 <td>
                     <asp:Button ID="ButtonExcelDataView3" runat="server" Text="Excel'e Aktar 3" OnClick="ButtonExcelDataView3_Click" />
+                </td>
+                <td>
+                    &nbsp;
                 </td>
             </tr>
         </table>

@@ -21,7 +21,11 @@ public partial class Ornekler_OrnekGridToExcelVeWord : KarkasBasePage
     }
     protected void ButtonExcelDataTable1_Click(object sender, EventArgs e)
     {
-        this.ExportHelper.ToExcel(new MusteriBsWrapper().SorgulaHepsiniGetirDataTable());
+        DataTable dt = new MusteriBsWrapper().SorgulaHepsiniGetirDataTable();
+        dt.Columns["Adi"].Caption = "Adı";
+        dt.Columns["Soyadi"].Caption = "Soyadı";
+
+        this.ExportHelper.ToExcel(dt);
     }
     protected void ButtonExcelDataTable2_Click(object sender, EventArgs e)
     {
@@ -34,6 +38,15 @@ public partial class Ornekler_OrnekGridToExcelVeWord : KarkasBasePage
         dt.Columns["Soyadi"].Caption = "Soyadı";
 
         this.ExportHelper.ToExcel(dt, "Musteri",true);
+    }
+    protected void ButtonExcelDataTable4_Click(object sender, EventArgs e)
+    {
+        DataTable dt = new MusteriBsWrapper().SorgulaHepsiniGetirDataTable();
+        dt.Columns.Remove(dt.Columns["MusteriKey"]);
+        dt.Columns["Adi"].Caption = "Adı";
+        dt.Columns["Soyadi"].Caption = "Soyadı";
+
+        this.ExportHelper.ToExcel(dt, "Musteri", true);
     }
 
     protected void ButtonExcelDataView1_Click(object sender, EventArgs e)
