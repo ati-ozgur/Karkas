@@ -11,25 +11,38 @@
     <div>
         <table>
             <tr>
-                <td style="margin-left: 40px">
-                    <asp:Button ID="ButtonAra" runat="server" Text="Ara" 
-                        onclick="ButtonAra_Click" />
+                <td colspan="3">
+                    DataTable Ile
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:GridView ID="GridViewArama" runat="server" ShowHeader="True" Width="100%">
-                    
-                    </asp:GridView>
+                    <asp:Button ID="ButtonExcelDataTableDataTable1" runat="server" Text="Excel'e Aktar 1"
+                        OnClick="ButtonExcelDataTable1_Click" />
+                </td>
+                <td>
+                    <asp:Button ID="ButtonExcelDataTable2" runat="server" Text="Excel'e Aktar 2 " OnClick="ButtonExcelDataTable2_Click" />
+                </td>
+                <td>
+                    <asp:Button ID="ButtonExcelDataTable3" runat="server" Text="Excel'e Aktar 3" OnClick="ButtonExcelDataTable3_Click" />
                 </td>
             </tr>
             <tr>
-            <td>
-                <asp:Button ID="ButtonExcel" runat="server" Text="Excel'e Aktar" 
-                    onclick="ButtonExcel_Click" />
-                <asp:Button ID="ButtonWord" runat="server" Text="Word'e Aktar" 
-                    onclick="ButtonWord_Click" />
-            </td>
+                <td colspan="3">
+                    DataView Ile
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Button ID="ButtonExcelDataView1" runat="server" Text="Excel'e Aktar 1"
+                        OnClick="ButtonExcelDataView1_Click" />
+                </td>
+                <td>
+                    <asp:Button ID="ButtonExcelDataView2" runat="server" Text="Excel'e Aktar 2 " OnClick="ButtonExcelDataView2_Click" />
+                </td>
+                <td>
+                    <asp:Button ID="ButtonExcelDataView3" runat="server" Text="Excel'e Aktar 3" OnClick="ButtonExcelDataView3_Click" />
+                </td>
             </tr>
         </table>
     </div>

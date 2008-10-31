@@ -18,7 +18,8 @@ namespace Karkas.Web.Helpers.HelperClasses
             {
                 this.calisanSayfa = pCalisanSayfa;
             }
-            public void ToExcel(DataTable dt, string dosyaAd)
+
+            public void ToExcel(DataTable kaynak, string dosyaAd, bool baslikYaz)
             {
                 calisanSayfa.Response.Clear();
                 calisanSayfa.Response.Charset = "UTF-8";
@@ -27,11 +28,22 @@ namespace Karkas.Web.Helpers.HelperClasses
                 calisanSayfa.Response.ContentType = "application/vnd.ms-excel";
                 StringWriter sw = new StringWriter();
                 sw.Write("<table>");
-
-                foreach (DataRow row in dt.Rows)
+                if (baslikYaz)
                 {
                     sw.Write("<tr>");
-                    foreach (DataColumn column in dt.Columns)
+                    foreach (DataColumn column in kaynak.Columns)
+                    {
+                        sw.Write("<td>");
+                        sw.Write(column.Caption);
+                        sw.Write("</td>");
+                    }
+
+                    sw.Write("</tr>");
+                }
+                foreach (DataRow row in kaynak.Rows)
+                {
+                    sw.Write("<tr>");
+                    foreach (DataColumn column in kaynak.Columns)
                     {
                         sw.Write("<td>");
                         sw.Write(row[column].ToString());
@@ -43,11 +55,36 @@ namespace Karkas.Web.Helpers.HelperClasses
 
 
                 sw.Write("</table>");
-                
-                
+
+
                 calisanSayfa.Response.Write(sw.ToString());
                 calisanSayfa.Response.End();
             }
+
+
+            public void ToExcel(DataView kaynak, string dosyaAd,bool baslikYaz)
+            {
+                ToExcel(kaynak.ToTable(), dosyaAd, baslikYaz);
+            }
+            public void ToExcel(DataView kaynak, string dosyaAd)
+            {
+                ToExcel(kaynak.ToTable(), dosyaAd, true);
+            }
+            public void ToExcel(DataView kaynak)
+            {
+                DataTable dt = kaynak.ToTable();
+                ToExcel(dt,dt.TableName, true);
+            }
+
+            public void ToExcel(DataTable dt, string dosyaAd)
+            {
+                ToExcel(dt, dosyaAd, true);
+            }
+            public void ToExcel(DataTable dt)
+            {
+                ToExcel(dt, dt.TableName, true);
+            }
+
         }
     }
 }

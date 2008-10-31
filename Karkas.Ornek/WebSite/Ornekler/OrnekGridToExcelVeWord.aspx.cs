@@ -19,16 +19,46 @@ public partial class Ornekler_OrnekGridToExcelVeWord : KarkasBasePage
     {
 
     }
-    public override void VerifyRenderingInServerForm(Control control) { }
-    protected void ButtonWord_Click(object sender, EventArgs e)
+    protected void ButtonExcelDataTable1_Click(object sender, EventArgs e)
     {
-        this.GridHelper.GridViewToWord(GridViewArama, "Word");
+        this.ExportHelper.ToExcel(new MusteriBsWrapper().SorgulaHepsiniGetirDataTable());
     }
-    protected void ButtonExcel_Click(object sender, EventArgs e)
+    protected void ButtonExcelDataTable2_Click(object sender, EventArgs e)
     {
         this.ExportHelper.ToExcel(new MusteriBsWrapper().SorgulaHepsiniGetirDataTable(), "Musteri");
     }
-    protected void ButtonAra_Click(object sender, EventArgs e)
+    protected void ButtonExcelDataTable3_Click(object sender, EventArgs e)
     {
+        DataTable dt = new MusteriBsWrapper().SorgulaHepsiniGetirDataTable();
+        dt.Columns["Adi"].Caption = "Adı";
+        dt.Columns["Soyadi"].Caption = "Soyadı";
+
+        this.ExportHelper.ToExcel(dt, "Musteri",true);
     }
+
+    protected void ButtonExcelDataView1_Click(object sender, EventArgs e)
+    {
+        DataTable dt = new MusteriBsWrapper().SorgulaHepsiniGetirDataTable();
+
+        DataView dv = new DataView(dt, "Adi LIKE 'a%'", "Adi ASC",DataViewRowState.OriginalRows);
+        this.ExportHelper.ToExcel(dv);
+    }
+    protected void ButtonExcelDataView2_Click(object sender, EventArgs e)
+    {
+        DataTable dt = new MusteriBsWrapper().SorgulaHepsiniGetirDataTable();
+
+        DataView dv = new DataView(dt, "Adi LIKE 'a%'", "Adi ASC", DataViewRowState.OriginalRows);
+        this.ExportHelper.ToExcel(dv,"Musteri");
+    }
+    protected void ButtonExcelDataView3_Click(object sender, EventArgs e)
+    {
+        DataTable dt = new MusteriBsWrapper().SorgulaHepsiniGetirDataTable();
+        dt.Columns["Adi"].Caption = "Adı";
+        dt.Columns["Soyadi"].Caption = "Soyadı";
+
+
+        DataView dv = new DataView(dt, "Adi LIKE 'a%'", "Adi ASC", DataViewRowState.OriginalRows);
+        this.ExportHelper.ToExcel(dv, "Musteri",false);
+    }
+
 }
