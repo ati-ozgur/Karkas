@@ -172,7 +172,7 @@ namespace Karkas.Core.DataUtil
             int sonucRowSayisi = 0;
             try
             {
-                if (Connection.State != ConnectionState.Open && OtomatikConnectionYonetimi)
+                if (ConnectionAcilacakMi())
                 {
                     Connection.Open();
                 }
@@ -194,12 +194,22 @@ namespace Karkas.Core.DataUtil
             }
             finally
             {
-                if (Connection.State != ConnectionState.Closed && OtomatikConnectionYonetimi)
+                if (ConnectionKapatilacakMi())
                 {
                     Connection.Close();
                 }
             }
             return sonucRowSayisi;
+        }
+
+        protected bool ConnectionKapatilacakMi()
+        {
+            return Connection.State != ConnectionState.Closed && OtomatikConnectionYonetimi;
+        }
+
+        protected bool ConnectionAcilacakMi()
+        {
+            return (Connection.State != ConnectionState.Open) && (OtomatikConnectionYonetimi);
         }
 
         public virtual List<T> SorgulaHepsiniGetir()
@@ -314,7 +324,8 @@ namespace Karkas.Core.DataUtil
             SqlDataReader reader = null;
             try
             {
-                if (OtomatikConnectionYonetimi)
+
+                if (ConnectionAcilacakMi())
                 {
                     Connection.Open();
                 }
@@ -341,7 +352,7 @@ namespace Karkas.Core.DataUtil
                 {
                     reader.Close();
                 }
-                if (connection != null && OtomatikConnectionYonetimi)
+                if (ConnectionKapatilacakMi())
                 {
                     Connection.Close();
                 }

@@ -28,6 +28,15 @@ namespace Karkas.Core.DataUtil
             }
         }
 
+        protected bool ConnectionKapatilacakMi()
+        {
+            return OtomatikConnectionYonetimi;
+        }
+
+        protected bool ConnectionAcilacakMi()
+        {
+            return (OtomatikConnectionYonetimi);
+        }
 
         private Guid komutuCalistiranKullaniciKisiKey;
         /// <summary>
@@ -65,7 +74,7 @@ namespace Karkas.Core.DataUtil
             }
             finally
             {
-                if (otomatikConnectionYonetimi)
+                if (ConnectionKapatilacakMi())
                 {
                     conn.Close();
                 }
@@ -87,7 +96,7 @@ namespace Karkas.Core.DataUtil
             }
             finally
             {
-                if (otomatikConnectionYonetimi)
+                if (ConnectionKapatilacakMi())
                 {
                     conn.Close();
                 }

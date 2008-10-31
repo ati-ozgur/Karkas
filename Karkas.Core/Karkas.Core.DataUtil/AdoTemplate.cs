@@ -32,6 +32,17 @@ namespace Karkas.Core.DataUtil
                 this.helper.OtomatikConnectionYonetimi = value;
             }
         }
+
+        private bool ConnectionKapatilacakMi()
+        {
+            return Connection.State != ConnectionState.Closed && OtomatikConnectionYonetimi;
+        }
+
+        private bool ConnectionAcilacakMi()
+        {
+            return (Connection.State != ConnectionState.Open) && (OtomatikConnectionYonetimi);
+        }
+
         private SqlTransaction currentTransaction;
 
         public SqlTransaction CurrentTransaction
@@ -99,7 +110,7 @@ namespace Karkas.Core.DataUtil
             try
             {
                 logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
-                if (OtomatikConnectionYonetimi)
+                if (ConnectionAcilacakMi())
                 {
                     Connection.Open();
                 }
@@ -127,7 +138,7 @@ namespace Karkas.Core.DataUtil
             try
             {
                 logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
-                if (OtomatikConnectionYonetimi)
+                if (ConnectionAcilacakMi())
                 {
                     Connection.Open();
                 }

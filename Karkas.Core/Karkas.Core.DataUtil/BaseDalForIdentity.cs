@@ -33,14 +33,19 @@ namespace Karkas.Core.DataUtil
             cmd.Connection = Connection;
             InsertCommandParametersAdd(cmd, row);
 
+
             //rowstate'i unchanged yapiyoruz
             row.RowState = DataRowState.Unchanged;
 
             try
             {
-                if (!OtomatikConnectionYonetimi)
+                if (ConnectionAcilacakMi())
                 {
                     Connection.Open();
+                }
+                if (CurrentTransaction != null)
+                {
+                    cmd.Transaction = CurrentTransaction;
                 }
                 if (IdentityVarMi)
                 {
@@ -58,9 +63,14 @@ namespace Karkas.Core.DataUtil
             {
                 ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
             }
+            catch (Exception ex)
+            {
+                logger.Info(ex);
+            }
+
             finally
             {
-                if (!OtomatikConnectionYonetimi)
+                if (ConnectionKapatilacakMi())
                 {
                     Connection.Close();
                 }
