@@ -29,8 +29,10 @@ namespace Karkas.Ornek.Bs.Ornekler
             {
                 this.BeginTransaction();
                 AciklamaDal aciklamaDal = this.GetDalInstance<AciklamaDal, Aciklama>();
+                BasitTabloDal btDal = this.GetDalInstance<BasitTabloDal, BasitTablo>();
                 dal.Ekle(m);
                 aciklamaDal.Ekle(acik);
+                btDal.Guncelle(null);
                 this.CommitTransaction();
 
             }
@@ -65,6 +67,11 @@ namespace Karkas.Ornek.Bs.Ornekler
                 this.ClearTransactionInformation();
             }
 
+        }
+
+        public DataTable SorgulaHepsiniGetirDataTable()
+        {
+            return dal.SorgulaHepsiniGetirDataTable();
         }
 
         public void TransactionRollBackBekliyoruzAdoTemplateConnectionYonetimiIle()

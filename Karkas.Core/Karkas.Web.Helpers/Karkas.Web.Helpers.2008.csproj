@@ -93,6 +93,7 @@
     <Compile Include="Classes\Utils.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="HelperClasses\ExportHelper.cs" />
     <Compile Include="HelperClasses\GridHelper.cs" />
     <Compile Include="HelperClasses\KarkasWebHelper.cs" />
     <Compile Include="HelperClasses\JavascriptHelper.cs">

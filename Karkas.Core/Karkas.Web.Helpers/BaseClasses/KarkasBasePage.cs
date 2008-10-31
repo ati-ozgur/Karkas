@@ -15,6 +15,13 @@
         private readonly KarkasWebHelper.ListHelper listHelper;
         private readonly KarkasWebHelper.GridHelper gridHelper;
         private readonly KarkasWebHelper.QueryStringHelper queryStringHelper;
+        private readonly KarkasWebHelper.ExportHelper exportHelper;
+
+        public KarkasWebHelper.ExportHelper ExportHelper
+        {
+            get { return exportHelper; }
+        } 
+
 
         public KarkasWebHelper.QueryStringHelper QueryStringHelper
         {
@@ -31,6 +38,7 @@
             this.jsHelper = new KarkasWebHelper.JavascriptHelper(this);
             this.listHelper = new KarkasWebHelper.ListHelper();
             this.gridHelper = new KarkasWebHelper.GridHelper(this);
+            this.exportHelper = new KarkasWebHelper.ExportHelper(this);
             this.queryStringHelper = new KarkasWebHelper.QueryStringHelper();
         }
 

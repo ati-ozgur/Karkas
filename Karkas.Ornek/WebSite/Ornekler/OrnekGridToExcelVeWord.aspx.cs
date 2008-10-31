@@ -26,11 +26,9 @@ public partial class Ornekler_OrnekGridToExcelVeWord : KarkasBasePage
     }
     protected void ButtonExcel_Click(object sender, EventArgs e)
     {
-        this.GridHelper.GridViewToExcel(GridViewArama, "Excel");
+        this.ExportHelper.ToExcel(new MusteriBsWrapper().SorgulaHepsiniGetirDataTable(), "Musteri");
     }
     protected void ButtonAra_Click(object sender, EventArgs e)
     {
-        GridViewArama.DataSource = new MusteriBsWrapper().SorgulaHepsiniGetir();
-        GridViewArama.DataBind();
     }
 }

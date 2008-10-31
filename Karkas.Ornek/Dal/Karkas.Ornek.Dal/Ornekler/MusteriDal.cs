@@ -26,5 +26,11 @@ namespace Karkas.Ornek.Dal.Ornekler
 			SorguCalistir(liste, filtre,builder.GetParameterArray());
 			return liste;
         }
-	}
+
+        public DataTable SorgulaHepsiniGetirDataTable()
+        {
+            string sql = this.SelectString;
+            return this.Template.DataTableOlustur(sql);
+        }
+    }
 }

@@ -13,8 +13,13 @@ using Karkas.Ornek.TypeLibrary.Ornekler;
 using Karkas.Ornek.Bs.Ornekler;
 
 
-namespace Karkas.Ornek.BsWrapper.Ornekler{
-    public partial class MusteriBsWrapper
+namespace Karkas.Ornek.BsWrapper.Ornekler
 {
-}
+    public partial class MusteriBsWrapper
+    {
+        public DataTable SorgulaHepsiniGetirDataTable()
+        {
+            return bs.SorgulaHepsiniGetirDataTable();
+        }
+    }
 }
