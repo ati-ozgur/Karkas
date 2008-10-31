@@ -38,7 +38,10 @@ namespace Karkas.Core.DataUtil
 
             try
             {
-                Connection.Open();
+                if (!OtomatikConnectionYonetimi)
+                {
+                    Connection.Open();
+                }
                 if (IdentityVarMi)
                 {
                     logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
@@ -57,7 +60,10 @@ namespace Karkas.Core.DataUtil
             }
             finally
             {
-                Connection.Close();
+                if (!OtomatikConnectionYonetimi)
+                {
+                    Connection.Close();
+                }
             }
 
             return sonuc;
