@@ -1,22 +1,13 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
+using System.Collections.Generic;
 using System.Web;
-using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using System.Drawing;
 
 namespace Arit.Web.UserControls
 {
-    public partial class AritOnayLinkButton : System.Web.UI.UserControl
+    public partial class AritOnayImageButton : System.Web.UI.UserControl
     {
-
         //SAYFADA SCRIPTMANAGER DINAMIK YUKLENMESINI ISTERSENIZ ASAGIDAKI KODU COMMENTTEN CIKARIN. 
         //GENELDE MASTERPAGE VEYA BASEPAGE OLMADIGI DURUMLARDA ISINIZE YARAR
         //DATABIND METODU ICINDE PREINIT VE INITLER CALISMAMAKTA. O NEDENLE SAYFALARA MANUEL OLARAK 
@@ -24,6 +15,7 @@ namespace Arit.Web.UserControls
 
         protected override void OnInit(EventArgs e)
         {
+
             //Page.PreInit += delegate(object sender, EventArgs e_Init)
             //{
             //    if (ScriptManager.GetCurrent(Page) == null)
@@ -37,7 +29,7 @@ namespace Arit.Web.UserControls
             //        }
             //    }
             //};
-           
+
 
             //Page.Init += delegate(object sender, EventArgs e_Init)
             //{
@@ -52,15 +44,18 @@ namespace Arit.Web.UserControls
             //        }
             //    }
             //};
-
             base.OnInit(e);
 
+
+            
+
         }
-
-
         /// <summary>
         /// Client'ta javascript olarak calisacak kodu setler
         /// </summary>
+        /// 
+
+
         public string OnClientCancel
         {
             get
@@ -73,28 +68,8 @@ namespace Arit.Web.UserControls
             }
         }
 
-        private string mstrBeklemeMesaj = "Lütfen Bekleyin";
 
-
-        public string Text
-        {
-            get
-            {
-                if (OnayButton != null)
-                {
-                    return OnayButton.Text;
-                }
-                else
-                {
-                    return string.Empty;
-                }
-            }
-            set
-            {
-                OnayButton.Text = value;
-            }
-        }
-
+        public string aoimtext = "";
         public string OnayMesaj
         {
             get
@@ -106,87 +81,69 @@ namespace Arit.Web.UserControls
                 cbe.ConfirmText = value;
             }
         }
-        public string BeklemeMesaj
+        public string Text
         {
             get
             {
-                return mstrBeklemeMesaj;
+                return aoimtext;
             }
             set
             {
-                mstrBeklemeMesaj = value;
+                aoimtext = value;
             }
         }
-
         public bool Enabled
         {
             get
             {
-                return OnayButton.Enabled;
+                return OnayImageButton.Enabled;
             }
             set
             {
-                OnayButton.Enabled = value;
+                OnayImageButton.Enabled = value;
             }
         }
 
-        protected override void AddParsedSubObject(object obj)
+        public string ImageURL
         {
-            if (this.HasControls())
-            {
-                base.AddParsedSubObject(obj);
-            }
-            else if (obj is LiteralControl)
-            {
-                this.Text = ((LiteralControl)obj).Text;
-            }
-            else
-            {
-                string text1 = this.Text;
-                if (text1.Length != 0)
-                {
-                    this.Text = string.Empty;
-                    base.AddParsedSubObject(new LiteralControl(text1));
-                }
-                base.AddParsedSubObject(obj);
-            }
-        }
-
-        public string CommandName
-        {
-            get
-            {
-                return OnayButton.CommandName;
-            }
             set
             {
-                OnayButton.CommandName = value;
-            }
-        }
-
-        public Color ForeColor
-        {
-            get
-            {
-                return OnayButton.ForeColor;
-            }
-            set
-            {
-                OnayButton.ForeColor = value;
+                OnayImageButton.ImageUrl = value;
             }
         }
         public string CommandArgument
         {
             get
             {
-                return OnayButton.CommandArgument;
+                return OnayImageButton.CommandArgument;
             }
             set
             {
-                OnayButton.CommandArgument = value;
+                OnayImageButton.CommandArgument = value;
             }
         }
-
+        public string CommandName
+        {
+            get
+            {
+                return OnayImageButton.CommandName;
+            }
+            set
+            {
+                OnayImageButton.CommandName = value;
+            }
+        }
+        public string ToolTip
+        {
+            get
+            {
+                return OnayImageButton.ToolTip;
+            }
+            set
+            {
+                OnayImageButton.ToolTip = value;
+            }
+        }
         protected virtual void OnClick(EventArgs e)
         {
 
@@ -199,35 +156,31 @@ namespace Arit.Web.UserControls
 
         private static readonly object EventClick;
 
-        public event EventHandler Click
+        public event ImageClickEventHandler Click
         {
             add
             {
-                this.OnayButton.Click += value;
+                this.OnayImageButton.Click += value;
                 base.Events.AddHandler(EventClick, value);
             }
             remove
             {
-                this.OnayButton.Click -= value;
-            }
-        }
-
-        public string OnClientClick
-        {
-            get 
-            {
-                return OnayButton.OnClientClick;
-            }
-            set 
-            {
-                OnayButton.OnClientClick = value;
+                this.OnayImageButton.Click -= value;
             }
         }
         //ARITONAYIMAGEBUTTON U LINKBUTONA CAST ETMEK ICIN 
-        public static explicit operator LinkButton(AritOnayLinkButton arg)
+        public static explicit operator LinkButton(AritOnayImageButton arg)
         {
-            return arg.OnayButton;
+            LinkButton linkBtn = new LinkButton();
+            linkBtn.CommandArgument = arg.OnayImageButton.CommandArgument;
+            linkBtn.CommandName = arg.OnayImageButton.CommandName;
+            linkBtn.ToolTip = arg.OnayImageButton.ToolTip;
+            return linkBtn;
         }
-
+        //ARITONAYIMAGEBUTTON U IMAGEBUTTON CAST ETMEK ICIN
+        public static explicit operator ImageButton(AritOnayImageButton arg)
+        {
+            return arg.OnayImageButton;
+        }
     }
 }
