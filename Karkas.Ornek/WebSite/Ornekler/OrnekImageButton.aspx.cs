@@ -15,6 +15,5 @@ public partial class Ornekler_OrnekImageButton : System.Web.UI.Page
 
     protected void Deneme_Click(object sender, EventArgs e)
     {
-        Response.Write("deneme");
     }
 }

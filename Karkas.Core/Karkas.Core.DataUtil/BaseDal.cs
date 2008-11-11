@@ -103,13 +103,18 @@ namespace Karkas.Core.DataUtil
         {
             get
             {
-                if (template == null)
-                {
-                    template = new AdoTemplate();
-                    template.Connection = Connection;
-                }
+                template = getNewAdoTemplate();
                 return template;
             }
+        }
+
+        private AdoTemplate getNewAdoTemplate()
+        {
+            AdoTemplate t = new AdoTemplate();
+            t.Connection = Connection;
+            t.CurrentTransaction = currentTransaction;
+            t.OtomatikConnectionYonetimi = otomatikConnectionYonetimi;
+            return t;
         }
 
 
@@ -181,7 +186,7 @@ namespace Karkas.Core.DataUtil
                     cmd.Transaction = currentTransaction;
                 }
                 logger.Info(new LoggingInfo(komutuCalistiranKullaniciKisiKey, cmd));
-                
+
                 sonucRowSayisi = cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -259,7 +264,7 @@ namespace Karkas.Core.DataUtil
             cmd.Connection = Connection;
             UpdateCommandParametersAdd(cmd, row);
             int kayitSayisi = SorguHariciKomutCalistirInternal(cmd);
-            
+
             bool updateSonucuBasarisiz = (kayitSayisi == 0);
             // Bu kod TopluEkleGuncelle icinde patlamaya yol acacak,
             // bunu kabul ederek birakiyoruz. Bu tur durumlar icin

@@ -71,6 +71,7 @@
     <Compile Include="Testler\StoredProcedureTest.cs" />
     <Compile Include="Testler\TransactionOrnekBasitTabloIdentity.cs" />
     <Compile Include="Testler\TransactionOrnekMusteriTest.cs" />
+    <Compile Include="Testler\TransactionTemplateTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BsWrapper\Karkas.Ornek.BsWrapper\Karkas.Ornek.BsWrapper.csproj">

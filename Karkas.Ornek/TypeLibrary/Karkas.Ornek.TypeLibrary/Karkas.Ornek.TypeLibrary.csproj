@@ -42,6 +42,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\TtOrnekler\OrnekTur.cs" />
     <Compile Include="Ornekler\Aciklama.cs" />
     <Compile Include="Ornekler\Aciklama.generated.cs" />
     <Compile Include="Ornekler\BasitTablo.cs" />
