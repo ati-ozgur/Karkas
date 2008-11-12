@@ -65,8 +65,7 @@
 
             public static void ScriptEkle(Page page, string script, string key)
             {
-                string js = string.Format("<script type=\"text/javascript\">\r\n                                    <!--\r\n                                    {0}\r\n                                    // -->\r\n                                    </script>", script);
-                JavascriptHelper.ScriptRegister(page, js, key);
+                JavascriptHelper.ScriptRegister(page, script, key);
             }
 
             public void PopUpiKapat()
@@ -173,10 +172,20 @@
                 }
             }
 
+
+
             private static void ScriptRegister(Page page, string javascript, string key)
             {
+                if ((ScriptManager.GetCurrent(page) != null)
+                    &&
+                (ScriptManager.GetCurrent(page).IsInAsyncPostBack))
+                {
+                    ScriptManager.RegisterClientScriptBlock(page,page.GetType(), key, javascript,true);
+                }
+
                 if ((page != null) && !page.ClientScript.IsClientScriptBlockRegistered(key))
                 {
+                    javascript = ScriptTaglariArasinaAl(javascript);
                     page.ClientScript.RegisterClientScriptBlock(page.GetType(), key, javascript);
                 }
             }

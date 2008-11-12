@@ -17,6 +17,22 @@
         private readonly KarkasWebHelper.QueryStringHelper queryStringHelper;
         private readonly KarkasWebHelper.ExportHelper exportHelper;
 
+        ScriptManager scriptManager = null; 
+
+        public ScriptManager ScriptManagerSingleton
+        {
+            get
+            {
+                if (scriptManager == null)
+                {
+                    scriptManager =ScriptManager.GetCurrent(this); 
+
+                }
+                return scriptManager;
+            }
+        }
+
+
         public KarkasWebHelper.ExportHelper ExportHelper
         {
             get { return exportHelper; }
