@@ -317,15 +317,12 @@ namespace Karkas.Core.DataUtil
         }
         public void SorguCalistir(List<T> liste, String pFilterString, SqlParameter[] parameterArray)
         {
+            SorguCalistir(liste, pFilterString, parameterArray, true);
+        }
+        public void SorguCalistir(List<T> liste, String pFilterString, SqlParameter[] parameterArray, bool otomatikWhereEkle)
+        {
             SqlCommand cmd = new SqlCommand();
-            if (String.IsNullOrEmpty(pFilterString))
-            {
-                cmd.CommandText = SelectString;
-            }
-            else
-            {
-                cmd.CommandText = String.Format("{0}  WHERE  {1}", SelectString, pFilterString);
-            }
+            filreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
             cmd.Connection = Connection;
             foreach (SqlParameter prm in parameterArray)
             {
@@ -334,20 +331,37 @@ namespace Karkas.Core.DataUtil
             sorguCalistirInternal(liste, cmd);
 
         }
-
-        public void SorguCalistir(List<T> liste, String pFilterString)
+        
+        public void SorguCalistir(List<T> liste, String pFilterString,bool otomatikWhereEkle)
         {
             SqlCommand cmd = new SqlCommand();
+            filreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
+            cmd.Connection = Connection;
+            sorguCalistirInternal(liste, cmd);
+        }
+
+        private void filreStringiniSetle(String pFilterString, bool otomatikWhereEkle, SqlCommand cmd)
+        {
             if (String.IsNullOrEmpty(pFilterString))
             {
                 cmd.CommandText = SelectString;
             }
             else
             {
-                cmd.CommandText = String.Format("{0}  WHERE  {1}", SelectString, pFilterString);
+                if (otomatikWhereEkle)
+                {
+                    cmd.CommandText = String.Format("{0}  WHERE  {1}", SelectString, pFilterString);
+                }
+                else
+                {
+                    cmd.CommandText = String.Format("{0} {1}", SelectString, pFilterString);
+                }
             }
-            cmd.Connection = Connection;
-            sorguCalistirInternal(liste, cmd);
+        }
+
+        public void SorguCalistir(List<T> liste, String pFilterString)
+        {
+            SorguCalistir(liste, pFilterString, true);
         }
 
         private void sorguCalistirInternal(List<T> liste, SqlCommand cmd)
