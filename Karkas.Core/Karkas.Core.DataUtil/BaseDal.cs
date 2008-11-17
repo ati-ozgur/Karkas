@@ -284,6 +284,32 @@ namespace Karkas.Core.DataUtil
             DeleteCommandParametersAdd(cmd, row);
             SorguHariciKomutCalistirInternal(cmd);
         }
+        public T SorguCalistirTekSatirGetir(String pFilterString)
+        {
+            List<T> liste = new List<T>();
+            SorguCalistir(liste, pFilterString);
+            if (liste.Count > 0)
+            {
+                return liste[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public T SorguCalistirTekSatirGetir(String pFilterString, SqlParameter[] parameterArray)
+        {
+            List<T> liste = new List<T>();
+            SorguCalistir(liste, pFilterString,parameterArray);
+            if (liste.Count > 0)
+            {
+                return liste[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         public void SorguCalistir(List<T> liste)
         {
