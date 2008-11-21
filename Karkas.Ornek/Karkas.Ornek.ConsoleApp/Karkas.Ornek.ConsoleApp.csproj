@@ -72,6 +72,7 @@
     <Compile Include="Testler\TransactionDataTableDondurTest.cs" />
     <Compile Include="Testler\TransactionOrnekBasitTabloIdentity.cs" />
     <Compile Include="Testler\TransactionOrnekMusteriTest.cs" />
+    <Compile Include="Testler\TransactionTemplateOrnekTest.cs" />
     <Compile Include="Testler\TransactionTemplateTest.cs" />
   </ItemGroup>
   <ItemGroup>

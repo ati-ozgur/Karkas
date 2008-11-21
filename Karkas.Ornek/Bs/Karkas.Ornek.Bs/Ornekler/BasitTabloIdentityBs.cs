@@ -36,5 +36,10 @@ public partial class BasitTabloIdentityBs
             this.ClearTransactionInformation();
         }
     }
+
+    public void TemplateOrnek()
+    {
+        throw new NotImplementedException();
+    }
 }
 }

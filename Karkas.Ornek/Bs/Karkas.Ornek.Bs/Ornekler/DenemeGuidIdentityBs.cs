@@ -42,5 +42,33 @@ namespace Karkas.Ornek.Bs.Ornekler
                 this.ClearTransactionInformation();
             }
         }
+
+        public void OrnekTransactionTemplate()
+        {
+            DenemeGuidIdentity dgi = new DenemeGuidIdentity();
+            dgi.DenemeKey = Guid.NewGuid();
+            dgi.DenemeKolon = "Erkan";
+
+            Aciklama aciklama = new Aciklama();
+            aciklama.AciklamaKey = Guid.NewGuid();
+
+            try
+            {
+                this.BeginTransaction();
+
+                AciklamaDal aciklamaDal = this.GetDalInstance<AciklamaDal, Aciklama>();
+
+                int no = dal.Ekle(dgi);
+                int denemeNo = dal.DenemeNoBul(dgi.DenemeKey);
+                aciklama.AciklamaProperty = "" + denemeNo + " " + dgi.DenemeKeyAsString;
+                aciklamaDal.Ekle(aciklama);
+                this.CommitTransaction();
+
+            }
+            finally
+            {
+                this.ClearTransactionInformation();
+            }
+        }
     }
 }

@@ -20,5 +20,15 @@ namespace Karkas.Ornek.Dal.Ornekler
             return Template.DataTableOlustur(sql, builder.GetParameterArray());
 
         }
+        public int DenemeNoBul(Guid DenemeKey)
+        {
+            string sql = "SELECT DenemeNo FROM [ORNEKLER].[DENEME_GUID_IDENTITY] WHERE DenemeKey = @DenemeKey";
+            ParameterBuilder builder = new ParameterBuilder();
+            builder.parameterEkle("@DenemeKey", SqlDbType.UniqueIdentifier, DenemeKey);
+            object sonuc = Template.TekDegerGetir(sql, builder.GetParameterArray());
+            return Convert.ToInt32(sonuc);
+
+        }
+
 	}
 }
