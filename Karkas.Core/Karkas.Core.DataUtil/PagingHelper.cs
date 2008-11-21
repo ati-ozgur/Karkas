@@ -20,12 +20,19 @@ namespace Karkas.Core.DataUtil
             get { return komutuCalistiranKullaniciKisiKey; }
             set { komutuCalistiranKullaniciKisiKey = value; }
         }
-	
 
 
-        public PagingHelper(SqlConnection pConnection,Guid pKisiKey)
+        private SqlTransaction currentTransaction;
+
+        public SqlTransaction CurrentTransaction
         {
-            helper = new HelperFunctions(pConnection,pKisiKey);
+            get { return currentTransaction; }
+            set { currentTransaction = value; }
+        }
+
+        public PagingHelper(SqlConnection pConnection,Guid pKisiKey,SqlTransaction currentTransaction)
+        {
+            helper = new HelperFunctions(pConnection,pKisiKey,currentTransaction);
             this.komutuCalistiranKullaniciKisiKey = pKisiKey;
         }
 

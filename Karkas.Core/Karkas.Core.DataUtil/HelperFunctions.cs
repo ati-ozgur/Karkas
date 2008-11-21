@@ -28,6 +28,15 @@ namespace Karkas.Core.DataUtil
             }
         }
 
+        private SqlTransaction currentTransaction;
+
+        public SqlTransaction CurrentTransaction
+        {
+            get { return currentTransaction; }
+            set { currentTransaction = value; }
+        }
+
+
         protected bool ConnectionKapatilacakMi()
         {
             return OtomatikConnectionYonetimi;
@@ -52,8 +61,9 @@ namespace Karkas.Core.DataUtil
 
 
         SqlConnection conn;
-        public HelperFunctions(SqlConnection pConnection, Guid pKisiKey)
+        public HelperFunctions(SqlConnection pConnection, Guid pKisiKey,SqlTransaction currentTransaction)
         {
+            this.currentTransaction = currentTransaction;
             conn = pConnection;
             komutuCalistiranKullaniciKisiKey = pKisiKey;
         }
@@ -63,7 +73,7 @@ namespace Karkas.Core.DataUtil
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = cmdType;
 
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            SqlDataAdapter adapter = AdapterDondur(cmd);
             try
             {
                 adapter.Fill(dt);
@@ -81,10 +91,21 @@ namespace Karkas.Core.DataUtil
             }
 
         }
+        internal SqlDataAdapter AdapterDondur(SqlCommand cmd)
+        {
+            if (currentTransaction != null)
+            {
+                cmd.Transaction = currentTransaction;
+            }
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            return adapter;
+        }
+
 
         internal void SorguCalistir(DataTable dt, SqlCommand cmd)
         {
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            SqlDataAdapter adapter = AdapterDondur(cmd);
+
             try
             {
                 adapter.Fill(dt);

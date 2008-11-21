@@ -28,11 +28,19 @@ namespace Karkas.Core.DataUtil
             get { return komutuCalistiranKullaniciKisiKey; }
             set { komutuCalistiranKullaniciKisiKey = value; }
         }
-	
+
+
+        private SqlTransaction currentTransaction;
+
+        public SqlTransaction CurrentTransaction
+        {
+            get { return currentTransaction; }
+            set { currentTransaction = value; }
+        }
 
         public PagingTemplate(string pSql)
         {
-            new PagingHelper(ConnectionSingleton.Instance.Connection, KomutuCalistiranKullaniciKisiKey);
+            new PagingHelper(ConnectionSingleton.Instance.Connection, KomutuCalistiranKullaniciKisiKey,currentTransaction);
             this.selectSql = pSql;
             this.countSql = sqlCumlesiniCountIleDegistir(pSql);
         }

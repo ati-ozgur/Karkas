@@ -84,7 +84,7 @@ namespace Karkas.Core.DataUtil
             {
                 if (_helper == null)
                 {
-                    _helper = new HelperFunctions(Connection, KomutuCalistiranKullaniciKisiKey);
+                    _helper = new HelperFunctions(Connection, KomutuCalistiranKullaniciKisiKey,currentTransaction);
                 }
                 return _helper;
             }
@@ -98,7 +98,7 @@ namespace Karkas.Core.DataUtil
             {
                 if (_pagingHelper == null)
                 {
-                    _pagingHelper = new PagingHelper(Connection, KomutuCalistiranKullaniciKisiKey);
+                    _pagingHelper = new PagingHelper(Connection, KomutuCalistiranKullaniciKisiKey,currentTransaction);
                 }
                 return _pagingHelper;
             }
