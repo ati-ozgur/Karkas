@@ -12,7 +12,7 @@ using Karkas.Core.Utility.ReportingServicesHelper.Generated;
 
 namespace Karkas.Core.Utility.ReportingServicesHelper
 {
-    public class AritRapor
+    public class KarkasRapor
     {
         // TODO NTLM ILE
 
@@ -26,12 +26,12 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
         ReportingService rs = new ReportingService();
 
-        public AritRapor()
+        public KarkasRapor()
         {
             rs.UseDefaultCredentials = UseDefaultCredentials;
         }
 
-        public AritRapor(string pRaporAd)
+        public KarkasRapor(string pRaporAd)
             : this()
         {
             RaporAd = pRaporAd;
@@ -74,7 +74,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
                     else
                     {
                         CredentialCache cache = new CredentialCache();
-                        cache.Add(new Uri(RaporSunucuUrl), WebServiceSecurityModel, new NetworkCredential(RaporUser, RaporPassword, RaporCredentialsDomain));
+                        cache.Add(new Uri(RaporSunucuUrl), WebServiceSecurityModel, new NetworkCredential(RaporKullanici, RaporPassword, RaporCredentialsDomain));
                         credentials = cache;
                     }
                 }
@@ -85,13 +85,13 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
         private string raporUser;
 
-        public string RaporUser
+        public string RaporKullanici
         {
             get
             {
                 if (String.IsNullOrEmpty(raporUser))
                 {
-                    raporUser = System.Configuration.ConfigurationManager.AppSettings["RaporUser"].ToString();
+                    raporUser = System.Configuration.ConfigurationManager.AppSettings["RaporKullanici"].ToString();
                 }
                 return raporUser;
             }
@@ -155,7 +155,11 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
         string raporAd;
         string raporDosyaAd;
-
+        /// <summary>
+        /// Raporun Sunucu Uzerindeki Adi, buranýn dizin ile beraber verilmesi
+        /// gerekir. MODUL_ADI/RAPOR_ADI , .rdl verilmez
+        /// Report Manager uzerinde gorulen adý veriniz.
+        /// </summary>
         public string RaporAd
         {
             get
@@ -180,7 +184,9 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
                 raporFormat = value;
             }
         }
-
+        /// <summary>
+        /// Raporun save as ile kayýt edilirken gosterildigi ad.
+        /// </summary>
         public string RaporDosyaAd
         {
             get
