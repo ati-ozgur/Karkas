@@ -30,6 +30,7 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
             oRapor.ParametreEkle("Soyadi", "");
             Byte[] rapor = oRapor.RaporAl();
 
+
             File.WriteAllBytes("SadaceIsim.pdf", rapor);
         }
         private static void raporDogumTarihi()

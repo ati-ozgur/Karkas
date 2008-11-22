@@ -74,7 +74,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
                     else
                     {
                         CredentialCache cache = new CredentialCache();
-                        cache.Add(new Uri(RaporSunucuUrl), WebServiceSecurityModel, new NetworkCredential(RaporKullanici, RaporPassword, RaporCredentialsDomain));
+                        cache.Add(new Uri(RaporSunucuUrl), WebServiceSecurityModel, new NetworkCredential(RaporUser, RaporPassword, RaporCredentialsDomain));
                         credentials = cache;
                     }
                 }
@@ -85,13 +85,13 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
         private string raporUser;
 
-        public string RaporKullanici
+        public string RaporUser
         {
             get
             {
                 if (String.IsNullOrEmpty(raporUser))
                 {
-                    raporUser = System.Configuration.ConfigurationManager.AppSettings["RaporKullanici"].ToString();
+                    raporUser = System.Configuration.ConfigurationManager.AppSettings["RaporUser"].ToString();
                 }
                 return raporUser;
             }
