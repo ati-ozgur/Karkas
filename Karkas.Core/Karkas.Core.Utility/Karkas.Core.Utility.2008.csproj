@@ -68,12 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ay.cs" />
-    <Compile Include="ReportingServicesHelper\AritRapor.cs" />
     <Compile Include="EPostaYardimcisi.cs" />
+    <Compile Include="ReportingServicesHelper\KarkasRapor.cs" />
     <Compile Include="ReportingServicesHelper\ReportingService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -101,6 +98,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
