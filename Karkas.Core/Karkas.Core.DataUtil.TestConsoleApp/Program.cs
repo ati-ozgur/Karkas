@@ -18,33 +18,8 @@ namespace Karkas.Core.DataUtil.TestConsoleApp
     {
         public static void Main(string[] args)
         {
-
-            JavascriptHelperTest test = new JavascriptHelperTest();
-            test.alertIcinDuzgunMesajOlusturTest();
         }
 
-        private static void disardanDegerleriSetleyerekRaporAl()
-        {
-            AritRapor oAritRapor = new AritRapor("/MtkTsmRaporlar/IsYeriBilgileriMtk");
-            oAritRapor.UseDefaultCredentials = false;
-            oAritRapor.RaporUser = "builduser";
-            oAritRapor.RaporPassword = "123";
-            oAritRapor.RaporCredentialsDomain = "ATILLA";
-            oAritRapor.WebServiceSecurityModel = AritRapor.WebServiceSecurityModelConstants.NTLM;
-            Byte[] rapor = oAritRapor.RaporAl();
-        }
-
-        //public static void raporKurulusBildirimFormuAlUserNamePassword()
-        //{
-        //    AritRapor oAritRapor = new AritRapor("/MtkTsmRaporlar/IsYeriBilgileriMtk");
-        //    oAritRapor.RaporDosyaAd = "IsYeriBilgileriMtk ";
-        //    oAritRapor.RaporFormat = RaporFormats.PDF;
-        //    oAritRapor.UseDefaultCredentials = false;
-        //    oAritRapor.RaporUser = "builduser";
-        //    oAritRapor.RaporPassword = "123";
-        //    //oAritRapor.RaporSunucuUrl = "http://localhost/Reports/";
-        //    Byte[] rapor = oAritRapor.RaporAl();
-        //}
 
 
 

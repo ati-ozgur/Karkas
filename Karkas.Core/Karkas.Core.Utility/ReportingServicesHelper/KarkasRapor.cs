@@ -136,6 +136,11 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         }
         private string raporSunucuUrl;
 
+
+
+        /// <summary>
+        /// Raporlarýn calýstýgý sunucunun adresi
+        /// </summary>
         public string RaporSunucuUrl
         {
             get
@@ -205,12 +210,30 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         {
             ParametreListesi.Add(new Parametre(pAdi, pDegeri));
         }
+        public void ParametreEkle(string pAdi, DateTime pDegeri)
+        {
+            ParametreListesi.Add(new Parametre(pAdi, pDegeri));
+        }
+        public void ParametreEkle(string pAdi, float pDegeri)
+        {
+            ParametreListesi.Add(new Parametre(pAdi, pDegeri));
+        }
+        public void ParametreEkle(string pAdi, int pDegeri)
+        {
+            ParametreListesi.Add(new Parametre(pAdi, pDegeri));
+        }
+        public void ParametreEkle(string pAdi, bool pDegeri)
+        {
+            ParametreListesi.Add(new Parametre(pAdi, pDegeri));
+        }
+
+
+
 
 
         public byte[] RaporAl()
         {
             ReportingService rs = new ReportingService();
-
             rs.Credentials = Credentials;
 
             Warning[] warnings;
@@ -223,15 +246,19 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             byte[] buf = null;
 
 
+
             parameters = new ParameterValue[ParametreListesi.Count];
             for (int ix = 0; ix < ParametreListesi.Count; ix++)
             {
+                
                 Parametre oParametre = new Parametre();
+
+
                 oParametre = (Parametre)ParametreListesi[ix];
 
                 parameters[ix] = new ParameterValue();
                 parameters[ix].Name = oParametre.Adi;
-                parameters[ix].Value = oParametre.Degeri;
+                parameters[ix].Value = oParametre.DegeriniAl();
             }
             switch (RaporFormat)
             {
@@ -243,9 +270,6 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
                     break;
                 case RaporFormats.IMAGE:
                     buf = rs.Render(raporAd, "IMAGE", null, "", parameters, dsCredentials, "", out encoding, out mimeType, out paramatersUsed, out warnings, out streamids);
-                    break;
-                case RaporFormats.WORD:
-                    buf = rs.Render(raporAd, "WORD", null, "", parameters, dsCredentials, "", out encoding, out mimeType, out paramatersUsed, out warnings, out streamids);
                     break;
             }
             return buf;
@@ -277,11 +301,6 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
                     HttpContext.Current.Response.ContentType = "image/tiff";
                     HttpContext.Current.Response.BinaryWrite(buf);
                     break;
-                case RaporFormats.WORD:
-                    HttpContext.Current.Response.AppendHeader("content-disposition", "attachment; filename=" + RaporDosyaAd + ".doc");
-                    HttpContext.Current.Response.ContentType = "application/msword";
-                    HttpContext.Current.Response.BinaryWrite(buf);
-                    break;
             }
 
             HttpContext.Current.Response.End();
@@ -293,12 +312,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             ddl.Items.Clear();
             ddl.Items.Add(new ListItem("PDF", "PDF"));
             ddl.Items.Add(new ListItem("EXCEL", "EXCEL"));
-            // ddl.Items.Add(new ListItem("HTML", "HTMLOWC"));
-            // ddl.Items.Add(new ListItem("HTML Arþiv", "MHTML"));
-            // ddl.Items.Add(new ListItem("XML", "XML"));
             ddl.Items.Add(new ListItem("TIFF", "IMAGE"));
-            // ddl.Items.Add(new ListItem("CSV", "CSV"));
-            // ddl.Items.Add(new ListItem("WORD", "WORD"));
         }
 
     }
@@ -309,21 +323,122 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         PDF,
         EXCEL,
         IMAGE,
-        WORD,
-
     }
     public class Parametre
     {
         public Parametre()
         {
+
         }
+
         public Parametre(string pAdi, string pDegeri)
         {
             adi = pAdi;
             degeri = pDegeri;
+            this.type = ParameterTypeEnum.String;
         }
-        string adi;
-        string degeri;
+
+        public Parametre(string pAdi, bool pDegeri)
+        {
+            this.adi = pAdi;
+            this.degeri = pDegeri;
+            this.type = ParameterTypeEnum.Boolean;
+        }
+
+        public Parametre(string pAdi, DateTime pDegeri)
+        {
+            this.adi = pAdi;
+            this.degeri = pDegeri;
+            this.type = ParameterTypeEnum.DateTime;
+        }
+        public Parametre(string pAdi, float pDegeri)
+        {
+            this.adi = pAdi;
+            this.degeri = pDegeri;
+            this.type = ParameterTypeEnum.Float;
+        }
+        public Parametre(string pAdi, int pDegeri)
+        {
+            this.adi = pAdi;
+            this.degeri = pDegeri;
+            this.type = ParameterTypeEnum.Integer;
+        }
+
+
+
+        private string adi;
+        private object degeri;
+
+        public string DegeriniAl()
+        {
+            string sonuc = null;
+            switch (type)
+            {
+                case ParameterTypeEnum.String:
+                    sonuc = degeri.ToString();
+                    break;
+                case ParameterTypeEnum.Integer:
+                    sonuc = degeri.ToString();
+                    break;
+                case ParameterTypeEnum.DateTime:
+                    DateTime d = Convert.ToDateTime(degeri);
+                    sonuc = string.Format("{0:yyyy-MM-dd HH:mm:ss}", d);
+                    break;
+                case ParameterTypeEnum.Boolean:
+                    sonuc = degeri.ToString();
+                    break;
+                case ParameterTypeEnum.Float:
+                    sonuc = degeri.ToString();
+                    break;
+            }
+            return sonuc;
+        }
+
+
+        public object Degeri
+        {
+            get 
+            { 
+                return degeri; 
+            }
+            set 
+            { 
+                if (value is string)
+                {
+                    degeri = value;
+                    this.type = ParameterTypeEnum.String;
+                }
+                else if (value is DateTime)
+                {
+                    degeri = value;
+                    this.type = ParameterTypeEnum.DateTime;
+                }
+                else if (value is bool)
+                {
+                    degeri = value;
+                    this.type = ParameterTypeEnum.Boolean;
+                }
+                else if (value is Int32)
+                {
+                    degeri = value;
+                    this.type = ParameterTypeEnum.Integer;
+                }
+                else if (value is float)
+                {
+                    degeri = value;
+                    this.type = ParameterTypeEnum.Float;
+                }
+                throw new ArgumentException("Desteklenmeyen Tip");
+            }
+        }
+        private ParameterTypeEnum type;
+
+        public ParameterTypeEnum ParameterType
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
 
         public string Adi
         {
@@ -336,17 +451,9 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
                 adi = value;
             }
         }
-        public string Degeri
-        {
-            get
-            {
-                return degeri;
-            }
-            set
-            {
-                degeri = value;
-            }
-        }
+
+
+
     }
 
 
