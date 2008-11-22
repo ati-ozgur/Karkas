@@ -250,7 +250,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             parameters = new ParameterValue[ParametreListesi.Count];
             for (int ix = 0; ix < ParametreListesi.Count; ix++)
             {
-                
+
                 Parametre oParametre = new Parametre();
 
 
@@ -307,16 +307,44 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         }
 
 
+        public RaporFormats RaporFormatiniAl(string pRaporFormatAdi)
+        {
+            RaporFormats rfs = RaporFormats.PDF;
+            switch (pRaporFormatAdi)
+            {
+                case RaporFormatAsString.PDF:
+                    rfs = RaporFormats.PDF;
+                    break;
+                case RaporFormatAsString.EXCEL:
+                    rfs = RaporFormats.EXCEL;
+                    break;
+                case RaporFormatAsString.IMAGE:
+                    rfs = RaporFormats.IMAGE;
+                    break;
+                case RaporFormatAsString.TIFF:
+                    rfs = RaporFormats.IMAGE;
+                    break;
+
+            }
+            return rfs;
+        }
         public static void DDLRaporFormatDoldur(DropDownList ddl)
         {
             ddl.Items.Clear();
-            ddl.Items.Add(new ListItem("PDF", "PDF"));
-            ddl.Items.Add(new ListItem("EXCEL", "EXCEL"));
-            ddl.Items.Add(new ListItem("TIFF", "IMAGE"));
+            ddl.Items.Add(new ListItem(RaporFormatAsString.PDF, RaporFormatAsString.PDF));
+            ddl.Items.Add(new ListItem(RaporFormatAsString.EXCEL, RaporFormatAsString.PDF));
+            ddl.Items.Add(new ListItem(RaporFormatAsString.TIFF, RaporFormatAsString.IMAGE));
         }
 
-    }
 
+    }
+    public class RaporFormatAsString
+    {
+        public const string PDF = "PDF";
+        public const string EXCEL = "EXCEL";
+        public const string IMAGE = "IMAGE";
+        public const string TIFF = "TIFF";
+    }
 
     public enum RaporFormats
     {
@@ -397,12 +425,12 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
         public object Degeri
         {
-            get 
-            { 
-                return degeri; 
+            get
+            {
+                return degeri;
             }
-            set 
-            { 
+            set
+            {
                 if (value is string)
                 {
                     degeri = value;
