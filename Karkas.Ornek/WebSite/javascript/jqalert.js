@@ -65,9 +65,9 @@ if (!window.jqalerter) {
                         windowOpacity: 1,
                         modal: true,
                         icon: null, // << use a url here
-                        minWidth: 200,
+                        minWidth: "200px",
                         maxWidth: $(document).width(),
-                        minHeight: 15,
+                        minHeight: "15px",
                         maxHeight: $(document).width(),
                         dynamicCss: true,
                         draggable: true,
@@ -83,7 +83,7 @@ if (!window.jqalerter) {
                             $(windowElement).animate({
                                     "top": parseInt($(windowElement).css("top")) + 5,
                                     "opacity": 1
-                                }, 200, null, initFunction);
+                                }, "200px", null, initFunction);
                             
                         },
                         hideEffect: function(windowElement, finalizeFunction) {
@@ -92,7 +92,7 @@ if (!window.jqalerter) {
                             $(windowElement).animate({
                                     "top": parseInt($(windowElement).css("top")) - 5,
                                     "opacity": 0
-                                }, 200, null, finalizeFunction);
+                                }, "200px", null, finalizeFunction);
                         },
                         setOption: function(name, value) {
                                 this[name] = value;

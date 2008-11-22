@@ -10,6 +10,9 @@ CREATE TABLE [ORNEKLER].[MUSTERI](
 	[Soyadi] [varchar](50) NOT NULL,
 	[IkinciAdi] [varchar](50) NULL,
 	[DogumTarihi] [datetime] NULL,
+	[AktifMi] [bit] NOT NULL,
+	[Onemi] [int] NULL,
+	[Kredisi] [decimal](12, 2) NULL,
 	[TamAdi]  AS ((([Adi]+' ')+coalesce([IkinciAdi]+' ',''))+[Soyadi]),
  CONSTRAINT [PK_ORNEK_MUSTERI] PRIMARY KEY CLUSTERED 
 (
@@ -18,4 +21,5 @@ CREATE TABLE [ORNEKLER].[MUSTERI](
 ) ON [PRIMARY]
 
 GO --ExecuteThisSql
+
 
