@@ -234,6 +234,11 @@ namespace Karkas.Core.Utility.ReportingServicesHelper.Generated
         /// <remarks/>
         public ReportingService()
         {
+            setUrlAndCredentials();
+        }
+
+        public void setUrlAndCredentials()
+        {
             this.Url = System.Configuration.ConfigurationManager.AppSettings["RaporSunucuURL"].ToString();
             if ((this.IsLocalFileSystemWebService(this.Url) == true))
             {

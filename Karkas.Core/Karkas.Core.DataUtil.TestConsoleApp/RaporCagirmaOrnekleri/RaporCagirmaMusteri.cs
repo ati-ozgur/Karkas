@@ -17,8 +17,21 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
             raporAktifler();
             raporOnemliler();
             raporPasifler();
-            raporKredisiYuksek();
+            raporKredisiYuksek(); 
+            YardimMasasiOrnekRapor();
         }
+        public static void YardimMasasiOrnekRapor()
+        {
+            string raporDizin = "/YardimMasasiRapor/YardimMasasiIstatistikRaporu";
+            KarkasRapor rapor = new KarkasRapor(raporDizin);
+            rapor.RaporDosyaAd = "IstatistikRaporu";
+            rapor.RaporFormat = RaporFormats.PDF;
+            rapor.ParametreEkle("pTarihBaslangic", new DateTime(2000, 1, 1));
+            rapor.ParametreEkle("pTarihBitis", new DateTime(2010, 1, 1));
+            Byte[] sonuc = rapor.RaporAl();
+            File.WriteAllBytes("Istatistik.pdf", sonuc);
+        }
+
 
         private static void raporSadaceIsim()
         {

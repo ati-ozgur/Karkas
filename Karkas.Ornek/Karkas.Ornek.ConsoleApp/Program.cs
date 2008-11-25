@@ -21,7 +21,7 @@ namespace Karkas.Ornek.ConsoleApp
     {
         static void Main(string[] args)
         {
-
+            concurrenyDeneme();
 
         }
 

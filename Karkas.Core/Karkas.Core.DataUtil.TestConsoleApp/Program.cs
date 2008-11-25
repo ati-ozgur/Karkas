@@ -11,6 +11,7 @@ using Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri;
 using Karkas.Core.Utility.ReportingServicesHelper;
 using Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri.KarsilastirmaTestleri;
 using Karkas.Core.DataUtil.TestConsoleApp.Tests.WebHelperTestleri;
+using Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri;
 
 namespace Karkas.Core.DataUtil.TestConsoleApp
 {
@@ -18,6 +19,7 @@ namespace Karkas.Core.DataUtil.TestConsoleApp
     {
         public static void Main(string[] args)
         {
+            RaporCagirmaMusteri.RaporOrnekleriAl();
         }
 
 

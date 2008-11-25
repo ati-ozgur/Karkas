@@ -9,6 +9,7 @@ using System.Collections.Generic;
 
 
 using Karkas.Core.Utility.ReportingServicesHelper.Generated;
+using System.Configuration;
 
 namespace Karkas.Core.Utility.ReportingServicesHelper
 {
@@ -35,10 +36,13 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             : this()
         {
             RaporAd = pRaporAd;
+
+
+
         }
 
         private ICredentials credentials;
-        private bool useDefaultCredentials = false;
+        private bool useDefaultCredentials = true;
 
         public bool UseDefaultCredentials
         {
@@ -46,20 +50,8 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             set { useDefaultCredentials = value; }
         }
 
-        private string webServiceSecurityModel;
 
-        public string WebServiceSecurityModel
-        {
-            get
-            {
-                if (String.IsNullOrEmpty(webServiceSecurityModel))
-                {
-                    webServiceSecurityModel = System.Configuration.ConfigurationManager.AppSettings["RaporWebServiceSecurityModel"].ToString();
-                }
-                return webServiceSecurityModel;
-            }
-            set { webServiceSecurityModel = value; }
-        }
+
 
         public ICredentials Credentials
         {
@@ -89,9 +81,13 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         {
             get
             {
-                if (String.IsNullOrEmpty(raporUser))
+                if (String.IsNullOrEmpty(raporUser) && (ConfigurationManager.AppSettings[RAPOR_USER] != null))
                 {
-                    raporUser = System.Configuration.ConfigurationManager.AppSettings["RaporUser"].ToString();
+                    raporUser = ConfigurationManager.AppSettings[RAPOR_USER];
+                }
+                else
+                {
+                    throw new SettingsPropertyNotFoundException(RAPOR_USER + "  AppSettings icinde bulunamadi");
                 }
                 return raporUser;
             }
@@ -233,7 +229,6 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
         public byte[] RaporAl()
         {
-            ReportingService rs = new ReportingService();
             rs.Credentials = Credentials;
 
             Warning[] warnings;
@@ -334,6 +329,59 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             ddl.Items.Add(new ListItem(RaporFormatAsString.PDF, RaporFormatAsString.PDF));
             ddl.Items.Add(new ListItem(RaporFormatAsString.EXCEL, RaporFormatAsString.PDF));
             ddl.Items.Add(new ListItem(RaporFormatAsString.TIFF, RaporFormatAsString.IMAGE));
+        }
+
+
+
+
+        public const string RAPOR_SUNUCU_URL = "RaporSunucuURL";
+        public const string RAPOR_WEB_SERVICE_SECURITY_MODEL = "RaporWebServiceSecurityModel";
+        public const string RAPOR_USER = "RaporUser";
+
+
+        public string RaporSunucuURL
+        {
+            get
+            {
+                if (ConfigurationManager.AppSettings[RAPOR_SUNUCU_URL] == null)
+                {
+                    throw new SettingsPropertyNotFoundException(RAPOR_SUNUCU_URL + " AppSettings icinde bulunamadi");
+                }
+                return ConfigurationManager.AppSettings[RAPOR_SUNUCU_URL];
+
+            }
+
+
+        }
+
+        private string webServiceSecurityModel;
+
+        public string WebServiceSecurityModel
+        {
+
+            get
+            {
+                if (String.IsNullOrEmpty(webServiceSecurityModel))
+                {
+                    if (ConfigurationManager.AppSettings[RAPOR_WEB_SERVICE_SECURITY_MODEL] != null)
+                    {
+                        webServiceSecurityModel = ConfigurationManager.AppSettings[RAPOR_WEB_SERVICE_SECURITY_MODEL].ToString();
+                    }
+                    else
+                    {
+                        webServiceSecurityModel = WebServiceSecurityModelConstants.NTLM;
+                    }
+                }
+                return webServiceSecurityModel;
+            }
+            set
+            {
+                if (value == WebServiceSecurityModelConstants.NTLM)
+                {
+                    useDefaultCredentials = true;
+                }
+                webServiceSecurityModel = value;
+            }
         }
 
 
