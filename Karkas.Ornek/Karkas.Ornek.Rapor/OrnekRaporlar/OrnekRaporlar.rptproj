@@ -12,6 +12,10 @@
       <Name>OrneklerMusteri.rdl</Name>
       <FullPath>OrneklerMusteri.rdl</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>Ornek.rdl</Name>
+      <FullPath>Ornek.rdl</FullPath>
+    </ProjectItem>
   </Reports>
   <Configurations>
     <Configuration>
