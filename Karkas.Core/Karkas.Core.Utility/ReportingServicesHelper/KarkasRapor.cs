@@ -29,7 +29,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
         public KarkasRapor()
         {
-            rs.UseDefaultCredentials = UseDefaultCredentials;
+            SetDefaults();
         }
 
         public KarkasRapor(string pRaporAd)
@@ -41,13 +41,64 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
         }
 
+        private void SetDefaults()
+        {
+            // Rapor Sunucu Url gerekli eger yoksa exception at
+            if (ConfigurationManager.AppSettings[RAPOR_SUNUCU_URL] == null)
+            {
+                throw new SettingsPropertyNotFoundException(RAPOR_SUNUCU_URL + " AppSettings icinde bulunamadi");
+            }
+            raporSunucuUrl = ConfigurationManager.AppSettings[RAPOR_SUNUCU_URL];
+
+
+            // Default Credentials vermiyebilir. O zaman true kabul ederim.
+            if (ConfigurationManager.AppSettings["UseDefaultCredentials"] != null)
+            {
+                useDefaultCredentials = Convert.ToBoolean(ConfigurationManager.AppSettings["UseDefaultCredentials"]);
+            }
+            else
+            {
+                useDefaultCredentials = true;
+            }
+            // Eger security Model yoksa NTLM
+            if (ConfigurationManager.AppSettings[RAPOR_WEB_SERVICE_SECURITY_MODEL] != null)
+            {
+                webServiceSecurityModel = ConfigurationManager.AppSettings[RAPOR_WEB_SERVICE_SECURITY_MODEL].ToString();
+            }
+            else
+            {
+                webServiceSecurityModel = WebServiceSecurityModelConstants.NTLM;
+            }
+
+            if  (
+                (ConfigurationManager.AppSettings[RAPOR_USER] != null)
+                &&
+                (ConfigurationManager.AppSettings[RAPOR_PASSWORD] != null)
+                &&
+                (!useDefaultCredentials)
+                )
+            {
+                raporUser = ConfigurationManager.AppSettings[RAPOR_USER];
+                raporPassword = ConfigurationManager.AppSettings["RaporPassword"].ToString();
+                raporCredentialsDomain = ConfigurationManager.AppSettings[RAPOR_CREDENTIALS_DOMAIN].ToString();
+            }
+        }
+
+
         private ICredentials credentials;
-        private bool useDefaultCredentials = true;
+        private bool useDefaultCredentials;
 
         public bool UseDefaultCredentials
         {
-            get { return useDefaultCredentials; }
-            set { useDefaultCredentials = value; }
+            get 
+            { 
+                return useDefaultCredentials; 
+            }
+            set 
+            {
+                useDefaultCredentials = value; 
+            }
+
         }
 
 
@@ -81,14 +132,6 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         {
             get
             {
-                if (String.IsNullOrEmpty(raporUser) && (ConfigurationManager.AppSettings[RAPOR_USER] != null))
-                {
-                    raporUser = ConfigurationManager.AppSettings[RAPOR_USER];
-                }
-                else
-                {
-                    throw new SettingsPropertyNotFoundException(RAPOR_USER + "  AppSettings icinde bulunamadi");
-                }
                 return raporUser;
             }
             set
@@ -104,7 +147,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             {
                 if (String.IsNullOrEmpty(raporPassword))
                 {
-                    raporPassword = System.Configuration.ConfigurationManager.AppSettings["RaporPassword"].ToString();
+                    
                 }
                 return raporPassword;
             }
@@ -121,7 +164,6 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             {
                 if (String.IsNullOrEmpty(raporCredentialsDomain))
                 {
-                    raporCredentialsDomain = System.Configuration.ConfigurationManager.AppSettings["RaporCredentialsDomain"].ToString();
                 }
                 return raporCredentialsDomain;
             }
@@ -337,49 +379,22 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         public const string RAPOR_SUNUCU_URL = "RaporSunucuURL";
         public const string RAPOR_WEB_SERVICE_SECURITY_MODEL = "RaporWebServiceSecurityModel";
         public const string RAPOR_USER = "RaporUser";
+        public const string RAPOR_PASSWORD = "RaporPassword";
+        public const string RAPOR_CREDENTIALS_DOMAIN = "RaporCredentialsDomain";
+        
 
 
-        public string RaporSunucuURL
-        {
-            get
-            {
-                if (ConfigurationManager.AppSettings[RAPOR_SUNUCU_URL] == null)
-                {
-                    throw new SettingsPropertyNotFoundException(RAPOR_SUNUCU_URL + " AppSettings icinde bulunamadi");
-                }
-                return ConfigurationManager.AppSettings[RAPOR_SUNUCU_URL];
-
-            }
-
-
-        }
 
         private string webServiceSecurityModel;
 
         public string WebServiceSecurityModel
         {
-
             get
             {
-                if (String.IsNullOrEmpty(webServiceSecurityModel))
-                {
-                    if (ConfigurationManager.AppSettings[RAPOR_WEB_SERVICE_SECURITY_MODEL] != null)
-                    {
-                        webServiceSecurityModel = ConfigurationManager.AppSettings[RAPOR_WEB_SERVICE_SECURITY_MODEL].ToString();
-                    }
-                    else
-                    {
-                        webServiceSecurityModel = WebServiceSecurityModelConstants.NTLM;
-                    }
-                }
                 return webServiceSecurityModel;
             }
             set
             {
-                if (value == WebServiceSecurityModelConstants.NTLM)
-                {
-                    useDefaultCredentials = true;
-                }
                 webServiceSecurityModel = value;
             }
         }

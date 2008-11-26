@@ -39,6 +39,7 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
             oRapor.RaporFormat = RaporFormats.PDF;
             oRapor.UseDefaultCredentials = true;
             oRapor.WebServiceSecurityModel = KarkasRapor.WebServiceSecurityModelConstants.NTLM;
+            oRapor.UseDefaultCredentials = true;
             oRapor.ParametreEkle("Adi", "");
             oRapor.ParametreEkle("Soyadi", "");
             Byte[] rapor = oRapor.RaporAl();
@@ -52,6 +53,7 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
             oRapor.RaporFormat = RaporFormats.PDF;
             oRapor.UseDefaultCredentials = true;
             oRapor.WebServiceSecurityModel = KarkasRapor.WebServiceSecurityModelConstants.NTLM;
+            oRapor.UseDefaultCredentials = true;
             oRapor.ParametreEkle("Adi", "");
             oRapor.ParametreEkle("Soyadi", "");
             oRapor.ParametreEkle("DogumTarihi", new DateTime(2000, 1, 1));
@@ -67,6 +69,7 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
             oRapor.RaporFormat = RaporFormats.PDF;
             oRapor.UseDefaultCredentials = true;
             oRapor.WebServiceSecurityModel = KarkasRapor.WebServiceSecurityModelConstants.NTLM;
+            oRapor.UseDefaultCredentials = true;
             oRapor.ParametreEkle("Adi", "");
             oRapor.ParametreEkle("Soyadi", "");
             oRapor.ParametreEkle("AktifMi", true);
@@ -81,6 +84,7 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
             oRapor.RaporFormat = RaporFormats.PDF;
             oRapor.UseDefaultCredentials = true;
             oRapor.WebServiceSecurityModel = KarkasRapor.WebServiceSecurityModelConstants.NTLM;
+            oRapor.UseDefaultCredentials = true;
             oRapor.ParametreEkle("Adi", "");
             oRapor.ParametreEkle("Soyadi", "");
             oRapor.ParametreEkle("AktifMi", false);
@@ -95,6 +99,7 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
             oRapor.RaporFormat = RaporFormats.PDF;
             oRapor.UseDefaultCredentials = true;
             oRapor.WebServiceSecurityModel = KarkasRapor.WebServiceSecurityModelConstants.NTLM;
+            oRapor.UseDefaultCredentials = true;
             oRapor.ParametreEkle("Adi", "");
             oRapor.ParametreEkle("Soyadi", "");
             oRapor.ParametreEkle("Onemi", 5);
@@ -107,6 +112,7 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
             oRapor.RaporFormat = RaporFormats.PDF;
             oRapor.UseDefaultCredentials = true;
             oRapor.WebServiceSecurityModel = KarkasRapor.WebServiceSecurityModelConstants.NTLM;
+            oRapor.UseDefaultCredentials = true;
             oRapor.ParametreEkle("Adi", "");
             oRapor.ParametreEkle("Soyadi", "");
             oRapor.ParametreEkle("Kredisi", 1000.0f);

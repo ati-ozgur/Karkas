@@ -19,7 +19,7 @@ namespace Karkas.Core.DataUtil.TestConsoleApp
     {
         public static void Main(string[] args)
         {
-            RaporCagirmaMusteri.RaporOrnekleriAl();
+            RaporCagirmaMusteri.YardimMasasiOrnekRapor();
         }
 
 
