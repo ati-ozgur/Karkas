@@ -369,7 +369,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         {
             ddl.Items.Clear();
             ddl.Items.Add(new ListItem(RaporFormatAsString.PDF, RaporFormatAsString.PDF));
-            ddl.Items.Add(new ListItem(RaporFormatAsString.EXCEL, RaporFormatAsString.PDF));
+            ddl.Items.Add(new ListItem(RaporFormatAsString.EXCEL, RaporFormatAsString.EXCEL));
             ddl.Items.Add(new ListItem(RaporFormatAsString.TIFF, RaporFormatAsString.IMAGE));
         }
 
