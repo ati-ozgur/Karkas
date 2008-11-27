@@ -47,8 +47,17 @@ namespace Karkas.Core.DataUtil
 
         public SqlTransaction CurrentTransaction
         {
-            get { return currentTransaction; }
-            set { currentTransaction = value; }
+            get 
+            { 
+                return currentTransaction; 
+            }
+            set 
+            { 
+                currentTransaction = value;
+                _helper = null;
+                _pagingHelper = null;
+                
+            }
         }
 
         public Guid KomutuCalistiranKullaniciKisiKey
@@ -85,6 +94,7 @@ namespace Karkas.Core.DataUtil
                 if (_helper == null)
                 {
                     _helper = new HelperFunctions(Connection, KomutuCalistiranKullaniciKisiKey,currentTransaction);
+                    _helper.OtomatikConnectionYonetimi = OtomatikConnectionYonetimi;
                 }
                 return _helper;
             }
