@@ -300,13 +300,16 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             switch (RaporFormat)
             {
                 case RaporFormats.PDF:
-                    buf = rs.Render(raporAd, "PDF", null, "", parameters, dsCredentials, "", out encoding, out mimeType, out paramatersUsed, out warnings, out streamids);
+                    buf = rs.Render(raporAd, RaporFormatAsString.PDF, null, "", parameters, dsCredentials, "", out encoding, out mimeType, out paramatersUsed, out warnings, out streamids);
                     break;
                 case RaporFormats.EXCEL:
-                    buf = rs.Render(raporAd, "EXCEL", null, "", parameters, dsCredentials, "", out encoding, out mimeType, out paramatersUsed, out warnings, out streamids);
+                    buf = rs.Render(raporAd, RaporFormatAsString.EXCEL, null, "", parameters, dsCredentials, "", out encoding, out mimeType, out paramatersUsed, out warnings, out streamids);
                     break;
                 case RaporFormats.IMAGE:
-                    buf = rs.Render(raporAd, "IMAGE", null, "", parameters, dsCredentials, "", out encoding, out mimeType, out paramatersUsed, out warnings, out streamids);
+                    buf = rs.Render(raporAd, RaporFormatAsString.IMAGE, null, "", parameters, dsCredentials, "", out encoding, out mimeType, out paramatersUsed, out warnings, out streamids);
+                    break;
+                case RaporFormats.XML:
+                    buf = rs.Render(raporAd, RaporFormatAsString.XML, null, "", parameters, dsCredentials, "", out encoding, out mimeType, out paramatersUsed, out warnings, out streamids);
                     break;
             }
             return buf;
@@ -338,6 +341,11 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
                     HttpContext.Current.Response.ContentType = "image/tiff";
                     HttpContext.Current.Response.BinaryWrite(buf);
                     break;
+                case RaporFormats.XML:
+                    HttpContext.Current.Response.AppendHeader("content-disposition", "attachment; filename=" + RaporDosyaAd + ".xml");
+                    HttpContext.Current.Response.ContentType = "text/xml";
+                    HttpContext.Current.Response.BinaryWrite(buf);
+                    break;
             }
 
             HttpContext.Current.Response.End();
@@ -361,6 +369,9 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
                 case RaporFormatAsString.TIFF:
                     rfs = RaporFormats.IMAGE;
                     break;
+                case RaporFormatAsString.XML:
+                    rfs = RaporFormats.XML;
+                    break;
 
             }
             return rfs;
@@ -371,6 +382,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             ddl.Items.Add(new ListItem(RaporFormatAsString.PDF, RaporFormatAsString.PDF));
             ddl.Items.Add(new ListItem(RaporFormatAsString.EXCEL, RaporFormatAsString.EXCEL));
             ddl.Items.Add(new ListItem(RaporFormatAsString.TIFF, RaporFormatAsString.IMAGE));
+            ddl.Items.Add(new ListItem(RaporFormatAsString.XML, RaporFormatAsString.XML));
         }
 
 
@@ -407,6 +419,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         public const string EXCEL = "EXCEL";
         public const string IMAGE = "IMAGE";
         public const string TIFF = "TIFF";
+        public const string XML = "XML";
     }
 
     public enum RaporFormats
@@ -414,6 +427,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         PDF,
         EXCEL,
         IMAGE,
+        XML
     }
     public class Parametre
     {

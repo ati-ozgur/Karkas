@@ -10,33 +10,34 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
     public class RaporCagirmaMusteri
     {
 
-        public static void RaporOrnekleriAl()
+        public static void RaporOrnekleriAl(RaporFormats format)
         {
-            raporSadaceIsim();
-            raporDogumTarihi();
-            raporAktifler();
-            raporOnemliler();
-            raporPasifler();
-            raporKredisiYuksek(); 
-            YardimMasasiOrnekRapor();
+            raporSadaceIsim(format);
+            raporDogumTarihi(format);
+            raporAktifler(format);
+            raporOnemliler(format);
+            raporPasifler(format);
+            raporKredisiYuksek(format);
+            YardimMasasiOrnekRapor(format);
         }
-        public static void YardimMasasiOrnekRapor()
+
+        public static void YardimMasasiOrnekRapor(RaporFormats format)
         {
             string raporDizin = "/YardimMasasiRapor/YardimMasasiIstatistikRaporu";
             KarkasRapor rapor = new KarkasRapor(raporDizin);
             rapor.RaporDosyaAd = "IstatistikRaporu";
-            rapor.RaporFormat = RaporFormats.PDF;
+            rapor.RaporFormat = format;
             rapor.ParametreEkle("pTarihBaslangic", new DateTime(2000, 1, 1));
             rapor.ParametreEkle("pTarihBitis", new DateTime(2010, 1, 1));
             Byte[] sonuc = rapor.RaporAl();
-            File.WriteAllBytes("Istatistik.pdf", sonuc);
+            File.WriteAllBytes(String.Format("Istatistik.{0}", getReportExtension(format)), sonuc);
         }
 
 
-        private static void raporSadaceIsim()
+        private static void raporSadaceIsim(RaporFormats format)
         {
             KarkasRapor oRapor = new KarkasRapor("/OrnekRaporlar/OrneklerMusteri");
-            oRapor.RaporFormat = RaporFormats.PDF;
+            oRapor.RaporFormat = format;
             oRapor.UseDefaultCredentials = true;
             oRapor.WebServiceSecurityModel = KarkasRapor.WebServiceSecurityModelConstants.NTLM;
             oRapor.UseDefaultCredentials = true;
@@ -44,13 +45,12 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
             oRapor.ParametreEkle("Soyadi", "");
             Byte[] rapor = oRapor.RaporAl();
 
-
-            File.WriteAllBytes("SadaceIsim.pdf", rapor);
+            File.WriteAllBytes(String.Format("SadaceIsim.{0}", getReportExtension(format)), rapor);
         }
-        private static void raporDogumTarihi()
+        private static void raporDogumTarihi(RaporFormats format)
         {
             KarkasRapor oRapor = new KarkasRapor("/OrnekRaporlar/OrneklerMusteri");
-            oRapor.RaporFormat = RaporFormats.PDF;
+            oRapor.RaporFormat = format;
             oRapor.UseDefaultCredentials = true;
             oRapor.WebServiceSecurityModel = KarkasRapor.WebServiceSecurityModelConstants.NTLM;
             oRapor.UseDefaultCredentials = true;
@@ -61,12 +61,12 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
             //oRapor.ParametreEkle("Onemi", 5);
             Byte[] rapor = oRapor.RaporAl();
 
-            File.WriteAllBytes("DogumTarihi.pdf", rapor);
+            File.WriteAllBytes(String.Format("DogumTarihi.{0}", getReportExtension(format)), rapor);
         }
-        private static void raporAktifler()
+        private static void raporAktifler(RaporFormats format)
         {
             KarkasRapor oRapor = new KarkasRapor("/OrnekRaporlar/OrneklerMusteri");
-            oRapor.RaporFormat = RaporFormats.PDF;
+            oRapor.RaporFormat = format;
             oRapor.UseDefaultCredentials = true;
             oRapor.WebServiceSecurityModel = KarkasRapor.WebServiceSecurityModelConstants.NTLM;
             oRapor.UseDefaultCredentials = true;
@@ -76,12 +76,12 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
             //oRapor.ParametreEkle("Onemi", 5);
             Byte[] rapor = oRapor.RaporAl();
 
-            File.WriteAllBytes("Aktifler.pdf", rapor);
+            File.WriteAllBytes(String.Format("Aktifler.{0}", getReportExtension(format)), rapor);
         }
-        private static void raporPasifler()
+        private static void raporPasifler(RaporFormats format)
         {
             KarkasRapor oRapor = new KarkasRapor("/OrnekRaporlar/OrneklerMusteri");
-            oRapor.RaporFormat = RaporFormats.PDF;
+            oRapor.RaporFormat = format;
             oRapor.UseDefaultCredentials = true;
             oRapor.WebServiceSecurityModel = KarkasRapor.WebServiceSecurityModelConstants.NTLM;
             oRapor.UseDefaultCredentials = true;
@@ -90,13 +90,13 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
             oRapor.ParametreEkle("AktifMi", false);
             Byte[] rapor = oRapor.RaporAl();
 
-            File.WriteAllBytes("Pasifler.pdf", rapor);
+            File.WriteAllBytes(String.Format("Pasifler.{0}", getReportExtension(format)), rapor);
         }
 
-        private static void raporOnemliler()
+        private static void raporOnemliler(RaporFormats format)
         {
             KarkasRapor oRapor = new KarkasRapor("/OrnekRaporlar/OrneklerMusteri");
-            oRapor.RaporFormat = RaporFormats.PDF;
+            oRapor.RaporFormat = format;
             oRapor.UseDefaultCredentials = true;
             oRapor.WebServiceSecurityModel = KarkasRapor.WebServiceSecurityModelConstants.NTLM;
             oRapor.UseDefaultCredentials = true;
@@ -104,12 +104,13 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
             oRapor.ParametreEkle("Soyadi", "");
             oRapor.ParametreEkle("Onemi", 5);
             Byte[] rapor = oRapor.RaporAl();
-            File.WriteAllBytes("Onemliler.pdf", rapor);
+
+            File.WriteAllBytes(String.Format("Onemliler.{0}", getReportExtension(format)), rapor);
         }
-        private static void raporKredisiYuksek()
+        private static void raporKredisiYuksek(RaporFormats format)
         {
             KarkasRapor oRapor = new KarkasRapor("/OrnekRaporlar/OrneklerMusteri");
-            oRapor.RaporFormat = RaporFormats.PDF;
+            oRapor.RaporFormat = format;
             oRapor.UseDefaultCredentials = true;
             oRapor.WebServiceSecurityModel = KarkasRapor.WebServiceSecurityModelConstants.NTLM;
             oRapor.UseDefaultCredentials = true;
@@ -117,7 +118,25 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
             oRapor.ParametreEkle("Soyadi", "");
             oRapor.ParametreEkle("Kredisi", 1000.0f);
             Byte[] rapor = oRapor.RaporAl();
-            File.WriteAllBytes("KredisiYuksek.pdf", rapor);
+
+            File.WriteAllBytes(String.Format("KredisiYuksek.{0}", getReportExtension(format)), rapor);
+        }
+
+        private static string getReportExtension(RaporFormats format)
+        {
+            switch (format)
+            {
+                case RaporFormats.EXCEL:
+                    return "xls";
+                case RaporFormats.PDF:
+                    return "pdf";
+                case RaporFormats.IMAGE:
+                    return "tiff";
+                case RaporFormats.XML:
+                    return "xml";
+            }
+
+            return "Taniyamadim";
         }
 
     }
