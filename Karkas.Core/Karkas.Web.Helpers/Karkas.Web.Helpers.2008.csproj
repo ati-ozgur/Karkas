@@ -96,6 +96,8 @@
     <Compile Include="Classes\Utils.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CustomControls\KarkasTreeNode.cs" />
+    <Compile Include="CustomControls\KarkasTreeView.cs" />
     <Compile Include="HelperClasses\ExportHelper.cs" />
     <Compile Include="HelperClasses\GridHelper.cs" />
     <Compile Include="HelperClasses\KarkasWebHelper.cs" />
