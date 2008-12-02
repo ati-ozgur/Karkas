@@ -74,7 +74,12 @@
                 HttpContext.Current.Response.Write(ScriptTaglariArasinaAl("javascript:window.close();"));
                 HttpContext.Current.Response.End();
             }
-
+            public void SayfaRefresh ()
+            {
+                HttpContext.Current.Response.Clear();
+                HttpContext.Current.Response.Write(ScriptTaglariArasinaAl("javascript:window.opener.location=window.opener.location;"));
+                HttpContext.Current.Response.End();
+            }
 
             public void PopUpiKapatAcanPencereyiRefresh()
             {
