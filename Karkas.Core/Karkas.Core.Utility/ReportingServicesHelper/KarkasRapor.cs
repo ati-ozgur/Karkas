@@ -27,6 +27,12 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
         ReportingService rs = new ReportingService();
 
+        public ReportingService getInnerReportingService()
+        {
+                rs.Credentials = Credentials;
+                return rs; 
+        }
+
         public KarkasRapor()
         {
             SetDefaults();
