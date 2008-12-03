@@ -24,6 +24,9 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			private string soyadi;
 			private string ikinciAdi;
 			private Nullable<DateTime> dogumTarihi;
+			private bool aktifMi;
+			private Nullable<int> onemi;
+			private Nullable<decimal> kredisi;
 			private string tamAdi;
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -118,6 +121,63 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 						this.RowState = DataRowState.Modified;
 					}
 					dogumTarihi = value;
+				}
+			}
+
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			public bool AktifMi
+			{
+				[DebuggerStepThrough]
+				get
+				{
+					return aktifMi;
+				}
+				[DebuggerStepThrough]
+				set
+				{
+					if ((this.RowState == DataRowState.Unchanged) && (aktifMi!= value))
+					{
+						this.RowState = DataRowState.Modified;
+					}
+					aktifMi = value;
+				}
+			}
+
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			public Nullable<int> Onemi
+			{
+				[DebuggerStepThrough]
+				get
+				{
+					return onemi;
+				}
+				[DebuggerStepThrough]
+				set
+				{
+					if ((this.RowState == DataRowState.Unchanged) && (onemi!= value))
+					{
+						this.RowState = DataRowState.Modified;
+					}
+					onemi = value;
+				}
+			}
+
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			public Nullable<decimal> Kredisi
+			{
+				[DebuggerStepThrough]
+				get
+				{
+					return kredisi;
+				}
+				[DebuggerStepThrough]
+				set
+				{
+					if ((this.RowState == DataRowState.Unchanged) && (kredisi!= value))
+					{
+						this.RowState = DataRowState.Modified;
+					}
+					kredisi = value;
 				}
 			}
 
@@ -238,6 +298,78 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			[XmlIgnore, SoapIgnore]
+			public string AktifMiAsString
+			{
+				[DebuggerStepThrough]
+				get
+				{
+					 return aktifMi.ToString(); 
+				}
+				[DebuggerStepThrough]
+				set
+				{
+					try
+					{
+						bool _a = Convert.ToBoolean(value);
+					AktifMi = _a;
+					}
+					catch(Exception)
+					{
+						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"AktifMi","Ceviri islemi Başarısız oldu"));
+					}
+				}
+			}
+
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore, SoapIgnore]
+			public string OnemiAsString
+			{
+				[DebuggerStepThrough]
+				get
+				{
+					 return onemi != null ? onemi.ToString() : ""; 
+				}
+				[DebuggerStepThrough]
+				set
+				{
+					try
+					{
+						int _a = Convert.ToInt32(value);
+					Onemi = _a;
+					}
+					catch(Exception)
+					{
+						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"Onemi","Ceviri islemi Başarısız oldu"));
+					}
+				}
+			}
+
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore, SoapIgnore]
+			public string KredisiAsString
+			{
+				[DebuggerStepThrough]
+				get
+				{
+					 return kredisi != null ? kredisi.ToString() : ""; 
+				}
+				[DebuggerStepThrough]
+				set
+				{
+					try
+					{
+						decimal _a = Convert.ToDecimal(value);
+					Kredisi = _a;
+					}
+					catch(Exception)
+					{
+						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"Kredisi","Ceviri islemi Başarısız oldu"));
+					}
+				}
+			}
+
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[XmlIgnore, SoapIgnore]
 			public string TamAdiAsString
 			{
 				[DebuggerStepThrough]
@@ -259,6 +391,9 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			public const string Soyadi = "Soyadi";
 			public const string IkinciAdi = "IkinciAdi";
 			public const string DogumTarihi = "DogumTarihi";
+			public const string AktifMi = "AktifMi";
+			public const string Onemi = "Onemi";
+			public const string Kredisi = "Kredisi";
 			public const string TamAdi = "TamAdi";
 		}
 			public Musteri ShallowCopy()
@@ -269,6 +404,9 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				obj.soyadi = soyadi;
 				obj.ikinciAdi = ikinciAdi;
 				obj.dogumTarihi = dogumTarihi;
+				obj.aktifMi = aktifMi;
+				obj.onemi = onemi;
+				obj.kredisi = kredisi;
 				obj.tamAdi = tamAdi;
 				return obj;
 			}
@@ -278,7 +416,8 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 		{
 			
 			this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "Adi"));			
-			this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "Soyadi"));		}
+			this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "Soyadi"));			
+			this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "AktifMi"));		}
 		public static class EtiketIsimleri
 		{
 			const string namespaceVeClass = "Karkas.Ornek.TypeLibrary.Ornekler";
@@ -354,6 +493,51 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 					else
 					{
 						return "DogumTarihi";
+					}
+				}
+			}
+			public static string AktifMi
+			{
+				get
+				{
+					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".AktifMi"];
+					if (s != null)
+					{
+						return s;
+					}
+					else
+					{
+						return "AktifMi";
+					}
+				}
+			}
+			public static string Onemi
+			{
+				get
+				{
+					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".Onemi"];
+					if (s != null)
+					{
+						return s;
+					}
+					else
+					{
+						return "Onemi";
+					}
+				}
+			}
+			public static string Kredisi
+			{
+				get
+				{
+					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".Kredisi"];
+					if (s != null)
+					{
+						return s;
+					}
+					else
+					{
+						return "Kredisi";
 					}
 				}
 			}

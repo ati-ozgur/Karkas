@@ -4,28 +4,13 @@
         <name>Karkas.Core.DataUtil</name>
     </assembly>
     <members>
-        <member name="P:Karkas.Core.DataUtil.HelperFunctions.OtomatikConnectionYonetimi">
+        <member name="T:Karkas.Core.DataUtil.BaseDalForIdentity`2">
             <summary>
-            Eger varsayılan deger, true bırakılırsa, connection yonetimi 
-            BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
-            Connection'u acma ve kapama BaseDal kontrolundedir.
-            Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
+            T TypeLibrary Class
+            M Type of Primary Key of T
             </summary>
-        </member>
-        <member name="P:Karkas.Core.DataUtil.HelperFunctions.KomutuCalistiranKullaniciKisiKey">
-            <summary>
-            Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
-            Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
-            Otomatik olarak Bs tarafindan yapilacak
-            </summary>
-        </member>
-        <member name="P:Karkas.Core.DataUtil.AdoTemplate.OtomatikConnectionYonetimi">
-            <summary>
-            Eger varsayılan deger, true bırakılırsa, connection yonetimi 
-            BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
-            Connection'u acma ve kapama BaseDal kontrolundedir.
-            Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
-            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="M"></typeparam>
         </member>
         <member name="T:Karkas.Core.DataUtil.BaseDal`1">
             <summary>
@@ -50,22 +35,37 @@
             Otomatik olarak Bs tarafindan yapilacak
             </summary>
         </member>
-        <member name="T:Karkas.Core.DataUtil.BaseDalForIdentity`2">
-            <summary>
-            T TypeLibrary Class
-            M Type of Primary Key of T
-            </summary>
-            <typeparam name="T"></typeparam>
-            <typeparam name="M"></typeparam>
-        </member>
-        <member name="P:Karkas.Core.DataUtil.PagingHelper.KomutuCalistiranKullaniciKisiKey">
+        <member name="P:Karkas.Core.DataUtil.PagingTemplate.KomutuCalistiranKullaniciKisiKey">
             <summary>
             Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
             Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
             Otomatik olarak Bs tarafindan yapilacak
             </summary>
         </member>
-        <member name="P:Karkas.Core.DataUtil.PagingTemplate.KomutuCalistiranKullaniciKisiKey">
+        <member name="P:Karkas.Core.DataUtil.HelperFunctions.OtomatikConnectionYonetimi">
+            <summary>
+            Eger varsayılan deger, true bırakılırsa, connection yonetimi 
+            BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
+            Connection'u acma ve kapama BaseDal kontrolundedir.
+            Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
+            </summary>
+        </member>
+        <member name="P:Karkas.Core.DataUtil.HelperFunctions.KomutuCalistiranKullaniciKisiKey">
+            <summary>
+            Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
+            Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
+            Otomatik olarak Bs tarafindan yapilacak
+            </summary>
+        </member>
+        <member name="P:Karkas.Core.DataUtil.AdoTemplate.OtomatikConnectionYonetimi">
+            <summary>
+            Eger varsayılan deger, true bırakılırsa, connection yonetimi 
+            BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
+            Connection'u acma ve kapama BaseDal kontrolundedir.
+            Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
+            </summary>
+        </member>
+        <member name="P:Karkas.Core.DataUtil.PagingHelper.KomutuCalistiranKullaniciKisiKey">
             <summary>
             Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
             Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.

@@ -14,6 +14,13 @@ namespace Karkas.Ornek.Bs.Ornekler
 {
 	public partial class 	MusteriBs : BaseBs<Musteri, MusteriDal>
 		{
+			public override string DatabaseName
+			{
+				get
+				{
+					return "KARKAS_ORNEK";
+				}
+			}
 			public void Sil(Guid MusteriKey)
 			{
 				dal.Sil(MusteriKey);

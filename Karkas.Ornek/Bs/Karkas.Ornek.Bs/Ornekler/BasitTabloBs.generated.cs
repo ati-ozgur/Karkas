@@ -14,6 +14,13 @@ namespace Karkas.Ornek.Bs.Ornekler
 {
 	public partial class 	BasitTabloBs : BaseBs<BasitTablo, BasitTabloDal>
 		{
+			public override string DatabaseName
+			{
+				get
+				{
+					return "KARKAS_ORNEK";
+				}
+			}
 			public void Sil(Guid BasitTabloKey)
 			{
 				dal.Sil(BasitTabloKey);

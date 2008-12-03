@@ -31,7 +31,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 		{
 			get 
 			{
-				return @"SELECT MusteriKey,Adi,Soyadi,IkinciAdi,DogumTarihi,TamAdi FROM ORNEKLER.MUSTERI";
+				return @"SELECT MusteriKey,Adi,Soyadi,IkinciAdi,DogumTarihi,AktifMi,Onemi,Kredisi,TamAdi FROM ORNEKLER.MUSTERI";
 			}
 		}
 		protected override string DeleteString
@@ -47,7 +47,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 			{
 				return @"UPDATE ORNEKLER.MUSTERI
 				 SET 
-				Adi = @Adi,Soyadi = @Soyadi,IkinciAdi = @IkinciAdi,DogumTarihi = @DogumTarihi				
+				Adi = @Adi,Soyadi = @Soyadi,IkinciAdi = @IkinciAdi,DogumTarihi = @DogumTarihi,AktifMi = @AktifMi,Onemi = @Onemi,Kredisi = @Kredisi				
 				WHERE 
 				 MusteriKey = @MusteriKey ";
 			}
@@ -57,9 +57,9 @@ namespace Karkas.Ornek.Dal.Ornekler
 			get 
 			{
 				return @"INSERT INTO ORNEKLER.MUSTERI 
-				 (MusteriKey,Adi,Soyadi,IkinciAdi,DogumTarihi) 
+				 (MusteriKey,Adi,Soyadi,IkinciAdi,DogumTarihi,AktifMi,Onemi,Kredisi) 
 				 VALUES 
-								(@MusteriKey,@Adi,@Soyadi,@IkinciAdi,@DogumTarihi)";
+								(@MusteriKey,@Adi,@Soyadi,@IkinciAdi,@DogumTarihi,@AktifMi,@Onemi,@Kredisi)";
 			}
 		}
 		public Musteri SorgulaMusteriKeyIle(Guid p1)
@@ -111,9 +111,18 @@ namespace Karkas.Ornek.Dal.Ornekler
 			{
 				row.DogumTarihi = dr.GetDateTime(4);
 			}
-			if (!dr.IsDBNull(5))
+			row.AktifMi = dr.GetBoolean(5);
+			if (!dr.IsDBNull(6))
 			{
-				row.TamAdi = dr.GetString(5);
+				row.Onemi = dr.GetInt32(6);
+			}
+			if (!dr.IsDBNull(7))
+			{
+				row.Kredisi = dr.GetDecimal(7);
+			}
+			if (!dr.IsDBNull(8))
+			{
+				row.TamAdi = dr.GetString(8);
 			}
 		}
 		protected override void InsertCommandParametersAdd(SqlCommand cmd, Musteri row)
@@ -124,6 +133,9 @@ namespace Karkas.Ornek.Dal.Ornekler
 			builder.parameterEkle("@Soyadi",SqlDbType.VarChar, row.Soyadi,50);
 			builder.parameterEkle("@IkinciAdi",SqlDbType.VarChar, row.IkinciAdi,50);
 			builder.parameterEkle("@DogumTarihi",SqlDbType.DateTime, row.DogumTarihi);
+			builder.parameterEkle("@AktifMi",SqlDbType.Bit, row.AktifMi);
+			builder.parameterEkle("@Onemi",SqlDbType.Int, row.Onemi);
+			builder.parameterEkle("@Kredisi",SqlDbType.Decimal, row.Kredisi);
 		}
 		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		Musteri		 row)
 		{
@@ -133,6 +145,9 @@ namespace Karkas.Ornek.Dal.Ornekler
 			builder.parameterEkle("@Soyadi",SqlDbType.VarChar, row.Soyadi,50);
 			builder.parameterEkle("@IkinciAdi",SqlDbType.VarChar, row.IkinciAdi,50);
 			builder.parameterEkle("@DogumTarihi",SqlDbType.DateTime, row.DogumTarihi);
+			builder.parameterEkle("@AktifMi",SqlDbType.Bit, row.AktifMi);
+			builder.parameterEkle("@Onemi",SqlDbType.Int, row.Onemi);
+			builder.parameterEkle("@Kredisi",SqlDbType.Decimal, row.Kredisi);
 		}
 		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		Musteri		 row)
 		{

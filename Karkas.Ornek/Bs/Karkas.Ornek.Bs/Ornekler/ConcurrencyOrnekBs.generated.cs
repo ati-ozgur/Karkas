@@ -14,6 +14,13 @@ namespace Karkas.Ornek.Bs.Ornekler
 {
 	public partial class 	ConcurrencyOrnekBs : BaseBs<ConcurrencyOrnek, ConcurrencyOrnekDal>
 		{
+			public override string DatabaseName
+			{
+				get
+				{
+					return "KARKAS_ORNEK";
+				}
+			}
 			public void Sil(Guid ConcurrencyOrnekKey)
 			{
 				dal.Sil(ConcurrencyOrnekKey);

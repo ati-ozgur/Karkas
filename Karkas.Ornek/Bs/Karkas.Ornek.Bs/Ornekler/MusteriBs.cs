@@ -15,6 +15,9 @@ namespace Karkas.Ornek.Bs.Ornekler
 {
     public partial class MusteriBs
     {
+
+
+
         public void TransactionRollBackBekliyoruz()
         {
             Musteri m = new Musteri();
@@ -86,6 +89,8 @@ namespace Karkas.Ornek.Bs.Ornekler
 
             Aciklama acik = new Aciklama();
             acik.AciklamaKey = Guid.NewGuid();
+            // bilerek aciklama yazmiyoruzki transaction veritabaninda rollback etsin.
+            //acik.AciklamaPropertyAsString = "Aciklama";
 
             try
             {
@@ -109,7 +114,7 @@ namespace Karkas.Ornek.Bs.Ornekler
             }
             finally
             {
-                adotemplate.Connection.Close();
+                //adotemplate.Connection.Close();
                 this.ClearTransactionInformation();
             }
         }
@@ -149,7 +154,7 @@ namespace Karkas.Ornek.Bs.Ornekler
             }
             finally
             {
-                adotemplate.Connection.Close();
+                //adotemplate.Connection.Close();
                 this.ClearTransactionInformation();
             }
         }

@@ -1,5 +1,3 @@
-USE KARKAS_ORNEK
-GO 
 SET ANSI_NULLS ON
 GO --ExecuteThisSql
 SET QUOTED_IDENTIFIER ON
@@ -10,7 +8,7 @@ CREATE TABLE [ORNEKLER].[MUSTERI](
 	[Soyadi] [varchar](50) NOT NULL,
 	[IkinciAdi] [varchar](50) NULL,
 	[DogumTarihi] [datetime] NULL,
-	[AktifMi] [bit] NOT NULL,
+	[AktifMi] [bit] NOT NULL CONSTRAINT [DF_MUSTERI_AktifMi]  DEFAULT ((1)),
 	[Onemi] [int] NULL,
 	[Kredisi] [decimal](12, 2) NULL,
 	[TamAdi]  AS ((([Adi]+' ')+coalesce([IkinciAdi]+' ',''))+[Soyadi]),
@@ -21,5 +19,4 @@ CREATE TABLE [ORNEKLER].[MUSTERI](
 ) ON [PRIMARY]
 
 GO --ExecuteThisSql
-
 

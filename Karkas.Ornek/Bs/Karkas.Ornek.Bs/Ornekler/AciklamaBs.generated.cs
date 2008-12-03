@@ -14,6 +14,13 @@ namespace Karkas.Ornek.Bs.Ornekler
 {
 	public partial class 	AciklamaBs : BaseBs<Aciklama, AciklamaDal>
 		{
+			public override string DatabaseName
+			{
+				get
+				{
+					return "KARKAS_ORNEK";
+				}
+			}
 			public void Sil(Guid AciklamaKey)
 			{
 				dal.Sil(AciklamaKey);

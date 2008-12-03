@@ -30,11 +30,11 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			private byte[] kolonImage;
 			private Nullable<int> kolonInt;
 			private Nullable<decimal> kolonMoney;
-			private string kolonNChar;
-			private string kolonNText;
+			private string kolonNchar;
+			private string kolonNtext;
 			private Nullable<decimal> kolonNumeric;
-			private string kolonNVarchar;
-			private string kolonNVarcharMax;
+			private string kolonNvarchar;
+			private string kolonNvarcharMax;
 			private Nullable<float> kolonReal;
 			private Nullable<DateTime> kolonSmallDateTime;
 			private Nullable<short> kolonSmallInt;
@@ -260,40 +260,40 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			public string KolonNChar
+			public string KolonNchar
 			{
 				[DebuggerStepThrough]
 				get
 				{
-					return kolonNChar;
+					return kolonNchar;
 				}
 				[DebuggerStepThrough]
 				set
 				{
-					if ((this.RowState == DataRowState.Unchanged) && (kolonNChar!= value))
+					if ((this.RowState == DataRowState.Unchanged) && (kolonNchar!= value))
 					{
 						this.RowState = DataRowState.Modified;
 					}
-					kolonNChar = value;
+					kolonNchar = value;
 				}
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			public string KolonNText
+			public string KolonNtext
 			{
 				[DebuggerStepThrough]
 				get
 				{
-					return kolonNText;
+					return kolonNtext;
 				}
 				[DebuggerStepThrough]
 				set
 				{
-					if ((this.RowState == DataRowState.Unchanged) && (kolonNText!= value))
+					if ((this.RowState == DataRowState.Unchanged) && (kolonNtext!= value))
 					{
 						this.RowState = DataRowState.Modified;
 					}
-					kolonNText = value;
+					kolonNtext = value;
 				}
 			}
 
@@ -317,40 +317,40 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			public string KolonNVarchar
+			public string KolonNvarchar
 			{
 				[DebuggerStepThrough]
 				get
 				{
-					return kolonNVarchar;
+					return kolonNvarchar;
 				}
 				[DebuggerStepThrough]
 				set
 				{
-					if ((this.RowState == DataRowState.Unchanged) && (kolonNVarchar!= value))
+					if ((this.RowState == DataRowState.Unchanged) && (kolonNvarchar!= value))
 					{
 						this.RowState = DataRowState.Modified;
 					}
-					kolonNVarchar = value;
+					kolonNvarchar = value;
 				}
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			public string KolonNVarcharMax
+			public string KolonNvarcharMax
 			{
 				[DebuggerStepThrough]
 				get
 				{
-					return kolonNVarcharMax;
+					return kolonNvarcharMax;
 				}
 				[DebuggerStepThrough]
 				set
 				{
-					if ((this.RowState == DataRowState.Unchanged) && (kolonNVarcharMax!= value))
+					if ((this.RowState == DataRowState.Unchanged) && (kolonNvarcharMax!= value))
 					{
 						this.RowState = DataRowState.Modified;
 					}
-					kolonNVarcharMax = value;
+					kolonNvarcharMax = value;
 				}
 			}
 
@@ -870,33 +870,33 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			[XmlIgnore, SoapIgnore]
-			public string KolonNCharAsString
+			public string KolonNcharAsString
 			{
 				[DebuggerStepThrough]
 				get
 				{
-					 return kolonNChar != null ? kolonNChar.ToString() : ""; 
+					 return kolonNchar != null ? kolonNchar.ToString() : ""; 
 				}
 				[DebuggerStepThrough]
 				set
 				{
-					KolonNChar = value;
+					KolonNchar = value;
 				}
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			[XmlIgnore, SoapIgnore]
-			public string KolonNTextAsString
+			public string KolonNtextAsString
 			{
 				[DebuggerStepThrough]
 				get
 				{
-					 return kolonNText != null ? kolonNText.ToString() : ""; 
+					 return kolonNtext != null ? kolonNtext.ToString() : ""; 
 				}
 				[DebuggerStepThrough]
 				set
 				{
-					KolonNText = value;
+					KolonNtext = value;
 				}
 			}
 
@@ -926,33 +926,33 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			[XmlIgnore, SoapIgnore]
-			public string KolonNVarcharAsString
+			public string KolonNvarcharAsString
 			{
 				[DebuggerStepThrough]
 				get
 				{
-					 return kolonNVarchar != null ? kolonNVarchar.ToString() : ""; 
+					 return kolonNvarchar != null ? kolonNvarchar.ToString() : ""; 
 				}
 				[DebuggerStepThrough]
 				set
 				{
-					KolonNVarchar = value;
+					KolonNvarchar = value;
 				}
 			}
 
 			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 			[XmlIgnore, SoapIgnore]
-			public string KolonNVarcharMaxAsString
+			public string KolonNvarcharMaxAsString
 			{
 				[DebuggerStepThrough]
 				get
 				{
-					 return kolonNVarcharMax != null ? kolonNVarcharMax.ToString() : ""; 
+					 return kolonNvarcharMax != null ? kolonNvarcharMax.ToString() : ""; 
 				}
 				[DebuggerStepThrough]
 				set
 				{
-					KolonNVarcharMax = value;
+					KolonNvarcharMax = value;
 				}
 			}
 
@@ -1249,11 +1249,11 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 			public const string KolonImage = "KolonImage";
 			public const string KolonInt = "KolonInt";
 			public const string KolonMoney = "KolonMoney";
-			public const string KolonNChar = "KolonNChar";
-			public const string KolonNText = "KolonNText";
+			public const string KolonNchar = "KolonNChar";
+			public const string KolonNtext = "KolonNText";
 			public const string KolonNumeric = "KolonNumeric";
-			public const string KolonNVarchar = "KolonNVarchar";
-			public const string KolonNVarcharMax = "KolonNVarcharMax";
+			public const string KolonNvarchar = "KolonNVarchar";
+			public const string KolonNvarcharMax = "KolonNVarcharMax";
 			public const string KolonReal = "KolonReal";
 			public const string KolonSmallDateTime = "KolonSmallDateTime";
 			public const string KolonSmallInt = "KolonSmallInt";
@@ -1283,11 +1283,11 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				obj.kolonImage = kolonImage;
 				obj.kolonInt = kolonInt;
 				obj.kolonMoney = kolonMoney;
-				obj.kolonNChar = kolonNChar;
-				obj.kolonNText = kolonNText;
+				obj.kolonNchar = kolonNchar;
+				obj.kolonNtext = kolonNtext;
 				obj.kolonNumeric = kolonNumeric;
-				obj.kolonNVarchar = kolonNVarchar;
-				obj.kolonNVarcharMax = kolonNVarcharMax;
+				obj.kolonNvarchar = kolonNvarchar;
+				obj.kolonNvarcharMax = kolonNvarcharMax;
 				obj.kolonReal = kolonReal;
 				obj.kolonSmallDateTime = kolonSmallDateTime;
 				obj.kolonSmallInt = kolonSmallInt;
@@ -1477,33 +1477,33 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 					}
 				}
 			}
-			public static string KolonNChar
+			public static string KolonNchar
 			{
 				get
 				{
-					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".KolonNChar"];
+					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".KolonNchar"];
 					if (s != null)
 					{
 						return s;
 					}
 					else
 					{
-						return "KolonNChar";
+						return "KolonNchar";
 					}
 				}
 			}
-			public static string KolonNText
+			public static string KolonNtext
 			{
 				get
 				{
-					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".KolonNText"];
+					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".KolonNtext"];
 					if (s != null)
 					{
 						return s;
 					}
 					else
 					{
-						return "KolonNText";
+						return "KolonNtext";
 					}
 				}
 			}
@@ -1522,33 +1522,33 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 					}
 				}
 			}
-			public static string KolonNVarchar
+			public static string KolonNvarchar
 			{
 				get
 				{
-					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".KolonNVarchar"];
+					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".KolonNvarchar"];
 					if (s != null)
 					{
 						return s;
 					}
 					else
 					{
-						return "KolonNVarchar";
+						return "KolonNvarchar";
 					}
 				}
 			}
-			public static string KolonNVarcharMax
+			public static string KolonNvarcharMax
 			{
 				get
 				{
-					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".KolonNVarcharMax"];
+					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".KolonNvarcharMax"];
 					if (s != null)
 					{
 						return s;
 					}
 					else
 					{
-						return "KolonNVarcharMax";
+						return "KolonNvarcharMax";
 					}
 				}
 			}
