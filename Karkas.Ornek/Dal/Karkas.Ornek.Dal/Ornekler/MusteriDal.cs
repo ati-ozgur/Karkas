@@ -13,6 +13,16 @@ namespace Karkas.Ornek.Dal.Ornekler
 {
 	public partial class MusteriDal
 	{
+        public List<Musteri> SorgulaTamAdiIle(string pTamAdi)
+        {
+            List<Musteri> liste = new List<Musteri>();
+            string filtre = " TamAdi LIKE @TamAdi + '%'";
+            ParameterBuilder builder = new ParameterBuilder();
+            builder.parameterEkle("@TamAdi", SqlDbType.VarChar, pTamAdi);
+            SorguCalistir(liste, filtre, builder.GetParameterArray());
+            return liste;
+        }
+
         public List<Musteri> SorgulaAdiVeSoyadiIle(string pAdi,string pSoyadi)
         {
             SorguYardimcisi sy = new SorguYardimcisi();
