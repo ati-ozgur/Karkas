@@ -13,6 +13,15 @@ namespace Karkas.Ornek.ConsoleApp.Testler
     public class StoredProcedureTest
     {
         [Test]
+        public void usp_YaziDegeriniBulTest()
+        {
+            string sonuc;
+            StoredProcedures.YaziDegeriniBul(1, out sonuc);
+            Assert.AreEqual("bir",sonuc);
+        }
+
+
+        [Test]
         public void usp_BasitTabloIdentityEkleTest()
         {
             string ad = "DenemeAd";

@@ -55,8 +55,8 @@ namespace Karkas.Core.DataUtil
             {
                 connection.Open();
                 transaction = connection.BeginTransaction();
-                IsInTransaction = true;
             }
+            IsInTransaction = true;
         }
         public void CommitTransaction()
         {
@@ -67,16 +67,44 @@ namespace Karkas.Core.DataUtil
             if (connection.State == ConnectionState.Open)
             {
                 connection.Close();
-                IsInTransaction = false;
             }
+            IsInTransaction = false;
+            this.dal.OtomatikConnectionYonetimi = true;
         }
 
-        private SqlConnection connection = ConnectionSingleton.Instance.Connection;
+        private SqlConnection connection;
+        public SqlConnection Connection
+        {
+            get
+            {
+                if (connection == null)
+                {
+                    if (string.IsNullOrEmpty(DatabaseName))
+                    {
+                        connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
+                    }
+                    else
+                    {
+                        connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString(DatabaseName));
+                    }
+                }
+                return connection;
+            }
+            set { connection = value; }
+        }
 
         public BaseBs()
         {
             dal = new DAL_TIPI();
-            dal.Connection = connection;
+            dal.Connection = Connection;
+        }
+
+        public virtual string DatabaseName
+        {
+            get
+            {
+                return "";
+            }
         }
 
 

@@ -7,6 +7,7 @@ using System.Web.UI;
 
 namespace Karkas.Web.Helpers.CustomControls
 {
+    [Serializable]
     public class KarkasTreeNode : TreeNode
     {
         public string CssClass { get; set; }

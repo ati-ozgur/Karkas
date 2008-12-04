@@ -123,8 +123,7 @@ namespace Karkas.Core.DataUtil
         {
             get
             {
-                AdoTemplate template = new AdoTemplate();
-                object o = template.TekDegerGetir(SelectCountString);
+                object o = getNewAdoTemplate().TekDegerGetir(SelectCountString);
                 return Convert.ToInt32(o);
             }
         }
