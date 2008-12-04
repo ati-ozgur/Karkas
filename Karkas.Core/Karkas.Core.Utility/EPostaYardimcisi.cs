@@ -93,7 +93,7 @@ namespace Karkas.Core.Utility
                 tekKisiyeEPostaGonder(kime);
 
             }
-            catch (SmtpException ex)
+            catch (SmtpException)
             {
                 
                 throw;
