@@ -66,6 +66,8 @@
     <Compile Include="Ornekler\ConcurrencyOrnekDal.generated.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentityDal.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentityDal.generated.cs" />
+    <Compile Include="Ornekler\IsimlendirmeBozukDal.cs" />
+    <Compile Include="Ornekler\IsimlendirmeBozukDal.generated.cs" />
     <Compile Include="Ornekler\MusteriDal.cs" />
     <Compile Include="Ornekler\MusteriDal.generated.cs" />
     <Compile Include="Ornekler\OrnekTabloDal.cs" />

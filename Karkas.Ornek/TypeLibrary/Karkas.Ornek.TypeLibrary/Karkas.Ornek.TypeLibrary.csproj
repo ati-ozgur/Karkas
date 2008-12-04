@@ -3,7 +3,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A74FFCF8-27F3-4839-B03C-4F80D0D863CC}</ProjectGuid>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <OutputType>Library</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
@@ -53,6 +53,8 @@
     <Compile Include="Ornekler\ConcurrencyOrnek.generated.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentity.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentity.generated.cs" />
+    <Compile Include="Ornekler\IsimlendirmeBozuk.cs" />
+    <Compile Include="Ornekler\IsimlendirmeBozuk.generated.cs" />
     <Compile Include="Ornekler\Musteri.cs" />
     <Compile Include="Ornekler\Musteri.generated.cs" />
     <Compile Include="Ornekler\OrnekTablo.cs" />

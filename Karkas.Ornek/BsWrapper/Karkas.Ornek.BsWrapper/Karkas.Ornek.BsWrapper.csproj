@@ -62,6 +62,8 @@
     <Compile Include="Ornekler\ConcurrencyOrnekBsWrapper.generated.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentityBsWrapper.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentityBsWrapper.generated.cs" />
+    <Compile Include="Ornekler\IsimlendirmeBozukBsWrapper.cs" />
+    <Compile Include="Ornekler\IsimlendirmeBozukBsWrapper.generated.cs" />
     <Compile Include="Ornekler\MusteriBsWrapper.cs" />
     <Compile Include="Ornekler\MusteriBsWrapper.generated.cs" />
     <Compile Include="Ornekler\OrnekTabloBsWrapper.cs" />

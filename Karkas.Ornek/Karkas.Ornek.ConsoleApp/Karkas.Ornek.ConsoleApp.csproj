@@ -68,6 +68,7 @@
     <Compile Include="Testler\BasitTabloIdentityTest.cs" />
     <Compile Include="Testler\BsConnectionTest.cs" />
     <Compile Include="Testler\DenemeGuidIdentityTest.cs" />
+    <Compile Include="Testler\IsimlendirmeBozukTest.cs" />
     <Compile Include="Testler\MusteriTest.cs" />
     <Compile Include="Testler\StoredProcedureTest.cs" />
     <Compile Include="Testler\TransactionDataTableDondurTest.cs" />
