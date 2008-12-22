@@ -10,6 +10,7 @@ using System.Collections.Generic;
 
 using Karkas.Core.Utility.ReportingServicesHelper.Generated;
 using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace Karkas.Core.Utility.ReportingServicesHelper
 {
@@ -17,12 +18,13 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
     {
 
 
+
         ReportingService rs = new ReportingService();
 
         public ReportingService getInnerReportingService()
         {
-                rs.Credentials = Credentials;
-                return rs; 
+            rs.Credentials = Credentials;
+            return rs;
         }
 
         public KarkasRapor()
@@ -34,10 +36,38 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             : this()
         {
             RaporAd = pRaporAd;
+        }
 
+        bool dataSourceDegisecekMi = false;
+        int? yil;
+        string yeniDataSource = null;
 
+        public KarkasRapor(string pRaporAd, int pYil)
+            : this(pRaporAd)
+        {
+            dataSourceDegisecekMi = true;
+            this.yil = pYil;
 
         }
+
+        public KarkasRapor(string pRaporAd, string pDataSourceName)
+            : this(pRaporAd)
+        {
+            rs.Credentials = Credentials;
+            DataSource[] listeDataSource = rs.GetReportDataSources(pRaporAd);
+            DataSource eskiDs = listeDataSource[0];
+            DataSourceReference reference = new DataSourceReference();
+            reference.Reference = pDataSourceName;
+            DataSource[] dataSources = new DataSource[1];
+            DataSource ds = new DataSource();
+            ds.Item = (DataSourceDefinitionOrReference)reference;
+            ds.Name = eskiDs.Name;
+            dataSources[0] = ds;
+            rs.SetReportDataSources(pRaporAd, listeDataSource);
+
+        }
+
+
 
         private void SetDefaults()
         {
@@ -68,7 +98,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
                 webServiceSecurityModel = WebServiceSecurityModelConstants.NTLM;
             }
 
-            if  (
+            if (
                 (ConfigurationManager.AppSettings[RAPOR_USER] != null)
                 &&
                 (ConfigurationManager.AppSettings[RAPOR_PASSWORD] != null)
@@ -88,13 +118,13 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
         public bool UseDefaultCredentials
         {
-            get 
-            { 
-                return useDefaultCredentials; 
-            }
-            set 
+            get
             {
-                useDefaultCredentials = value; 
+                return useDefaultCredentials;
+            }
+            set
+            {
+                useDefaultCredentials = value;
             }
 
         }
@@ -145,7 +175,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             {
                 if (String.IsNullOrEmpty(raporPassword))
                 {
-                    
+
                 }
                 return raporPassword;
             }
@@ -264,12 +294,43 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         }
 
 
+        public void dataSourceDegistir()
+        {
+            rs.Credentials = Credentials;
+            DataSource[] listeDataSource = rs.GetReportDataSources(RaporAd);
+            DataSource eskiDs = listeDataSource[0];
 
+            string refer = ((DataSourceReference)eskiDs.Item).Reference;
+            string referYilYok = refer;
+            Regex regex = new Regex("[0-9]+");
+            Match m = regex.Match(refer);
+
+            if (m.Success)
+            {
+                referYilYok = refer.Substring(0, m.Index);
+            }
+
+
+
+            DataSourceReference reference = new DataSourceReference();
+            reference.Reference = referYilYok + yil.ToString();
+            DataSource[] dataSources = new DataSource[1];
+            DataSource ds = new DataSource();
+            ds.Item = (DataSourceDefinitionOrReference)reference;
+            ds.Name = eskiDs.Name;
+            dataSources[0] = ds;
+            rs.SetReportDataSources(RaporAd, listeDataSource);
+        }
 
 
         public byte[] RaporAl()
         {
             rs.Credentials = Credentials;
+
+            if (dataSourceDegisecekMi)
+            {
+                dataSourceDegistir();
+            }
 
             Warning[] warnings;
             string[] streamids;
@@ -307,6 +368,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
                     buf = rs.Render(raporAd, RaporFormatAsString.IMAGE, null, "", parameters, dsCredentials, "", out encoding, out mimeType, out paramatersUsed, out warnings, out streamids);
                     break;
                 case RaporFormats.XML:
+                    
                     buf = rs.Render(raporAd, RaporFormatAsString.XML, null, "", parameters, dsCredentials, "", out encoding, out mimeType, out paramatersUsed, out warnings, out streamids);
                     break;
             }
@@ -391,7 +453,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         public const string RAPOR_USER = "RaporUser";
         public const string RAPOR_PASSWORD = "RaporPassword";
         public const string RAPOR_CREDENTIALS_DOMAIN = "RaporCredentialsDomain";
-        
+
 
 
 

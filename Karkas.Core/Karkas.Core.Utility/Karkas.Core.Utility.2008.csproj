@@ -70,6 +70,8 @@
     <Compile Include="Ay.cs" />
     <Compile Include="EPostaYardimcisi.cs" />
     <Compile Include="ReportingServicesHelper\KarkasRapor.cs" />
+    <Compile Include="ReportingServicesHelper\KarkasRapor.Enums.cs" />
+    <Compile Include="ReportingServicesHelper\KarkasRaporParametre.cs" />
     <Compile Include="ReportingServicesHelper\ReportingService.cs" />
   </ItemGroup>
   <ItemGroup>
