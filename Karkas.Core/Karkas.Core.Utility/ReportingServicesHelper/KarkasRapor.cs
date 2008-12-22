@@ -14,6 +14,7 @@ using System.Text.RegularExpressions;
 
 namespace Karkas.Core.Utility.ReportingServicesHelper
 {
+
     public partial class KarkasRapor
     {
 
@@ -297,31 +298,50 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         public void dataSourceDegistir()
         {
             rs.Credentials = Credentials;
-            DataSource[] listeDataSource = rs.GetReportDataSources(RaporAd);
-            DataSource eskiDs = listeDataSource[0];
+            string[] splitted = raporAd.Split('/');
+            string yeniRaporAd = splitted[splitted.Length - 1] + "_" + yil;
+            splitted[splitted.Length - 1] = String.Empty;
+            string raporYolu = String.Join("/", splitted).TrimEnd('/'); ;
 
-            string refer = ((DataSourceReference)eskiDs.Item).Reference;
-            string referYilYok = refer;
-            Regex regex = new Regex("[0-9]+");
-            Match m = regex.Match(refer);
-
-            if (m.Success)
+            if (!RaporVarMi(yeniRaporAd, raporYolu))
             {
-                referYilYok = refer.Substring(0, m.Index);
+                rs.CreateReport(yeniRaporAd, raporYolu, false, rs.GetReportDefinition(raporAd), null);
+                //rs.SetReportDataSources(String.Format("{0}/{1}", raporYolu, yeniRaporAd), listeDataSource);
+                rs.SetReportDataSources(String.Format("{0}/{1}", raporYolu, yeniRaporAd), new DataSource[] { DataSourceBul("OzelIdare" + yil, raporYolu) });
             }
+            raporAd = String.Format("{0}/{1}", raporYolu, yeniRaporAd);
+        }
 
+        private bool RaporVarMi(string pRaporAdi, string pRaporYolu)
+        {
+            CatalogItem[] items = null;
+            SearchCondition condition = new SearchCondition();
+            condition.Condition = ConditionEnum.Equals;
+            condition.ConditionSpecified = true;
+            condition.Name = "Name";
+            condition.Value = pRaporAdi;
 
+            SearchCondition[] conditions = new SearchCondition[1];
+            conditions[0] = condition;
+
+            items = rs.FindItems(pRaporYolu, BooleanOperatorEnum.And, conditions);
+            if (items == null || items.Length == 0)
+                return false;
+            else
+                return true;
+        }
+
+        private DataSource DataSourceBul(string pAdi, string pYolu)
+        {
 
             DataSourceReference reference = new DataSourceReference();
-            reference.Reference = referYilYok + yil.ToString();
+            reference.Reference = pYolu + "/" + pAdi;
             DataSource[] dataSources = new DataSource[1];
             DataSource ds = new DataSource();
             ds.Item = (DataSourceDefinitionOrReference)reference;
-            ds.Name = eskiDs.Name;
-            dataSources[0] = ds;
-            rs.SetReportDataSources(RaporAd, listeDataSource);
+            ds.Name = "AritOzelIdare";
+            return ds;
         }
-
 
         public byte[] RaporAl()
         {
@@ -368,7 +388,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
                     buf = rs.Render(raporAd, RaporFormatAsString.IMAGE, null, "", parameters, dsCredentials, "", out encoding, out mimeType, out paramatersUsed, out warnings, out streamids);
                     break;
                 case RaporFormats.XML:
-                    
+
                     buf = rs.Render(raporAd, RaporFormatAsString.XML, null, "", parameters, dsCredentials, "", out encoding, out mimeType, out paramatersUsed, out warnings, out streamids);
                     break;
             }
