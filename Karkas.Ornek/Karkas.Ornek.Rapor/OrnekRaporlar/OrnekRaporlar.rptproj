@@ -9,12 +9,16 @@
   </DataSources>
   <Reports>
     <ProjectItem>
+      <Name>Ornek.rdl</Name>
+      <FullPath>Ornek.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>OrneklerMusteri.rdl</Name>
       <FullPath>OrneklerMusteri.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Ornek.rdl</Name>
-      <FullPath>Ornek.rdl</FullPath>
+      <Name>ReportMusteriBilgileri.rdl</Name>
+      <FullPath>ReportMusteriBilgileri.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>
@@ -22,7 +26,7 @@
       <Name>Debug</Name>
       <Platform>Win32</Platform>
       <Options>
-        <TargetServerURL>http://localhost/ReportServer</TargetServerURL>
+        <TargetServerURL>http://10.2.37.16/ReportServer</TargetServerURL>
         <TargetFolder>OrnekRaporlar</TargetFolder>
         <TargetDataSourceFolder>Data Sources</TargetDataSourceFolder>
       </Options>
