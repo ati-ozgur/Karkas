@@ -274,7 +274,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         }
 
 
-       
+
         /// <summary>
         /// raporun var olup olmadigini kontrol eder. 
         /// </summary>
@@ -283,6 +283,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         /// <returns></returns>
         public bool RaporVarMi(string pRaporAdi, string pRaporYolu)
         {
+            rs.Credentials = Credentials;
             CatalogItem[] items = null;
             SearchCondition condition = new SearchCondition();
             condition.Condition = ConditionEnum.Equals;
@@ -331,7 +332,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         public void RaporKopyalaVeDataSourceunuAta(string yeniRaporAdi, string yeniRaporYolu, string pVarOlaDataSourceAdi, string pVarOlanDataSourceYolu, string pYeniDataSourceAdi)
         {
             rs.CreateReport(yeniRaporAdi, yeniRaporYolu, false, rs.GetReportDefinition(RaporAd), null);
-            rs.SetReportDataSources(String.Format("{0}/{1}", yeniRaporYolu, yeniRaporAdi), 
+            rs.SetReportDataSources(String.Format("{0}/{1}", yeniRaporYolu, yeniRaporAdi),
                 new DataSource[] { VarOlanDataSourceReferansiniGetir(pVarOlaDataSourceAdi, pVarOlanDataSourceYolu, pYeniDataSourceAdi) });
         }
 
