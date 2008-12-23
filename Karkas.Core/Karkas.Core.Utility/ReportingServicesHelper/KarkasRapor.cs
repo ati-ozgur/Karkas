@@ -14,11 +14,12 @@ using System.Text.RegularExpressions;
 
 namespace Karkas.Core.Utility.ReportingServicesHelper
 {
+    public delegate void BeforeRaporAl(KarkasRapor rapor);
 
     public partial class KarkasRapor
     {
-
-
+        //rapor almadan (RaporAl() fonksiyonundan) once çaðýrýlacak event
+        public event BeforeRaporAl OnBeforeRaporAl;
 
         ReportingService rs = new ReportingService();
 
@@ -39,36 +40,14 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             RaporAd = pRaporAd;
         }
 
-        bool dataSourceDegisecekMi = false;
-        int? yil;
-        string yeniDataSource = null;
-
-        public KarkasRapor(string pRaporAd, int pYil)
-            : this(pRaporAd)
+        /// <summary>
+        /// OnBeforeRaporAl eventini tetikle
+        /// </summary>
+        private void fireOnBeforeRaporAl()
         {
-            dataSourceDegisecekMi = true;
-            this.yil = pYil;
-
+            if (OnBeforeRaporAl != null)
+                OnBeforeRaporAl(this);
         }
-
-        public KarkasRapor(string pRaporAd, string pDataSourceName)
-            : this(pRaporAd)
-        {
-            rs.Credentials = Credentials;
-            DataSource[] listeDataSource = rs.GetReportDataSources(pRaporAd);
-            DataSource eskiDs = listeDataSource[0];
-            DataSourceReference reference = new DataSourceReference();
-            reference.Reference = pDataSourceName;
-            DataSource[] dataSources = new DataSource[1];
-            DataSource ds = new DataSource();
-            ds.Item = (DataSourceDefinitionOrReference)reference;
-            ds.Name = eskiDs.Name;
-            dataSources[0] = ds;
-            rs.SetReportDataSources(pRaporAd, listeDataSource);
-
-        }
-
-
 
         private void SetDefaults()
         {
@@ -295,24 +274,14 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         }
 
 
-        public void dataSourceDegistir()
-        {
-            rs.Credentials = Credentials;
-            string[] splitted = raporAd.Split('/');
-            string yeniRaporAd = splitted[splitted.Length - 1] + "_" + yil;
-            splitted[splitted.Length - 1] = String.Empty;
-            string raporYolu = String.Join("/", splitted).TrimEnd('/'); ;
-
-            if (!RaporVarMi(yeniRaporAd, raporYolu))
-            {
-                rs.CreateReport(yeniRaporAd, raporYolu, false, rs.GetReportDefinition(raporAd), null);
-                //rs.SetReportDataSources(String.Format("{0}/{1}", raporYolu, yeniRaporAd), listeDataSource);
-                rs.SetReportDataSources(String.Format("{0}/{1}", raporYolu, yeniRaporAd), new DataSource[] { DataSourceBul("OzelIdare" + yil, raporYolu) });
-            }
-            raporAd = String.Format("{0}/{1}", raporYolu, yeniRaporAd);
-        }
-
-        private bool RaporVarMi(string pRaporAdi, string pRaporYolu)
+       
+        /// <summary>
+        /// raporun var olup olmadigini kontrol eder. 
+        /// </summary>
+        /// <param name="pRaporAdi">butceMuhasebe (.rdl yok)</param>
+        /// <param name="pRaporYolu">ornek : /AritOzelIdare (son / yok)</param>
+        /// <returns></returns>
+        public bool RaporVarMi(string pRaporAdi, string pRaporYolu)
         {
             CatalogItem[] items = null;
             SearchCondition condition = new SearchCondition();
@@ -331,26 +300,47 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
                 return true;
         }
 
-        private DataSource DataSourceBul(string pAdi, string pYolu)
+        /// <summary>
+        /// varolan bir datasource itemine referans almak icin kullanilir. 
+        /// Reporting Serviceden direkt datasource'u arayip bulamadigimiz icin yeni bir datasource objesi yaratilip ,varolan datasource objesinin referansi aktarilir.
+        /// </summary>
+        /// <param name="pVarOlaDataSourceAdi">shared datasourceun ismi (reporting service arayuzunde gorunen adi)</param>
+        /// <param name="pVarOlanDataSourceYolu">shared datasourceun yolu (sonunda / karakteri olmaz) </param>
+        /// <param name="pDondurulecekDataSourceAdi">Bu isim Reporting Service arayuzunde gorunen Datasource adi olmayabilir. Rapor Projesindeki Shared DataSource adidir.</param>
+        /// <returns></returns>
+        public DataSource VarOlanDataSourceReferansiniGetir(string pVarOlaDataSourceAdi, string pVarOlanDataSourceYolu, string pDondurulecekDataSourceAdi)
         {
-
             DataSourceReference reference = new DataSourceReference();
-            reference.Reference = pYolu + "/" + pAdi;
-            DataSource[] dataSources = new DataSource[1];
+            reference.Reference = pVarOlanDataSourceYolu.TrimEnd('/') + "/" + pVarOlaDataSourceAdi;
             DataSource ds = new DataSource();
             ds.Item = (DataSourceDefinitionOrReference)reference;
-            ds.Name = "AritOzelIdare";
+            ds.Name = pDondurulecekDataSourceAdi;
             return ds;
+        }
+
+        /// <summary>
+        /// RaporAd propertisi ile belirtilen raporu yeniRaporYolu ve yeniRaporAdi ile reporting services'e kopyalar
+        /// ve datasource propertisini  pVarOlaDataSourceAdi ve pVarOlanDataSourceYolu parametrelerle belirtilen datasource olarak ayarlar.
+        /// Datasource ayarlamasi icin VarOlanDataSourceReferansiniGetir metodunu kullanir.
+        /// </summary>
+        /// <param name="yeniRaporAdi">kopya raporun adi</param>
+        /// <param name="yeniRaporYolu">kopya raporun yolu</param>
+        /// <param name="pVarOlaDataSourceAdi">bknz : VarOlanDataSourceReferansiniGetir</param>
+        /// <param name="pVarOlanDataSourceYolu">bknz : VarOlanDataSourceReferansiniGetir</param>
+        /// <param name="pYeniDataSourceAdi">bknz : VarOlanDataSourceReferansiniGetir (pDondurulecekDataSourceAdi)</param>
+        public void RaporKopyalaVeDataSourceunuAta(string yeniRaporAdi, string yeniRaporYolu, string pVarOlaDataSourceAdi, string pVarOlanDataSourceYolu, string pYeniDataSourceAdi)
+        {
+            rs.CreateReport(yeniRaporAdi, yeniRaporYolu, false, rs.GetReportDefinition(RaporAd), null);
+            rs.SetReportDataSources(String.Format("{0}/{1}", yeniRaporYolu, yeniRaporAdi), 
+                new DataSource[] { VarOlanDataSourceReferansiniGetir(pVarOlaDataSourceAdi, pVarOlanDataSourceYolu, pYeniDataSourceAdi) });
         }
 
         public byte[] RaporAl()
         {
             rs.Credentials = Credentials;
 
-            if (dataSourceDegisecekMi)
-            {
-                dataSourceDegistir();
-            }
+            //OnBeforeRaporAl eventini fire et
+            fireOnBeforeRaporAl();
 
             Warning[] warnings;
             string[] streamids;
