@@ -22,9 +22,22 @@ namespace Karkas.Ornek.ConsoleApp.Testler
         [Test]
         public void Ekle()
         {
-            BasitTabloIdentity bt = ornekBasitTabloIdentityGetir();
-            BasitTabloIdentityDal dal = new BasitTabloIdentityDal();
-            dal.Ekle(bt);
+            int eskiSonuc = -1;
+            int yeniSonuc = 0;
+            for (int i = 0; i < 10; i++)
+            {
+                BasitTabloIdentity bt = ornekBasitTabloIdentityGetir();
+                bt.Adi = bt.Adi + i;
+                bt.Soyadi = bt.Soyadi + i;
+                BasitTabloIdentityDal dal = new BasitTabloIdentityDal();
+                if (eskiSonuc == -1)
+                {
+                    eskiSonuc = dal.Ekle(bt);
+                    
+                }
+                yeniSonuc = dal.Ekle(bt);
+                Assert.Greater(yeniSonuc,eskiSonuc);
+            }
 
         }
         [Test]
@@ -32,15 +45,16 @@ namespace Karkas.Ornek.ConsoleApp.Testler
         {
             BasitTabloIdentityDal dal = new BasitTabloIdentityDal();
             List<BasitTabloIdentity> liste = dal.SorgulaHepsiniGetir();
-            if (liste.Count > 0)
+            for (int i = 0; i < liste.Count; i++)
             {
-                BasitTabloIdentity m = liste[0];
+                BasitTabloIdentity m = liste[i];
                 int pk = m.BasitTabloIdentityKey;
-                m.Soyadi = m.Soyadi + "D";
+                m.Soyadi = m.Soyadi + "D" + i;
                 dal.Guncelle(m);
 
                 BasitTabloIdentity veritabanindakiRow = dal.SorgulaBasitTabloIdentityKeyIle(pk);
                 BasitTabloIdentityKolonlariEsitMi(m, veritabanindakiRow);
+                
             }
 
         }
