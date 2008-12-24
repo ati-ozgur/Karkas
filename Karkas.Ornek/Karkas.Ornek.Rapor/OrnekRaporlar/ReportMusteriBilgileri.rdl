@@ -83,6 +83,7 @@ WHERE     (Adi LIKE @Adi + '%') AND (Soyadi LIKE @Soyadi + '%')</CommandText>
       </Query>
     </DataSet>
   </DataSets>
+  <Code />
   <Width>15.2381cm</Width>
   <Body>
     <ColumnSpacing>1cm</ColumnSpacing>

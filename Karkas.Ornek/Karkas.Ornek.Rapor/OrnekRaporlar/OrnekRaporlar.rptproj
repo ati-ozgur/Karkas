@@ -6,6 +6,10 @@
       <Name>localhost.rds</Name>
       <FullPath>localhost.rds</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>SqlDevEd.rds</Name>
+      <FullPath>SqlDevEd.rds</FullPath>
+    </ProjectItem>
   </DataSources>
   <Reports>
     <ProjectItem>
