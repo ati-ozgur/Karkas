@@ -6,6 +6,8 @@ CREATE TABLE [ORNEKLER].[BASIT_TABLO](
 	[BasitTabloKey] [uniqueidentifier] NOT NULL,
 	[Adi] [varchar](50) NOT NULL,
 	[Soyadi] [varchar](50) NOT NULL,
+	[GKullaniciKey] [uniqueidentifier] NULL,
+	[UTarihi] [smalldatetime] NULL,
  CONSTRAINT [PK_BASIT_TABLO] PRIMARY KEY CLUSTERED 
 (
 	[BasitTabloKey] ASC

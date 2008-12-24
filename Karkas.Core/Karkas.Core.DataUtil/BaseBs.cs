@@ -109,9 +109,9 @@ namespace Karkas.Core.DataUtil
 
 
         protected DAL_TIPI dal = new DAL_TIPI();
-        public void Ekle(TYPE_LIBRARY_TIPI k)
+        public int Ekle(TYPE_LIBRARY_TIPI k)
         {
-            dal.Ekle(k);
+            return dal.Ekle(k);
         }
         public void Guncelle(TYPE_LIBRARY_TIPI k)
         {

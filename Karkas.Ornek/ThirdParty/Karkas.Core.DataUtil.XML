@@ -4,21 +4,12 @@
         <name>Karkas.Core.DataUtil</name>
     </assembly>
     <members>
-        <member name="T:Karkas.Core.DataUtil.BaseDalForIdentity`2">
-            <summary>
-            T TypeLibrary Class
-            M Type of Primary Key of T
-            </summary>
-            <typeparam name="T"></typeparam>
-            <typeparam name="M"></typeparam>
-        </member>
         <member name="T:Karkas.Core.DataUtil.BaseDal`1">
             <summary>
             T TypeLibrary Class
             M Type of Primary Key of T
             </summary>
             <typeparam name="T"></typeparam>
-            <typeparam name="M"></typeparam>
         </member>
         <member name="P:Karkas.Core.DataUtil.BaseDal`1.OtomatikConnectionYonetimi">
             <summary>

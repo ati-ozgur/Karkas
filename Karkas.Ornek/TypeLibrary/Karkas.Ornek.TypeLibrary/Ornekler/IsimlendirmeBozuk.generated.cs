@@ -15,8 +15,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 		[Serializable]
 		[DebuggerDisplay("KisiOid = {KisiOid}")]
 		public partial class 		IsimlendirmeBozuk		
-
-		//::PRESERVE_BEGIN inheritance::// 
+//::PRESERVE_BEGIN inheritance::// 
 : BaseTypeLibrary 
 //::PRESERVE_END inheritance:://
 		{

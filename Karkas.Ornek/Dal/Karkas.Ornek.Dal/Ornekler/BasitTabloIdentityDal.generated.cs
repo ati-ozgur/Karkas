@@ -10,7 +10,7 @@ using Karkas.Ornek.TypeLibrary.Ornekler;
 
 namespace Karkas.Ornek.Dal.Ornekler
 {
-	public partial class BasitTabloIdentityDal : BaseDalForIdentity<BasitTabloIdentity,int>
+	public partial class BasitTabloIdentityDal : BaseDal<BasitTabloIdentity>
 	{
 		
 		public override string DatabaseName

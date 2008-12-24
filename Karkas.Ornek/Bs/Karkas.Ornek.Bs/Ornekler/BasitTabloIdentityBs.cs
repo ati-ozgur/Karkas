@@ -11,35 +11,37 @@ using Karkas.Ornek.Dal.Ornekler;
 
 namespace Karkas.Ornek.Bs.Ornekler
 {
-public partial class BasitTabloIdentityBs
-{
-    public void TransactionBasarili()
+    public partial class BasitTabloIdentityBs
     {
-        BasitTabloIdentity bti = new BasitTabloIdentity();
-        bti.Adi = "atilla";
-        bti.Soyadi = "ozgur";
 
-        Aciklama acik = new Aciklama();
-        acik.AciklamaKey = Guid.NewGuid();
-        acik.AciklamaProperty = bti.Adi + " " + bti.Soyadi;
 
-        try
+        public void TransactionBasarili()
         {
-            this.BeginTransaction();
-            AciklamaDal aciklamaDal = this.GetDalInstance<AciklamaDal, Aciklama>();
-            dal.Ekle(bti);
-            aciklamaDal.Ekle(acik);
-            this.CommitTransaction();
+            BasitTabloIdentity bti = new BasitTabloIdentity();
+            bti.Adi = "atilla";
+            bti.Soyadi = "ozgur";
+
+            Aciklama acik = new Aciklama();
+            acik.AciklamaKey = Guid.NewGuid();
+            acik.AciklamaProperty = bti.Adi + " " + bti.Soyadi;
+
+            try
+            {
+                this.BeginTransaction();
+                AciklamaDal aciklamaDal = this.GetDalInstance<AciklamaDal, Aciklama>();
+                dal.Ekle(bti);
+                aciklamaDal.Ekle(acik);
+                this.CommitTransaction();
+            }
+            finally
+            {
+                this.ClearTransactionInformation();
+            }
         }
-        finally
+
+        public void TemplateOrnek()
         {
-            this.ClearTransactionInformation();
+            throw new NotImplementedException();
         }
     }
-
-    public void TemplateOrnek()
-    {
-        throw new NotImplementedException();
-    }
-}
 }

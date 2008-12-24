@@ -66,7 +66,6 @@
     <Compile Include="AdoTemplate.cs" />
     <Compile Include="BaseBs.cs" />
     <Compile Include="BaseDal.cs" />
-    <Compile Include="BaseDalForIdentity.cs" />
     <Compile Include="CommandFactory.cs" />
     <Compile Include="ConnectionSingleton.cs" />
     <Compile Include="ExceptionDegistirici.cs" />
@@ -90,7 +89,6 @@
     <Compile Include="SorguYardimcisiSiniflari\WhereKriterTercihli.cs" />
     <Compile Include="SorguYardimcisiSiniflari\WhereKriterTercihliNullDegeri.cs" />
     <Compile Include="SorguYardimcisiSiniflari\WhereOperatorEnum.cs" />
-    <Compile Include="TransactionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

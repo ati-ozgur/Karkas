@@ -14,7 +14,6 @@ namespace Karkas.Core.DataUtil
     /// M Type of Primary Key of T
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <typeparam name="M"></typeparam>
     public abstract class BaseDal<T> where T : BaseTypeLibrary, new()
     {
         private bool otomatikConnectionYonetimi = true;
@@ -245,16 +244,89 @@ namespace Karkas.Core.DataUtil
             return liste;
         }
 
-        public virtual void Ekle(T row)
+        protected abstract void identityKolonDegeriniSetle(T pTypeLibrary, int pIdentityKolonValue);
+
+        private int EkleIdentity(T row)
+        {
+            int sonuc = 0;
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = InsertString;
+            cmd.Connection = Connection;
+            InsertCommandParametersAdd(cmd, row);
+
+
+            //rowstate'i unchanged yapiyoruz
+            row.RowState = DataRowState.Unchanged;
+
+            try
+            {
+                if (ConnectionAcilacakMi())
+                {
+                    Connection.Open();
+                }
+                if (CurrentTransaction != null)
+                {
+                    cmd.Transaction = CurrentTransaction;
+                }
+                if (IdentityVarMi)
+                {
+                    logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
+                    object id_degeri = cmd.ExecuteScalar();
+                    sonuc = Convert.ToInt32(id_degeri);
+                    identityKolonDegeriniSetle(row, sonuc);
+                }
+                else
+                {
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
+            }
+            catch (Exception ex)
+            {
+                logger.Info(ex);
+            }
+
+            finally
+            {
+                if (ConnectionKapatilacakMi())
+                {
+                    Connection.Close();
+                }
+            }
+
+            return sonuc;
+        }
+
+        
+
+
+        public int Ekle(T row)
+        {
+            if (IdentityVarMi)
+            {
+                return EkleIdentity(row);
+            }
+            else
+            {
+                return EkleNormal(row);
+            }
+        }
+
+
+        private int EkleNormal(T row)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = InsertString;
             cmd.Connection = Connection;
             InsertCommandParametersAdd(cmd, row);
-            SorguHariciKomutCalistirInternal(cmd);
+            int sonuc = SorguHariciKomutCalistirInternal(cmd);
 
             //rowstate'i unchanged yapiyoruz
             row.RowState = DataRowState.Unchanged;
+            return sonuc;
         }
         protected void SorguHariciKomutCalistirUpdate(string cmdText, T row)
         {
@@ -433,6 +505,7 @@ namespace Karkas.Core.DataUtil
         {
             get;
         }
+
 
         protected abstract void ProcessRow(IDataReader dr, T row);
         protected abstract void InsertCommandParametersAdd(SqlCommand Cmd, T row);

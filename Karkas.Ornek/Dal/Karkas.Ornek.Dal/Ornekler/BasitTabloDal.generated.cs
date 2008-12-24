@@ -20,6 +20,9 @@ namespace Karkas.Ornek.Dal.Ornekler
 				return "KARKAS_ORNEK";
 			}
 		}
+		protected override void identityKolonDegeriniSetle(BasitTablo pTypeLibrary,int pIdentityKolonValue)
+		{
+		}
 		protected override string SelectCountString
 		{
 			get
@@ -31,7 +34,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 		{
 			get 
 			{
-				return @"SELECT BasitTabloKey,Adi,Soyadi FROM ORNEKLER.BASIT_TABLO";
+				return @"SELECT BasitTabloKey,Adi,Soyadi,GKullaniciKey,UTarihi FROM ORNEKLER.BASIT_TABLO";
 			}
 		}
 		protected override string DeleteString
@@ -47,7 +50,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 			{
 				return @"UPDATE ORNEKLER.BASIT_TABLO
 				 SET 
-				Adi = @Adi,Soyadi = @Soyadi				
+				Adi = @Adi,Soyadi = @Soyadi,GKullaniciKey = @GKullaniciKey,UTarihi = @UTarihi				
 				WHERE 
 				 BasitTabloKey = @BasitTabloKey ";
 			}
@@ -57,9 +60,9 @@ namespace Karkas.Ornek.Dal.Ornekler
 			get 
 			{
 				return @"INSERT INTO ORNEKLER.BASIT_TABLO 
-				 (BasitTabloKey,Adi,Soyadi) 
+				 (BasitTabloKey,Adi,Soyadi,GKullaniciKey,UTarihi) 
 				 VALUES 
-								(@BasitTabloKey,@Adi,@Soyadi)";
+								(@BasitTabloKey,@Adi,@Soyadi,@GKullaniciKey,@UTarihi)";
 			}
 		}
 		public BasitTablo SorgulaBasitTabloKeyIle(Guid p1)
@@ -103,6 +106,14 @@ namespace Karkas.Ornek.Dal.Ornekler
 			row.BasitTabloKey = dr.GetGuid(0);
 			row.Adi = dr.GetString(1);
 			row.Soyadi = dr.GetString(2);
+			if (!dr.IsDBNull(3))
+			{
+				row.GkullaniciKey = dr.GetGuid(3);
+			}
+			if (!dr.IsDBNull(4))
+			{
+				row.Utarihi = dr.GetDateTime(4);
+			}
 		}
 		protected override void InsertCommandParametersAdd(SqlCommand cmd, BasitTablo row)
 		{
@@ -110,6 +121,8 @@ namespace Karkas.Ornek.Dal.Ornekler
 			builder.parameterEkle("@BasitTabloKey",SqlDbType.UniqueIdentifier, row.BasitTabloKey);
 			builder.parameterEkle("@Adi",SqlDbType.VarChar, row.Adi,50);
 			builder.parameterEkle("@Soyadi",SqlDbType.VarChar, row.Soyadi,50);
+			builder.parameterEkle("@GKullaniciKey",SqlDbType.UniqueIdentifier, row.GkullaniciKey);
+			builder.parameterEkle("@UTarihi",SqlDbType.SmallDateTime, row.Utarihi);
 		}
 		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		BasitTablo		 row)
 		{
@@ -117,6 +130,8 @@ namespace Karkas.Ornek.Dal.Ornekler
 			builder.parameterEkle("@BasitTabloKey",SqlDbType.UniqueIdentifier, row.BasitTabloKey);
 			builder.parameterEkle("@Adi",SqlDbType.VarChar, row.Adi,50);
 			builder.parameterEkle("@Soyadi",SqlDbType.VarChar, row.Soyadi,50);
+			builder.parameterEkle("@GKullaniciKey",SqlDbType.UniqueIdentifier, row.GkullaniciKey);
+			builder.parameterEkle("@UTarihi",SqlDbType.SmallDateTime, row.Utarihi);
 		}
 		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		BasitTablo		 row)
 		{

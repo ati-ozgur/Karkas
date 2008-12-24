@@ -10,7 +10,7 @@ using Karkas.Ornek.TypeLibrary.Ornekler;
 
 namespace Karkas.Ornek.Dal.Ornekler
 {
-	public partial class DenemeGuidIdentityDal : BaseDalForIdentity<DenemeGuidIdentity,int>
+	public partial class DenemeGuidIdentityDal : BaseDal<DenemeGuidIdentity>
 	{
 		
 		public override string DatabaseName
