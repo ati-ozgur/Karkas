@@ -22,7 +22,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 		}
 		protected override void identityKolonDegeriniSetle(IdentityInt pTypeLibrary,long pIdentityKolonValue)
 		{
-			pTypeLibrary.IdentityIntKey = (byte )pIdentityKolonValue;
+			pTypeLibrary.IdentityIntKey = (int )pIdentityKolonValue;
 		}
 		protected override string SelectCountString
 		{
@@ -66,7 +66,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 								(@Adi);SELECT scope_identity();";
 			}
 		}
-		public IdentityInt SorgulaIdentityIntKeyIle(byte p1)
+		public IdentityInt SorgulaIdentityIntKeyIle(int p1)
 		{
 			List<IdentityInt> liste = new List<IdentityInt>();
 			SorguCalistir(liste,String.Format(" IdentityIntKey = '{0}'", p1));			
@@ -96,7 +96,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 			}
 		}
 		
-		public virtual void Sil(byte IdentityIntKey)
+		public virtual void Sil(int IdentityIntKey)
 		{
 			IdentityInt row = new IdentityInt();
 			row.IdentityIntKey = IdentityIntKey;
@@ -104,7 +104,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 		}
 		protected override void ProcessRow(System.Data.IDataReader dr, IdentityInt row)
 		{
-			row.IdentityIntKey = dr.GetByte(0);
+			row.IdentityIntKey = dr.GetInt32(0);
 			if (!dr.IsDBNull(1))
 			{
 				row.Adi = dr.GetString(1);
@@ -118,13 +118,13 @@ namespace Karkas.Ornek.Dal.Ornekler
 		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		IdentityInt		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@IdentityIntKey",SqlDbType.TinyInt, row.IdentityIntKey);
+			builder.parameterEkle("@IdentityIntKey",SqlDbType.Int, row.IdentityIntKey);
 			builder.parameterEkle("@Adi",SqlDbType.VarChar, row.Adi,50);
 		}
 		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		IdentityInt		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@IdentityIntKey",SqlDbType.TinyInt, row.IdentityIntKey);
+			builder.parameterEkle("@IdentityIntKey",SqlDbType.Int, row.IdentityIntKey);
 		}
 	}
 }

@@ -22,7 +22,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 		}
 		protected override void identityKolonDegeriniSetle(IdentityBigInt pTypeLibrary,long pIdentityKolonValue)
 		{
-			pTypeLibrary.IdentityBigIntKey = (byte )pIdentityKolonValue;
+			pTypeLibrary.IdentityBigIntKey = (long )pIdentityKolonValue;
 		}
 		protected override string SelectCountString
 		{
@@ -66,7 +66,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 								(@Adi);SELECT scope_identity();";
 			}
 		}
-		public IdentityBigInt SorgulaIdentityBigIntKeyIle(byte p1)
+		public IdentityBigInt SorgulaIdentityBigIntKeyIle(long p1)
 		{
 			List<IdentityBigInt> liste = new List<IdentityBigInt>();
 			SorguCalistir(liste,String.Format(" IdentityBigIntKey = '{0}'", p1));			
@@ -96,7 +96,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 			}
 		}
 		
-		public virtual void Sil(byte IdentityBigIntKey)
+		public virtual void Sil(long IdentityBigIntKey)
 		{
 			IdentityBigInt row = new IdentityBigInt();
 			row.IdentityBigIntKey = IdentityBigIntKey;
@@ -104,7 +104,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 		}
 		protected override void ProcessRow(System.Data.IDataReader dr, IdentityBigInt row)
 		{
-			row.IdentityBigIntKey = dr.GetByte(0);
+			row.IdentityBigIntKey = dr.GetInt64(0);
 			if (!dr.IsDBNull(1))
 			{
 				row.Adi = dr.GetString(1);
@@ -118,13 +118,13 @@ namespace Karkas.Ornek.Dal.Ornekler
 		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		IdentityBigInt		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@IdentityBigIntKey",SqlDbType.TinyInt, row.IdentityBigIntKey);
+			builder.parameterEkle("@IdentityBigIntKey",SqlDbType.BigInt, row.IdentityBigIntKey);
 			builder.parameterEkle("@Adi",SqlDbType.VarChar, row.Adi,50);
 		}
 		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		IdentityBigInt		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@IdentityBigIntKey",SqlDbType.TinyInt, row.IdentityBigIntKey);
+			builder.parameterEkle("@IdentityBigIntKey",SqlDbType.BigInt, row.IdentityBigIntKey);
 		}
 	}
 }

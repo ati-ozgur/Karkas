@@ -3,7 +3,7 @@ GO --ExecuteThisSql
 SET QUOTED_IDENTIFIER ON
 GO --ExecuteThisSql
 CREATE TABLE [ORNEKLER].[IDENTITY_BIG_INT](
-	[IdentityBigIntKey] [tinyint] IDENTITY(1,1) NOT NULL,
+	[IdentityBigIntKey] [bigint] IDENTITY(1,1) NOT NULL,
 	[Adi] [varchar](50) NULL,
  CONSTRAINT [PK_IDENTITY_BIG_INT] PRIMARY KEY CLUSTERED 
 (

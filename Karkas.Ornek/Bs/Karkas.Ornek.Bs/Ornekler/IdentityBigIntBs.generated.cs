@@ -21,11 +21,11 @@ namespace Karkas.Ornek.Bs.Ornekler
 					return "KARKAS_ORNEK";
 				}
 			}
-			public void Sil(byte IdentityBigIntKey)
+			public void Sil(long IdentityBigIntKey)
 			{
 				dal.Sil(IdentityBigIntKey);
 			}
-			public IdentityBigInt SorgulaIdentityBigIntKeyIle(byte p1)
+			public IdentityBigInt SorgulaIdentityBigIntKeyIle(long p1)
 			{
 				return dal.SorgulaIdentityBigIntKeyIle(p1);
 			}

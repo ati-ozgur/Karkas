@@ -29,8 +29,8 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
 			}
 		}
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public byte Ekle(IdentityInt p1 )        {
-            return (byte) bs.Ekle(p1);
+        public int Ekle(IdentityInt p1 )        {
+            return (int) bs.Ekle(p1);
         }
 
 
@@ -45,7 +45,7 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
             bs.Sil(k);
         }
 
-		public void Sil(byte IdentityIntKey)
+		public void Sil(int IdentityIntKey)
 		{
 			bs.Sil(IdentityIntKey);
 		}
@@ -68,7 +68,7 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-		public IdentityInt SorgulaIdentityIntKeyIle(byte p1)
+		public IdentityInt SorgulaIdentityIntKeyIle(int p1)
 		{
 			return bs.SorgulaIdentityIntKeyIle(p1);
 		}
