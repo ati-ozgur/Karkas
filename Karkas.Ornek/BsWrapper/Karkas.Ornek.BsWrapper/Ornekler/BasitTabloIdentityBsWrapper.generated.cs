@@ -29,9 +29,8 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
 			}
 		}
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Ekle(BasitTabloIdentity p1)
-        {
-            bs.Ekle(p1);
+        public int Ekle(BasitTabloIdentity p1 )        {
+            return (int) bs.Ekle(p1);
         }
 
 

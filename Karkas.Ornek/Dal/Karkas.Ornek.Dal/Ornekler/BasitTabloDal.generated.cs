@@ -20,7 +20,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 				return "KARKAS_ORNEK";
 			}
 		}
-		protected override void identityKolonDegeriniSetle(BasitTablo pTypeLibrary,int pIdentityKolonValue)
+		protected override void identityKolonDegeriniSetle(BasitTablo pTypeLibrary,long pIdentityKolonValue)
 		{
 		}
 		protected override string SelectCountString

@@ -22,8 +22,8 @@ namespace Karkas.Ornek.ConsoleApp.Testler
         [Test]
         public void Ekle()
         {
-            int eskiSonuc = -1;
-            int yeniSonuc = 0;
+            long eskiSonuc = -1;
+            long yeniSonuc = 0;
             for (int i = 0; i < 10; i++)
             {
                 BasitTabloIdentity bt = ornekBasitTabloIdentityGetir();

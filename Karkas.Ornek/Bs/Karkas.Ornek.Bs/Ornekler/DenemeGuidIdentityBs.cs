@@ -30,7 +30,7 @@ namespace Karkas.Ornek.Bs.Ornekler
 
                 AciklamaDal aciklamaDal = this.GetDalInstance<AciklamaDal, Aciklama>();
 
-                int no = dal.Ekle(dgi);
+                int no = (int )dal.Ekle(dgi);
                 DataTable dt = dal.SatirGetir(no);
                 aciklama.AciklamaProperty = dt.Rows[0]["DenemeKolon"].ToString();
                 aciklamaDal.Ekle(aciklama);
@@ -58,8 +58,8 @@ namespace Karkas.Ornek.Bs.Ornekler
 
                 AciklamaDal aciklamaDal = this.GetDalInstance<AciklamaDal, Aciklama>();
 
-                int no = dal.Ekle(dgi);
-                int denemeNo = dal.DenemeNoBul(dgi.DenemeKey);
+                long no = dal.Ekle(dgi);
+                long denemeNo = dal.DenemeNoBul(dgi.DenemeKey);
                 aciklama.AciklamaProperty = "" + denemeNo + " " + dgi.DenemeKeyAsString;
                 aciklamaDal.Ekle(aciklama);
                 this.CommitTransaction();

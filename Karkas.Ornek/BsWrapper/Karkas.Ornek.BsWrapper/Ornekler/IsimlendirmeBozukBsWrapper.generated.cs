@@ -29,9 +29,8 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
 			}
 		}
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Ekle(IsimlendirmeBozuk p1)
-        {
-            bs.Ekle(p1);
+        public int Ekle(IsimlendirmeBozuk p1 )        {
+            return (int) bs.Ekle(p1);
         }
 
 

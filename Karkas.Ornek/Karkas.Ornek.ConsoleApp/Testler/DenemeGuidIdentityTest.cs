@@ -18,7 +18,7 @@ namespace Karkas.Ornek.ConsoleApp.Testler
             dgi.DenemeKey = Guid.NewGuid();
             dgi.DenemeKolon = "addd";
             DenemeGuidIdentityDal dal = new DenemeGuidIdentityDal();
-            int sonuc = dal.Ekle(dgi);
+            long sonuc = dal.Ekle(dgi);
         }
         [Test]
         public void Guncelle()

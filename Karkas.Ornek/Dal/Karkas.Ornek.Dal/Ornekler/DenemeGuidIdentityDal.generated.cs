@@ -20,9 +20,9 @@ namespace Karkas.Ornek.Dal.Ornekler
 				return "KARKAS_ORNEK";
 			}
 		}
-		protected override void identityKolonDegeriniSetle(DenemeGuidIdentity pTypeLibrary,int pIdentityKolonValue)
+		protected override void identityKolonDegeriniSetle(DenemeGuidIdentity pTypeLibrary,long pIdentityKolonValue)
 		{
-			pTypeLibrary.DenemeNo = pIdentityKolonValue;
+			pTypeLibrary.DenemeNo = (int )pIdentityKolonValue;
 		}
 		protected override string SelectCountString
 		{

@@ -29,9 +29,9 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
 			}
 		}
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Ekle(Aciklama p1)
-        {
+        public void Ekle(Aciklama p1 )        {
             bs.Ekle(p1);
+            return;
         }
 
 

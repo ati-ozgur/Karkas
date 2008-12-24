@@ -109,7 +109,7 @@ namespace Karkas.Core.DataUtil
 
 
         protected DAL_TIPI dal = new DAL_TIPI();
-        public int Ekle(TYPE_LIBRARY_TIPI k)
+        public long Ekle(TYPE_LIBRARY_TIPI k)
         {
             return dal.Ekle(k);
         }

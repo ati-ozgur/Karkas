@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6AC6D414-DC7C-4092-9394-5E2BD1AEB777}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -66,6 +66,14 @@
     <Compile Include="Ornekler\ConcurrencyOrnekDal.generated.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentityDal.cs" />
     <Compile Include="Ornekler\DenemeGuidIdentityDal.generated.cs" />
+    <Compile Include="Ornekler\IdentityBigIntDal.cs" />
+    <Compile Include="Ornekler\IdentityBigIntDal.generated.cs" />
+    <Compile Include="Ornekler\IdentityIntDal.cs" />
+    <Compile Include="Ornekler\IdentityIntDal.generated.cs" />
+    <Compile Include="Ornekler\IdentitySmallIntDal.cs" />
+    <Compile Include="Ornekler\IdentitySmallIntDal.generated.cs" />
+    <Compile Include="Ornekler\IdentityTinyIntDal.cs" />
+    <Compile Include="Ornekler\IdentityTinyIntDal.generated.cs" />
     <Compile Include="Ornekler\IsimlendirmeBozukDal.cs" />
     <Compile Include="Ornekler\IsimlendirmeBozukDal.generated.cs" />
     <Compile Include="Ornekler\MusteriDal.cs" />

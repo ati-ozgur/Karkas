@@ -244,11 +244,11 @@ namespace Karkas.Core.DataUtil
             return liste;
         }
 
-        protected abstract void identityKolonDegeriniSetle(T pTypeLibrary, int pIdentityKolonValue);
+        protected abstract void identityKolonDegeriniSetle(T pTypeLibrary, long pIdentityKolonValue);
 
-        private int EkleIdentity(T row)
+        private long EkleIdentity(T row)
         {
-            int sonuc = 0;
+            long sonuc = 0;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = InsertString;
             cmd.Connection = Connection;
@@ -272,7 +272,7 @@ namespace Karkas.Core.DataUtil
                 {
                     logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
                     object id_degeri = cmd.ExecuteScalar();
-                    sonuc = Convert.ToInt32(id_degeri);
+                    sonuc = Convert.ToInt64(id_degeri);
                     identityKolonDegeriniSetle(row, sonuc);
                 }
                 else
@@ -303,7 +303,7 @@ namespace Karkas.Core.DataUtil
         
 
 
-        public int Ekle(T row)
+        public long Ekle(T row)
         {
             if (IdentityVarMi)
             {
@@ -316,7 +316,7 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        private int EkleNormal(T row)
+        private long EkleNormal(T row)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = InsertString;
