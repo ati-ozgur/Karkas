@@ -30,7 +30,7 @@
                 }
                 else
                 {
-                    port = ":" + Port;
+                    port = ":" + port;
                 }
                 return port;
             }
@@ -46,7 +46,7 @@
                     protocol = Request.ServerVariables["SERVER_PORT_SECURE"];
 
                 }
-                if (protocol == null || Protocol == "0")
+                if (protocol == null || protocol == "0")
                 {
                     protocol = "http://";
                     
