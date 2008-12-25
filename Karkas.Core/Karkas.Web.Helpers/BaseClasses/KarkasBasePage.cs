@@ -11,6 +11,73 @@
 
     public abstract class KarkasBasePage : Page
     {
+        private static string port = null;
+        public string Port
+        {
+            get
+            {
+                if (port == "")
+                {
+                    return port;
+                }
+                if (port == null)
+                {
+                    port = Request.ServerVariables["SERVER_PORT"];
+                }
+                if (port == null || port == "80" || port == "443")
+                {
+                    port = "";
+                }
+                else
+                {
+                    port = ":" + Port;
+                }
+                return port;
+            }
+        }
+
+        private static string protocol;
+        public string Protocol
+        {
+            get
+            {
+                if (protocol == null)
+                {
+                    protocol = Request.ServerVariables["SERVER_PORT_SECURE"];
+
+                }
+                if (protocol == null || Protocol == "0")
+                {
+                    protocol = "http://";
+                    
+                }
+                else
+                {
+                    protocol = "https://";
+                }
+
+
+                return protocol;
+            }
+        }
+        private static string basePath;
+        public string BasePath
+        {
+            get
+            {
+                if (basePath == null)
+                {
+                    basePath = Protocol + Request.ServerVariables["SERVER_NAME"] +
+
+                                        Port + Request.ApplicationPath;
+                    
+                }
+                return basePath;
+            }
+        }
+
+
+
         private readonly KarkasWebHelper.JavascriptHelper jsHelper;
         private readonly KarkasWebHelper.ListHelper listHelper;
         private readonly KarkasWebHelper.GridHelper gridHelper;

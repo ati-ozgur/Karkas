@@ -84,6 +84,9 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BaseClasses\BaseKarkasUserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="BaseClasses\KarkasBasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
