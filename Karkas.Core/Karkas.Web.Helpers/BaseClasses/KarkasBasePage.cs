@@ -77,6 +77,17 @@
         }
 
 
+        public string RelativeURLdenAbsoulteURLVer(string relativeURL)
+        {
+            string replaceText;
+            if (Request.ApplicationPath.Equals("/"))
+                replaceText = Request.Url.Authority;
+            else
+                replaceText = Request.Url.Authority + Request.ApplicationPath;
+
+            return String.Format("{0}{1}", this.BasePath, relativeURL.Replace("~", replaceText));
+        }
+
 
         private readonly KarkasWebHelper.JavascriptHelper jsHelper;
         private readonly KarkasWebHelper.ListHelper listHelper;

@@ -37,5 +37,10 @@ namespace Karkas.Web.Helpers.BaseClasses
                 return this.BasePage.Protocol;
             }
         }
+
+        public string RelativeURLdenAbsoulteURLVer(string relativeURL)
+        {
+            return this.BasePage.RelativeURLdenAbsoulteURLVer(relativeURL);
+        }
     }
 }
