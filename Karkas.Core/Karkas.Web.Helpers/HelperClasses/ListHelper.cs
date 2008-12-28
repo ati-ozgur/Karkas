@@ -101,6 +101,77 @@ namespace Karkas.Web.Helpers.HelperClasses
                 }
             }
 
+            /// <summary>
+            /// verilen list controle'e son on yýlý küçükten büyüðe doldurur
+            /// </summary>
+            public void ListYilDoldurArtarak(ListControl listControl)
+            {
+                for (int i = DateTime.Now.Year - 10; i <= DateTime.Now.Year; i++)
+                {
+                    listControl.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                }
+
+            }
+
+
+            /// <summary>
+            /// verilen list controle'e baþlangýç yýlýndan þimdiki yýla,  küçükten büyüðe doldurur
+            /// </summary>
+            public void ListYilDoldurArtarak(ListControl listControl, int BaslangicYil)
+            {
+                for (int i = BaslangicYil; i <= DateTime.Now.Year; i++)
+                {
+                    listControl.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                }
+
+            }
+
+            /// <summary>
+            /// verilen list controle'e baþlangýç yýlýndan bitiþ yýlýna,  küçükten büyüðe doldurur
+            /// </summary>
+            public void ListYilDoldurArtarak(ListControl listControl, int BaslangicYil, int BitisYil)
+            {
+                for (int i = BaslangicYil; i <= BitisYil; i++)
+                {
+                    listControl.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                }
+
+            }
+            /// <summary>
+            /// verilen list controle'e baþlangýç yýlýndan þimdiki yýla,  büyükten küçüðe doðru doldurur
+            /// </summary>
+
+            public void ListYilDoldurAzalarak(ListControl listControl, int BaslangicYil)
+            {
+                for (int i = DateTime.Now.Year; i >= BaslangicYil ; i--)
+                {
+                    listControl.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                }
+
+            }
+            /// <summary>
+            /// verilen list controle'e son on yýlý büyükten küçüðe doðru doldurur
+            /// </summary>
+            /// <param name="listControl"></param>
+            public void ListYilDoldurAzalarak(ListControl listControl)
+            {
+                for (int i = DateTime.Now.Year; i >= DateTime.Now.Year-10; i--)
+                {
+                    listControl.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                }
+
+            }
+            /// <summary>
+            /// verilen list controle'e baþlangýç yýlýndan bitiþ yýlýna,   büyükten küçüge doldurur
+            /// </summary>
+            public void ListYilDoldurAzalarak(ListControl listControl, int BaslangicYil, int BitisYil)
+            {
+                for (int i = BitisYil; i >= BaslangicYil; i--)
+                {
+                    listControl.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                }
+
+            }
 
 
             public void ListAyDoldur(ListControl listControl)
