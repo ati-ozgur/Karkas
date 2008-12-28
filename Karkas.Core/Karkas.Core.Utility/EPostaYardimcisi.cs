@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Net.Mail;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Karkas.Core.Utility
 {
@@ -111,6 +112,11 @@ namespace Karkas.Core.Utility
             }
             SmtpClient smtp = new SmtpClient();
             smtp.Send(msg);
+        }
+
+        public bool GecerliMail(string eMail)
+        {
+            return Regex.IsMatch(eMail, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
         }
         
         public void HtmlEPostaGonder()
