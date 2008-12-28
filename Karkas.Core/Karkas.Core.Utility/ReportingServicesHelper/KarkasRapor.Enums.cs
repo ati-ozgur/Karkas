@@ -17,6 +17,16 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             public const string NEGOTIATE = "Negotiate";
         }
     }
+
+    public enum TarayiciDavranisiEnum
+    {
+        DosyaIndir = 1,
+        TarayiciIcindeGoster = 2,
+        Attachment = 1,
+        Inline = 2
+    }
+
+
     public class RaporFormatAsString
     {
         public const string PDF = "PDF";

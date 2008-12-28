@@ -223,7 +223,9 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             }
         }
         private RaporFormats raporFormat;
-
+        /// <summary>
+        /// Raporun cikti formati, ornek pdf,xml
+        /// </summary>
         public RaporFormats RaporFormat
         {
             get
@@ -396,6 +398,20 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         /// </summary>
         public void RaporAc()
         {
+            switch (TarayiciDavranisi)
+            {
+                case TarayiciDavranisiEnum.DosyaIndir:
+                    RaporAc(httpHeaderFileDownload);
+                    break;
+                case TarayiciDavranisiEnum.TarayiciIcindeGoster:
+                    RaporAc(httpHeaderTarayiciIcinde);
+                    break;
+            }
+            
+        }
+
+        private void RaporAc(string[] yapisi)
+        {
 
             // rs.Timeout
             byte[] buf = RaporAl();
@@ -405,22 +421,22 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             switch (RaporFormat)
             {
                 case RaporFormats.PDF:
-                    HttpContext.Current.Response.AppendHeader("content-disposition", "attachment; filename=" + RaporDosyaAd + ".pdf");
+                    HttpContext.Current.Response.AppendHeader(yapisi[0], string.Format(yapisi[1], RaporDosyaAd, "pdf",buf.Length));
                     HttpContext.Current.Response.ContentType = "application/pdf";
                     HttpContext.Current.Response.BinaryWrite(buf);
                     break;
                 case RaporFormats.EXCEL:
-                    HttpContext.Current.Response.AppendHeader("content-disposition", "attachment; filename=" + RaporDosyaAd + ".xls");
+                    HttpContext.Current.Response.AppendHeader(yapisi[0], string.Format(yapisi[1], RaporDosyaAd, "xls",buf.Length));
                     HttpContext.Current.Response.ContentType = "application/vnd.ms-excel";
                     HttpContext.Current.Response.BinaryWrite(buf);
                     break;
                 case RaporFormats.IMAGE:
-                    HttpContext.Current.Response.AppendHeader("content-disposition", "attachment; filename=" + RaporDosyaAd + ".tiff");
+                    HttpContext.Current.Response.AppendHeader(yapisi[0], string.Format(yapisi[1], RaporDosyaAd, "tiff", buf.Length));
                     HttpContext.Current.Response.ContentType = "image/tiff";
                     HttpContext.Current.Response.BinaryWrite(buf);
                     break;
                 case RaporFormats.XML:
-                    HttpContext.Current.Response.AppendHeader("content-disposition", "attachment; filename=" + RaporDosyaAd + ".xml");
+                    HttpContext.Current.Response.AppendHeader(yapisi[0], string.Format(yapisi[1], RaporDosyaAd, "xml", buf.Length));
                     HttpContext.Current.Response.ContentType = "text/xml";
                     HttpContext.Current.Response.BinaryWrite(buf);
                     break;
@@ -428,6 +444,26 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
             HttpContext.Current.Response.End();
         }
+
+        private TarayiciDavranisiEnum tarayiciDavranisi = TarayiciDavranisiEnum.DosyaIndir;
+        public TarayiciDavranisiEnum TarayiciDavranisi
+        {
+            get
+            {
+                return tarayiciDavranisi;
+            }
+            set
+            {
+                tarayiciDavranisi = value;
+            }
+        }
+
+
+
+        private static string[] httpHeaderFileDownload = new string[] { "content-disposition", "disposition-type=attachment; filename={0}.{1};Size {2}" };
+        private static string[] httpHeaderTarayiciIcinde = new string[] { "content-disposition", "disposition-type=inline;filename={0}.{1}" };
+
+
 
 
         public RaporFormats RaporFormatiniAl(string pRaporFormatAdi)

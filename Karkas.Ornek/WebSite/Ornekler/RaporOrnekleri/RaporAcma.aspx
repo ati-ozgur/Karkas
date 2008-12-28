@@ -35,6 +35,8 @@
             <td>
                 <asp:Button ID="ButtonRaporAc" runat="server" Text="Rapor Al" 
                     onclick="ButtonRaporAc_Click" />
+                <asp:Button ID="ButtonRaporTarayiciIcindeAc" runat="server" Text="Rapor Al" 
+                    onclick="ButtonRaporTarayiciIcindeAc_Click" />
             </td>
             <td>
                 &nbsp;</td>
