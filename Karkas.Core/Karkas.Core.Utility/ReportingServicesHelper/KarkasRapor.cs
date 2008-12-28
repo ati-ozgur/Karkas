@@ -335,7 +335,11 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             rs.SetReportDataSources(String.Format("{0}/{1}", yeniRaporYolu, yeniRaporAdi),
                 new DataSource[] { VarOlanDataSourceReferansiniGetir(pVarOlaDataSourceAdi, pVarOlanDataSourceYolu, pYeniDataSourceAdi) });
         }
-
+        /// <summary>
+        /// Reporting Service'e Web Service kullanarak, rapor sonucunu byte[] olarak dondurur. bir console
+        /// veya windows uygulamasinda, bu sonucu dosya olarak kullanabilirsiniz.
+        /// </summary>
+        /// <returns></returns>
         public byte[] RaporAl()
         {
             rs.Credentials = Credentials;
@@ -387,6 +391,9 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
         }
 
+        /// <summary>
+        /// Rapor ac, raporunuzun tarayici icinde acilmasi icindir. Arka tarafta RaporAl'i kullanir. 
+        /// </summary>
         public void RaporAc()
         {
 
