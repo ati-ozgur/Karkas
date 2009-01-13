@@ -75,6 +75,7 @@
     <Compile Include="Exceptions\VeritabaniBaglantiHatasi.cs" />
     <Compile Include="Exceptions\YanlisSqlCumlesiHatasi.cs" />
     <Compile Include="HelperFunctions.cs" />
+    <Compile Include="KisiKey.cs" />
     <Compile Include="LoggingInfo.cs" />
     <Compile Include="PagingHelper.cs" />
     <Compile Include="PagingTemplate.cs" />

@@ -18,13 +18,6 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         }
     }
 
-    public enum TarayiciDavranisiEnum
-    {
-        DosyaIndir = 1,
-        TarayiciIcindeGoster = 2,
-        Attachment = 1,
-        Inline = 2
-    }
 
 
     public class RaporFormatAsString
@@ -38,9 +31,9 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
     public enum RaporFormats
     {
-        PDF,
-        EXCEL,
-        IMAGE,
-        XML
+        PDF  = FileFormats.PDF,
+        EXCEL = FileFormats.EXCEL,
+        IMAGE = FileFormats.IMAGE,
+        XML = FileFormats.XML
     }
 }
