@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Karkas.Core.Utility.ReportingServicesHelper;
+using Karkas.Core.Utility;
 
 public partial class Ornekler_RaporOrnekleri_RaporAcma : System.Web.UI.Page
 {
