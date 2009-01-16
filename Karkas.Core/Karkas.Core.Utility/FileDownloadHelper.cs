@@ -80,7 +80,7 @@ namespace Karkas.Core.Utility
                     HttpContext.Current.Response.BinaryWrite(pContent);
                     break;
                 case FileFormats.EXCEL:
-                    HttpContext.Current.Response.AppendHeader(yapisi[0], string.Format(yapisi[1], FileName, "pdf", pContent.Length));
+                    HttpContext.Current.Response.AppendHeader(yapisi[0], string.Format(yapisi[1], FileName, "xls", pContent.Length));
                     HttpContext.Current.Response.ContentType = "application/vnd.ms-excel";
                     HttpContext.Current.Response.BinaryWrite(pContent);
                     break;
