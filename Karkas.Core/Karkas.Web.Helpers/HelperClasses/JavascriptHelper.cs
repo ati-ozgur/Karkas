@@ -95,7 +95,7 @@
                     string script = "";
                     if (pPageUrl.Contains("~"))
                     {
-                        script = string.Format("CreateWnd('http://{0}', {1}, {2}, {3});", new object[] { pPageUrl.Replace("~", HttpContext.Current.Request.Url.Authority + HttpContext.Current.Request.ApplicationPath).Replace("//", "/"), pWidth, pHeight, pResize ? "true" : "false" });
+                        script = string.Format("CreateWnd('{0}', {1}, {2}, {3});", new object[] { pPageUrl.Replace("~",this.calisanSayfa.BasePath).Replace("//", "/"), pWidth, pHeight, pResize ? "true" : "false" });
                     }
                     else
                     {
@@ -126,7 +126,7 @@
                 string jsString = string.Empty;
                 if (pPageUrl.Contains("~"))
                 {
-                    jsString = string.Format("javascript:CreateWnd('http://{0}', {1}, {2}, {3});", new object[] { pPageUrl.Replace("~", HttpContext.Current.Request.Url.Authority + HttpContext.Current.Request.ApplicationPath).Replace("//", "/"), pWidth, pHeight, pResize ? "true" : "false" });
+                    jsString = string.Format("javascript:CreateWnd('{0}', {1}, {2}, {3});", new object[] { pPageUrl.Replace("~", this.calisanSayfa.BasePath).Replace("//", "/"), pWidth, pHeight, pResize ? "true" : "false" });
                     if (pControl is LinkButton)
                     {
                         (pControl as LinkButton).OnClientClick = jsString;
