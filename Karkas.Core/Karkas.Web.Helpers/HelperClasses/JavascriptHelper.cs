@@ -138,18 +138,21 @@
             }
 
 
-            public string javascriptLinkiniBul(string pPageUrl, int pWidth, int pHeight, bool pResize)
+            private string javascriptLinkiniBul(string pPageUrl, int pWidth, int pHeight, bool pResize)
             {
-                string jsString = string.Empty;
-                if (pPageUrl.Contains("~"))
+                if (pPageUrl.Contains("~/"))
                 {
-                    jsString = string.Format("javascript:CreateWnd('{0}', {1}, {2}, {3});", new object[] { pPageUrl.Replace("~", this.calisanSayfa.BasePath), pWidth, pHeight, pResize ? "true" : "false" });
+                    if (this.calisanSayfa.BasePath.EndsWith("/"))
+                    {
+                        pPageUrl = pPageUrl.Replace("~/", this.calisanSayfa.BasePath);
+                    }
+                    else
+                    {
+                        pPageUrl = pPageUrl.Replace("~/", this.calisanSayfa.BasePath + "/");
+                    }
                 }
-                else
-                {
-                    jsString = string.Format("javascript:CreateWnd('{0}', {1}, {2}, {3});", new object[] { pPageUrl, pWidth, pHeight, pResize ? "true" : "false" });
 
-                }
+                string jsString = string.Format("javascript:CreateWnd('{0}', {1}, {2}, {3});", pPageUrl, pWidth, pHeight, pResize ? "true" : "false");
                 return jsString;
             }
 
