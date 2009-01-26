@@ -13,6 +13,12 @@
             ANA SAYFA
         </h1>
     </div>
+    <asp:Button ID="ButtonPopUpTilda1" runat="server" 
+        onclick="ButtonPopUpTilda1_Click" Text="Tilda 1" />
+        
+        <asp:HyperLink runat="server" id="ButtonPopUpTilda2" Text="Tilda 2" />
+        <asp:HyperLink runat="server" id="ButtonPopUp" Text="Normal 1" />
+        
     </form>
 </body>
 </html>

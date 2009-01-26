@@ -8,7 +8,6 @@
     public partial class KarkasWebHelper
     {
 
-
         public class JavascriptHelper
         {
             private readonly KarkasBasePage calisanSayfa;
@@ -46,12 +45,12 @@
                     message = message.Replace("\r\n", "\n");
                     string[] satirlar = message.Split('\n');
                     string yeniMesaj = "var a = ";
-                    for (int i=0;i < satirlar.Length -1; i++)
+                    for (int i = 0; i < satirlar.Length - 1; i++)
                     {
                         string satir = satirlar[i];
                         yeniMesaj += string.Format("'{0} \\n'+ {1}", satir, Environment.NewLine);
                     }
-                    yeniMesaj = yeniMesaj.Remove(yeniMesaj.Length-4);
+                    yeniMesaj = yeniMesaj.Remove(yeniMesaj.Length - 4);
                     yeniMesaj += "; alert(a);";
                     message = yeniMesaj;
                 }
@@ -74,7 +73,7 @@
                 HttpContext.Current.Response.Write(ScriptTaglariArasinaAl("javascript:window.close();"));
                 HttpContext.Current.Response.End();
             }
-            public void SayfaRefresh ()
+            public void SayfaRefresh()
             {
                 HttpContext.Current.Response.Clear();
                 HttpContext.Current.Response.Write(ScriptTaglariArasinaAl("javascript:window.opener.location=window.opener.location;"));
@@ -95,7 +94,7 @@
                     string script = "";
                     if (pPageUrl.Contains("~"))
                     {
-                        script = string.Format("CreateWnd('{0}', {1}, {2}, {3});", new object[] { pPageUrl.Replace("~",this.calisanSayfa.BasePath), pWidth, pHeight, pResize ? "true" : "false" });
+                        script = string.Format("CreateWnd('{0}', {1}, {2}, {3});", new object[] { pPageUrl.Replace("~", this.calisanSayfa.BasePath), pWidth, pHeight, pResize ? "true" : "false" });
                     }
                     else
                     {
@@ -123,39 +122,35 @@
 
             public void PopUpWindowEventiEkle(WebControl pControl, string pPageUrl, int pWidth, int pHeight, bool pResize)
             {
+                string jsString = javascriptLinkiniBul(pPageUrl, pWidth, pHeight, pResize);
+                if (pControl is LinkButton)
+                {
+                    (pControl as LinkButton).OnClientClick = jsString;
+                }
+                else if (pControl is HyperLink)
+                {
+                    (pControl as HyperLink).NavigateUrl = jsString;
+                }
+                else
+                {
+                    pControl.Attributes.Add("OnClick", jsString);
+                }
+            }
+
+
+            public string javascriptLinkiniBul(string pPageUrl, int pWidth, int pHeight, bool pResize)
+            {
                 string jsString = string.Empty;
                 if (pPageUrl.Contains("~"))
                 {
                     jsString = string.Format("javascript:CreateWnd('{0}', {1}, {2}, {3});", new object[] { pPageUrl.Replace("~", this.calisanSayfa.BasePath), pWidth, pHeight, pResize ? "true" : "false" });
-                    if (pControl is LinkButton)
-                    {
-                        (pControl as LinkButton).OnClientClick = jsString;
-                    }
-                    else if (pControl is HyperLink)
-                    {
-                        (pControl as HyperLink).NavigateUrl = jsString;
-                    }
-                    else
-                    {
-                        pControl.Attributes.Add("OnClick", jsString);
-                    }
                 }
                 else
                 {
                     jsString = string.Format("javascript:CreateWnd('{0}', {1}, {2}, {3});", new object[] { pPageUrl, pWidth, pHeight, pResize ? "true" : "false" });
-                    if (pControl is LinkButton)
-                    {
-                        (pControl as LinkButton).OnClientClick = jsString;
-                    }
-                    else if (pControl is HyperLink)
-                    {
-                        (pControl as HyperLink).NavigateUrl = jsString;
-                    }
-                    else
-                    {
-                        pControl.Attributes.Add("OnClick", jsString);
-                    }
+
                 }
+                return jsString;
             }
 
             public void PopUpWindowEventiEkleMaximizeAc(WebControl pControl, string pPageUrl)
@@ -185,7 +180,7 @@
                     &&
                 (ScriptManager.GetCurrent(page).IsInAsyncPostBack))
                 {
-                    ScriptManager.RegisterClientScriptBlock(page,page.GetType(), key, javascript,true);
+                    ScriptManager.RegisterClientScriptBlock(page, page.GetType(), key, javascript, true);
                 }
 
                 if ((page != null) && !page.ClientScript.IsClientScriptBlockRegistered(key))
@@ -211,7 +206,8 @@
             }
         }
 
+
+
     }
 
 }
-

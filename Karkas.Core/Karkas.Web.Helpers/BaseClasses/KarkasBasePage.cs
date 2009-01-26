@@ -8,56 +8,75 @@
     using System.Text;
     using System.Web.UI;
     using System.Web.UI.WebControls;
+    using System.Web;
 
     public abstract class KarkasBasePage : Page
     {
+        static KarkasBasePage()
+        {
+            try
+            {
+                setPort();
+                setProtocol();
+                setBasePath();
+            }
+            catch
+            {
+                port = "";
+                protocol = "http://";
+                basePath = "http://localhost";
+            }
+        }
+
         private static string port = null;
         public string Port
         {
             get
             {
-                if (port == "")
-                {
-                    return port;
-                }
-                if (port == null)
-                {
-                    port = Request.ServerVariables["SERVER_PORT"];
-                }
-                if (port == null || port == "80" || port == "443")
-                {
-                    port = "";
-                }
-                else
-                {
-                    port = ":" + port;
-                }
                 return port;
             }
         }
+        private static void setPort()
+        {
+            if (port == null)
+            {
+                port = HttpContext.Current.Request.ServerVariables["SERVER_PORT"];
+            }
+            if (port == null || port == "80" || port == "443")
+            {
+                port = "";
+            }
+            else
+            {
+                port = ":" + port;
+            }
+        }
+
 
         private static string protocol;
         public string Protocol
         {
             get
             {
-                if (protocol == null)
-                {
-                    protocol = Request.ServerVariables["SERVER_PORT_SECURE"];
-
-                }
-                if (protocol == null || protocol == "0")
-                {
-                    protocol = "http://";
-                    
-                }
-                else
-                {
-                    protocol = "https://";
-                }
-
-
                 return protocol;
+            }
+        }
+        private static void setProtocol()
+        {
+
+            if (protocol == null)
+            {
+                protocol = HttpContext.Current.Request.ServerVariables["SERVER_PORT_SECURE"];
+
+            }
+            if (protocol == null || protocol == "0")
+            {
+                protocol = "http://";
+
+            }
+            else
+            {
+                protocol = "https://";
             }
         }
         private static string basePath;
@@ -65,14 +84,18 @@
         {
             get
             {
-                if (basePath == null)
-                {
-                    basePath = Protocol + Request.ServerVariables["SERVER_NAME"] +
-
-                                        Port + Request.ApplicationPath;
-                    
-                }
                 return basePath;
+            }
+        }
+
+        private static void setBasePath()
+        {
+            if (basePath == null)
+            {
+                basePath = protocol + HttpContext.Current.Request.ServerVariables["SERVER_NAME"] +
+
+                                    port + HttpContext.Current.Request.ApplicationPath;
+
             }
         }
 
@@ -95,7 +118,7 @@
         private readonly KarkasWebHelper.QueryStringHelper queryStringHelper;
         private readonly KarkasWebHelper.ExportHelper exportHelper;
 
-        ScriptManager scriptManager = null; 
+        ScriptManager scriptManager = null;
 
         public ScriptManager ScriptManagerSingleton
         {
@@ -103,7 +126,7 @@
             {
                 if (scriptManager == null)
                 {
-                    scriptManager =ScriptManager.GetCurrent(this); 
+                    scriptManager = ScriptManager.GetCurrent(this);
 
                 }
                 return scriptManager;
@@ -114,7 +137,7 @@
         public KarkasWebHelper.ExportHelper ExportHelper
         {
             get { return exportHelper; }
-        } 
+        }
 
 
         public KarkasWebHelper.QueryStringHelper QueryStringHelper
