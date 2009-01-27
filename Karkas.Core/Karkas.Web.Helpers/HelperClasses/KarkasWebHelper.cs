@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Karkas.Web.Helpers.HelperClasses
 {
+    
     public partial class KarkasWebHelper
     {
 

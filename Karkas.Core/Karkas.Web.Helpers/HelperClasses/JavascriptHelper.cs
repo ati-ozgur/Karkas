@@ -86,20 +86,21 @@
                 HttpContext.Current.Response.Write(ScriptTaglariArasinaAl("javascript:window.opener.location=window.opener.location; window.close();"));
                 HttpContext.Current.Response.End();
             }
+            public void PopUpWindowBaslangictaAc(string pPageUrl)
+            {
+                PopUpWindowBaslangictaAc(pPageUrl, 640, 480, false);
+            }
+            public void PopUpWindowBaslangictaAc(string pPageUrl,int pWidth,int pHeight)
+            {
+                PopUpWindowBaslangictaAc(pPageUrl, pWidth, pHeight, false);
+            }
+
 
             public void PopUpWindowBaslangictaAc(string pPageUrl, int pWidth, int pHeight, bool pResize)
             {
                 if (!this.Page.ClientScript.IsStartupScriptRegistered(this.Page.GetType(), "PopUp"))
                 {
-                    string script = "";
-                    if (pPageUrl.Contains("~"))
-                    {
-                        script = string.Format("CreateWnd('{0}', {1}, {2}, {3});", new object[] { pPageUrl.Replace("~", this.calisanSayfa.BasePath), pWidth, pHeight, pResize ? "true" : "false" });
-                    }
-                    else
-                    {
-                        script = string.Format("CreateWnd('{0}', {1}, {2}, {3});", new object[] { pPageUrl, pWidth, pHeight, pResize ? "true" : "false" });
-                    }
+                    string script = javascriptLinkiniBul(pPageUrl, pWidth, pHeight, pResize);
                     this.Page.ClientScript.RegisterStartupScript(this.Page.GetType(), "PopUp", ScriptTaglariArasinaAl(script));
                 }
             }
@@ -207,6 +208,7 @@
                     return this.calisanSayfa;
                 }
             }
+
         }
 
 

@@ -87,7 +87,12 @@
     <Compile Include="Tests\OnaylamaTestleri\KarsilastirmaTestleri\MaxDegerTest.cs" />
     <Compile Include="Tests\OnaylamaTestleri\KarsilastirmaTestleri\MinDegerTest.cs" />
     <Compile Include="Tests\SorguYardimcisiTests.cs" />
-    <Compile Include="Tests\WebHelperTestleri\JavascriptHelperTest.cs" />
+    <Compile Include="Tests\WebHelperTestleri\JavascriptHelperOrnekWebPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tests\WebHelperTestleri\JavascriptHelperTest.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="TypeLibrary\OrnekA.cs" />
     <Compile Include="TypeLibrary\OrnekKarsilastirma.cs" />
     <Compile Include="YetkiControlDeneme.cs" />
