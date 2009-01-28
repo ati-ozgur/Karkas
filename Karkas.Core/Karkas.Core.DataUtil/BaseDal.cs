@@ -300,7 +300,7 @@ namespace Karkas.Core.DataUtil
             return sonuc;
         }
 
-        
+
 
 
         public long Ekle(T row)
@@ -371,7 +371,7 @@ namespace Karkas.Core.DataUtil
         public T SorguCalistirTekSatirGetir(String pFilterString, SqlParameter[] parameterArray)
         {
             List<T> liste = new List<T>();
-            SorguCalistir(liste, pFilterString,parameterArray);
+            SorguCalistir(liste, pFilterString, parameterArray);
             if (liste.Count > 0)
             {
                 return liste[0];
@@ -402,8 +402,8 @@ namespace Karkas.Core.DataUtil
             sorguCalistirInternal(liste, cmd);
 
         }
-        
-        public void SorguCalistir(List<T> liste, String pFilterString,bool otomatikWhereEkle)
+
+        public void SorguCalistir(List<T> liste, String pFilterString, bool otomatikWhereEkle)
         {
             SqlCommand cmd = new SqlCommand();
             filreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
@@ -444,6 +444,10 @@ namespace Karkas.Core.DataUtil
                 if (ConnectionAcilacakMi())
                 {
                     Connection.Open();
+                }
+                if (CurrentTransaction != null)
+                {
+                    cmd.Transaction = CurrentTransaction;
                 }
                 logger.Debug(new LoggingInfo(komutuCalistiranKullaniciKisiKey, cmd));
                 reader = cmd.ExecuteReader();
