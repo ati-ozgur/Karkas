@@ -21,7 +21,11 @@ namespace Karkas.Web.Helpers.HelperClasses
 
             public void ToExcel(DataTable kaynak, string dosyaAd, bool baslikYaz)
             {
-                Encoding encoding = Encoding.UTF8;
+                ToExcel(kaynak, dosyaAd, baslikYaz, Encoding.UTF8);
+            }
+
+            public void ToExcel(DataTable kaynak, string dosyaAd, bool baslikYaz, Encoding encoding)
+            {
                 calisanSayfa.Response.Clear();
                 calisanSayfa.Response.Charset = encoding.WebName;
                 calisanSayfa.Response.ContentEncoding = encoding;
@@ -64,7 +68,7 @@ namespace Karkas.Web.Helpers.HelperClasses
             }
 
 
-            public void ToExcel(DataView kaynak, string dosyaAd,bool baslikYaz)
+            public void ToExcel(DataView kaynak, string dosyaAd, bool baslikYaz)
             {
                 ToExcel(kaynak.ToTable(), dosyaAd, baslikYaz);
             }
@@ -75,7 +79,7 @@ namespace Karkas.Web.Helpers.HelperClasses
             public void ToExcel(DataView kaynak)
             {
                 DataTable dt = kaynak.ToTable();
-                ToExcel(dt,dt.TableName, true);
+                ToExcel(dt, dt.TableName, true);
             }
 
             public void ToExcel(DataTable dt, string dosyaAd)
