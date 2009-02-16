@@ -44,3 +44,4 @@ namespace Karkas.Web.Helpers.BaseClasses
         }
     }
 }
+

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Reflection;
@@ -70,7 +70,7 @@ namespace Karkas.Core.Onaylama.ForPonos
 
         /// <summary>
         /// Bunu inherit edenlerin , propert degerine gore
-        /// islem yapmas� gerekli.
+        /// islem yapması gerekli.
         /// </summary>
         /// <param name="instance"></param>
         /// <returns><c>true</c> field duzgun ise true</returns>
@@ -93,3 +93,4 @@ namespace Karkas.Core.Onaylama.ForPonos
     }
 
 }
+

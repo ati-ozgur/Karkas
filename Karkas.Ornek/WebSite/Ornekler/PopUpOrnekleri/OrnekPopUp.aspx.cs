@@ -13,3 +13,4 @@ public partial class Ornekler_PopUpOrnekleri_OrnekPopUp : KarkasBasePage
 
     }
 }
+

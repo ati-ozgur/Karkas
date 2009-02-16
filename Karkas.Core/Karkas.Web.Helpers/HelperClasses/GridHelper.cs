@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Web.UI.WebControls;
@@ -24,8 +24,8 @@ namespace Karkas.Web.Helpers.HelperClasses
                 this.calisanSayfa = pBasePage;
             }
             /// <summary>
-            /// Verilen GridView'ý Excel'e import eder.
-            /// Bu class'ýn kullanýldýðý sayfada
+            /// Verilen GridView'Ä± Excel'e import eder.
+            /// Bu class'Ä±n kullanÄ±ldÄ±ÄŸÄ± sayfada
             /// public override void VerifyRenderingInServerForm(Control control){}
             /// Metodunun eklenmesi Gerekmektedir.
             /// </summary>
@@ -46,8 +46,8 @@ namespace Karkas.Web.Helpers.HelperClasses
                 Pg.Response.End();
             }
             /// <summary>
-            /// Verilen GridView'ý Word'e import eder.
-            /// Bu class'ýn kullanýldýðý sayfada
+            /// Verilen GridView'Ä± Word'e import eder.
+            /// Bu class'Ä±n kullanÄ±ldÄ±ÄŸÄ± sayfada
             /// public override void VerifyRenderingInServerForm(Control control){}
             /// Metodunun eklenmesi Gerekmektedir.
             /// </summary>
@@ -80,3 +80,4 @@ namespace Karkas.Web.Helpers.HelperClasses
         }
     }
 }
+

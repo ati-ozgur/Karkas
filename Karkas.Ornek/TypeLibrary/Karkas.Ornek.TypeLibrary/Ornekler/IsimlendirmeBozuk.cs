@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Data;
 using System.Text;
 using System.Configuration;
@@ -16,3 +16,4 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 	{
 	}
 }
+

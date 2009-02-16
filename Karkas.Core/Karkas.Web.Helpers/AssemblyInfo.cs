@@ -12,3 +12,4 @@
 [assembly: System.Reflection.AssemblyDescription("")]
 [assembly: System.Reflection.AssemblyTitle("Karkas.Web.Helpers")]
 
+

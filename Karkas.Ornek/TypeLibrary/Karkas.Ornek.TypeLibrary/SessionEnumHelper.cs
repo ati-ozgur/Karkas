@@ -10,3 +10,4 @@ namespace Karkas.Web.Helpers.HelperClasses
         public const string KISI_KEY = "KISI_KEY";
     }
 }
+

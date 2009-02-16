@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -39,7 +39,8 @@ namespace Karkas.Core.Onaylama.ForPonos
 
         protected override string HataMesajlariniOlustur()
         {
-            return string.Format("{0} kabul edilen bir formatta de�ildir",this.Property.Name);
+            return string.Format("{0} kabul edilen bir formatta değildir",this.Property.Name);
         }
     }
 }
+

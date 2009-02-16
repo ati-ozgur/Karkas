@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Reflection;
 
 namespace Karkas.Core.Onaylama.ForPonos
@@ -44,4 +44,5 @@ namespace Karkas.Core.Onaylama.ForPonos
 	}
 
     }
+
 

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 using Karkas.Core.Onaylama.ForPonos;
@@ -76,10 +76,10 @@ namespace Karkas.Core.TypeLibrary
             rowState = DataRowState.Modified;
         }
         /// <summary>
-        /// Bu nesnenin onaylama sırasında daima hatalı olarak davranmasını sağlar. 
-        /// Mesela sayı girilmesi gereken bir yere yazi girildi. Ornek: (sadv)
-        /// Bu degeri Convert.ToInt32 kullanarak alamayız. Bu durumda hata göstermek istiyorsak.
-        /// Asağıdaki gibi bir kod yazarız.
+        /// Bu nesnenin onaylama sÄ±rasÄ±nda daima hatalÄ± olarak davranmasÄ±nÄ± saÄŸlar. 
+        /// Mesela sayÄ± girilmesi gereken bir yere yazi girildi. Ornek: (sadv)
+        /// Bu degeri Convert.ToInt32 kullanarak alamayÄ±z. Bu durumda hata gÃ¶stermek istiyorsak.
+        /// AsaÄŸÄ±daki gibi bir kod yazarÄ±z.
         /// <code>
         ///try
         ///{
@@ -88,10 +88,10 @@ namespace Karkas.Core.TypeLibrary
         ///}
         ///catch
         ///{
-        ///    f.HataliOlarakIsaretle("SayiOlacak","Sayi Olacak degeri sayı olmalıdır");
+        ///    f.HataliOlarakIsaretle("SayiOlacak","Sayi Olacak degeri sayÄ± olmalÄ±dÄ±r");
         ///}
         /// </code>
-        /// Mesajınız yazın.
+        /// MesajÄ±nÄ±z yazÄ±n.
         /// </summary>
         /// <param name="pMessage"></param>
         public void HataliOlarakIsaretle(string pPropertyName,string pErrorMessage)
@@ -116,3 +116,4 @@ namespace Karkas.Core.TypeLibrary
 
     }
 }
+

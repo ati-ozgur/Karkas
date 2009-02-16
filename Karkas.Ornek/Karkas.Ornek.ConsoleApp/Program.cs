@@ -118,3 +118,4 @@ namespace Karkas.Ornek.ConsoleApp
 
     }
 }
+

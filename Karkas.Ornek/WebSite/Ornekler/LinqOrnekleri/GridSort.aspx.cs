@@ -75,3 +75,4 @@ public partial class Ornekler_LinqOrnekleri_GridSort : System.Web.UI.Page
 
     }
 }
+

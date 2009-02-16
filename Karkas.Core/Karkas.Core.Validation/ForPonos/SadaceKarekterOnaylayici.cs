@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -8,7 +8,7 @@ namespace Karkas.Core.Onaylama.ForPonos
     [Serializable]
     public class SadaceKarekterOnaylayici : RegExOnaylayici
     {
-        protected const string REGEX_ONLY_CHARACTER = "^[a-zA-ZüðiþçöýÜÐÝÞÇÖI ]*$";
+        protected const string REGEX_ONLY_CHARACTER = "^[a-zA-ZÃ¼ÄŸiÅŸÃ§Ã¶Ä±ÃœÄžÄ°ÅžÃ‡Ã–I ]*$";
         public SadaceKarekterOnaylayici(object pUzerindeCalisilacakNesne, string pPropertyName)
             : base(pUzerindeCalisilacakNesne, pPropertyName, REGEX_ONLY_CHARACTER, RegexOptions.None)
         {
@@ -26,3 +26,4 @@ namespace Karkas.Core.Onaylama.ForPonos
 
     }
 }
+

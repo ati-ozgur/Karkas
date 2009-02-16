@@ -17,3 +17,4 @@ public partial class Ornekler_OrnekImageButton : System.Web.UI.Page
     {
     }
 }
+

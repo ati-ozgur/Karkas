@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
@@ -17,3 +17,4 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.DalTestleri
 
     }
 }
+

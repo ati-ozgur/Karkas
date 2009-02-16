@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Interop.Security.AzRoles;
@@ -47,7 +47,7 @@ namespace Karkas.Core.Yetki
                     }
                     catch (System.Runtime.InteropServices.COMException x)
                     {
-                        throw new Exception("IAzAuthorizationStore.Initialize cagrýsýnda sorun çýktý.", x);
+                        throw new Exception("IAzAuthorizationStore.Initialize cagrÄ±sÄ±nda sorun Ã§Ä±ktÄ±.", x);
                     }
                     catch (FileNotFoundException ex)
                     {
@@ -66,7 +66,7 @@ namespace Karkas.Core.Yetki
                     {
                         Release(azManStore);
                         azManStore = null;
-                        throw new Exception("IAzAuthorizationStore.OpenApplication uygulamanýn açýlmasýnda sýrasýnda COM hatasý", x);
+                        throw new Exception("IAzAuthorizationStore.OpenApplication uygulamanÄ±n aÃ§Ä±lmasÄ±nda sÄ±rasÄ±nda COM hatasÄ±", x);
                     }
                 }
                 return this.azApplication;
@@ -91,7 +91,7 @@ namespace Karkas.Core.Yetki
         {
             if (String.IsNullOrEmpty(username))
             {
-                throw new ArgumentException("username null olmamalýdýr");
+                throw new ArgumentException("username null olmamalÄ±dÄ±r");
             }
             Regex rex = new Regex(@"^([\w]+)\\([\w]+)$");
             Match m = rex.Match(username);
@@ -118,7 +118,7 @@ namespace Karkas.Core.Yetki
             }
             catch (ArgumentException ex)
             {
-                throw new ArgumentException("Kullanýcý adý bu domain/pc'de tanýmlý deðil", ex);
+                throw new ArgumentException("KullanÄ±cÄ± adÄ± bu domain/pc'de tanÄ±mlÄ± deÄŸil", ex);
             }
         }
 
@@ -250,3 +250,4 @@ namespace Karkas.Core.Yetki
 
     }
 }
+

@@ -12,3 +12,4 @@ public partial class Ornekler_AlertDeneme : KarkasBasePage
     {
     }
 }
+

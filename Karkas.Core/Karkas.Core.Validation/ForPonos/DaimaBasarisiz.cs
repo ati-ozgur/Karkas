@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -35,8 +35,9 @@ namespace Karkas.Core.Onaylama.ForPonos
 
         protected override string HataMesajlariniOlustur()
         {
-            return string.Format("{0} hatal�", this.PropertyIsmi);
+            return string.Format("{0} hatalı", this.PropertyIsmi);
         }
     }
 }
+
 

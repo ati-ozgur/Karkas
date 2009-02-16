@@ -19,3 +19,4 @@ public partial class Ornekler_PopUpOrnekleri_OrnekAnaSayfa : KarkasBasePage
         this.JavascriptHelper.PopUpWindowBaslangictaAc("~/Ornekler/PopUpOrnekleri/OrnekPopUp.aspx", 100, 100, true);
     }
 }
+

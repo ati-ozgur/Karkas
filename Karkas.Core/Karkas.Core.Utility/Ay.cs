@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -15,17 +15,17 @@ namespace Karkas.Core.Utility
         private static void AylariHazirla()
         {
             aylar[0] = new Ay(1, "Ocak");
-            aylar[1] = new Ay(2, "Þubat");
+            aylar[1] = new Ay(2, "Åžubat");
             aylar[2] = new Ay(3, "Mart");
             aylar[3] = new Ay(4, "Nisan");
-            aylar[4] = new Ay(5, "Mayýs");
+            aylar[4] = new Ay(5, "MayÄ±s");
             aylar[5] = new Ay(6, "Haziran");
             aylar[6] = new Ay(7, "Temmuz");
             aylar[7] = new Ay(8, "Agustos");
-            aylar[8] = new Ay(9, "Eylül");
+            aylar[8] = new Ay(9, "EylÃ¼l");
             aylar[9] = new Ay(10, "Ekim");
-            aylar[10] = new Ay(11, "Kasým");
-            aylar[11] = new Ay(12, "Aralýk");
+            aylar[10] = new Ay(11, "KasÄ±m");
+            aylar[11] = new Ay(12, "AralÄ±k");
         }
         public Ay()
         {
@@ -89,3 +89,4 @@ namespace Karkas.Core.Utility
 
     }
 }
+

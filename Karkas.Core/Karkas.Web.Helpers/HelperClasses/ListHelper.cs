@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Collections;
@@ -37,7 +37,7 @@ namespace Karkas.Web.Helpers.HelperClasses
                 if (l != null)
                 {
                     listControlBindOrtak(l, listControl, valueField, textField);
-                    listControl.Items.Insert(0, new ListItem("Lütfen Seçiniz", "0"));
+                    listControl.Items.Insert(0, new ListItem("LÃ¼tfen SeÃ§iniz", "0"));
                 }
             }
 
@@ -46,7 +46,7 @@ namespace Karkas.Web.Helpers.HelperClasses
                 if (list.Count > 0)
                 {
                     listControlBindOrtak(list, listControl, valueField, textField);
-                    listControl.Items.Insert(0, new ListItem("Lütfen Seçiniz", "0"));
+                    listControl.Items.Insert(0, new ListItem("LÃ¼tfen SeÃ§iniz", "0"));
                 }
             }
 
@@ -102,7 +102,7 @@ namespace Karkas.Web.Helpers.HelperClasses
             }
 
             /// <summary>
-            /// verilen list controle'e son on yılı küçükten büyüğe doldurur
+            /// verilen list controle'e son on yÄ±lÄ± kÃ¼Ã§Ã¼kten bÃ¼yÃ¼ÄŸe doldurur
             /// </summary>
             public void ListYilDoldurArtarak(ListControl listControl)
             {
@@ -115,7 +115,7 @@ namespace Karkas.Web.Helpers.HelperClasses
 
 
             /// <summary>
-            /// verilen list controle'e başlangıç yılından şimdiki yıla,  küçükten büyüğe doldurur
+            /// verilen list controle'e baÅŸlangÄ±Ã§ yÄ±lÄ±ndan ÅŸimdiki yÄ±la,  kÃ¼Ã§Ã¼kten bÃ¼yÃ¼ÄŸe doldurur
             /// </summary>
             public void ListYilDoldurArtarak(ListControl listControl, int BaslangicYil)
             {
@@ -127,7 +127,7 @@ namespace Karkas.Web.Helpers.HelperClasses
             }
 
             /// <summary>
-            /// verilen list controle'e başlangıç yılından bitiş yılına,  küçükten büyüğe doldurur
+            /// verilen list controle'e baÅŸlangÄ±Ã§ yÄ±lÄ±ndan bitiÅŸ yÄ±lÄ±na,  kÃ¼Ã§Ã¼kten bÃ¼yÃ¼ÄŸe doldurur
             /// </summary>
             public void ListYilDoldurArtarak(ListControl listControl, int BaslangicYil, int BitisYil)
             {
@@ -138,7 +138,7 @@ namespace Karkas.Web.Helpers.HelperClasses
 
             }
             /// <summary>
-            /// verilen list controle'e başlangıç yılından şimdiki yıla,  büyükten küçüğe doğru doldurur
+            /// verilen list controle'e baÅŸlangÄ±Ã§ yÄ±lÄ±ndan ÅŸimdiki yÄ±la,  bÃ¼yÃ¼kten kÃ¼Ã§Ã¼ÄŸe doÄŸru doldurur
             /// </summary>
 
             public void ListYilDoldurAzalarak(ListControl listControl, int BaslangicYil)
@@ -150,7 +150,7 @@ namespace Karkas.Web.Helpers.HelperClasses
 
             }
             /// <summary>
-            /// verilen list controle'e son on yılı büyükten küçüğe doğru doldurur
+            /// verilen list controle'e son on yÄ±lÄ± bÃ¼yÃ¼kten kÃ¼Ã§Ã¼ÄŸe doÄŸru doldurur
             /// </summary>
             /// <param name="listControl"></param>
             public void ListYilDoldurAzalarak(ListControl listControl)
@@ -162,7 +162,7 @@ namespace Karkas.Web.Helpers.HelperClasses
 
             }
             /// <summary>
-            /// verilen list controle'e başlangıç yılından bitiş yılına,   büyükten küçüge doldurur
+            /// verilen list controle'e baÅŸlangÄ±Ã§ yÄ±lÄ±ndan bitiÅŸ yÄ±lÄ±na,   bÃ¼yÃ¼kten kÃ¼Ã§Ã¼ge doldurur
             /// </summary>
             public void ListYilDoldurAzalarak(ListControl listControl, int BaslangicYil, int BitisYil)
             {
@@ -187,7 +187,7 @@ namespace Karkas.Web.Helpers.HelperClasses
             public void ListAyDoldurLutfenEkle(ListControl listControl)
             {
                 ListAyDoldur(listControl);
-                listControl.Items.Insert(0, new ListItem("Lütfen Seçiniz","0" ));
+                listControl.Items.Insert(0, new ListItem("LÃ¼tfen SeÃ§iniz","0" ));
             }
             public void ListAyDoldurLutfenEkle(ListControl listControl,string yazi)
             {
@@ -206,3 +206,4 @@ namespace Karkas.Web.Helpers.HelperClasses
     }
 
 }
+

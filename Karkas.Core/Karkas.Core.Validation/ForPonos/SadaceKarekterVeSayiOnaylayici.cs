@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -8,7 +8,7 @@ namespace Karkas.Core.Onaylama.ForPonos
     [Serializable]
     public class SadaceKarekterVeSayiOnaylayici : RegExOnaylayici
     {
-        private const string REGEX_ONLY_CHARACTER_NUMBER = "^[ a-zA-ZüðiþçöýÜÐÝÞÇÖI0-9]*$";
+        private const string REGEX_ONLY_CHARACTER_NUMBER = "^[ a-zA-ZÃ¼ÄŸiÅŸÃ§Ã¶Ä±ÃœÄžÄ°ÅžÃ‡Ã–I0-9]*$";
         public SadaceKarekterVeSayiOnaylayici(object pUzerindeCalisilacakNesne, string pPropertyName)
             : base(pUzerindeCalisilacakNesne, pPropertyName, REGEX_ONLY_CHARACTER_NUMBER, RegexOptions.None)
         {
@@ -22,9 +22,10 @@ namespace Karkas.Core.Onaylama.ForPonos
 
         protected override string HataMesajlariniOlustur()
         {
-            return string.Format("{0} sadace harf ve sayý girilmelidir", this.Property.Name);
+            return string.Format("{0} sadace harf ve sayÄ± girilmelidir", this.Property.Name);
         }
 
     
     }
 }
+

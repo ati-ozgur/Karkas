@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -23,8 +23,9 @@ namespace Karkas.Core.Onaylama.ForPonos
 
         protected override string HataMesajlariniOlustur()
         {
-            return string.Format("{0} sadace say� girilmelidir", this.Property.Name);
+            return string.Format("{0} sadace sayı girilmelidir", this.Property.Name);
         }
 
     }
 }
+

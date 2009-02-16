@@ -559,3 +559,4 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 		}
 	}
 }
+

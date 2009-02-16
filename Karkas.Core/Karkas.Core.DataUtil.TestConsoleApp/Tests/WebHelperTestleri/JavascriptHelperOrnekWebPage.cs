@@ -10,3 +10,4 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.WebHelperTestleri
     {
     }
 }
+

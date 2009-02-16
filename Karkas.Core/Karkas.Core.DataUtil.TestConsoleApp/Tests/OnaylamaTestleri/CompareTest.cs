@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 using Karkas.Core.DataUtil.TestConsoleApp.TypeLibrary;
@@ -39,7 +39,7 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
             OrnekKarsilastirma a = new OrnekKarsilastirma();
             a.Onaylayici.OnaylayiciListesi.Clear();
             a.Onaylayici.OnaylayiciListesi = new List<BaseOnaylayici>();
-            a.Onaylayici.OnaylayiciListesi.Add(new KarsilastirmaOnaylayici(a, "DogumTarihi",DateTime.Now.AddYears(-19),KarsilastirmaOperatoru.GreatThanEqual,"Kisi 18 yaþýndan büyük olmalýdýr"));
+            a.Onaylayici.OnaylayiciListesi.Add(new KarsilastirmaOnaylayici(a, "DogumTarihi",DateTime.Now.AddYears(-19),KarsilastirmaOperatoru.GreatThanEqual,"Kisi 18 yaÅŸÄ±ndan bÃ¼yÃ¼k olmalÄ±dÄ±r"));
             return a;
 
 
@@ -49,3 +49,4 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri
 
     }
 }
+

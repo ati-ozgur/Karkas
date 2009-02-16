@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
@@ -48,7 +48,7 @@ namespace Karkas.Core.DataUtil
                 }
                 else
                 {
-                    throw new ArgumentException("Connection Stringler arasýnda Main bulunamadý, lütfen config dosyasýný(web.config/app.config) kontrol ediniz");
+                    throw new ArgumentException("Connection Stringler arasÄ±nda Main bulunamadÄ±, lÃ¼tfen config dosyasÄ±nÄ±(web.config/app.config) kontrol ediniz");
                 }
 
             }
@@ -69,10 +69,11 @@ namespace Karkas.Core.DataUtil
                 }
                 else
                 {
-                    throw new ArgumentException(string.Format("Connection Stringler arasýnda {0} bulunamadý, lütfen config dosyasýný(web.config/app.config) kontrol ediniz",pDatabaseName));
+                    throw new ArgumentException(string.Format("Connection Stringler arasÄ±nda {0} bulunamadÄ±, lÃ¼tfen config dosyasÄ±nÄ±(web.config/app.config) kontrol ediniz",pDatabaseName));
                 }
             }
         }
 
     }
 }
+

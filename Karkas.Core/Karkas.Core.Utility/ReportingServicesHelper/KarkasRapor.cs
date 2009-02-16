@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Web.UI.WebControls;
 
 using System.Collections;
@@ -18,7 +18,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
     public partial class KarkasRapor
     {
-        //rapor almadan (RaporAl() fonksiyonundan) once çaðýrýlacak event
+        //rapor almadan (RaporAl() fonksiyonundan) once Ã§aÄŸÄ±rÄ±lacak event
         public event BeforeRaporAl OnBeforeRaporAl;
 
         ReportingService rs = new ReportingService();
@@ -185,7 +185,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
 
         /// <summary>
-        /// Raporlarýn calýstýgý sunucunun adresi
+        /// RaporlarÄ±n calÄ±stÄ±gÄ± sunucunun adresi
         /// </summary>
         public string RaporSunucuUrl
         {
@@ -207,9 +207,9 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         string raporAd;
         string raporDosyaAd;
         /// <summary>
-        /// Raporun Sunucu Uzerindeki Adi, buranýn dizin ile beraber verilmesi
+        /// Raporun Sunucu Uzerindeki Adi, buranÄ±n dizin ile beraber verilmesi
         /// gerekir. MODUL_ADI/RAPOR_ADI , .rdl verilmez
-        /// Report Manager uzerinde gorulen adý veriniz.
+        /// Report Manager uzerinde gorulen adÄ± veriniz.
         /// </summary>
         public string RaporAd
         {
@@ -238,7 +238,7 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
             }
         }
         /// <summary>
-        /// Raporun save as ile kayýt edilirken gosterildigi ad.
+        /// Raporun save as ile kayÄ±t edilirken gosterildigi ad.
         /// </summary>
         public string RaporDosyaAd
         {
@@ -509,3 +509,4 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
 
 
 }
+

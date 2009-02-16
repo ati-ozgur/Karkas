@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using Karkas.Core.DataUtil.SorguYardimcisiSiniflari;
@@ -171,6 +171,7 @@ namespace Karkas.Core.DataUtil
         }
     }
 }
+
 
 
 

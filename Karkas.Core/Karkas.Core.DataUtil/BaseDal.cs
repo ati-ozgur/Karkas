@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
@@ -18,10 +18,10 @@ namespace Karkas.Core.DataUtil
     {
         private bool otomatikConnectionYonetimi = true;
         /// <summary>
-        /// Eger varsayılan deger, true bırakılırsa, connection yonetimi 
-        /// BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
+        /// Eger varsayÄ±lan deger, true bÄ±rakÄ±lÄ±rsa, connection yonetimi 
+        /// BaseDal tarafÄ±ndan yapÄ±lÄ±r. Komutlar cagrÄ±lmadan once, connection getirme
         /// Connection'u acma ve kapama BaseDal kontrolundedir.
-        /// Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
+        /// Eger false ise connection olusturma, acma Kapama KullanÄ±cÄ±ya aittir.
         /// </summary>
         public bool OtomatikConnectionYonetimi
         {
@@ -343,7 +343,7 @@ namespace Karkas.Core.DataUtil
 
             if (updateSonucuBasarisiz)
             {
-                throw new AyniAndaKullanimHatasi("Guncellemeye calıstıgınız kayıt daha önce başkası tarafından güncellenmiştir");
+                throw new AyniAndaKullanimHatasi("Guncellemeye calÄ±stÄ±gÄ±nÄ±z kayÄ±t daha Ã¶nce baÅŸkasÄ± tarafÄ±ndan gÃ¼ncellenmiÅŸtir");
             }
         }
 
@@ -529,3 +529,4 @@ namespace Karkas.Core.DataUtil
 
     }
 }
+

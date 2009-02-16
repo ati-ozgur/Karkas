@@ -140,3 +140,4 @@ namespace Karkas.Ornek.Dal.Ornekler
 		}
 	}
 }
+

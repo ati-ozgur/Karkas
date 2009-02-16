@@ -29,3 +29,4 @@ namespace Karkas.Core.Utility
         }
     }
 }
+

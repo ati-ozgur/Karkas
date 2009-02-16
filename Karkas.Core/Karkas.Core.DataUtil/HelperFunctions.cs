@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
@@ -11,10 +11,10 @@ namespace Karkas.Core.DataUtil
 
         private bool otomatikConnectionYonetimi = true;
         /// <summary>
-        /// Eger varsay�lan deger, true b�rak�l�rsa, connection yonetimi 
-        /// BaseDal taraf�ndan yap�l�r. Komutlar cagr�lmadan once, connection getirme
+        /// Eger varsayılan deger, true bırakılırsa, connection yonetimi 
+        /// BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
         /// Connection'u acma ve kapama BaseDal kontrolundedir.
-        /// Eger false ise connection olusturma, acma Kapama Kullan�c�ya aittir.
+        /// Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
         /// </summary>
         public bool OtomatikConnectionYonetimi
         {
@@ -194,3 +194,4 @@ namespace Karkas.Core.DataUtil
 
     }
 }
+

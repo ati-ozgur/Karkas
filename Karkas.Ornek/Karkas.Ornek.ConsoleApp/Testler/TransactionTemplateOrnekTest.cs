@@ -28,3 +28,4 @@ namespace Karkas.Ornek.ConsoleApp.Testler
         }
     }
 }
+

@@ -22,3 +22,4 @@ public partial class Ornekler_AlertUpdatePanel : KarkasBasePage
     }
 
 }
+

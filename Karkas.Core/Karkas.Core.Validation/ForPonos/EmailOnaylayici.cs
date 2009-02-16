@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -23,10 +23,11 @@ namespace Karkas.Core.Onaylama.ForPonos
 
         protected override string HataMesajlariniOlustur()
         {
-            return string.Format("{0} düzgün bir email deðildir.", base.Property.Name);
+            return string.Format("{0} dÃ¼zgÃ¼n bir email deÄŸildir.", base.Property.Name);
         }
     }
 
  
 
 }
+

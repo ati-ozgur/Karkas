@@ -36,3 +36,4 @@ public partial class Ornekler_RaporOrnekleri_RaporAcma : System.Web.UI.Page
         rapor.RaporAc();
     }
 }
+

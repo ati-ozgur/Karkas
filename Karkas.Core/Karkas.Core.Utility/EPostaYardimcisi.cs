@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Net.Mail;
@@ -11,12 +11,12 @@ namespace Karkas.Core.Utility
     ///  Email gondermek icin gerekli yardimci sinif. Bu sinifin duzgun calismasi icin asagidaki
     /// config'in yapilmasi gereklidir.
     ///  
-    ///  Bu sınıf eğer Web Sunucusu (Istemci) tarafında çalışacaksa Web kodunun olduğu yerde
-    /// web.config dosyasına aşağıdaki
-    /// satırları eklemek gerekiyor.
-    ///  Bu sınıf eğer Uygulama Sunucusu tarafında çalışacaksa onun web.config veya app.config 
-    /// dosyasına aşağıdaki
-    /// satırları eklemek gerekiyor.
+    ///  Bu sÄ±nÄ±f eÄŸer Web Sunucusu (Istemci) tarafÄ±nda Ã§alÄ±ÅŸacaksa Web kodunun olduÄŸu yerde
+    /// web.config dosyasÄ±na aÅŸaÄŸÄ±daki
+    /// satÄ±rlarÄ± eklemek gerekiyor.
+    ///  Bu sÄ±nÄ±f eÄŸer Uygulama Sunucusu tarafÄ±nda Ã§alÄ±ÅŸacaksa onun web.config veya app.config 
+    /// dosyasÄ±na aÅŸaÄŸÄ±daki
+    /// satÄ±rlarÄ± eklemek gerekiyor.
     ///        <configuration>
     ///  <system.net>
     ///    <mailSettings>
@@ -129,3 +129,4 @@ namespace Karkas.Core.Utility
 
     }
 }
+

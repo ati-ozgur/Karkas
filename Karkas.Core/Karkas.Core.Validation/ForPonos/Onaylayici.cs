@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -16,7 +16,7 @@ namespace Karkas.Core.Onaylama.ForPonos
         protected List<string> hataListesi = new List<string>();
 
         /// <summary>
-        /// Validate Ýþlemi sonucunda oluþan hatalar bir liste halinde alýnabilir
+        /// Validate Ä°ÅŸlemi sonucunda oluÅŸan hatalar bir liste halinde alÄ±nabilir
         /// </summary>
         public List<string> HataListesi
         {
@@ -120,3 +120,4 @@ namespace Karkas.Core.Onaylama.ForPonos
         }
     }
 }
+

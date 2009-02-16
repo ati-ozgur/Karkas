@@ -78,3 +78,4 @@ namespace Karkas.Core.DataUtil.SorguYardimcisiSiniflari
         }
     }
 }
+

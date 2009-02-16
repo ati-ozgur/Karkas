@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using Karkas.Core.TypeLibrary;
@@ -38,3 +38,4 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.TypeLibrary
         }
     }
 }
+

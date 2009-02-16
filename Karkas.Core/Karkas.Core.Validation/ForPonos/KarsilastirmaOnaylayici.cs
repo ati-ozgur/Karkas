@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -17,7 +17,7 @@ namespace Karkas.Core.Onaylama.ForPonos
         /// <example>
         /// // bu ornek uzerinde Kisinin 18 yasindan buyuk olmasi lazim.
         ///  // this.DogumTarihi >= DateTime.Now.AddYears(-18)
-        ///   this.Validator.ValidatorList.Add(new CompareValidator(this, "DogumTarihi",DateTime.Now.AddYears(-19),CompareOperator.GreatThanEqual,"Kisi 18 yaşından büyük olmalıdır"));
+        ///   this.Validator.ValidatorList.Add(new CompareValidator(this, "DogumTarihi",DateTime.Now.AddYears(-19),CompareOperator.GreatThanEqual,"Kisi 18 yaÅŸÄ±ndan bÃ¼yÃ¼k olmalÄ±dÄ±r"));
         /// </example>
         /// </summary>
         /// <param name="pUzerindeCalisilacakNesne"></param>
@@ -98,22 +98,22 @@ namespace Karkas.Core.Onaylama.ForPonos
             switch (compareOperator)
             {
                 case KarsilastirmaOperatoru.Equal:
-                    str = "{0} " + karsilastirilacakDeger + "'ye eşit olmalıdır.";
+                    str = "{0} " + karsilastirilacakDeger + "'ye eÅŸit olmalÄ±dÄ±r.";
                     break;
                 case KarsilastirmaOperatoru.GreaterThan:
-                    str = "{0} " + karsilastirilacakDeger + "'den büyük olmalıdır.";
+                    str = "{0} " + karsilastirilacakDeger + "'den bÃ¼yÃ¼k olmalÄ±dÄ±r.";
                     break;
                 case KarsilastirmaOperatoru.GreatThanEqual:
-                    str = "{0} " + karsilastirilacakDeger + "'den büyük veya eşit olmalıdır.";
+                    str = "{0} " + karsilastirilacakDeger + "'den bÃ¼yÃ¼k veya eÅŸit olmalÄ±dÄ±r.";
                     break;
                 case KarsilastirmaOperatoru.LessThan:
-                    str = "{0} " + karsilastirilacakDeger + "'den küçük olmalıdır.";
+                    str = "{0} " + karsilastirilacakDeger + "'den kÃ¼Ã§Ã¼k olmalÄ±dÄ±r.";
                     break;
                 case KarsilastirmaOperatoru.LessThanEqual:
-                    str = "{0} " + karsilastirilacakDeger + "'den küçük veya eşit olmalıdır.";
+                    str = "{0} " + karsilastirilacakDeger + "'den kÃ¼Ã§Ã¼k veya eÅŸit olmalÄ±dÄ±r.";
                     break;
                 case KarsilastirmaOperatoru.NotEqual:
-                    str = "{0} " + karsilastirilacakDeger + "'ye eşit olmamalıdır.";
+                    str = "{0} " + karsilastirilacakDeger + "'ye eÅŸit olmamalÄ±dÄ±r.";
                     break;
                 default:
                     throw new ArgumentException("Beklenmeyen CompareOption");
@@ -122,3 +122,4 @@ namespace Karkas.Core.Onaylama.ForPonos
         }
     }
 }
+

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using Karkas.Core.DataUtil.TestConsoleApp.TypeLibrary;
@@ -35,3 +35,4 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri.Email
  
 
 }
+

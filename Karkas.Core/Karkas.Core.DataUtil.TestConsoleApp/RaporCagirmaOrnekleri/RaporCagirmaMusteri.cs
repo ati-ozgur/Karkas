@@ -141,3 +141,4 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri
 
     }
 }
+

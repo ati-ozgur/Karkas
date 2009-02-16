@@ -23,3 +23,4 @@ public partial class Ornekler_AlertServerSideMessageBox : KarkasBasePage
         MessageBox(AdiTextBox.Text + " " + SoyadiTextBox.Text);
     }
 }
+

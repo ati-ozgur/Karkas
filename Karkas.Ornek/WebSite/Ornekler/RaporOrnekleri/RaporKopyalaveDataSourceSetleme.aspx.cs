@@ -48,3 +48,4 @@ public partial class Ornekler_RaporOrnekleri_RaporKopyalaveDataSourceSetleme : S
         rapor.RaporAd = String.Format("{0}/{1}", raporYolu, yeniRaporAd);
     }
 }
+

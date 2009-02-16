@@ -3,3 +3,4 @@
 <asp:LinkButton ID="OnayButton" runat="server" CssClass="btn" Text=" "></asp:LinkButton>
 <ajt:ConfirmButtonExtender  ID="cbe" runat="server" ConfirmText="Onaylıyormusunuz?"
     TargetControlID="OnayButton"  />
+
