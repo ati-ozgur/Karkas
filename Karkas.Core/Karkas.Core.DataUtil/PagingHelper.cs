@@ -30,9 +30,9 @@ namespace Karkas.Core.DataUtil
             set { currentTransaction = value; }
         }
 
-        public PagingHelper(SqlConnection pConnection,Guid pKisiKey,SqlTransaction currentTransaction)
+        public PagingHelper(SqlConnection pConnection, Guid pKisiKey, SqlTransaction currentTransaction)
         {
-            helper = new HelperFunctions(pConnection,pKisiKey,currentTransaction);
+            helper = new HelperFunctions(pConnection, pKisiKey, currentTransaction);
             this.komutuCalistiranKullaniciKisiKey = pKisiKey;
         }
 
@@ -45,14 +45,14 @@ namespace Karkas.Core.DataUtil
                                 ) 
                                 SELECT * 
                                 FROM temp 
-                                WHERE RowNumber >= {1} AND RowNumber  < {2}
+                                WHERE RowNumber > {1} AND RowNumber  <= {2}
                                 ";
 
         //Where RowNumber >= @RowStart and RowNumber <= @
 
         #region "DataTable Doldur"
         public void DataTableDoldurSayfalamaYap(
-            DataTable dataTable, string sql 
+            DataTable dataTable, string sql
             , int pPageSize, int pStartRowIndex
             , string pOrderBy, SqlParameter[] parameters)
         {
@@ -99,7 +99,7 @@ namespace Karkas.Core.DataUtil
 
         #endregion
 
-        
+
 
 
 
