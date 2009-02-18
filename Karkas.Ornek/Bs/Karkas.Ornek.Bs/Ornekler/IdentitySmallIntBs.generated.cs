@@ -31,4 +31,3 @@ namespace Karkas.Ornek.Bs.Ornekler
 			}
 		}
 	}
-
