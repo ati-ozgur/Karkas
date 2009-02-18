@@ -78,6 +78,8 @@
     <Compile Include="Ornekler\IsimlendirmeBozukDal.generated.cs" />
     <Compile Include="Ornekler\MusteriDal.cs" />
     <Compile Include="Ornekler\MusteriDal.generated.cs" />
+    <Compile Include="Ornekler\MusteriSiparisDal.cs" />
+    <Compile Include="Ornekler\MusteriSiparisDal.generated.cs" />
     <Compile Include="Ornekler\OrnekTabloDal.cs" />
     <Compile Include="Ornekler\OrnekTabloDal.generated.cs" />
     <Compile Include="Ornekler\StoredProcedures\usp_BasitTabloIdentityEkle.generated.cs" />

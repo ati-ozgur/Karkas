@@ -7,6 +7,8 @@ using Karkas.Core.DataUtil;
 using Karkas.Ornek.TypeLibrary;
 using Karkas.Ornek.TypeLibrary.Ornekler;
 using Karkas.Core.DataUtil.SorguYardimcisiSiniflari;
+using System.Runtime.Remoting;
+using System.Reflection;
 
 
 namespace Karkas.Ornek.Dal.Ornekler
@@ -41,6 +43,30 @@ namespace Karkas.Ornek.Dal.Ornekler
         {
             string sql = this.SelectString;
             return this.Template.DataTableOlustur(sql);
+        }
+
+        public List<T1> SorgulaMusteriKeyIleDetayTabloGetir<T1>(Guid pMusteriKey) where T1 :new()
+        {
+            T1 t = new T1();
+            
+            string typeLibrary = t.ToString();
+            string dal = typeLibrary.Replace("TypeLibrary", "Dal") + "Dal" ;
+            Type type = Type.GetType(dal);
+            MethodInfo methodInfo = type.GetMethod("SorgulaForeingKeyIle");
+            string assemblyName = dal.Remove(dal.IndexOf("Dal") + 3);
+            ObjectHandle oh  = Activator.CreateInstance(assemblyName, dal);
+            
+            object sonuc = methodInfo.Invoke(oh.Unwrap(),new object[]{PrimaryKey,pMusteriKey});
+            return (List<T1>) sonuc;
+        }
+
+
+        public string PrimaryKey
+        {
+            get
+            {
+                return "MusteriKey";
+            }
         }
     }
 }

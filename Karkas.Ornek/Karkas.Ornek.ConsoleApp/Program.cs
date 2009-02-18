@@ -22,7 +22,18 @@ namespace Karkas.Ornek.ConsoleApp
         static void Main(string[] args)
         {
 
-
+            MusteriDal dal = new MusteriDal();
+            List<Musteri> musteriListesi = dal.SorgulaHepsiniGetir();
+            foreach (Musteri m in musteriListesi)
+            {
+                Console.WriteLine(m.Adi + " " + m.Soyadi);
+                Console.WriteLine("SIPARISLERI");
+                List<MusteriSiparis> siparisler = dal.SorgulaMusteriKeyIleDetayTabloGetir<MusteriSiparis>(m.MusteriKey);
+                foreach (MusteriSiparis ms in siparisler)
+                {
+                    Console.WriteLine(ms.MusteriSiparisKey);
+                }
+            }
         }
 
         private static void concurrenyDeneme()

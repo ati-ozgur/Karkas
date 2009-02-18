@@ -65,6 +65,8 @@
     <Compile Include="Ornekler\IsimlendirmeBozuk.generated.cs" />
     <Compile Include="Ornekler\Musteri.cs" />
     <Compile Include="Ornekler\Musteri.generated.cs" />
+    <Compile Include="Ornekler\MusteriSiparis.cs" />
+    <Compile Include="Ornekler\MusteriSiparis.generated.cs" />
     <Compile Include="Ornekler\OrnekTablo.cs" />
     <Compile Include="Ornekler\OrnekTablo.generated.cs" />
     <Compile Include="SessionEnumHelper.cs" />
