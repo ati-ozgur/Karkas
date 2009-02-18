@@ -6,6 +6,8 @@ using System.Data;
 using Karkas.Core.TypeLibrary;
 using log4net;
 using Karkas.Core.DataUtil.Exceptions;
+using System.Reflection;
+using System.Runtime.Remoting;
 
 namespace Karkas.Core.DataUtil
 {
@@ -517,6 +519,28 @@ namespace Karkas.Core.DataUtil
             get;
         }
 
+
+        public List<T1> SorgulaMusteriKeyIleDetayTabloGetir<T1>(object degeri) where T1 : new()
+        {
+            T1 t = new T1();
+
+            string typeLibrary = t.ToString();
+            string dal = typeLibrary.Replace("TypeLibrary", "Dal") + "Dal";
+            string assemblyName = dal.Remove(dal.IndexOf("Dal") + 3);
+            Type type = Type.GetType(dal + "," + assemblyName);
+            MethodInfo methodInfo = type.GetMethod("SorgulaForeingKeyIle");
+            ObjectHandle oh = Activator.CreateInstance(assemblyName, dal);
+
+            object sonuc = methodInfo.Invoke(oh.Unwrap(), new object[] { PrimaryKey, degeri });
+            return (List<T1>)sonuc;
+        }
+        public virtual string PrimaryKey
+        {
+            get
+            {
+                return "";
+            }
+        }
 
         protected abstract void ProcessRow(IDataReader dr, T row);
         protected abstract void InsertCommandParametersAdd(SqlCommand Cmd, T row);
