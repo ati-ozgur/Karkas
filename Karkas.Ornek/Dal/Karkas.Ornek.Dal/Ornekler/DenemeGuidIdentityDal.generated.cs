@@ -96,6 +96,15 @@ namespace Karkas.Ornek.Dal.Ornekler
 			}
 		}
 		
+		
+		public override string PrimaryKey
+		{
+			get
+			{
+				return "DenemeKey";
+			}
+		}
+		
 		public virtual void Sil(Guid DenemeKey)
 		{
 			DenemeGuidIdentity row = new DenemeGuidIdentity();

@@ -95,6 +95,15 @@ namespace Karkas.Ornek.Dal.Ornekler
 			}
 		}
 		
+		
+		public override string PrimaryKey
+		{
+			get
+			{
+				return "ConcurrencyOrnekKey";
+			}
+		}
+		
 		public virtual void Sil(Guid ConcurrencyOrnekKey)
 		{
 			ConcurrencyOrnek row = new ConcurrencyOrnek();

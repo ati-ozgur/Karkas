@@ -95,6 +95,15 @@ namespace Karkas.Ornek.Dal.Ornekler
 			}
 		}
 		
+		
+		public override string PrimaryKey
+		{
+			get
+			{
+				return "BasitTabloKey";
+			}
+		}
+		
 		public virtual void Sil(Guid BasitTabloKey)
 		{
 			BasitTablo row = new BasitTablo();

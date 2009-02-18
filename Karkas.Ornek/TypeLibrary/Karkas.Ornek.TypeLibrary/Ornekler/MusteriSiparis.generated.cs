@@ -15,8 +15,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 		[Serializable]
 		[DebuggerDisplay("MusteriSiparisKey = {MusteriSiparisKey}MusteriKey = {MusteriKey}")]
 		public partial class 		MusteriSiparis		
-
-		//::PRESERVE_BEGIN inheritance::// 
+//::PRESERVE_BEGIN inheritance::// 
 : BaseTypeLibrary 
 //::PRESERVE_END inheritance:://
 		{

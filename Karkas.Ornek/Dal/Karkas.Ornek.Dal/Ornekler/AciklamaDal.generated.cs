@@ -95,6 +95,15 @@ namespace Karkas.Ornek.Dal.Ornekler
 			}
 		}
 		
+		
+		public override string PrimaryKey
+		{
+			get
+			{
+				return "AciklamaKey";
+			}
+		}
+		
 		public virtual void Sil(Guid AciklamaKey)
 		{
 			Aciklama row = new Aciklama();

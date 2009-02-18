@@ -95,6 +95,15 @@ namespace Karkas.Ornek.Dal.Ornekler
 			}
 		}
 		
+		
+		public override string PrimaryKey
+		{
+			get
+			{
+				return "MusteriSiparisKey";
+			}
+		}
+		
 		public virtual void Sil(Guid MusteriSiparisKey)
 		{
 			MusteriSiparis row = new MusteriSiparis();

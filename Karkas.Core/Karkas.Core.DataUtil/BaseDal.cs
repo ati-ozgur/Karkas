@@ -520,7 +520,7 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        public List<T1> SorgulaMusteriKeyIleDetayTabloGetir<T1>(object degeri) where T1 : new()
+        public List<T1> SorgulaDetayTabloGetir<T1>(object degeri) where T1 : new()
         {
             T1 t = new T1();
 

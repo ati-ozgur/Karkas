@@ -95,6 +95,15 @@ namespace Karkas.Ornek.Dal.Ornekler
 			}
 		}
 		
+		
+		public override string PrimaryKey
+		{
+			get
+			{
+				return "KISI_OID";
+			}
+		}
+		
 		public virtual void Sil(int KisiOid)
 		{
 			IsimlendirmeBozuk row = new IsimlendirmeBozuk();

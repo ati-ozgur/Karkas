@@ -96,6 +96,15 @@ namespace Karkas.Ornek.Dal.Ornekler
 			}
 		}
 		
+		
+		public override string PrimaryKey
+		{
+			get
+			{
+				return "IdentityTinyIntKey";
+			}
+		}
+		
 		public virtual void Sil(byte IdentityTinyIntKey)
 		{
 			IdentityTinyInt row = new IdentityTinyInt();

@@ -155,6 +155,17 @@ namespace Karkas.Core.DataUtil
                 dal.KomutuCalistiranKullaniciKisiKey = value;
             }
         }
+
+        public List<T1> SorgulaDetayTabloGetir<T1>(object degeri) where T1 : new()
+        {
+            return dal.SorgulaDetayTabloGetir<T1>(degeri);
+        }
+        public virtual List<TYPE_LIBRARY_TIPI> SorgulaForeingKeyIle(string filtre, object oDegeri)
+        {
+            return dal.SorgulaForeingKeyIle(filtre, oDegeri);
+        }
+
+
     }
 
 }

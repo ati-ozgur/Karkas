@@ -48,13 +48,6 @@ namespace Karkas.Ornek.Dal.Ornekler
 
 
 
-        public override string PrimaryKey
-        {
-            get
-            {
-                return "MusteriKey";
-            }
-        }
     }
 }
 

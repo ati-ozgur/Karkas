@@ -96,6 +96,15 @@ namespace Karkas.Ornek.Dal.Ornekler
 			}
 		}
 		
+		
+		public override string PrimaryKey
+		{
+			get
+			{
+				return "IdentityIntKey";
+			}
+		}
+		
 		public virtual void Sil(int IdentityIntKey)
 		{
 			IdentityInt row = new IdentityInt();

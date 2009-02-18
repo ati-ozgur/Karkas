@@ -28,7 +28,7 @@ namespace Karkas.Ornek.ConsoleApp
             {
                 Console.WriteLine(m.Adi + " " + m.Soyadi);
                 Console.WriteLine("SIPARISLERI");
-                List<MusteriSiparis> siparisler = dal.SorgulaMusteriKeyIleDetayTabloGetir<MusteriSiparis>(m.MusteriKey);
+                List<MusteriSiparis> siparisler = dal.SorgulaDetayTabloGetir<MusteriSiparis>(m.MusteriKey);
                 foreach (MusteriSiparis ms in siparisler)
                 {
                     Console.WriteLine(ms.MusteriSiparisKey);
