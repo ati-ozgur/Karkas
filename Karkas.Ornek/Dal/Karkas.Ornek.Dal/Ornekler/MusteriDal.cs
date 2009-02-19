@@ -48,6 +48,12 @@ namespace Karkas.Ornek.Dal.Ornekler
 
 
 
+
+        public void TumMusterileriVeIlgiliBilgileriSil()
+        {
+            this.Template.SorguHariciKomutCalistir("DELETE FROM [ORNEKLER].[MUSTERI_SIPARIS]");
+            this.Template.SorguHariciKomutCalistir("DELETE FROM [ORNEKLER].[MUSTERI]");
+        }
     }
 }
 

@@ -15,7 +15,7 @@ namespace Karkas.Ornek.ConsoleApp.Testler
         public void herseyiSil()
         {
             MusteriDal dal = new MusteriDal();
-            dal.Template.SorguHariciKomutCalistir("TRUNCATE TABLE ORNEKLER.MUSTERI");
+            dal.TumMusterileriVeIlgiliBilgileriSil();
         }
 
         [Test]

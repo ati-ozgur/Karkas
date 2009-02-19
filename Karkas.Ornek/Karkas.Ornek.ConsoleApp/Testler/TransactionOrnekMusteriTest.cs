@@ -15,7 +15,7 @@ namespace Karkas.Ornek.ConsoleApp.Testler
         {
 
             MusteriDal dal = new MusteriDal();
-            dal.Template.SorguHariciKomutCalistir("TRUNCATE TABLE ORNEKLER.MUSTERI");
+            dal.TumMusterileriVeIlgiliBilgileriSil();
             dal.Template.SorguHariciKomutCalistir("TRUNCATE TABLE ORNEKLER.ACIKLAMA");
         }
 
