@@ -18,6 +18,61 @@ namespace Karkas.Web.Helpers.HelperClasses
             {
                 this.calisanSayfa = pCalisanSayfa;
             }
+            public void ToCsv(DataTable kaynak)
+            {
+                ToCsv(kaynak, kaynak.TableName, "csv", true, Encoding.UTF8);
+            }
+            public void ToCsv(DataTable kaynak, string dosyaAd)
+            {
+                ToCsv(kaynak, dosyaAd, "csv", true, Encoding.UTF8);
+            }
+            public void ToCsv(DataTable kaynak, string dosyaAd, string uzanti)
+            {
+                ToCsv(kaynak, dosyaAd, uzanti, true, Encoding.UTF8);
+            }
+            public void ToCsv(DataTable kaynak, string dosyaAd, string uzanti, bool baslikYaz)
+            {
+                ToCsv(kaynak, dosyaAd, uzanti, baslikYaz, Encoding.UTF8);
+
+            }
+
+            public void ToCsv(DataTable kaynak, string dosyaAd, string uzanti, bool baslikYaz, Encoding encoding)
+            {
+                calisanSayfa.Response.Clear();
+                calisanSayfa.Response.ClearHeaders();
+                calisanSayfa.Response.Charset = encoding.WebName;
+                calisanSayfa.Response.ContentEncoding = encoding;
+                calisanSayfa.Response.AppendHeader("content-disposition", "attachment; filename=" + dosyaAd + "." + uzanti);
+                calisanSayfa.Response.ContentType = "application/vnd.ms-excel";
+                StringBuilder sw = new StringBuilder();
+                if (baslikYaz)
+                {
+                    foreach (DataColumn column in kaynak.Columns)
+                    {
+                        sw.Append(column.Caption);
+                        sw.Append(",");
+                    }
+
+                    sw.Append("\n");
+                }
+                foreach (DataRow row in kaynak.Rows)
+                {
+                    foreach (DataColumn column in kaynak.Columns)
+                    {
+                        sw.Append(string.Format("\"{0}\"",row[column].ToString()));
+                        sw.Append(",");
+                    }
+
+                    sw.Append("\n");
+                }
+
+
+
+
+                calisanSayfa.Response.Write(sw.ToString());
+                calisanSayfa.Response.End();
+
+            }
 
             public void ToExcel(DataTable kaynak, string dosyaAd, bool baslikYaz)
             {
