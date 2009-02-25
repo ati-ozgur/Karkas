@@ -29,6 +29,9 @@
         }
 
         private static string port = null;
+        /// <summary>
+        /// Sitenin çalıştığı Port numarasını verir. Eğer port yoksa, 443 ve 80 gibi standart portlar ise string.empty , boş string döner.
+        /// </summary>
         public string Port
         {
             get
@@ -54,6 +57,9 @@
 
 
         private static string protocol;
+        /// <summary>
+        /// Sitenin çalıştığı protocol, http veya https döndürülür.
+        /// </summary>
         public string Protocol
         {
             get
@@ -80,6 +86,9 @@
             }
         }
         private static string basePath;
+        /// <summary>
+        /// Sitenin çalıştığı dizin döndürülür. Örnek: https://localhost/Karkas.Ornek.WebApp
+        /// </summary>
         public string BasePath
         {
             get
