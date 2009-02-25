@@ -11,8 +11,8 @@ namespace Karkas.Ornek.Dal.Ornekler
 		public static int ToplaOutputParam
 		(
 
-			int @SAYI1
-			,int @SAYI2
+			int? @SAYI1
+			,int? @SAYI2
 			,out int @SONUC
 			, AdoTemplate template
 			)
@@ -33,8 +33,8 @@ namespace Karkas.Ornek.Dal.Ornekler
 			public static int ToplaOutputParam
 			(
 
-				int @SAYI1
-				,int @SAYI2
+				int? @SAYI1
+				,int? @SAYI2
 				,out int @SONUC
 				)
 				{
@@ -49,4 +49,3 @@ namespace Karkas.Ornek.Dal.Ornekler
 					}
 				}
 			}
-

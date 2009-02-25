@@ -14,7 +14,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 			string @Adi
 			,string @Soyadi
 			,string @IkinciAdi
-			,DateTime @DogumTarihi
+			,DateTime? @DogumTarihi
 			, AdoTemplate template
 			)
 			{
@@ -37,7 +37,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 				string @Adi
 				,string @Soyadi
 				,string @IkinciAdi
-				,DateTime @DogumTarihi
+				,DateTime? @DogumTarihi
 				)
 				{
 					AdoTemplate template = new AdoTemplate();
@@ -52,4 +52,3 @@ namespace Karkas.Ornek.Dal.Ornekler
 					}
 				}
 			}
-

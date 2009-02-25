@@ -11,7 +11,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 		public static DataTable MusteriSorgulaMusteriKeyIle
 		(
 
-			Guid @MusteriKey
+			Guid? @MusteriKey
 			, AdoTemplate template
 			)
 			{
@@ -28,7 +28,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 			public static DataTable MusteriSorgulaMusteriKeyIle
 			(
 
-				Guid @MusteriKey
+				Guid? @MusteriKey
 				)
 				{
 					AdoTemplate template = new AdoTemplate();
@@ -40,4 +40,3 @@ namespace Karkas.Ornek.Dal.Ornekler
 					}
 				}
 			}
-

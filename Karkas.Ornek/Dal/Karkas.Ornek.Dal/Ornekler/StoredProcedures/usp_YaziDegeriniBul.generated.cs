@@ -11,7 +11,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 		public static int YaziDegeriniBul
 		(
 
-			int @SAYI
+			int? @SAYI
 			,out string @SAYI_YAZI
 			, AdoTemplate template
 			)
@@ -19,7 +19,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 				ParameterBuilder builder = new ParameterBuilder();
 				 builder.parameterEkleReturnValue( "@RETURN_VALUE",SqlDbType.Int);
 				 builder.parameterEkle( "@SAYI",SqlDbType.Int,@SAYI);
-				 builder.parameterEkleOutput( "@SAYI_YAZI",SqlDbType.VarChar,100);
+				 builder.parameterEkleOutput( "@SAYI_YAZI",SqlDbType.VarChar,255);
 				SqlCommand cmd = new SqlCommand();
 				cmd.CommandText = "ORNEKLER.YAZI_DEGERINI_BUL";
 				cmd.CommandType = CommandType.StoredProcedure;
@@ -31,7 +31,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 			public static int YaziDegeriniBul
 			(
 
-				int @SAYI
+				int? @SAYI
 				,out string @SAYI_YAZI
 				)
 				{
@@ -45,4 +45,3 @@ namespace Karkas.Ornek.Dal.Ornekler
 					}
 				}
 			}
-
