@@ -259,6 +259,15 @@
             get { return gridHelper; }
         }
 
+        /// <summary>
+        /// Web sayfasında return'a basınca çalışacak olan, default button'ı setlemek için kullanılır.
+        /// </summary>
+        /// <param name="button"></param>
+        public void DefaultButtonSetle(IButtonControl button)
+        {
+          this.Form.DefaultButton = ((WebControl)button).UniqueID;
+        }
+
 
     }
 }
