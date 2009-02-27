@@ -51,6 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Dbo\OrnekSistemViewBs.cs" />
+    <Compile Include="Dbo\OrnekSistemViewBs.generated.cs" />
     <Compile Include="Ornekler\AciklamaBs.cs" />
     <Compile Include="Ornekler\AciklamaBs.generated.cs" />
     <Compile Include="Ornekler\BasitTabloBs.cs" />

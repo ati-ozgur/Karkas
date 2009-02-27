@@ -56,6 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dbo\OrnekSistemViewDal.cs" />
+    <Compile Include="Dbo\OrnekSistemViewDal.generated.cs" />
     <Compile Include="Ornekler\AciklamaDal.cs" />
     <Compile Include="Ornekler\AciklamaDal.generated.cs" />
     <Compile Include="Ornekler\BasitTabloDal.cs" />
