@@ -16,108 +16,8 @@ namespace Karkas.Core.DataUtil
     /// M Type of Primary Key of T
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class BaseDal<T> where T : BaseTypeLibrary, new()
+    public abstract class BaseDal<T> : BaseDalWithoutEntity where T : BaseTypeLibrary, new()
     {
-        private bool otomatikConnectionYonetimi = true;
-        /// <summary>
-        /// Eger varsayılan deger, true bırakılırsa, connection yonetimi 
-        /// BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
-        /// Connection'u acma ve kapama BaseDal kontrolundedir.
-        /// Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
-        /// </summary>
-        public bool OtomatikConnectionYonetimi
-        {
-            get
-            {
-                return otomatikConnectionYonetimi;
-            }
-            set
-            {
-                otomatikConnectionYonetimi = value;
-                this.Template.OtomatikConnectionYonetimi = value;
-            }
-        }
-
-
-        private static ILog logger = LogManager.GetLogger("Dal");
-        public BaseDal()
-        {
-
-        }
-
-        private Guid komutuCalistiranKullaniciKisiKey;
-        /// <summary>
-        /// Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
-        /// Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
-        /// Otomatik olarak Bs tarafindan yapilacak
-        /// </summary>
-        public Guid KomutuCalistiranKullaniciKisiKey
-        {
-            get { return komutuCalistiranKullaniciKisiKey; }
-            set { komutuCalistiranKullaniciKisiKey = value; }
-        }
-
-
-
-
-
-        private SqlConnection connection = null;
-
-        public SqlConnection Connection
-        {
-            get
-            {
-                if (connection == null)
-                {
-                    if (string.IsNullOrEmpty(DatabaseName))
-                    {
-                        connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
-                    }
-                    else
-                    {
-                        connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString(DatabaseName));
-                    }
-                }
-                return connection;
-            }
-            set { connection = value; }
-        }
-
-        private SqlTransaction currentTransaction;
-
-        public SqlTransaction CurrentTransaction
-        {
-            get { return currentTransaction; }
-            set { currentTransaction = value; }
-        }
-
-        public virtual string DatabaseName
-        {
-            get
-            {
-                return "";
-            }
-        }
-
-        private AdoTemplate template;
-        public AdoTemplate Template
-        {
-            get
-            {
-                template = getNewAdoTemplate();
-                return template;
-            }
-        }
-
-        private AdoTemplate getNewAdoTemplate()
-        {
-            AdoTemplate t = new AdoTemplate();
-            t.Connection = Connection;
-            t.CurrentTransaction = currentTransaction;
-            t.OtomatikConnectionYonetimi = otomatikConnectionYonetimi;
-            return t;
-        }
-
 
 
         public virtual int TablodakiSatirSayisi
@@ -171,50 +71,6 @@ namespace Karkas.Core.DataUtil
                     Guncelle(t);
                     break;
             }
-        }
-        protected int SorguHariciKomutCalistirInternal(SqlCommand cmd)
-        {
-            int sonucRowSayisi = 0;
-            try
-            {
-                if (ConnectionAcilacakMi())
-                {
-                    Connection.Open();
-                }
-                else if (currentTransaction != null)
-                {
-                    cmd.Transaction = currentTransaction;
-                }
-                logger.Info(new LoggingInfo(komutuCalistiranKullaniciKisiKey, cmd));
-
-                sonucRowSayisi = cmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                if (currentTransaction != null)
-                {
-                    currentTransaction.Rollback();
-                }
-                ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
-            }
-            finally
-            {
-                if (ConnectionKapatilacakMi())
-                {
-                    Connection.Close();
-                }
-            }
-            return sonucRowSayisi;
-        }
-
-        protected bool ConnectionKapatilacakMi()
-        {
-            return Connection.State != ConnectionState.Closed && OtomatikConnectionYonetimi;
-        }
-
-        protected bool ConnectionAcilacakMi()
-        {
-            return (Connection.State != ConnectionState.Open) && (OtomatikConnectionYonetimi);
         }
 
         public virtual List<T> SorgulaHepsiniGetir()
@@ -458,7 +314,7 @@ namespace Karkas.Core.DataUtil
                 {
                     cmd.Transaction = CurrentTransaction;
                 }
-                logger.Debug(new LoggingInfo(komutuCalistiranKullaniciKisiKey, cmd));
+                logger.Debug(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
                 reader = cmd.ExecuteReader();
 
                 T row = default(T);

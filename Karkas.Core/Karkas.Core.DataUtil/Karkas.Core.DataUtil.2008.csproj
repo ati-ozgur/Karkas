@@ -65,7 +65,9 @@
   <ItemGroup>
     <Compile Include="AdoTemplate.cs" />
     <Compile Include="BaseBs.cs" />
+    <Compile Include="BaseBsWithoutEntity.cs" />
     <Compile Include="BaseDal.cs" />
+    <Compile Include="BaseDalWithoutEntity.cs" />
     <Compile Include="CommandFactory.cs" />
     <Compile Include="ConnectionSingleton.cs" />
     <Compile Include="ExceptionDegistirici.cs" />
