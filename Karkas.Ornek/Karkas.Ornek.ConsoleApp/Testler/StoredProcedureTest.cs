@@ -37,9 +37,9 @@ namespace Karkas.Ornek.ConsoleApp.Testler
         [Test]
         public void usp_MusteriEkleTest()
         {
-            string ad = "DenemeAd";
-            string soyad = "DenemeSoyad";
-            StoredProcedures.MusteriEkle(ad, soyad, "", DateTime.Now);
+            string ad = "DenemeAd ati";
+            string soyad = "DenemeSoyad ati";
+            int sonuc = StoredProcedures.MusteriEkle(ad, soyad,null,null,null);
 
             MusteriDal dal = new MusteriDal();
             List<Musteri> liste = dal.SorgulaAdiVeSoyadiIle(ad, soyad);

@@ -50,6 +50,12 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
 		{
 			bs.Sil(ConcurrencyOrnekKey);
 		}
+        [DataObjectMethod(DataObjectMethodType.Select)]
+		public ConcurrencyOrnek SorgulaConcurrencyOrnekKeyIle(Guid p1)
+		{
+			return bs.SorgulaConcurrencyOrnekKeyIle(p1);
+		}
+		
         public void DurumaGoreEkleGuncelleVeyaSil(ConcurrencyOrnek k)
         {
             bs.DurumaGoreEkleGuncelleVeyaSil(k);
@@ -68,12 +74,6 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
             return bs.SorgulaHepsiniGetirSirali(pSiraListesi);
         }
 
-        [DataObjectMethod(DataObjectMethodType.Select)]
-		public ConcurrencyOrnek SorgulaConcurrencyOrnekKeyIle(Guid p1)
-		{
-			return bs.SorgulaConcurrencyOrnekKeyIle(p1);
-		}
-		
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void TopluEkleGuncelleVeyaSil(List<ConcurrencyOrnek> liste)
         {

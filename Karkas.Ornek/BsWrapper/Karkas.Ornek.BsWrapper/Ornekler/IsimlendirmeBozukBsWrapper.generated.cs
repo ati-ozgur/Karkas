@@ -49,6 +49,12 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
 		{
 			bs.Sil(KISI_OID);
 		}
+        [DataObjectMethod(DataObjectMethodType.Select)]
+		public IsimlendirmeBozuk SorgulaKISI_OIDIle(int p1)
+		{
+			return bs.SorgulaKISI_OIDIle(p1);
+		}
+		
         public void DurumaGoreEkleGuncelleVeyaSil(IsimlendirmeBozuk k)
         {
             bs.DurumaGoreEkleGuncelleVeyaSil(k);
@@ -67,12 +73,6 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
             return bs.SorgulaHepsiniGetirSirali(pSiraListesi);
         }
 
-        [DataObjectMethod(DataObjectMethodType.Select)]
-		public IsimlendirmeBozuk SorgulaKISI_OIDIle(int p1)
-		{
-			return bs.SorgulaKISI_OIDIle(p1);
-		}
-		
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void TopluEkleGuncelleVeyaSil(List<IsimlendirmeBozuk> liste)
         {

@@ -49,6 +49,12 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
 		{
 			bs.Sil(IdentityIntKey);
 		}
+        [DataObjectMethod(DataObjectMethodType.Select)]
+		public IdentityInt SorgulaIdentityIntKeyIle(int p1)
+		{
+			return bs.SorgulaIdentityIntKeyIle(p1);
+		}
+		
         public void DurumaGoreEkleGuncelleVeyaSil(IdentityInt k)
         {
             bs.DurumaGoreEkleGuncelleVeyaSil(k);
@@ -67,12 +73,6 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
             return bs.SorgulaHepsiniGetirSirali(pSiraListesi);
         }
 
-        [DataObjectMethod(DataObjectMethodType.Select)]
-		public IdentityInt SorgulaIdentityIntKeyIle(int p1)
-		{
-			return bs.SorgulaIdentityIntKeyIle(p1);
-		}
-		
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void TopluEkleGuncelleVeyaSil(List<IdentityInt> liste)
         {

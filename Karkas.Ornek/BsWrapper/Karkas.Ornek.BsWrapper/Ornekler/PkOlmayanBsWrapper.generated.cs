@@ -16,12 +16,12 @@ using Karkas.Ornek.Bs.Ornekler;
 namespace Karkas.Ornek.BsWrapper.Ornekler
 {
     [DataObject]
-    public partial class AciklamaBsWrapper 
+    public partial class PkOlmayanBsWrapper 
     {
-        AciklamaBs bs = new AciklamaBs();
+        PkOlmayanBs bs = new PkOlmayanBs();
 		
 
-		public AciklamaBsWrapper()
+		public PkOlmayanBsWrapper()
 		{
 			if ((HttpContext.Current != null) && (HttpContext.Current.Session != null) && (HttpContext.Current.Session[SessionEnumHelper.KISI_KEY] != null))
 			{
@@ -29,53 +29,53 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
 			}
 		}
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Ekle(Aciklama p1 )        {
+        public void Ekle(PkOlmayan p1 )        {
             bs.Ekle(p1);
             return;
         }
 
 
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Guncelle(Aciklama k)
+        public void Guncelle(PkOlmayan k)
         {
             bs.Guncelle(k);
         }
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Sil(Aciklama k)
+        public void Sil(PkOlmayan k)
         {
             bs.Sil(k);
         }
 
-		public void Sil(Guid AciklamaKey)
+		public void Sil( )
 		{
-			bs.Sil(AciklamaKey);
+			bs.Sil();
 		}
         [DataObjectMethod(DataObjectMethodType.Select)]
-		public Aciklama SorgulaAciklamaKeyIle(Guid p1)
+		public PkOlmayan SorgulaIle( p1)
 		{
-			return bs.SorgulaAciklamaKeyIle(p1);
+			return bs.SorgulaIle(p1);
 		}
 		
-        public void DurumaGoreEkleGuncelleVeyaSil(Aciklama k)
+        public void DurumaGoreEkleGuncelleVeyaSil(PkOlmayan k)
         {
             bs.DurumaGoreEkleGuncelleVeyaSil(k);
         }
 
 
       [DataObjectMethod(DataObjectMethodType.Select, true)]
-        public List<Aciklama> SorgulaHepsiniGetir()
+        public List<PkOlmayan> SorgulaHepsiniGetir()
         {
             return bs.SorgulaHepsiniGetir();
         }
 
       [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public List<Aciklama> SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
+        public List<PkOlmayan> SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
         {
             return bs.SorgulaHepsiniGetirSirali(pSiraListesi);
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void TopluEkleGuncelleVeyaSil(List<Aciklama> liste)
+        public void TopluEkleGuncelleVeyaSil(List<PkOlmayan> liste)
         {
             bs.TopluEkleGuncelleVeyaSil(liste);
         }
