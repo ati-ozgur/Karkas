@@ -64,10 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdoTemplate.cs" />
-    <Compile Include="BaseBs.cs" />
-    <Compile Include="BaseBsWithoutEntity.cs" />
-    <Compile Include="BaseDal.cs" />
-    <Compile Include="BaseDalWithoutEntity.cs" />
+    <Compile Include="BaseClasses\BaseBs.cs" />
+    <Compile Include="BaseClasses\BaseBsWithoutEntity.cs" />
+    <Compile Include="BaseClasses\BaseDal.cs" />
+    <Compile Include="BaseClasses\BaseDalForIdentity.cs" />
+    <Compile Include="BaseClasses\BaseDalWithoutEntity.cs" />
     <Compile Include="CommandFactory.cs" />
     <Compile Include="ConnectionSingleton.cs" />
     <Compile Include="ExceptionDegistirici.cs" />
@@ -125,9 +126,6 @@
       <Project>{29D76493-FFF2-42E2-8EF0-6F0AE71CB80E}</Project>
       <Name>Karkas.Core.Validation.2008</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BaseClasses\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
