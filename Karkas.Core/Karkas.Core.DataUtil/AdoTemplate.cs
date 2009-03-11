@@ -86,6 +86,17 @@ namespace Karkas.Core.DataUtil
 
         }
 
+        public AdoTemplate(SqlConnection pConnection)
+        {
+            this.Connection = pConnection;
+        }
+
+        public AdoTemplate(string pConnectionString) : this(new SqlConnection(pConnectionString))
+        {
+            
+        }
+
+
         private HelperFunctions _helper;
         private HelperFunctions helper
         {
@@ -171,6 +182,19 @@ namespace Karkas.Core.DataUtil
                 }
             }
         }
+        /// <summary>
+        /// Bu komut Ado.Net'a ait ExecuteScalar komutudur. Eğer sorgu sonucu sadece
+        /// tek bir değer dönmesini bekliyorsanız. Örneğin
+        /// SELECT COUNT(*) FROM ORTAK.KISI
+        /// Bu komutu kullanabilirsiniz. Gelen nesne (object) olarak döndüğü için
+        /// cast işlemi yapmanız gerekmektedir.
+        /// </summary>
+        /// <example>
+        /// 
+        /// 
+        /// </example>
+        /// <param name="cmd"></param>
+        /// <returns></returns>
         public object TekDegerGetir(SqlCommand cmd)
         {
             cmd.Connection = Connection;
