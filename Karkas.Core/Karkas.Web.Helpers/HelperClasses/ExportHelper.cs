@@ -20,23 +20,30 @@ namespace Karkas.Web.Helpers.HelperClasses
             }
             public void ToCsv(DataTable kaynak)
             {
-                ToCsv(kaynak, kaynak.TableName, "csv", true, Encoding.UTF8);
+                ToCsv(kaynak, kaynak.TableName, "csv", true, Encoding.UTF8, ",");
             }
             public void ToCsv(DataTable kaynak, string dosyaAd)
             {
-                ToCsv(kaynak, dosyaAd, "csv", true, Encoding.UTF8);
+                ToCsv(kaynak, dosyaAd, "csv", true, Encoding.UTF8, ",", "\"");
             }
             public void ToCsv(DataTable kaynak, string dosyaAd, string uzanti)
             {
-                ToCsv(kaynak, dosyaAd, uzanti, true, Encoding.UTF8);
+                ToCsv(kaynak, dosyaAd, uzanti, true, Encoding.UTF8, ",", "\"");
             }
             public void ToCsv(DataTable kaynak, string dosyaAd, string uzanti, bool baslikYaz)
             {
-                ToCsv(kaynak, dosyaAd, uzanti, baslikYaz, Encoding.UTF8);
-
+                ToCsv(kaynak, dosyaAd, uzanti, baslikYaz, Encoding.UTF8, ",", "\"");
+            }
+            public void ToCsv(DataTable kaynak, string dosyaAd, string uzanti, bool baslikYaz, Encoding encoding)
+            {
+                ToCsv(kaynak, dosyaAd, uzanti, baslikYaz, encoding, ",", "\"");
+            }
+            public void ToCsv(DataTable kaynak, string dosyaAd, string uzanti, bool baslikYaz, Encoding encoding, string ayrac)
+            {
+                ToCsv(kaynak, dosyaAd, uzanti, baslikYaz, encoding, ayrac, "\"");
             }
 
-            public void ToCsv(DataTable kaynak, string dosyaAd, string uzanti, bool baslikYaz, Encoding encoding)
+            public void ToCsv(DataTable kaynak, string dosyaAd, string uzanti, bool baslikYaz, Encoding encoding, string ayrac, string kolonbelirteci)
             {
                 calisanSayfa.Response.Clear();
                 calisanSayfa.Response.ClearHeaders();
@@ -50,7 +57,7 @@ namespace Karkas.Web.Helpers.HelperClasses
                     foreach (DataColumn column in kaynak.Columns)
                     {
                         sw.Append(column.Caption);
-                        sw.Append(",");
+                        sw.Append(ayrac);
                     }
 
                     sw.Append("\n");
@@ -59,10 +66,9 @@ namespace Karkas.Web.Helpers.HelperClasses
                 {
                     foreach (DataColumn column in kaynak.Columns)
                     {
-                        sw.Append(string.Format("\"{0}\"",row[column].ToString()));
-                        sw.Append(",");
+                        sw.Append(string.Format(kolonbelirteci + "{0}" + kolonbelirteci,row[column].ToString()));
+                        sw.Append(ayrac);
                     }
-
                     sw.Append("\n");
                 }
 
