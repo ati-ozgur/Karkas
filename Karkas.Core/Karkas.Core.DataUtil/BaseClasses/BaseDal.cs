@@ -258,7 +258,7 @@ namespace Karkas.Core.DataUtil
         public void SorguCalistir(List<T> liste, String pFilterString, SqlParameter[] parameterArray, bool otomatikWhereEkle)
         {
             SqlCommand cmd = new SqlCommand();
-            filreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
+            filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
             cmd.Connection = Connection;
             foreach (SqlParameter prm in parameterArray)
             {
@@ -271,12 +271,12 @@ namespace Karkas.Core.DataUtil
         public void SorguCalistir(List<T> liste, String pFilterString, bool otomatikWhereEkle)
         {
             SqlCommand cmd = new SqlCommand();
-            filreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
+            filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
             cmd.Connection = Connection;
             sorguCalistirInternal(liste, cmd);
         }
 
-        private void filreStringiniSetle(String pFilterString, bool otomatikWhereEkle, SqlCommand cmd)
+        private void filtreStringiniSetle(String pFilterString, bool otomatikWhereEkle, SqlCommand cmd)
         {
             if (String.IsNullOrEmpty(pFilterString))
             {
