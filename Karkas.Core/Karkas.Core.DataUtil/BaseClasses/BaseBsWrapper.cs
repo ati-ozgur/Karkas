@@ -8,21 +8,32 @@ using Karkas.Core.TypeLibrary;
 
 namespace Karkas.Core.DataUtil.BaseClasses
 {
-    public class BaseBsWrapper<TYPE_LIBRARY_TIPI,DAL_TIPI, BS_TIPI> : BaseBsWrapperWithoutEntity
+    public abstract class BaseBsWrapper<TYPE_LIBRARY_TIPI,DAL_TIPI, BS_TIPI> : BaseBsWrapperWithoutEntity
                 where TYPE_LIBRARY_TIPI : BaseTypeLibrary, new()
         where DAL_TIPI : BaseDal<TYPE_LIBRARY_TIPI>, new()
         where BS_TIPI : BaseBs<TYPE_LIBRARY_TIPI, DAL_TIPI>, new()
     {
-                BS_TIPI bs = new BS_TIPI();
-		
+        public abstract BS_TIPI bs
+        {
+            get;
+        }
 
-		public BaseBsWrapper()
-		{
-			if ((HttpContext.Current != null) && (HttpContext.Current.Session != null) && (HttpContext.Current.Session["KISI_KEY"] != null))
-			{
-				bs.KomutuCalistiranKullaniciKisiKey = (Guid)HttpContext.Current.Session["KISI_KEY"];
-			}
-		}
+
+        public BaseBsWrapper()
+        {
+            if (
+                (HttpContext.Current != null) 
+                && (HttpContext.Current.Session != null) 
+                && (HttpContext.Current.Session["KISI_KEY"] != null)
+                && (bs != null)
+                )
+            {
+                bs.KomutuCalistiranKullaniciKisiKey = (Guid)HttpContext.Current.Session["KISI_KEY"];
+            }
+        }
+
+
+
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Ekle(TYPE_LIBRARY_TIPI p1)
         {

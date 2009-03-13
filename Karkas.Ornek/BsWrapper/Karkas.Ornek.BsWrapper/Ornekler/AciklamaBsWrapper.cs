@@ -13,9 +13,10 @@ using Karkas.Ornek.TypeLibrary.Ornekler;
 using Karkas.Ornek.Bs.Ornekler;
 
 
-namespace Karkas.Ornek.BsWrapper.Ornekler		{
-			    public partial class 			AciklamaBsWrapper
-			{
-			}
-		}
+namespace Karkas.Ornek.BsWrapper.Ornekler
+{
+    public partial class AciklamaBsWrapper
+    {
+    }
+}
 

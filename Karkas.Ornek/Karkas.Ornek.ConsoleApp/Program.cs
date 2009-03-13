@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using Karkas.Ornek.TypeLibrary.Ornekler;
 using Karkas.Ornek.BsWrapper.Ornekler;
-using Karkas.Ornek.Dal.Ornekler;
 using System.Transactions;
 using Karkas.Ornek.ConsoleApp.Testler;
 using System.Xml.Serialization;
@@ -14,6 +13,8 @@ using Karkas.Core.DataUtil;
 using Karkas.Core.DataUtil.SorguYardimcisiSiniflari;
 using System.Globalization;
 using Karkas.Ornek.Bs.Ornekler;
+using Karkas.Ornek.ConsoleApp.DataUtilOrnekleri;
+using Karkas.Ornek.Dal.Ornekler;
 
 namespace Karkas.Ornek.ConsoleApp
 {
@@ -21,7 +22,15 @@ namespace Karkas.Ornek.ConsoleApp
     {
         static void Main(string[] args)
         {
+            AciklamaBsWrapper wrapper = new AciklamaBsWrapper();
+            Aciklama a = new Aciklama();
+            a.AciklamaKey = Guid.NewGuid();
+            a.AciklamaProperty = "Deneme Atilladan";
+            wrapper.Ekle(a);
+        }
 
+        private static void MasterDetayOrnek()
+        {
             MusteriDal dal = new MusteriDal();
             List<Musteri> musteriListesi = dal.SorgulaHepsiniGetir();
             foreach (Musteri m in musteriListesi)
@@ -115,11 +124,11 @@ namespace Karkas.Ornek.ConsoleApp
         {
             using (TransactionScope scope = new TransactionScope())
             {
-                MusteriDal dal = new MusteriDal();
-                BasitTabloDal btDal = new BasitTabloDal();
+                MusteriDal musteriDal = new MusteriDal();
+                BasitTabloDal basitTabloDal = new BasitTabloDal();
 
-                dal.Ekle(pMusteri);
-                btDal.Ekle(pBasitTablo);
+                musteriDal.Ekle(pMusteri);
+                basitTabloDal.Ekle(pBasitTablo);
                 scope.Complete();
 
             }

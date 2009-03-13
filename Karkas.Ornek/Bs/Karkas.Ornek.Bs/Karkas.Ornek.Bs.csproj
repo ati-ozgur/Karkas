@@ -75,6 +75,8 @@
     <Compile Include="Ornekler\IsimlendirmeBozukBs.generated.cs" />
     <Compile Include="Ornekler\MusteriBs.cs" />
     <Compile Include="Ornekler\MusteriBs.generated.cs" />
+    <Compile Include="Ornekler\MusteriSiparisBs.cs" />
+    <Compile Include="Ornekler\MusteriSiparisBs.generated.cs" />
     <Compile Include="Ornekler\OrnekTabloBs.cs" />
     <Compile Include="Ornekler\OrnekTabloBs.generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

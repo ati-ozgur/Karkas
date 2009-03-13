@@ -8,89 +8,34 @@ using System.ComponentModel;
 using System.Web;
 using System.Web.Caching;
 using Karkas.Web.Helpers.HelperClasses;
-using Karkas.Ornek.TypeLibrary;
+using Karkas.Core.DataUtil.BaseClasses;
 using Karkas.Ornek.TypeLibrary.Ornekler;
+using Karkas.Ornek.Dal.Ornekler;
 using Karkas.Ornek.Bs.Ornekler;
-
-
 namespace Karkas.Ornek.BsWrapper.Ornekler
 {
-    [DataObject]
-    public partial class MusteriBsWrapper 
-    {
-        MusteriBs bs = new MusteriBs();
+	[DataObject]
+	public partial class 	MusteriBsWrapper	: BaseBsWrapper<Musteri,MusteriDal,MusteriBs>	
+	{
 		
-
-		public MusteriBsWrapper()
+		MusteriBs _bs = new MusteriBs();
+		public override MusteriBs bs
 		{
-			if ((HttpContext.Current != null) && (HttpContext.Current.Session != null) && (HttpContext.Current.Session[SessionEnumHelper.KISI_KEY] != null))
+			get
 			{
-				bs.KomutuCalistiranKullaniciKisiKey = (Guid)HttpContext.Current.Session[SessionEnumHelper.KISI_KEY];
+				return _bs;
 			}
 		}
-        [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Ekle(Musteri p1 )        {
-            bs.Ekle(p1);
-            return;
-        }
-
-
-        [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Guncelle(Musteri k)
-        {
-            bs.Guncelle(k);
-        }
-        [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Sil(Musteri k)
-        {
-            bs.Sil(k);
-        }
-
 		public void Sil(Guid MusteriKey)
 		{
 			bs.Sil(MusteriKey);
 		}
-        [DataObjectMethod(DataObjectMethodType.Select)]
+		[DataObjectMethod(DataObjectMethodType.Select)]
 		public Musteri SorgulaMusteriKeyIle(Guid p1)
 		{
 			return bs.SorgulaMusteriKeyIle(p1);
 		}
 		
-        public void DurumaGoreEkleGuncelleVeyaSil(Musteri k)
-        {
-            bs.DurumaGoreEkleGuncelleVeyaSil(k);
-        }
-
-
-      [DataObjectMethod(DataObjectMethodType.Select, true)]
-        public List<Musteri> SorgulaHepsiniGetir()
-        {
-            return bs.SorgulaHepsiniGetir();
-        }
-
-      [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public List<Musteri> SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
-        {
-            return bs.SorgulaHepsiniGetirSirali(pSiraListesi);
-        }
-
-        [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void TopluEkleGuncelleVeyaSil(List<Musteri> liste)
-        {
-            bs.TopluEkleGuncelleVeyaSil(liste);
-        }
-        public Guid KomutuCalistiranKullaniciKisiKey
-        {
-			get
-			{
-				return bs.KomutuCalistiranKullaniciKisiKey;
-			}
-			set
-			{
-				bs.KomutuCalistiranKullaniciKisiKey = value;
-			}
-        }
-
-
-    }
+		
+	}
 }

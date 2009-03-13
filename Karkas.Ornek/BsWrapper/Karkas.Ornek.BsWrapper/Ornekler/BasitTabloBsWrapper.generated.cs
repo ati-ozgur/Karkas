@@ -8,89 +8,34 @@ using System.ComponentModel;
 using System.Web;
 using System.Web.Caching;
 using Karkas.Web.Helpers.HelperClasses;
-using Karkas.Ornek.TypeLibrary;
+using Karkas.Core.DataUtil.BaseClasses;
 using Karkas.Ornek.TypeLibrary.Ornekler;
+using Karkas.Ornek.Dal.Ornekler;
 using Karkas.Ornek.Bs.Ornekler;
-
-
 namespace Karkas.Ornek.BsWrapper.Ornekler
 {
-    [DataObject]
-    public partial class BasitTabloBsWrapper 
-    {
-        BasitTabloBs bs = new BasitTabloBs();
+	[DataObject]
+	public partial class 	BasitTabloBsWrapper	: BaseBsWrapper<BasitTablo,BasitTabloDal,BasitTabloBs>	
+	{
 		
-
-		public BasitTabloBsWrapper()
+		BasitTabloBs _bs = new BasitTabloBs();
+		public override BasitTabloBs bs
 		{
-			if ((HttpContext.Current != null) && (HttpContext.Current.Session != null) && (HttpContext.Current.Session[SessionEnumHelper.KISI_KEY] != null))
+			get
 			{
-				bs.KomutuCalistiranKullaniciKisiKey = (Guid)HttpContext.Current.Session[SessionEnumHelper.KISI_KEY];
+				return _bs;
 			}
 		}
-        [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Ekle(BasitTablo p1 )        {
-            bs.Ekle(p1);
-            return;
-        }
-
-
-        [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Guncelle(BasitTablo k)
-        {
-            bs.Guncelle(k);
-        }
-        [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Sil(BasitTablo k)
-        {
-            bs.Sil(k);
-        }
-
 		public void Sil(Guid BasitTabloKey)
 		{
 			bs.Sil(BasitTabloKey);
 		}
-        [DataObjectMethod(DataObjectMethodType.Select)]
+		[DataObjectMethod(DataObjectMethodType.Select)]
 		public BasitTablo SorgulaBasitTabloKeyIle(Guid p1)
 		{
 			return bs.SorgulaBasitTabloKeyIle(p1);
 		}
 		
-        public void DurumaGoreEkleGuncelleVeyaSil(BasitTablo k)
-        {
-            bs.DurumaGoreEkleGuncelleVeyaSil(k);
-        }
-
-
-      [DataObjectMethod(DataObjectMethodType.Select, true)]
-        public List<BasitTablo> SorgulaHepsiniGetir()
-        {
-            return bs.SorgulaHepsiniGetir();
-        }
-
-      [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public List<BasitTablo> SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
-        {
-            return bs.SorgulaHepsiniGetirSirali(pSiraListesi);
-        }
-
-        [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void TopluEkleGuncelleVeyaSil(List<BasitTablo> liste)
-        {
-            bs.TopluEkleGuncelleVeyaSil(liste);
-        }
-        public Guid KomutuCalistiranKullaniciKisiKey
-        {
-			get
-			{
-				return bs.KomutuCalistiranKullaniciKisiKey;
-			}
-			set
-			{
-				bs.KomutuCalistiranKullaniciKisiKey = value;
-			}
-        }
-
-
-    }
+		
+	}
 }

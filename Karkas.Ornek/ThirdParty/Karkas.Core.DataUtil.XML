@@ -11,6 +11,51 @@
             Otomatik olarak Bs tarafindan yapilacak
             </summary>
         </member>
+        <member name="T:Karkas.Core.DataUtil.BaseDalForIdentity`2">
+            <summary>
+            T TypeLibrary Class
+            M Type of Primary Key of T
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="M"></typeparam>
+        </member>
+        <member name="T:Karkas.Core.DataUtil.BaseDal`1">
+            <summary>
+            T TypeLibrary Class
+            M Type of Primary Key of T
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Karkas.Core.DataUtil.BaseDalWithoutEntity.OtomatikConnectionYonetimi">
+            <summary>
+            Eger varsayılan deger, true bırakılırsa, connection yonetimi 
+            BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
+            Connection'u acma ve kapama BaseDal kontrolundedir.
+            Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
+            </summary>
+        </member>
+        <member name="P:Karkas.Core.DataUtil.BaseDalWithoutEntity.KomutuCalistiranKullaniciKisiKey">
+            <summary>
+            Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
+            Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
+            Otomatik olarak Bs tarafindan yapilacak
+            </summary>
+        </member>
+        <member name="M:Karkas.Core.DataUtil.AdoTemplate.TekDegerGetir(System.Data.SqlClient.SqlCommand)">
+            <summary>
+            Bu komut Ado.Net'a ait ExecuteScalar komutudur. Eğer sorgu sonucu sadece
+            tek bir değer dönmesini bekliyorsanız. Örneğin
+            SELECT COUNT(*) FROM ORTAK.KISI
+            Bu komutu kullanabilirsiniz. Gelen nesne (object) olarak döndüğü için
+            cast işlemi yapmanız gerekmektedir.
+            </summary>
+            <example>
+            
+            
+            </example>
+            <param name="cmd"></param>
+            <returns></returns>
+        </member>
         <member name="P:Karkas.Core.DataUtil.AdoTemplate.OtomatikConnectionYonetimi">
             <summary>
             Eger varsayılan deger, true bırakılırsa, connection yonetimi 
@@ -35,28 +80,6 @@
             </summary>
         </member>
         <member name="P:Karkas.Core.DataUtil.PagingHelper.KomutuCalistiranKullaniciKisiKey">
-            <summary>
-            Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
-            Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
-            Otomatik olarak Bs tarafindan yapilacak
-            </summary>
-        </member>
-        <member name="T:Karkas.Core.DataUtil.BaseDal`1">
-            <summary>
-            T TypeLibrary Class
-            M Type of Primary Key of T
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="P:Karkas.Core.DataUtil.BaseDalWithoutEntity.OtomatikConnectionYonetimi">
-            <summary>
-            Eger varsayılan deger, true bırakılırsa, connection yonetimi 
-            BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
-            Connection'u acma ve kapama BaseDal kontrolundedir.
-            Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
-            </summary>
-        </member>
-        <member name="P:Karkas.Core.DataUtil.BaseDalWithoutEntity.KomutuCalistiranKullaniciKisiKey">
             <summary>
             Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
             Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.

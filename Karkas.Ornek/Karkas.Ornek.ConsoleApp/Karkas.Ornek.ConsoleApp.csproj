@@ -65,8 +65,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataUtilOrnekleri\AdoTemplateOrnekleri.cs" />
+    <Compile Include="DataUtilOrnekleri\OrneklerConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Testler\AciklamaBsWrapperTest.cs" />
     <Compile Include="Testler\AciklamaTest.cs" />
     <Compile Include="Testler\BasitTabloIdentityTest.cs" />
     <Compile Include="Testler\BasitTabloIdentityTestViaBs.cs" />
