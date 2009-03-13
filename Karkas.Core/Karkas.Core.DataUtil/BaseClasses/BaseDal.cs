@@ -79,7 +79,7 @@ namespace Karkas.Core.DataUtil
             SorguCalistir(liste);
             return liste;
         }
-        public virtual List<T> SorgulaForeingKeyIle(string filtre , object oDegeri)
+        public virtual List<T> SorgulaKolonIsmiIle(string filtre , object oDegeri)
         {
             List<T> liste = new List<T>();
             SorguCalistir(liste,string.Format("{0} = '{1}'",filtre,oDegeri));

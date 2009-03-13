@@ -102,9 +102,9 @@ namespace Karkas.Core.DataUtil
         {
             return dal.SorgulaDetayTabloGetir<T1>(degeri);
         }
-        public virtual List<TYPE_LIBRARY_TIPI> SorgulaForeingKeyIle(string filtre, object oDegeri)
+        public virtual List<TYPE_LIBRARY_TIPI> SorgulaKolonIsmiIle(string filtre, object oDegeri)
         {
-            return dal.SorgulaForeingKeyIle(filtre, oDegeri);
+            return dal.SorgulaKolonIsmiIle(filtre, oDegeri);
         }
 
 
