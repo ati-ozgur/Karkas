@@ -13,8 +13,18 @@ using Karkas.Ornek.TypeLibrary.Ornekler;
 using Karkas.Ornek.Bs.Ornekler;
 
 
-namespace Karkas.Ornek.BsWrapper.Ornekler		{
-			    public partial class 			MusteriSiparisBsWrapper
-			{
-			}
-		}
+namespace Karkas.Ornek.BsWrapper.Ornekler
+{
+    public partial class MusteriSiparisBsWrapper
+    {
+        /// <summary>
+        /// MusteriKey ile sipariþleri arar
+        /// </summary>
+        /// <param name="pMusteriKey"></param>
+        /// <returns></returns>
+        public DataTable SorgulaMusteriKeyIle(Guid pMusteriKey)
+        {
+            return bs.SorgulaMusteriKeyIle(pMusteriKey);
+        }
+    }
+}

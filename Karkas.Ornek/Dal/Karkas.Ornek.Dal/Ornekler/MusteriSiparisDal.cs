@@ -12,5 +12,19 @@ namespace Karkas.Ornek.Dal.Ornekler
 {
 	public partial class MusteriSiparisDal
 	{
+        /// <summary>
+        /// MusteriKey ile siparişleri arar
+        /// </summary>
+        /// <param name="pMusteriKey"></param>
+        /// <returns></returns>
+        public DataTable SorgulaMusteriKeyIle(Guid pMusteriKey)
+        {
+            string strSQL = @"SELECT *
+                              FROM ORNEKLER.MUSTERI_SIPARIS
+                            WHERE MusteriKey = @MusteriKey";
+            ParameterBuilder builder = new ParameterBuilder();
+            builder.parameterEkle("@MusteriKey", SqlDbType.UniqueIdentifier, pMusteriKey);
+            return Template.DataTableOlustur(strSQL, builder.GetParameterArray());
+        }
 	}
 }

@@ -21,6 +21,18 @@ namespace Karkas.Ornek.BsWrapper.Ornekler
         {
             return bs.SorgulaHepsiniGetirDataTable();
         }
+
+        /// <summary>
+        /// Adı soyadı ve durumuna göre müşteri arar
+        /// </summary>
+        /// <param name="pAdi"></param>
+        /// <param name="pSoyadi"></param>
+        /// <param name="pAktifMi"></param>
+        /// <returns></returns>
+        public DataTable SorgulaAdiSoyadiVeDurumuIle(string pAdi, string pSoyadi, bool pAktifMi)
+        {
+            return bs.SorgulaAdiSoyadiVeDurumuIle(pAdi, pSoyadi, pAktifMi);
+        }
     }
 }
 

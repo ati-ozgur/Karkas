@@ -14,9 +14,9 @@
         <asp:ScriptManager ID="ScriptManagerAritOnayLinkButtonDeneme" runat="server">
         </asp:ScriptManager>
     </div>
-    <arit:AritOnayLinkButton Text="deneme" OnClick="Deneme_Click" ID="AritOnayLinkButton1"
+<%--    <arit:AritOnayLinkButton Text="deneme" OnClick="Deneme_Click" ID="AritOnayLinkButton1"
         OnayMesaj="Devam Etmek İstiyor musunuz?" runat="server" />
-    </form>
+--%>    </form>
 </body>
 </html>
 
