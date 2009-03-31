@@ -69,12 +69,12 @@
   <ItemGroup>
     <Compile Include="Ay.cs" />
     <Compile Include="EPostaYardimcisi.cs" />
+    <Compile Include="ExtensionMethods\StringHelper.cs" />
     <Compile Include="FileDownloadHelper.cs" />
     <Compile Include="ReportingServicesHelper\KarkasRapor.cs" />
     <Compile Include="ReportingServicesHelper\KarkasRapor.Enums.cs" />
     <Compile Include="ReportingServicesHelper\KarkasRaporParametre.cs" />
     <Compile Include="ReportingServicesHelper\ReportingService.cs" />
-    <Compile Include="StringHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -104,7 +104,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ExtensionMethods\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
