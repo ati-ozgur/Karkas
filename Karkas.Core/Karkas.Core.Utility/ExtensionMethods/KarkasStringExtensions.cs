@@ -15,7 +15,7 @@ namespace Karkas.Core.Utility
 
         public static string ReplaceLastOccurance(this string pValue, string pOldValue, string pNewValue)
         {
-            int lastIndex = pValue.LastIndexOf(pOldValue);
+            int lastIndex = pValue.LastIndexOf(pOldValue, StringComparison.InvariantCultureIgnoreCase);
             string baslangic = pValue.Substring(0, lastIndex);
             string son = pValue.Substring(lastIndex + pOldValue.Length);
             return baslangic + pNewValue + son;
