@@ -4,6 +4,7 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using Karkas.Core.Utility;
 
 namespace Karkas.Core.DataUtil
 {
@@ -114,7 +115,7 @@ namespace Karkas.Core.DataUtil
             else
             {
                 int rowEnd = pStartRowNumber + pPageSize;
-                sql = sql.Replace("FROM", String.Format(",ROW_NUMBER() OVER (order by {0}) as RowNumber FROM ", pOrderBy));
+                sql = sql.ReplaceLastOccurance("FROM", String.Format(",ROW_NUMBER() OVER (order by {0}) as RowNumber FROM ", pOrderBy));
                 sql = String.Format(PAGING_SQL, sql, pStartRowNumber, rowEnd);
             }
         }
