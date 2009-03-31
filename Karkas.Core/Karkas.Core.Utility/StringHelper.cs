@@ -7,6 +7,20 @@ namespace Karkas.Core.Utility
 {
     public static  class StringHelper
     {
+        public static bool IsNullOrEmpty(this string value)
+        {
+            return string.IsNullOrEmpty(value);
+        }
+
+
+        public static string ReplaceLastOccurance(this string pValue, string pOldValue, string pNewValue)
+        {
+            int lastIndex = pValue.LastIndexOf(pOldValue);
+            string baslangic = pValue.Substring(0, lastIndex);
+            string son = pValue.Substring(lastIndex + pOldValue.Length);
+            return baslangic + pNewValue + son;
+        }
+
         public static string StringToBase64Encode(this string str)
         {
             byte[] arr = StringToByteArray(str);

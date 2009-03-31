@@ -12,6 +12,7 @@ using Karkas.Core.Utility.ReportingServicesHelper;
 using Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri.KarsilastirmaTestleri;
 using Karkas.Core.DataUtil.TestConsoleApp.Tests.WebHelperTestleri;
 using Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri;
+using Karkas.Core.Utility;
 
 namespace Karkas.Core.DataUtil.TestConsoleApp
 {
@@ -19,7 +20,11 @@ namespace Karkas.Core.DataUtil.TestConsoleApp
     {
         public static void Main(string[] args)
         {
-            RaporCagirmaMusteri.RaporOrnekleriAl(RaporFormats.XML);
+            string deger = @"( SELECT * FROM DENEME_TABLO ) AS DENEME SELECT * 0FROM1 DENEME";
+
+            string degismis = deger.ReplaceLastOccurance("FROM", "FROM_DEGISMIS");
+            Console.WriteLine(degismis);
+
         }
 
 

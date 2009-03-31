@@ -79,6 +79,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RaporCagirmaOrnekleri\RaporCagirmaMusteri.cs" />
     <Compile Include="Tests\DalTestleri\SiralamaTest1.cs" />
+    <Compile Include="Tests\ExtensionMethodTests\KarkasStringExtensionsTest.cs" />
     <Compile Include="Tests\OnaylamaTestleri\CompareTest.cs" />
     <Compile Include="Tests\OnaylamaTestleri\Email\EmailTest.cs" />
     <Compile Include="Tests\OnaylamaTestleri\KarsilastirmaTestleri.cs" />
