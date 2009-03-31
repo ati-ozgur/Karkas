@@ -20,10 +20,6 @@ namespace Karkas.Core.DataUtil.TestConsoleApp
     {
         public static void Main(string[] args)
         {
-            string deger = @"( SELECT * FROM DENEME_TABLO ) AS DENEME SELECT * 0FROM1 DENEME";
-
-            string degismis = deger.ReplaceLastOccurance("FROM", "FROM_DEGISMIS");
-            Console.WriteLine(degismis);
 
         }
 

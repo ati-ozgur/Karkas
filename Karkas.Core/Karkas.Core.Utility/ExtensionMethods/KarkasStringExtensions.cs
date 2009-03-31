@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Karkas.Core.Utility
 {
-    public static  class StringHelper
+    public static class KarkasStringExtensions
     {
         public static bool IsNullOrEmpty(this string value)
         {
