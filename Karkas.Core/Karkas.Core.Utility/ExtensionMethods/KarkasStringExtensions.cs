@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Karkas.Core.Utility
 {
@@ -58,6 +59,13 @@ namespace Karkas.Core.Utility
         {
             UTF8Encoding encoding = new UTF8Encoding();
             return encoding.GetBytes(str);
+        }
+
+
+
+        public static bool GecerliEPostaMi(this string eMail)
+        {
+            return Regex.IsMatch(eMail, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
         }
     }
 }
