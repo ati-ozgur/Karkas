@@ -7,12 +7,30 @@ namespace Karkas.Core.Utility
 {
     public static class KarkasStringExtensions
     {
+        /// <summary>
+        /// Static IsNullOrEmpty'nin extension method hali.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool IsNullOrEmpty(this string value)
         {
             return string.IsNullOrEmpty(value);
+            
         }
 
 
+        /// <summary>
+        /// String.Replace bir string icindeki gecen tum kelimeleri replace eder.
+        /// Yani
+        /// "Deneme Deneme".Replace("Den","123") = "123eme 123eme"
+        /// ReplaceLastOccurance ile
+        /// "Deneme Deneme".ReplaceLastOccurance("Den","123") = "Deneme 123eme"
+        /// olur
+        /// </summary>
+        /// <param name="pValue"></param>
+        /// <param name="pOldValue"></param>
+        /// <param name="pNewValue"></param>
+        /// <returns></returns>
         public static string ReplaceLastOccurance(this string pValue, string pOldValue, string pNewValue)
         {
             int lastIndex = pValue.LastIndexOf(pOldValue, StringComparison.InvariantCultureIgnoreCase);
