@@ -82,49 +82,61 @@ namespace Karkas.Web.Helpers.HelperClasses
 
             public void ToExcel(DataTable kaynak, string dosyaAd, bool baslikYaz)
             {
-                ToExcel(kaynak, dosyaAd, baslikYaz, Encoding.UTF8);
+                ToExcel(kaynak, dosyaAd, baslikYaz, Encoding.GetEncoding("iso-8859-9"));
             }
 
             public void ToExcel(DataTable kaynak, string dosyaAd, bool baslikYaz, Encoding encoding)
             {
                 calisanSayfa.Response.Clear();
+                calisanSayfa.Response.Buffer = true;
+
                 calisanSayfa.Response.Charset = encoding.WebName;
                 calisanSayfa.Response.ContentEncoding = encoding;
 
                 calisanSayfa.Response.AppendHeader("content-disposition", "attachment; filename=" + dosyaAd + ".xls");
-                calisanSayfa.Response.ContentType = "application/vnd.ms-excel";
-                StringWriter sw = new StringWriter();
-                sw.Write("<table>");
+                string mimeType = string.Format("application/vnd.ms-excel;charset={0}", encoding.BodyName);
+                calisanSayfa.Response.ContentType = mimeType;
+
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<html>");
+                sb.Append("<head>");
+                sb.Append(string.Format("<meta http-equiv=\"Content-Type\" content=\"text/html; charset={0}\">", encoding.BodyName));
+                sb.Append("</head>");
+                sb.Append("<body>");
+                sb.Append("<table>");
                 if (baslikYaz)
                 {
-                    sw.Write("<tr>");
+                    sb.Append("<tr>");
                     foreach (DataColumn column in kaynak.Columns)
                     {
-                        sw.Write("<td>");
-                        sw.Write(column.Caption);
-                        sw.Write("</td>");
+                        sb.Append("<td>");
+                        sb.Append(column.Caption);
+                        sb.Append("</td>");
                     }
 
-                    sw.Write("</tr>");
+                    sb.Append("</tr>");
                 }
                 foreach (DataRow row in kaynak.Rows)
                 {
-                    sw.Write("<tr>");
+                    sb.Append("<tr>");
                     foreach (DataColumn column in kaynak.Columns)
                     {
-                        sw.Write("<td>");
-                        sw.Write(row[column].ToString());
-                        sw.Write("</td>");
+                        sb.Append("<td>");
+                        sb.Append(row[column].ToString());
+                        sb.Append("</td>");
                     }
 
-                    sw.Write("</tr>");
+                    sb.Append("</tr>");
                 }
 
 
-                sw.Write("</table>");
+                sb.Append("</table>");
+                sb.Append("</body>");
+                sb.Append("</html>");
 
 
-                calisanSayfa.Response.Write(sw.ToString());
+                calisanSayfa.Response.Write(sb.ToString());
                 calisanSayfa.Response.End();
             }
 
