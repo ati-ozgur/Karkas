@@ -54,25 +54,29 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         public string DegeriniAl()
         {
             string sonuc = null;
-            switch (type)
+            if (degeri != null)
             {
-                case ParameterTypeEnum.String:
-                    sonuc = degeri.ToString();
-                    break;
-                case ParameterTypeEnum.Integer:
-                    sonuc = degeri.ToString();
-                    break;
-                case ParameterTypeEnum.DateTime:
-                    DateTime d = Convert.ToDateTime(degeri);
-                    sonuc = string.Format("{0:yyyy-MM-dd HH:mm:ss}", d);
-                    break;
-                case ParameterTypeEnum.Boolean:
-                    sonuc = degeri.ToString();
-                    break;
-                case ParameterTypeEnum.Float:
-                    sonuc = degeri.ToString();
-                    break;
+                switch (type)
+                {
+                    case ParameterTypeEnum.String:
+                        sonuc = degeri.ToString();
+                        break;
+                    case ParameterTypeEnum.Integer:
+                        sonuc = degeri.ToString();
+                        break;
+                    case ParameterTypeEnum.DateTime:
+                        DateTime d = Convert.ToDateTime(degeri);
+                        sonuc = string.Format("{0:yyyy-MM-dd HH:mm:ss}", d);
+                        break;
+                    case ParameterTypeEnum.Boolean:
+                        sonuc = degeri.ToString();
+                        break;
+                    case ParameterTypeEnum.Float:
+                        sonuc = degeri.ToString();
+                        break;
+                }
             }
+            
             return sonuc;
         }
 
