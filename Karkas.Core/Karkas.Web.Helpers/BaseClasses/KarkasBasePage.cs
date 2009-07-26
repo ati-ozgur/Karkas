@@ -239,7 +239,7 @@
             this.JavascriptHelper.ScriptRegisterFile("~/javascript/jquery.js", "jquery");
             this.JavascriptHelper.ScriptRegisterFile("~/javascript/jqDnR.js", "jqDnR");
             this.JavascriptHelper.ScriptRegisterFile("~/javascript/jqalert.js", "jqalert");
-            this.JavascriptHelper.ScriptRegisterFile("~/javascript/genel.js", "genel");
+            this.JavascriptHelper.ScriptRegisterFile("~/javascript/Genel.js", "Genel");
         }
 
         public KarkasWebHelper.ListHelper ListHelper
