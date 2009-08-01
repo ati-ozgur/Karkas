@@ -89,5 +89,15 @@ namespace Karkas.Core.DataUtil.BaseClasses
 			}
         }
 
+        public List<T1> SorgulaDetayTabloGetir<T1>(object degeri) where T1 : new()
+        {
+            return bs.SorgulaDetayTabloGetir<T1>(degeri);
+        }
+        public virtual List<TYPE_LIBRARY_TIPI> SorgulaKolonIsmiIle(string filtre, object oDegeri)
+        {
+            return bs.SorgulaKolonIsmiIle(filtre, oDegeri);
+        }
+
+
     }
 }
