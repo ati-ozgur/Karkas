@@ -26,6 +26,7 @@
       <Code Language="csharp"><![CDATA[       public DataTable Sorgula$ParamA$Ile(Guid p$ParamA$)
         {
 			string sqlString = @"SELECT * FROM ORTAK.KISI
+            WHERE
 						$ParamA$ = @$ParamA$";
 			ParameterBuilder builder = new ParameterBuilder();
 			builder.parameterEkle("@$ParamA$", SqlDbType.UniqueIdentifier, p$ParamA$);
