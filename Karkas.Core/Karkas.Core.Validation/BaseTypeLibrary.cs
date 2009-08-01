@@ -34,6 +34,8 @@ namespace Karkas.Core.TypeLibrary
         {
         }
 
+        protected const string CEVIRI_YAZISI = "{0} kolonu için, girilen değer {1}'e çevrilemedi. Girilmemiş olabilir ";
+
         public bool Onayla()
         {
             if (validator == null)
