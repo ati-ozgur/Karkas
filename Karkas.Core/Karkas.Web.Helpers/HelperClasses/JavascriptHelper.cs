@@ -44,14 +44,14 @@
                 {
                     message = message.Replace("\r\n", "\n");
                     string[] satirlar = message.Split('\n');
-                    string yeniMesaj = "var a = ";
+                    string yeniMesaj = "var a = \"";
                     for (int i = 0; i < satirlar.Length - 1; i++)
                     {
                         string satir = satirlar[i];
-                        yeniMesaj += string.Format("'{0} \\n'+ {1}", satir, Environment.NewLine);
+                        yeniMesaj += string.Format("{0} \\n ", satir);
                     }
                     yeniMesaj = yeniMesaj.Remove(yeniMesaj.Length - 4);
-                    yeniMesaj += "; alert(a);";
+                    yeniMesaj += "\"; alert(a);";
                     message = yeniMesaj;
                 }
                 else
