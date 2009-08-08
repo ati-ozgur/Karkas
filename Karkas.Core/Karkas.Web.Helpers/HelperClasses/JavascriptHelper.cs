@@ -86,6 +86,13 @@
                 HttpContext.Current.Response.Write(ScriptTaglariArasinaAl("javascript:window.opener.location=window.opener.location; window.close();"));
                 HttpContext.Current.Response.End();
             }
+            public void PopUpiKapatAcanPenceredeScriptCalistir(string pJavascript)
+            {
+                HttpContext.Current.Response.Clear();
+                HttpContext.Current.Response.Write(ScriptTaglariArasinaAl("javascript:" + pJavascript));
+                HttpContext.Current.Response.Write(ScriptTaglariArasinaAl("javascript:window.opener.location=window.opener.location; window.close();"));
+                HttpContext.Current.Response.End();
+            }
             public void PopUpWindowBaslangictaAc(string pPageUrl)
             {
                 PopUpWindowBaslangictaAc(pPageUrl, 640, 480, false);
