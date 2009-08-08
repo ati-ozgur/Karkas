@@ -1,4 +1,4 @@
-﻿namespace Karkas.Web.Helpers.Classes
+﻿namespace Karkas.Web.Helpers.HelperClasses
 {
     using System;
 

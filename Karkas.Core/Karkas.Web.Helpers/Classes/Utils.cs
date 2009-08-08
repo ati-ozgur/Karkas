@@ -1,4 +1,4 @@
-﻿namespace Karkas.Web.Helpers.Classes
+﻿namespace Karkas.Web.Helpers.HelperClasses
 {
     using System;
     using System.Collections;
@@ -7,8 +7,72 @@
     using System.Web.Security;
     using System.Web.UI.WebControls;
 
-    public class Utils
+
+    public static class Utils
     {
+        public static int? IntAsNullable(this String str)
+        {
+            int sonuc;
+            if (int.TryParse(str, out sonuc))
+            {
+                return sonuc;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static byte? ByteAsNullable(this String str)
+        {
+            byte sonuc;
+            if (byte.TryParse(str, out sonuc))
+            {
+                return sonuc;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static short? ShortAsNullable(this String str)
+        {
+            short sonuc;
+            if (short.TryParse(str, out sonuc))
+            {
+                return sonuc;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static long? LongAsNullable(this String str)
+        {
+            long sonuc;
+            if (long.TryParse(str, out sonuc))
+            {
+                return sonuc;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static Guid? GuidAsNullable(this String str)
+        {
+            Guid sonuc;
+            try
+            {
+                return new Guid(str);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+
         public static string VerilenKarakterYaDaKelimeleriCikar(string pGercekCumleYaDaKelime, string[] pCikarilacakKarakterYaDaKelimeler)
         {
             string cikarilmisCumleYaDaKelime = pGercekCumleYaDaKelime;

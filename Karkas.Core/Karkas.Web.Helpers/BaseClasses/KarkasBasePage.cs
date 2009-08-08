@@ -1,14 +1,15 @@
-﻿namespace Karkas.Web.Helpers.BaseClasses
+﻿using Karkas.Web.Helpers.HelperClasses;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web;
+
+
+namespace Karkas.Web.Helpers.BaseClasses
 {
-    using Karkas.Web.Helpers.Classes;
-    using Karkas.Web.Helpers.HelperClasses;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Text;
-    using System.Web.UI;
-    using System.Web.UI.WebControls;
-    using System.Web;
 
     public abstract class KarkasBasePage : Page
     {
