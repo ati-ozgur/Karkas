@@ -69,6 +69,13 @@ namespace Karkas.Core.DataUtil
             sb.Remove(sb.Length - 1, 1);
             return sb.ToString();
         }
+
+        public void WhereKriterineEkle(string pKolonIsmi)
+        {
+            WhereKriter wk = new WhereKriter(pKolonIsmi,WhereOperatorEnum.Esittir , "@" + pKolonIsmi);
+            whereListesi.Add(wk);
+        }
+        
         public void WhereKriterineEkle(string pKolonIsmi, WhereOperatorEnum whereOperator)
         {
             WhereKriter wk = new WhereKriter(pKolonIsmi, whereOperator, "@" + pKolonIsmi);
@@ -115,6 +122,10 @@ namespace Karkas.Core.DataUtil
             WhereKriterTercihli wk = new WhereKriterTercihli(pKolonIsmi, pWhereOperatorEnum, pParameterIsmi);
             whereTercihliListesi.Add(wk);
 
+        }
+        public void WhereKriterineTercihliEkle(string pKolonIsmi)
+        {
+            WhereKriterineTercihliEkle(pKolonIsmi, WhereOperatorEnum.Esittir, "@" + pKolonIsmi);
         }
 
         public void WhereKriterineTercihliEkle(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum)
