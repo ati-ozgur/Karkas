@@ -90,7 +90,7 @@
             {
                 HttpContext.Current.Response.Clear();
                 HttpContext.Current.Response.Write(ScriptTaglariArasinaAl("javascript:" + pJavascript));
-                HttpContext.Current.Response.Write(ScriptTaglariArasinaAl("javascript:window.opener.location=window.opener.location; window.close();"));
+                HttpContext.Current.Response.Write(ScriptTaglariArasinaAl("javascript:window.close();"));
                 HttpContext.Current.Response.End();
             }
             public void PopUpWindowBaslangictaAc(string pPageUrl)
