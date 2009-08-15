@@ -9,8 +9,9 @@ namespace Karkas.ExtensionMethods
     {
         public static decimal? ToDecimalAsNullable(this String str)
         {
+
             decimal sonuc;
-            if (decimal.TryParse(str, out sonuc))
+            if (!string.IsNullOrEmpty(str) && decimal.TryParse(str, out sonuc))
             {
                 return sonuc;
             }
