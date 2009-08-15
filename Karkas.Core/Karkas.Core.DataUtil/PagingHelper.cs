@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using Karkas.Core.Utility;
+using Karkas.ExtensionMethods;
 
 namespace Karkas.Core.DataUtil
 {

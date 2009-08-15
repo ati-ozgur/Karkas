@@ -173,6 +173,14 @@ namespace Karkas.Core.DataUtil
             WhereKriterTercihliNullDegeri wk = new WhereKriterTercihliNullDegeri(pKolonIsmi, pWhereOperatorEnum, pParameterIsmi, pNullDegeri);
             whereTercihliNullDegeriListesi.Add(wk);
         }
+        public void WhereKriterineTercihliEkleNullDegeriVer(
+            string pKolonIsmi
+            , string pNullDegeri
+            )
+        {
+            WhereKriterTercihliNullDegeri wk = new WhereKriterTercihliNullDegeri(pKolonIsmi, WhereOperatorEnum.Esittir, "@" + pKolonIsmi, pNullDegeri);
+            whereTercihliNullDegeriListesi.Add(wk);
+        }
 
 
         public void WhereKriterineTercihliEkleNullDegeriVer(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum, string pParameterIsmi, LikeYeriEnum pLikeYeriEnum, string pNullDegeri)

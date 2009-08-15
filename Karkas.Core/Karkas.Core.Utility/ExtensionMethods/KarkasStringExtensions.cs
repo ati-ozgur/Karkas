@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Karkas.Core.Utility
+namespace Karkas.ExtensionMethods
 {
     public static class KarkasStringExtensions
     {

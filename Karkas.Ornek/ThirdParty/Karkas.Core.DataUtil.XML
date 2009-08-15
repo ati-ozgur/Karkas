@@ -11,20 +11,12 @@
             Otomatik olarak Bs tarafindan yapilacak
             </summary>
         </member>
-        <member name="T:Karkas.Core.DataUtil.BaseDalForIdentity`2">
+        <member name="P:Karkas.Core.DataUtil.PagingHelper.KomutuCalistiranKullaniciKisiKey">
             <summary>
-            T TypeLibrary Class
-            M Type of Primary Key of T
+            Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
+            Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
+            Otomatik olarak Bs tarafindan yapilacak
             </summary>
-            <typeparam name="T"></typeparam>
-            <typeparam name="M"></typeparam>
-        </member>
-        <member name="T:Karkas.Core.DataUtil.BaseDal`1">
-            <summary>
-            T TypeLibrary Class
-            M Type of Primary Key of T
-            </summary>
-            <typeparam name="T"></typeparam>
         </member>
         <member name="P:Karkas.Core.DataUtil.BaseDalWithoutEntity.OtomatikConnectionYonetimi">
             <summary>
@@ -35,6 +27,21 @@
             </summary>
         </member>
         <member name="P:Karkas.Core.DataUtil.BaseDalWithoutEntity.KomutuCalistiranKullaniciKisiKey">
+            <summary>
+            Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
+            Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
+            Otomatik olarak Bs tarafindan yapilacak
+            </summary>
+        </member>
+        <member name="P:Karkas.Core.DataUtil.HelperFunctions.OtomatikConnectionYonetimi">
+            <summary>
+            Eger varsayılan deger, true bırakılırsa, connection yonetimi 
+            BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
+            Connection'u acma ve kapama BaseDal kontrolundedir.
+            Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
+            </summary>
+        </member>
+        <member name="P:Karkas.Core.DataUtil.HelperFunctions.KomutuCalistiranKullaniciKisiKey">
             <summary>
             Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
             Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
@@ -64,27 +71,20 @@
             Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
             </summary>
         </member>
-        <member name="P:Karkas.Core.DataUtil.HelperFunctions.OtomatikConnectionYonetimi">
+        <member name="T:Karkas.Core.DataUtil.BaseDalForIdentity`2">
             <summary>
-            Eger varsayılan deger, true bırakılırsa, connection yonetimi 
-            BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
-            Connection'u acma ve kapama BaseDal kontrolundedir.
-            Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
+            T TypeLibrary Class
+            M Type of Primary Key of T
             </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="M"></typeparam>
         </member>
-        <member name="P:Karkas.Core.DataUtil.HelperFunctions.KomutuCalistiranKullaniciKisiKey">
+        <member name="T:Karkas.Core.DataUtil.BaseDal`1">
             <summary>
-            Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
-            Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
-            Otomatik olarak Bs tarafindan yapilacak
+            T TypeLibrary Class
+            M Type of Primary Key of T
             </summary>
-        </member>
-        <member name="P:Karkas.Core.DataUtil.PagingHelper.KomutuCalistiranKullaniciKisiKey">
-            <summary>
-            Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
-            Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
-            Otomatik olarak Bs tarafindan yapilacak
-            </summary>
+            <typeparam name="T"></typeparam>
         </member>
     </members>
 </doc>

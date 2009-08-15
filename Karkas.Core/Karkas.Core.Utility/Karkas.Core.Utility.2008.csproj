@@ -75,6 +75,7 @@
     <Compile Include="ReportingServicesHelper\KarkasRapor.Enums.cs" />
     <Compile Include="ReportingServicesHelper\KarkasRaporParametre.cs" />
     <Compile Include="ReportingServicesHelper\ReportingService.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

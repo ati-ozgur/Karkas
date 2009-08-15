@@ -96,9 +96,6 @@
     <Compile Include="Classes\MesajTuruEnum.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Classes\Utils.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="CustomControls\KarkasTreeNode.cs" />
     <Compile Include="CustomControls\KarkasTreeView.cs" />
     <Compile Include="HelperClasses\ExportHelper.cs" />

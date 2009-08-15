@@ -8,6 +8,9 @@ namespace Karkas.Web.Helpers.BaseClasses
 {
     public class BaseKarkasUserControl : UserControl
     {
+        
+
+
         public KarkasBasePage BasePage
         {
             get
