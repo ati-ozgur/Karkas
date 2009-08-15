@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using Karkas.Core.Utility;
-using Karkas.ExtensionMethods;
+using Karkas.Extensions;
 
 
 namespace Karkas.Core.DataUtil.TestConsoleApp.Tests.ExtensionMethodTests
