@@ -21,6 +21,11 @@ namespace Karkas.Core.DataUtil.TestConsoleApp
         public static void Main(string[] args)
         {
 
+            FtpYardimcisi fy = new FtpYardimcisi("ftp://www.manufacturingturkey.com/", "ftp_13568", "deniz");
+            fy.CreateDirectory("anon_ftp/Eczane/20090817");
+            fy.UpLoadWithFullFileName("anon_ftp/Eczane/20090817/deneme.txt", "deneme.txt");
+            fy.UpLoadWithDirectoryName("anon_ftp/Eczane", "deneme2.txt");
+
         }
 
 

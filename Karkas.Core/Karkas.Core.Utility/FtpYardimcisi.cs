@@ -57,6 +57,19 @@ namespace Karkas.Core.Utility
             return ftpWebRequest;
         }
 
+        public void CreateDirectory(string pRemoteLocation)
+        {
+            FtpWebRequest request = getFtpWebRequest(pRemoteLocation);
+            request.KeepAlive = false;
+            request.Method = WebRequestMethods.Ftp.MakeDirectory;
+            FtpWebResponse FtpResp = (FtpWebResponse)request.GetResponse();
+            Stream ftpRespStream = FtpResp.GetResponseStream();
+
+            //close the objects
+            request = null;
+            ftpRespStream.Close();
+        
+        }
 
         public void UpLoadWithFullFileName(string pRemoteLocation, string pLocalFile)
         {
