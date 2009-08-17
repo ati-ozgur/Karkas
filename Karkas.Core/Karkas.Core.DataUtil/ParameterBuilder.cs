@@ -26,6 +26,12 @@ namespace Karkas.Core.DataUtil
         {
             parameterList = new List<SqlParameter>();
         }
+        internal void parameterEkle(string parameterName, object value)
+        {
+            SqlParameter prm = parameterDegerleriniSetle(parameterName,SqlDbType.Variant, value);
+            parameteriyiCommandYadaListeyeEkle(prm);
+        }
+
 
         public void parameterEkle(string parameterName,SqlDbType dbType, object value)
         {

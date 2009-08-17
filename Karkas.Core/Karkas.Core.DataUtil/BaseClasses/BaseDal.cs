@@ -79,10 +79,39 @@ namespace Karkas.Core.DataUtil
             SorguCalistir(liste);
             return liste;
         }
-        public virtual List<T> SorgulaKolonIsmiIle(string filtre , object oDegeri)
+
+        /// <summary>
+        /// Veritabanındaki tablo üzerinde kolon ismi ile filtreleme
+        /// yapararak arama yapar. Ornegin KISI tablosunda
+        /// List<Kisi> kisiListesi = SorgulaKolonIsmiIle(Kisi.PropertyIsimleri.Cinsiyeti,"e");
+        /// Cinsiyeti e olan kisileri getirir. Cogunlukla master detay tablolarında 
+        /// Foreign key ile sorgulama için kullanılır.
+        /// </summary>
+        /// <param name="filtre">filtre yapılacak olan kolonun ismi, 
+        ///  TypeLibraryName.PropertyIsimleri.PropertyName kullanmanız tavsiye edilir.</param>
+        /// <param name="oDegeri"> aranacak kolonun filtre değeri</param>
+        /// <returns></returns>
+        public virtual List<T> SorgulaKolonIsmiIle(string filtre, object oDegeri)
+        {
+            return SorgulaKolonIsmiIle(new String[] { filtre }, new Object[] { oDegeri });
+        }
+        public virtual List<T> SorgulaKolonIsmiIle(List<string> filtreListesi, List<object> degerListesi)
+        {
+            return SorgulaKolonIsmiIle(filtreListesi.ToArray(), degerListesi.ToArray());
+        }
+        public virtual List<T> SorgulaKolonIsmiIle(string[] filtreListesi, object[] degerListesi)
         {
             List<T> liste = new List<T>();
-            SorguCalistir(liste,string.Format("{0} = '{1}'",filtre,oDegeri));
+            SorguYardimcisi sy = new SorguYardimcisi();
+            ParameterBuilder builder = new ParameterBuilder();
+            for (int i=0;i<filtreListesi.Length;i++)
+        	{
+
+                string filtre = filtreListesi[i];
+                sy.WhereKriterineEkle(filtre);
+                builder.parameterEkle("@" + filtre, degerListesi[i]);
+          	}
+            SorguCalistir(liste,sy.KriterSonucunuWhereOlmadanGetir() , builder.GetParameterArray());
             return liste;
         }
 

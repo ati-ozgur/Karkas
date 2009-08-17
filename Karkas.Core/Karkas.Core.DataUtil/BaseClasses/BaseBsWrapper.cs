@@ -98,6 +98,15 @@ namespace Karkas.Core.DataUtil.BaseClasses
             return bs.SorgulaKolonIsmiIle(filtre, oDegeri);
         }
 
+        public virtual List<TYPE_LIBRARY_TIPI> SorgulaKolonIsmiIle(List<string> filtreListesi, List<object> degerListesi)
+        {
+            return bs.SorgulaKolonIsmiIle(filtreListesi, degerListesi);
+        }
+        public virtual List<TYPE_LIBRARY_TIPI> SorgulaKolonIsmiIle(string[] filtreListesi, object[] degerListesi)
+        {
+            return bs.SorgulaKolonIsmiIle(filtreListesi, degerListesi);
+        }
+
 
     }
 }
