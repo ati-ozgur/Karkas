@@ -14,10 +14,10 @@ public partial class Ornekler_OrnekDataTableBind : KarkasBasePage
     {
         if (!Page.IsPostBack)
         {
-            //MusteriBsWrapper wrapper = new MusteriBsWrapper();
-            //DataTable dt = wrapper.SorgulaAdiIle("");
-            //this.ListHelper.ListControlaBindEt(dt, MusteriDropDownList, "MusteriKey", "TamAdi");
-            //this.ListHelper.ListControlaBindEtLutfenEkle(dt, MusteriLutfenDropDownList, "MusteriKey", "TamAdi");
+            MusteriBsWrapper wrapper = new MusteriBsWrapper();
+            DataTable dt = wrapper.SorgulaAdiIle("");
+            this.ListHelper.ListControlaBindEt(dt, MusteriDropDownList, "MusteriKey", "TamAdi");
+            this.ListHelper.ListControlaBindEtLutfenEkle(dt, MusteriLutfenDropDownList, "MusteriKey", "TamAdi");
 
         }
     }

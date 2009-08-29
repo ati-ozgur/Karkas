@@ -22,11 +22,25 @@ namespace Karkas.Ornek.ConsoleApp
     {
         static void Main(string[] args)
         {
-            AciklamaBsWrapper wrapper = new AciklamaBsWrapper();
             Aciklama a = new Aciklama();
             a.AciklamaKey = Guid.NewGuid();
-            a.AciklamaProperty = "Deneme Atilladan";
+            a.AciklamaProperty = "Deneme";
+
+            AciklamaBsWrapper wrapper = new AciklamaBsWrapper();
             wrapper.Ekle(a);
+
+
+            AdoTemplate template = new AdoTemplate();
+            DataTable dt = template.DataTableOlustur("SELECT * FROM ORNEKLER.ACIKLAMA");
+
+
+
+
+            //AciklamaBsWrapper wrapper = new AciklamaBsWrapper();
+            //Aciklama a = new Aciklama();
+            //a.AciklamaKey = Guid.NewGuid();
+            //a.AciklamaProperty = "Deneme Atilladan";
+            //wrapper.Ekle(a);
         }
 
         private static void MasterDetayOrnek()

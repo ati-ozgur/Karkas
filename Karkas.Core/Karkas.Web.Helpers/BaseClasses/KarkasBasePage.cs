@@ -55,7 +55,50 @@ namespace Karkas.Web.Helpers.BaseClasses
                 port = ":" + port;
             }
         }
+        private static int? portAsInt;
+        private static bool portHesaplandiMi = false;
+        public int? PortAsInt
+        {
+            get
+            {
+                if (portHesaplandiMi)
+                {
+                    return portAsInt;
+                }
+                int sonuc = 0;
+                string s = Port.Remove(0, 1);
+                if (String.IsNullOrEmpty(Port)
+                    &&
+                    Int32.TryParse(s , out sonuc)
+                    )
+                {
+                    portHesaplandiMi = true;
+                    portAsInt =  null;
+                }
+                else
+                {
+                    portAsInt = sonuc;
+                }
+                return portAsInt;
+            }
+        }
 
+        public bool YerelDeveloperMakinesiIstegiMi
+        {
+            get
+            {
+                
+                if (BasePath.Contains("localhost") &&
+                    PortAsInt.HasValue)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
 
         private static string protocol;
         /// <summary>

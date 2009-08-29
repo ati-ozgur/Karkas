@@ -13,6 +13,7 @@ using Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri.KarsilastirmaTe
 using Karkas.Core.DataUtil.TestConsoleApp.Tests.WebHelperTestleri;
 using Karkas.Core.DataUtil.TestConsoleApp.RaporCagirmaOrnekleri;
 using Karkas.Core.Utility;
+using Karkas.Core.DataUtil.SqlBuilderSiniflari;
 
 namespace Karkas.Core.DataUtil.TestConsoleApp
 {
@@ -21,10 +22,6 @@ namespace Karkas.Core.DataUtil.TestConsoleApp
         public static void Main(string[] args)
         {
 
-            FtpYardimcisi fy = new FtpYardimcisi("ftp://www.manufacturingturkey.com/", "ftp_13568", "deniz");
-            fy.CreateDirectory("anon_ftp/Eczane/20090817");
-            fy.UpLoadWithFullFileName("anon_ftp/Eczane/20090817/deneme.txt", "deneme.txt");
-            fy.UpLoadWithDirectoryName("anon_ftp/Eczane", "deneme2.txt");
 
         }
 

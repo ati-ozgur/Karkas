@@ -96,6 +96,7 @@
     <Compile Include="SorguYardimcisiSiniflari\WhereKriterTercihli.cs" />
     <Compile Include="SorguYardimcisiSiniflari\WhereKriterTercihliNullDegeri.cs" />
     <Compile Include="SorguYardimcisiSiniflari\WhereOperatorEnum.cs" />
+    <Compile Include="SqlBuilderSiniflari\SqlBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
