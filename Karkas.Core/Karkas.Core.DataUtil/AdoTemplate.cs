@@ -65,7 +65,6 @@ namespace Karkas.Core.DataUtil
             get { return komutuCalistiranKullaniciKisiKey; }
             set { komutuCalistiranKullaniciKisiKey = value; }
         }
-        private static ILog logger = LogManager.GetLogger("Dal");
 
         private SqlConnection connection = null;
         public SqlConnection Connection
@@ -130,7 +129,7 @@ namespace Karkas.Core.DataUtil
             object son = 0;
             try
             {
-                logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
+                new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).LogInfo(this.GetType());
                 if (ConnectionAcilacakMi())
                 {
                     Connection.Open();
@@ -158,7 +157,7 @@ namespace Karkas.Core.DataUtil
         {
             try
             {
-                logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
+                new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).LogInfo(this.GetType());
                 if (ConnectionAcilacakMi())
                 {
                     Connection.Open();

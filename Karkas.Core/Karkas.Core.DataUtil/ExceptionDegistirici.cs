@@ -9,7 +9,6 @@ namespace Karkas.Core.DataUtil
 {
     public class ExceptionDegistirici
     {
-        private static ILog logger = LogManager.GetLogger("Dal");
 
         public static void Degistir(SqlException ex)
         {
@@ -66,7 +65,7 @@ namespace Karkas.Core.DataUtil
                     firlatilacakException = new VeritabaniBaglantiHatasi(String.Format("Veritabanina baglanilamadi lutfen connection string'in dogrulugunu ve veritabanininin calisip calismadigini kontrol ediniz, Kullanilan ConnectionString = {0}, verilen hata Mesaji = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message));
                     break;
             }
-            logger.Info(pMesaj, firlatilacakException);
+            new LoggingInfo().LogInfo(Type.GetType(" Karkas.Core.DataUtil.ExceptionDegistirici"), ex, pMesaj);
             throw firlatilacakException;
         }
 

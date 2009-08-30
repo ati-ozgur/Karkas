@@ -21,15 +21,6 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         public BaseBsWrapper()
         {
-            if (
-                (HttpContext.Current != null) 
-                && (HttpContext.Current.Session != null) 
-                && (HttpContext.Current.Session["KISI_KEY"] != null)
-                && (bs != null)
-                )
-            {
-                bs.KomutuCalistiranKullaniciKisiKey = (Guid)HttpContext.Current.Session["KISI_KEY"];
-            }
         }
 
 

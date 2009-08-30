@@ -16,7 +16,6 @@ namespace Karkas.Core.DataUtil
     /// <typeparam name="M"></typeparam>
     public abstract class BaseDalForIdentity<T, M> : BaseDal<T> where T : BaseTypeLibrary, new()
     {
-        private static ILog logger = LogManager.GetLogger("Dal");
 
         public BaseDalForIdentity()
         {
@@ -49,7 +48,7 @@ namespace Karkas.Core.DataUtil
                 }
                 if (IdentityVarMi)
                 {
-                    logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
+                    new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).LogInfo(this.GetType());
                     object o = cmd.ExecuteScalar();
                     sonuc = (M)Convert.ChangeType(o, sonuc.GetType());
                     identityKolonDegeriniSetle(row, sonuc);
@@ -65,7 +64,7 @@ namespace Karkas.Core.DataUtil
             }
             catch (Exception ex)
             {
-                logger.Info(ex);
+                new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).LogInfo(this.GetType(),ex);
             }
 
             finally

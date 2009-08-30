@@ -8,6 +8,7 @@ using log4net;
 using Karkas.Core.DataUtil.Exceptions;
 using System.Reflection;
 using System.Runtime.Remoting;
+using System.Web;
 
 namespace Karkas.Core.DataUtil
 {
@@ -18,6 +19,18 @@ namespace Karkas.Core.DataUtil
     /// <typeparam name="T"></typeparam>
     public abstract class BaseDal<T> : BaseDalWithoutEntity where T : BaseTypeLibrary, new()
     {
+        public BaseDal()
+        {
+            if (
+                    (HttpContext.Current != null)
+                    && (HttpContext.Current.Session != null)
+                    && (HttpContext.Current.Session["KISI_KEY"] != null)
+                )
+            {
+                KomutuCalistiranKullaniciKisiKey = (Guid)HttpContext.Current.Session["KISI_KEY"];
+            }
+
+        }
 
 
         public virtual int TablodakiSatirSayisi
@@ -104,14 +117,14 @@ namespace Karkas.Core.DataUtil
             List<T> liste = new List<T>();
             SorguYardimcisi sy = new SorguYardimcisi();
             ParameterBuilder builder = new ParameterBuilder();
-            for (int i=0;i<filtreListesi.Length;i++)
-        	{
+            for (int i = 0; i < filtreListesi.Length; i++)
+            {
 
                 string filtre = filtreListesi[i];
                 sy.WhereKriterineEkle(filtre);
                 builder.parameterEkle("@" + filtre, degerListesi[i]);
-          	}
-            SorguCalistir(liste,sy.KriterSonucunuWhereOlmadanGetir() , builder.GetParameterArray());
+            }
+            SorguCalistir(liste, sy.KriterSonucunuWhereOlmadanGetir(), builder.GetParameterArray());
             return liste;
         }
 
@@ -164,7 +177,7 @@ namespace Karkas.Core.DataUtil
                 }
                 if (IdentityVarMi)
                 {
-                    logger.Info(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
+                    new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).LogInfo(this.GetType());
                     object id_degeri = cmd.ExecuteScalar();
                     sonuc = Convert.ToInt64(id_degeri);
                     identityKolonDegeriniSetle(row, sonuc);
@@ -180,7 +193,7 @@ namespace Karkas.Core.DataUtil
             }
             catch (Exception ex)
             {
-                logger.Info(ex);
+                new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).LogInfo(this.GetType(),ex);
             }
 
             finally
@@ -343,7 +356,7 @@ namespace Karkas.Core.DataUtil
                 {
                     cmd.Transaction = CurrentTransaction;
                 }
-                logger.Debug(new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd));
+                new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).LogDebug(this.GetType());
                 reader = cmd.ExecuteReader();
 
                 T row = default(T);

@@ -10,7 +10,6 @@ namespace Karkas.Core.DataUtil
 {
     public abstract class BaseDalWithoutEntity
     {
-        protected static ILog logger = LogManager.GetLogger("Dal");
 
         private bool otomatikConnectionYonetimi = true;
         /// <summary>
@@ -117,7 +116,7 @@ namespace Karkas.Core.DataUtil
                 {
                     cmd.Transaction = currentTransaction;
                 }
-                logger.Info(new LoggingInfo(komutuCalistiranKullaniciKisiKey, cmd));
+                new LoggingInfo(komutuCalistiranKullaniciKisiKey, cmd).LogInfo(this.GetType());
 
                 sonucRowSayisi = cmd.ExecuteNonQuery();
             }
