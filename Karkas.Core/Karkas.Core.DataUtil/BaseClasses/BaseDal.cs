@@ -31,6 +31,28 @@ namespace Karkas.Core.DataUtil
             }
 
         }
+        private bool isInTransaction = false;
+
+        public bool IsInTransaction
+        {
+            get { return isInTransaction; }
+            set { isInTransaction = value; }
+        }
+
+        public DIGER_DAL_TIPI GetDalInstance<DIGER_DAL_TIPI, DIGER_TYPE_LIBRARY_TIPI>()
+            where DIGER_TYPE_LIBRARY_TIPI : BaseTypeLibrary, new()
+            where DIGER_DAL_TIPI : BaseDal<DIGER_TYPE_LIBRARY_TIPI>, new()
+        {
+            DIGER_DAL_TIPI di = new DIGER_DAL_TIPI();
+            di.Connection = Connection;
+            di.IsInTransaction = IsInTransaction;
+            if (IsInTransaction)
+            {
+                di.OtomatikConnectionYonetimi = false;
+                di.CurrentTransaction = CurrentTransaction;
+            }
+            return di;
+        }
 
 
         public virtual int TablodakiSatirSayisi
