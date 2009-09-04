@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 using log4net;
+using System.Threading;
 
 namespace Karkas.Core.DataUtil
 {
@@ -26,36 +27,55 @@ namespace Karkas.Core.DataUtil
 
         internal void LogInfo(Type pLoggingType, Exception ex)
         {
+            log4netEkBilgi(pLoggingType);
+            logger.Info(this.ToString(), ex);
+        }
+
+        private string kullaniciIsmi
+        {
+            get
+            {
+                if (Thread.CurrentPrincipal != null
+                    &&
+                    Thread.CurrentPrincipal.Identity != null)
+                {
+                    return Thread.CurrentPrincipal.Identity.Name;
+                }
+                else
+                {
+                    return "";
+                }
+            }
+        }
+
+        private void log4netEkBilgi(Type pLoggingType)
+        {
+            MDC.Set("Kullanici", kullaniciIsmi);
             MDC.Set("KisiKey", KisiKey.ToString());
             MDC.Set("LoggingType", pLoggingType.FullName);
-            logger.Info(this.ToString(), ex);
         }
 
         public void LogInfo(Type pLoggingType)
         {
-            MDC.Set("KisiKey", KisiKey.ToString());
-            MDC.Set("LoggingType", pLoggingType.FullName);
+            log4netEkBilgi(pLoggingType);
             logger.Info(this.ToString());
         }
 
         internal void LogInfo(Type pLoggingType, SqlException ex, string pMesaj)
         {
-            MDC.Set("KisiKey", KisiKey.ToString());
-            MDC.Set("LoggingType", pLoggingType.FullName);
+            log4netEkBilgi(pLoggingType);
             logger.Info("LoggingInfo: " + this.ToString() + pMesaj, ex);
         }
 
         internal void LogDebug(Type pLoggingType, Exception ex)
         {
-            MDC.Set("KisiKey", KisiKey.ToString());
-            MDC.Set("LoggingType", pLoggingType.FullName);
+            log4netEkBilgi(pLoggingType);
             logger.Debug(this.ToString(), ex);
         }
 
         public void LogDebug(Type pLoggingType)
         {
-            MDC.Set("KisiKey", KisiKey.ToString());
-            MDC.Set("LoggingType", pLoggingType.FullName);
+            log4netEkBilgi(pLoggingType);
             logger.Debug(this.ToString());
         }
 
@@ -80,14 +100,14 @@ namespace Karkas.Core.DataUtil
 
         public override string ToString()
         {
-            
+
             StringBuilder sb = new StringBuilder();
             if (SqlCommand != null)
             {
                 foreach (SqlParameter param in SqlCommand.Parameters)
                 {
-                    sb.Append(String.Format( "DECLARE {0} {1} = '{2}' "
-                        , param.ParameterName ,param.SqlDbType,  param.Value) + Environment.NewLine);
+                    sb.Append(String.Format("DECLARE {0} {1} = '{2}' "
+                        , param.ParameterName, param.SqlDbType, param.Value) + Environment.NewLine);
                 }
                 sb.Append(Environment.NewLine);
                 sb.Append(SqlCommand.CommandText);
