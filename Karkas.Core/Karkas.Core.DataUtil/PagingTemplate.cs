@@ -40,7 +40,7 @@ namespace Karkas.Core.DataUtil
 
         public PagingTemplate(string pSql)
         {
-            new PagingHelper(ConnectionSingleton.Instance.Connection, KomutuCalistiranKullaniciKisiKey,currentTransaction);
+            new PagingHelper(ConnectionSingleton.Instance.Connection,currentTransaction);
             this.selectSql = pSql;
             this.countSql = sqlCumlesiniCountIleDegistir(pSql);
         }

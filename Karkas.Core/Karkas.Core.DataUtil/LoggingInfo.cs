@@ -4,6 +4,7 @@ using System.Text;
 using System.Data.SqlClient;
 using log4net;
 using System.Threading;
+using System.Web;
 
 namespace Karkas.Core.DataUtil
 {
@@ -16,10 +17,8 @@ namespace Karkas.Core.DataUtil
         {
 
         }
-
-        public LoggingInfo(Guid pKisiKey, SqlCommand sqlCommand)
+        public LoggingInfo(SqlCommand sqlCommand)
         {
-            this.kisiKey = pKisiKey;
             this.sqlCommand = sqlCommand;
         }
 
@@ -31,7 +30,7 @@ namespace Karkas.Core.DataUtil
             logger.Info(this.ToString(), ex);
         }
 
-        private string kullaniciIsmi
+        private string KullaniciIsmi
         {
             get
             {
@@ -50,8 +49,7 @@ namespace Karkas.Core.DataUtil
 
         private void log4netEkBilgi(Type pLoggingType)
         {
-            MDC.Set("Kullanici", kullaniciIsmi);
-            MDC.Set("KisiKey", KisiKey.ToString());
+            MDC.Set("Kullanici", KullaniciIsmi);
             MDC.Set("LoggingType", pLoggingType.FullName);
         }
 
@@ -79,14 +77,6 @@ namespace Karkas.Core.DataUtil
             logger.Debug(this.ToString());
         }
 
-        private Guid? kisiKey;
-
-        public Guid? KisiKey
-        {
-            get { return kisiKey; }
-            set { kisiKey = value; }
-        }
-
         private SqlCommand sqlCommand;
 
         public SqlCommand SqlCommand
@@ -106,8 +96,20 @@ namespace Karkas.Core.DataUtil
             {
                 foreach (SqlParameter param in SqlCommand.Parameters)
                 {
-                    sb.Append(String.Format("DECLARE {0} {1} = '{2}' "
-                        , param.ParameterName, param.SqlDbType, param.Value) + Environment.NewLine);
+                    if (
+                        param.Value != null
+                        ||
+                        param.Value != DBNull.Value
+                        )
+                    {
+                        sb.Append(String.Format("DECLARE {0} {1} = '{2}' "
+                            , param.ParameterName, param.SqlDbType, param.Value) + Environment.NewLine);
+                    }
+                    else
+                    {
+                        sb.Append(String.Format("DECLARE {0} {1}"
+                            , param.ParameterName, param.SqlDbType) + Environment.NewLine);
+                    }
                 }
                 sb.Append(Environment.NewLine);
                 sb.Append(SqlCommand.CommandText);

@@ -32,10 +32,9 @@ namespace Karkas.Core.DataUtil
             set { currentTransaction = value; }
         }
 
-        public PagingHelper(SqlConnection pConnection, Guid pKisiKey, SqlTransaction currentTransaction)
+        public PagingHelper(SqlConnection pConnection, SqlTransaction currentTransaction)
         {
-            helper = new HelperFunctions(pConnection, pKisiKey, currentTransaction);
-            this.komutuCalistiranKullaniciKisiKey = pKisiKey;
+            helper = new HelperFunctions(pConnection, currentTransaction);
         }
 
         private HelperFunctions helper;

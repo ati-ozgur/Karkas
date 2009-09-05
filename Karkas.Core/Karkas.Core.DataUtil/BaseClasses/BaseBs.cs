@@ -86,17 +86,6 @@ namespace Karkas.Core.DataUtil
                 return dal.TablodakiSatirSayisi;
             }
         }
-        public Guid KomutuCalistiranKullaniciKisiKey
-        {
-            get
-            {
-                return dal.KomutuCalistiranKullaniciKisiKey;
-            }
-            set
-            {
-                dal.KomutuCalistiranKullaniciKisiKey = value;
-            }
-        }
 
         public List<T1> SorgulaDetayTabloGetir<T1>(object degeri) where T1 : new()
         {

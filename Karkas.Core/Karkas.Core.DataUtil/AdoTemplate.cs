@@ -10,7 +10,6 @@ namespace Karkas.Core.DataUtil
 {
     public class AdoTemplate
     {
-        private Guid komutuCalistiranKullaniciKisiKey;
 
 
         private bool otomatikConnectionYonetimi = true;
@@ -60,11 +59,6 @@ namespace Karkas.Core.DataUtil
             }
         }
 
-        public Guid KomutuCalistiranKullaniciKisiKey
-        {
-            get { return komutuCalistiranKullaniciKisiKey; }
-            set { komutuCalistiranKullaniciKisiKey = value; }
-        }
 
         private SqlConnection connection = null;
         public SqlConnection Connection
@@ -103,7 +97,7 @@ namespace Karkas.Core.DataUtil
             {
                 if (_helper == null)
                 {
-                    _helper = new HelperFunctions(Connection, KomutuCalistiranKullaniciKisiKey,currentTransaction);
+                    _helper = new HelperFunctions(Connection,currentTransaction);
                     _helper.OtomatikConnectionYonetimi = OtomatikConnectionYonetimi;
                 }
                 return _helper;
@@ -118,7 +112,7 @@ namespace Karkas.Core.DataUtil
             {
                 if (_pagingHelper == null)
                 {
-                    _pagingHelper = new PagingHelper(Connection, KomutuCalistiranKullaniciKisiKey,currentTransaction);
+                    _pagingHelper = new PagingHelper(Connection,currentTransaction);
                 }
                 return _pagingHelper;
             }
@@ -129,7 +123,7 @@ namespace Karkas.Core.DataUtil
             object son = 0;
             try
             {
-                new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).LogInfo(this.GetType());
+                new LoggingInfo( cmd).LogInfo(this.GetType());
                 if (ConnectionAcilacakMi())
                 {
                     Connection.Open();
@@ -142,7 +136,7 @@ namespace Karkas.Core.DataUtil
             }
             catch (SqlException ex)
             {
-                ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo( cmd).ToString());
             }
             finally
             {
@@ -157,7 +151,7 @@ namespace Karkas.Core.DataUtil
         {
             try
             {
-                new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).LogInfo(this.GetType());
+                new LoggingInfo(cmd).LogInfo(this.GetType());
                 if (ConnectionAcilacakMi())
                 {
                     Connection.Open();
@@ -171,7 +165,7 @@ namespace Karkas.Core.DataUtil
             }
             catch (SqlException ex)
             {
-                ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
             }
             finally
             {

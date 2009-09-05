@@ -48,7 +48,7 @@ namespace Karkas.Core.DataUtil
                 }
                 if (IdentityVarMi)
                 {
-                    new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).LogInfo(this.GetType());
+                    new LoggingInfo(cmd).LogInfo(this.GetType());
                     object o = cmd.ExecuteScalar();
                     sonuc = (M)Convert.ChangeType(o, sonuc.GetType());
                     identityKolonDegeriniSetle(row, sonuc);
@@ -60,11 +60,11 @@ namespace Karkas.Core.DataUtil
             }
             catch (SqlException ex)
             {
-                ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
             }
             catch (Exception ex)
             {
-                new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).LogInfo(this.GetType(),ex);
+                new LoggingInfo(cmd).LogInfo(this.GetType(),ex);
             }
 
             finally

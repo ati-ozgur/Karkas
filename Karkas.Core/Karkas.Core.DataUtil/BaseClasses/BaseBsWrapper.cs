@@ -68,17 +68,6 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             bs.TopluEkleGuncelleVeyaSil(liste);
         }
-        public Guid KomutuCalistiranKullaniciKisiKey
-        {
-			get
-			{
-				return bs.KomutuCalistiranKullaniciKisiKey;
-			}
-			set
-			{
-				bs.KomutuCalistiranKullaniciKisiKey = value;
-			}
-        }
 
         public List<T1> SorgulaDetayTabloGetir<T1>(object degeri) where T1 : new()
         {

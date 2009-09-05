@@ -21,15 +21,6 @@ namespace Karkas.Core.DataUtil
     {
         public BaseDal()
         {
-            if (
-                    (HttpContext.Current != null)
-                    && (HttpContext.Current.Session != null)
-                    && (HttpContext.Current.Session["KISI_KEY"] != null)
-                )
-            {
-                KomutuCalistiranKullaniciKisiKey = (Guid)HttpContext.Current.Session["KISI_KEY"];
-            }
-
         }
         private bool isInTransaction = false;
 
@@ -199,7 +190,7 @@ namespace Karkas.Core.DataUtil
                 }
                 if (IdentityVarMi)
                 {
-                    new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).LogInfo(this.GetType());
+                    new LoggingInfo( cmd).LogInfo(this.GetType());
                     object id_degeri = cmd.ExecuteScalar();
                     sonuc = Convert.ToInt64(id_degeri);
                     identityKolonDegeriniSetle(row, sonuc);
@@ -211,11 +202,11 @@ namespace Karkas.Core.DataUtil
             }
             catch (SqlException ex)
             {
-                ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo( cmd).ToString());
             }
             catch (Exception ex)
             {
-                new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).LogInfo(this.GetType(),ex);
+                new LoggingInfo( cmd).LogInfo(this.GetType(),ex);
             }
 
             finally
@@ -378,7 +369,7 @@ namespace Karkas.Core.DataUtil
                 {
                     cmd.Transaction = CurrentTransaction;
                 }
-                new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).LogDebug(this.GetType());
+                new LoggingInfo(cmd).LogDebug(this.GetType());
                 reader = cmd.ExecuteReader();
 
                 T row = default(T);
@@ -393,7 +384,7 @@ namespace Karkas.Core.DataUtil
             }
             catch (SqlException ex)
             {
-                ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
             }
             finally
             {

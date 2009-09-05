@@ -47,25 +47,13 @@ namespace Karkas.Core.DataUtil
             return (OtomatikConnectionYonetimi);
         }
 
-        private Guid komutuCalistiranKullaniciKisiKey;
-        /// <summary>
-        /// Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
-        /// Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
-        /// Otomatik olarak Bs tarafindan yapilacak
-        /// </summary>
-        public Guid KomutuCalistiranKullaniciKisiKey
-        {
-            get { return komutuCalistiranKullaniciKisiKey; }
-            set { komutuCalistiranKullaniciKisiKey = value; }
-        }
 
 
         SqlConnection conn;
-        public HelperFunctions(SqlConnection pConnection, Guid pKisiKey,SqlTransaction currentTransaction)
+        public HelperFunctions(SqlConnection pConnection,SqlTransaction currentTransaction)
         {
             this.currentTransaction = currentTransaction;
             conn = pConnection;
-            komutuCalistiranKullaniciKisiKey = pKisiKey;
         }
 
         internal void SorguCalistir(DataTable dt, string sql, CommandType cmdType)
@@ -80,7 +68,7 @@ namespace Karkas.Core.DataUtil
             }
             catch (SqlException ex)
             {
-                ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
             }
             finally
             {
@@ -112,7 +100,7 @@ namespace Karkas.Core.DataUtil
             }
             catch (SqlException ex)
             {
-                ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
 
             }
             finally

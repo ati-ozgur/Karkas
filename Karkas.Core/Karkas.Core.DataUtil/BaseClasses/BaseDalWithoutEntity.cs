@@ -31,18 +31,6 @@ namespace Karkas.Core.DataUtil
             }
         }
 
-        private Guid komutuCalistiranKullaniciKisiKey;
-        /// <summary>
-        /// Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
-        /// Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
-        /// Otomatik olarak Bs tarafindan yapilacak
-        /// </summary>
-        public Guid KomutuCalistiranKullaniciKisiKey
-        {
-            get { return komutuCalistiranKullaniciKisiKey; }
-            set { komutuCalistiranKullaniciKisiKey = value; }
-        }
-
 
 
         private AdoTemplate template;
@@ -116,7 +104,7 @@ namespace Karkas.Core.DataUtil
                 {
                     cmd.Transaction = currentTransaction;
                 }
-                new LoggingInfo(komutuCalistiranKullaniciKisiKey, cmd).LogInfo(this.GetType());
+                new LoggingInfo( cmd).LogInfo(this.GetType());
 
                 sonucRowSayisi = cmd.ExecuteNonQuery();
             }
@@ -126,7 +114,7 @@ namespace Karkas.Core.DataUtil
                 {
                     currentTransaction.Rollback();
                 }
-                ExceptionDegistirici.Degistir(ex, new LoggingInfo(KomutuCalistiranKullaniciKisiKey, cmd).ToString());
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
             }
             finally
             {
