@@ -267,6 +267,46 @@ namespace Karkas.Core.DataUtil
 
         }
 
+        /// <summary>
+        /// verilen sql cumlesini IF EXISTS icinde calıstırır, eğer sonuc listesi varsa
+        /// true diğer durumda false dondurur.
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="prmListesi"></param>
+        /// <returns></returns>
+        public bool VarMiIfExists(String pSql, SqlParameter[] pParamListesi)
+        {
+            string calistirilacakSql = string.Format(@"IF EXISTS
+                                        (  
+                                        {0}
+                                        )
+                                        SELECT cast( 1 as bit)
+                                        else
+                                        SELECT cast( 0 as bit)
+                                        ", pSql);
+            return (bool)this.TekDegerGetir(calistirilacakSql, pParamListesi);
+        }
+        /// <summary>
+        /// verilen sql cumlesini IF EXISTS icinde calıstırır, eğer sonuc listesi varsa
+        /// true diğer durumda false dondurur.
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="prmListesi"></param>
+        /// <returns></returns>
+        public bool VarMiIfExists(String pSql)
+        {
+            string calistirilacakSql = string.Format(@"IF EXISTS
+                                        (  
+                                        {0}
+                                        )
+                                        SELECT cast( 1 as bit)
+                                        else
+                                        SELECT cast( 0 as bit)
+                                        ", pSql);
+            return (bool)this.TekDegerGetir(calistirilacakSql);
+        }
+
+
 
         #region "DataTable Olusturma Methods"
         public DataTable DataTableOlustur(SqlCommand cmd)
