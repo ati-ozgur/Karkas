@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A74FFCF8-27F3-4839-B03C-4F80D0D863CC}</ProjectGuid>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>Karkas.Ornek.TypeLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>Karkas.Ornek.TypeLibrary</RootNamespace>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Karkas.Core.Onaylama">
+      <HintPath>..\..\ThirdParty\2010\Karkas.Core.Onaylama.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dbo\OrnekSistemView.cs" />
+    <Compile Include="Dbo\OrnekSistemView.generated.cs" />
+    <Compile Include="Enums\TtOrnekler\OrnekTur.cs" />
+    <Compile Include="Ornekler\Aciklama.cs" />
+    <Compile Include="Ornekler\Aciklama.generated.cs" />
+    <Compile Include="Ornekler\BasitTablo.cs" />
+    <Compile Include="Ornekler\BasitTablo.generated.cs" />
+    <Compile Include="Ornekler\BasitTabloIdentity.cs" />
+    <Compile Include="Ornekler\BasitTabloIdentity.generated.cs" />
+    <Compile Include="Ornekler\ConcurrencyOrnek.cs" />
+    <Compile Include="Ornekler\ConcurrencyOrnek.generated.cs" />
+    <Compile Include="Ornekler\DenemeGuidIdentity.cs" />
+    <Compile Include="Ornekler\DenemeGuidIdentity.generated.cs" />
+    <Compile Include="Ornekler\IdentityBigInt.cs" />
+    <Compile Include="Ornekler\IdentityBigInt.generated.cs" />
+    <Compile Include="Ornekler\IdentityInt.cs" />
+    <Compile Include="Ornekler\IdentityInt.generated.cs" />
+    <Compile Include="Ornekler\IdentitySmallInt.cs" />
+    <Compile Include="Ornekler\IdentitySmallInt.generated.cs" />
+    <Compile Include="Ornekler\IdentityTinyInt.cs" />
+    <Compile Include="Ornekler\IdentityTinyInt.generated.cs" />
+    <Compile Include="Ornekler\IsimlendirmeBozuk.cs" />
+    <Compile Include="Ornekler\IsimlendirmeBozuk.generated.cs" />
+    <Compile Include="Ornekler\Musteri.cs" />
+    <Compile Include="Ornekler\Musteri.generated.cs" />
+    <Compile Include="Ornekler\MusteriSiparis.cs" />
+    <Compile Include="Ornekler\MusteriSiparis.generated.cs" />
+    <Compile Include="Ornekler\OrnekTablo.cs" />
+    <Compile Include="Ornekler\OrnekTablo.generated.cs" />
+    <Compile Include="SessionEnumHelper.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

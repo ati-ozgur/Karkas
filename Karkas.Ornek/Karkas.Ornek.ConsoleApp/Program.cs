@@ -94,7 +94,7 @@ namespace Karkas.Ornek.ConsoleApp
                                             .OrderBy(m => m.Adi)
                                             .Select(m => m);
 
-            Musteri[] mList= sonucListesi.ToArray();
+            Musteri[] mList = sonucListesi.ToArray();
 
             foreach (var item in sonuc)
             {
@@ -112,11 +112,11 @@ namespace Karkas.Ornek.ConsoleApp
             m.DogumTarihiAsString = "19/08/1977";
 
 
-            Console.WriteLine(m.IkinciAdiAsString);
+            Console.WriteLine(m.IkinciAdi);
             try
             {
                 XmlSerializer serializer = new
-        XmlSerializer(typeof(Musteri));
+                XmlSerializer(typeof(Musteri));
                 // To write to a file, create a StreamWriter object.
                 StreamWriter writer = new StreamWriter("musteri.xml");
                 serializer.Serialize(writer, m);
@@ -133,7 +133,7 @@ namespace Karkas.Ornek.ConsoleApp
 
 
 
-        
+
         public void TransactionOrnek(Musteri pMusteri, BasitTablo pBasitTablo)
         {
             using (TransactionScope scope = new TransactionScope())

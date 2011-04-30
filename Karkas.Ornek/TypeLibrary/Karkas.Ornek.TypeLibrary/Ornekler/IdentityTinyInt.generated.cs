@@ -12,144 +12,125 @@ using Karkas.Core.Onaylama.ForPonos;
 namespace Karkas.Ornek.TypeLibrary.Ornekler
 
 {
-		[Serializable]
-		[DebuggerDisplay("IdentityTinyIntKey = {IdentityTinyIntKey}")]
-		public partial class 		IdentityTinyInt		
-//::PRESERVE_BEGIN inheritance::// 
-: BaseTypeLibrary 
-//::PRESERVE_END inheritance:://
+	[Serializable]
+	[DebuggerDisplay("IdentityTinyIntKey = {IdentityTinyIntKey}")]
+	public partial class 	IdentityTinyInt: BaseTypeLibrary
+	{
+		private byte identityTinyIntKey;
+		private string adi;
+
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		public byte IdentityTinyIntKey
 		{
-			private byte identityTinyIntKey;
-			private string adi;
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			public byte IdentityTinyIntKey
+			[DebuggerStepThrough]
+			get
 			{
-				[DebuggerStepThrough]
-				get
-				{
-					return identityTinyIntKey;
-				}
-				[DebuggerStepThrough]
-				set
-				{
-					if ((this.RowState == DataRowState.Unchanged) && (identityTinyIntKey!= value))
-					{
-						this.RowState = DataRowState.Modified;
-					}
-					identityTinyIntKey = value;
-				}
+				return identityTinyIntKey;
 			}
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			public string Adi
+			[DebuggerStepThrough]
+			set
 			{
-				[DebuggerStepThrough]
-				get
+				if ((this.RowState == DataRowState.Unchanged) && (identityTinyIntKey!= value))
 				{
-					return adi;
+					this.RowState = DataRowState.Modified;
 				}
-				[DebuggerStepThrough]
-				set
-				{
-					if ((this.RowState == DataRowState.Unchanged) && (adi!= value))
-					{
-						this.RowState = DataRowState.Modified;
-					}
-					adi = value;
-				}
+				identityTinyIntKey = value;
 			}
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore, SoapIgnore]
-			public string IdentityTinyIntKeyAsString
-			{
-				[DebuggerStepThrough]
-				get
-				{
-					 return identityTinyIntKey.ToString(); 
-				}
-				[DebuggerStepThrough]
-				set
-				{
-					try
-					{
-						byte _a = Convert.ToByte(value);
-					IdentityTinyIntKey = _a;
-					}
-					catch(Exception)
-					{
-						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"IdentityTinyIntKey","Ceviri islemi Başarısız oldu"));
-					}
-				}
-			}
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore, SoapIgnore]
-			public string AdiAsString
-			{
-				[DebuggerStepThrough]
-				get
-				{
-					 return adi != null ? adi.ToString() : ""; 
-				}
-				[DebuggerStepThrough]
-				set
-				{
-					Adi = value;
-				}
-			}
-
-		public class PropertyIsimleri
-		{
-			public const string IdentityTinyIntKey = "IdentityTinyIntKey";
-			public const string Adi = "Adi";
 		}
-			public IdentityTinyInt ShallowCopy()
-			{
-				IdentityTinyInt obj = new IdentityTinyInt();
-				obj.identityTinyIntKey = identityTinyIntKey;
-				obj.adi = adi;
-				return obj;
-			}
-		
 
-		protected override void OnaylamaListesiniOlusturCodeGeneration()
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		public string Adi
 		{
-		}
-		public static class EtiketIsimleri
-		{
-			const string namespaceVeClass = "Karkas.Ornek.TypeLibrary.Ornekler";
-			public static string IdentityTinyIntKey
+			[DebuggerStepThrough]
+			get
 			{
-				get
+				return adi;
+			}
+			[DebuggerStepThrough]
+			set
+			{
+				if ((this.RowState == DataRowState.Unchanged) && (adi!= value))
 				{
-					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".IdentityTinyIntKey"];
-					if (s != null)
-					{
-						return s;
-					}
-					else
-					{
-						return "IdentityTinyIntKey";
-					}
+					this.RowState = DataRowState.Modified;
+				}
+				adi = value;
+			}
+		}
+
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		[XmlIgnore, SoapIgnore]
+		public string IdentityTinyIntKeyAsString
+		{
+			[DebuggerStepThrough]
+			get
+			{
+				 return identityTinyIntKey.ToString(); 
+			}
+			[DebuggerStepThrough]
+			set
+			{
+				try
+				{
+					byte _a = Convert.ToByte(value);
+				IdentityTinyIntKey = _a;
+				}
+				catch(Exception)
+				{
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"IdentityTinyIntKey",string.Format(CEVIRI_YAZISI,"IdentityTinyIntKey","byte")));
 				}
 			}
-			public static string Adi
+		}
+
+	public class PropertyIsimleri
+	{
+		public const string IdentityTinyIntKey = "IdentityTinyIntKey";
+		public const string Adi = "Adi";
+	}
+		public IdentityTinyInt ShallowCopy()
+		{
+			IdentityTinyInt obj = new IdentityTinyInt();
+			obj.identityTinyIntKey = identityTinyIntKey;
+			obj.adi = adi;
+			return obj;
+		}
+	
+
+	protected override void OnaylamaListesiniOlusturCodeGeneration()
+	{
+	}
+	public static class EtiketIsimleri
+	{
+		const string namespaceVeClass = "Karkas.Ornek.TypeLibrary.Ornekler";
+		public static string IdentityTinyIntKey
+		{
+			get
 			{
-				get
+				string s = ConfigurationManager.AppSettings[namespaceVeClass + ".IdentityTinyIntKey"];
+				if (s != null)
 				{
-					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".Adi"];
-					if (s != null)
-					{
-						return s;
-					}
-					else
-					{
-						return "Adi";
-					}
+					return s;
+				}
+				else
+				{
+					return "IdentityTinyIntKey";
+				}
+			}
+		}
+		public static string Adi
+		{
+			get
+			{
+				string s = ConfigurationManager.AppSettings[namespaceVeClass + ".Adi"];
+				if (s != null)
+				{
+					return s;
+				}
+				else
+				{
+					return "Adi";
 				}
 			}
 		}
 	}
+}
 }

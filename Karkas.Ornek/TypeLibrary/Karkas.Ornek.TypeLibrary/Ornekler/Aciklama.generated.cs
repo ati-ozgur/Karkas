@@ -12,145 +12,126 @@ using Karkas.Core.Onaylama.ForPonos;
 namespace Karkas.Ornek.TypeLibrary.Ornekler
 
 {
-		[Serializable]
-		[DebuggerDisplay("AciklamaKey = {AciklamaKey}")]
-		public partial class 		Aciklama		
-//::PRESERVE_BEGIN inheritance::// 
-: BaseTypeLibrary 
-//::PRESERVE_END inheritance:://
+	[Serializable]
+	[DebuggerDisplay("AciklamaKey = {AciklamaKey}")]
+	public partial class 	Aciklama: BaseTypeLibrary
+	{
+		private Guid aciklamaKey;
+		private string aciklama;
+
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		public Guid AciklamaKey
 		{
-			private Guid aciklamaKey;
-			private string aciklama;
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			public Guid AciklamaKey
+			[DebuggerStepThrough]
+			get
 			{
-				[DebuggerStepThrough]
-				get
-				{
-					return aciklamaKey;
-				}
-				[DebuggerStepThrough]
-				set
-				{
-					if ((this.RowState == DataRowState.Unchanged) && (aciklamaKey!= value))
-					{
-						this.RowState = DataRowState.Modified;
-					}
-					aciklamaKey = value;
-				}
+				return aciklamaKey;
 			}
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			public string AciklamaProperty
+			[DebuggerStepThrough]
+			set
 			{
-				[DebuggerStepThrough]
-				get
+				if ((this.RowState == DataRowState.Unchanged) && (aciklamaKey!= value))
 				{
-					return aciklama;
+					this.RowState = DataRowState.Modified;
 				}
-				[DebuggerStepThrough]
-				set
-				{
-					if ((this.RowState == DataRowState.Unchanged) && (aciklama!= value))
-					{
-						this.RowState = DataRowState.Modified;
-					}
-					aciklama = value;
-				}
+				aciklamaKey = value;
 			}
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore, SoapIgnore]
-			public string AciklamaKeyAsString
-			{
-				[DebuggerStepThrough]
-				get
-				{
-					 return aciklamaKey.ToString(); 
-				}
-				[DebuggerStepThrough]
-				set
-				{
-					try
-					{
-						Guid _a = new Guid(value);
-					AciklamaKey = _a;
-					}
-					catch(Exception)
-					{
-						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"AciklamaKey","Ceviri islemi Başarısız oldu"));
-					}
-				}
-			}
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore, SoapIgnore]
-			public string AciklamaPropertyAsString
-			{
-				[DebuggerStepThrough]
-				get
-				{
-					 return aciklama != null ? aciklama.ToString() : ""; 
-				}
-				[DebuggerStepThrough]
-				set
-				{
-					AciklamaProperty = value;
-				}
-			}
-
-		public class PropertyIsimleri
-		{
-			public const string AciklamaKey = "AciklamaKey";
-			public const string AciklamaProperty = "Aciklama";
 		}
-			public Aciklama ShallowCopy()
-			{
-				Aciklama obj = new Aciklama();
-				obj.aciklamaKey = aciklamaKey;
-				obj.aciklama = aciklama;
-				return obj;
-			}
-		
 
-		protected override void OnaylamaListesiniOlusturCodeGeneration()
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		public string AciklamaProperty
 		{
-			
-			this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "AciklamaProperty"));		}
-		public static class EtiketIsimleri
-		{
-			const string namespaceVeClass = "Karkas.Ornek.TypeLibrary.Ornekler";
-			public static string AciklamaKey
+			[DebuggerStepThrough]
+			get
 			{
-				get
+				return aciklama;
+			}
+			[DebuggerStepThrough]
+			set
+			{
+				if ((this.RowState == DataRowState.Unchanged) && (aciklama!= value))
 				{
-					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".AciklamaKey"];
-					if (s != null)
-					{
-						return s;
-					}
-					else
-					{
-						return "AciklamaKey";
-					}
+					this.RowState = DataRowState.Modified;
+				}
+				aciklama = value;
+			}
+		}
+
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		[XmlIgnore, SoapIgnore]
+		public string AciklamaKeyAsString
+		{
+			[DebuggerStepThrough]
+			get
+			{
+				 return aciklamaKey.ToString(); 
+			}
+			[DebuggerStepThrough]
+			set
+			{
+				try
+				{
+					Guid _a = new Guid(value);
+				AciklamaKey = _a;
+				}
+				catch(Exception)
+				{
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"AciklamaKey",string.Format(CEVIRI_YAZISI,"AciklamaKey","Guid")));
 				}
 			}
-			public static string Aciklama
+		}
+
+	public class PropertyIsimleri
+	{
+		public const string AciklamaKey = "AciklamaKey";
+		public const string AciklamaProperty = "Aciklama";
+	}
+		public Aciklama ShallowCopy()
+		{
+			Aciklama obj = new Aciklama();
+			obj.aciklamaKey = aciklamaKey;
+			obj.aciklama = aciklama;
+			return obj;
+		}
+	
+
+	protected override void OnaylamaListesiniOlusturCodeGeneration()
+	{
+		
+		this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "AciklamaProperty"));	}
+	public static class EtiketIsimleri
+	{
+		const string namespaceVeClass = "Karkas.Ornek.TypeLibrary.Ornekler";
+		public static string AciklamaKey
+		{
+			get
 			{
-				get
+				string s = ConfigurationManager.AppSettings[namespaceVeClass + ".AciklamaKey"];
+				if (s != null)
 				{
-					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".Aciklama"];
-					if (s != null)
-					{
-						return s;
-					}
-					else
-					{
-						return "Aciklama";
-					}
+					return s;
+				}
+				else
+				{
+					return "AciklamaKey";
+				}
+			}
+		}
+		public static string Aciklama
+		{
+			get
+			{
+				string s = ConfigurationManager.AppSettings[namespaceVeClass + ".Aciklama"];
+				if (s != null)
+				{
+					return s;
+				}
+				else
+				{
+					return "Aciklama";
 				}
 			}
 		}
 	}
+}
 }

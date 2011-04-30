@@ -119,7 +119,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 			}
 			if (!dr.IsDBNull(2))
 			{
-				row.KolonBinary = dr.GetValue(2);
+				// row.KolonBinary = dr.GetValue(2);
 			}
 			if (!dr.IsDBNull(3))
 			{

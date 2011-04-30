@@ -12,199 +12,164 @@ using Karkas.Core.Onaylama.ForPonos;
 namespace Karkas.Ornek.TypeLibrary.Ornekler
 
 {
-		[Serializable]
-		[DebuggerDisplay("KisiOid = {KisiOid}")]
-		public partial class 		IsimlendirmeBozuk		
-//::PRESERVE_BEGIN inheritance::// 
-: BaseTypeLibrary 
-//::PRESERVE_END inheritance:://
+	[Serializable]
+	[DebuggerDisplay("KisiOid = {KisiOid}")]
+	public partial class 	IsimlendirmeBozuk: BaseTypeLibrary
+	{
+		private int kisiOid;
+		private string adi;
+		private string soyadi;
+
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		public int KisiOid
 		{
-			private int kisiOid;
-			private string adi;
-			private string soyadi;
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			public int KisiOid
+			[DebuggerStepThrough]
+			get
 			{
-				[DebuggerStepThrough]
-				get
-				{
-					return kisiOid;
-				}
-				[DebuggerStepThrough]
-				set
-				{
-					if ((this.RowState == DataRowState.Unchanged) && (kisiOid!= value))
-					{
-						this.RowState = DataRowState.Modified;
-					}
-					kisiOid = value;
-				}
+				return kisiOid;
 			}
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			public string Adi
+			[DebuggerStepThrough]
+			set
 			{
-				[DebuggerStepThrough]
-				get
+				if ((this.RowState == DataRowState.Unchanged) && (kisiOid!= value))
 				{
-					return adi;
+					this.RowState = DataRowState.Modified;
 				}
-				[DebuggerStepThrough]
-				set
-				{
-					if ((this.RowState == DataRowState.Unchanged) && (adi!= value))
-					{
-						this.RowState = DataRowState.Modified;
-					}
-					adi = value;
-				}
+				kisiOid = value;
 			}
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			public string Soyadi
-			{
-				[DebuggerStepThrough]
-				get
-				{
-					return soyadi;
-				}
-				[DebuggerStepThrough]
-				set
-				{
-					if ((this.RowState == DataRowState.Unchanged) && (soyadi!= value))
-					{
-						this.RowState = DataRowState.Modified;
-					}
-					soyadi = value;
-				}
-			}
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore, SoapIgnore]
-			public string KisiOidAsString
-			{
-				[DebuggerStepThrough]
-				get
-				{
-					 return kisiOid.ToString(); 
-				}
-				[DebuggerStepThrough]
-				set
-				{
-					try
-					{
-						int _a = Convert.ToInt32(value);
-					KisiOid = _a;
-					}
-					catch(Exception)
-					{
-						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KisiOid","Ceviri islemi Başarısız oldu"));
-					}
-				}
-			}
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore, SoapIgnore]
-			public string AdiAsString
-			{
-				[DebuggerStepThrough]
-				get
-				{
-					 return adi != null ? adi.ToString() : ""; 
-				}
-				[DebuggerStepThrough]
-				set
-				{
-					Adi = value;
-				}
-			}
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore, SoapIgnore]
-			public string SoyadiAsString
-			{
-				[DebuggerStepThrough]
-				get
-				{
-					 return soyadi != null ? soyadi.ToString() : ""; 
-				}
-				[DebuggerStepThrough]
-				set
-				{
-					Soyadi = value;
-				}
-			}
-
-		public class PropertyIsimleri
-		{
-			public const string KisiOid = "KISI_OID";
-			public const string Adi = "ADI";
-			public const string Soyadi = "SOYADI";
 		}
-			public IsimlendirmeBozuk ShallowCopy()
-			{
-				IsimlendirmeBozuk obj = new IsimlendirmeBozuk();
-				obj.kisiOid = kisiOid;
-				obj.adi = adi;
-				obj.soyadi = soyadi;
-				return obj;
-			}
-		
 
-		protected override void OnaylamaListesiniOlusturCodeGeneration()
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		public string Adi
 		{
-			
-			this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "Adi"));			
-			this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "Soyadi"));		}
-		public static class EtiketIsimleri
-		{
-			const string namespaceVeClass = "Karkas.Ornek.TypeLibrary.Ornekler";
-			public static string KisiOid
+			[DebuggerStepThrough]
+			get
 			{
-				get
+				return adi;
+			}
+			[DebuggerStepThrough]
+			set
+			{
+				if ((this.RowState == DataRowState.Unchanged) && (adi!= value))
 				{
-					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".KisiOid"];
-					if (s != null)
-					{
-						return s;
-					}
-					else
-					{
-						return "KisiOid";
-					}
+					this.RowState = DataRowState.Modified;
+				}
+				adi = value;
+			}
+		}
+
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		public string Soyadi
+		{
+			[DebuggerStepThrough]
+			get
+			{
+				return soyadi;
+			}
+			[DebuggerStepThrough]
+			set
+			{
+				if ((this.RowState == DataRowState.Unchanged) && (soyadi!= value))
+				{
+					this.RowState = DataRowState.Modified;
+				}
+				soyadi = value;
+			}
+		}
+
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		[XmlIgnore, SoapIgnore]
+		public string KisiOidAsString
+		{
+			[DebuggerStepThrough]
+			get
+			{
+				 return kisiOid.ToString(); 
+			}
+			[DebuggerStepThrough]
+			set
+			{
+				try
+				{
+					int _a = Convert.ToInt32(value);
+				KisiOid = _a;
+				}
+				catch(Exception)
+				{
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KisiOid",string.Format(CEVIRI_YAZISI,"KisiOid","int")));
 				}
 			}
-			public static string Adi
+		}
+
+	public class PropertyIsimleri
+	{
+		public const string KisiOid = "KISI_OID";
+		public const string Adi = "ADI";
+		public const string Soyadi = "SOYADI";
+	}
+		public IsimlendirmeBozuk ShallowCopy()
+		{
+			IsimlendirmeBozuk obj = new IsimlendirmeBozuk();
+			obj.kisiOid = kisiOid;
+			obj.adi = adi;
+			obj.soyadi = soyadi;
+			return obj;
+		}
+	
+
+	protected override void OnaylamaListesiniOlusturCodeGeneration()
+	{
+		
+		this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "Adi"));		
+		this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "Soyadi"));	}
+	public static class EtiketIsimleri
+	{
+		const string namespaceVeClass = "Karkas.Ornek.TypeLibrary.Ornekler";
+		public static string KisiOid
+		{
+			get
 			{
-				get
+				string s = ConfigurationManager.AppSettings[namespaceVeClass + ".KisiOid"];
+				if (s != null)
 				{
-					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".Adi"];
-					if (s != null)
-					{
-						return s;
-					}
-					else
-					{
-						return "Adi";
-					}
+					return s;
+				}
+				else
+				{
+					return "KisiOid";
 				}
 			}
-			public static string Soyadi
+		}
+		public static string Adi
+		{
+			get
 			{
-				get
+				string s = ConfigurationManager.AppSettings[namespaceVeClass + ".Adi"];
+				if (s != null)
 				{
-					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".Soyadi"];
-					if (s != null)
-					{
-						return s;
-					}
-					else
-					{
-						return "Soyadi";
-					}
+					return s;
+				}
+				else
+				{
+					return "Adi";
+				}
+			}
+		}
+		public static string Soyadi
+		{
+			get
+			{
+				string s = ConfigurationManager.AppSettings[namespaceVeClass + ".Soyadi"];
+				if (s != null)
+				{
+					return s;
+				}
+				else
+				{
+					return "Soyadi";
 				}
 			}
 		}
 	}
+}
 }

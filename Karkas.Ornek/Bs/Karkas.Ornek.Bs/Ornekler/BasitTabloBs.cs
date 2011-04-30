@@ -22,7 +22,7 @@ namespace Karkas.Ornek.Bs.Ornekler
 
             Aciklama aciklama =new Aciklama();
             aciklama.AciklamaKey = Guid.NewGuid();
-            aciklama.AciklamaProperty = bt.AdiAsString + " " + bt.SoyadiAsString;
+            aciklama.AciklamaProperty = bt.Adi + " " + bt.Soyadi;
             dal.Ekle(bt);
             try
             {

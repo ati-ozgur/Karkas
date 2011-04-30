@@ -21,13 +21,6 @@ namespace Karkas.Ornek.BsWrapper.Dbo
         OrnekSistemViewBs bs = new OrnekSistemViewBs();
 		
 
-		public OrnekSistemViewBsWrapper()
-		{
-			if ((HttpContext.Current != null) && (HttpContext.Current.Session != null) && (HttpContext.Current.Session[SessionEnumHelper.KISI_KEY] != null))
-			{
-				bs.KomutuCalistiranKullaniciKisiKey = (Guid)HttpContext.Current.Session[SessionEnumHelper.KISI_KEY];
-			}
-		}
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Ekle(OrnekSistemView p1 )        {
             bs.Ekle(p1);
@@ -69,17 +62,7 @@ namespace Karkas.Ornek.BsWrapper.Dbo
         {
             bs.TopluEkleGuncelleVeyaSil(liste);
         }
-        public Guid KomutuCalistiranKullaniciKisiKey
-        {
-			get
-			{
-				return bs.KomutuCalistiranKullaniciKisiKey;
-			}
-			set
-			{
-				bs.KomutuCalistiranKullaniciKisiKey = value;
-			}
-        }
+
 
 
     }

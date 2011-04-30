@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Ornek.TypeLibrary", "TypeLibrary\Karkas.Ornek.TypeLibrary\Karkas.Ornek.TypeLibrary.2010.csproj", "{A74FFCF8-27F3-4839-B03C-4F80D0D863CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Ornek.Dal", "Dal\Karkas.Ornek.Dal\Karkas.Ornek.Dal.2010.csproj", "{6AC6D414-DC7C-4092-9394-5E2BD1AEB777}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Ornek.Bs", "Bs\Karkas.Ornek.Bs\Karkas.Ornek.Bs.2010.csproj", "{2975DEAB-C104-4ACB-90F5-0F80A774E3BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Ornek.BsWrapper", "BsWrapper\Karkas.Ornek.BsWrapper\Karkas.Ornek.BsWrapper.2010.csproj", "{E232AB37-443F-42DD-A5D9-9537AE1EF600}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Ornek.ConsoleApp", "Karkas.Ornek.ConsoleApp\Karkas.Ornek.ConsoleApp.2010.csproj", "{4781AE26-C4E3-4160-8928-EEDEA1592C3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A74FFCF8-27F3-4839-B03C-4F80D0D863CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A74FFCF8-27F3-4839-B03C-4F80D0D863CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A74FFCF8-27F3-4839-B03C-4F80D0D863CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A74FFCF8-27F3-4839-B03C-4F80D0D863CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AC6D414-DC7C-4092-9394-5E2BD1AEB777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AC6D414-DC7C-4092-9394-5E2BD1AEB777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AC6D414-DC7C-4092-9394-5E2BD1AEB777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AC6D414-DC7C-4092-9394-5E2BD1AEB777}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2975DEAB-C104-4ACB-90F5-0F80A774E3BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2975DEAB-C104-4ACB-90F5-0F80A774E3BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2975DEAB-C104-4ACB-90F5-0F80A774E3BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2975DEAB-C104-4ACB-90F5-0F80A774E3BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E232AB37-443F-42DD-A5D9-9537AE1EF600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E232AB37-443F-42DD-A5D9-9537AE1EF600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E232AB37-443F-42DD-A5D9-9537AE1EF600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E232AB37-443F-42DD-A5D9-9537AE1EF600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4781AE26-C4E3-4160-8928-EEDEA1592C3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4781AE26-C4E3-4160-8928-EEDEA1592C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4781AE26-C4E3-4160-8928-EEDEA1592C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4781AE26-C4E3-4160-8928-EEDEA1592C3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -12,146 +12,127 @@ using Karkas.Core.Onaylama.ForPonos;
 namespace Karkas.Ornek.TypeLibrary.Ornekler
 
 {
-		[Serializable]
-		[DebuggerDisplay("")]
-		public partial class 		PkOlmayan		
-//::PRESERVE_BEGIN inheritance::// 
-: BaseTypeLibrary 
-//::PRESERVE_END inheritance:://
+	[Serializable]
+	[DebuggerDisplay("")]
+	public partial class 	PkOlmayan: BaseTypeLibrary
+	{
+		private int primaryKeyDegi;
+		private string denemeKolon;
+
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		public int PrimaryKeyDegi
 		{
-			private int primaryKeyDegi;
-			private string denemeKolon;
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			public int PrimaryKeyDegi
+			[DebuggerStepThrough]
+			get
 			{
-				[DebuggerStepThrough]
-				get
-				{
-					return primaryKeyDegi;
-				}
-				[DebuggerStepThrough]
-				set
-				{
-					if ((this.RowState == DataRowState.Unchanged) && (primaryKeyDegi!= value))
-					{
-						this.RowState = DataRowState.Modified;
-					}
-					primaryKeyDegi = value;
-				}
+				return primaryKeyDegi;
 			}
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			public string DenemeKolon
+			[DebuggerStepThrough]
+			set
 			{
-				[DebuggerStepThrough]
-				get
+				if ((this.RowState == DataRowState.Unchanged) && (primaryKeyDegi!= value))
 				{
-					return denemeKolon;
+					this.RowState = DataRowState.Modified;
 				}
-				[DebuggerStepThrough]
-				set
-				{
-					if ((this.RowState == DataRowState.Unchanged) && (denemeKolon!= value))
-					{
-						this.RowState = DataRowState.Modified;
-					}
-					denemeKolon = value;
-				}
+				primaryKeyDegi = value;
 			}
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore, SoapIgnore]
-			public string PrimaryKeyDegiAsString
-			{
-				[DebuggerStepThrough]
-				get
-				{
-					 return primaryKeyDegi.ToString(); 
-				}
-				[DebuggerStepThrough]
-				set
-				{
-					try
-					{
-						int _a = Convert.ToInt32(value);
-					PrimaryKeyDegi = _a;
-					}
-					catch(Exception)
-					{
-						this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"PrimaryKeyDegi","Ceviri islemi Başarısız oldu"));
-					}
-				}
-			}
-
-			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-			[XmlIgnore, SoapIgnore]
-			public string DenemeKolonAsString
-			{
-				[DebuggerStepThrough]
-				get
-				{
-					 return denemeKolon != null ? denemeKolon.ToString() : ""; 
-				}
-				[DebuggerStepThrough]
-				set
-				{
-					DenemeKolon = value;
-				}
-			}
-
-		public class PropertyIsimleri
-		{
-			public const string PrimaryKeyDegi = "PrimaryKeyDegi";
-			public const string DenemeKolon = "DenemeKolon";
 		}
-			public PkOlmayan ShallowCopy()
-			{
-				PkOlmayan obj = new PkOlmayan();
-				obj.primaryKeyDegi = primaryKeyDegi;
-				obj.denemeKolon = denemeKolon;
-				return obj;
-			}
-		
 
-		protected override void OnaylamaListesiniOlusturCodeGeneration()
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		public string DenemeKolon
 		{
-			
-			this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "PrimaryKeyDegi"));			
-			this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "DenemeKolon"));		}
-		public static class EtiketIsimleri
-		{
-			const string namespaceVeClass = "Karkas.Ornek.TypeLibrary.Ornekler";
-			public static string PrimaryKeyDegi
+			[DebuggerStepThrough]
+			get
 			{
-				get
+				return denemeKolon;
+			}
+			[DebuggerStepThrough]
+			set
+			{
+				if ((this.RowState == DataRowState.Unchanged) && (denemeKolon!= value))
 				{
-					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".PrimaryKeyDegi"];
-					if (s != null)
-					{
-						return s;
-					}
-					else
-					{
-						return "PrimaryKeyDegi";
-					}
+					this.RowState = DataRowState.Modified;
+				}
+				denemeKolon = value;
+			}
+		}
+
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		[XmlIgnore, SoapIgnore]
+		public string PrimaryKeyDegiAsString
+		{
+			[DebuggerStepThrough]
+			get
+			{
+				 return primaryKeyDegi.ToString(); 
+			}
+			[DebuggerStepThrough]
+			set
+			{
+				try
+				{
+					int _a = Convert.ToInt32(value);
+				PrimaryKeyDegi = _a;
+				}
+				catch(Exception)
+				{
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"PrimaryKeyDegi",string.Format(CEVIRI_YAZISI,"PrimaryKeyDegi","int")));
 				}
 			}
-			public static string DenemeKolon
+		}
+
+	public class PropertyIsimleri
+	{
+		public const string PrimaryKeyDegi = "PrimaryKeyDegi";
+		public const string DenemeKolon = "DenemeKolon";
+	}
+		public PkOlmayan ShallowCopy()
+		{
+			PkOlmayan obj = new PkOlmayan();
+			obj.primaryKeyDegi = primaryKeyDegi;
+			obj.denemeKolon = denemeKolon;
+			return obj;
+		}
+	
+
+	protected override void OnaylamaListesiniOlusturCodeGeneration()
+	{
+		
+		this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "PrimaryKeyDegi"));		
+		this.Onaylayici.OnaylayiciListesi.Add(new GerekliAlanOnaylayici(this, "DenemeKolon"));	}
+	public static class EtiketIsimleri
+	{
+		const string namespaceVeClass = "Karkas.Ornek.TypeLibrary.Ornekler";
+		public static string PrimaryKeyDegi
+		{
+			get
 			{
-				get
+				string s = ConfigurationManager.AppSettings[namespaceVeClass + ".PrimaryKeyDegi"];
+				if (s != null)
 				{
-					string s = ConfigurationManager.AppSettings[namespaceVeClass + ".DenemeKolon"];
-					if (s != null)
-					{
-						return s;
-					}
-					else
-					{
-						return "DenemeKolon";
-					}
+					return s;
+				}
+				else
+				{
+					return "PrimaryKeyDegi";
+				}
+			}
+		}
+		public static string DenemeKolon
+		{
+			get
+			{
+				string s = ConfigurationManager.AppSettings[namespaceVeClass + ".DenemeKolon"];
+				if (s != null)
+				{
+					return s;
+				}
+				else
+				{
+					return "DenemeKolon";
 				}
 			}
 		}
 	}
+}
 }
