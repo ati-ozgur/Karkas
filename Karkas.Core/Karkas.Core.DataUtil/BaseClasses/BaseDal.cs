@@ -109,7 +109,7 @@ namespace Karkas.Core.DataUtil
         /// <summary>
         /// Veritabanındaki tablo üzerinde kolon ismi ile filtreleme
         /// yapararak arama yapar. Ornegin KISI tablosunda
-        /// List<Kisi> kisiListesi = SorgulaKolonIsmiIle(Kisi.PropertyIsimleri.Cinsiyeti,"e");
+        /// List&gtKisi&lt kisiListesi = SorgulaKolonIsmiIle(Kisi.PropertyIsimleri.Cinsiyeti,"e");
         /// Cinsiyeti e olan kisileri getirir. Cogunlukla master detay tablolarında 
         /// Foreign key ile sorgulama için kullanılır.
         /// </summary>
