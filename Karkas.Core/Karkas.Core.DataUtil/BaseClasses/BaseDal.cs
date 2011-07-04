@@ -207,6 +207,7 @@ namespace Karkas.Core.DataUtil
             catch (Exception ex)
             {
                 new LoggingInfo( cmd).LogInfo(this.GetType(),ex);
+                throw;
             }
 
             finally
