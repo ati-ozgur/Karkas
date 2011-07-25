@@ -72,7 +72,6 @@ namespace Karkas.ExtensionMethods
         }
         public static Guid? ToGuidAsNullable(this String str)
         {
-            Guid sonuc;
             try
             {
                 return new Guid(str);

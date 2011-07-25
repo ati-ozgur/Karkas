@@ -3,11 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography;
 
 namespace Karkas.Extensions
 {
     public static class KarkasStringExtensions
     {
+
+        public static string getSha1Hash(string pValueToBedHashed)
+        {
+
+            SHA1 sha = new SHA1CryptoServiceProvider();
+            byte[] inputBytes = sha.ComputeHash(pValueToBedHashed.StringToByteArray());
+            byte[] outputBytes = new byte[inputBytes.Length];
+            ToBase64Transform base64Transform = new ToBase64Transform();
+            base64Transform.TransformBlock(
+                                inputBytes,
+                                0,
+                                inputBytes.Length,
+                                outputBytes,
+                                0);
+            return ByteArrayToString(outputBytes);
+        }
+
+
         /// <summary>
         /// Static IsNullOrEmpty'nin extension method hali.
         /// </summary>
