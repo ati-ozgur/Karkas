@@ -4,26 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
+using System.Web.Security;
 
 namespace Karkas.Extensions
 {
     public static class KarkasStringExtensions
     {
 
-        public static string getSha1Hash(string pValueToBedHashed)
+        public static string Sha1Hash(this string pValueToBedHashed)
         {
+            //return FormsAuthentication.HashPasswordForStoringInConfigFile(pValueToBedHashed, "sha1");
 
-            SHA1 sha = new SHA1CryptoServiceProvider();
-            byte[] inputBytes = sha.ComputeHash(pValueToBedHashed.StringToByteArray());
-            byte[] outputBytes = new byte[inputBytes.Length];
-            ToBase64Transform base64Transform = new ToBase64Transform();
-            base64Transform.TransformBlock(
-                                inputBytes,
-                                0,
-                                inputBytes.Length,
-                                outputBytes,
-                                0);
-            return ByteArrayToString(outputBytes);
+            System.Security.Cryptography.SHA1 hash = System.Security.Cryptography.SHA1.Create();
+            System.Text.UTF8Encoding encoder = new System.Text.UTF8Encoding();
+            byte[] combined = encoder.GetBytes(pValueToBedHashed);
+            hash.ComputeHash(combined);
+            string sonuc = Convert.ToBase64String(hash.Hash);
+            return sonuc;
         }
 
 
