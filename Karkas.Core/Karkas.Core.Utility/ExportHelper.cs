@@ -12,7 +12,7 @@ namespace Karkas.Core.Utility
 
         public void ToCsvFile(DataTable pSource,string pFileName)
         {
-            string pCsvContents = ToCsvString(pSource, true, ";", "\n");
+            string pCsvContents = ToCsvString(pSource, true, ";", "\"");
             File.WriteAllText(pFileName, pCsvContents);
         }
             
