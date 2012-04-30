@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="Ay.cs" />
     <Compile Include="EPostaYardimcisi.cs" />
+    <Compile Include="ExportHelper.cs" />
     <Compile Include="ExtensionMethods\ConvertToExtensions.cs" />
     <Compile Include="ExtensionMethods\KarkasStringExtensions.cs" />
     <Compile Include="FileDownloadHelper.cs" />
