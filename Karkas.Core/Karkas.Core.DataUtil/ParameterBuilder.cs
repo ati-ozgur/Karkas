@@ -111,6 +111,20 @@ namespace Karkas.Core.DataUtil
         }
 
 
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (SqlParameter param in parameterList)
+            {
+                sb.Append(string.Format("DECLARE {0} {1} = {2}"
+                    , param.ParameterName
+                    ,param.SqlDbType
+                    , param.Value));
+                sb.Append(Environment.NewLine);
+            }
+            return sb.ToString();
+        }
+
 
 
     }
