@@ -96,7 +96,7 @@ namespace Karkas.Ornek.Bs.Ornekler
             {
                 adotemplate.OtomatikConnectionYonetimi = false;
                 adotemplate.Connection.Open();
-                adotemplate.CurrentTransaction = adotemplate.Connection.BeginTransaction();
+                adotemplate.CurrentTransaction = (SqlTransaction) adotemplate.Connection.BeginTransaction();
 
                 AciklamaDal aciklamaDal = this.GetDalInstance<AciklamaDal, Aciklama>();
                 dal.Connection = adotemplate.Connection;
@@ -137,7 +137,7 @@ namespace Karkas.Ornek.Bs.Ornekler
             {
                 adotemplate.OtomatikConnectionYonetimi = false;
                 adotemplate.Connection.Open();
-                adotemplate.CurrentTransaction = adotemplate.Connection.BeginTransaction();
+                adotemplate.CurrentTransaction = (SqlTransaction) adotemplate.Connection.BeginTransaction();
 
                 AciklamaDal aciklamaDal = this.GetDalInstance<AciklamaDal, Aciklama>();
                 dal.Connection = adotemplate.Connection;

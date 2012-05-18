@@ -4,6 +4,7 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
@@ -23,7 +24,7 @@ namespace Karkas.Core.DataUtil
 
 
 
-        public SqlConnection Connection
+        public DbConnection Connection
         {
             get
             {

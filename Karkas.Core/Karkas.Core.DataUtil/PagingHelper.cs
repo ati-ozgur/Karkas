@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using Karkas.Core.Utility;
 using Karkas.Extensions;
+using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
@@ -32,7 +33,7 @@ namespace Karkas.Core.DataUtil
             set { currentTransaction = value; }
         }
 
-        public PagingHelper(SqlConnection pConnection, SqlTransaction currentTransaction)
+        public PagingHelper(DbConnection pConnection, SqlTransaction currentTransaction)
         {
             helper = new HelperFunctions(pConnection, currentTransaction);
         }

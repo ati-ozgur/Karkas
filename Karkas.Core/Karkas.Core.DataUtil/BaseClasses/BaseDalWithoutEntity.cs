@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.SqlClient;
 using log4net;
 using System.Data;
+using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
@@ -60,9 +61,9 @@ namespace Karkas.Core.DataUtil
                 return "";
             }
         }
-        private SqlConnection connection = null;
+        private DbConnection connection = null;
 
-        public SqlConnection Connection
+        public DbConnection Connection
         {
             get
             {

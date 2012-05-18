@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Globalization;
 using log4net;
+using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
@@ -60,8 +61,8 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        private SqlConnection connection = null;
-        public SqlConnection Connection
+        private DbConnection connection = null;
+        public DbConnection Connection
         {
             get
             {
@@ -190,7 +191,7 @@ namespace Karkas.Core.DataUtil
         /// <returns></returns>
         public object TekDegerGetir(SqlCommand cmd)
         {
-            cmd.Connection = Connection;
+            cmd.Connection = (SqlConnection) Connection;
             object sonuc = 0;
             sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
             return sonuc;
@@ -242,7 +243,7 @@ namespace Karkas.Core.DataUtil
 
         public void SorguHariciKomutCalistir(SqlCommand cmd)
         {
-            cmd.Connection = Connection;
+            cmd.Connection = (SqlConnection) Connection;
             SorguHariciKomutCalistirInternal(cmd);
         }
 
@@ -306,7 +307,7 @@ namespace Karkas.Core.DataUtil
         public DataTable DataTableOlustur(SqlCommand cmd)
         {
             DataTable dataTable = CreateDataTable();
-            cmd.Connection = Connection;
+            cmd.Connection = (SqlConnection) Connection;
             if (currentTransaction != null)
             {
                 cmd.Transaction = currentTransaction;

@@ -307,7 +307,7 @@ namespace Karkas.Core.DataUtil
         {
             SqlCommand cmd = HelperFunctions.getSqlCommand();
             filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
-            cmd.Connection = Connection;
+            cmd.Connection = (SqlConnection)Connection;
             foreach (SqlParameter prm in parameterArray)
             {
                 cmd.Parameters.Add(prm);
@@ -320,7 +320,7 @@ namespace Karkas.Core.DataUtil
         {
             SqlCommand cmd = HelperFunctions.getSqlCommand();
             filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
-            cmd.Connection = Connection;
+            cmd.Connection = (SqlConnection) Connection;
             sorguCalistirInternal(liste, cmd);
         }
 

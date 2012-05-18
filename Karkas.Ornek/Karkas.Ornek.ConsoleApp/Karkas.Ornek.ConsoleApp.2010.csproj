@@ -37,7 +37,7 @@
   <ItemGroup>
     <Reference Include="Karkas.Core.DataUtil, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ThirdParty\Karkas.Core.DataUtil.dll</HintPath>
+      <HintPath>..\ThirdParty\2010\Karkas.Core.DataUtil.dll</HintPath>
     </Reference>
     <Reference Include="Karkas.Core.Onaylama, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
+using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
@@ -49,8 +50,8 @@ namespace Karkas.Core.DataUtil
 
 
 
-        SqlConnection conn;
-        public HelperFunctions(SqlConnection pConnection,SqlTransaction currentTransaction)
+        DbConnection conn;
+        public HelperFunctions(DbConnection pConnection,SqlTransaction currentTransaction)
         {
             this.currentTransaction = currentTransaction;
             conn = pConnection;
@@ -113,14 +114,16 @@ namespace Karkas.Core.DataUtil
 
         }
 
-        public static SqlCommand getSqlCommand(string sql, SqlConnection conn)
+        public static SqlCommand getSqlCommand(string sql, DbConnection conn)
         {
-            return new SqlCommand(sql, conn);
+            SqlConnection sqlConn = (SqlConnection)conn;
+            return new SqlCommand(sql, sqlConn);
         }
-        public static SqlCommand getSqlCommand( SqlConnection conn)
+        public static SqlCommand getSqlCommand(DbConnection conn)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
+            SqlConnection sqlConn = (SqlConnection)conn;
+            cmd.Connection = sqlConn;
             return cmd;
         }
         public static SqlCommand getSqlCommand()
