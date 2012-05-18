@@ -169,7 +169,7 @@ namespace Karkas.Core.DataUtil
         private long EkleIdentity(T row)
         {
             long sonuc = 0;
-            SqlCommand cmd = HelperFunctions.getSqlCommand(InsertString, Connection);
+            SqlCommand cmd = CommandFactory.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
 
 
@@ -237,7 +237,7 @@ namespace Karkas.Core.DataUtil
 
         private long EkleNormal(T row)
         {
-            SqlCommand cmd = HelperFunctions.getSqlCommand(InsertString, Connection);
+            SqlCommand cmd = CommandFactory.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
             int sonuc = SorguHariciKomutCalistirInternal(cmd);
 
@@ -247,7 +247,7 @@ namespace Karkas.Core.DataUtil
         }
         protected void SorguHariciKomutCalistirUpdate(string cmdText, T row)
         {
-            SqlCommand cmd = HelperFunctions.getSqlCommand(cmdText, Connection);
+            SqlCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
             UpdateCommandParametersAdd(cmd, row);
             int kayitSayisi = SorguHariciKomutCalistirInternal(cmd);
 
@@ -264,7 +264,7 @@ namespace Karkas.Core.DataUtil
 
         protected void SorguHariciKomutCalistirDelete(string cmdText, T row)
         {
-            SqlCommand cmd = HelperFunctions.getSqlCommand(cmdText, Connection);
+            SqlCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
             DeleteCommandParametersAdd(cmd, row);
             SorguHariciKomutCalistirInternal(cmd);
         }
@@ -305,7 +305,7 @@ namespace Karkas.Core.DataUtil
         }
         public void SorguCalistir(List<T> liste, String pFilterString, SqlParameter[] parameterArray, bool otomatikWhereEkle)
         {
-            SqlCommand cmd = HelperFunctions.getSqlCommand();
+            SqlCommand cmd = CommandFactory.getDatabaseCommand();
             filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
             cmd.Connection = (SqlConnection)Connection;
             foreach (SqlParameter prm in parameterArray)
@@ -318,7 +318,7 @@ namespace Karkas.Core.DataUtil
 
         public void SorguCalistir(List<T> liste, String pFilterString, bool otomatikWhereEkle)
         {
-            SqlCommand cmd = HelperFunctions.getSqlCommand();
+            SqlCommand cmd = CommandFactory.getDatabaseCommand();
             filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
             cmd.Connection = (SqlConnection) Connection;
             sorguCalistirInternal(liste, cmd);

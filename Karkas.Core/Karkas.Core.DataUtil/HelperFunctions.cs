@@ -59,7 +59,7 @@ namespace Karkas.Core.DataUtil
 
         internal void SorguCalistir(DataTable dt, string sql, CommandType cmdType)
         {
-            SqlCommand cmd = getSqlCommand(sql, conn);
+            SqlCommand cmd = CommandFactory.getDatabaseCommand(sql, conn);
             cmd.CommandType = cmdType;
 
             SqlDataAdapter adapter = AdapterDondur(cmd);
@@ -114,27 +114,11 @@ namespace Karkas.Core.DataUtil
 
         }
 
-        public static SqlCommand getSqlCommand(string sql, DbConnection conn)
-        {
-            SqlConnection sqlConn = (SqlConnection)conn;
-            return new SqlCommand(sql, sqlConn);
-        }
-        public static SqlCommand getSqlCommand(DbConnection conn)
-        {
-            SqlCommand cmd = new SqlCommand();
-            SqlConnection sqlConn = (SqlConnection)conn;
-            cmd.Connection = sqlConn;
-            return cmd;
-        }
-        public static SqlCommand getSqlCommand()
-        {
-            SqlCommand cmd = new SqlCommand();
-            return cmd;
-        }
+
 
         internal void SorguCalistir(DataTable dt, string sql, CommandType cmdType, SqlParameter[] parameters)
         {
-            SqlCommand cmd = getSqlCommand(sql, conn);
+            SqlCommand cmd = CommandFactory.getDatabaseCommand(sql, conn);
             cmd.CommandType = cmdType;
             foreach (SqlParameter p in parameters)
             {

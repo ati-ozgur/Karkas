@@ -201,7 +201,7 @@ namespace Karkas.Core.DataUtil
 
         public Object TekDegerGetir(string cmdText)
         {
-            SqlCommand cmd = HelperFunctions.getSqlCommand(cmdText, Connection);
+            SqlCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
             object sonuc = 0;
             sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
             return sonuc;
@@ -209,7 +209,7 @@ namespace Karkas.Core.DataUtil
 
         public Object TekDegerGetir(string cmdText, CommandType cmdType, SqlParameter[] parameters)
         {
-            SqlCommand cmd = HelperFunctions.getSqlCommand(cmdText, Connection);
+            SqlCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
             cmd.CommandType = cmdType;
             foreach (SqlParameter p in parameters)
             {
@@ -223,7 +223,7 @@ namespace Karkas.Core.DataUtil
 
         public Object TekDegerGetir(string cmdText, SqlParameter[] parameters)
         {
-            SqlCommand cmd = HelperFunctions.getSqlCommand(cmdText, Connection);
+            SqlCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
             foreach (SqlParameter p in parameters)
             {
                 cmd.Parameters.Add(p);
@@ -235,7 +235,7 @@ namespace Karkas.Core.DataUtil
 
         public void SorguHariciKomutCalistir(String cmdText)
         {
-            SqlCommand cmd = HelperFunctions.getSqlCommand(cmdText, Connection);
+            SqlCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
             SorguHariciKomutCalistirInternal(cmd);
         }
 
@@ -251,7 +251,7 @@ namespace Karkas.Core.DataUtil
 
         public void SorguHariciKomutCalistir(string sql, SqlParameter[] prmListesi)
         {
-            SqlCommand cmd = HelperFunctions.getSqlCommand(sql, Connection);
+            SqlCommand cmd = CommandFactory.getDatabaseCommand(sql, Connection);
             cmd.CommandType = CommandType.Text;
             foreach (SqlParameter p in prmListesi)
             {
