@@ -117,6 +117,17 @@ namespace Karkas.Core.DataUtil
         {
             return new SqlCommand(sql, conn);
         }
+        public static SqlCommand getSqlCommand( SqlConnection conn)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            return cmd;
+        }
+        public static SqlCommand getSqlCommand()
+        {
+            SqlCommand cmd = new SqlCommand();
+            return cmd;
+        }
 
         internal void SorguCalistir(DataTable dt, string sql, CommandType cmdType, SqlParameter[] parameters)
         {
