@@ -196,11 +196,11 @@ namespace Karkas.Core.DataUtil
             return sonuc;
         }
 
+
+
         public Object TekDegerGetir(string cmdText)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = cmdText;
-            cmd.Connection = Connection;
+            SqlCommand cmd = HelperFunctions.getSqlCommand(cmdText, Connection);
             object sonuc = 0;
             sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
             return sonuc;
@@ -208,10 +208,8 @@ namespace Karkas.Core.DataUtil
 
         public Object TekDegerGetir(string cmdText, CommandType cmdType, SqlParameter[] parameters)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = cmdText;
+            SqlCommand cmd = HelperFunctions.getSqlCommand(cmdText, Connection);
             cmd.CommandType = cmdType;
-            cmd.Connection = Connection;
             foreach (SqlParameter p in parameters)
             {
                 cmd.Parameters.Add(p);
@@ -224,9 +222,7 @@ namespace Karkas.Core.DataUtil
 
         public Object TekDegerGetir(string cmdText, SqlParameter[] parameters)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = cmdText;
-            cmd.Connection = Connection;
+            SqlCommand cmd = HelperFunctions.getSqlCommand(cmdText, Connection);
             foreach (SqlParameter p in parameters)
             {
                 cmd.Parameters.Add(p);
@@ -238,9 +234,7 @@ namespace Karkas.Core.DataUtil
 
         public void SorguHariciKomutCalistir(String cmdText)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = cmdText;
-            cmd.Connection = Connection;
+            SqlCommand cmd = HelperFunctions.getSqlCommand(cmdText, Connection);
             SorguHariciKomutCalistirInternal(cmd);
         }
 
@@ -256,7 +250,7 @@ namespace Karkas.Core.DataUtil
 
         public void SorguHariciKomutCalistir(string sql, SqlParameter[] prmListesi)
         {
-            SqlCommand cmd = new SqlCommand(sql, Connection);
+            SqlCommand cmd = HelperFunctions.getSqlCommand(sql, Connection);
             cmd.CommandType = CommandType.Text;
             foreach (SqlParameter p in prmListesi)
             {
