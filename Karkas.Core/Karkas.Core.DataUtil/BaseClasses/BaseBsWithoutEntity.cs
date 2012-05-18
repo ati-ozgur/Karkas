@@ -77,11 +77,11 @@ namespace Karkas.Core.DataUtil
                 {
                     if (string.IsNullOrEmpty(DatabaseName))
                     {
-                        connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
+                        connection = ConnectionSingleton.Instance.Connection;
                     }
                     else
                     {
-                        connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString(DatabaseName));
+                        connection = ConnectionSingleton.Instance.getConnection(DatabaseName);
                     }
                 }
                 return connection;

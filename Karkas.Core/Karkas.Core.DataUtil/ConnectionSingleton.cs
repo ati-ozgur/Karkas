@@ -54,7 +54,7 @@ namespace Karkas.Core.DataUtil
             }
         }
         private Dictionary<string, string> connectionStringList = new Dictionary<string, string>();
-        public string getConnectionString(string pDatabaseName)
+        private string getConnectionString(string pDatabaseName)
         {
             if (connectionStringList.ContainsKey(pDatabaseName))
             {
@@ -74,6 +74,11 @@ namespace Karkas.Core.DataUtil
             }
         }
 
+
+        internal SqlConnection getConnection(string DatabaseName)
+        {
+            return new SqlConnection(getConnectionString(DatabaseName));
+        }
     }
 }
 
