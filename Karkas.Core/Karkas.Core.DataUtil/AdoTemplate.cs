@@ -43,9 +43,9 @@ namespace Karkas.Core.DataUtil
             return (Connection.State != ConnectionState.Open) && (OtomatikConnectionYonetimi);
         }
 
-        private SqlTransaction currentTransaction;
+        private DbTransaction currentTransaction;
 
-        public SqlTransaction CurrentTransaction
+        public DbTransaction CurrentTransaction
         {
             get 
             { 
@@ -80,15 +80,8 @@ namespace Karkas.Core.DataUtil
 
         }
 
-        public AdoTemplate(SqlConnection pConnection)
-        {
-            this.Connection = pConnection;
-        }
 
-        public AdoTemplate(string pConnectionString) : this(new SqlConnection(pConnectionString))
-        {
-            
-        }
+  
 
 
         private HelperFunctions _helper;
@@ -119,7 +112,7 @@ namespace Karkas.Core.DataUtil
             }
         }
 
-        private object SorguHariciKomutCalistirSonucGetirInternal(SqlCommand cmd)
+        private object SorguHariciKomutCalistirSonucGetirInternal(DbCommand cmd)
         {
             object son = 0;
             try
@@ -135,7 +128,7 @@ namespace Karkas.Core.DataUtil
                 }
                 son = cmd.ExecuteScalar();
             }
-            catch (SqlException ex)
+            catch (DbException ex)
             {
                 ExceptionDegistirici.Degistir(ex, new LoggingInfo( cmd).ToString());
             }
@@ -148,7 +141,7 @@ namespace Karkas.Core.DataUtil
             }
             return son;
         }
-        private void SorguHariciKomutCalistirInternal(SqlCommand cmd)
+        private void SorguHariciKomutCalistirInternal(DbCommand cmd)
         {
             try
             {
@@ -164,7 +157,7 @@ namespace Karkas.Core.DataUtil
 
                 cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (DbException ex)
             {
                 ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
             }
@@ -189,9 +182,9 @@ namespace Karkas.Core.DataUtil
         /// </example>
         /// <param name="cmd"></param>
         /// <returns></returns>
-        public object TekDegerGetir(SqlCommand cmd)
+        public object TekDegerGetir(DbCommand cmd)
         {
-            cmd.Connection = (SqlConnection) Connection;
+            cmd.Connection =  Connection;
             object sonuc = 0;
             sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
             return sonuc;
@@ -207,11 +200,11 @@ namespace Karkas.Core.DataUtil
             return sonuc;
         }
 
-        public Object TekDegerGetir(string cmdText, CommandType cmdType, SqlParameter[] parameters)
+        public Object TekDegerGetir(string cmdText, CommandType cmdType, DbParameter[] parameters)
         {
-            SqlCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
+            DbCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
             cmd.CommandType = cmdType;
-            foreach (SqlParameter p in parameters)
+            foreach (DbParameter p in parameters)
             {
                 cmd.Parameters.Add(p);
             }
@@ -221,10 +214,10 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        public Object TekDegerGetir(string cmdText, SqlParameter[] parameters)
+        public Object TekDegerGetir(string cmdText, DbParameter[] parameters)
         {
-            SqlCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
-            foreach (SqlParameter p in parameters)
+            DbCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
+            foreach (DbParameter p in parameters)
             {
                 cmd.Parameters.Add(p);
             }
@@ -241,19 +234,19 @@ namespace Karkas.Core.DataUtil
 
 
 
-        public void SorguHariciKomutCalistir(SqlCommand cmd)
+        public void SorguHariciKomutCalistir(DbCommand cmd)
         {
-            cmd.Connection = (SqlConnection) Connection;
+            cmd.Connection =  Connection;
             SorguHariciKomutCalistirInternal(cmd);
         }
 
 
 
-        public void SorguHariciKomutCalistir(string sql, SqlParameter[] prmListesi)
+        public void SorguHariciKomutCalistir(string sql, DbParameter[] prmListesi)
         {
-            SqlCommand cmd = CommandFactory.getDatabaseCommand(sql, Connection);
+            DbCommand cmd = CommandFactory.getDatabaseCommand(sql, Connection);
             cmd.CommandType = CommandType.Text;
-            foreach (SqlParameter p in prmListesi)
+            foreach (DbParameter p in prmListesi)
             {
                 cmd.Parameters.Add(p);
             }
@@ -304,10 +297,10 @@ namespace Karkas.Core.DataUtil
 
 
         #region "DataTable Olusturma Methods"
-        public DataTable DataTableOlustur(SqlCommand cmd)
+        public DataTable DataTableOlustur(DbCommand cmd)
         {
             DataTable dataTable = CreateDataTable();
-            cmd.Connection = (SqlConnection) Connection;
+            cmd.Connection =  Connection;
             if (currentTransaction != null)
             {
                 cmd.Transaction = currentTransaction;
@@ -331,13 +324,13 @@ namespace Karkas.Core.DataUtil
             return dataTable;
         }
 
-        public DataTable DataTableOlustur(string sql, CommandType commandType, SqlParameter[] parameters)
+        public DataTable DataTableOlustur(string sql, CommandType commandType, DbParameter[] parameters)
         {
             DataTable dataTable = CreateDataTable();
             DataTableDoldur(dataTable, sql, commandType, parameters);
             return dataTable;
         }
-        public DataTable DataTableOlustur(string sql, SqlParameter[] parameters)
+        public DataTable DataTableOlustur(string sql, DbParameter[] parameters)
         {
             DataTable dataTable = CreateDataTable();
             DataTableDoldur(dataTable, sql, CommandType.Text, parameters);
@@ -362,13 +355,13 @@ namespace Karkas.Core.DataUtil
             helper.SorguCalistir(dataTable, sql, CommandType.Text);
         }
         public void DataTableDoldur(DataTable dataTable, string sql, CommandType commandType
-                , SqlParameter[] parameters)
+                , DbParameter[] parameters)
         {
             helper.ValidateFillArguments(dataTable, sql);
             helper.SorguCalistir(dataTable, sql, commandType, parameters);
         }
         public void DataTableDoldur(DataTable dataTable, string sql
-                , SqlParameter[] parameters)
+                , DbParameter[] parameters)
         {
             helper.ValidateFillArguments(dataTable, sql);
             helper.SorguCalistir(dataTable, sql, CommandType.Text, parameters);
@@ -379,7 +372,7 @@ namespace Karkas.Core.DataUtil
         #region "DataTable Olustur Sayfalama Yap"
 
         public DataTable DataTableOlusturSayfalamaYap(string sql
-, int pPageSize, int pStartRowIndex, string pOrderBy, SqlParameter[] parameters)
+, int pPageSize, int pStartRowIndex, string pOrderBy, DbParameter[] parameters)
         {
             return pagingHelper.DataTableOlusturSayfalamaYap(sql, pPageSize, pStartRowIndex, pOrderBy, parameters);
         }
@@ -399,7 +392,7 @@ namespace Karkas.Core.DataUtil
         #region "DataTable Doldur Sayfalama Yap"
 
         public void DataTableDoldurSayfalamaYap(DataTable dataTable, string sql
-        , int pPageSize, int pStartRowIndex, string pOrderBy, SqlParameter[] parameters)
+        , int pPageSize, int pStartRowIndex, string pOrderBy, DbParameter[] parameters)
         {
             pagingHelper.DataTableDoldurSayfalamaYap(dataTable, sql, pPageSize, pStartRowIndex, pOrderBy, parameters);
         }

@@ -6,6 +6,7 @@ using System.Text;
 using Karkas.Core.DataUtil;
 using Karkas.Ornek.TypeLibrary;
 using Karkas.Ornek.TypeLibrary.Ornekler;
+using System.Data.Common;
 
 
 namespace Karkas.Ornek.Dal.Ornekler
@@ -116,21 +117,21 @@ namespace Karkas.Ornek.Dal.Ornekler
 			row.IdentitySmallIntKey = dr.GetInt16(0);
 			row.Adi = dr.GetString(1);
 		}
-		protected override void InsertCommandParametersAdd(SqlCommand cmd, IdentitySmallInt row)
+		protected override void InsertCommandParametersAdd(DbCommand cmd, IdentitySmallInt row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@Adi",SqlDbType.VarChar, row.Adi,50);
+			builder.parameterEkle("@Adi",DbType.String, row.Adi,50);
 		}
-		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		IdentitySmallInt		 row)
+		protected override void UpdateCommandParametersAdd(DbCommand cmd, 		IdentitySmallInt		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@IdentitySmallIntKey",SqlDbType.SmallInt, row.IdentitySmallIntKey);
-			builder.parameterEkle("@Adi",SqlDbType.VarChar, row.Adi,50);
+			builder.parameterEkle("@IdentitySmallIntKey",DbType.Int16, row.IdentitySmallIntKey);
+			builder.parameterEkle("@Adi",DbType.String, row.Adi,50);
 		}
-		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		IdentitySmallInt		 row)
+		protected override void DeleteCommandParametersAdd(DbCommand cmd, 		IdentitySmallInt		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@IdentitySmallIntKey",SqlDbType.SmallInt, row.IdentitySmallIntKey);
+			builder.parameterEkle("@IdentitySmallIntKey",DbType.Int16, row.IdentitySmallIntKey);
 		}
 	}
 }

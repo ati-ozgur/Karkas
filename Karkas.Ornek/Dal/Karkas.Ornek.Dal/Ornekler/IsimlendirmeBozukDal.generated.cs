@@ -6,6 +6,7 @@ using System.Text;
 using Karkas.Core.DataUtil;
 using Karkas.Ornek.TypeLibrary;
 using Karkas.Ornek.TypeLibrary.Ornekler;
+using System.Data.Common;
 
 
 namespace Karkas.Ornek.Dal.Ornekler
@@ -116,24 +117,24 @@ namespace Karkas.Ornek.Dal.Ornekler
 			row.Adi = dr.GetString(1);
 			row.Soyadi = dr.GetString(2);
 		}
-		protected override void InsertCommandParametersAdd(SqlCommand cmd, IsimlendirmeBozuk row)
+		protected override void InsertCommandParametersAdd(DbCommand cmd, IsimlendirmeBozuk row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@KISI_OID",SqlDbType.Int, row.KisiOid);
-			builder.parameterEkle("@ADI",SqlDbType.VarChar, row.Adi,50);
-			builder.parameterEkle("@SOYADI",SqlDbType.VarChar, row.Soyadi,50);
+			builder.parameterEkle("@KISI_OID",DbType.Int32, row.KisiOid);
+			builder.parameterEkle("@ADI",DbType.String, row.Adi,50);
+			builder.parameterEkle("@SOYADI",DbType.String, row.Soyadi,50);
 		}
-		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		IsimlendirmeBozuk		 row)
+		protected override void UpdateCommandParametersAdd(DbCommand cmd, 		IsimlendirmeBozuk		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@KISI_OID",SqlDbType.Int, row.KisiOid);
-			builder.parameterEkle("@ADI",SqlDbType.VarChar, row.Adi,50);
-			builder.parameterEkle("@SOYADI",SqlDbType.VarChar, row.Soyadi,50);
+			builder.parameterEkle("@KISI_OID",DbType.Int32, row.KisiOid);
+			builder.parameterEkle("@ADI",DbType.String, row.Adi,50);
+			builder.parameterEkle("@SOYADI",DbType.String, row.Soyadi,50);
 		}
-		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		IsimlendirmeBozuk		 row)
+		protected override void DeleteCommandParametersAdd(DbCommand cmd, 		IsimlendirmeBozuk		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@KISI_OID",SqlDbType.Int, row.KisiOid);
+			builder.parameterEkle("@KISI_OID",DbType.Int32, row.KisiOid);
 		}
 	}
 }

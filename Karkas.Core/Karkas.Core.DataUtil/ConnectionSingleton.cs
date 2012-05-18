@@ -22,6 +22,17 @@ namespace Karkas.Core.DataUtil
             set { connectionString = value; }
         }
 
+        private string providerName;
+        public string ProviderName
+        {
+            get
+            {
+                return providerName;
+            }
+            set { providerName = value; }
+        }
+
+       
 
 
         public DbConnection Connection
@@ -46,6 +57,7 @@ namespace Karkas.Core.DataUtil
                 if (ConfigurationManager.ConnectionStrings["Main"] != null)
                 {
                     connectionString = ConfigurationManager.ConnectionStrings["Main"].ConnectionString;
+                    providerName = ConfigurationManager.ConnectionStrings["Main"].ProviderName;
                 }
                 else
                 {
@@ -74,11 +86,33 @@ namespace Karkas.Core.DataUtil
                 }
             }
         }
-
-
-        public SqlConnection getConnection(string DatabaseName)
+        private Dictionary<string, string> providerNameList = new Dictionary<string, string>();
+        private string getProviderName(string pDatabaseName)
         {
-            return new SqlConnection(getConnectionString(DatabaseName));
+            if (providerNameList.ContainsKey(pDatabaseName))
+            {
+                return providerNameList[pDatabaseName];
+            }
+            else
+            {
+                if (ConfigurationManager.ConnectionStrings[pDatabaseName] != null)
+                {
+                    providerNameList.Add(pDatabaseName, ConfigurationManager.ConnectionStrings[pDatabaseName].ProviderName);
+                    return providerNameList[pDatabaseName];
+                }
+                else
+                {
+                    throw new ArgumentException(string.Format("Connection Stringler arasında {0} bulunamadı, lütfen config dosyasını(web.config/app.config) kontrol ediniz", pDatabaseName));
+                }
+            }
+        }
+
+        public DbConnection getConnection(string DatabaseName)
+        {
+            DbConnection conn = new DbProviderFactoryHelper(getProviderName(DatabaseName)).Factory.CreateConnection();
+            conn.ConnectionString = getConnectionString(DatabaseName);
+            return conn;
+
         }
     }
 }

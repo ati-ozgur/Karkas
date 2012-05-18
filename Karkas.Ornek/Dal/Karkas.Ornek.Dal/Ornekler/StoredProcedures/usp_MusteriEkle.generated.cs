@@ -20,12 +20,12 @@ namespace Karkas.Ornek.Dal.Ornekler
             )
         {
             ParameterBuilder builder = new ParameterBuilder();
-            builder.parameterEkleReturnValue("@RETURN_VALUE", SqlDbType.Int);
-            builder.parameterEkle("@Adi", SqlDbType.VarChar, @Adi);
-            builder.parameterEkle("@Soyadi", SqlDbType.VarChar, @Soyadi);
-            builder.parameterEkle("@IkinciAdi", SqlDbType.VarChar, @IkinciAdi);
-            builder.parameterEkle("@DogumTarihi", SqlDbType.DateTime, @DogumTarihi);
-            builder.parameterEkle("@KayitTarihi", SqlDbType.DateTime, @KayitTarihi);
+            builder.parameterEkleReturnValue("@RETURN_VALUE", DbType.Int32);
+            builder.parameterEkle("@Adi", DbType.String, @Adi);
+            builder.parameterEkle("@Soyadi", DbType.String, @Soyadi);
+            builder.parameterEkle("@IkinciAdi", DbType.String, @IkinciAdi);
+            builder.parameterEkle("@DogumTarihi", DbType.DateTime, @DogumTarihi);
+            builder.parameterEkle("@KayitTarihi", DbType.DateTime, @KayitTarihi);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "ORNEKLER.MUSTERI_EKLE";
             cmd.CommandType = CommandType.StoredProcedure;

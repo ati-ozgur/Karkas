@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
-using Karkas.Ornek.Bs.Ornekler;
 using Karkas.Ornek.Dal.Ornekler;
+using Karkas.Ornek.Bs.Ornekler;
 
 namespace Karkas.Ornek.ConsoleApp.Testler
 {

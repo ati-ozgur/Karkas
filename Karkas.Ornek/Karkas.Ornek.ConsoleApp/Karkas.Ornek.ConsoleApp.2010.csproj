@@ -75,26 +75,38 @@
     <Compile Include="Testler\AciklamaTest.cs" />
     <Compile Include="Testler\BasitTabloIdentityTest.cs" />
     <Compile Include="Testler\BasitTabloIdentityTestViaBs.cs" />
-    <Compile Include="Testler\BsConnectionTest.cs" />
+    <Compile Include="Testler\BsConnectionTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Testler\DatabaseSetup.cs" />
     <Compile Include="Testler\DenemeGuidIdentityTest.cs" />
     <Compile Include="Testler\IsimlendirmeBozukTest.cs" />
     <Compile Include="Testler\MusteriTest.cs" />
     <Compile Include="Testler\StoredProcedureTest.cs" />
-    <Compile Include="Testler\TransactionDataTableDondurTest.cs" />
-    <Compile Include="Testler\TransactionOrnekBasitTabloIdentity.cs" />
-    <Compile Include="Testler\TransactionOrnekMusteriTest.cs" />
-    <Compile Include="Testler\TransactionTemplateOrnekTest.cs" />
-    <Compile Include="Testler\TransactionTemplateTest.cs" />
+    <Compile Include="Testler\TransactionDataTableDondurTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Testler\TransactionOrnekBasitTabloIdentity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Testler\TransactionOrnekMusteriTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Testler\TransactionTemplateOrnekTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Testler\TransactionTemplateTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BsWrapper\Karkas.Ornek.BsWrapper\Karkas.Ornek.BsWrapper.2010.csproj">
       <Project>{E232AB37-443F-42DD-A5D9-9537AE1EF600}</Project>
-      <Name>Karkas.Ornek.BsWrapper</Name>
+      <Name>Karkas.Ornek.BsWrapper.2010</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bs\Karkas.Ornek.Bs\Karkas.Ornek.Bs.2010.csproj">
       <Project>{2975DEAB-C104-4ACB-90F5-0F80A774E3BC}</Project>
-      <Name>Karkas.Ornek.Bs</Name>
+      <Name>Karkas.Ornek.Bs.2010</Name>
     </ProjectReference>
     <ProjectReference Include="..\Dal\Karkas.Ornek.Dal\Karkas.Ornek.Dal.2010.csproj">
       <Project>{6AC6D414-DC7C-4092-9394-5E2BD1AEB777}</Project>

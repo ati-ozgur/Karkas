@@ -16,7 +16,7 @@ namespace Karkas.Ornek.Dal.Ornekler
         {
             string sql = "SELECT * FROM [ORNEKLER].[DENEME_GUID_IDENTITY] WHERE DenemeNo = @DenemeNo";
             ParameterBuilder builder = new ParameterBuilder();
-            builder.parameterEkle("@DenemeNo", SqlDbType.Int, DenemeNo);
+            builder.parameterEkle("@DenemeNo", DbType.Int32, DenemeNo);
             return Template.DataTableOlustur(sql, builder.GetParameterArray());
 
         }
@@ -24,7 +24,7 @@ namespace Karkas.Ornek.Dal.Ornekler
         {
             string sql = "SELECT DenemeNo FROM [ORNEKLER].[DENEME_GUID_IDENTITY] WHERE DenemeKey = @DenemeKey";
             ParameterBuilder builder = new ParameterBuilder();
-            builder.parameterEkle("@DenemeKey", SqlDbType.UniqueIdentifier, DenemeKey);
+            builder.parameterEkle("@DenemeKey", DbType.Guid, DenemeKey);
             object sonuc = Template.TekDegerGetir(sql, builder.GetParameterArray());
             return Convert.ToInt32(sonuc);
 

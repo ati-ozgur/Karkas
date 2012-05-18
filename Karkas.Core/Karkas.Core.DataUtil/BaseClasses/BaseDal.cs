@@ -9,6 +9,7 @@ using Karkas.Core.DataUtil.Exceptions;
 using System.Reflection;
 using System.Runtime.Remoting;
 using System.Web;
+using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
@@ -169,7 +170,7 @@ namespace Karkas.Core.DataUtil
         private long EkleIdentity(T row)
         {
             long sonuc = 0;
-            SqlCommand cmd = CommandFactory.getDatabaseCommand(InsertString, Connection);
+            DbCommand cmd = CommandFactory.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
 
 
@@ -299,16 +300,16 @@ namespace Karkas.Core.DataUtil
         {
             SorguCalistir(liste, "");
         }
-        public void SorguCalistir(List<T> liste, String pFilterString, SqlParameter[] parameterArray)
+        public void SorguCalistir(List<T> liste, String pFilterString, DbParameter[] parameterArray)
         {
             SorguCalistir(liste, pFilterString, parameterArray, true);
         }
-        public void SorguCalistir(List<T> liste, String pFilterString, SqlParameter[] parameterArray, bool otomatikWhereEkle)
+        public void SorguCalistir(List<T> liste, String pFilterString, DbParameter[] parameterArray, bool otomatikWhereEkle)
         {
-            SqlCommand cmd = CommandFactory.getDatabaseCommand();
+            DbCommand cmd = CommandFactory.getDatabaseCommand();
             filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
-            cmd.Connection = (SqlConnection)Connection;
-            foreach (SqlParameter prm in parameterArray)
+            cmd.Connection = Connection;
+            foreach (DbParameter prm in parameterArray)
             {
                 cmd.Parameters.Add(prm);
             }
@@ -318,13 +319,13 @@ namespace Karkas.Core.DataUtil
 
         public void SorguCalistir(List<T> liste, String pFilterString, bool otomatikWhereEkle)
         {
-            SqlCommand cmd = CommandFactory.getDatabaseCommand();
+            DbCommand cmd = CommandFactory.getDatabaseCommand();
             filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
-            cmd.Connection = (SqlConnection) Connection;
+            cmd.Connection = Connection;
             sorguCalistirInternal(liste, cmd);
         }
 
-        private void filtreStringiniSetle(String pFilterString, bool otomatikWhereEkle, SqlCommand cmd)
+        private void filtreStringiniSetle(String pFilterString, bool otomatikWhereEkle, DbCommand cmd)
         {
             if (String.IsNullOrEmpty(pFilterString))
             {
@@ -348,9 +349,9 @@ namespace Karkas.Core.DataUtil
             SorguCalistir(liste, pFilterString, true);
         }
 
-        private void sorguCalistirInternal(List<T> liste, SqlCommand cmd)
+        private void sorguCalistirInternal(List<T> liste, DbCommand cmd)
         {
-            SqlDataReader reader = null;
+            DbDataReader reader = null;
             try
             {
 
@@ -375,7 +376,7 @@ namespace Karkas.Core.DataUtil
                 }
 
             }
-            catch (SqlException ex)
+            catch (DbException ex)
             {
                 ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
             }
@@ -447,9 +448,9 @@ namespace Karkas.Core.DataUtil
         }
 
         protected abstract void ProcessRow(IDataReader dr, T row);
-        protected abstract void InsertCommandParametersAdd(SqlCommand Cmd, T row);
-        protected abstract void UpdateCommandParametersAdd(SqlCommand Cmd, T row);
-        protected abstract void DeleteCommandParametersAdd(SqlCommand Cmd, T row);
+        protected abstract void InsertCommandParametersAdd(DbCommand Cmd, T row);
+        protected abstract void UpdateCommandParametersAdd(DbCommand Cmd, T row);
+        protected abstract void DeleteCommandParametersAdd(DbCommand Cmd, T row);
 
 
         public class Siralama

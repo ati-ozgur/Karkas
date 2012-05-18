@@ -17,7 +17,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 			{
 				ParameterBuilder builder = new ParameterBuilder();
 				
-				 builder.parameterEkle( "@SAYI1",SqlDbType.Int,@SAYI1);
+				 builder.parameterEkle( "@SAYI1",DbType.Int32,@SAYI1);
 				SqlCommand cmd = new SqlCommand();
 				cmd.CommandText = "ORNEKLER.ORNEK";
 				cmd.CommandType = CommandType.StoredProcedure;

@@ -18,8 +18,8 @@ namespace Karkas.Ornek.Dal.Ornekler
 			{
 				ParameterBuilder builder = new ParameterBuilder();
 				
-				 builder.parameterEkle( "@Adi",SqlDbType.VarChar,@Adi);
-				 builder.parameterEkle( "@Soyadi",SqlDbType.VarChar,@Soyadi);
+				 builder.parameterEkle( "@Adi",DbType.String,@Adi);
+				 builder.parameterEkle( "@Soyadi",DbType.String,@Soyadi);
 				SqlCommand cmd = new SqlCommand();
 				cmd.CommandText = "ORNEKLER.BASIT_TABLO_IDENTITY_EKLE";
 				cmd.CommandType = CommandType.StoredProcedure;

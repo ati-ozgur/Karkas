@@ -6,6 +6,7 @@ using System.Text;
 using Karkas.Core.DataUtil;
 using Karkas.Ornek.TypeLibrary;
 using Karkas.Ornek.TypeLibrary.Dbo;
+using System.Data.Common;
 
 
 namespace Karkas.Ornek.Dal.Dbo
@@ -93,21 +94,21 @@ namespace Karkas.Ornek.Dal.Dbo
 				row.Type = dr.GetString(2);
 			}
 		}
-		protected override void InsertCommandParametersAdd(SqlCommand cmd, OrnekSistemView row)
+		protected override void InsertCommandParametersAdd(DbCommand cmd, OrnekSistemView row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@TableName",SqlDbType.VarChar, row.TableName,128);
-			builder.parameterEkle("@id",SqlDbType.Int, row.Id);
-			builder.parameterEkle("@type",SqlDbType.Char, row.Type,2);
+			builder.parameterEkle("@TableName",DbType.AnsiString, row.TableName,128);
+			builder.parameterEkle("@id",DbType.Int32, row.Id);
+			builder.parameterEkle("@type",DbType.AnsiStringFixedLength, row.Type,2);
 		}
-		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		OrnekSistemView		 row)
+        protected override void UpdateCommandParametersAdd(DbCommand cmd, OrnekSistemView row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@TableName",SqlDbType.VarChar, row.TableName,128);
-			builder.parameterEkle("@id",SqlDbType.Int, row.Id);
-			builder.parameterEkle("@type",SqlDbType.Char, row.Type,2);
-		}
-		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		OrnekSistemView		 row)
+            builder.parameterEkle("@TableName", DbType.AnsiString, row.TableName, 128);
+            builder.parameterEkle("@id", DbType.Int32, row.Id);
+            builder.parameterEkle("@type", DbType.AnsiStringFixedLength, row.Type, 2);
+        }
+        protected override void DeleteCommandParametersAdd(DbCommand cmd, OrnekSistemView row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
 		}

@@ -29,9 +29,9 @@ namespace Karkas.Core.DataUtil
             }
         }
 
-        private SqlTransaction currentTransaction;
+        private DbTransaction currentTransaction;
 
-        public SqlTransaction CurrentTransaction
+        public DbTransaction CurrentTransaction
         {
             get { return currentTransaction; }
             set { currentTransaction = value; }
@@ -51,7 +51,7 @@ namespace Karkas.Core.DataUtil
 
 
         DbConnection conn;
-        public HelperFunctions(DbConnection pConnection,SqlTransaction currentTransaction)
+        public HelperFunctions(DbConnection pConnection,DbTransaction currentTransaction)
         {
             this.currentTransaction = currentTransaction;
             conn = pConnection;
@@ -59,15 +59,15 @@ namespace Karkas.Core.DataUtil
 
         internal void SorguCalistir(DataTable dt, string sql, CommandType cmdType)
         {
-            SqlCommand cmd = CommandFactory.getDatabaseCommand(sql, conn);
+            DbCommand cmd = CommandFactory.getDatabaseCommand(sql, conn);
             cmd.CommandType = cmdType;
 
-            SqlDataAdapter adapter = AdapterDondur(cmd);
+            DbDataAdapter adapter = AdapterDondur(cmd);
             try
             {
                 adapter.Fill(dt);
             }
-            catch (SqlException ex)
+            catch (DbException ex)
             {
                 ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
             }
@@ -80,26 +80,26 @@ namespace Karkas.Core.DataUtil
             }
 
         }
-        internal SqlDataAdapter AdapterDondur(SqlCommand cmd)
+        internal DbDataAdapter AdapterDondur(DbCommand cmd)
         {
             if (currentTransaction != null)
             {
                 cmd.Transaction = currentTransaction;
             }
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DbDataAdapter adapter = CommandFactory.getDatabaseAdapter( cmd);
             return adapter;
         }
 
 
-        internal void SorguCalistir(DataTable dt, SqlCommand cmd)
+        internal void SorguCalistir(DataTable dt, DbCommand cmd)
         {
-            SqlDataAdapter adapter = AdapterDondur(cmd);
+            DbDataAdapter adapter = AdapterDondur(cmd);
 
             try
             {
                 adapter.Fill(dt);
             }
-            catch (SqlException ex)
+            catch (DbException ex)
             {
                 ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
 
@@ -116,11 +116,11 @@ namespace Karkas.Core.DataUtil
 
 
 
-        internal void SorguCalistir(DataTable dt, string sql, CommandType cmdType, SqlParameter[] parameters)
+        internal void SorguCalistir(DataTable dt, string sql, CommandType cmdType, DbParameter[] parameters)
         {
-            SqlCommand cmd = CommandFactory.getDatabaseCommand(sql, conn);
+            DbCommand cmd = CommandFactory.getDatabaseCommand(sql, conn);
             cmd.CommandType = cmdType;
-            foreach (SqlParameter p in parameters)
+            foreach (DbParameter p in parameters)
             {
                 cmd.Parameters.Add(p);
             }

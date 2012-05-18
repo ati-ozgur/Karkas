@@ -25,15 +25,15 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        private SqlTransaction currentTransaction;
+        private DbTransaction currentTransaction;
 
-        public SqlTransaction CurrentTransaction
+        public DbTransaction CurrentTransaction
         {
             get { return currentTransaction; }
             set { currentTransaction = value; }
         }
 
-        public PagingHelper(DbConnection pConnection, SqlTransaction currentTransaction)
+        public PagingHelper(DbConnection pConnection, DbTransaction currentTransaction)
         {
             helper = new HelperFunctions(pConnection, currentTransaction);
         }
@@ -56,7 +56,7 @@ namespace Karkas.Core.DataUtil
         public void DataTableDoldurSayfalamaYap(
             DataTable dataTable, string sql
             , int pPageSize, int pStartRowIndex
-            , string pOrderBy, SqlParameter[] parameters)
+            , string pOrderBy, DbParameter[] parameters)
         {
             pagingSqliniAyarla(ref sql, pPageSize, ref pStartRowIndex, pOrderBy);
             helper.ValidateFillArguments(dataTable, sql);
@@ -90,7 +90,7 @@ namespace Karkas.Core.DataUtil
 
 
         internal DataTable DataTableOlusturSayfalamaYap(string sql
-, int pPageSize, int pStartRowIndex, string pOrderBy, SqlParameter[] parameters)
+, int pPageSize, int pStartRowIndex, string pOrderBy, DbParameter[] parameters)
         {
             DataTable dataTable = new DataTable();
             pagingSqliniAyarla(ref sql, pPageSize, ref pStartRowIndex, pOrderBy);

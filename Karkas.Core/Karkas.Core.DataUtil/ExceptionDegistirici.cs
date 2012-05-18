@@ -4,19 +4,45 @@ using System.Text;
 using System.Data.SqlClient;
 using Karkas.Core.DataUtil.Exceptions;
 using log4net;
+using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
     public class ExceptionDegistirici
     {
 
-        public static void Degistir(SqlException ex)
+        public static void Degistir(DbException ex)
+        {
+            if (ex is SqlException)
+            {
+                Degistir((SqlException)ex, "SQL CUMLESI YOK");
+            }
+            else
+            {
+                // TODO digerlerini ekle.
+            }
+
+        }
+
+        public static void Degistir(DbException ex, string pMesaj)
+        {
+            if (ex is SqlException)
+            {
+                Degistir((SqlException)ex, pMesaj);
+            }
+            else
+            {
+                // TODO digerlerini ekle.
+            }
+        }
+
+        private static void Degistir(SqlException ex)
         {
             Degistir(ex, "SQL CUMLESI YOK");
         }
 
 
-        public static void Degistir(SqlException ex, string pMesaj)
+        private static void Degistir(SqlException ex, string pMesaj)
         {
             Exception firlatilacakException = null;
             switch (ex.Number)

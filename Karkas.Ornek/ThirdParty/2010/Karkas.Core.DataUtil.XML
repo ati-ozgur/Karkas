@@ -4,14 +4,15 @@
         <name>Karkas.Core.DataUtil</name>
     </assembly>
     <members>
-        <member name="P:Karkas.Core.DataUtil.PagingHelper.KomutuCalistiranKullaniciKisiKey">
+        <member name="P:Karkas.Core.DataUtil.HelperFunctions.OtomatikConnectionYonetimi">
             <summary>
-            Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
-            Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
-            Otomatik olarak Bs tarafindan yapilacak
+            Eger varsayılan deger, true bırakılırsa, connection yonetimi 
+            BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
+            Connection'u acma ve kapama BaseDal kontrolundedir.
+            Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
             </summary>
         </member>
-        <member name="M:Karkas.Core.DataUtil.AdoTemplate.TekDegerGetir(System.Data.SqlClient.SqlCommand)">
+        <member name="M:Karkas.Core.DataUtil.AdoTemplate.TekDegerGetir(System.Data.Common.DbCommand)">
             <summary>
             Bu komut Ado.Net'a ait ExecuteScalar komutudur. Eğer sorgu sonucu sadece
             tek bir değer dönmesini bekliyorsanız. Örneğin
@@ -52,12 +53,11 @@
             Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
             </summary>
         </member>
-        <member name="P:Karkas.Core.DataUtil.HelperFunctions.OtomatikConnectionYonetimi">
+        <member name="P:Karkas.Core.DataUtil.PagingTemplate.KomutuCalistiranKullaniciKisiKey">
             <summary>
-            Eger varsayılan deger, true bırakılırsa, connection yonetimi 
-            BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
-            Connection'u acma ve kapama BaseDal kontrolundedir.
-            Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
+            Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
+            Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
+            Otomatik olarak Bs tarafindan yapilacak
             </summary>
         </member>
         <member name="T:Karkas.Core.DataUtil.BaseDal`1">
@@ -76,6 +76,13 @@
             </summary>
         </member>
         <!-- Badly formed XML comment ignored for member "M:Karkas.Core.DataUtil.BaseDal`1.SorgulaKolonIsmiIle(System.String,System.Object)" -->
+        <member name="P:Karkas.Core.DataUtil.PagingHelper.KomutuCalistiranKullaniciKisiKey">
+            <summary>
+            Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
+            Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
+            Otomatik olarak Bs tarafindan yapilacak
+            </summary>
+        </member>
         <member name="T:Karkas.Core.DataUtil.BaseDalForIdentity`2">
             <summary>
             T TypeLibrary Class
@@ -83,13 +90,6 @@
             </summary>
             <typeparam name="T"></typeparam>
             <typeparam name="M"></typeparam>
-        </member>
-        <member name="P:Karkas.Core.DataUtil.PagingTemplate.KomutuCalistiranKullaniciKisiKey">
-            <summary>
-            Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
-            Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
-            Otomatik olarak Bs tarafindan yapilacak
-            </summary>
         </member>
     </members>
 </doc>

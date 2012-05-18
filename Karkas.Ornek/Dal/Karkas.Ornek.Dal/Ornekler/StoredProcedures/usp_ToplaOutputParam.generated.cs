@@ -18,10 +18,10 @@ namespace Karkas.Ornek.Dal.Ornekler
 			)
 			{
 				ParameterBuilder builder = new ParameterBuilder();
-				 builder.parameterEkleReturnValue( "@RETURN_VALUE",SqlDbType.Int);
-				 builder.parameterEkle( "@SAYI1",SqlDbType.Int,@SAYI1);
-				 builder.parameterEkle( "@SAYI2",SqlDbType.Int,@SAYI2);
-				 builder.parameterEkleOutput( "@SONUC",SqlDbType.Int);
+				 builder.parameterEkleReturnValue( "@RETURN_VALUE",DbType.Int32);
+				 builder.parameterEkle( "@SAYI1",DbType.Int32,@SAYI1);
+				 builder.parameterEkle( "@SAYI2",DbType.Int32,@SAYI2);
+				 builder.parameterEkleOutput( "@SONUC",DbType.Int32);
 				SqlCommand cmd = new SqlCommand();
 				cmd.CommandText = "ORNEKLER.TOPLA_OUTPUT_PARAM";
 				cmd.CommandType = CommandType.StoredProcedure;

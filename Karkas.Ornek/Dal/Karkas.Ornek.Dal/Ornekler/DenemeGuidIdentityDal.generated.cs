@@ -6,6 +6,7 @@ using System.Text;
 using Karkas.Core.DataUtil;
 using Karkas.Ornek.TypeLibrary;
 using Karkas.Ornek.TypeLibrary.Ornekler;
+using System.Data.Common;
 
 
 namespace Karkas.Ornek.Dal.Ornekler
@@ -117,22 +118,22 @@ namespace Karkas.Ornek.Dal.Ornekler
 			row.DenemeNo = dr.GetInt32(1);
 			row.DenemeKolon = dr.GetString(2);
 		}
-		protected override void InsertCommandParametersAdd(SqlCommand cmd, DenemeGuidIdentity row)
+		protected override void InsertCommandParametersAdd(DbCommand cmd, DenemeGuidIdentity row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@DenemeKey",SqlDbType.UniqueIdentifier, row.DenemeKey);
-			builder.parameterEkle("@DenemeKolon",SqlDbType.VarChar, row.DenemeKolon,50);
+			builder.parameterEkle("@DenemeKey",DbType.Guid, row.DenemeKey);
+			builder.parameterEkle("@DenemeKolon",DbType.String, row.DenemeKolon,50);
 		}
-		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		DenemeGuidIdentity		 row)
+		protected override void UpdateCommandParametersAdd(DbCommand cmd, 		DenemeGuidIdentity		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@DenemeKey",SqlDbType.UniqueIdentifier, row.DenemeKey);
-			builder.parameterEkle("@DenemeKolon",SqlDbType.VarChar, row.DenemeKolon,50);
+			builder.parameterEkle("@DenemeKey",DbType.Guid, row.DenemeKey);
+			builder.parameterEkle("@DenemeKolon",DbType.String, row.DenemeKolon,50);
 		}
-		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		DenemeGuidIdentity		 row)
+		protected override void DeleteCommandParametersAdd(DbCommand cmd, 		DenemeGuidIdentity		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@DenemeKey",SqlDbType.UniqueIdentifier, row.DenemeKey);
+			builder.parameterEkle("@DenemeKey",DbType.Guid, row.DenemeKey);
 		}
 	}
 }

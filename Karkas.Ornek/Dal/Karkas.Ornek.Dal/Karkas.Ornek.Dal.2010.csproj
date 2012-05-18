@@ -60,41 +60,107 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dbo\OrnekSistemViewDal.cs" />
-    <Compile Include="Dbo\OrnekSistemViewDal.generated.cs" />
-    <Compile Include="Ornekler\AciklamaDal.cs" />
-    <Compile Include="Ornekler\AciklamaDal.generated.cs" />
+    <Compile Include="Dbo\OrnekSistemViewDal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dbo\OrnekSistemViewDal.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\AciklamaDal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\AciklamaDal.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Ornekler\BasitTabloDal.cs" />
     <Compile Include="Ornekler\BasitTabloDal.generated.cs" />
-    <Compile Include="Ornekler\BasitTabloIdentityDal.cs" />
-    <Compile Include="Ornekler\BasitTabloIdentityDal.generated.cs" />
-    <Compile Include="Ornekler\ConcurrencyOrnekDal.cs" />
-    <Compile Include="Ornekler\ConcurrencyOrnekDal.generated.cs" />
-    <Compile Include="Ornekler\DenemeGuidIdentityDal.cs" />
-    <Compile Include="Ornekler\DenemeGuidIdentityDal.generated.cs" />
-    <Compile Include="Ornekler\IdentityBigIntDal.cs" />
-    <Compile Include="Ornekler\IdentityBigIntDal.generated.cs" />
-    <Compile Include="Ornekler\IdentityIntDal.cs" />
-    <Compile Include="Ornekler\IdentityIntDal.generated.cs" />
-    <Compile Include="Ornekler\IdentitySmallIntDal.cs" />
-    <Compile Include="Ornekler\IdentitySmallIntDal.generated.cs" />
-    <Compile Include="Ornekler\IdentityTinyIntDal.cs" />
-    <Compile Include="Ornekler\IdentityTinyIntDal.generated.cs" />
-    <Compile Include="Ornekler\IsimlendirmeBozukDal.cs" />
-    <Compile Include="Ornekler\IsimlendirmeBozukDal.generated.cs" />
-    <Compile Include="Ornekler\MusteriDal.cs" />
-    <Compile Include="Ornekler\MusteriDal.generated.cs" />
-    <Compile Include="Ornekler\MusteriSiparisDal.cs" />
-    <Compile Include="Ornekler\MusteriSiparisDal.generated.cs" />
-    <Compile Include="Ornekler\OrnekTabloDal.cs" />
-    <Compile Include="Ornekler\OrnekTabloDal.generated.cs" />
-    <Compile Include="Ornekler\StoredProcedures\usp_BasitTabloIdentityEkle.generated.cs" />
-    <Compile Include="Ornekler\StoredProcedures\usp_MusteriEkle.generated.cs" />
-    <Compile Include="Ornekler\StoredProcedures\usp_MusteriSorgulaHepsiniGetir.generated.cs" />
-    <Compile Include="Ornekler\StoredProcedures\usp_MusteriSorgulaMusteriKeyIle.generated.cs" />
-    <Compile Include="Ornekler\StoredProcedures\usp_Ornek.generated.cs" />
-    <Compile Include="Ornekler\StoredProcedures\usp_ToplaOutputParam.generated.cs" />
-    <Compile Include="Ornekler\StoredProcedures\usp_YaziDegeriniBul.generated.cs" />
+    <Compile Include="Ornekler\BasitTabloIdentityDal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\BasitTabloIdentityDal.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\ConcurrencyOrnekDal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\ConcurrencyOrnekDal.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\DenemeGuidIdentityDal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\DenemeGuidIdentityDal.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\IdentityBigIntDal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\IdentityBigIntDal.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\IdentityIntDal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\IdentityIntDal.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\IdentitySmallIntDal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\IdentitySmallIntDal.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\IdentityTinyIntDal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\IdentityTinyIntDal.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\IsimlendirmeBozukDal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\IsimlendirmeBozukDal.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\MusteriDal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\MusteriDal.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\MusteriSiparisDal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\MusteriSiparisDal.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\OrnekTabloDal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\OrnekTabloDal.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\StoredProcedures\usp_BasitTabloIdentityEkle.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\StoredProcedures\usp_MusteriEkle.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\StoredProcedures\usp_MusteriSorgulaHepsiniGetir.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\StoredProcedures\usp_MusteriSorgulaMusteriKeyIle.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\StoredProcedures\usp_Ornek.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\StoredProcedures\usp_ToplaOutputParam.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ornekler\StoredProcedures\usp_YaziDegeriniBul.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

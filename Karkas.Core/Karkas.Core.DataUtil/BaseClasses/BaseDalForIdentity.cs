@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Data;
 using Karkas.Core.TypeLibrary;
 using log4net;
+using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
@@ -27,7 +28,7 @@ namespace Karkas.Core.DataUtil
         public new M Ekle(T row)
         {
             M sonuc = default(M);
-            SqlCommand cmd = CommandFactory.getDatabaseCommand(InsertString, Connection);
+            DbCommand cmd = CommandFactory.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
 
 

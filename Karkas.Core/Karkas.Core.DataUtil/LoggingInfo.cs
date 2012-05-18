@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using log4net;
 using System.Threading;
 using System.Web;
+using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
@@ -17,7 +18,7 @@ namespace Karkas.Core.DataUtil
         {
 
         }
-        public LoggingInfo(SqlCommand sqlCommand)
+        public LoggingInfo(DbCommand sqlCommand)
         {
             this.sqlCommand = sqlCommand;
         }
@@ -77,9 +78,9 @@ namespace Karkas.Core.DataUtil
             logger.Debug(this.ToString());
         }
 
-        private SqlCommand sqlCommand;
+        private DbCommand sqlCommand;
 
-        public SqlCommand SqlCommand
+        public DbCommand SqlCommand
         {
             get { return sqlCommand; }
             set { sqlCommand = value; }

@@ -23,7 +23,7 @@ namespace Karkas.Ornek.Dal.Ornekler
                               FROM ORNEKLER.MUSTERI_SIPARIS
                             WHERE MusteriKey = @MusteriKey";
             ParameterBuilder builder = new ParameterBuilder();
-            builder.parameterEkle("@MusteriKey", SqlDbType.UniqueIdentifier, pMusteriKey);
+            builder.parameterEkle("@MusteriKey", DbType.Guid, pMusteriKey);
             return Template.DataTableOlustur(strSQL, builder.GetParameterArray());
         }
 	}

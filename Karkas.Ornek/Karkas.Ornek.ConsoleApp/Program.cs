@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Karkas.Ornek.TypeLibrary.Ornekler;
-using Karkas.Ornek.BsWrapper.Ornekler;
 using System.Transactions;
 using Karkas.Ornek.ConsoleApp.Testler;
 using System.Xml.Serialization;
@@ -15,6 +14,7 @@ using System.Globalization;
 using Karkas.Ornek.Bs.Ornekler;
 using Karkas.Ornek.ConsoleApp.DataUtilOrnekleri;
 using Karkas.Ornek.Dal.Ornekler;
+using Karkas.Ornek.BsWrapper.Ornekler;
 
 namespace Karkas.Ornek.ConsoleApp
 {

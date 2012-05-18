@@ -17,7 +17,7 @@ namespace Karkas.Ornek.Dal.Ornekler
 			{
 				ParameterBuilder builder = new ParameterBuilder();
 				
-				 builder.parameterEkle( "@MusteriKey",SqlDbType.UniqueIdentifier,@MusteriKey);
+				 builder.parameterEkle( "@MusteriKey",DbType.Guid,@MusteriKey);
 				SqlCommand cmd = new SqlCommand();
 				cmd.CommandText = "ORNEKLER.MUSTERI_SORGULA_MUSTERI_KEY_ILE";
 				cmd.CommandType = CommandType.StoredProcedure;

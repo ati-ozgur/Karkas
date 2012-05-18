@@ -6,6 +6,7 @@ using System.Text;
 using Karkas.Core.DataUtil;
 using Karkas.Ornek.TypeLibrary;
 using Karkas.Ornek.TypeLibrary.Ornekler;
+using System.Data.Common;
 
 
 namespace Karkas.Ornek.Dal.Ornekler
@@ -137,34 +138,34 @@ namespace Karkas.Ornek.Dal.Ornekler
 				row.TamAdi = dr.GetString(8);
 			}
 		}
-		protected override void InsertCommandParametersAdd(SqlCommand cmd, Musteri row)
+		protected override void InsertCommandParametersAdd(DbCommand cmd, Musteri row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@MusteriKey",SqlDbType.UniqueIdentifier, row.MusteriKey);
-			builder.parameterEkle("@Adi",SqlDbType.VarChar, row.Adi,50);
-			builder.parameterEkle("@Soyadi",SqlDbType.VarChar, row.Soyadi,50);
-			builder.parameterEkle("@IkinciAdi",SqlDbType.VarChar, row.IkinciAdi,50);
-			builder.parameterEkle("@DogumTarihi",SqlDbType.DateTime, row.DogumTarihi);
-			builder.parameterEkle("@AktifMi",SqlDbType.Bit, row.AktifMi);
-			builder.parameterEkle("@Onemi",SqlDbType.Int, row.Onemi);
-			builder.parameterEkle("@Kredisi",SqlDbType.Decimal, row.Kredisi);
+			builder.parameterEkle("@MusteriKey",DbType.Guid, row.MusteriKey);
+			builder.parameterEkle("@Adi",DbType.String, row.Adi,50);
+			builder.parameterEkle("@Soyadi",DbType.String, row.Soyadi,50);
+			builder.parameterEkle("@IkinciAdi",DbType.String, row.IkinciAdi,50);
+			builder.parameterEkle("@DogumTarihi",DbType.DateTime, row.DogumTarihi);
+			builder.parameterEkle("@AktifMi",DbType.Boolean, row.AktifMi);
+			builder.parameterEkle("@Onemi",DbType.Int32, row.Onemi);
+			builder.parameterEkle("@Kredisi",DbType.Decimal, row.Kredisi);
 		}
-		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		Musteri		 row)
+		protected override void UpdateCommandParametersAdd(DbCommand cmd, 		Musteri		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@MusteriKey",SqlDbType.UniqueIdentifier, row.MusteriKey);
-			builder.parameterEkle("@Adi",SqlDbType.VarChar, row.Adi,50);
-			builder.parameterEkle("@Soyadi",SqlDbType.VarChar, row.Soyadi,50);
-			builder.parameterEkle("@IkinciAdi",SqlDbType.VarChar, row.IkinciAdi,50);
-			builder.parameterEkle("@DogumTarihi",SqlDbType.DateTime, row.DogumTarihi);
-			builder.parameterEkle("@AktifMi",SqlDbType.Bit, row.AktifMi);
-			builder.parameterEkle("@Onemi",SqlDbType.Int, row.Onemi);
-			builder.parameterEkle("@Kredisi",SqlDbType.Decimal, row.Kredisi);
+			builder.parameterEkle("@MusteriKey",DbType.Guid, row.MusteriKey);
+			builder.parameterEkle("@Adi",DbType.String, row.Adi,50);
+			builder.parameterEkle("@Soyadi",DbType.String, row.Soyadi,50);
+			builder.parameterEkle("@IkinciAdi",DbType.String, row.IkinciAdi,50);
+			builder.parameterEkle("@DogumTarihi",DbType.DateTime, row.DogumTarihi);
+            builder.parameterEkle("@AktifMi", DbType.Boolean, row.AktifMi);
+            builder.parameterEkle("@Onemi", DbType.Int32, row.Onemi);
+			builder.parameterEkle("@Kredisi",DbType.Decimal, row.Kredisi);
 		}
-		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		Musteri		 row)
+		protected override void DeleteCommandParametersAdd(DbCommand cmd, 		Musteri		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@MusteriKey",SqlDbType.UniqueIdentifier, row.MusteriKey);
+			builder.parameterEkle("@MusteriKey",DbType.Guid, row.MusteriKey);
 		}
 	}
 }

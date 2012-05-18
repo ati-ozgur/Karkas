@@ -3,54 +3,55 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
+using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
     public class ParameterBuilder
     {
 
-        private SqlCommand command;
+        private DbCommand command;
 
-        public SqlCommand Command
+        public DbCommand Command
         {
             get { return command; }
             set { command = value; }
         }
-        public ParameterBuilder(SqlCommand pCommand)
+        public ParameterBuilder(DbCommand pCommand)
         {
             this.command = pCommand;
         }
 
-        List<SqlParameter> parameterList;
+        List<DbParameter> parameterList;
         public ParameterBuilder()
         {
-            parameterList = new List<SqlParameter>();
+            parameterList = new List<DbParameter>();
         }
         internal void parameterEkle(string parameterName, object value)
         {
-            SqlParameter prm = parameterDegerleriniSetle(parameterName,SqlDbType.Variant, value);
+            DbParameter prm = parameterDegerleriniSetle(parameterName,DbType.Object, value);
             parameteriyiCommandYadaListeyeEkle(prm);
         }
 
 
-        public void parameterEkle(string parameterName,SqlDbType dbType, object value)
+        public void parameterEkle(string parameterName,DbType dbType, object value)
         {
-            SqlParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
+            DbParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
             parameteriyiCommandYadaListeyeEkle(prm);
         }
-        private static SqlParameter parameterDegerleriniSetle(string parameterName, SqlDbType dbType)
+        private static DbParameter parameterDegerleriniSetle(string parameterName, DbType dbType)
         {
-            SqlParameter prm = new SqlParameter();
+            DbParameter prm = new DbProviderFactoryHelper().GetParameter();
             prm.ParameterName = parameterName;
-            prm.SqlDbType = dbType;
+            prm.DbType = dbType;
             return prm;
         }
 
-        private static SqlParameter parameterDegerleriniSetle(string parameterName, SqlDbType dbType, object value)
+        private static DbParameter parameterDegerleriniSetle(string parameterName, DbType dbType, object value)
         {
-            SqlParameter prm = new SqlParameter();
+            DbParameter prm = new DbProviderFactoryHelper().GetParameter();
             prm.ParameterName = parameterName;
-            prm.SqlDbType = dbType;
+            prm.DbType = dbType;
             if (value == null)
             {
                 prm.Value = DBNull.Value;
@@ -61,39 +62,39 @@ namespace Karkas.Core.DataUtil
             }
             return prm;
         }
-        public void parameterEkle(string parameterName, SqlDbType dbType, object value, int size)
+        public void parameterEkle(string parameterName, DbType dbType, object value, int size)
         {
-            SqlParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
+            DbParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
             prm.Size = size;
             parameteriyiCommandYadaListeyeEkle(prm);
         }
-        public void parameterEkleReturnValue(string parameterName, SqlDbType dbType)
+        public void parameterEkleReturnValue(string parameterName, DbType dbType)
         {
-            SqlParameter prm = parameterDegerleriniSetle(parameterName, dbType);
+            DbParameter prm = parameterDegerleriniSetle(parameterName, dbType);
             prm.Direction = ParameterDirection.ReturnValue;
             parameteriyiCommandYadaListeyeEkle(prm);
         }
-        public void parameterEkleOutput(string parameterName, SqlDbType dbType)
+        public void parameterEkleOutput(string parameterName, DbType dbType)
         {
-            SqlParameter prm = parameterDegerleriniSetle(parameterName, dbType);
+            DbParameter prm = parameterDegerleriniSetle(parameterName, dbType);
             prm.Direction = ParameterDirection.Output;
             parameteriyiCommandYadaListeyeEkle(prm);
         }
-        public void parameterEkleOutput(string parameterName, SqlDbType dbType,int size)
+        public void parameterEkleOutput(string parameterName, DbType dbType, int size)
         {
-            SqlParameter prm = parameterDegerleriniSetle(parameterName, dbType);
+            DbParameter prm = parameterDegerleriniSetle(parameterName, dbType);
             prm.Direction = ParameterDirection.Output;
             prm.Size = size;
             parameteriyiCommandYadaListeyeEkle(prm);
         }
-        public void parameterEkleInputOutput(string parameterName, SqlDbType dbType)
+        public void parameterEkleInputOutput(string parameterName, DbType dbType)
         {
-            SqlParameter prm = parameterDegerleriniSetle(parameterName, dbType);
+            DbParameter prm = parameterDegerleriniSetle(parameterName, dbType);
             prm.Direction = ParameterDirection.InputOutput;
             parameteriyiCommandYadaListeyeEkle(prm);
         }
 
-        private void parameteriyiCommandYadaListeyeEkle(SqlParameter prm)
+        private void parameteriyiCommandYadaListeyeEkle(DbParameter prm)
         {
             if (command != null)
             {
@@ -105,7 +106,7 @@ namespace Karkas.Core.DataUtil
             }
         }
 
-        public SqlParameter[] GetParameterArray()
+        public DbParameter[] GetParameterArray()
         {
             return parameterList.ToArray();
         }
@@ -114,11 +115,11 @@ namespace Karkas.Core.DataUtil
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            foreach (SqlParameter param in parameterList)
+            foreach (DbParameter param in parameterList)
             {
                 sb.Append(string.Format("DECLARE {0} {1} = {2}"
                     , param.ParameterName
-                    ,param.SqlDbType
+                    ,param.DbType
                     , param.Value));
                 sb.Append(Environment.NewLine);
             }

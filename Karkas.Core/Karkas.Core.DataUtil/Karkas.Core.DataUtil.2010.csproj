@@ -75,6 +75,8 @@
     <Compile Include="BaseClasses\BaseDalWithoutEntity.cs" />
     <Compile Include="CommandFactory.cs" />
     <Compile Include="ConnectionSingleton.cs" />
+    <Compile Include="DatabaseMapper.cs" />
+    <Compile Include="DbProviderFactoryHelper.cs" />
     <Compile Include="ExceptionDegistirici.cs" />
     <Compile Include="Exceptions\AyniAndaKullanimHatasi.cs" />
     <Compile Include="Exceptions\IkincilAnahtarHatasi.cs" />

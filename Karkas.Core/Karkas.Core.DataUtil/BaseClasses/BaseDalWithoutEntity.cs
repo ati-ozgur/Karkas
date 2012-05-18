@@ -84,15 +84,15 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        private SqlTransaction currentTransaction;
+        private DbTransaction currentTransaction;
 
-        public SqlTransaction CurrentTransaction
+        public DbTransaction CurrentTransaction
         {
             get { return currentTransaction; }
             set { currentTransaction = value; }
         }
 
-        protected int SorguHariciKomutCalistirInternal(SqlCommand cmd)
+        protected int SorguHariciKomutCalistirInternal(DbCommand cmd)
         {
             int sonucRowSayisi = 0;
             try

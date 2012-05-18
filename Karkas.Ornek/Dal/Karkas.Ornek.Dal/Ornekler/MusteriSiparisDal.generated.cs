@@ -6,6 +6,7 @@ using System.Text;
 using Karkas.Core.DataUtil;
 using Karkas.Ornek.TypeLibrary;
 using Karkas.Ornek.TypeLibrary.Ornekler;
+using System.Data.Common;
 
 
 namespace Karkas.Ornek.Dal.Ornekler
@@ -117,26 +118,26 @@ namespace Karkas.Ornek.Dal.Ornekler
 			row.Tutar = dr.GetDecimal(2);
 			row.SiparisTarihi = dr.GetDateTime(3);
 		}
-		protected override void InsertCommandParametersAdd(SqlCommand cmd, MusteriSiparis row)
+		protected override void InsertCommandParametersAdd(DbCommand cmd, MusteriSiparis row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@MusteriSiparisKey",SqlDbType.UniqueIdentifier, row.MusteriSiparisKey);
-			builder.parameterEkle("@MusteriKey",SqlDbType.UniqueIdentifier, row.MusteriKey);
-			builder.parameterEkle("@Tutar",SqlDbType.Decimal, row.Tutar);
-			builder.parameterEkle("@SiparisTarihi",SqlDbType.DateTime, row.SiparisTarihi);
+			builder.parameterEkle("@MusteriSiparisKey",DbType.Guid, row.MusteriSiparisKey);
+			builder.parameterEkle("@MusteriKey",DbType.Guid, row.MusteriKey);
+			builder.parameterEkle("@Tutar",DbType.Decimal, row.Tutar);
+			builder.parameterEkle("@SiparisTarihi",DbType.DateTime, row.SiparisTarihi);
 		}
-		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		MusteriSiparis		 row)
+		protected override void UpdateCommandParametersAdd(DbCommand cmd, 		MusteriSiparis		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@MusteriSiparisKey",SqlDbType.UniqueIdentifier, row.MusteriSiparisKey);
-			builder.parameterEkle("@MusteriKey",SqlDbType.UniqueIdentifier, row.MusteriKey);
-			builder.parameterEkle("@Tutar",SqlDbType.Decimal, row.Tutar);
-			builder.parameterEkle("@SiparisTarihi",SqlDbType.DateTime, row.SiparisTarihi);
+			builder.parameterEkle("@MusteriSiparisKey",DbType.Guid, row.MusteriSiparisKey);
+			builder.parameterEkle("@MusteriKey",DbType.Guid, row.MusteriKey);
+			builder.parameterEkle("@Tutar",DbType.Decimal, row.Tutar);
+			builder.parameterEkle("@SiparisTarihi",DbType.DateTime, row.SiparisTarihi);
 		}
-		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		MusteriSiparis		 row)
+		protected override void DeleteCommandParametersAdd(DbCommand cmd, 		MusteriSiparis		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@MusteriSiparisKey",SqlDbType.UniqueIdentifier, row.MusteriSiparisKey);
+			builder.parameterEkle("@MusteriSiparisKey",DbType.Guid, row.MusteriSiparisKey);
 		}
 	}
 }

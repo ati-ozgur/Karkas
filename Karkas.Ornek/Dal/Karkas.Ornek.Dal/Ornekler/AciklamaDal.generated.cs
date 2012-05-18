@@ -6,6 +6,7 @@ using System.Text;
 using Karkas.Core.DataUtil;
 using Karkas.Ornek.TypeLibrary;
 using Karkas.Ornek.TypeLibrary.Ornekler;
+using System.Data.Common;
 
 
 namespace Karkas.Ornek.Dal.Ornekler
@@ -115,22 +116,22 @@ namespace Karkas.Ornek.Dal.Ornekler
 			row.AciklamaKey = dr.GetGuid(0);
 			row.AciklamaProperty = dr.GetString(1);
 		}
-		protected override void InsertCommandParametersAdd(SqlCommand cmd, Aciklama row)
+		protected override void InsertCommandParametersAdd(DbCommand cmd, Aciklama row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@AciklamaKey",SqlDbType.UniqueIdentifier, row.AciklamaKey);
-			builder.parameterEkle("@Aciklama",SqlDbType.VarChar, row.AciklamaProperty,50);
+			builder.parameterEkle("@AciklamaKey",DbType.Guid, row.AciklamaKey);
+			builder.parameterEkle("@Aciklama",DbType.String, row.AciklamaProperty,50);
 		}
-		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		Aciklama		 row)
+		protected override void UpdateCommandParametersAdd(DbCommand cmd, 		Aciklama		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@AciklamaKey",SqlDbType.UniqueIdentifier, row.AciklamaKey);
-			builder.parameterEkle("@Aciklama",SqlDbType.VarChar, row.AciklamaProperty,50);
+			builder.parameterEkle("@AciklamaKey",DbType.Guid, row.AciklamaKey);
+			builder.parameterEkle("@Aciklama",DbType.String, row.AciklamaProperty,50);
 		}
-		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		Aciklama		 row)
+		protected override void DeleteCommandParametersAdd(DbCommand cmd, 		Aciklama		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@AciklamaKey",SqlDbType.UniqueIdentifier, row.AciklamaKey);
+			builder.parameterEkle("@AciklamaKey",DbType.Guid, row.AciklamaKey);
 		}
 	}
 }

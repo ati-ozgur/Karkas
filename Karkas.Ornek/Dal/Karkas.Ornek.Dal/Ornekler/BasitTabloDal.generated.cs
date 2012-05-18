@@ -6,6 +6,7 @@ using System.Text;
 using Karkas.Core.DataUtil;
 using Karkas.Ornek.TypeLibrary;
 using Karkas.Ornek.TypeLibrary.Ornekler;
+using System.Data.Common;
 
 
 namespace Karkas.Ornek.Dal.Ornekler
@@ -124,28 +125,28 @@ namespace Karkas.Ornek.Dal.Ornekler
 				row.Utarihi = dr.GetDateTime(4);
 			}
 		}
-		protected override void InsertCommandParametersAdd(SqlCommand cmd, BasitTablo row)
+		protected override void InsertCommandParametersAdd(DbCommand cmd, BasitTablo row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@BasitTabloKey",SqlDbType.UniqueIdentifier, row.BasitTabloKey);
-			builder.parameterEkle("@Adi",SqlDbType.VarChar, row.Adi,50);
-			builder.parameterEkle("@Soyadi",SqlDbType.VarChar, row.Soyadi,50);
-			builder.parameterEkle("@GKullaniciKey",SqlDbType.UniqueIdentifier, row.GkullaniciKey);
-			builder.parameterEkle("@UTarihi",SqlDbType.SmallDateTime, row.Utarihi);
+			builder.parameterEkle("@BasitTabloKey",DbType.Guid, row.BasitTabloKey);
+			builder.parameterEkle("@Adi",DbType.String, row.Adi,50);
+            builder.parameterEkle("@Soyadi", DbType.String, row.Soyadi, 50);
+			builder.parameterEkle("@GKullaniciKey",DbType.Guid, row.GkullaniciKey);
+			builder.parameterEkle("@UTarihi",DbType.DateTime, row.Utarihi);
 		}
-		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		BasitTablo		 row)
+        protected override void UpdateCommandParametersAdd(DbCommand cmd, BasitTablo row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@BasitTabloKey",SqlDbType.UniqueIdentifier, row.BasitTabloKey);
-			builder.parameterEkle("@Adi",SqlDbType.VarChar, row.Adi,50);
-			builder.parameterEkle("@Soyadi",SqlDbType.VarChar, row.Soyadi,50);
-			builder.parameterEkle("@GKullaniciKey",SqlDbType.UniqueIdentifier, row.GkullaniciKey);
-			builder.parameterEkle("@UTarihi",SqlDbType.SmallDateTime, row.Utarihi);
+			builder.parameterEkle("@BasitTabloKey",DbType.Guid, row.BasitTabloKey);
+            builder.parameterEkle("@Adi", DbType.String, row.Adi, 50);
+            builder.parameterEkle("@Soyadi", DbType.String, row.Soyadi, 50);
+			builder.parameterEkle("@GKullaniciKey",DbType.Guid, row.GkullaniciKey);
+			builder.parameterEkle("@UTarihi",DbType.DateTime, row.Utarihi);
 		}
-		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		BasitTablo		 row)
+        protected override void DeleteCommandParametersAdd(DbCommand cmd, BasitTablo row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@BasitTabloKey",SqlDbType.UniqueIdentifier, row.BasitTabloKey);
+			builder.parameterEkle("@BasitTabloKey",DbType.Guid, row.BasitTabloKey);
 		}
 	}
 }

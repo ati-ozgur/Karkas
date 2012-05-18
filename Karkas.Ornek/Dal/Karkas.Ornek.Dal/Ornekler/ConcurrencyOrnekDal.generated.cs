@@ -6,6 +6,7 @@ using System.Text;
 using Karkas.Core.DataUtil;
 using Karkas.Ornek.TypeLibrary;
 using Karkas.Ornek.TypeLibrary.Ornekler;
+using System.Data.Common;
 
 
 namespace Karkas.Ornek.Dal.Ornekler
@@ -116,23 +117,23 @@ namespace Karkas.Ornek.Dal.Ornekler
 			row.Adi = dr.GetString(1);
 			row.VersiyonZamani = (Byte[])dr.GetValue(2);
 		}
-		protected override void InsertCommandParametersAdd(SqlCommand cmd, ConcurrencyOrnek row)
+		protected override void InsertCommandParametersAdd(DbCommand cmd, ConcurrencyOrnek row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@ConcurrencyOrnekKey",SqlDbType.UniqueIdentifier, row.ConcurrencyOrnekKey);
-			builder.parameterEkle("@Adi",SqlDbType.VarChar, row.Adi,50);
+			builder.parameterEkle("@ConcurrencyOrnekKey",DbType.Guid, row.ConcurrencyOrnekKey);
+			builder.parameterEkle("@Adi",DbType.String, row.Adi,50);
 		}
-		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		ConcurrencyOrnek		 row)
+		protected override void UpdateCommandParametersAdd(DbCommand cmd, 		ConcurrencyOrnek		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@ConcurrencyOrnekKey",SqlDbType.UniqueIdentifier, row.ConcurrencyOrnekKey);
-			builder.parameterEkle("@Adi",SqlDbType.VarChar, row.Adi,50);
-			builder.parameterEkle("@VersiyonZamani",SqlDbType.Timestamp, row.VersiyonZamani,8);
+			builder.parameterEkle("@ConcurrencyOrnekKey",DbType.Guid, row.ConcurrencyOrnekKey);
+			builder.parameterEkle("@Adi",DbType.String, row.Adi,50);
+			builder.parameterEkle("@VersiyonZamani",DbType.DateTime, row.VersiyonZamani,8);
 		}
-		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		ConcurrencyOrnek		 row)
+		protected override void DeleteCommandParametersAdd(DbCommand cmd, 		ConcurrencyOrnek		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@ConcurrencyOrnekKey",SqlDbType.UniqueIdentifier, row.ConcurrencyOrnekKey);
+			builder.parameterEkle("@ConcurrencyOrnekKey",DbType.Guid, row.ConcurrencyOrnekKey);
 		}
 	}
 }

@@ -20,7 +20,7 @@ namespace Karkas.Ornek.Dal.Ornekler
             List<Musteri> liste = new List<Musteri>();
             string filtre = " TamAdi LIKE @TamAdi + '%'";
             ParameterBuilder builder = new ParameterBuilder();
-            builder.parameterEkle("@TamAdi", SqlDbType.VarChar, pTamAdi);
+            builder.parameterEkle("@TamAdi", DbType.String, pTamAdi);
             SorguCalistir(liste, filtre, builder.GetParameterArray());
             return liste;
         }
@@ -33,8 +33,8 @@ namespace Karkas.Ornek.Dal.Ornekler
             List<Musteri> liste = new List<Musteri>();
             string filtre = sy.KriterSonucunuWhereOlmadanGetir();
             ParameterBuilder builder = new ParameterBuilder();
-            builder.parameterEkle("@Adi", SqlDbType.VarChar, pAdi);
-            builder.parameterEkle("@Soyadi", SqlDbType.VarChar, pSoyadi, 50);
+            builder.parameterEkle("@Adi", DbType.String, pAdi);
+            builder.parameterEkle("@Soyadi", DbType.String, pSoyadi, 50);
             SorguCalistir(liste, filtre, builder.GetParameterArray());
             return liste;
         }
@@ -72,11 +72,11 @@ namespace Karkas.Ornek.Dal.Ornekler
             sy.WhereKriterineEkle("AktifMi", WhereOperatorEnum.Esittir, "@Aktifmi");
             strSQL += sy.KriterSonucunuGetir();
             if (pAktifMi)
-                builder.parameterEkle("@Aktifmi", SqlDbType.Bit, true);
+                builder.parameterEkle("@Aktifmi", DbType.Boolean, true);
             else
-                builder.parameterEkle("@Aktifmi", SqlDbType.Bit, false);
-            builder.parameterEkle("@Adi", SqlDbType.VarChar, pAdi);
-            builder.parameterEkle("@Soyadi", SqlDbType.VarChar, pSoyadi);
+                builder.parameterEkle("@Aktifmi", DbType.Boolean, false);
+            builder.parameterEkle("@Adi", DbType.String, pAdi);
+            builder.parameterEkle("@Soyadi", DbType.String, pSoyadi);
             return Template.DataTableOlustur(strSQL, builder.GetParameterArray());
         }
     }

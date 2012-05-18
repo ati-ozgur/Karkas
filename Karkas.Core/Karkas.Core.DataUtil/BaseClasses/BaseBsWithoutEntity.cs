@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
@@ -35,7 +36,7 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        protected SqlTransaction transaction;
+        protected DbTransaction transaction;
         public void BeginTransaction()
         {
             if (connection.State != ConnectionState.Open)
@@ -68,8 +69,8 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        private SqlConnection connection;
-        public SqlConnection Connection
+        private DbConnection connection;
+        public DbConnection Connection
         {
             get
             {
@@ -77,7 +78,7 @@ namespace Karkas.Core.DataUtil
                 {
                     if (string.IsNullOrEmpty(DatabaseName))
                     {
-                        connection = (SqlConnection)  ConnectionSingleton.Instance.Connection;
+                        connection =  ConnectionSingleton.Instance.Connection;
                     }
                     else
                     {

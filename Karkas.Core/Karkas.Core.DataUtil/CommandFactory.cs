@@ -25,6 +25,26 @@ namespace Karkas.Core.DataUtil
             SqlCommand cmd = new SqlCommand();
             return cmd;
         }
+
+        public static DbDataAdapter getDatabaseAdapter(DbCommand cmd)
+        {
+            if (cmd is SqlCommand)
+            {
+                return new SqlDataAdapter((SqlCommand)cmd);
+            }
+            else
+            {
+                // TODO Burası yapılacak
+                return null;
+            }
+        }
+
+
+        public static SqlDataAdapter getDatabaseAdapter(SqlCommand cmd)
+        {
+            return new SqlDataAdapter(cmd);
+        }
+
     }
 }
 

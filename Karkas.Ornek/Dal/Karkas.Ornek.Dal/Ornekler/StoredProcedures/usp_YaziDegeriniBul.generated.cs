@@ -17,9 +17,9 @@ namespace Karkas.Ornek.Dal.Ornekler
 			)
 			{
 				ParameterBuilder builder = new ParameterBuilder();
-				 builder.parameterEkleReturnValue( "@RETURN_VALUE",SqlDbType.Int);
-				 builder.parameterEkle( "@SAYI",SqlDbType.Int,@SAYI);
-				 builder.parameterEkleOutput( "@SAYI_YAZI",SqlDbType.VarChar,255);
+				 builder.parameterEkleReturnValue( "@RETURN_VALUE",DbType.Int32);
+				 builder.parameterEkle( "@SAYI",DbType.Int32,@SAYI);
+				 builder.parameterEkleOutput( "@SAYI_YAZI",DbType.String,255);
 				SqlCommand cmd = new SqlCommand();
 				cmd.CommandText = "ORNEKLER.YAZI_DEGERINI_BUL";
 				cmd.CommandType = CommandType.StoredProcedure;

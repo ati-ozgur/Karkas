@@ -6,6 +6,7 @@ using System.Text;
 using Karkas.Core.DataUtil;
 using Karkas.Ornek.TypeLibrary;
 using Karkas.Ornek.TypeLibrary.Ornekler;
+using System.Data.Common;
 
 
 namespace Karkas.Ornek.Dal.Ornekler
@@ -230,76 +231,76 @@ namespace Karkas.Ornek.Dal.Ornekler
 				row.KolonXml = dr.GetString(29);
 			}
 		}
-		protected override void InsertCommandParametersAdd(SqlCommand cmd, OrnekTablo row)
+		protected override void InsertCommandParametersAdd(DbCommand cmd, OrnekTablo row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@OrnekTabloKey",SqlDbType.UniqueIdentifier, row.OrnekTabloKey);
-			builder.parameterEkle("@KolonBigInt",SqlDbType.BigInt, row.KolonBigInt);
-			builder.parameterEkle("@KolonBinary",SqlDbType.Binary, row.KolonBinary,50);
-			builder.parameterEkle("@KolonBit",SqlDbType.Bit, row.KolonBit);
-			builder.parameterEkle("@KolonChar",SqlDbType.Char, row.KolonChar,10);
-			builder.parameterEkle("@KolonDateTime",SqlDbType.DateTime, row.KolonDateTime);
-			builder.parameterEkle("@KolonDecimal",SqlDbType.Decimal, row.KolonDecimal);
-			builder.parameterEkle("@KolonFloat",SqlDbType.Float, row.KolonFloat);
-			builder.parameterEkle("@KolonImage",SqlDbType.Image, row.KolonImage,2147483647);
-			builder.parameterEkle("@KolonInt",SqlDbType.Int, row.KolonInt);
-			builder.parameterEkle("@KolonMoney",SqlDbType.Money, row.KolonMoney);
-			builder.parameterEkle("@KolonNChar",SqlDbType.NChar, row.KolonNchar,10);
-			builder.parameterEkle("@KolonNText",SqlDbType.NText, row.KolonNtext,1073741823);
-			builder.parameterEkle("@KolonNumeric",SqlDbType.Decimal, row.KolonNumeric);
-			builder.parameterEkle("@KolonNVarchar",SqlDbType.NVarChar, row.KolonNvarchar,50);
-			builder.parameterEkle("@KolonNVarcharMax",SqlDbType.NVarChar, row.KolonNvarcharMax);
-			builder.parameterEkle("@KolonReal",SqlDbType.Real, row.KolonReal);
-			builder.parameterEkle("@KolonSmallDateTime",SqlDbType.SmallDateTime, row.KolonSmallDateTime);
-			builder.parameterEkle("@KolonSmallInt",SqlDbType.SmallInt, row.KolonSmallInt);
-			builder.parameterEkle("@KolonSmallMoney",SqlDbType.SmallMoney, row.KolonSmallMoney);
-			builder.parameterEkle("@KolonSqlVariant",SqlDbType.Variant, row.KolonSqlVariant);
-			builder.parameterEkle("@KolonText",SqlDbType.Text, row.KolonText,2147483647);
-			builder.parameterEkle("@KolonTinyInt",SqlDbType.TinyInt, row.KolonTinyInt);
-			builder.parameterEkle("@KolonUniqueIdentifier",SqlDbType.UniqueIdentifier, row.KolonUniqueIdentifier);
-			builder.parameterEkle("@KolonVarBinary",SqlDbType.VarBinary, row.KolonVarBinary,50);
-			builder.parameterEkle("@KolonVarBinaryMax",SqlDbType.VarBinary, row.KolonVarBinaryMax);
-			builder.parameterEkle("@KolonVarchar",SqlDbType.VarChar, row.KolonVarchar,50);
-			builder.parameterEkle("@KolonVarcharMax",SqlDbType.VarChar, row.KolonVarcharMax);
-			builder.parameterEkle("@KolonXml",SqlDbType.Xml, row.KolonXml);
+			builder.parameterEkle("@OrnekTabloKey",DbType.Guid, row.OrnekTabloKey);
+			builder.parameterEkle("@KolonBigInt",DbType.Int64, row.KolonBigInt);
+			builder.parameterEkle("@KolonBinary",DbType.Binary, row.KolonBinary,50);
+			builder.parameterEkle("@KolonBit",DbType.Boolean, row.KolonBit);
+			builder.parameterEkle("@KolonChar",DbType.AnsiStringFixedLength, row.KolonChar,10);
+			builder.parameterEkle("@KolonDateTime",DbType.DateTime, row.KolonDateTime);
+			builder.parameterEkle("@KolonDecimal",DbType.Decimal, row.KolonDecimal);
+            builder.parameterEkle("@KolonFloat", DbType.Single, row.KolonFloat);
+			builder.parameterEkle("@KolonImage",DbType.Object, row.KolonImage,2147483647);
+			builder.parameterEkle("@KolonInt",DbType.Int32, row.KolonInt);
+			builder.parameterEkle("@KolonMoney",DbType.Decimal, row.KolonMoney);
+			builder.parameterEkle("@KolonNChar",DbType.String, row.KolonNchar,10);
+            builder.parameterEkle("@KolonNText", DbType.Object, row.KolonNtext, 1073741823);
+			builder.parameterEkle("@KolonNumeric",DbType.Decimal, row.KolonNumeric);
+			builder.parameterEkle("@KolonNVarchar",DbType.String, row.KolonNvarchar,50);
+			builder.parameterEkle("@KolonNVarcharMax",DbType.Object, row.KolonNvarcharMax);
+			builder.parameterEkle("@KolonReal",DbType.Double, row.KolonReal);
+			builder.parameterEkle("@KolonSmallDateTime",DbType.DateTime, row.KolonSmallDateTime);
+			builder.parameterEkle("@KolonSmallInt",DbType.Int16, row.KolonSmallInt);
+			builder.parameterEkle("@KolonSmallMoney",DbType.Currency, row.KolonSmallMoney);
+			builder.parameterEkle("@KolonSqlVariant",DbType.Object, row.KolonSqlVariant);
+			builder.parameterEkle("@KolonText",DbType.Object, row.KolonText,2147483647);
+			builder.parameterEkle("@KolonTinyInt",DbType.Byte, row.KolonTinyInt);
+			builder.parameterEkle("@KolonUniqueIdentifier",DbType.Guid, row.KolonUniqueIdentifier);
+			builder.parameterEkle("@KolonVarBinary",DbType.Binary, row.KolonVarBinary,50);
+			builder.parameterEkle("@KolonVarBinaryMax",DbType.Object, row.KolonVarBinaryMax);
+			builder.parameterEkle("@KolonVarchar",DbType.String, row.KolonVarchar,50);
+			builder.parameterEkle("@KolonVarcharMax",DbType.String, row.KolonVarcharMax);
+			builder.parameterEkle("@KolonXml",DbType.Xml, row.KolonXml);
 		}
-		protected override void UpdateCommandParametersAdd(SqlCommand cmd, 		OrnekTablo		 row)
+		protected override void UpdateCommandParametersAdd(DbCommand cmd, 		OrnekTablo		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@OrnekTabloKey",SqlDbType.UniqueIdentifier, row.OrnekTabloKey);
-			builder.parameterEkle("@KolonBigInt",SqlDbType.BigInt, row.KolonBigInt);
-			builder.parameterEkle("@KolonBinary",SqlDbType.Binary, row.KolonBinary,50);
-			builder.parameterEkle("@KolonBit",SqlDbType.Bit, row.KolonBit);
-			builder.parameterEkle("@KolonChar",SqlDbType.Char, row.KolonChar,10);
-			builder.parameterEkle("@KolonDateTime",SqlDbType.DateTime, row.KolonDateTime);
-			builder.parameterEkle("@KolonDecimal",SqlDbType.Decimal, row.KolonDecimal);
-			builder.parameterEkle("@KolonFloat",SqlDbType.Float, row.KolonFloat);
-			builder.parameterEkle("@KolonImage",SqlDbType.Image, row.KolonImage,2147483647);
-			builder.parameterEkle("@KolonInt",SqlDbType.Int, row.KolonInt);
-			builder.parameterEkle("@KolonMoney",SqlDbType.Money, row.KolonMoney);
-			builder.parameterEkle("@KolonNChar",SqlDbType.NChar, row.KolonNchar,10);
-			builder.parameterEkle("@KolonNText",SqlDbType.NText, row.KolonNtext,1073741823);
-			builder.parameterEkle("@KolonNumeric",SqlDbType.Decimal, row.KolonNumeric);
-			builder.parameterEkle("@KolonNVarchar",SqlDbType.NVarChar, row.KolonNvarchar,50);
-			builder.parameterEkle("@KolonNVarcharMax",SqlDbType.NVarChar, row.KolonNvarcharMax);
-			builder.parameterEkle("@KolonReal",SqlDbType.Real, row.KolonReal);
-			builder.parameterEkle("@KolonSmallDateTime",SqlDbType.SmallDateTime, row.KolonSmallDateTime);
-			builder.parameterEkle("@KolonSmallInt",SqlDbType.SmallInt, row.KolonSmallInt);
-			builder.parameterEkle("@KolonSmallMoney",SqlDbType.SmallMoney, row.KolonSmallMoney);
-			builder.parameterEkle("@KolonSqlVariant",SqlDbType.Variant, row.KolonSqlVariant);
-			builder.parameterEkle("@KolonText",SqlDbType.Text, row.KolonText,2147483647);
-			builder.parameterEkle("@KolonTinyInt",SqlDbType.TinyInt, row.KolonTinyInt);
-			builder.parameterEkle("@KolonUniqueIdentifier",SqlDbType.UniqueIdentifier, row.KolonUniqueIdentifier);
-			builder.parameterEkle("@KolonVarBinary",SqlDbType.VarBinary, row.KolonVarBinary,50);
-			builder.parameterEkle("@KolonVarBinaryMax",SqlDbType.VarBinary, row.KolonVarBinaryMax);
-			builder.parameterEkle("@KolonVarchar",SqlDbType.VarChar, row.KolonVarchar,50);
-			builder.parameterEkle("@KolonVarcharMax",SqlDbType.VarChar, row.KolonVarcharMax);
-			builder.parameterEkle("@KolonXml",SqlDbType.Xml, row.KolonXml);
-		}
-		protected override void DeleteCommandParametersAdd(SqlCommand cmd, 		OrnekTablo		 row)
+            builder.parameterEkle("@OrnekTabloKey", DbType.Guid, row.OrnekTabloKey);
+            builder.parameterEkle("@KolonBigInt", DbType.Int64, row.KolonBigInt);
+            builder.parameterEkle("@KolonBinary", DbType.Binary, row.KolonBinary, 50);
+            builder.parameterEkle("@KolonBit", DbType.Boolean, row.KolonBit);
+            builder.parameterEkle("@KolonChar", DbType.AnsiStringFixedLength, row.KolonChar, 10);
+            builder.parameterEkle("@KolonDateTime", DbType.DateTime, row.KolonDateTime);
+            builder.parameterEkle("@KolonDecimal", DbType.Decimal, row.KolonDecimal);
+            builder.parameterEkle("@KolonFloat", DbType.Single, row.KolonFloat);
+            builder.parameterEkle("@KolonImage", DbType.Object, row.KolonImage, 2147483647);
+            builder.parameterEkle("@KolonInt", DbType.Int32, row.KolonInt);
+            builder.parameterEkle("@KolonMoney", DbType.Decimal, row.KolonMoney);
+            builder.parameterEkle("@KolonNChar", DbType.String, row.KolonNchar, 10);
+            builder.parameterEkle("@KolonNText", DbType.Object, row.KolonNtext, 1073741823);
+            builder.parameterEkle("@KolonNumeric", DbType.Decimal, row.KolonNumeric);
+            builder.parameterEkle("@KolonNVarchar", DbType.String, row.KolonNvarchar, 50);
+            builder.parameterEkle("@KolonNVarcharMax", DbType.Object, row.KolonNvarcharMax);
+            builder.parameterEkle("@KolonReal", DbType.Double, row.KolonReal);
+            builder.parameterEkle("@KolonSmallDateTime", DbType.DateTime, row.KolonSmallDateTime);
+            builder.parameterEkle("@KolonSmallInt", DbType.Int16, row.KolonSmallInt);
+            builder.parameterEkle("@KolonSmallMoney", DbType.Currency, row.KolonSmallMoney);
+            builder.parameterEkle("@KolonSqlVariant", DbType.Object, row.KolonSqlVariant);
+            builder.parameterEkle("@KolonText", DbType.Object, row.KolonText, 2147483647);
+            builder.parameterEkle("@KolonTinyInt", DbType.Byte, row.KolonTinyInt);
+            builder.parameterEkle("@KolonUniqueIdentifier", DbType.Guid, row.KolonUniqueIdentifier);
+            builder.parameterEkle("@KolonVarBinary", DbType.Binary, row.KolonVarBinary, 50);
+            builder.parameterEkle("@KolonVarBinaryMax", DbType.Object, row.KolonVarBinaryMax);
+            builder.parameterEkle("@KolonVarchar", DbType.String, row.KolonVarchar, 50);
+            builder.parameterEkle("@KolonVarcharMax", DbType.String, row.KolonVarcharMax);
+            builder.parameterEkle("@KolonXml", DbType.Xml, row.KolonXml);
+        }
+		protected override void DeleteCommandParametersAdd(DbCommand cmd, 		OrnekTablo		 row)
 		{
 			ParameterBuilder builder = new ParameterBuilder(cmd);
-			builder.parameterEkle("@OrnekTabloKey",SqlDbType.UniqueIdentifier, row.OrnekTabloKey);
+			builder.parameterEkle("@OrnekTabloKey",DbType.Guid, row.OrnekTabloKey);
 		}
 	}
 }
