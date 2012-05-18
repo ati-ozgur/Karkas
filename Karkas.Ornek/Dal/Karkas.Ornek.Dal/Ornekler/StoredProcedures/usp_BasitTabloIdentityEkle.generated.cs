@@ -35,8 +35,8 @@ namespace Karkas.Ornek.Dal.Ornekler
 				)
 				{
 					AdoTemplate template = new AdoTemplate();
-					template.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
-					return BasitTabloIdentityEkle(
+                    template.Connection = ConnectionSingleton.Instance.getConnection("KARKAS_ORNEK");
+                    return BasitTabloIdentityEkle(
 						@Adi
 						,@Soyadi
 						,template

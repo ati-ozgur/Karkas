@@ -80,7 +80,7 @@ namespace Karkas.Ornek.Bs.Ornekler
         public void TransactionRollBackBekliyoruzAdoTemplateConnectionYonetimiIle()
         {
             AdoTemplate adotemplate = new AdoTemplate();
-            adotemplate.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
+            adotemplate.Connection = ConnectionSingleton.Instance.getConnection("KARKAS_ORNEK");
 
             Musteri m = new Musteri();
             m.Adi = "Erkan";
@@ -122,7 +122,7 @@ namespace Karkas.Ornek.Bs.Ornekler
         public void TransactionBasariliAdoTemplateConnectionYonetimiIle()
         {
             AdoTemplate adotemplate = new AdoTemplate();
-            adotemplate.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
+            adotemplate.Connection = ConnectionSingleton.Instance.getConnection("KARKAS_ORNEK");
 
             Musteri m = new Musteri();
             m.Adi = "Erkan";

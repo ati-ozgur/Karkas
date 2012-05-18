@@ -36,8 +36,8 @@ namespace Karkas.Ornek.Dal.Ornekler
 				)
 				{
 					AdoTemplate template = new AdoTemplate();
-					template.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
-					return YaziDegeriniBul(
+                    template.Connection = ConnectionSingleton.Instance.getConnection("KARKAS_ORNEK");
+                    return YaziDegeriniBul(
 						@SAYI
 						,out @SAYI_YAZI
 						,template

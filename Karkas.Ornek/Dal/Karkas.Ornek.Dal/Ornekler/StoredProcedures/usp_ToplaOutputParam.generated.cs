@@ -39,8 +39,8 @@ namespace Karkas.Ornek.Dal.Ornekler
 				)
 				{
 					AdoTemplate template = new AdoTemplate();
-					template.Connection = new SqlConnection(ConnectionSingleton.Instance.getConnectionString("KARKAS_ORNEK"));
-					return ToplaOutputParam(
+                    template.Connection = ConnectionSingleton.Instance.getConnection("KARKAS_ORNEK");
+                    return ToplaOutputParam(
 						@SAYI1
 						,@SAYI2
 						,out @SONUC
