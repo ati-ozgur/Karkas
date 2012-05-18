@@ -67,7 +67,7 @@ namespace Karkas.Core.DataUtil
             {
                 if (connection == null)
                 {
-                    connection = new SqlConnection(ConnectionSingleton.Instance.ConnectionString);
+                    connection = ConnectionSingleton.Instance.Connection;
                 }
                 return connection;
             }
