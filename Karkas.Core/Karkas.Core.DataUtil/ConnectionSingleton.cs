@@ -75,7 +75,7 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        internal SqlConnection getConnection(string DatabaseName)
+        public SqlConnection getConnection(string DatabaseName)
         {
             return new SqlConnection(getConnectionString(DatabaseName));
         }
