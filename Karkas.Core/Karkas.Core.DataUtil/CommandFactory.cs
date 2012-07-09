@@ -35,10 +35,6 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        public static DbDataAdapter getDatabaseAdapter(SqlCommand cmd)
-        {
-            return new SqlDataAdapter(cmd);
-        }
 
     }
 }
