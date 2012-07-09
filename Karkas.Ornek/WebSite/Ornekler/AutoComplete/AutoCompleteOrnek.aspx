@@ -9,9 +9,10 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <karkas:AutoCompleteControl ID="AutoCompleteControl1" ServiceMethod="AdIleAra" ServicePath="~/AutoCompleteScriptWebServices.asmx" runat="server" />
             
-            
-            <asp:TextBox runat="server" ID="adiTextBox" CssClass="AdiArama" />
             
     </div>
     </form>

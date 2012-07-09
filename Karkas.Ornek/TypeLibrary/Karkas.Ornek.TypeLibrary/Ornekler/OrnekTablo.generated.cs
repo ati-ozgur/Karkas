@@ -636,7 +636,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"OrnekTabloKey",string.Format(CEVIRI_YAZISI,"OrnekTabloKey","Guid")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"OrnekTabloKey",string.Format("","OrnekTabloKey","Guid")));
 				}
 			}
 		}
@@ -660,7 +660,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonBigInt",string.Format(CEVIRI_YAZISI,"KolonBigInt","long")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonBigInt",string.Format("","KolonBigInt","long")));
 				}
 			}
 		}
@@ -700,7 +700,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonBit",string.Format(CEVIRI_YAZISI,"KolonBit","bool")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonBit",string.Format("","KolonBit","bool")));
 				}
 			}
 		}
@@ -724,7 +724,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonDateTime",string.Format(CEVIRI_YAZISI,"KolonDateTime","DateTime")));
+					//this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonDateTime",string.Format("","KolonDateTime","DateTime")));
 				}
 			}
 		}
@@ -748,7 +748,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonDecimal",string.Format(CEVIRI_YAZISI,"KolonDecimal","decimal")));
+					//this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonDecimal",string.Format("","KolonDecimal","decimal")));
 				}
 			}
 		}
@@ -772,7 +772,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonFloat",string.Format(CEVIRI_YAZISI,"KolonFloat","double")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonFloat",string.Format("","KolonFloat","double")));
 				}
 			}
 		}
@@ -812,7 +812,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonInt",string.Format(CEVIRI_YAZISI,"KolonInt","int")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonInt",string.Format("","KolonInt","int")));
 				}
 			}
 		}
@@ -836,7 +836,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonMoney",string.Format(CEVIRI_YAZISI,"KolonMoney","decimal")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonMoney",string.Format("","KolonMoney","decimal")));
 				}
 			}
 		}
@@ -860,7 +860,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonNumeric",string.Format(CEVIRI_YAZISI,"KolonNumeric","decimal")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonNumeric",string.Format("","KolonNumeric","decimal")));
 				}
 			}
 		}
@@ -884,7 +884,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonReal",string.Format(CEVIRI_YAZISI,"KolonReal","float")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonReal",string.Format("","KolonReal","float")));
 				}
 			}
 		}
@@ -908,7 +908,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonSmallDateTime",string.Format(CEVIRI_YAZISI,"KolonSmallDateTime","DateTime")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonSmallDateTime",string.Format("","KolonSmallDateTime","DateTime")));
 				}
 			}
 		}
@@ -932,7 +932,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonSmallInt",string.Format(CEVIRI_YAZISI,"KolonSmallInt","short")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonSmallInt",string.Format("","KolonSmallInt","short")));
 				}
 			}
 		}
@@ -956,7 +956,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonSmallMoney",string.Format(CEVIRI_YAZISI,"KolonSmallMoney","decimal")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonSmallMoney",string.Format("","KolonSmallMoney","decimal")));
 				}
 			}
 		}
@@ -980,7 +980,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonSqlVariant",string.Format(CEVIRI_YAZISI,"KolonSqlVariant","object")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonSqlVariant",string.Format("","KolonSqlVariant","object")));
 				}
 			}
 		}
@@ -1020,7 +1020,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonTinyInt",string.Format(CEVIRI_YAZISI,"KolonTinyInt","byte")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonTinyInt",string.Format("","KolonTinyInt","byte")));
 				}
 			}
 		}
@@ -1044,7 +1044,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonUniqueIdentifier",string.Format(CEVIRI_YAZISI,"KolonUniqueIdentifier","Guid")));
+					//this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"KolonUniqueIdentifier",string.Format("","KolonUniqueIdentifier","Guid")));
 				}
 			}
 		}

@@ -15,7 +15,7 @@ public partial class Ornekler_OrnekDataTableBind : KarkasBasePage
         if (!Page.IsPostBack)
         {
             MusteriBsWrapper wrapper = new MusteriBsWrapper();
-            DataTable dt = wrapper.SorgulaAdiIle("");
+            DataTable dt = wrapper.SorgulaAdiSoyadiVeDurumuIle("","",true);
             this.ListHelper.ListControlaBindEt(dt, MusteriDropDownList, "MusteriKey", "TamAdi");
             this.ListHelper.ListControlaBindEtLutfenEkle(dt, MusteriLutfenDropDownList, "MusteriKey", "TamAdi");
 

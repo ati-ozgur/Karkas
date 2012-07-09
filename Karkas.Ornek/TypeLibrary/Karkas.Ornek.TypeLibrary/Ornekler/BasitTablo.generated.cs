@@ -136,7 +136,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"BasitTabloKey",string.Format(CEVIRI_YAZISI,"BasitTabloKey","Guid")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"BasitTabloKey",string.Format("","BasitTabloKey","Guid")));
 				}
 			}
 		}
@@ -160,7 +160,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"GkullaniciKey",string.Format(CEVIRI_YAZISI,"GkullaniciKey","Guid")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"GkullaniciKey",string.Format("","GkullaniciKey","Guid")));
 				}
 			}
 		}
@@ -184,7 +184,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"Utarihi",string.Format(CEVIRI_YAZISI,"Utarihi","DateTime")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"Utarihi",string.Format("","Utarihi","DateTime")));
 				}
 			}
 		}

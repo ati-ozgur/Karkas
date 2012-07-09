@@ -216,7 +216,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"MusteriKey",string.Format(CEVIRI_YAZISI,"MusteriKey","Guid")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"MusteriKey",string.Format("","MusteriKey","Guid")));
 				}
 			}
 		}
@@ -240,7 +240,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"DogumTarihi",string.Format(CEVIRI_YAZISI,"DogumTarihi","DateTime")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"DogumTarihi",string.Format("","DogumTarihi","DateTime")));
 				}
 			}
 		}
@@ -264,7 +264,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"AktifMi",string.Format(CEVIRI_YAZISI,"AktifMi","bool")));
+					//this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"AktifMi",string.Format("","AktifMi","bool")));
 				}
 			}
 		}
@@ -288,7 +288,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"Onemi",string.Format(CEVIRI_YAZISI,"Onemi","int")));
+					//this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"Onemi",string.Format("","Onemi","int")));
 				}
 			}
 		}
@@ -312,7 +312,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"Kredisi",string.Format(CEVIRI_YAZISI,"Kredisi","decimal")));
+					//this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"Kredisi",string.Format("","Kredisi","decimal")));
 				}
 			}
 		}

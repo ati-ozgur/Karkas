@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Ornek.TypeLibrary", "TypeLibrary\Karkas.Ornek.TypeLibrary\Karkas.Ornek.TypeLibrary.csproj", "{A74FFCF8-27F3-4839-B03C-4F80D0D863CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Ornek.Dal", "Dal\Karkas.Ornek.Dal\Karkas.Ornek.Dal.csproj", "{6AC6D414-DC7C-4092-9394-5E2BD1AEB777}"
@@ -13,8 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Ornek.ConsoleApp", "
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSite", "WebSite\", "{8A04B68F-74F4-4907-A025-7C2850C72C4B}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFramework = "3.5"
-		ProjectReferences = "{2975DEAB-C104-4ACB-90F5-0F80A774E3BC}|Karkas.Ornek.Bs.dll;{E232AB37-443F-42DD-A5D9-9537AE1EF600}|Karkas.Ornek.BsWrapper.dll;{6AC6D414-DC7C-4092-9394-5E2BD1AEB777}|Karkas.Ornek.Dal.dll;{A74FFCF8-27F3-4839-B03C-4F80D0D863CC}|Karkas.Ornek.TypeLibrary.dll;"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = ""
 		Debug.AspNetCompiler.VirtualPath = "/WebSite"
 		Debug.AspNetCompiler.PhysicalPath = "WebSite\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebSite\"

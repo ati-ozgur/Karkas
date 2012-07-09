@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Karkas.Ornek">
+</Property><Property Name="Solution File" Value="D:\projects\karkas\Karkas.Ornek\Karkas.Ornek.sln">
+</Property><Property Name="Date" Value="Wednesday, August 17, 2011">
+</Property><Property Name="Time" Value="12:01 PM">
+</Property></Properties><Event ErrorLevel="0" Project="Karkas.Ornek.TypeLibrary" Source="TypeLibrary\Karkas.Ornek.TypeLibrary\Karkas.Ornek.TypeLibrary.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Karkas.Ornek.TypeLibrary" Source="TypeLibrary\Karkas.Ornek.TypeLibrary\Karkas.Ornek.TypeLibrary.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Karkas.Ornek.Dal" Source="Dal\Karkas.Ornek.Dal\Karkas.Ornek.Dal.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Karkas.Ornek.Dal" Source="Dal\Karkas.Ornek.Dal\Karkas.Ornek.Dal.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Karkas.Ornek.Bs" Source="Bs\Karkas.Ornek.Bs\Karkas.Ornek.Bs.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Karkas.Ornek.Bs" Source="Bs\Karkas.Ornek.Bs\Karkas.Ornek.Bs.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Karkas.Ornek.BsWrapper" Source="BsWrapper\Karkas.Ornek.BsWrapper\Karkas.Ornek.BsWrapper.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Karkas.Ornek.BsWrapper" Source="BsWrapper\Karkas.Ornek.BsWrapper\Karkas.Ornek.BsWrapper.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Karkas.Ornek.ConsoleApp" Source="Karkas.Ornek.ConsoleApp\Karkas.Ornek.ConsoleApp.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Karkas.Ornek.ConsoleApp" Source="Karkas.Ornek.ConsoleApp\Karkas.Ornek.ConsoleApp.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Karkas.Ornek.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Karkas.Ornek.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Karkas.Ornek.TypeLibrary" Source="TypeLibrary\Karkas.Ornek.TypeLibrary\Karkas.Ornek.TypeLibrary.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Karkas.Ornek.Dal" Source="Dal\Karkas.Ornek.Dal\Karkas.Ornek.Dal.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Karkas.Ornek.Bs" Source="Bs\Karkas.Ornek.Bs\Karkas.Ornek.Bs.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Karkas.Ornek.BsWrapper" Source="BsWrapper\Karkas.Ornek.BsWrapper\Karkas.Ornek.BsWrapper.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Karkas.Ornek.ConsoleApp" Source="Karkas.Ornek.ConsoleApp\Karkas.Ornek.ConsoleApp.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

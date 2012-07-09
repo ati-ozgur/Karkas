@@ -7,7 +7,8 @@ using System.Web.UI.WebControls;
 using Karkas.Ornek.TypeLibrary.Ornekler;
 using Karkas.Ornek.BsWrapper.Ornekler;
 using Karkas.Web.Helpers.BaseClasses;
-using Karkas.Web.Helpers.Classes;
+using Karkas.Web.Helpers;
+using Karkas.Web.Helpers.HelperClasses;
 
 public partial class Ornekler_CRUD_MusteriKayit : KarkasBasePage
 {
