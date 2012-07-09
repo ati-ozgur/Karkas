@@ -10,24 +10,19 @@ namespace Karkas.Core.DataUtil
     {
         public static DbCommand getDatabaseCommand(string sql, DbConnection conn)
         {
-            SqlConnection sqlConn = (SqlConnection)conn;
-            return new SqlCommand(sql, sqlConn);
+            DbCommand command = conn.CreateCommand();
+            command.CommandText = sql;
+            return command;
         }
-        public static SqlCommand getDatabaseCommand(DbConnection conn)
+        public static DbCommand getDatabaseCommand(DbConnection conn)
         {
-            SqlCommand cmd = new SqlCommand();
-            SqlConnection sqlConn = (SqlConnection)conn;
-            cmd.Connection = sqlConn;
-            return cmd;
-        }
-        public static DbCommand getDatabaseCommand()
-        {
-            SqlCommand cmd = new SqlCommand();
-            return cmd;
+            DbCommand command = conn.CreateCommand();
+            return command;
         }
 
         public static DbDataAdapter getDatabaseAdapter(DbCommand cmd)
         {
+
             if (cmd is SqlCommand)
             {
                 return new SqlDataAdapter((SqlCommand)cmd);

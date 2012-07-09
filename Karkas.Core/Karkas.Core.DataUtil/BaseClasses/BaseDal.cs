@@ -305,9 +305,8 @@ namespace Karkas.Core.DataUtil
         }
         public void SorguCalistir(List<T> liste, String pFilterString, DbParameter[] parameterArray, bool otomatikWhereEkle)
         {
-            DbCommand cmd = CommandFactory.getDatabaseCommand();
+            DbCommand cmd = CommandFactory.getDatabaseCommand(Connection);
             filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
-            cmd.Connection = Connection;
             foreach (DbParameter prm in parameterArray)
             {
                 cmd.Parameters.Add(prm);
@@ -318,9 +317,8 @@ namespace Karkas.Core.DataUtil
 
         public void SorguCalistir(List<T> liste, String pFilterString, bool otomatikWhereEkle)
         {
-            DbCommand cmd = CommandFactory.getDatabaseCommand();
+            DbCommand cmd = CommandFactory.getDatabaseCommand(Connection);
             filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
-            cmd.Connection = Connection;
             sorguCalistirInternal(liste, cmd);
         }
 
