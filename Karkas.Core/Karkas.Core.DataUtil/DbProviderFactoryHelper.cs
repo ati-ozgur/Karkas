@@ -20,7 +20,15 @@ namespace Karkas.Core.DataUtil
 
         public DbProviderFactoryHelper()
         {
-            factory = DbProviderFactories.GetFactory(ConnectionSingleton.Instance.ProviderName);
+            if (String.IsNullOrEmpty(ConnectionSingleton.Instance.ProviderName))
+            {
+                factory = DbProviderFactories.GetFactory("System.Data.SqlClient");
+
+            }
+            else
+            {
+                factory = DbProviderFactories.GetFactory(ConnectionSingleton.Instance.ProviderName);
+            }
         }
         public DbProviderFactoryHelper(String providerName)
         {
