@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.SqlClient;
 using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
@@ -82,7 +81,7 @@ namespace Karkas.Core.DataUtil
                     }
                     else
                     {
-                        connection = (SqlConnection) ConnectionSingleton.Instance.getConnection(DatabaseName);
+                        connection = ConnectionSingleton.Instance.getConnection(DatabaseName);
                     }
                 }
                 return connection;

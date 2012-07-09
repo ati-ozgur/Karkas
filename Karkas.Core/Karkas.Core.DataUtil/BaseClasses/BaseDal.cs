@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Data.SqlClient;
 using System.Data;
 using Karkas.Core.TypeLibrary;
 using log4net;
@@ -199,7 +198,7 @@ namespace Karkas.Core.DataUtil
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch (SqlException ex)
+            catch (DbException ex)
             {
                 ExceptionDegistirici.Degistir(ex, new LoggingInfo( cmd).ToString());
             }
@@ -238,7 +237,7 @@ namespace Karkas.Core.DataUtil
 
         private long EkleNormal(T row)
         {
-            SqlCommand cmd = CommandFactory.getDatabaseCommand(InsertString, Connection);
+            DbCommand cmd = CommandFactory.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
             int sonuc = SorguHariciKomutCalistirInternal(cmd);
 
@@ -248,7 +247,7 @@ namespace Karkas.Core.DataUtil
         }
         protected void SorguHariciKomutCalistirUpdate(string cmdText, T row)
         {
-            SqlCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
+            DbCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
             UpdateCommandParametersAdd(cmd, row);
             int kayitSayisi = SorguHariciKomutCalistirInternal(cmd);
 
@@ -265,7 +264,7 @@ namespace Karkas.Core.DataUtil
 
         protected void SorguHariciKomutCalistirDelete(string cmdText, T row)
         {
-            SqlCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
+            DbCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
             DeleteCommandParametersAdd(cmd, row);
             SorguHariciKomutCalistirInternal(cmd);
         }
@@ -282,7 +281,7 @@ namespace Karkas.Core.DataUtil
                 return null;
             }
         }
-        public T SorguCalistirTekSatirGetir(String pFilterString, SqlParameter[] parameterArray)
+        public T SorguCalistirTekSatirGetir(String pFilterString, DbParameter[] parameterArray)
         {
             List<T> liste = new List<T>();
             SorguCalistir(liste, pFilterString, parameterArray);

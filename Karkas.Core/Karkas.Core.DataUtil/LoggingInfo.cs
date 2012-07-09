@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Data.SqlClient;
 using log4net;
 using System.Threading;
 using System.Web;
@@ -60,7 +59,7 @@ namespace Karkas.Core.DataUtil
             logger.Info(this.ToString());
         }
 
-        internal void LogInfo(Type pLoggingType, SqlException ex, string pMesaj)
+        internal void LogInfo(Type pLoggingType, DbException ex, string pMesaj)
         {
             log4netEkBilgi(pLoggingType);
             logger.Info("LoggingInfo: " + this.ToString() + pMesaj, ex);
@@ -95,7 +94,7 @@ namespace Karkas.Core.DataUtil
             StringBuilder sb = new StringBuilder();
             if (SqlCommand != null)
             {
-                foreach (SqlParameter param in SqlCommand.Parameters)
+                foreach (DbParameter param in SqlCommand.Parameters)
                 {
                     if (
                         param.Value != null
@@ -104,12 +103,12 @@ namespace Karkas.Core.DataUtil
                         )
                     {
                         sb.Append(String.Format("DECLARE {0} {1} = '{2}' "
-                            , param.ParameterName, param.SqlDbType, param.Value) + Environment.NewLine);
+                            , param.ParameterName, param.DbType, param.Value) + Environment.NewLine);
                     }
                     else
                     {
                         sb.Append(String.Format("DECLARE {0} {1}"
-                            , param.ParameterName, param.SqlDbType) + Environment.NewLine);
+                            , param.ParameterName, param.DbType) + Environment.NewLine);
                     }
                 }
                 sb.Append(Environment.NewLine);

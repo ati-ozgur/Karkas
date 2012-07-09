@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Data.SqlClient;
 using System.Data;
 using Karkas.Core.TypeLibrary;
 using log4net;
@@ -57,7 +56,7 @@ namespace Karkas.Core.DataUtil
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch (SqlException ex)
+            catch (DbException ex)
             {
                 ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
             }

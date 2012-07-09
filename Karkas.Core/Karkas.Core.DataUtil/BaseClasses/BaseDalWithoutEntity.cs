@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data.SqlClient;
 using log4net;
 using System.Data;
 using System.Data.Common;
@@ -109,7 +108,7 @@ namespace Karkas.Core.DataUtil
 
                 sonucRowSayisi = cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (DbException ex)
             {
                 if (currentTransaction != null)
                 {

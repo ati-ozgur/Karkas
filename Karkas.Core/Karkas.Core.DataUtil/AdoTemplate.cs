@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Data.SqlClient;
 using System.Data;
 using System.Globalization;
 using log4net;
@@ -194,7 +193,7 @@ namespace Karkas.Core.DataUtil
 
         public Object TekDegerGetir(string cmdText)
         {
-            SqlCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
+            DbCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
             object sonuc = 0;
             sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
             return sonuc;
@@ -228,7 +227,7 @@ namespace Karkas.Core.DataUtil
 
         public void SorguHariciKomutCalistir(String cmdText)
         {
-            SqlCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
+            DbCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
             SorguHariciKomutCalistirInternal(cmd);
         }
 
@@ -262,7 +261,7 @@ namespace Karkas.Core.DataUtil
         /// <param name="sql"></param>
         /// <param name="prmListesi"></param>
         /// <returns></returns>
-        public bool VarMiIfExists(String pSql, SqlParameter[] pParamListesi)
+        public bool VarMiIfExists(String pSql, DbParameter[] pParamListesi)
         {
             string calistirilacakSql = string.Format(@"IF EXISTS
                                         (  

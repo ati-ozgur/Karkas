@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
-using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using Karkas.Core.Utility;
 using Karkas.Extensions;

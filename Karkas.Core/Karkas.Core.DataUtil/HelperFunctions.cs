@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Data.SqlClient;
 using System.Data;
 using System.Data.Common;
 
@@ -152,7 +151,7 @@ namespace Karkas.Core.DataUtil
                 throw new ArgumentNullException("sql", "SQL for DataSet Fill operation can not be null");
             }
         }
-        public void ValidateFillArguments(DataSet dataSet, string sql, SqlParameter[] parameters)
+        public void ValidateFillArguments(DataSet dataSet, string sql, DbParameter[] parameters)
         {
             if (dataSet == null)
             {
@@ -167,7 +166,7 @@ namespace Karkas.Core.DataUtil
                 throw new ArgumentNullException("parameters", "Parameters for DataSet Fill operations can not be null");
             }
         }
-        public void ValidateFillArguments(DataTable dataTable, string sql, SqlParameter[] parameters)
+        public void ValidateFillArguments(DataTable dataTable, string sql, DbParameter[] parameters)
         {
             if (dataTable == null)
             {

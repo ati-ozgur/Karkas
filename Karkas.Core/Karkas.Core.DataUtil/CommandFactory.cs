@@ -8,7 +8,7 @@ namespace Karkas.Core.DataUtil
 {
     public class CommandFactory
     {
-        public static SqlCommand getDatabaseCommand(string sql, DbConnection conn)
+        public static DbCommand getDatabaseCommand(string sql, DbConnection conn)
         {
             SqlConnection sqlConn = (SqlConnection)conn;
             return new SqlCommand(sql, sqlConn);
@@ -20,7 +20,7 @@ namespace Karkas.Core.DataUtil
             cmd.Connection = sqlConn;
             return cmd;
         }
-        public static SqlCommand getDatabaseCommand()
+        public static DbCommand getDatabaseCommand()
         {
             SqlCommand cmd = new SqlCommand();
             return cmd;
@@ -40,7 +40,7 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        public static SqlDataAdapter getDatabaseAdapter(SqlCommand cmd)
+        public static DbDataAdapter getDatabaseAdapter(SqlCommand cmd)
         {
             return new SqlDataAdapter(cmd);
         }

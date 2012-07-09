@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Data.SqlClient;
 using System.Data;
 using System.Text.RegularExpressions;
+using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
@@ -11,7 +11,7 @@ namespace Karkas.Core.DataUtil
     {
         private string selectSql;
         private string countSql;
-        private SqlParameter[] parameters = null;
+        private DbParameter[] parameters = null;
         private PagingHelper pHelper = null;
         
 
@@ -30,9 +30,9 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        private SqlTransaction currentTransaction;
+        private DbTransaction currentTransaction;
 
-        public SqlTransaction CurrentTransaction
+        public DbTransaction CurrentTransaction
         {
             get { return currentTransaction; }
             set { currentTransaction = value; }
@@ -45,7 +45,7 @@ namespace Karkas.Core.DataUtil
             this.countSql = sqlCumlesiniCountIleDegistir(pSql);
         }
 
-        public PagingTemplate(string pSql,SqlParameter[] pParameters):this(pSql)
+        public PagingTemplate(string pSql,DbParameter[] pParameters):this(pSql)
         {
             this.parameters = pParameters;
         }
