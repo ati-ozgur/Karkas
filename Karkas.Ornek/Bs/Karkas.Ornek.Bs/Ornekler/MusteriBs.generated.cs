@@ -12,22 +12,22 @@ using Karkas.Ornek.Dal.Ornekler;
 
 namespace Karkas.Ornek.Bs.Ornekler
 {
-	public partial class 	MusteriBs : BaseBs<Musteri, MusteriDal>
+	public partial class MusteriBs : BaseBs<Musteri, MusteriDal>
+	{
+		public override string DatabaseName
 		{
-			public override string DatabaseName
+			get
 			{
-				get
-				{
-					return "KARKAS_ORNEK";
-				}
-			}
-			public void Sil(Guid MusteriKey)
-			{
-				dal.Sil(MusteriKey);
-			}
-			public Musteri SorgulaMusteriKeyIle(Guid p1)
-			{
-				return dal.SorgulaMusteriKeyIle(p1);
+				return "KARKAS_ORNEK";
 			}
 		}
+		public void Sil(Guid pMusteriKey)
+		{
+			dal.Sil( pMusteriKey);
+		}
+		public Musteri SorgulaMusteriKeyIle(Guid p1)
+		{
+			return dal.SorgulaMusteriKeyIle(p1);
+		}
 	}
+}

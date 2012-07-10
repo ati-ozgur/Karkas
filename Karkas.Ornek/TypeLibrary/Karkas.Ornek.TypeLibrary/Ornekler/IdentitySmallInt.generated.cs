@@ -76,7 +76,7 @@ namespace Karkas.Ornek.TypeLibrary.Ornekler
 				}
 				catch(Exception)
 				{
-					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"IdentitySmallIntKey",string.Format("","IdentitySmallIntKey","short")));
+					this.Onaylayici.OnaylayiciListesi.Add(new DaimaBasarisiz(this,"IdentitySmallIntKey",string.Format(CEVIRI_YAZISI,"IdentitySmallIntKey","short")));
 				}
 			}
 		}

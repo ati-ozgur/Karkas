@@ -12,22 +12,22 @@ using Karkas.Ornek.Dal.Ornekler;
 
 namespace Karkas.Ornek.Bs.Ornekler
 {
-	public partial class 	BasitTabloBs : BaseBs<BasitTablo, BasitTabloDal>
+	public partial class BasitTabloBs : BaseBs<BasitTablo, BasitTabloDal>
+	{
+		public override string DatabaseName
 		{
-			public override string DatabaseName
+			get
 			{
-				get
-				{
-					return "KARKAS_ORNEK";
-				}
-			}
-			public void Sil(Guid BasitTabloKey)
-			{
-				dal.Sil(BasitTabloKey);
-			}
-			public BasitTablo SorgulaBasitTabloKeyIle(Guid p1)
-			{
-				return dal.SorgulaBasitTabloKeyIle(p1);
+				return "KARKAS_ORNEK";
 			}
 		}
+		public void Sil(Guid pBasitTabloKey)
+		{
+			dal.Sil( pBasitTabloKey);
+		}
+		public BasitTablo SorgulaBasitTabloKeyIle(Guid p1)
+		{
+			return dal.SorgulaBasitTabloKeyIle(p1);
+		}
 	}
+}

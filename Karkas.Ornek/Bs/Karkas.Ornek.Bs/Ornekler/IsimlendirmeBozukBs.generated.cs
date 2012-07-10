@@ -12,22 +12,22 @@ using Karkas.Ornek.Dal.Ornekler;
 
 namespace Karkas.Ornek.Bs.Ornekler
 {
-	public partial class 	IsimlendirmeBozukBs : BaseBs<IsimlendirmeBozuk, IsimlendirmeBozukDal>
+	public partial class IsimlendirmeBozukBs : BaseBs<IsimlendirmeBozuk, IsimlendirmeBozukDal>
+	{
+		public override string DatabaseName
 		{
-			public override string DatabaseName
+			get
 			{
-				get
-				{
-					return "KARKAS_ORNEK";
-				}
-			}
-			public void Sil(int KISI_OID)
-			{
-				dal.Sil(KISI_OID);
-			}
-			public IsimlendirmeBozuk SorgulaKISI_OIDIle(int p1)
-			{
-				return dal.SorgulaKISI_OIDIle(p1);
+				return "KARKAS_ORNEK";
 			}
 		}
+		public void Sil(int pKisiOid)
+		{
+			dal.Sil( pKisiOid);
+		}
+		public IsimlendirmeBozuk SorgulaKISI_OIDIle(int p1)
+		{
+			return dal.SorgulaKISI_OIDIle(p1);
+		}
 	}
+}

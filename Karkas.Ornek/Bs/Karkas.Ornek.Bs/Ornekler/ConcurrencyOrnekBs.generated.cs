@@ -12,22 +12,22 @@ using Karkas.Ornek.Dal.Ornekler;
 
 namespace Karkas.Ornek.Bs.Ornekler
 {
-	public partial class 	ConcurrencyOrnekBs : BaseBs<ConcurrencyOrnek, ConcurrencyOrnekDal>
+	public partial class ConcurrencyOrnekBs : BaseBs<ConcurrencyOrnek, ConcurrencyOrnekDal>
+	{
+		public override string DatabaseName
 		{
-			public override string DatabaseName
+			get
 			{
-				get
-				{
-					return "KARKAS_ORNEK";
-				}
-			}
-			public void Sil(Guid ConcurrencyOrnekKey)
-			{
-				dal.Sil(ConcurrencyOrnekKey);
-			}
-			public ConcurrencyOrnek SorgulaConcurrencyOrnekKeyIle(Guid p1)
-			{
-				return dal.SorgulaConcurrencyOrnekKeyIle(p1);
+				return "KARKAS_ORNEK";
 			}
 		}
+		public void Sil(Guid pConcurrencyOrnekKey)
+		{
+			dal.Sil( pConcurrencyOrnekKey);
+		}
+		public ConcurrencyOrnek SorgulaConcurrencyOrnekKeyIle(Guid p1)
+		{
+			return dal.SorgulaConcurrencyOrnekKeyIle(p1);
+		}
 	}
+}

@@ -12,22 +12,22 @@ using Karkas.Ornek.Dal.Ornekler;
 
 namespace Karkas.Ornek.Bs.Ornekler
 {
-	public partial class 	IdentitySmallIntBs : BaseBs<IdentitySmallInt, IdentitySmallIntDal>
+	public partial class IdentitySmallIntBs : BaseBs<IdentitySmallInt, IdentitySmallIntDal>
+	{
+		public override string DatabaseName
 		{
-			public override string DatabaseName
+			get
 			{
-				get
-				{
-					return "KARKAS_ORNEK";
-				}
-			}
-			public void Sil(short IdentitySmallIntKey)
-			{
-				dal.Sil(IdentitySmallIntKey);
-			}
-			public IdentitySmallInt SorgulaIdentitySmallIntKeyIle(short p1)
-			{
-				return dal.SorgulaIdentitySmallIntKeyIle(p1);
+				return "KARKAS_ORNEK";
 			}
 		}
+		public void Sil(short pIdentitySmallIntKey)
+		{
+			dal.Sil( pIdentitySmallIntKey);
+		}
+		public IdentitySmallInt SorgulaIdentitySmallIntKeyIle(short p1)
+		{
+			return dal.SorgulaIdentitySmallIntKeyIle(p1);
+		}
 	}
+}

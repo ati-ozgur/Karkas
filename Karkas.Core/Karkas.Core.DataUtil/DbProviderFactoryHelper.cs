@@ -10,6 +10,7 @@ namespace Karkas.Core.DataUtil
     {
 
 
+
         DbProviderFactory factory;
 
         public DbProviderFactory Factory

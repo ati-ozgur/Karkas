@@ -22,16 +22,17 @@ namespace Karkas.Core.DataUtil
 
         public static DbDataAdapter getDatabaseAdapter(DbCommand cmd)
         {
-
+            DbDataAdapter adapter = null;
             if (cmd is SqlCommand)
             {
                 return new SqlDataAdapter((SqlCommand)cmd);
             }
             else
             {
-                // TODO Burası yapılacak
-                return null;
+                adapter = new DbProviderFactoryHelper().Factory.CreateDataAdapter();
+                adapter.SelectCommand = cmd;
             }
+                return adapter;
         }
 
 

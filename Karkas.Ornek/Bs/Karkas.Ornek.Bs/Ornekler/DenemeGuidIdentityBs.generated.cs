@@ -12,22 +12,22 @@ using Karkas.Ornek.Dal.Ornekler;
 
 namespace Karkas.Ornek.Bs.Ornekler
 {
-	public partial class 	DenemeGuidIdentityBs : BaseBs<DenemeGuidIdentity, DenemeGuidIdentityDal>
+	public partial class DenemeGuidIdentityBs : BaseBs<DenemeGuidIdentity, DenemeGuidIdentityDal>
+	{
+		public override string DatabaseName
 		{
-			public override string DatabaseName
+			get
 			{
-				get
-				{
-					return "KARKAS_ORNEK";
-				}
-			}
-			public void Sil(Guid DenemeKey)
-			{
-				dal.Sil(DenemeKey);
-			}
-			public DenemeGuidIdentity SorgulaDenemeKeyIle(Guid p1)
-			{
-				return dal.SorgulaDenemeKeyIle(p1);
+				return "KARKAS_ORNEK";
 			}
 		}
+		public void Sil(Guid pDenemeKey)
+		{
+			dal.Sil( pDenemeKey);
+		}
+		public DenemeGuidIdentity SorgulaDenemeKeyIle(Guid p1)
+		{
+			return dal.SorgulaDenemeKeyIle(p1);
+		}
 	}
+}

@@ -12,22 +12,22 @@ using Karkas.Ornek.Dal.Ornekler;
 
 namespace Karkas.Ornek.Bs.Ornekler
 {
-	public partial class 	AciklamaBs : BaseBs<Aciklama, AciklamaDal>
+	public partial class AciklamaBs : BaseBs<Aciklama, AciklamaDal>
+	{
+		public override string DatabaseName
 		{
-			public override string DatabaseName
+			get
 			{
-				get
-				{
-					return "KARKAS_ORNEK";
-				}
-			}
-			public void Sil(Guid AciklamaKey)
-			{
-				dal.Sil(AciklamaKey);
-			}
-			public Aciklama SorgulaAciklamaKeyIle(Guid p1)
-			{
-				return dal.SorgulaAciklamaKeyIle(p1);
+				return "KARKAS_ORNEK";
 			}
 		}
+		public void Sil(Guid pAciklamaKey)
+		{
+			dal.Sil( pAciklamaKey);
+		}
+		public Aciklama SorgulaAciklamaKeyIle(Guid p1)
+		{
+			return dal.SorgulaAciklamaKeyIle(p1);
+		}
 	}
+}
