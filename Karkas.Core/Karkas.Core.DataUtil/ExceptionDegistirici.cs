@@ -44,6 +44,7 @@ namespace Karkas.Core.DataUtil
         private static void DegistirPrivate(DbException ex, string pMesaj)
         {
             Exception firlatilacakException = null;
+            // TODO burayı oracle ve diğer veritabanları için yazmak gerekiyor.
             switch (ex.ErrorCode)
             {
                 default:
