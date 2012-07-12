@@ -193,7 +193,7 @@ namespace Karkas.Core.DataUtil
         public Object TekDegerGetir(string cmdText)
         {
             DbCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
-            object sonuc = 0;
+            object sonuc;
             sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
             return sonuc;
         }
