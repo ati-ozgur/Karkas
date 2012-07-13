@@ -136,6 +136,7 @@ namespace Karkas.Core.DataUtil
                 string filtre = filtreListesi[i];
                 sy.WhereKriterineEkle(filtre);
                 builder.parameterEkle("@" + filtre, degerListesi[i]);
+                throw new RuntimeException("Need to change for oracle");
             }
             SorguCalistir(liste, sy.KriterSonucunuWhereOlmadanGetir(), builder.GetParameterArray());
             return liste;
