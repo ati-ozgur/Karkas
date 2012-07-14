@@ -135,11 +135,20 @@ namespace Karkas.Core.DataUtil
 
                 string filtre = filtreListesi[i];
                 sy.WhereKriterineEkle(filtre);
-                builder.parameterEkle("@" + filtre, degerListesi[i]);
-                throw new RuntimeException("Need to change for oracle");
+                builder.parameterEkle(ParameterCharacter + filtre, degerListesi[i]);
             }
             SorguCalistir(liste, sy.KriterSonucunuWhereOlmadanGetir(), builder.GetParameterArray());
             return liste;
+        }
+        /// <summary>
+        /// Uses @ for sql server, any other should override this in code generation.
+        /// </summary>
+        public virtual string ParameterCharacter
+        {
+            get
+            {
+                return "@";
+            }
         }
 
 
