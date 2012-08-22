@@ -1,0 +1,33 @@
+ Deniz:  uygunmusun abi...
+ Sent at 11:50 AM on Monday
+ me:  evet
+ordamýsýn?
+ Deniz:  evet
+bizim karkasta command time out set edebildigimiz bir yer var mi?
+ Sent at 12:01 PM on Monday
+ me:  sanýrým vardý
+bazý sorgula içinmi istiyorsun?
+ Deniz:  evet..
+soyle bisi oldu..
+sportinn de bir takim dangalaklar, en ust seviyeden sorgu yapiyormus...
+bizim kellelerde bu sorgu taleplerini google analytics den yakalamislar..
+tutturdular, kadin tekstil diyince calissin diye...
+ Sent at 12:03 PM on Monday
+ me:  ama timeout'mu yiyor
+ Deniz:  evet serverdan bakinca gorunuyor, command time out oluyor...
+'/' Uygulamasýnda Sunucu Hatasý.
+--------------------------------------------------------------------------------
+
+Timeout süresi doldu. Ýþlem tamamlanmadan zaman aþýmý süresi doldu veya sunucu yanýt vermiyor. 
+Açýklama: Geçerli web isteði yürütülürken iþlenmemiþ özel durum oluþtu. 
+Lütfen hata ve kod içinde kaynaklandýðý yer hakkýnda daha fazla bilgi almak için yýðýn izlemesini gözden geçirin. 
+
+Özel Durum Ayrýntýlarý: System.Data.SqlClient.SqlException: Timeout süresi doldu. 
+Ýþlem tamamlanmadan zaman aþýmý süresi doldu veya sunucu yanýt vermiyor.
+
+Kaynak Hatasý: 
+
+Geçerli web isteði yürütülürken iþlenmeyen bir özel durum üretildi. 
+Özel durumun kaynaðý ve konumuna iliþkin bilgiler aþaðýdaki özel durum yýðýný izlemesi kullanýlarak belirlenebilir.
+ Sent at 12:06 PM on Monday
+ 
