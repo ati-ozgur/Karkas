@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0054)file://D:\atilla\downloads\VeritabaniStandartlari.html -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><HTML><HEAD><META 
+content="IE=10.000" http-equiv="X-UA-Compatible">
+     <TITLE>Simetri Veritabanı Standartları</TITLE>     
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-9">     
+<META name="GENERATOR" content="MSHTML 10.00.9200.16442"></HEAD> 
+<BODY>
+<H1> Karkas Veritabanı Standartları</H1>
+<P>Veritabanı kurulurken, SQL Server içinden Collation olarak Turkish_CI_AS 
+seçilmelidir. </P>
+<OL>
+  <LI>			Veritabanındaki Tablo isimleri tüm harfler büyük, Kelimeler arasında 
+  ise _ olacak şekilde seçilmelidir.
+  			INSAN_KAYNAKLARI.ILAC_ALIMI_ALINAN_ILACLAR		 </LI>
+  <LI>		Her Modul kendisine ait bir schema içinde tanımlanmalıdır. Referential 
+  Integrity korunması açısından bütün uygulama 		tek bir veritabanında 
+  çalışmalıdır.		 </LI>
+  <LI>			Schema ismi olarak kullandığınız isimleri tablo isimleri olarak 
+  kullanmayın. Yani eğer MAAS diye bir schema'nız varsa,			bu schema icinde veya 
+  diğer schemaların içinde MAAS diye bir tablonuz olmamalıdır.		 </LI>
+  <LI>			VS.NET içinde proje ismi olarak kullanacağınız bir ismi Schema ismi 
+  olarak kullanmayınız. Yada Schema isimlerinizi, VS.NET içinde			proje ismi 
+  olarak vermeyin. Compiler için sorunlar çıkarabiliyor.		 </LI>
+  <LI>			Her modul relationları, ilişkileri gösteren diagramlara sahip 
+  olmalıdır. 		 </LI>
+  <LI>			Raporlama açısından bütün tablo'ların ve anlamı açık olmayan kolanların 
+  descriptionlarının yazılması gerekmektedir.		 </LI>
+  <LI>			Tablolarda mümkün olduğunca girilen bilgiler not null yapılmalıdır.
+  		 </LI>
+  <LI>			Tablolarda primary key ismini verirken, TabloIsmi + Key 
+  kullanabilirsiniz. KISI tablosunun primary Key'i KisiKey olabilir.		 </LI>
+  <LI>			ORTAK isminde bir schema ortak kullanım için açılmalı, Bütün modüllerin 
+  kullanabileceği tablolar burada oluşturulmalıdır.			KISI, KISI_NUFUS_BILGILERI 
+  .... Bu şemada aslında nerdeyse sadece kişi bilgileri tutulmaktadır.
+  Buradaki tablo sayısı sınırlı tutulmalıdır. 10 tanenin üstüne çıktığı zaman
+  veritabanı daha zor anlaşılır olmaktadır.
+  </LI>
+  <LI>			TT_ORTAK  (Tanım Tabloları Ortak) isminde bir schema ortak kullanım 
+  için açılmalı, Bütün tanım bilgileri burda şeçilmelidir. 			Sehir, Cinsiyet 
+  ...		 </LI>
+  <LI>			Her modülün kendine ait bir Tanım Tabloları scheması açılmalıdır. 
+  Mesela TT_STAJ. Bu module ait tanım bilgileri burda girilmelidir. 		 </LI>
+  <LI> eğer Tanım tablosundaki değer 0-255  tinyint veri yapısını kullanın.
+  		 </LI>
+  <LI> eğer Tanım tablosundaki değer  -32,768 - 32,767   smallint veri yapısını 
+  kullanın.		 </LI>
+  <LI> eğer tamsayı değer  -2,147,483,648 - 2,147,483,647 arası ise int veri 
+  yapısını kullanın.		 </LI>
+  
+  
+  <LI>			Eğer bir tablo birden fazla modul tarafından kullanılıyor ise, 
+  bu ortaklığı belirtecek yeni bir şema gerekirse açılmalıdır. 
+  Bu şema ismi eğer dışarıdan veri alınıyorsa bunu anlatan bir isim,
+  eğer 2 modulün ortak noktası ise, bu ortak nokta olabilir.
+  Sadece 2 modul tarafından kullanılacak bir tablo ORTAK şemasını eklenmemelidir.
+  
+  </LI>
+  
+  
+  <LI>			Eğer anlamlı bir default/varsayılan değer verilebiliyorsa verilmelidir.
+    Örneğin GuncellemeTarih default now() verilebilir.
+  </LI>
+  <LI>			Birincil anahtar (Primary Key) konulmayan tablo olmayacaktır.		 </LI>
+  <LI>			Sentetik Anahtar (Surrogate Key) olarak int IDENTITY değerleri yerine 
+  uniqueidentifier tercih edilmelidir.		 </LI>
+  <LI>			Uniqueidentifier eğer PK olarak kullanılıyorsa default değer olarak 
+  newid() olmalıdır.		 </LI>
+  <LI>			 Money SQL standartında olmadığından kullanılmamalıdır. Ayrıca float ve 
+  double tam değerler değil 			 yaklaşık değer olarak çalışırlar. Para 
+  hesaplarında kesinlikle kullanılmamaları gerekir.		 </LI>
+  <LI>			Para değerleri numeric(18,2) veya decimal(18,2) olmalıdır.	
+  numeric ve decimal bir birlerinin alias'ıdır. 
+    Eğer küsürat hesaplamalarıda gerekli ise numeric(18,4) veya daha fazla
+    bir ondalık kullanılabilir.
+
+  </LI>
+  <LI>			Turkish_CI_AS Sunucu coallation&#8217;u olarak seçilmelidir. Nchar unicode 
+  olarak değerleri tuttuğu için 	2 katı yer kaplamakta ve 2 katı yavaş 
+  çalışmaktadır. Eğer veritabanında aynı anda iki dil bilgisi tutulmayacaksa, 
+  yani			hem rusça hemde türkçe bilgi,  varchar yada char olarak tutulmalıdır.
+  		 </LI>
+  <LI>			Eğer bilgi girilen tip daima aynı sayıda ise örnek: Posta Kodu gibi 
+  char olarak tanımlanmalıdır.		 </LI>
+  <LI>			Eğer bilgi girilen değer değişken bir değer ise, ad soyad gibi varchar 
+  olarak tanımlanmalıdır.		 </LI>
+  <LI>			Tarih bilgilerini tutarken smalldatetime tercih ediniz. 			
+  Eğer sadece 
+  yıl bilgisi tutacaksanız, Mezuniyet yılı smallint tutabilirsiniz. Bu tür bir 
+  kolona constraint ekleyin.			örn: CHECK  (([GirisSene]&gt;=(1900) AND 
+  [GirisSene]&lt;=datepart(year,getdate())))			 <BR>			Yukarıdakı kısıtlama 
+  giris senesinin 1900 ile şu an bulunduğumuz sene arasında kalmasını 
+  sağlamaktadır.								 </LI>
+  <LI>				datetime (3.33 milliseconds accuracy)  	Jan 1, 1753  	Dec 31, 9999
+  				 <BR>				smalldatetime (1 minute accuracy) 	Jan 1, 1900 	Jun 6, 2079		
+  				 <BR>değerleri arasını göstermektedir. .NET üstünde doğru kabul edilen, 
+  örn: 01.01.1600 gibi bir değer SQL Server'da				hata verebilir. Tarih 
+  Değerlerinin bu aralıkta olduğuna emin olunuz.						 </LI>
+  <LI>			Resim veya binary data tutmak için varbinary(max) tercih edin. image 
+  veri tipi SQL Server'ın yeni versiyonlarında			kullanılmayacaktır.		 </LI>
+  <LI>			Eğer bir tablo içindeki kolon başka bir tabloya referans veriyorsa 
+  kesinlikle foreign key tanımlanmalı ve bu			kolonun ismi TabloIsmiTipNo yada 
+  TabloIsmiKey olarak tanımlanmalı. TipNo tanım tabloları için. Key ise normal 
+  tablolar			için kullanılmalıdır.	
+    TipNo yerine referans verilen tanımın türkçesine göre TurNo
+    gibi diğer kelimelerde kullanılabilir.
+    Eğer bir kolon ismi TurNo,TipNo,Turu,Tipi,RenkNo,BilgiNo
+    gibi bir kelime ile bitiyorsa ise çok büyük ihtimal ile
+    Tanım Tablolarına referans veriyordur.
+    
+
+  </LI>
+  <LI>			TipNo(...) okunduğu zaman bir tanım tablosuna referans düşünülürken, Key ise 
+  1..* veya 1..1 ilişkisini tanımlamalıdır.		 </LI>
+  <LI>			Yazılım geliştiriciler için sınırlı yetkili veri tabanı kullanıcıları 
+  açılacaktır. SQL Sever Management Studio üzerinde işlem			yapılırken bu 
+  kullanıcı ile sisteme girilecektir.		 </LI>
+  <LI>			Yazılım geliştiriciler Stored Procedure yazma gereksinimi duyarlarsa 
+  bunu veritabanı yöneticisi ve takım liderlerinin onayını			 aldıktan sonra 
+  yapabileceklerdir.		 </LI>
+  <LI>			Stored Procudures &#8220;usp_&#8221; ile, functionlar ufn_ ile, triggerler ise 
+  utnX_ ile başlamalıdır (X-&gt;i:insert, u:update, d:delete). 			Note: eğer bir 
+  stored Procedure sp veya xp ile başlarsa SQL server 			bunun System stored 
+  procedure&#8217;u olduğunu düşündüğü için ilk önce master veritabanında arayacaktır. 
+  			Stored Procudure&#8217;lara isim verirken tablo ismi + yaptığı işlem şeklinde 
+  isim verin.			 <BR>			usp_Personel_Ekle			 <BR>			usp_Personel_Sil			 <BR>
+  			usp_Personel_Guncelle			 <BR>			usp_Personel_Oku			 <BR>
+  			usp_Personel_Oku_Tum			 <BR>			usp_Personel_Ara_AdiVeSoyadiIle
+			 <BR></LI></OL>
+<TABLE border="1">
+  <TR>
+    <TD width="%10"> Object </TD>
+    <TD width="%30"> Ön-Ek </TD>
+    <TD width="%30"> örnek </TD>
+    <TD width="%40"> Notlar </TD></TR>
+  <TR>
+    <TD> Table and View-Tablo ve Görüntü </TD>
+    <TD> -- </TD>
+    <TD>INSAN_KAYNAKLARI.MUSTERI <BR>
+      			TANIM_TABLOLARI.NUFUS_CUZDANI_VERILIS_NEDENI </TD>
+    <TD>Schema ismi + Tablo ismi, 2 kelimeden fazla olan isimler _ ile 
+      ayrılıyor. Tablo ve Viewlara ayrı isimler vermiyoruz.		  </TD></TR>
+  <TR>
+    <TD> Column-Kolon </TD>
+    <TD> -- </TD>
+    <TD>MusteriKey,TipNo,SonDegistirmeTarihi </TD>
+    <TD>Her kelimenin ilk harfi büyük yazılır. </TD></TR>
+  <TR>
+    <TD> Temp Table-Geçici Tablo </TD>
+    <TD> GECICI.TABLO_ISMI </TD>
+    <TD>MusteriKey,TipNo,SonDegistirmeTarihi </TD>
+    <TD>Her kelimenin ilk harfi büyük yazılır. </TD></TR>
+  <TR>
+    <TD> Index isimlendirme </TD>
+    <TD> IX_TabloIsmiKolonIsmi </TD>
+    <TD> IX_MusteriMusteriNo </TD>
+    <TD>Her kelimenin ilk harfi büyük yazılır. </TD></TR>
+  <TR>
+    <TD> Yabancı anahtar (Foreign key) </TD>
+    <TD> FK_TabloIsmi1KolonIsmi1FK_TabloIsmi2KolonIsmi2 </TD>
+    <TD> FK_MusteriMusteriNoSiparisMusteriNo </TD>
+    <TD>Her kelimenin ilk harfi büyük yazılır. </TD></TR>
+  <TR>
+    <TD> Stored Procedure -Gömülü Yordamlar </TD>
+    <TD> usp_ </TD>
+    <TD> usp_PersonelAraAdiVeSoyadiIle </TD>
+    <TD> Tablo Ismi + yaptığı iş 		  </TD></TR>
+  <TR>
+    <TD>Default - Varsayılan </TD>
+    <TD> DF_ </TD>
+    <TD> DF_PERSONEL_IlkGirisTarihi </TD>
+    <TD> SQL Server DF veriyor. Management Studio icinde Default'ları 
+      verirseniz, İsimlendirme düzgün olur. 		  </TD></TR>
+  <TR>
+    <TD> Default - Varsayılan </TD>
+    <TD> CK_ </TD>
+    <TD> CK_OKUL_BILGILERI_GirisSenesi </TD>
+    <TD> SQL Server CK veriyor. Management Studio icinde Constarint 
+      yazarsanız, İsimlendirme düzgün olur. 				 </TD></TR>
+  <TR>
+    <TD> Trigger - Tetikleyici </TD>
+    <TD> utrX_ </TD>
+    <TD> utru_PERSONEL </TD>
+    <TD>  utrX + Tablo Ismi, yerine triggerin hangi işlem için olduğunu 
+      söyleyen bir kelime gelicektir. i -&gt;insert, u -&gt; update, d -&gt; 
+      delete				 </TD></TR>
+      
+      
+      </TABLE>
+<TABLE>
+  <TR>
+    <TD width="%10"> Revision </TD>
+    <TD width="%20"> Yazarlar </TD>
+    <TD width="%70"> Yapılan Değişiklikler </TD></TR>
+  <TR>
+    <TD> 0.2  </TD>
+    <TD> Atilla Özgür </TD>
+    <TD>İlk Yazım </TD></TR>
+    
+  <TR>
+    <TD> 0.3 (2013-02-13) </TD>
+    <TD> Atilla Özgür </TD>
+    <TD>Çok uzun bir aradan sonra bazı düzeltmeler </TD></TR>
+    
+    
+    
+    </TABLE></BODY></HTML>
