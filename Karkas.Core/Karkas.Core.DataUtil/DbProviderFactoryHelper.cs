@@ -33,6 +33,10 @@ namespace Karkas.Core.DataUtil
         }
         public DbProviderFactoryHelper(String providerName)
         {
+            if (String.IsNullOrEmpty(providerName) || string.IsNullOrWhiteSpace(providerName)) 
+            {
+                throw new ArgumentException("ProviderName can not be empty or null"); 
+            }
             factory = DbProviderFactories.GetFactory(providerName);
         }
 
