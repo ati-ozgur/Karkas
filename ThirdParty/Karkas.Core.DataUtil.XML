@@ -4,20 +4,11 @@
         <name>Karkas.Core.DataUtil</name>
     </assembly>
     <members>
-        <member name="P:Karkas.Core.DataUtil.BaseDalWithoutEntity.OtomatikConnectionYonetimi">
+        <member name="P:Karkas.Core.DataUtil.PagingHelper.KomutuCalistiranKullaniciKisiKey">
             <summary>
-            Eger varsayılan deger, true bırakılırsa, connection yonetimi 
-            BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
-            Connection'u acma ve kapama BaseDal kontrolundedir.
-            Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
-            </summary>
-        </member>
-        <member name="P:Karkas.Core.DataUtil.HelperFunctions.OtomatikConnectionYonetimi">
-            <summary>
-            Eger varsayılan deger, true bırakılırsa, connection yonetimi 
-            BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
-            Connection'u acma ve kapama BaseDal kontrolundedir.
-            Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
+            Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
+            Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
+            Otomatik olarak Bs tarafindan yapilacak
             </summary>
         </member>
         <member name="T:Karkas.Core.DataUtil.BaseDalForIdentity`2">
@@ -34,6 +25,14 @@
             M Type of Primary Key of T
             </summary>
             <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Karkas.Core.DataUtil.BaseDalWithoutEntity.OtomatikConnectionYonetimi">
+            <summary>
+            Eger varsayılan deger, true bırakılırsa, connection yonetimi 
+            BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
+            Connection'u acma ve kapama BaseDal kontrolundedir.
+            Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
+            </summary>
         </member>
         <!-- Badly formed XML comment ignored for member "M:Karkas.Core.DataUtil.BaseDal`1.SorgulaKolonIsmiIle(System.String,System.Object)" -->
         <member name="P:Karkas.Core.DataUtil.BaseDal`1.ParameterCharacter">
@@ -89,11 +88,12 @@
             Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
             </summary>
         </member>
-        <member name="P:Karkas.Core.DataUtil.PagingHelper.KomutuCalistiranKullaniciKisiKey">
+        <member name="P:Karkas.Core.DataUtil.HelperFunctions.OtomatikConnectionYonetimi">
             <summary>
-            Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
-            Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
-            Otomatik olarak Bs tarafindan yapilacak
+            Eger varsayılan deger, true bırakılırsa, connection yonetimi 
+            BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
+            Connection'u acma ve kapama BaseDal kontrolundedir.
+            Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
             </summary>
         </member>
     </members>

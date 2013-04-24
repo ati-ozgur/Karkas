@@ -20,28 +20,37 @@ namespace Karkas.Core.DataUtil
             get { return command; }
             set { command = value; }
         }
-        public ParameterBuilder(DbCommand pCommand):this()
+        public ParameterBuilder(DbCommand pCommand)
         {
             this.command = pCommand;
+            parameterList = new List<DbParameter>();
+            setDbProviderFactoryHelper();
+        }
+        public ParameterBuilder(string providerName)
+        {
+            this.dbProviderName = providerName;
+            parameterList = new List<DbParameter>();
+            setDbProviderFactoryHelper();
         }
 
         public ParameterBuilder()
         {
             parameterList = new List<DbParameter>();
+            setDbProviderFactoryHelper();
+        }
+
+        private void setDbProviderFactoryHelper()
+        {
             if (string.IsNullOrEmpty(dbProviderName))
             {
                 dbProviderFactoryHelper = new DbProviderFactoryHelper();
             }
             else
             {
-                dbProviderFactoryHelper = new DbProviderFactoryHelper();
+                dbProviderFactoryHelper = new DbProviderFactoryHelper(this.dbProviderName);
             }
+        }
 
-        }
-        public ParameterBuilder(string providerName)
-        {
-            this.dbProviderName = providerName;
-        }
 
 
         private DbParameter parameterDegerleriniSetle(string parameterName, DbType dbType)

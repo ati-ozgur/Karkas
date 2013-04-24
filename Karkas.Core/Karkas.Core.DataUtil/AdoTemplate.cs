@@ -11,6 +11,18 @@ namespace Karkas.Core.DataUtil
     public class AdoTemplate
     {
 
+        private string dbProviderName;
+        public String DbProviderName 
+        {
+            get
+            {
+                return dbProviderName;
+            }
+            set
+            {
+                dbProviderName = value;
+            }
+        }
 
         private bool otomatikConnectionYonetimi = true;
         /// <summary>

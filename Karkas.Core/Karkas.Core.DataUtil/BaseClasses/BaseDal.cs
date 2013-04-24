@@ -22,6 +22,23 @@ namespace Karkas.Core.DataUtil
         public BaseDal()
         {
         }
+
+        private string dbProviderName;
+        public String DbProviderName
+        {
+            get
+            {
+                return dbProviderName;
+            }
+            set
+            {
+                dbProviderName = value;
+            }
+        }
+
+
+
+
         private bool isInTransaction = false;
 
         public bool IsInTransaction
