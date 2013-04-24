@@ -11,6 +11,9 @@ namespace Karkas.Core.DataUtil
     {
 
         private DbCommand command;
+        List<DbParameter> parameterList;
+        private string dbProviderName;
+        private DbProviderFactoryHelper dbProviderFactoryHelper;
 
         public DbCommand Command
         {
@@ -22,14 +25,26 @@ namespace Karkas.Core.DataUtil
             this.command = pCommand;
         }
 
-        List<DbParameter> parameterList;
         public ParameterBuilder()
         {
             parameterList = new List<DbParameter>();
+            if (string.IsNullOrEmpty(dbProviderName))
+            {
+                dbProviderFactoryHelper = new DbProviderFactoryHelper();
+            }
+            else
+            {
+                dbProviderFactoryHelper = new DbProviderFactoryHelper();
+            }
+
+        }
+        public ParameterBuilder(string providerName)
+        {
+            this.dbProviderName = providerName;
         }
 
 
-        private static DbParameter parameterDegerleriniSetle(string parameterName, DbType dbType)
+        private DbParameter parameterDegerleriniSetle(string parameterName, DbType dbType)
         {
             DbParameter prm = getGenericDbParamater();
             prm.ParameterName = parameterName;
@@ -37,13 +52,15 @@ namespace Karkas.Core.DataUtil
             return prm;
         }
 
-        private static DbParameter getGenericDbParamater()
+        private DbParameter getGenericDbParamater()
         {
-            DbParameter prm = new DbProviderFactoryHelper().GetParameter();
+            DbParameter prm  = dbProviderFactoryHelper.Factory.CreateParameter();
+
+            
             return prm;
         }
 
-        private static DbParameter parameterDegerleriniSetle(string parameterName, SqlDbType dbType, object value)
+        private DbParameter parameterDegerleriniSetle(string parameterName, SqlDbType dbType, object value)
         {
             SqlParameter prm = getSqlParameter();
             prm.ParameterName = parameterName;
@@ -59,13 +76,13 @@ namespace Karkas.Core.DataUtil
             return prm;
         }
 
-        private static SqlParameter getSqlParameter()
+        private SqlParameter getSqlParameter()
         {
             SqlParameter prm = new SqlParameter();
             return prm;
         }
 
-        private static DbParameter parameterDegerleriniSetle(string parameterName, DbType dbType, object value)
+        private DbParameter parameterDegerleriniSetle(string parameterName, DbType dbType, object value)
         {
             DbParameter prm = getGenericDbParamater();
             prm.ParameterName = parameterName;
