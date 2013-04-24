@@ -31,15 +31,21 @@ namespace Karkas.Core.DataUtil
 
         private static DbParameter parameterDegerleriniSetle(string parameterName, DbType dbType)
         {
-            DbParameter prm = new DbProviderFactoryHelper().GetParameter();
+            DbParameter prm = getGenericDbParamater();
             prm.ParameterName = parameterName;
             prm.DbType = dbType;
             return prm;
         }
 
+        private static DbParameter getGenericDbParamater()
+        {
+            DbParameter prm = new DbProviderFactoryHelper().GetParameter();
+            return prm;
+        }
+
         private static DbParameter parameterDegerleriniSetle(string parameterName, SqlDbType dbType, object value)
         {
-            SqlParameter prm = new SqlParameter();
+            SqlParameter prm = getSqlParameter();
             prm.ParameterName = parameterName;
             prm.SqlDbType = dbType;
             if (value == null)
@@ -53,9 +59,15 @@ namespace Karkas.Core.DataUtil
             return prm;
         }
 
+        private static SqlParameter getSqlParameter()
+        {
+            SqlParameter prm = new SqlParameter();
+            return prm;
+        }
+
         private static DbParameter parameterDegerleriniSetle(string parameterName, DbType dbType, object value)
         {
-            DbParameter prm = new DbProviderFactoryHelper().GetParameter();
+            DbParameter prm = getGenericDbParamater();
             prm.ParameterName = parameterName;
             prm.DbType = dbType;
             if (value == null)
