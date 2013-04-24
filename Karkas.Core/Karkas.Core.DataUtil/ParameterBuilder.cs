@@ -17,7 +17,7 @@ namespace Karkas.Core.DataUtil
             get { return command; }
             set { command = value; }
         }
-        public ParameterBuilder(DbCommand pCommand)
+        public ParameterBuilder(DbCommand pCommand):this()
         {
             this.command = pCommand;
         }
