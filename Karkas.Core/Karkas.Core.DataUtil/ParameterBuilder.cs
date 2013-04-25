@@ -41,13 +41,14 @@ namespace Karkas.Core.DataUtil
 
         private void setDbProviderFactoryHelper()
         {
+            
             if (string.IsNullOrEmpty(dbProviderName))
             {
-                dbProviderFactoryHelper = new DbProviderFactoryHelper();
+                dbProviderFactoryHelper =  DbProviderFactoryHelper.Create(DbProviderFactoryHelper.DbProviderSqlServer);
             }
             else
             {
-                dbProviderFactoryHelper = new DbProviderFactoryHelper(this.dbProviderName);
+                dbProviderFactoryHelper =  DbProviderFactoryHelper.Create(dbProviderName);
             }
         }
 

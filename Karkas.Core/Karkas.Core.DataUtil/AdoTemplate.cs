@@ -11,6 +11,13 @@ namespace Karkas.Core.DataUtil
     public class AdoTemplate
     {
 
+        public ParameterBuilder getParameterBuilder()
+        {
+            return new ParameterBuilder(dbProviderName);
+
+        }
+
+
         private string dbProviderName;
         public String DbProviderName 
         {

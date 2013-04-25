@@ -29,7 +29,9 @@ namespace Karkas.Core.DataUtil
             }
             else
             {
-                adapter = new DbProviderFactoryHelper().Factory.CreateDataAdapter();
+                throw new NotImplementedException();
+                adapter = null;
+                //new DbProviderFactoryHelper().Factory.CreateDataAdapter();
                 adapter.SelectCommand = cmd;
             }
                 return adapter;

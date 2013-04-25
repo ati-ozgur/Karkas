@@ -110,7 +110,7 @@ namespace Karkas.Core.DataUtil
         {
             string providerName = getProviderName(DatabaseName);
 
-            DbConnection conn = new DbProviderFactoryHelper(providerName).Factory.CreateConnection();
+            DbConnection conn = DbProviderFactoryHelper.Create(providerName).Factory.CreateConnection();
             conn.ConnectionString = getConnectionString(DatabaseName);
             return conn;
 
