@@ -9,6 +9,13 @@ namespace Karkas.Core.DataUtil
     internal class HelperFunctions
     {
 
+        public HelperFunctions(DbConnection pConnection, DbTransaction currentTransaction)
+        {
+            this.currentTransaction = currentTransaction;
+            conn = pConnection;
+        }
+
+
         private bool otomatikConnectionYonetimi = true;
         /// <summary>
         /// Eger varsayılan deger, true bırakılırsa, connection yonetimi 
@@ -50,11 +57,7 @@ namespace Karkas.Core.DataUtil
 
 
         DbConnection conn;
-        public HelperFunctions(DbConnection pConnection,DbTransaction currentTransaction)
-        {
-            this.currentTransaction = currentTransaction;
-            conn = pConnection;
-        }
+
 
         internal void SorguCalistir(DataTable dt, string sql, CommandType cmdType)
         {
