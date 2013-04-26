@@ -59,17 +59,9 @@ namespace Karkas.Core.DataUtil
             return t;
         }
 
-        private string dbProviderName;
-        public String DbProviderName
+        public abstract string DbProviderName
         {
-            get
-            {
-                return dbProviderName;
-            }
-            set
-            {
-                dbProviderName = value;
-            }
+            get;
         }
 
         public virtual string DatabaseName
