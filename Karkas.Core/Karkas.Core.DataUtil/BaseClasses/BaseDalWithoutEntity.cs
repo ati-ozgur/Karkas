@@ -55,9 +55,22 @@ namespace Karkas.Core.DataUtil
             t.Connection = Connection;
             t.CurrentTransaction = currentTransaction;
             t.OtomatikConnectionYonetimi = otomatikConnectionYonetimi;
+            t.DbProviderName = DbProviderName;
             return t;
         }
 
+        private string dbProviderName;
+        public String DbProviderName
+        {
+            get
+            {
+                return dbProviderName;
+            }
+            set
+            {
+                dbProviderName = value;
+            }
+        }
 
         public virtual string DatabaseName
         {

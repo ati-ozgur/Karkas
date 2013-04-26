@@ -26,18 +26,7 @@ namespace Karkas.Core.DataUtil
         {
         }
 
-        private string dbProviderName;
-        public String DbProviderName
-        {
-            get
-            {
-                return dbProviderName;
-            }
-            set
-            {
-                dbProviderName = value;
-            }
-        }
+
 
 
 
