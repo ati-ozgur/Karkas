@@ -9,10 +9,13 @@ namespace Karkas.Core.DataUtil
     internal class HelperFunctions
     {
 
-        public HelperFunctions(DbConnection pConnection, DbTransaction currentTransaction)
+        private AdoTemplate template;
+
+        public HelperFunctions(AdoTemplate pTemplate)
         {
-            this.currentTransaction = currentTransaction;
-            conn = pConnection;
+            template = pTemplate;
+            this.currentTransaction = pTemplate.CurrentTransaction;
+            conn = pTemplate.Connection;
         }
 
 

@@ -108,7 +108,7 @@ namespace Karkas.Core.DataUtil
             {
                 if (_helper == null)
                 {
-                    _helper = new HelperFunctions(Connection,currentTransaction);
+                    _helper = new HelperFunctions(this);
                     _helper.OtomatikConnectionYonetimi = OtomatikConnectionYonetimi;
                 }
                 return _helper;
@@ -123,7 +123,7 @@ namespace Karkas.Core.DataUtil
             {
                 if (_pagingHelper == null)
                 {
-                    _pagingHelper = new PagingHelper(Connection,currentTransaction);
+                    _pagingHelper = new PagingHelper(this);
                 }
                 return _pagingHelper;
             }

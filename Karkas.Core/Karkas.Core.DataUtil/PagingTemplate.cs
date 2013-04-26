@@ -13,11 +13,12 @@ namespace Karkas.Core.DataUtil
         private string countSql;
         private DbParameter[] parameters = null;
         private PagingHelper pHelper = null;
+        private Guid komutuCalistiranKullaniciKisiKey;
+        private DbTransaction currentTransaction;
+        private AdoTemplate template;
         
 
 
-        //TODO bunu disaridan setleyen bir yontem bulmak gerekiyor.
-        private Guid komutuCalistiranKullaniciKisiKey;
         /// <summary>
         /// Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
         /// Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
@@ -30,25 +31,27 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        private DbTransaction currentTransaction;
 
         public DbTransaction CurrentTransaction
         {
             get { return currentTransaction; }
             set { currentTransaction = value; }
         }
-
-        public PagingTemplate(string pSql)
+        public PagingTemplate(AdoTemplate template, string pSql, DbParameter[] pParameters)
+            : this(template, pSql)
         {
-            new PagingHelper(ConnectionSingleton.Instance.Connection,currentTransaction);
+            this.parameters = pParameters;
+        }
+
+        public PagingTemplate(AdoTemplate template,string pSql)
+        {
+            this.template = template;
+            new PagingHelper(template);
             this.selectSql = pSql;
             this.countSql = sqlCumlesiniCountIleDegistir(pSql);
         }
 
-        public PagingTemplate(string pSql,DbParameter[] pParameters):this(pSql)
-        {
-            this.parameters = pParameters;
-        }
+
 
         public DataTable DataTableOlusturSayfalamaYap(int pPageSize, int pStartRowIndex, string pOrderBy)
         {

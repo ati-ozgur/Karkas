@@ -11,7 +11,13 @@ namespace Karkas.Core.DataUtil
 {
     internal class PagingHelper
     {
+
+        private AdoTemplate template;
+        private DbTransaction currentTransaction;
         private Guid komutuCalistiranKullaniciKisiKey;
+        private HelperFunctions helper;
+
+
         /// <summary>
         /// Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
         /// Login olan kullanicinin Kisi Key'ine setlenmesi gerekir.
@@ -24,7 +30,6 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        private DbTransaction currentTransaction;
 
         public DbTransaction CurrentTransaction
         {
@@ -32,12 +37,12 @@ namespace Karkas.Core.DataUtil
             set { currentTransaction = value; }
         }
 
-        public PagingHelper(DbConnection pConnection, DbTransaction currentTransaction)
+        public PagingHelper(AdoTemplate pTemplate)
         {
-            helper = new HelperFunctions(pConnection, currentTransaction);
+            template = pTemplate;
+            helper = new HelperFunctions(pTemplate);
         }
 
-        private HelperFunctions helper;
 
         private const string PAGING_SQL = @"
                                 WITH temp AS 
