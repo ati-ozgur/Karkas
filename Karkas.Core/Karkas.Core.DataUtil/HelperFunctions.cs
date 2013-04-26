@@ -11,6 +11,12 @@ namespace Karkas.Core.DataUtil
 
         private AdoTemplate template;
 
+        public AdoTemplate Template
+        {
+            get { return template; }
+            set { template = value; }
+        }
+
         public HelperFunctions(AdoTemplate pTemplate)
         {
             template = pTemplate;
@@ -64,7 +70,7 @@ namespace Karkas.Core.DataUtil
 
         internal void SorguCalistir(DataTable dt, string sql, CommandType cmdType)
         {
-            DbCommand cmd = CommandFactory.getDatabaseCommand(sql, conn);
+            DbCommand cmd = Template.getDatabaseCommand(sql, conn);
             cmd.CommandType = cmdType;
 
             DbDataAdapter adapter = AdapterDondur(cmd);
@@ -91,7 +97,7 @@ namespace Karkas.Core.DataUtil
             {
                 cmd.Transaction = currentTransaction;
             }
-            DbDataAdapter adapter = CommandFactory.getDatabaseAdapter( cmd);
+            DbDataAdapter adapter = template.getDatabaseAdapter(cmd);
             return adapter;
         }
 
@@ -123,7 +129,7 @@ namespace Karkas.Core.DataUtil
 
         internal void SorguCalistir(DataTable dt, string sql, CommandType cmdType, DbParameter[] parameters)
         {
-            DbCommand cmd = CommandFactory.getDatabaseCommand(sql, conn);
+            DbCommand cmd = Template.getDatabaseCommand(sql, conn);
             cmd.CommandType = cmdType;
             foreach (DbParameter p in parameters)
             {

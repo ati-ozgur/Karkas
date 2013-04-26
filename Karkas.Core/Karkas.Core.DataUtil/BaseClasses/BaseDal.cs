@@ -19,6 +19,9 @@ namespace Karkas.Core.DataUtil
     /// <typeparam name="T"></typeparam>
     public abstract class BaseDal<T> : BaseDalWithoutEntity where T : BaseTypeLibrary, new()
     {
+
+
+
         public BaseDal()
         {
         }
@@ -196,7 +199,7 @@ namespace Karkas.Core.DataUtil
         private long EkleIdentity(T row)
         {
             long sonuc = 0;
-            DbCommand cmd = CommandFactory.getDatabaseCommand(InsertString, Connection);
+            DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
 
 
@@ -264,7 +267,7 @@ namespace Karkas.Core.DataUtil
 
         private long EkleNormal(T row)
         {
-            DbCommand cmd = CommandFactory.getDatabaseCommand(InsertString, Connection);
+            DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
             int sonuc = SorguHariciKomutCalistirInternal(cmd);
 
@@ -274,7 +277,7 @@ namespace Karkas.Core.DataUtil
         }
         protected void SorguHariciKomutCalistirUpdate(string cmdText, T row)
         {
-            DbCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
+            DbCommand cmd = Template.getDatabaseCommand(cmdText, Connection);
             UpdateCommandParametersAdd(cmd, row);
             int kayitSayisi = SorguHariciKomutCalistirInternal(cmd);
 
@@ -291,7 +294,7 @@ namespace Karkas.Core.DataUtil
 
         protected void SorguHariciKomutCalistirDelete(string cmdText, T row)
         {
-            DbCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
+            DbCommand cmd = Template.getDatabaseCommand(cmdText, Connection);
             DeleteCommandParametersAdd(cmd, row);
             SorguHariciKomutCalistirInternal(cmd);
         }
@@ -332,7 +335,7 @@ namespace Karkas.Core.DataUtil
         }
         public void SorguCalistir(List<T> liste, String pFilterString, DbParameter[] parameterArray, bool otomatikWhereEkle)
         {
-            DbCommand cmd = CommandFactory.getDatabaseCommand(Connection);
+            DbCommand cmd = Template.getDatabaseCommand(Connection);
             filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
             foreach (DbParameter prm in parameterArray)
             {
@@ -344,7 +347,7 @@ namespace Karkas.Core.DataUtil
 
         public void SorguCalistir(List<T> liste, String pFilterString, bool otomatikWhereEkle)
         {
-            DbCommand cmd = CommandFactory.getDatabaseCommand(Connection);
+            DbCommand cmd = Template.getDatabaseCommand(Connection);
             filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
             sorguCalistirInternal(liste, cmd);
         }

@@ -27,7 +27,7 @@ namespace Karkas.Core.DataUtil
         public new M Ekle(T row)
         {
             M sonuc = default(M);
-            DbCommand cmd = CommandFactory.getDatabaseCommand(InsertString, Connection);
+            DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
 
 

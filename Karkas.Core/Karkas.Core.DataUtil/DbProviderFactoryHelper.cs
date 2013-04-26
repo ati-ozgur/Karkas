@@ -10,6 +10,7 @@ namespace Karkas.Core.DataUtil
     {
         public const string DbProviderSqlServer = "System.Data.SqlClient";
 
+        // TODO cache factoryHelper
         public static DbProviderFactoryHelper Create(string dbProviderName)
         {
             DbProviderFactoryHelper helper = new DbProviderFactoryHelper(dbProviderName);

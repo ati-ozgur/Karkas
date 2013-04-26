@@ -11,6 +11,16 @@ namespace Karkas.Core.DataUtil
     public class AdoTemplate
     {
 
+
+        public AdoTemplate()
+        {
+
+        }
+        public AdoTemplate(String dbProviderName)
+        {
+            this.dbProviderName = dbProviderName;
+        }
+
         public ParameterBuilder getParameterBuilder()
         {
             return new ParameterBuilder(dbProviderName);
@@ -18,8 +28,32 @@ namespace Karkas.Core.DataUtil
         }
 
 
+        public DbDataAdapter getDatabaseAdapter(DbCommand cmd)
+        {
+            DbDataAdapter adapter = DbProviderFactoryHelper.Create(dbProviderName).Factory.CreateDataAdapter();
+            adapter.SelectCommand = cmd;
+            return adapter;
+        }
+
+        public DbCommand getDatabaseCommand(DbConnection conn)
+        {
+            DbCommand command = conn.CreateCommand();
+            return command;
+        }
+
+
+        public DbCommand getDatabaseCommand(string sql, DbConnection conn)
+        {
+            DbCommand command = conn.CreateCommand();
+            command.CommandText = sql;
+            return command;
+        }
+
+
+
+
         private string dbProviderName;
-        public String DbProviderName 
+        public String DbProviderName
         {
             get
             {
@@ -65,16 +99,16 @@ namespace Karkas.Core.DataUtil
 
         public DbTransaction CurrentTransaction
         {
-            get 
-            { 
-                return currentTransaction; 
+            get
+            {
+                return currentTransaction;
             }
-            set 
-            { 
+            set
+            {
                 currentTransaction = value;
                 _helper = null;
                 _pagingHelper = null;
-                
+
             }
         }
 
@@ -93,12 +127,9 @@ namespace Karkas.Core.DataUtil
             set { connection = value; }
         }
 
-        public AdoTemplate()
-        {
 
-        }
 
-  
+
 
 
         private HelperFunctions _helper;
@@ -134,7 +165,7 @@ namespace Karkas.Core.DataUtil
             object son = 0;
             try
             {
-                new LoggingInfo( cmd).LogInfo(this.GetType());
+                new LoggingInfo(cmd).LogInfo(this.GetType());
                 if (ConnectionAcilacakMi())
                 {
                     Connection.Open();
@@ -147,7 +178,7 @@ namespace Karkas.Core.DataUtil
             }
             catch (DbException ex)
             {
-                ExceptionDegistirici.Degistir(ex, new LoggingInfo( cmd).ToString());
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
             }
             finally
             {
@@ -201,7 +232,7 @@ namespace Karkas.Core.DataUtil
         /// <returns></returns>
         public object TekDegerGetir(DbCommand cmd)
         {
-            cmd.Connection =  Connection;
+            cmd.Connection = Connection;
             object sonuc = 0;
             sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
             return sonuc;
@@ -211,7 +242,7 @@ namespace Karkas.Core.DataUtil
 
         public Object TekDegerGetir(string cmdText)
         {
-            DbCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
+            DbCommand cmd = getDatabaseCommand(cmdText, Connection);
             object sonuc;
             sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
             return sonuc;
@@ -219,7 +250,7 @@ namespace Karkas.Core.DataUtil
 
         public Object TekDegerGetir(string cmdText, CommandType cmdType, DbParameter[] parameters)
         {
-            DbCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
+            DbCommand cmd = getDatabaseCommand(cmdText, Connection);
             cmd.CommandType = cmdType;
             foreach (DbParameter p in parameters)
             {
@@ -233,7 +264,7 @@ namespace Karkas.Core.DataUtil
 
         public Object TekDegerGetir(string cmdText, DbParameter[] parameters)
         {
-            DbCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
+            DbCommand cmd = getDatabaseCommand(cmdText, Connection);
             foreach (DbParameter p in parameters)
             {
                 cmd.Parameters.Add(p);
@@ -245,7 +276,7 @@ namespace Karkas.Core.DataUtil
 
         public void SorguHariciKomutCalistir(String cmdText)
         {
-            DbCommand cmd = CommandFactory.getDatabaseCommand(cmdText, Connection);
+            DbCommand cmd = getDatabaseCommand(cmdText, Connection);
             SorguHariciKomutCalistirInternal(cmd);
         }
 
@@ -253,7 +284,7 @@ namespace Karkas.Core.DataUtil
 
         public void SorguHariciKomutCalistir(DbCommand cmd)
         {
-            cmd.Connection =  Connection;
+            cmd.Connection = Connection;
             SorguHariciKomutCalistirInternal(cmd);
         }
 
@@ -261,7 +292,7 @@ namespace Karkas.Core.DataUtil
 
         public void SorguHariciKomutCalistir(string sql, DbParameter[] prmListesi)
         {
-            DbCommand cmd = CommandFactory.getDatabaseCommand(sql, Connection);
+            DbCommand cmd = getDatabaseCommand(sql, Connection);
             cmd.CommandType = CommandType.Text;
             foreach (DbParameter p in prmListesi)
             {
@@ -317,7 +348,7 @@ namespace Karkas.Core.DataUtil
         public DataTable DataTableOlustur(DbCommand cmd)
         {
             DataTable dataTable = CreateDataTable();
-            cmd.Connection =  Connection;
+            cmd.Connection = Connection;
             if (currentTransaction != null)
             {
                 cmd.Transaction = currentTransaction;

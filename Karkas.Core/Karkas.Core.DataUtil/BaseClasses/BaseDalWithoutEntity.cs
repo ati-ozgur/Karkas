@@ -11,6 +11,12 @@ namespace Karkas.Core.DataUtil
     public abstract class BaseDalWithoutEntity
     {
 
+        public BaseDalWithoutEntity()
+        {
+
+        }
+
+
         private bool otomatikConnectionYonetimi = true;
         /// <summary>
         /// Eger varsayılan deger, true bırakılırsa, connection yonetimi 
