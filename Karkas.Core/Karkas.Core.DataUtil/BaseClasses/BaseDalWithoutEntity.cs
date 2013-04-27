@@ -147,5 +147,11 @@ namespace Karkas.Core.DataUtil
             return (Connection.State != ConnectionState.Open) && (OtomatikConnectionYonetimi);
         }
 
+
+
+        protected ParameterBuilder getParameterBuilder()
+        {
+            return Template.getParameterBuilder();
+        }
     }
 }

@@ -20,12 +20,7 @@ namespace Karkas.Core.DataUtil
             get { return command; }
             set { command = value; }
         }
-        public ParameterBuilder(DbCommand pCommand)
-        {
-            this.command = pCommand;
-            parameterList = new List<DbParameter>();
-            setDbProviderFactoryHelper();
-        }
+
         public ParameterBuilder(string providerName)
         {
             this.dbProviderName = providerName;
@@ -33,11 +28,6 @@ namespace Karkas.Core.DataUtil
             setDbProviderFactoryHelper();
         }
 
-        public ParameterBuilder()
-        {
-            parameterList = new List<DbParameter>();
-            setDbProviderFactoryHelper();
-        }
 
         private void setDbProviderFactoryHelper()
         {

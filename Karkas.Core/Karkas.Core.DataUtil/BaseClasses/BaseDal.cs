@@ -138,7 +138,7 @@ namespace Karkas.Core.DataUtil
         {
             List<T> liste = new List<T>();
             SorguYardimcisi sy = new SorguYardimcisi();
-            ParameterBuilder builder = new ParameterBuilder();
+            ParameterBuilder builder = getParameterBuilder();
             for (int i = 0; i < filtreListesi.Length; i++)
             {
 
