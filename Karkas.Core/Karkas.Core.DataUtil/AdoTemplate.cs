@@ -38,6 +38,7 @@ namespace Karkas.Core.DataUtil
         public DbCommand getDatabaseCommand(DbConnection conn)
         {
             DbCommand command = conn.CreateCommand();
+            setBindByNameForOracle(command);
             return command;
         }
 
@@ -45,8 +46,17 @@ namespace Karkas.Core.DataUtil
         public DbCommand getDatabaseCommand(string sql, DbConnection conn)
         {
             DbCommand command = conn.CreateCommand();
+            setBindByNameForOracle(command);
             command.CommandText = sql;
             return command;
+        }
+
+        private static void setBindByNameForOracle(DbCommand command)
+        {
+            if (command.GetType().GetProperty("BindByName") != null)
+            {
+                command.GetType().GetProperty("BindByName").SetValue(command, true, null);
+            }
         }
 
 
