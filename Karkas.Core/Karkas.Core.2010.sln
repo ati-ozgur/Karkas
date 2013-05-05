@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Web.Helpers.2010", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Web.Controls", "Karkas.Web.Controls\Karkas.Web.Controls.csproj", "{D2F73267-016E-43F7-B681-8403F99B6E64}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{A9C8DC35-6599-4276-B0C5-1C96023E9CBF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{F75495F1-ED01-4C46-BF28-A4B951258A66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,5 +56,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A4B4B2C0-CC59-4B4C-8B67-FA2158BCE192} = {A9C8DC35-6599-4276-B0C5-1C96023E9CBF}
+		{0B5C1C9A-E030-48D2-BE24-2548F56DA4B6} = {A9C8DC35-6599-4276-B0C5-1C96023E9CBF}
+		{D2F73267-016E-43F7-B681-8403F99B6E64} = {A9C8DC35-6599-4276-B0C5-1C96023E9CBF}
+		{080B5FFC-3533-4414-B5DC-EBC39ED8CCF8} = {F75495F1-ED01-4C46-BF28-A4B951258A66}
 	EndGlobalSection
 EndGlobal
