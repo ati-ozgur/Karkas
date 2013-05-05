@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Net;
-using log4net;
 using System.IO;
 using Karkas.Core.DataUtil.TestConsoleApp.Tests;
 using Karkas.Core.DataUtil.TestConsoleApp.Tests.OnaylamaTestleri.Email;
