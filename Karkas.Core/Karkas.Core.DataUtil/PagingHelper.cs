@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Text.RegularExpressions;
-using Karkas.Core.Utility;
 using Karkas.Extensions;
 using System.Data.Common;
 
