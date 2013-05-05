@@ -57,7 +57,7 @@ namespace Karkas.Core.Utility
 
         }
 
-        internal void FileDownload(string[] yapisi, byte[] pContent)
+        public void FileDownload(string[] yapisi, byte[] pContent)
         {
             HttpContext.Current.Response.Charset = "UTF-8";
             HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.Default;

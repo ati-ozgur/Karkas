@@ -50,12 +50,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
@@ -74,14 +68,8 @@
     <Compile Include="Ay.cs" />
     <Compile Include="EPostaYardimcisi.cs" />
     <Compile Include="ExportHelper.cs" />
-    <Compile Include="ExtensionMethods\ConvertToExtensions.cs" />
-    <Compile Include="ExtensionMethods\KarkasStringExtensions.cs" />
     <Compile Include="FileDownloadHelper.cs" />
     <Compile Include="FtpYardimcisi.cs" />
-    <Compile Include="ReportingServicesHelper\KarkasRapor.cs" />
-    <Compile Include="ReportingServicesHelper\KarkasRapor.Enums.cs" />
-    <Compile Include="ReportingServicesHelper\KarkasRaporParametre.cs" />
-    <Compile Include="ReportingServicesHelper\ReportingService.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>

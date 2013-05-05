@@ -128,6 +128,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Karkas.Core.ExtensionsMethods\Karkas.Core.ExtensionsMethods.csproj">
+      <Project>{DDD39496-34F1-4226-AB9D-16463710C25C}</Project>
+      <Name>Karkas.Core.ExtensionsMethods</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Karkas.Core.Utility\Karkas.Core.Utility.2010.csproj">
       <Project>{92A3FD0E-F64B-4F57-A69D-306874E7F2D8}</Project>
       <Name>Karkas.Core.Utility.2010</Name>
