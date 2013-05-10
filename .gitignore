@@ -148,4 +148,5 @@ $RECYCLE.BIN/
 .DS_Store
 
 temp
-Karkas.Core/nugetSpecs/lib/*
+Karkas.Core/nugetSpecs/**/lib/*
+Karkas.Core/nugetSpecs/*.nupkg
