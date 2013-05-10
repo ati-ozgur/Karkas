@@ -66,8 +66,6 @@
     <Compile Include="AdoTemplate.cs" />
     <Compile Include="BaseClasses\BaseBs.cs" />
     <Compile Include="BaseClasses\BaseBsWithoutEntity.cs" />
-    <Compile Include="BaseClasses\BaseBsWrapper.cs" />
-    <Compile Include="BaseClasses\BaseBsWrapperWithoutEntity.cs" />
     <Compile Include="BaseClasses\BaseDal.cs" />
     <Compile Include="BaseClasses\BaseDalForIdentity.cs" />
     <Compile Include="BaseClasses\BaseDalWithoutEntity.cs" />
