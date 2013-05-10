@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>TekDegerGetir Kosullu</Title>
+      <Shortcut>dall</Shortcut>
+      <Description>
+      </Description>
+      <Author>Fatih ÖZKAN</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>ParamA</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>
+            DegiskenAdi
+          </Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>ParamB</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>
+            TabloAdı
+          </Default>
+          <Function>
+          </Function>
+        </Literal>
+        
+      </Declarations>
+      <Code Language="csharp"><![CDATA[       public int Sorgula$ParamA$Ile(int p$ParamA$)
+        {
+            ParameterBuilder builder = new ParameterBuilder();
+            string strSQL = @"select count(*) from 
+                            dbo.$ParamB$
+                            where
+                            $ParamA$=@$ParamA$";
+            object tekDeger = Template.TekDegerGetir(strSQL, builder.GetParameterArray());
+            return (int)tekDeger;
+
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
