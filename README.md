@@ -1,6 +1,5 @@
 karkas
 ======
-# karkas
 
 Aşağıdaki parçalardan oluşur.
  1. DAL - Data Access Library - Veri Ulaşım Kütüphanesi
@@ -14,4 +13,8 @@ Aşağıdaki Veritabanlarını desteklemektedir.
  3. Sqlite
 
 
+Kolay kullanımı desteklemek amacı ile nuget paketleri ile çalışmaktadır.
+Aşağıdaki paketleri kullanabilirsiniz.
 
+1. Karkas.CodeGeneration.WinApp.1.0.0
+2. Karkas.Core.DataUtil.1.0.0
