@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Karkas.Snippets</id>
+        <version>0.1</version>
+        <title>Karkas.Snippets</title>
+        <authors>ati_ozgur</authors>
+        <owners>ati_ozgur</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Karkas Visual Studio Snippets. Dal, Bs ve digerleri.</description>
+        <tags>Karkas Snippets</tags>
+    </metadata>
+    <files>
+        <file src="content\okubeni.txt" target="content\okubeni.txt" />
+        <file src="tools\Snippets\Bs\BsSiraliListe.snippet" target="tools\Snippets\Bs\BsSiraliListe.snippet" />
+        <file src="tools\Snippets\Bs\BsSiraliListe1denFazla.snippet" target="tools\Snippets\Bs\BsSiraliListe1denFazla.snippet" />
+		
+        <file src="tools\Snippets\DalOracle\DalDataTable_Oracle.snippet" target="tools\Snippets\DalOracle\DalDataTable_Oracle.snippet" />
+        <file src="tools\Snippets\DalOracle\DalDataTable1Param_Oracle.snippet" target="tools\Snippets\DalOracle\DalDataTable1Param_Oracle.snippet" />
+        <file src="tools\Snippets\DalOracle\DalListe_Oracle.snippet" target="tools\Snippets\DalOracle\DalListe_Oracle.snippet" />
+        <file src="tools\Snippets\DalOracle\DalListe1Param_Oracle.snippet" target="tools\Snippets\DalOracle\DalListe1Param_Oracle.snippet" />
+        <file src="tools\Snippets\DalOracle\DalTekDeger_Oracle.snippet" target="tools\Snippets\DalOracle\DalTekDeger_Oracle.snippet" />
+        <file src="tools\Snippets\DalOracle\DalTekDegerObject_Oracle.snippet" target="tools\Snippets\DalOracle\DalTekDegerObject_Oracle.snippet" />
+
+        <file src="tools\Snippets\DalSqlServer\DalDataTable_SqlServer.snippet" target="tools\Snippets\DalSqlServer\DalDataTable_SqlServer.snippet" />
+        <file src="tools\Snippets\DalSqlServer\DalDataTable1Param_SqlServer.snippet" target="tools\Snippets\DalSqlServer\DalDataTable1Param_SqlServer.snippet" />
+        <file src="tools\Snippets\DalSqlServer\DalListe_SqlServer.snippet" target="tools\Snippets\DalSqlServer\DalListe_SqlServer.snippet" />
+        <file src="tools\Snippets\DalSqlServer\DalListe1Param_SqlServer.snippet" target="tools\Snippets\DalSqlServer\DalListe1Param_SqlServer.snippet" />
+        <file src="tools\Snippets\DalSqlServer\DalTekDeger_SqlServer.snippet" target="tools\Snippets\DalSqlServer\DalTekDeger_SqlServer.snippet" />
+        <file src="tools\Snippets\DalSqlServer\DalTekDegerObject_SqlServer.snippet" target="tools\Snippets\DalSqlServer\DalTekDegerObject_SqlServer.snippet" />
+		
+		
+        <file src="tools\install.ps1" target="tools\install.ps1" />
+        <file src="tools\uninstall.ps1" target="tools\uninstall.ps1" />
+    </files>
+</package>
