@@ -130,7 +130,7 @@ namespace Karkas.Core.DataUtil
             {
                 if (connection == null)
                 {
-                    connection = ConnectionSingleton.Instance.Connection;
+                    connection = ConnectionSingleton.Instance.getConnection("Main");
                 }
                 return connection;
             }

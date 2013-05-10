@@ -75,14 +75,8 @@ namespace Karkas.Core.DataUtil
             {
                 if (connection == null)
                 {
-                    if (string.IsNullOrEmpty(DatabaseName))
-                    {
-                        connection =  ConnectionSingleton.Instance.Connection;
-                    }
-                    else
-                    {
-                        connection = ConnectionSingleton.Instance.getConnection(DatabaseName);
-                    }
+
+                    connection = ConnectionSingleton.Instance.getConnection(DatabaseName);
                 }
                 return connection;
             }

@@ -81,7 +81,7 @@ namespace Karkas.Core.DataUtil
                 {
                     if (string.IsNullOrEmpty(DatabaseName))
                     {
-                        connection = ConnectionSingleton.Instance.Connection;
+                        connection =  ConnectionSingleton.Instance.getConnection("Main");
                     }
                     else
                     {

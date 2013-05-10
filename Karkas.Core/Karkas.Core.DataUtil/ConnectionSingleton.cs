@@ -34,13 +34,6 @@ namespace Karkas.Core.DataUtil
        
 
 
-        public DbConnection Connection
-        {
-            get
-            {
-                return new System.Data.SqlClient.SqlConnection(connectionString);
-            }
-        }
 
         private static ConnectionSingleton _instance = new ConnectionSingleton();
 
