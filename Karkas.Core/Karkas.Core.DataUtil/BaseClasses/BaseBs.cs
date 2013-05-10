@@ -50,7 +50,7 @@ namespace Karkas.Core.DataUtil
             get { return dal; }
         }
 
-        public long Ekle(TYPE_LIBRARY_TIPI k)
+        public virtual long Ekle(TYPE_LIBRARY_TIPI k)
         {
             return dal.Ekle(k);
         }
