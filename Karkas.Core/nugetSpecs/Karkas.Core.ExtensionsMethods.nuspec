@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Karkas.Core.ExtensionsMethods</id>
+    <version>1.0.0</version>
+    <title />
+    <authors>Atilla Ozgur</authors>
+    <owners>Atilla Ozgur</owners>
+    <projectUrl>https://github.com/ati-ozgur/karkas/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Some simple extension methods used in Karkas Project</description>
+    <summary>Some simple extension methods used in Karkas Project</summary>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Data" targetFramework="" />
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="" />
+    </frameworkAssemblies>
+    <references>
+      <reference file="Karkas.Core.ExtensionsMethods.dll" />
+    </references>
+  </metadata>
+</package>

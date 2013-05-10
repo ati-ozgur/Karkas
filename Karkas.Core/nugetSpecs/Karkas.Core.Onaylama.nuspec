@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Karkas.Core.Onaylama</id>
+    <version>1.0.0</version>
+    <title>Karkas.Core.Onaylama</title>
+    <authors>ati_ozgur</authors>
+    <owners>ati_ozgur</owners>
+    <projectUrl>https://github.com/ati-ozgur/karkas/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Karkas projesi Validation Onaylama</description>
+    <summary>Karkas projesi Validation Onaylama</summary>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Data" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="" />
+    </frameworkAssemblies>
+    <references>
+      <reference file="Karkas.Core.Onaylama.dll" />
+    </references>
+  </metadata>
+</package>
