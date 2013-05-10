@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Core.Validation", "Karkas.Core.Validation\Karkas.Core.Validation.csproj", "{29D76493-FFF2-42E2-8EF0-6F0AE71CB80E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Core.Onaylama", "Karkas.Core.Onaylama\Karkas.Core.Onaylama.csproj", "{29D76493-FFF2-42E2-8EF0-6F0AE71CB80E}"
 	ProjectSection(WebsiteProperties) = preProject
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.Debug = "False"
