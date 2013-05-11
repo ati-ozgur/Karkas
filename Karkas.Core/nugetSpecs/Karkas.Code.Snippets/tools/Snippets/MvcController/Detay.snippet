@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Asp.Net Mvc Action -  Detay </Title>
+      <Shortcut>mvcDetay</Shortcut>
+      <Description>
+      </Description>
+      <Author>Atilla Ozgur</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>ParamA</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>Musteri
+          </Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[
+
+        //
+        // GET: /$ParamA$/Detay/5
+
+        public ActionResult Detay(decimal id)
+        {
+            $ParamA$Bs bs = new $ParamA$OzellikBs();
+            $ParamA$ dto = bs.Sorgula$ParamA$KeyIle(id);
+            return View(dto);
+        }
+
+      ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

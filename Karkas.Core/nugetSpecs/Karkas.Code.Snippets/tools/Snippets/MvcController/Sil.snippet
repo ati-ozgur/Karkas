@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Asp.Net Mvc Action -  Guncelle </Title>
+      <Shortcut>mvcEkle</Shortcut>
+      <Description>
+      </Description>
+      <Author>Atilla Ozgur</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>ParamA</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>Musteri
+          </Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[
+
+        //
+        // GET: /$ParamA$/Sil/5
+
+        public ActionResult Sil(int id)
+        {
+            return View();
+        }
+
+        //
+        // POST: /$ParamA$/Sil/5
+
+        [HttpPost]
+        public ActionResult Sil(int id)
+        {
+            try
+            {
+                $ParamA$Bs bs = new $ParamA$Bs();
+                bs.Sil(id);
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+      ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
