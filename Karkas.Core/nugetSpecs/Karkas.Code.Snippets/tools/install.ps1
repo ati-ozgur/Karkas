@@ -38,4 +38,4 @@ write-host
 write-host ==================================================================================
 
 
-uninstall-package Karkas.Snippets -ProjectName $project.Name
+uninstall-package Karkas.Code.Snippets -ProjectName $project.Name
