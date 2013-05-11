@@ -12,6 +12,8 @@
     </metadata>
     <files>
         <file src="content\okubeni.txt" target="content\okubeni.txt" />
+		
+        <file src="tools\Snippets\Bs\BsEkleOverride.snippet" target="tools\Snippets\Bs\BsEkleOverride.snippet" />
         <file src="tools\Snippets\Bs\BsSiraliListe.snippet" target="tools\Snippets\Bs\BsSiraliListe.snippet" />
         <file src="tools\Snippets\Bs\BsSiraliListe1denFazla.snippet" target="tools\Snippets\Bs\BsSiraliListe1denFazla.snippet" />
 		
