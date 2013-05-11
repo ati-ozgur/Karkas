@@ -1,5 +1,5 @@
 $projectName = "Karkas.Core.DataUtil"
-$version = Get-Content version.txt
+$version = Get-Content karkas.core.version.txt
 $nugetCacheFolder = "$Home/AppData/Local/NuGet/Cache"
 $nugetPackageName = "$projectName.$version.nupkg"
 remove-item $projectName/lib -recurse
