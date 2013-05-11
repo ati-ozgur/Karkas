@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>Karkas.Snippets</id>
+        <id>Karkas.Code.Snippets</id>
         <version>0.1</version>
-        <title>Karkas.Snippets</title>
+        <title>Karkas.Code.Snippets</title>
         <authors>ati_ozgur</authors>
         <owners>ati_ozgur</owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
