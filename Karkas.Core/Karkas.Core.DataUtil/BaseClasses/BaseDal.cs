@@ -449,7 +449,7 @@ namespace Karkas.Core.DataUtil
             string dal = typeLibrary.Replace("TypeLibrary", "Dal") + "Dal";
             string assemblyName = dal.Remove(dal.IndexOf("Dal") + 3);
             Type type = Type.GetType(dal + "," + assemblyName);
-            MethodInfo methodInfo = type.GetMethod("SorgulaForeingKeyIle");
+            MethodInfo methodInfo = type.GetMethod("SorgulaKolonIsmiIle");
             ObjectHandle oh = Activator.CreateInstance(assemblyName, dal);
 
             object sonuc = methodInfo.Invoke(oh.Unwrap(), new object[] { PrimaryKey, degeri });
