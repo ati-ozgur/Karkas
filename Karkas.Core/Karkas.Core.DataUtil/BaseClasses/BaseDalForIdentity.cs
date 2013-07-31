@@ -6,7 +6,7 @@ using Karkas.Core.TypeLibrary;
 using log4net;
 using System.Data.Common;
 
-namespace Karkas.Core.DataUtil
+namespace Karkas.Core.DataUtil.BaseClasses
 {
     /// <summary>
     /// T TypeLibrary Class

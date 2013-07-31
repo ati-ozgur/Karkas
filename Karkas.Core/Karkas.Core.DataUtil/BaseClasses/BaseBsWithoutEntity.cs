@@ -5,7 +5,7 @@ using System.Text;
 using System.Data;
 using System.Data.Common;
 
-namespace Karkas.Core.DataUtil
+namespace Karkas.Core.DataUtil.BaseClasses
 {
     public abstract class BaseBsWithoutEntity
     {

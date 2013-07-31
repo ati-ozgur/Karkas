@@ -68,6 +68,7 @@
     <Compile Include="BaseClasses\BaseBsWithoutEntity.cs" />
     <Compile Include="BaseClasses\BaseDal.cs" />
     <Compile Include="BaseClasses\BaseDalForIdentity.cs" />
+    <Compile Include="BaseClasses\BaseDalOracle.cs" />
     <Compile Include="BaseClasses\BaseDalWithoutEntity.cs" />
     <Compile Include="CommandFactory.cs" />
     <Compile Include="ConnectionSingleton.cs" />

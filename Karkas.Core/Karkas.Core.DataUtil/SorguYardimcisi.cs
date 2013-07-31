@@ -7,6 +7,15 @@ namespace Karkas.Core.DataUtil
 {
     public class SorguYardimcisi
     {
+
+        public SorguYardimcisi(string pParameterCharacter)
+        {
+            this.ParameterCharacter = pParameterCharacter;
+        }
+
+
+        public string ParameterCharacter { get; set; }
+
         List<Siralama> siralamaListesi = new List<Siralama>();
         List<WhereKriter> whereListesi = new List<WhereKriter>();
         List<WhereKriterTercihli> whereTercihliListesi = new List<WhereKriterTercihli>();
@@ -72,13 +81,13 @@ namespace Karkas.Core.DataUtil
 
         public void WhereKriterineEkle(string pKolonIsmi)
         {
-            WhereKriter wk = new WhereKriter(pKolonIsmi,WhereOperatorEnum.Esittir , "@" + pKolonIsmi);
+            WhereKriter wk = new WhereKriter(pKolonIsmi,WhereOperatorEnum.Esittir , ParameterCharacter + pKolonIsmi);
             whereListesi.Add(wk);
         }
         
         public void WhereKriterineEkle(string pKolonIsmi, WhereOperatorEnum whereOperator)
         {
-            WhereKriter wk = new WhereKriter(pKolonIsmi, whereOperator, "@" + pKolonIsmi);
+            WhereKriter wk = new WhereKriter(pKolonIsmi, whereOperator, ParameterCharacter + pKolonIsmi);
             whereListesi.Add(wk);
         }
 
@@ -125,12 +134,12 @@ namespace Karkas.Core.DataUtil
         }
         public void WhereKriterineTercihliEkle(string pKolonIsmi)
         {
-            WhereKriterineTercihliEkle(pKolonIsmi, WhereOperatorEnum.Esittir, "@" + pKolonIsmi);
+            WhereKriterineTercihliEkle(pKolonIsmi, WhereOperatorEnum.Esittir, ParameterCharacter + pKolonIsmi);
         }
 
         public void WhereKriterineTercihliEkle(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum)
         {
-            WhereKriterineTercihliEkle(pKolonIsmi, pWhereOperatorEnum, "@" + pKolonIsmi);
+            WhereKriterineTercihliEkle(pKolonIsmi, pWhereOperatorEnum, ParameterCharacter + pKolonIsmi);
         }
 
         public void WhereKriterineTercihliEkle(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum, string pParameterIsmi, LikeYeriEnum pLikeYeriEnum)
@@ -178,7 +187,7 @@ namespace Karkas.Core.DataUtil
             , string pNullDegeri
             )
         {
-            WhereKriterTercihliNullDegeri wk = new WhereKriterTercihliNullDegeri(pKolonIsmi, WhereOperatorEnum.Esittir, "@" + pKolonIsmi, pNullDegeri);
+            WhereKriterTercihliNullDegeri wk = new WhereKriterTercihliNullDegeri(pKolonIsmi, WhereOperatorEnum.Esittir, ParameterCharacter + pKolonIsmi, pNullDegeri);
             whereTercihliNullDegeriListesi.Add(wk);
         }
 

@@ -10,7 +10,7 @@ using System.Runtime.Remoting;
 using System.Web;
 using System.Data.Common;
 
-namespace Karkas.Core.DataUtil
+namespace Karkas.Core.DataUtil.BaseClasses
 {
     /// <summary>
     /// T TypeLibrary Class
@@ -137,7 +137,7 @@ namespace Karkas.Core.DataUtil
         public virtual List<T> SorgulaKolonIsmiIle(string[] filtreListesi, object[] degerListesi)
         {
             List<T> liste = new List<T>();
-            SorguYardimcisi sy = new SorguYardimcisi();
+            SorguYardimcisi sy = SorguYardimcisi;
             ParameterBuilder builder = getParameterBuilder();
             for (int i = 0; i < filtreListesi.Length; i++)
             {
@@ -161,10 +161,19 @@ namespace Karkas.Core.DataUtil
         }
 
 
+        public virtual SorguYardimcisi SorguYardimcisi
+        {
+            get
+            {
+                return new SorguYardimcisi(this.ParameterCharacter);
+            }
+        }
+
+
         public virtual List<T> SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
         {
             List<T> liste = new List<T>();
-            SorguYardimcisi sy = new SorguYardimcisi();
+            SorguYardimcisi sy = SorguYardimcisi;
             int listeUzunluk = pSiraListesi.Length;
             for (int i = 0; i < listeUzunluk; i++)
             {

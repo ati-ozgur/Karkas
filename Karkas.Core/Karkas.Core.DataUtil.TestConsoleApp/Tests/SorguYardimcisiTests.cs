@@ -10,7 +10,7 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.Tests
         public void NormalArama()
         {
 
-            SorguYardimcisi yardimci = new SorguYardimcisi();
+            SorguYardimcisi yardimci = new SorguYardimcisi("@");
 //            emps.Query.AddOrderBy(Employees.ColumnNames.LastName, WhereParameter.Dir.ASC);
             string pKolonIsmi = "SonTamUnvan";
             string pParameterIsmi = "@Unvan";
@@ -31,7 +31,7 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.Tests
 
             Console.WriteLine(sqlSonuc);
 
-            yardimci = new SorguYardimcisi();
+            yardimci = new SorguYardimcisi("@");
             yardimci.WhereKriterineTercihliEkleNullDegeriVer("TSM.FIRMA.SonTamUnvan", WhereOperatorEnum.Like, "@SonTamUnvan", LikeYeriEnum.Basinda, "");
             yardimci.WhereKriterineTercihliEkleNullDegeriVer("TSM.FIRMA.SonTamUnvan", WhereOperatorEnum.Like, "@IcindeGecen", LikeYeriEnum.Icinde, "");
             yardimci.WhereKriterineTercihliEkleNullDegeriVer("TSM.FIRMA.SonTamUnvan", WhereOperatorEnum.Like, "@SektorAdi", LikeYeriEnum.Icinde, "0");

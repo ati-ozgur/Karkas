@@ -4,7 +4,7 @@ using System.Text;
 using Karkas.Core.TypeLibrary;
 using System.Data;
 
-namespace Karkas.Core.DataUtil
+namespace Karkas.Core.DataUtil.BaseClasses
 {
     public abstract class BaseBs<TYPE_LIBRARY_TIPI, DAL_TIPI> : BaseBsWithoutEntity
         where TYPE_LIBRARY_TIPI : BaseTypeLibrary, new()
