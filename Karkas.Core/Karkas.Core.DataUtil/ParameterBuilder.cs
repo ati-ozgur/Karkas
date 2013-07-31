@@ -100,7 +100,31 @@ namespace Karkas.Core.DataUtil
 
         internal void parameterEkle(string parameterName, object value)
         {
-            DbParameter prm = parameterDegerleriniSetle(parameterName, DbType.Object, value);
+            DbParameter prm = null;
+            if (value is Int32)
+            {
+                prm = parameterDegerleriniSetle(parameterName, DbType.Int32, value);
+            }
+            else if (value is string)
+            {
+                prm = parameterDegerleriniSetle(parameterName, DbType.AnsiString, value);
+            }
+            else if (value is Int16)
+            {
+                prm = parameterDegerleriniSetle(parameterName, DbType.Int16, value);
+            }
+            else if (value is Int64)
+            {
+                prm = parameterDegerleriniSetle(parameterName, DbType.Int64, value);
+            }
+            else if (value is Int64)
+            {
+                prm = parameterDegerleriniSetle(parameterName, DbType.Int64, value);
+            }
+            else
+            {
+                prm = parameterDegerleriniSetle(parameterName, DbType.Object, value);
+            }
             parameteriyiCommandYadaListeyeEkle(prm);
         }
 
