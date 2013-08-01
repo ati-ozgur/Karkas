@@ -18,26 +18,17 @@
           <ToolTip>
           </ToolTip>
           <Default>
-            string
-          </Default>
-          <Function>
-          </Function>
-        </Literal>
-        <Literal Editable="true">
-          <ID>ParamB</ID>
-          <ToolTip>
-          </ToolTip>
-          <Default>
             DegiskenAdi
           </Default>
           <Function>
           </Function>
         </Literal>
+
         
       </Declarations>
       <Code Language="csharp"><![CDATA[        
-		[DataType(DataType.FileExtensions)]
-		public $ParamA$ $ParamB$ { get; set; }
+		[FileExtensions(ErrorMessage = " Lütfen bir resim dosyası seçiniz(.jpg, .jpeg, .gif or .png)",Extensions = "jpg,jpeg,png,gid")]
+		public string $ParamA$ { get; set; }
         ]]></Code>
     </Snippet>
   </CodeSnippet>
