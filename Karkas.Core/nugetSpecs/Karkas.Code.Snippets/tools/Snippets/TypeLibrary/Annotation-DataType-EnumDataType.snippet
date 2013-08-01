@@ -18,7 +18,7 @@
           <ToolTip>
           </ToolTip>
           <Default>
-            object
+            EnumIsmi
           </Default>
           <Function>
           </Function>
@@ -36,8 +36,8 @@
         
       </Declarations>
       <Code Language="csharp"><![CDATA[        
-		[DataType(DataType.EnumDataType)]
-		public $ParamA$ $ParamB$ { get; set; }
+		[DataType(EnumDataType(typeof($ParamA$)))]
+		public int $ParamB$ { get; set; }
         ]]></Code>
     </Snippet>
   </CodeSnippet>
