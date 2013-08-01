@@ -31,7 +31,6 @@
         <file src="tools\Snippets\DalSqlServer\DalTekDeger_SqlServer.snippet" target="tools\Snippets\DalSqlServer\DalTekDeger_SqlServer.snippet" />
         <file src="tools\Snippets\DalSqlServer\DalTekDegerObject_SqlServer.snippet" target="tools\Snippets\DalSqlServer\DalTekDegerObject_SqlServer.snippet" />
 		
-        <file src="tools\Snippets\TypeLibrary\Annotation-DataType-EmailAddress.snippet" target="tools\Snippets\TypeLibrary\Annotation-DataType-EmailAddress.snippett" />
 		
         <file src="tools\install.ps1" target="tools\install.ps1" />
         <file src="tools\uninstall.ps1" target="tools\uninstall.ps1" />
