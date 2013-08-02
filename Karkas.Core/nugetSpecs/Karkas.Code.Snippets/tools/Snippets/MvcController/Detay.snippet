@@ -28,11 +28,18 @@
         //
         // GET: /$ParamA$/Detay/5
 
-        public ActionResult Detay(decimal id)
+        public ActionResult Detay(int id)
         {
-            $ParamA$Bs bs = new $ParamA$OzellikBs();
+            $ParamA$Bs bs = new $ParamA$Bs();
             $ParamA$ dto = bs.Sorgula$ParamA$KeyIle(id);
-            return View(dto);
+			if (dto == null)
+			{
+				return HttpNotFound();
+			}
+			else
+			{
+				return View(dto);
+			}
         }
 
       ]]></Code>

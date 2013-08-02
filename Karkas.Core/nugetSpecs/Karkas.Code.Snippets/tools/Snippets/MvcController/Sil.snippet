@@ -30,7 +30,16 @@
 
         public ActionResult Sil(int id)
         {
-            return View();
+		    $ParamA$Bs bs = new $ParamA$Bs();
+            $ParamA$ dto = bs.Sorgula$ParamA$KeyIle(id);
+			if (dto == null)
+			{
+				return HttpNotFound();
+			}
+			else
+			{
+				return View(dto);
+			}
         }
 
         //
@@ -43,13 +52,12 @@
             {
                 $ParamA$Bs bs = new $ParamA$Bs();
                 bs.Sil(id);
-
-                return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+				TempData.Add("K_MSG_E", message);
             }
+                return RedirectToAction("Index");
         }
       ]]></Code>
     </Snippet>
