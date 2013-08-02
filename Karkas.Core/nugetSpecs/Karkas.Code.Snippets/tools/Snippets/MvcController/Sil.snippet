@@ -2,8 +2,8 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
   <CodeSnippet Format="1.0.0">
     <Header>
-      <Title>Asp.Net Mvc Action -  Guncelle </Title>
-      <Shortcut>mvcEkle</Shortcut>
+      <Title>Asp.Net Mvc Action -  Sil </Title>
+      <Shortcut>mvcSil</Shortcut>
       <Description>
       </Description>
       <Author>Atilla Ozgur</Author>
@@ -51,9 +51,10 @@
 				bs.Sil(key);
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+				MesajEkleHata("Silme İşlemi Sırasında Hata oluştu",ex,dto);
+                return View(dto);
             }
         }
       ]]></Code>
