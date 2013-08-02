@@ -10,47 +10,16 @@ namespace Karkas.Core.TypeLibrary
     [Serializable]
     public abstract class BaseTypeLibrary
     {
-        private Onaylayici validator;
-
 
         public BaseTypeLibrary()
         {
             rowState = DataRowState.Added;
         }
-        public Onaylayici Onaylayici
-        {
-            get
-            {
-                if (validator == null)
-                {
-                    onaylamaListeleriniOlustur();
-                }
-                return validator;
-            }
-        }
-        protected abstract void OnaylamaListesiniOlusturCodeGeneration();
 
-        protected virtual void OnaylamaListesiniOlustur()
-        {
-        }
 
         protected const string CEVIRI_YAZISI = "{0} kolonu için, girilen değer {1}'e çevrilemedi. Girilmemiş olabilir ";
 
-        public bool Onayla()
-        {
-            if (validator == null)
-            {
-                onaylamaListeleriniOlustur();
-            }
-            return Onaylayici.Onayla();
-        }
 
-        private void onaylamaListeleriniOlustur()
-        {
-            validator = new Onaylayici(this);
-            OnaylamaListesiniOlusturCodeGeneration();
-            OnaylamaListesiniOlustur();
-        }
         
         [XmlIgnore, SoapIgnore]
         private DataRowState rowState;
@@ -77,42 +46,7 @@ namespace Karkas.Core.TypeLibrary
         {
             rowState = DataRowState.Modified;
         }
-        /// <summary>
-        /// Bu nesnenin onaylama sırasında daima hatalı olarak davranmasını sağlar. 
-        /// Mesela sayı girilmesi gereken bir yere yazi girildi. Ornek: (sadv)
-        /// Bu degeri Convert.ToInt32 kullanarak alamayız. Bu durumda hata göstermek istiyorsak.
-        /// Asağıdaki gibi bir kod yazarız.
-        /// <code>
-        ///try
-        ///{
-        ///   f.SayiOlacak  = Convert.ToInt32(SayiOlacakTextBox.Text);
 
-        ///}
-        ///catch
-        ///{
-        ///    f.HataliOlarakIsaretle("SayiOlacak","Sayi Olacak degeri sayı olmalıdır");
-        ///}
-        /// </code>
-        /// Mesajınız yazın.
-        /// </summary>
-        /// <param name="pMessage"></param>
-        public void HataliOlarakIsaretle(string pPropertyName,string pErrorMessage)
-        {
-            this.Onaylayici.HataSetle(pPropertyName, pErrorMessage);
-        }
-
-        public void HataliOlarakIsaretle(string pErrorMessage)
-        {
-            this.Onaylayici.HataSetle("", pErrorMessage);
-        }
-
-        public String Hatalar
-        {
-            get
-            {
-                return Onaylayici.Hatalar;
-            }
-        }
 
 
 

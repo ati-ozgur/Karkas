@@ -16,9 +16,7 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.TypeLibrary
         }
 	
 
-        protected override void OnaylamaListesiniOlusturCodeGeneration()
-        {
-        }
+
     }
 }
 

@@ -27,15 +27,6 @@ namespace Karkas.Core.DataUtil.TestConsoleApp.TypeLibrary
         }
 	
 
-        protected override void OnaylamaListesiniOlustur()
-        {
-            this.Onaylayici.OnaylayiciListesi.Add(new KarsilastirmaOnaylayici(this, "ShortDegisken", 18, KarsilastirmaOperatoru.GreatThanEqual));
-            base.OnaylamaListesiniOlustur();
-        }
-
-        protected override void OnaylamaListesiniOlusturCodeGeneration()
-        {
-        }
     }
 }
 

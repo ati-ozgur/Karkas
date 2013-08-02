@@ -74,13 +74,6 @@
     <Compile Include="Tests\DalTestleri\SiralamaTest1.cs" />
     <Compile Include="Tests\ExtensionMethodTests\ConvertToTests.cs" />
     <Compile Include="Tests\ExtensionMethodTests\KarkasStringExtensionsTest.cs" />
-    <Compile Include="Tests\OnaylamaTestleri\CompareTest.cs" />
-    <Compile Include="Tests\OnaylamaTestleri\Email\EmailTest.cs" />
-    <Compile Include="Tests\OnaylamaTestleri\KarsilastirmaTestleri.cs" />
-    <Compile Include="Tests\OnaylamaTestleri\KarsilastirmaTestleri\EsitDegerTest.cs" />
-    <Compile Include="Tests\OnaylamaTestleri\KarsilastirmaTestleri\EsitDegilDegerTest.cs" />
-    <Compile Include="Tests\OnaylamaTestleri\KarsilastirmaTestleri\MaxDegerTest.cs" />
-    <Compile Include="Tests\OnaylamaTestleri\KarsilastirmaTestleri\MinDegerTest.cs" />
     <Compile Include="Tests\SorguYardimcisiTests.cs" />
     <Compile Include="Tests\WebHelperTestleri\JavascriptHelperOrnekWebPage.cs">
       <SubType>ASPXCodeBehind</SubType>
