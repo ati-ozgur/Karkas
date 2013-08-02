@@ -11,8 +11,8 @@
     <description>Karkas Data Library</description>
     <summary>Karkas Data Library</summary>
     <dependencies>
-      <dependency id="Karkas.Core.Onaylama" version="1.0.0" />
-      <dependency id="Karkas.Core.ExtensionsMethods" version="1.0.0" />
+      <dependency id="Karkas.Core.Onaylama" version="1.0.13" />
+      <dependency id="Karkas.Core.ExtensionsMethods" version="1.0.13" />
       <dependency id="log4net" version="2.0.0" />
     </dependencies>
     <frameworkAssemblies>

@@ -17,7 +17,7 @@
           <ID>ParamA</ID>
           <ToolTip>
           </ToolTip>
-          <Default>Musteri
+          <Default>$ParamA$
           </Default>
           <Function>
           </Function>
@@ -25,38 +25,42 @@
       </Declarations>
       <Code Language="csharp"><![CDATA[
 
+
         //
         // GET: /$ParamA$/Guncelle/5
 
-        public ActionResult Guncelle(int id)
+        public ActionResult Guncelle(int key)
         {
-            return View();
+			$ParamA$Bs bs = new $ParamA$Bs();
+			$ParamA$ dto = bs.Sorgula$ParamA$KeyIle(key);
+			if (dto == null)
+			{
+				return HttpNotFound();
+			}
+			return View(dto);
         }
 
         //
         // POST: /$ParamA$/Guncelle/5
 
         [HttpPost]
-        public ActionResult Guncelle($ParamA$ k)
+        public ActionResult Guncelle(int key, $ParamA$ dto)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    $ParamA$Bs bs = new $ParamA$Bs();
-                    bs.Ekle(k);
-                }
-                else
-                {
-                    return View(k);
-                }
-                return RedirectToAction("Detay", new { id = k.$ParamA$Key });
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Message = new { Text = "Hata Oluştu", Exception = ex };
-                return View(k);
-            }
+			  try
+				{
+					if (ModelState.IsValid)
+					{
+						$ParamA$Bs bs = new $ParamA$Bs();
+						bs.Guncelle(dto);
+						MesajEkleBasari("$ParamA$  başarı ile güncellenmiştir");
+						return RedirectToAction("Index");
+					}
+				}
+				catch (Exception ex)
+				{
+					MesajEkleHata("Ekleme İşlemi Sırasında Hata oluştu",ex,dto);
+				}
+				return View(dto);
         }
 
 
