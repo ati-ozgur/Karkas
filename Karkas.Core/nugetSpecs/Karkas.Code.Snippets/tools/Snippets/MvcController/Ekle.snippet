@@ -36,27 +36,26 @@
         // POST: /$ParamA$/Ekle
 
         [HttpPost]
-        public ActionResult Ekle($ParamA$ k)
+		[ValidateAntiForgeryToken]
+        public ActionResult Ekle($ParamA$ dto)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    $ParamA$Bs bs = new $ParamA$Bs();
-                    bs.Ekle(k);
-                }
-                else
-                {
-                    return View(k);
-                }
-                return RedirectToAction("Detay",  new { id = k.$ParamA$Key });
-            }
-            catch(Exception ex)
-            {
-                ViewBag.Message = new { Text = "Hata Oluştu", Exception = ex };
-                return View(k);
-            }
+			  try
+				{
+					if (ModelState.IsValid)
+					{
+						$ParamA$Bs bs = new $ParamA$Bs();
+						bs.Ekle(dto);
+						MesajEkleBasari(" $ParamA$  başarı ile eklenmiştir");
+						return RedirectToAction("Index");
+					}
+				}
+				catch (Exception ex)
+				{
+					MesajEkleHata("Ekleme İşlemi Sırasında Hata oluştu",ex,dto);
+				}
+				return View(dto);
         }
+
 
       ]]></Code>
     </Snippet>

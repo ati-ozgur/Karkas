@@ -28,36 +28,33 @@
         //
         // GET: /$ParamA$/Sil/5
 
-        public ActionResult Sil(int id)
+        public ActionResult Sil(int key)
         {
-		    $ParamA$Bs bs = new $ParamA$Bs();
-            $ParamA$ dto = bs.Sorgula$ParamA$KeyIle(id);
+         	$ParamA$Bs bs = new $ParamA$Bs();
+			$ParamA$ dto = bs.Sorgula$ParamA$KeyIle(key);
 			if (dto == null)
 			{
 				return HttpNotFound();
 			}
-			else
-			{
-				return View(dto);
-			}
+			return View(dto);
         }
 
         //
         // POST: /$ParamA$/Sil/5
 
         [HttpPost]
-        public ActionResult Sil(int id)
+        public ActionResult Sil(int key,  $ParamA$ dto)
         {
             try
             {
-                $ParamA$Bs bs = new $ParamA$Bs();
-                bs.Sil(id);
+	         	$ParamA$Bs bs = new $ParamA$Bs();
+				bs.Sil(key);
+                return RedirectToAction("Index");
             }
             catch
             {
-				TempData.Add("K_MSG_E", message);
+                return View();
             }
-                return RedirectToAction("Index");
         }
       ]]></Code>
     </Snippet>
