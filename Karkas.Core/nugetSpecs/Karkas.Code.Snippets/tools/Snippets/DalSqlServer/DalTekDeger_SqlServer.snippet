@@ -6,7 +6,7 @@
       <Shortcut>dall</Shortcut>
       <Description>
       </Description>
-      <Author>Fatih ÖZKAN</Author>
+      <Author>Atilla Özgür</Author>
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
       </SnippetTypes>
@@ -37,7 +37,7 @@
       </Declarations>
       <Code Language="csharp"><![CDATA[       public int Sorgula$ParamA$Ile(int p$ParamA$)
         {
-            ParameterBuilder builder = new ParameterBuilder();
+            ParameterBuilder builder = Template.getParameterBuilder();
             string strSQL = @"select count(*) from 
                             dbo.$ParamB$
                             where
