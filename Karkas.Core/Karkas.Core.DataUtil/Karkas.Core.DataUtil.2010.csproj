@@ -70,6 +70,7 @@
     <Compile Include="BaseClasses\BaseDalForIdentity.cs" />
     <Compile Include="BaseClasses\BaseDalOracle.cs" />
     <Compile Include="BaseClasses\BaseDalWithoutEntity.cs" />
+    <Compile Include="BaseClasses\BaseTypeLibrary.cs" />
     <Compile Include="CommandFactory.cs" />
     <Compile Include="ConnectionSingleton.cs" />
     <Compile Include="DatabaseMapper.cs" />
@@ -129,10 +130,6 @@
     <ProjectReference Include="..\Karkas.Core.ExtensionsMethods\Karkas.Core.ExtensionsMethods.csproj">
       <Project>{DDD39496-34F1-4226-AB9D-16463710C25C}</Project>
       <Name>Karkas.Core.ExtensionsMethods</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Karkas.Core.Onaylama\Karkas.Core.Onaylama.2010.csproj">
-      <Project>{29D76493-FFF2-42E2-8EF0-6F0AE71CB80E}</Project>
-      <Name>Karkas.Core.Validation.2010</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

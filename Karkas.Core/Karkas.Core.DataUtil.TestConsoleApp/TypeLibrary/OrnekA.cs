@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using Karkas.Core.TypeLibrary;
-using Karkas.Core.Onaylama.ForPonos;
-using Karkas.Core.Onaylama;
 
 namespace Karkas.Core.DataUtil.TestConsoleApp.TypeLibrary
 {

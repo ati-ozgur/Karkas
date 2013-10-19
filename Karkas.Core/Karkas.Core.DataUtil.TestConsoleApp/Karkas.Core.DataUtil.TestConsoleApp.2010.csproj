@@ -109,10 +109,6 @@
       <Project>{92A3FD0E-F64B-4F57-A69D-306874E7F2D8}</Project>
       <Name>Karkas.Core.Utility.2010</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Karkas.Core.Onaylama\Karkas.Core.Onaylama.2010.csproj">
-      <Project>{29D76493-FFF2-42E2-8EF0-6F0AE71CB80E}</Project>
-      <Name>Karkas.Core.Validation.2010</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Karkas.ReportingServicesHelper\Karkas.ReportingServicesHelper.csproj">
       <Project>{436CFC68-2031-4780-9C32-673EBE55D617}</Project>
       <Name>Karkas.ReportingServicesHelper</Name>
