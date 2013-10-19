@@ -352,6 +352,103 @@ namespace Karkas.Core.DataUtil
             return (bool)this.TekDegerGetir(calistirilacakSql);
         }
 
+        #region "List of Dictionaries Creation"
+
+        public List<Dictionary<String,Object>> GetListOfDictionary(DbCommand cmd)
+        {
+            List<Dictionary<string, Object>> liste = new List<Dictionary<string, object>>();
+            DbDataReader reader = null;
+            try
+            {
+
+                if (ConnectionAcilacakMi())
+                {
+                    Connection.Open();
+                }
+                if (CurrentTransaction != null)
+                {
+                    cmd.Transaction = CurrentTransaction;
+                }
+                new LoggingInfo(cmd).LogDebug(this.GetType());
+                reader = cmd.ExecuteReader();
+
+                Dictionary<string, Object> row;
+                while (reader.Read())
+                {
+                    row = new Dictionary<string, object>();
+                    ProcessRow(reader, row);
+                    liste.Add(row);
+                }
+
+            }
+            catch (DbException ex)
+            {
+                ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+                if (ConnectionKapatilacakMi())
+                {
+                    Connection.Close();
+                }
+            }
+
+            return liste;
+        }
+
+        private void ProcessRow(DbDataReader reader, Dictionary<string, object> row)
+        {
+            for (int i = 0; i < reader.FieldCount; i++)
+			{
+                string columnName = reader.GetName(i);
+                row.Add(columnName,reader.GetValue(i));
+			}
+        }
+
+        public List<Dictionary<String, Object>> GetListOfDictionary(string sql)
+        {
+            DbCommand cmd = getDatabaseCommand(sql, Connection);
+            return GetListOfDictionary(cmd);
+        }
+
+
+        public List<Dictionary<String, Object>> GetListOfDictionary(string sql, CommandType commandType)
+        {
+            DbCommand cmd = getDatabaseCommand(sql, Connection);
+            cmd.CommandType = commandType;
+            return GetListOfDictionary(cmd);
+        }
+
+        public List<Dictionary<String, Object>> GetListOfDictionary(string sql, CommandType commandType, DbParameter[] parameters)
+        {
+            DbCommand cmd = getDatabaseCommand(sql, Connection);
+            cmd.CommandType = commandType;
+            foreach (var param in parameters)
+            {
+                cmd.Parameters.Add(param);
+            }
+            return GetListOfDictionary(cmd);
+        }
+        public List<Dictionary<String, Object>> GetListOfDictionary(string sql, DbParameter[] parameters)
+        {
+            DbCommand cmd = getDatabaseCommand(sql, Connection);
+            foreach (var param in parameters)
+            {
+                cmd.Parameters.Add(param);
+            }
+            return GetListOfDictionary(cmd);
+        }
+
+
+
+
+
+        #endregion
+
 
 
         #region "DataTable Olusturma Methods"
