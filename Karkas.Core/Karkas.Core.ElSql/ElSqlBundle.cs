@@ -8,5 +8,14 @@ namespace Karkas.Core.ElSql
 {
     public class ElSqlBundle
     {
+        internal SqlFragments.NameSqlFragment getFragment(string key)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal ElSqlConfig getConfig()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

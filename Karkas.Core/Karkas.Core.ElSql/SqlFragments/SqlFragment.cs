@@ -18,6 +18,7 @@ namespace Karkas.Core.ElSql.SqlFragments
          * @param paramSource  the SQL parameters, not null
          * @param loopIndex  the current loopIndex
          */
+        // TODO protected internal???
         public abstract void toSQL(StringBuilder buf, ElSqlBundle bundle, SqlParameterSource paramSource, int loopIndex);
 
         /**
