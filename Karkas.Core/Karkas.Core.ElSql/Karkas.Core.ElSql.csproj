@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="SqlFragments\LoopSqlFragment.cs" />
     <Compile Include="SqlFragments\NameSqlFragment.cs" />
+    <Compile Include="SqlFragments\OffsetFetchSqlFragment.cs" />
     <Compile Include="SqlFragments\OrSqlFragment.cs" />
     <Compile Include="SqlFragments\SqlFragment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
