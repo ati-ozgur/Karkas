@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SqlFragments\AndSqlFragment.cs" />
     <Compile Include="SqlFragments\ConditionalSqlFragment.cs" />
     <Compile Include="SqlFragments\ContainerSqlFragment.cs" />
     <Compile Include="ElSqlBundle.cs" />
