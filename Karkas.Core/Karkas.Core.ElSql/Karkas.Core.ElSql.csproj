@@ -39,15 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContainerSqlFragment.cs" />
+    <Compile Include="SqlFragments\ContainerSqlFragment.cs" />
     <Compile Include="ElSqlBundle.cs" />
     <Compile Include="ElSqlConfig.cs" />
-    <Compile Include="NameSqlFragment.cs" />
-    <Compile Include="SqlFragment.cs" />
+    <Compile Include="SqlFragments\NameSqlFragment.cs" />
+    <Compile Include="SqlFragments\SqlFragment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlParameterSource.cs" />
-    <Compile Include="TextSqlFragment.cs" />
-    <Compile Include="ValueSqlFragment.cs" />
+    <Compile Include="SqlFragments\TextSqlFragment.cs" />
+    <Compile Include="SqlFragments\ValueSqlFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Karkas.Core.ExtensionsMethods\Karkas.Core.ExtensionsMethods.csproj">
