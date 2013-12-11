@@ -42,6 +42,7 @@ namespace Karkas.Core.ElSql.SqlFragments
       base.toSQL(part, bundle, paramSource, i);
       int joinIndex = part.ToString().IndexOf("@LOOPJOIN ");
       if (joinIndex >= 0) {
+          // TODO
           throw new NotImplementedException();
         //if (i >= (size - 1)) {
         //  part.setLength(joinIndex);
