@@ -55,6 +55,28 @@ namespace Karkas.Extensions
             return baslangic + pNewValue + son;
         }
 
+
+        /// <summary>
+        /// String.Replace bir string icindeki gecen tum kelimeleri replace eder.
+        /// Yani
+        /// "Deneme Deneme".Replace("Den","123") = "123eme 123eme"
+        /// ReplaceFirstOccurance ile
+        /// "Deneme Deneme".ReplaceFirstOccurance("Den","123") = "123eme Deneme"
+        /// olur
+        /// </summary>
+        /// <param name="pValue"></param>
+        /// <param name="pOldValue"></param>
+        /// <param name="pNewValue"></param>
+        /// <returns></returns>
+        public static string ReplaceFirstOccurance(this string pValue, string pOldValue, string pNewValue)
+        {
+            int firstIndex = pValue.IndexOf(pOldValue, StringComparison.InvariantCultureIgnoreCase);
+            string baslangic = pValue.Substring(0, firstIndex);
+            string son = pValue.Substring(firstIndex + pOldValue.Length);
+            return baslangic + pNewValue + son;
+        }
+
+
         public static string StringToBase64Encode(this string str)
         {
             byte[] arr = StringToByteArray(str);
