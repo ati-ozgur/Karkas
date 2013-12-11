@@ -24,7 +24,7 @@ namespace Karkas.Core.ElSql.SqlFragments
          * @param variable  the variable to determine whether to include the AND on, not null
          * @param matchValue  the value to match, null to match on existence
          */
-        ConditionalSqlFragment(String variable, String matchValue)
+        protected ConditionalSqlFragment(String variable, String matchValue)
         {
             if (variable == null)
             {

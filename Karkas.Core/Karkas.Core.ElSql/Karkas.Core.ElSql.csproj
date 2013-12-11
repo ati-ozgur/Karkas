@@ -43,6 +43,9 @@
     <Compile Include="SqlFragments\ContainerSqlFragment.cs" />
     <Compile Include="ElSqlBundle.cs" />
     <Compile Include="ElSqlConfig.cs" />
+    <Compile Include="SqlFragments\IfSqlFragment.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="SqlFragments\NameSqlFragment.cs" />
     <Compile Include="SqlFragments\SqlFragment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
