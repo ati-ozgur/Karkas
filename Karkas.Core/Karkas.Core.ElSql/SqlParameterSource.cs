@@ -12,5 +12,10 @@ namespace Karkas.Core.ElSql
         {
             throw new NotImplementedException();
         }
+
+        internal bool hasValue(string var)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

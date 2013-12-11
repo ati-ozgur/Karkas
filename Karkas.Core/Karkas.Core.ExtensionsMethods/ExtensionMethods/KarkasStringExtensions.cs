@@ -76,6 +76,11 @@ namespace Karkas.Extensions
             return baslangic + pNewValue + son;
         }
 
+        public static bool EqualsIgnoreCase(this String s1, string s2)
+        {
+            return s1.Equals(s2, StringComparison.InvariantCultureIgnoreCase);
+        }
+
 
         public static string StringToBase64Encode(this string str)
         {
