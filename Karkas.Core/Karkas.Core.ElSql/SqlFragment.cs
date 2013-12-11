@@ -18,7 +18,7 @@ namespace Karkas.Core.ElSql
          * @param paramSource  the SQL parameters, not null
          * @param loopIndex  the current loopIndex
          */
-        public abstract void toSQL(StringBuilder buf, ElSqlBundle bundle, DbParameter[] paramSource, int loopIndex);
+        public abstract void toSQL(StringBuilder buf, ElSqlBundle bundle, SqlParameterSource paramSource, int loopIndex);
 
         /**
          * Applies the loop index to the string.

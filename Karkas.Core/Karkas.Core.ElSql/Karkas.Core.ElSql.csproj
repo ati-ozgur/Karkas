@@ -45,6 +45,9 @@
     <Compile Include="NameSqlFragment.cs" />
     <Compile Include="SqlFragment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlParameterSource.cs" />
+    <Compile Include="TextSqlFragment.cs" />
+    <Compile Include="ValueSqlFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Karkas.Core.ExtensionsMethods\Karkas.Core.ExtensionsMethods.csproj">

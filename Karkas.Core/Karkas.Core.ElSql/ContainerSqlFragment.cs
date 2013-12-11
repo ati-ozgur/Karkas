@@ -48,7 +48,7 @@ namespace Karkas.Core.ElSql
 
         //-------------------------------------------------------------------------
 
-        public override void toSQL(StringBuilder buf, ElSqlBundle bundle, DbParameter[] paramSource, int loopIndex)
+        public override void toSQL(StringBuilder buf, ElSqlBundle bundle, SqlParameterSource paramSource, int loopIndex)
         {
             foreach (SqlFragment fragment in _fragments)
             {
