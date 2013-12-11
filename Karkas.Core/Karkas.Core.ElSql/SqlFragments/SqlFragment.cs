@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Karkas.Core.ElSql
+namespace Karkas.Core.ElSql.SqlFragments
 {
     public abstract class SqlFragment
     {
