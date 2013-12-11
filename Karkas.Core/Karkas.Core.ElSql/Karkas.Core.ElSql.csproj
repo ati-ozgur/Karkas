@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContainerSqlFragment.cs" />
     <Compile Include="ElSqlBundle.cs" />
     <Compile Include="ElSqlConfig.cs" />
+    <Compile Include="NameSqlFragment.cs" />
     <Compile Include="SqlFragment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
