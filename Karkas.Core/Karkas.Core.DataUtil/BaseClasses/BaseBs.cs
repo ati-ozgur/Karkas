@@ -70,6 +70,14 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             return dal.SorgulaHepsiniGetir();
         }
+
+        public List<TYPE_LIBRARY_TIPI> SorgulaHepsiniGetir(int maxRowCount)
+        {
+            return dal.SorgulaHepsiniGetir(maxRowCount);
+        }
+
+
+
         public List<TYPE_LIBRARY_TIPI> SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
         {
             return dal.SorgulaHepsiniGetirSirali(pSiraListesi);

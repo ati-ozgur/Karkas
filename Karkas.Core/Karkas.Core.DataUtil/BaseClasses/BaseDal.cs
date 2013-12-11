@@ -115,6 +115,13 @@ namespace Karkas.Core.DataUtil.BaseClasses
             return liste;
         }
 
+        public virtual List<T> SorgulaHepsiniGetir(int maxRowCount)
+        {
+            List<T> liste = new List<T>();
+            SorguCalistir(liste);
+            return liste;
+        }
+
         /// <summary>
         /// Veritabanındaki tablo üzerinde kolon ismi ile filtreleme
         /// yapararak arama yapar. Ornegin KISI tablosunda
