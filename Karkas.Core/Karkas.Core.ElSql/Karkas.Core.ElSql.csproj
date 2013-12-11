@@ -56,6 +56,7 @@
     <Compile Include="SqlFragments\NameSqlFragment.cs" />
     <Compile Include="SqlFragments\SqlFragment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlFragments\WhereSqlFragment.cs" />
     <Compile Include="SqlParameterSource.cs" />
     <Compile Include="SqlFragments\TextSqlFragment.cs" />
     <Compile Include="SqlFragments\ValueSqlFragment.cs" />
