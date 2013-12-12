@@ -39,10 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ElSqlBundle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ElSqlParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EmptySource.cs" />
+    <Compile Include="Line.cs" />
+    <Compile Include="Resource.cs" />
     <Compile Include="SqlFragments\AndSqlFragment.cs" />
     <Compile Include="SqlFragments\ConditionalSqlFragment.cs" />
     <Compile Include="SqlFragments\ContainerSqlFragment.cs" />
-    <Compile Include="ElSqlBundle.cs" />
     <Compile Include="ElSqlConfig.cs" />
     <Compile Include="SqlFragments\IfSqlFragment.cs">
       <SubType>Code</SubType>

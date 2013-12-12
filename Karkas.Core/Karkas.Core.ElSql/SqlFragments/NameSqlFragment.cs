@@ -6,31 +6,36 @@ using System.Threading.Tasks;
 
 namespace Karkas.Core.ElSql.SqlFragments
 {
-    public class NameSqlFragment : ContainerSqlFragment {
+    public class NameSqlFragment : ContainerSqlFragment
+    {
 
-  private String _name;
+        private String _name;
 
-  public NameSqlFragment(String name) {
-    if (name == null) {
-      throw new  ArgumentException("Name must be specified");
+        public NameSqlFragment(String name)
+        {
+            if (name == null)
+            {
+                throw new ArgumentException("Name must be specified");
+            }
+            _name = name;
+        }
+
+        //-------------------------------------------------------------------------
+        /**
+         * Gets the name of the fragment.
+         * 
+         * @return the name, not null
+         */
+        public String getName()
+        {
+            return _name;
+        }
+
+        //-------------------------------------------------------------------------
+        public override String ToString()
+        {
+            return GetType().Name + ":" + _name + " " + getFragments();
+        }
+
     }
-    _name = name;
-  }
-
-  //-------------------------------------------------------------------------
-  /**
-   * Gets the name of the fragment.
-   * 
-   * @return the name, not null
-   */
-  String getName() {
-    return _name;
-  }
-
-  //-------------------------------------------------------------------------
-  public override String ToString() {
-    return GetType().Name  + ":" + _name + " " + getFragments();
-  }
-
-}
 }

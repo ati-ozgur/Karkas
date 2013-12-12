@@ -19,7 +19,7 @@ namespace Karkas.Core.ElSql.SqlFragments
          * 
          * @param includeKey  the include key, not null
          */
-        IncludeSqlFragment(String includeKey)
+        internal IncludeSqlFragment(String includeKey)
         {
             if (includeKey == null)
             {

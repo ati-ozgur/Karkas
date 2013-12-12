@@ -8,14 +8,20 @@ namespace Karkas.Core.ElSql
 {
     public class SqlParameterSource
     {
-        internal object GetValue(string var)
+        public const int TYPE_UNKNOWN = -1; 
+        internal virtual object GetValue(string var)
         {
             throw new NotImplementedException();
         }
 
-        internal bool hasValue(string var)
+        internal virtual bool hasValue(string var)
         {
             throw new NotImplementedException();
         }
+        internal virtual String getTypeName(String field)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

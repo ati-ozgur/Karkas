@@ -20,7 +20,7 @@ namespace Karkas.Core.ElSql.SqlFragments
          * 
          * @param valueVariable  the value variable, not null
          */
-        ValueSqlFragment(String valueVariable)
+        internal ValueSqlFragment(String valueVariable)
         {
             if (valueVariable == null)
             {

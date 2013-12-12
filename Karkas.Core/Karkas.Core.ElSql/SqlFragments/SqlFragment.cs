@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace Karkas.Core.ElSql.SqlFragments
 {
+    // TODO bundan inherit edenleri internal protected yapmayı incele
+
     public abstract class SqlFragment
     {
 

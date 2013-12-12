@@ -24,7 +24,7 @@ namespace Karkas.Core.ElSql.SqlFragments
          * 
          * @param variable  the variable to base the LIKE on, not null
          */
-        LikeSqlFragment(String variable)
+        internal LikeSqlFragment(String variable)
         {
             if (variable == null)
             {

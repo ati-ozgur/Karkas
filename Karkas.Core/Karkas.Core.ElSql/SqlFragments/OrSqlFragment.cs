@@ -21,7 +21,7 @@ namespace Karkas.Core.ElSql.SqlFragments
          * @param variable  the variable to determine whether to include the OR on, not null
          * @param matchValue  the value to match, null to match on existence
          */
-        OrSqlFragment(String variable, String matchValue)
+        internal OrSqlFragment(String variable, String matchValue)
             : base(variable, matchValue)
         {
 
