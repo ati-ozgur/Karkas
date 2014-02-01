@@ -36,5 +36,13 @@ namespace Karkas.Core.Utility.ReportingServicesHelper
         IMAGE = FileFormats.IMAGE,
         XML = FileFormats.XML
     }
+    public class RaporFormatsMime
+    {
+        public const string PDF = "application/pdf";
+        public const string EXCEL = "application/vnd.ms-excel";
+        public const string IMAGE = "text/txt";
+        public const string TIFF = "image/tiff";
+        public const string XML = "text/xml";
+    }
 }
 
