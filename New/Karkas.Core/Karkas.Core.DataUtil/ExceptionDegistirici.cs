@@ -11,37 +11,13 @@ namespace Karkas.Core.DataUtil
     public class ExceptionDegistirici
     {
 
-        public static void Degistir(DbException ex)
+        public static void Degistir(DbException ex, string pMesaj = "NO SQL QUERY")
         {
-            if (ex is SqlException)
-            {
-                DegistirPrivate((SqlException)ex, "SQL CUMLESI YOK");
-            }
-            else
-            {
-                DegistirPrivate(ex, "SQL CUMLESI YOK");
-            }
-
+            DegistirPrivate(ex, pMesaj);
         }
 
-        public static void Degistir(DbException ex, string pMesaj)
-        {
-            if (ex is SqlException)
-            {
-                DegistirPrivate((SqlException)ex, pMesaj);
-            }
-            else
-            {
-                DegistirPrivate(ex, pMesaj);
-            }
-        }
 
-        private static void DegistirPrivate(SqlException ex)
-        {
-            Degistir(ex, "SQL CUMLESI YOK");
-        }
-
-        private static void DegistirPrivate(DbException ex, string pMesaj)
+        private static void DegistirPrivate(DbException ex, string pMesaj = "NO SQL QUERY")
         {
             Exception firlatilacakException = null;
             // TODO burayı oracle ve diğer veritabanları için yazmak gerekiyor.
@@ -96,7 +72,7 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        private static void DegistirPrivate(SqlException ex, string pMesaj)
+        private static void DegistirPrivate(DbException ex, string pMesaj)
         {
             Exception firlatilacakException = null;
             switch (ex.Number)

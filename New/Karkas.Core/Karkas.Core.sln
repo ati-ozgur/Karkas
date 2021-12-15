@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.Core.Utility", "Kark
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Core.DataUtil", "Karkas.Core.DataUtil\Karkas.Core.DataUtil.csproj", "{70BE1E58-2D5E-4A47-AF62-30E90E5C978A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Core.ExtensionsMethods", "Karkas.Core.ExtensionsMethods\Karkas.Core.ExtensionsMethods.csproj", "{56C267AA-A885-4FF7-ADB9-9478AD486811}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{70BE1E58-2D5E-4A47-AF62-30E90E5C978A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70BE1E58-2D5E-4A47-AF62-30E90E5C978A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70BE1E58-2D5E-4A47-AF62-30E90E5C978A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56C267AA-A885-4FF7-ADB9-9478AD486811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56C267AA-A885-4FF7-ADB9-9478AD486811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56C267AA-A885-4FF7-ADB9-9478AD486811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56C267AA-A885-4FF7-ADB9-9478AD486811}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
