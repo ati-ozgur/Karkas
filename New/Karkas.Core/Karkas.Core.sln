@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Core.ExtensionsMetho
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.CodeGeneration.Helpers", "..\Karkas.CodeGeneration\Karkas.CodeGeneration.Helpers\Karkas.CodeGeneration.Helpers.csproj", "{650C3586-09DA-4E21-AD89-35A601C169CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.CodeGeneration.SqliteSupport", "..\Karkas.CodeGeneration\Karkas.CodeGeneration.SqliteSupport\Karkas.CodeGeneration.SqliteSupport.csproj", "{BB346ACF-B62C-4640-8F84-77DA650F4197}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.CodeGeneration.Oracle", "..\Karkas.CodeGeneration\Karkas.CodeGeneration.Oracle\Karkas.CodeGeneration.Oracle.csproj", "{06536AC1-DE7D-48C5-975C-57C296944F1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{650C3586-09DA-4E21-AD89-35A601C169CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{650C3586-09DA-4E21-AD89-35A601C169CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{650C3586-09DA-4E21-AD89-35A601C169CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB346ACF-B62C-4640-8F84-77DA650F4197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB346ACF-B62C-4640-8F84-77DA650F4197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB346ACF-B62C-4640-8F84-77DA650F4197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB346ACF-B62C-4640-8F84-77DA650F4197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06536AC1-DE7D-48C5-975C-57C296944F1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06536AC1-DE7D-48C5-975C-57C296944F1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06536AC1-DE7D-48C5-975C-57C296944F1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06536AC1-DE7D-48C5-975C-57C296944F1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
