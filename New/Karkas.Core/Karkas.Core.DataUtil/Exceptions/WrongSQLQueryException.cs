@@ -6,24 +6,24 @@ using System.Runtime.Serialization;
 namespace Karkas.Core.DataUtil.Exceptions
 {
     [Serializable]
-    public class YanlisSqlCumlesiHatasi : KarkasDataException
+    public class WrongSQLQueryException : KarkasDataException
     {
-        public YanlisSqlCumlesiHatasi()
+        public WrongSQLQueryException()
             : base()
         {
 
         }
-        public YanlisSqlCumlesiHatasi(SerializationInfo pInfo, StreamingContext pContext)
+        public WrongSQLQueryException(SerializationInfo pInfo, StreamingContext pContext)
             : base(pInfo, pContext)
         {
 
         }
-        public YanlisSqlCumlesiHatasi(string pMessage)
+        public WrongSQLQueryException(string pMessage)
             : base(pMessage)
         {
 
         }
-        public YanlisSqlCumlesiHatasi(string pMessage, Exception pInnerException)
+        public WrongSQLQueryException(string pMessage, Exception pInnerException)
             : base(pMessage, pInnerException)
         {
 

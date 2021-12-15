@@ -27,14 +27,14 @@ namespace Karkas.Core.DataUtil
                     firlatilacakException = new KarkasDataException(String.Format("Tanimlanamayan Veri Hatasi, Mesaji = {0}", ex.Message), ex);
                     break;
                 case 137:
-                    firlatilacakException = new YanlisSqlCumlesiHatasi(String.Format("sql cumlesi icindeki parametreler duzgun tanımlanmamış, sql cumles = {0}, orjinal hata Mesajı = {1}", pMesaj, ex.Message), ex);
+                    firlatilacakException = new WrongSQLQueryException(String.Format("sql cumlesi icindeki parametreler duzgun tanımlanmamış, sql cumles = {0}, orjinal hata Mesajı = {1}", pMesaj, ex.Message), ex);
                     break;
                 case -1:
                     firlatilacakException = new DatabaseConnectionException(String.Format("{0} connection string'i baglantisi ile sunucuya baglanilamiyor. Verilen Hata Mesaji = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message), ex);
                     break;
                 case 102:
                 case 207:
-                    firlatilacakException = new YanlisSqlCumlesiHatasi(String.Format("{0} sql cumlesi hatalı yazılmıştır. Sunucudan gelen mesaj {1}", pMesaj, ex.Message), ex);
+                    firlatilacakException = new WrongSQLQueryException(String.Format("{0} sql cumlesi hatalı yazılmıştır. Sunucudan gelen mesaj {1}", pMesaj, ex.Message), ex);
                     break;
                 case 2627:
                     firlatilacakException = new KarkasDataException(String.Format("Primary Key olarak secilen kolonunda bu degeri alan satir zaten var."), ex);
