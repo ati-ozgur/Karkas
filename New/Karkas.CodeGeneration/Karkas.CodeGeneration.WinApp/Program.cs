@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Data.Common;
 
+using System.Data.SQLite;
 
 namespace Karkas.CodeGeneration.WinApp
 {
@@ -17,11 +19,13 @@ namespace Karkas.CodeGeneration.WinApp
         [STAThread]
         static void Main()
         {
+            DbProviderFactories.RegisterFactory("System.Data.SQLite", SQLiteFactory.Instance);
+       
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());
-        }
 
+        }
     }
 }
