@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 
 namespace Karkas.Core.DataUtil.Exceptions
 {
-    public class AyniAndaKullanimHatasi : KarkasVeriHatasi
+    public class AyniAndaKullanimHatasi : KarkasDataException
     {
         public AyniAndaKullanimHatasi()
             : base()

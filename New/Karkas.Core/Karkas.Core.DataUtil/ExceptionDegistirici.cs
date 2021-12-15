@@ -24,7 +24,7 @@ namespace Karkas.Core.DataUtil
             switch (ex.ErrorCode)
             {
                 default:
-                    firlatilacakException = new KarkasVeriHatasi(String.Format("Tanimlanamayan Veri Hatasi, Mesaji = {0}", ex.Message), ex);
+                    firlatilacakException = new KarkasDataException(String.Format("Tanimlanamayan Veri Hatasi, Mesaji = {0}", ex.Message), ex);
                     break;
                 case 137:
                     firlatilacakException = new YanlisSqlCumlesiHatasi(String.Format("sql cumlesi icindeki parametreler duzgun tanımlanmamış, sql cumles = {0}, orjinal hata Mesajı = {1}", pMesaj, ex.Message), ex);
@@ -37,28 +37,28 @@ namespace Karkas.Core.DataUtil
                     firlatilacakException = new YanlisSqlCumlesiHatasi(String.Format("{0} sql cumlesi hatalı yazılmıştır. Sunucudan gelen mesaj {1}", pMesaj, ex.Message), ex);
                     break;
                 case 2627:
-                    firlatilacakException = new KarkasVeriHatasi(String.Format("Primary Key olarak secilen kolonunda bu degeri alan satir zaten var."), ex);
+                    firlatilacakException = new KarkasDataException(String.Format("Primary Key olarak secilen kolonunda bu degeri alan satir zaten var."), ex);
                     break;
                 case 109:
-                    firlatilacakException = new KarkasVeriHatasi(String.Format("Veri eklerken belirtilen her kolon için bilgi girilmedi."), ex);
+                    firlatilacakException = new KarkasDataException(String.Format("Veri eklerken belirtilen her kolon için bilgi girilmedi."), ex);
                     break;
                 case 515:
-                    firlatilacakException = new KarkasVeriHatasi(String.Format("Veri içermesi zorunlu olan bir kolona veri girilmedi."), ex);
+                    firlatilacakException = new KarkasDataException(String.Format("Veri içermesi zorunlu olan bir kolona veri girilmedi."), ex);
                     break;
                 case 110:
-                    firlatilacakException = new KarkasVeriHatasi(String.Format("Veri girerken gerekenden fazla parametre yollandı."), ex);
+                    firlatilacakException = new KarkasDataException(String.Format("Veri girerken gerekenden fazla parametre yollandı."), ex);
                     break;
                 case 245:
-                    firlatilacakException = new KarkasVeriHatasi(String.Format("Kolonda belirtilen türden farklı bir tür eklenmeye çalışıldı."), ex);
+                    firlatilacakException = new KarkasDataException(String.Format("Kolonda belirtilen türden farklı bir tür eklenmeye çalışıldı."), ex);
                     break;
                 case 2812:
-                    firlatilacakException = new KarkasVeriHatasi(String.Format("Primary Key olarak secilen kolonunda bu degeri alan satir zaten var."), ex);
+                    firlatilacakException = new KarkasDataException(String.Format("Primary Key olarak secilen kolonunda bu degeri alan satir zaten var."), ex);
                     break;
                 case 8144:
-                    firlatilacakException = new KarkasVeriHatasi(String.Format("{0} prosedürü için belirlenenden fazla parametre girildi.", ex.Data), ex);
+                    firlatilacakException = new KarkasDataException(String.Format("{0} prosedürü için belirlenenden fazla parametre girildi.", ex.Data), ex);
                     break;
                 case 201:
-                    firlatilacakException = new KarkasVeriHatasi(String.Format("{0} prosedürü için eksik parametre girildi. {1}", ex.Data), ex);
+                    firlatilacakException = new KarkasDataException(String.Format("{0} prosedürü için eksik parametre girildi. {1}", ex.Data), ex);
                     break;
                 case 547:
                     firlatilacakException = new IkincilAnahtarHatasi(String.Format("Tablo ilişkileri ile ilgili hatalı bir işlem yapıldı."), ex);

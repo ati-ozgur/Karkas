@@ -6,24 +6,24 @@ using System.Runtime.Serialization;
 namespace Karkas.Core.DataUtil.Exceptions
 {
     [Serializable]
-    public class KarkasVeriHatasi : Exception
+    public class KarkasDataException : Exception
     {
-        public KarkasVeriHatasi()
+        public KarkasDataException()
             : base()
         {
 
         }
-        public KarkasVeriHatasi(SerializationInfo pInfo, StreamingContext pContext)
+        public KarkasDataException(SerializationInfo pInfo, StreamingContext pContext)
             : base(pInfo, pContext)
         {
 
         }
-        public KarkasVeriHatasi(string pMessage)
+        public KarkasDataException(string pMessage)
             : base(pMessage)
         {
 
         }
-        public KarkasVeriHatasi(string pMessage, Exception pInnerException)
+        public KarkasDataException(string pMessage, Exception pInnerException)
             : base(pMessage, pInnerException)
         {
 

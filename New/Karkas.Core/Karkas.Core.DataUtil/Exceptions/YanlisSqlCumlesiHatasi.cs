@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace Karkas.Core.DataUtil.Exceptions
 {
     [Serializable]
-    public class YanlisSqlCumlesiHatasi : KarkasVeriHatasi
+    public class YanlisSqlCumlesiHatasi : KarkasDataException
     {
         public YanlisSqlCumlesiHatasi()
             : base()
