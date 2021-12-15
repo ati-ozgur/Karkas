@@ -105,7 +105,7 @@ namespace Karkas.Extensions
 
 
 
-        public static bool GecerliEPostaMi(this string eMail)
+        public static bool IsCorrectEmail(this string eMail)
         {
             return Regex.IsMatch(eMail, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
         }
