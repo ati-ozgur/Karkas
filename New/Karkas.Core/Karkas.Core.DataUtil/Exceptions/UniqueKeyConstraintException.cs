@@ -5,24 +5,24 @@ using System.Runtime.Serialization;
 
 namespace Karkas.Core.DataUtil.Exceptions
 {
-    public class AyniAndaKullanimHatasi : KarkasDataException
+    public class UniqueKeyConstraintException : KarkasDataException
     {
-        public AyniAndaKullanimHatasi()
+        public UniqueKeyConstraintException()
             : base()
         {
 
         }
-        public AyniAndaKullanimHatasi(SerializationInfo pInfo, StreamingContext pContext)
+        public UniqueKeyConstraintException(SerializationInfo pInfo, StreamingContext pContext)
             : base(pInfo, pContext)
         {
 
         }
-        public AyniAndaKullanimHatasi(string pMessage)
+        public UniqueKeyConstraintException(string pMessage)
             : base(pMessage)
         {
 
         }
-        public AyniAndaKullanimHatasi(string pMessage, Exception pInnerException)
+        public UniqueKeyConstraintException(string pMessage, Exception pInnerException)
             : base(pMessage, pInnerException)
         {
 

@@ -293,7 +293,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
             if (updateSonucuBasarisiz)
             {
-                throw new AyniAndaKullanimHatasi("Guncellemeye calıstıgınız kayıt daha önce başkası tarafından güncellenmiştir");
+                throw new UniqueKeyConstraintException("Guncellemeye calıstıgınız kayıt daha önce başkası tarafından güncellenmiştir");
             }
         }
 
