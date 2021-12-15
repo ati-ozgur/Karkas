@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Data.Common;
-using System.Data.SqlClient;
 
 namespace Karkas.Core.DataUtil
 {
@@ -60,27 +59,27 @@ namespace Karkas.Core.DataUtil
             return prm;
         }
 
-        private DbParameter parameterDegerleriniSetle(string parameterName, SqlDbType dbType, object value)
-        {
-            SqlParameter prm = getSqlParameter();
-            prm.ParameterName = parameterName;
-            prm.SqlDbType = dbType;
-            if (value == null)
-            {
-                prm.Value = DBNull.Value;
-            }
-            else
-            {
-                prm.Value = value;
-            }
-            return prm;
-        }
+        //private DbParameter parameterDegerleriniSetle(string parameterName, SqlDbType dbType, object value)
+        //{
+        //    SqlParameter prm = getSqlParameter();
+        //    prm.ParameterName = parameterName;
+        //    prm.SqlDbType = dbType;
+        //    if (value == null)
+        //    {
+        //        prm.Value = DBNull.Value;
+        //    }
+        //    else
+        //    {
+        //        prm.Value = value;
+        //    }
+        //    return prm;
+        //}
 
-        private SqlParameter getSqlParameter()
-        {
-            SqlParameter prm = new SqlParameter();
-            return prm;
-        }
+        //private SqlParameter getSqlParameter()
+        //{
+        //    SqlParameter prm = new SqlParameter();
+        //    return prm;
+        //}
 
         private DbParameter parameterDegerleriniSetle(string parameterName, DbType dbType, object value)
         {
@@ -134,11 +133,11 @@ namespace Karkas.Core.DataUtil
             DbParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
             parameteriyiCommandYadaListeyeEkle(prm);
         }
-        public void parameterEkle(string parameterName, SqlDbType dbType, object value)
-        {
-            DbParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
-            parameteriyiCommandYadaListeyeEkle(prm);
-        }
+        //public void parameterEkle(string parameterName, SqlDbType dbType, object value)
+        //{
+        //    DbParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
+        //    parameteriyiCommandYadaListeyeEkle(prm);
+        //}
 
 
         public void parameterEkle(string parameterName, DbType dbType, object value, int size)
@@ -148,12 +147,12 @@ namespace Karkas.Core.DataUtil
             parameteriyiCommandYadaListeyeEkle(prm);
         }
 
-        public void parameterEkle(string parameterName, SqlDbType dbType, object value, int size)
-        {
-            DbParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
-            prm.Size = size;
-            parameteriyiCommandYadaListeyeEkle(prm);
-        }
+        //public void parameterEkle(string parameterName, SqlDbType dbType, object value, int size)
+        //{
+        //    DbParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
+        //    prm.Size = size;
+        //    parameteriyiCommandYadaListeyeEkle(prm);
+        //}
 
         public void parameterEkleReturnValue(string parameterName, DbType dbType)
         {
