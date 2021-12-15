@@ -5,10 +5,10 @@ using Karkas.Core.DataUtil.SorguYardimcisiSiniflari;
 
 namespace Karkas.Core.DataUtil
 {
-    public class SorguYardimcisi
+    public class QueryHelper
     {
 
-        public SorguYardimcisi(string pParameterCharacter)
+        public QueryHelper(string pParameterCharacter)
         {
             this.ParameterCharacter = pParameterCharacter;
         }
