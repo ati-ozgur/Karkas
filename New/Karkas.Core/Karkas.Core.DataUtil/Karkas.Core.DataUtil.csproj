@@ -10,4 +10,8 @@
     <PackageReference Include="log4net" Version="2.0.13" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Karkas.Core.ExtensionsMethods\Karkas.Core.ExtensionsMethods.csproj" />
+  </ItemGroup>
+
 </Project>
