@@ -144,7 +144,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         public virtual List<T> SorgulaKolonIsmiIle(string[] filtreListesi, object[] degerListesi)
         {
             List<T> liste = new List<T>();
-            SorguYardimcisi sy = SorguYardimcisi;
+            QueryHelper sy = SorguYardimcisi;
             ParameterBuilder builder = getParameterBuilder();
             for (int i = 0; i < filtreListesi.Length; i++)
             {
@@ -168,11 +168,11 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
 
 
-        public virtual SorguYardimcisi SorguYardimcisi
+        public virtual QueryHelper SorguYardimcisi
         {
             get
             {
-                return new SorguYardimcisi(this.ParameterCharacter);
+                return new QueryHelper(this.ParameterCharacter);
             }
         }
 
@@ -180,7 +180,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         public virtual List<T> SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
         {
             List<T> liste = new List<T>();
-            SorguYardimcisi sy = SorguYardimcisi;
+            QueryHelper sy = SorguYardimcisi;
             int listeUzunluk = pSiraListesi.Length;
             for (int i = 0; i < listeUzunluk; i++)
             {

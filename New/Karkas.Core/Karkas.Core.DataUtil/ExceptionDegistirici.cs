@@ -30,7 +30,7 @@ namespace Karkas.Core.DataUtil
                     firlatilacakException = new YanlisSqlCumlesiHatasi(String.Format("sql cumlesi icindeki parametreler duzgun tanımlanmamış, sql cumles = {0}, orjinal hata Mesajı = {1}", pMesaj, ex.Message), ex);
                     break;
                 case -1:
-                    firlatilacakException = new VeritabaniBaglantiHatasi(String.Format("{0} connection string'i baglantisi ile sunucuya baglanilamiyor. Verilen Hata Mesaji = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message), ex);
+                    firlatilacakException = new DatabaseConnectionException(String.Format("{0} connection string'i baglantisi ile sunucuya baglanilamiyor. Verilen Hata Mesaji = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message), ex);
                     break;
                 case 102:
                 case 207:
@@ -61,10 +61,10 @@ namespace Karkas.Core.DataUtil
                     firlatilacakException = new KarkasDataException(String.Format("{0} prosedürü için eksik parametre girildi. {1}", ex.Data), ex);
                     break;
                 case 547:
-                    firlatilacakException = new IkincilAnahtarHatasi(String.Format("Tablo ilişkileri ile ilgili hatalı bir işlem yapıldı."), ex);
+                    firlatilacakException = new ForeignKeyException(String.Format("Tablo ilişkileri ile ilgili hatalı bir işlem yapıldı."), ex);
                     break;
                 case 208:
-                    firlatilacakException = new VeritabaniBaglantiHatasi(String.Format("Veritabanina baglanilamadi lutfen connection string'in dogrulugunu ve veritabanininin calisip calismadigini kontrol ediniz, Kullanilan ConnectionString = {0}, verilen hata Mesaji = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message));
+                    firlatilacakException = new DatabaseConnectionException(String.Format("Veritabanina baglanilamadi lutfen connection string'in dogrulugunu ve veritabanininin calisip calismadigini kontrol ediniz, Kullanilan ConnectionString = {0}, verilen hata Mesaji = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message));
                     break;
             }
             new LoggingInfo().LogInfo(Type.GetType(" Karkas.Core.DataUtil.ExceptionDegistirici"), ex, pMesaj);

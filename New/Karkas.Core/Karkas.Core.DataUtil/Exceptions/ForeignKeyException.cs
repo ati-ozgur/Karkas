@@ -6,24 +6,24 @@ using System.Runtime.Serialization;
 namespace Karkas.Core.DataUtil.Exceptions
 {
     [Serializable]
-    public class VeritabaniBaglantiHatasi : Exception
+    public class ForeignKeyException : KarkasDataException
     {
-        public VeritabaniBaglantiHatasi()
+        public ForeignKeyException()
             : base()
         {
 
         }
-        public VeritabaniBaglantiHatasi(SerializationInfo pInfo, StreamingContext pContext)
+        public ForeignKeyException(SerializationInfo pInfo, StreamingContext pContext)
             : base(pInfo, pContext)
         {
 
         }
-        public VeritabaniBaglantiHatasi(string pMessage)
+        public ForeignKeyException(string pMessage)
             : base(pMessage)
         {
 
         }
-        public VeritabaniBaglantiHatasi(string pMessage, Exception pInnerException)
+        public ForeignKeyException(string pMessage, Exception pInnerException)
             : base(pMessage, pInnerException)
         {
 

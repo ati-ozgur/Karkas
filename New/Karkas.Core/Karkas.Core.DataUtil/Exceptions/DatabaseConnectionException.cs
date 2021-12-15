@@ -6,24 +6,24 @@ using System.Runtime.Serialization;
 namespace Karkas.Core.DataUtil.Exceptions
 {
     [Serializable]
-    public class IkincilAnahtarHatasi : KarkasDataException
+    public class DatabaseConnectionException : Exception
     {
-        public IkincilAnahtarHatasi()
+        public DatabaseConnectionException()
             : base()
         {
 
         }
-        public IkincilAnahtarHatasi(SerializationInfo pInfo, StreamingContext pContext)
+        public DatabaseConnectionException(SerializationInfo pInfo, StreamingContext pContext)
             : base(pInfo, pContext)
         {
 
         }
-        public IkincilAnahtarHatasi(string pMessage)
+        public DatabaseConnectionException(string pMessage)
             : base(pMessage)
         {
 
         }
-        public IkincilAnahtarHatasi(string pMessage, Exception pInnerException)
+        public DatabaseConnectionException(string pMessage, Exception pInnerException)
             : base(pMessage, pInnerException)
         {
 
