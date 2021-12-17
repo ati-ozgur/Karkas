@@ -72,9 +72,9 @@
             this.checkBoxIgnoreSystemTables.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxIgnoreSystemTables.Location = new System.Drawing.Point(416, 413);
             this.checkBoxIgnoreSystemTables.Name = "checkBoxIgnoreSystemTables";
-            this.checkBoxIgnoreSystemTables.Size = new System.Drawing.Size(154, 24);
+            this.checkBoxIgnoreSystemTables.Size = new System.Drawing.Size(192, 24);
             this.checkBoxIgnoreSystemTables.TabIndex = 27;
-            this.checkBoxIgnoreSystemTables.Text = "sys Tablolarını Atla";
+            this.checkBoxIgnoreSystemTables.Text = "Ignore sys/system tables";
             this.checkBoxIgnoreSystemTables.UseVisualStyleBackColor = true;
             // 
             // checkBoxStoredProcedureCodeGenerate
@@ -102,11 +102,12 @@
             this.checkBoxUseSchemaNameInFolders.AutoSize = true;
             this.checkBoxUseSchemaNameInFolders.Checked = true;
             this.checkBoxUseSchemaNameInFolders.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxUseSchemaNameInFolders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkBoxUseSchemaNameInFolders.Location = new System.Drawing.Point(416, 495);
             this.checkBoxUseSchemaNameInFolders.Name = "checkBoxUseSchemaNameInFolders";
-            this.checkBoxUseSchemaNameInFolders.Size = new System.Drawing.Size(144, 35);
+            this.checkBoxUseSchemaNameInFolders.Size = new System.Drawing.Size(407, 35);
             this.checkBoxUseSchemaNameInFolders.TabIndex = 29;
-            this.checkBoxUseSchemaNameInFolders.Text = "Dizinlerde Şema \r\nİsmini Kullan";
+            this.checkBoxUseSchemaNameInFolders.Text = "Use Schema Name in Folders";
             this.checkBoxUseSchemaNameInFolders.UseVisualStyleBackColor = true;
             // 
             // checkBoxUseSchemaNameInSql
@@ -116,9 +117,9 @@
             this.checkBoxUseSchemaNameInSql.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxUseSchemaNameInSql.Location = new System.Drawing.Point(416, 454);
             this.checkBoxUseSchemaNameInSql.Name = "checkBoxUseSchemaNameInSql";
-            this.checkBoxUseSchemaNameInSql.Size = new System.Drawing.Size(149, 35);
+            this.checkBoxUseSchemaNameInSql.Size = new System.Drawing.Size(225, 24);
             this.checkBoxUseSchemaNameInSql.TabIndex = 28;
-            this.checkBoxUseSchemaNameInSql.Text = "Sorgularda Şema \r\nİsmini Kullan";
+            this.checkBoxUseSchemaNameInSql.Text = "Use Schema Name in Queries";
             this.checkBoxUseSchemaNameInSql.UseVisualStyleBackColor = true;
             // 
             // checkBoxAnaSinifiTekrarUret
@@ -126,9 +127,9 @@
             this.checkBoxAnaSinifiTekrarUret.AutoSize = true;
             this.checkBoxAnaSinifiTekrarUret.Location = new System.Drawing.Point(416, 536);
             this.checkBoxAnaSinifiTekrarUret.Name = "checkBoxAnaSinifiTekrarUret";
-            this.checkBoxAnaSinifiTekrarUret.Size = new System.Drawing.Size(164, 24);
+            this.checkBoxAnaSinifiTekrarUret.Size = new System.Drawing.Size(191, 24);
             this.checkBoxAnaSinifiTekrarUret.TabIndex = 32;
-            this.checkBoxAnaSinifiTekrarUret.Text = "Ana sınıfı tekrar üret";
+            this.checkBoxAnaSinifiTekrarUret.Text = "Create Main Class Again";
             this.checkBoxAnaSinifiTekrarUret.UseVisualStyleBackColor = true;
             // 
             // textBoxDbProviderName
@@ -318,9 +319,9 @@
             this.checkBoxAnaSinifOnaylamaOrnekleri.AutoSize = true;
             this.checkBoxAnaSinifOnaylamaOrnekleri.Location = new System.Drawing.Point(416, 577);
             this.checkBoxAnaSinifOnaylamaOrnekleri.Name = "checkBoxAnaSinifOnaylamaOrnekleri";
-            this.checkBoxAnaSinifOnaylamaOrnekleri.Size = new System.Drawing.Size(253, 24);
+            this.checkBoxAnaSinifOnaylamaOrnekleri.Size = new System.Drawing.Size(219, 24);
             this.checkBoxAnaSinifOnaylamaOrnekleri.TabIndex = 33;
-            this.checkBoxAnaSinifOnaylamaOrnekleri.Text = "Ana sınıf Onaylama Örnekleri üret";
+            this.checkBoxAnaSinifOnaylamaOrnekleri.Text = "Create Main Validation Class";
             this.checkBoxAnaSinifOnaylamaOrnekleri.UseVisualStyleBackColor = true;
             // 
             // checkBoxSequenceCodeGenerate
@@ -341,9 +342,8 @@
             this.buttonKisaltmalar.Name = "buttonKisaltmalar";
             this.buttonKisaltmalar.Size = new System.Drawing.Size(130, 31);
             this.buttonKisaltmalar.TabIndex = 57;
-            this.buttonKisaltmalar.Text = "Kısaltmalar";
+            this.buttonKisaltmalar.Text = "Abbrevations";
             this.buttonKisaltmalar.UseVisualStyleBackColor = true;
-            this.buttonKisaltmalar.Click += new System.EventHandler(this.buttonKisaltmalar_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -409,9 +409,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 533);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 20);
+            this.label1.Size = new System.Drawing.Size(167, 20);
             this.label1.TabIndex = 58;
-            this.label1.Text = "Code Generation Dizini";
+            this.label1.Text = "Code Generation Folder";
             // 
             // UserControlCodeGenerationOptions
             // 
