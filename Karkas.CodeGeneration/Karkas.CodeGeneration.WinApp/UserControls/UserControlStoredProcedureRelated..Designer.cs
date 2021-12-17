@@ -41,9 +41,10 @@
             // 
             // buttonSeciliViewlariUret
             // 
-            this.buttonSeciliViewlariUret.Location = new System.Drawing.Point(561, 304);
+            this.buttonSeciliViewlariUret.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonSeciliViewlariUret.Location = new System.Drawing.Point(560, 116);
             this.buttonSeciliViewlariUret.Name = "buttonSeciliViewlariUret";
-            this.buttonSeciliViewlariUret.Size = new System.Drawing.Size(135, 70);
+            this.buttonSeciliViewlariUret.Size = new System.Drawing.Size(136, 258);
             this.buttonSeciliViewlariUret.TabIndex = 23;
             this.buttonSeciliViewlariUret.Text = "Create selected stored procedures";
             this.buttonSeciliViewlariUret.UseVisualStyleBackColor = true;
@@ -51,9 +52,10 @@
             // 
             // buttonTumStoredProcedureUret
             // 
-            this.buttonTumStoredProcedureUret.Location = new System.Drawing.Point(561, 3);
+            this.buttonTumStoredProcedureUret.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonTumStoredProcedureUret.Location = new System.Drawing.Point(3, 3);
             this.buttonTumStoredProcedureUret.Name = "buttonTumStoredProcedureUret";
-            this.buttonTumStoredProcedureUret.Size = new System.Drawing.Size(135, 69);
+            this.buttonTumStoredProcedureUret.Size = new System.Drawing.Size(133, 107);
             this.buttonTumStoredProcedureUret.TabIndex = 22;
             this.buttonTumStoredProcedureUret.Text = "Create All Stored Procedures";
             this.buttonTumStoredProcedureUret.UseVisualStyleBackColor = true;
@@ -62,18 +64,19 @@
             // listBoxStoredProcedureListesi
             // 
             this.listBoxStoredProcedureListesi.DisplayMember = "STORED_PROCEDURE_NAME";
+            this.listBoxStoredProcedureListesi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxStoredProcedureListesi.FormattingEnabled = true;
             this.listBoxStoredProcedureListesi.ItemHeight = 20;
-            this.listBoxStoredProcedureListesi.Location = new System.Drawing.Point(142, 78);
+            this.listBoxStoredProcedureListesi.Location = new System.Drawing.Point(281, 116);
             this.listBoxStoredProcedureListesi.Name = "listBoxStoredProcedureListesi";
             this.listBoxStoredProcedureListesi.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxStoredProcedureListesi.Size = new System.Drawing.Size(271, 124);
+            this.listBoxStoredProcedureListesi.Size = new System.Drawing.Size(273, 258);
             this.listBoxStoredProcedureListesi.TabIndex = 21;
             // 
             // labelStoredProcedureListesi
             // 
             this.labelStoredProcedureListesi.AutoSize = true;
-            this.labelStoredProcedureListesi.Location = new System.Drawing.Point(3, 75);
+            this.labelStoredProcedureListesi.Location = new System.Drawing.Point(142, 113);
             this.labelStoredProcedureListesi.Name = "labelStoredProcedureListesi";
             this.labelStoredProcedureListesi.Size = new System.Drawing.Size(128, 40);
             this.labelStoredProcedureListesi.TabIndex = 20;
@@ -82,7 +85,7 @@
             // labelSchemaList
             // 
             this.labelSchemaList.AutoSize = true;
-            this.labelSchemaList.Location = new System.Drawing.Point(3, 0);
+            this.labelSchemaList.Location = new System.Drawing.Point(142, 0);
             this.labelSchemaList.Name = "labelSchemaList";
             this.labelSchemaList.Size = new System.Drawing.Size(87, 20);
             this.labelSchemaList.TabIndex = 19;
@@ -92,7 +95,7 @@
             // 
             this.comboBoxSchemaList.DisplayMember = "SCHEMA_NAME";
             this.comboBoxSchemaList.FormattingEnabled = true;
-            this.comboBoxSchemaList.Location = new System.Drawing.Point(142, 3);
+            this.comboBoxSchemaList.Location = new System.Drawing.Point(281, 3);
             this.comboBoxSchemaList.Name = "comboBoxSchemaList";
             this.comboBoxSchemaList.Size = new System.Drawing.Size(241, 28);
             this.comboBoxSchemaList.TabIndex = 18;
@@ -100,9 +103,10 @@
             // 
             // buttonSemaIcinTumStoredProcedureUret
             // 
-            this.buttonSemaIcinTumStoredProcedureUret.Location = new System.Drawing.Point(561, 78);
+            this.buttonSemaIcinTumStoredProcedureUret.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSemaIcinTumStoredProcedureUret.Location = new System.Drawing.Point(560, 3);
             this.buttonSemaIcinTumStoredProcedureUret.Name = "buttonSemaIcinTumStoredProcedureUret";
-            this.buttonSemaIcinTumStoredProcedureUret.Size = new System.Drawing.Size(135, 74);
+            this.buttonSemaIcinTumStoredProcedureUret.Size = new System.Drawing.Size(136, 107);
             this.buttonSemaIcinTumStoredProcedureUret.TabIndex = 24;
             this.buttonSemaIcinTumStoredProcedureUret.Text = "Create All Stored Procedures in Schema";
             this.buttonSemaIcinTumStoredProcedureUret.UseVisualStyleBackColor = true;
@@ -110,24 +114,24 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.labelSchemaList, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxSchemaList, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.listBoxStoredProcedureListesi, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.buttonTumStoredProcedureUret, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.labelStoredProcedureListesi, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.buttonSeciliViewlariUret, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.buttonSemaIcinTumStoredProcedureUret, 2, 1);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.buttonTumStoredProcedureUret, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxSchemaList, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.labelSchemaList, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonSemaIcinTumStoredProcedureUret, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.listBoxStoredProcedureListesi, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelStoredProcedureListesi, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.buttonSeciliViewlariUret, 3, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(699, 377);
             this.tableLayoutPanel1.TabIndex = 25;
             // 

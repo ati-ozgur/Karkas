@@ -70,7 +70,7 @@
             this.checkBoxIgnoreSystemTables.AutoSize = true;
             this.checkBoxIgnoreSystemTables.Checked = true;
             this.checkBoxIgnoreSystemTables.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxIgnoreSystemTables.Location = new System.Drawing.Point(416, 413);
+            this.checkBoxIgnoreSystemTables.Location = new System.Drawing.Point(292, 443);
             this.checkBoxIgnoreSystemTables.Name = "checkBoxIgnoreSystemTables";
             this.checkBoxIgnoreSystemTables.Size = new System.Drawing.Size(192, 24);
             this.checkBoxIgnoreSystemTables.TabIndex = 27;
@@ -80,7 +80,7 @@
             // checkBoxStoredProcedureCodeGenerate
             // 
             this.checkBoxStoredProcedureCodeGenerate.AutoSize = true;
-            this.checkBoxStoredProcedureCodeGenerate.Location = new System.Drawing.Point(3, 454);
+            this.checkBoxStoredProcedureCodeGenerate.Location = new System.Drawing.Point(3, 487);
             this.checkBoxStoredProcedureCodeGenerate.Name = "checkBoxStoredProcedureCodeGenerate";
             this.checkBoxStoredProcedureCodeGenerate.Size = new System.Drawing.Size(249, 24);
             this.checkBoxStoredProcedureCodeGenerate.TabIndex = 31;
@@ -90,7 +90,7 @@
             // checkBoxViewCodeGenerate
             // 
             this.checkBoxViewCodeGenerate.AutoSize = true;
-            this.checkBoxViewCodeGenerate.Location = new System.Drawing.Point(3, 413);
+            this.checkBoxViewCodeGenerate.Location = new System.Drawing.Point(3, 443);
             this.checkBoxViewCodeGenerate.Name = "checkBoxViewCodeGenerate";
             this.checkBoxViewCodeGenerate.Size = new System.Drawing.Size(166, 24);
             this.checkBoxViewCodeGenerate.TabIndex = 30;
@@ -103,9 +103,9 @@
             this.checkBoxUseSchemaNameInFolders.Checked = true;
             this.checkBoxUseSchemaNameInFolders.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxUseSchemaNameInFolders.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBoxUseSchemaNameInFolders.Location = new System.Drawing.Point(416, 495);
+            this.checkBoxUseSchemaNameInFolders.Location = new System.Drawing.Point(292, 531);
             this.checkBoxUseSchemaNameInFolders.Name = "checkBoxUseSchemaNameInFolders";
-            this.checkBoxUseSchemaNameInFolders.Size = new System.Drawing.Size(407, 35);
+            this.checkBoxUseSchemaNameInFolders.Size = new System.Drawing.Size(572, 38);
             this.checkBoxUseSchemaNameInFolders.TabIndex = 29;
             this.checkBoxUseSchemaNameInFolders.Text = "Use Schema Name in Folders";
             this.checkBoxUseSchemaNameInFolders.UseVisualStyleBackColor = true;
@@ -115,7 +115,7 @@
             this.checkBoxUseSchemaNameInSql.AutoSize = true;
             this.checkBoxUseSchemaNameInSql.Checked = true;
             this.checkBoxUseSchemaNameInSql.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxUseSchemaNameInSql.Location = new System.Drawing.Point(416, 454);
+            this.checkBoxUseSchemaNameInSql.Location = new System.Drawing.Point(292, 487);
             this.checkBoxUseSchemaNameInSql.Name = "checkBoxUseSchemaNameInSql";
             this.checkBoxUseSchemaNameInSql.Size = new System.Drawing.Size(225, 24);
             this.checkBoxUseSchemaNameInSql.TabIndex = 28;
@@ -125,7 +125,7 @@
             // checkBoxAnaSinifiTekrarUret
             // 
             this.checkBoxAnaSinifiTekrarUret.AutoSize = true;
-            this.checkBoxAnaSinifiTekrarUret.Location = new System.Drawing.Point(416, 536);
+            this.checkBoxAnaSinifiTekrarUret.Location = new System.Drawing.Point(292, 575);
             this.checkBoxAnaSinifiTekrarUret.Name = "checkBoxAnaSinifiTekrarUret";
             this.checkBoxAnaSinifiTekrarUret.Size = new System.Drawing.Size(191, 24);
             this.checkBoxAnaSinifiTekrarUret.TabIndex = 32;
@@ -134,7 +134,7 @@
             // 
             // textBoxDbProviderName
             // 
-            this.textBoxDbProviderName.Location = new System.Drawing.Point(417, 87);
+            this.textBoxDbProviderName.Location = new System.Drawing.Point(293, 93);
             this.textBoxDbProviderName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxDbProviderName.Name = "textBoxDbProviderName";
             this.textBoxDbProviderName.Size = new System.Drawing.Size(168, 27);
@@ -143,7 +143,7 @@
             // labelDbProviderName
             // 
             this.labelDbProviderName.AutoSize = true;
-            this.labelDbProviderName.Location = new System.Drawing.Point(4, 82);
+            this.labelDbProviderName.Location = new System.Drawing.Point(4, 88);
             this.labelDbProviderName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDbProviderName.Name = "labelDbProviderName";
             this.labelDbProviderName.Size = new System.Drawing.Size(124, 20);
@@ -153,7 +153,7 @@
             // textBoxDatabaseNamePhysical
             // 
             this.textBoxDatabaseNamePhysical.Enabled = false;
-            this.textBoxDatabaseNamePhysical.Location = new System.Drawing.Point(417, 210);
+            this.textBoxDatabaseNamePhysical.Location = new System.Drawing.Point(293, 225);
             this.textBoxDatabaseNamePhysical.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxDatabaseNamePhysical.Name = "textBoxDatabaseNamePhysical";
             this.textBoxDatabaseNamePhysical.Size = new System.Drawing.Size(168, 27);
@@ -162,7 +162,7 @@
             // labelDatabaseNamePhysical
             // 
             this.labelDatabaseNamePhysical.AutoSize = true;
-            this.labelDatabaseNamePhysical.Location = new System.Drawing.Point(3, 205);
+            this.labelDatabaseNamePhysical.Location = new System.Drawing.Point(3, 220);
             this.labelDatabaseNamePhysical.Name = "labelDatabaseNamePhysical";
             this.labelDatabaseNamePhysical.Size = new System.Drawing.Size(172, 20);
             this.labelDatabaseNamePhysical.TabIndex = 47;
@@ -170,7 +170,7 @@
             // 
             // textBoxDatabaseNameLogical
             // 
-            this.textBoxDatabaseNameLogical.Location = new System.Drawing.Point(417, 169);
+            this.textBoxDatabaseNameLogical.Location = new System.Drawing.Point(293, 181);
             this.textBoxDatabaseNameLogical.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxDatabaseNameLogical.Name = "textBoxDatabaseNameLogical";
             this.textBoxDatabaseNameLogical.Size = new System.Drawing.Size(168, 27);
@@ -182,7 +182,7 @@
             // labelDatabaseNameLogical
             // 
             this.labelDatabaseNameLogical.AutoSize = true;
-            this.labelDatabaseNameLogical.Location = new System.Drawing.Point(3, 164);
+            this.labelDatabaseNameLogical.Location = new System.Drawing.Point(3, 176);
             this.labelDatabaseNameLogical.Name = "labelDatabaseNameLogical";
             this.labelDatabaseNameLogical.Size = new System.Drawing.Size(168, 20);
             this.labelDatabaseNameLogical.TabIndex = 45;
@@ -191,7 +191,7 @@
             // labelDatabaseType
             // 
             this.labelDatabaseType.AutoSize = true;
-            this.labelDatabaseType.Location = new System.Drawing.Point(4, 41);
+            this.labelDatabaseType.Location = new System.Drawing.Point(4, 44);
             this.labelDatabaseType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDatabaseType.Name = "labelDatabaseType";
             this.labelDatabaseType.Size = new System.Drawing.Size(107, 20);
@@ -201,7 +201,7 @@
             // comboBoxDatabaseType
             // 
             this.comboBoxDatabaseType.FormattingEnabled = true;
-            this.comboBoxDatabaseType.Location = new System.Drawing.Point(417, 46);
+            this.comboBoxDatabaseType.Location = new System.Drawing.Point(293, 49);
             this.comboBoxDatabaseType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxDatabaseType.Name = "comboBoxDatabaseType";
             this.comboBoxDatabaseType.Size = new System.Drawing.Size(160, 28);
@@ -209,7 +209,7 @@
             // 
             // textBoxConnectionName
             // 
-            this.textBoxConnectionName.Location = new System.Drawing.Point(417, 5);
+            this.textBoxConnectionName.Location = new System.Drawing.Point(293, 5);
             this.textBoxConnectionName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxConnectionName.Name = "textBoxConnectionName";
             this.textBoxConnectionName.Size = new System.Drawing.Size(168, 27);
@@ -226,7 +226,7 @@
             // 
             // textBoxProjectNamespace
             // 
-            this.textBoxProjectNamespace.Location = new System.Drawing.Point(416, 249);
+            this.textBoxProjectNamespace.Location = new System.Drawing.Point(292, 267);
             this.textBoxProjectNamespace.Name = "textBoxProjectNamespace";
             this.textBoxProjectNamespace.Size = new System.Drawing.Size(407, 27);
             this.textBoxProjectNamespace.TabIndex = 40;
@@ -234,7 +234,7 @@
             // labelProjectNamespace
             // 
             this.labelProjectNamespace.AutoSize = true;
-            this.labelProjectNamespace.Location = new System.Drawing.Point(3, 246);
+            this.labelProjectNamespace.Location = new System.Drawing.Point(3, 264);
             this.labelProjectNamespace.Name = "labelProjectNamespace";
             this.labelProjectNamespace.Size = new System.Drawing.Size(137, 20);
             this.labelProjectNamespace.TabIndex = 39;
@@ -243,16 +243,16 @@
             // buttonFolderDialog
             // 
             this.buttonFolderDialog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonFolderDialog.Location = new System.Drawing.Point(829, 290);
+            this.buttonFolderDialog.Location = new System.Drawing.Point(870, 311);
             this.buttonFolderDialog.Name = "buttonFolderDialog";
-            this.buttonFolderDialog.Size = new System.Drawing.Size(132, 35);
+            this.buttonFolderDialog.Size = new System.Drawing.Size(91, 38);
             this.buttonFolderDialog.TabIndex = 38;
             this.buttonFolderDialog.Text = "...";
             this.buttonFolderDialog.UseVisualStyleBackColor = true;
             // 
             // textBoxCodeGenerationDizini
             // 
-            this.textBoxCodeGenerationDizini.Location = new System.Drawing.Point(416, 290);
+            this.textBoxCodeGenerationDizini.Location = new System.Drawing.Point(292, 311);
             this.textBoxCodeGenerationDizini.Name = "textBoxCodeGenerationDizini";
             this.textBoxCodeGenerationDizini.Size = new System.Drawing.Size(407, 27);
             this.textBoxCodeGenerationDizini.TabIndex = 37;
@@ -260,7 +260,7 @@
             // labelCodeGenerationFolder
             // 
             this.labelCodeGenerationFolder.AutoSize = true;
-            this.labelCodeGenerationFolder.Location = new System.Drawing.Point(3, 287);
+            this.labelCodeGenerationFolder.Location = new System.Drawing.Point(3, 308);
             this.labelCodeGenerationFolder.Name = "labelCodeGenerationFolder";
             this.labelCodeGenerationFolder.Size = new System.Drawing.Size(167, 20);
             this.labelCodeGenerationFolder.TabIndex = 36;
@@ -268,7 +268,7 @@
             // 
             // textBoxConnectionString
             // 
-            this.textBoxConnectionString.Location = new System.Drawing.Point(416, 126);
+            this.textBoxConnectionString.Location = new System.Drawing.Point(292, 135);
             this.textBoxConnectionString.Name = "textBoxConnectionString";
             this.textBoxConnectionString.Size = new System.Drawing.Size(407, 27);
             this.textBoxConnectionString.TabIndex = 35;
@@ -276,7 +276,7 @@
             // labelConnectionString
             // 
             this.labelConnectionString.AutoSize = true;
-            this.labelConnectionString.Location = new System.Drawing.Point(3, 123);
+            this.labelConnectionString.Location = new System.Drawing.Point(3, 132);
             this.labelConnectionString.Name = "labelConnectionString";
             this.labelConnectionString.Size = new System.Drawing.Size(127, 20);
             this.labelConnectionString.TabIndex = 34;
@@ -284,7 +284,7 @@
             // 
             // textBoxAbbrevationsAsString
             // 
-            this.textBoxAbbrevationsAsString.Location = new System.Drawing.Point(416, 372);
+            this.textBoxAbbrevationsAsString.Location = new System.Drawing.Point(292, 399);
             this.textBoxAbbrevationsAsString.Name = "textBoxAbbrevationsAsString";
             this.textBoxAbbrevationsAsString.Size = new System.Drawing.Size(407, 27);
             this.textBoxAbbrevationsAsString.TabIndex = 54;
@@ -292,7 +292,7 @@
             // labelAbbrevationsAsString
             // 
             this.labelAbbrevationsAsString.AutoSize = true;
-            this.labelAbbrevationsAsString.Location = new System.Drawing.Point(3, 369);
+            this.labelAbbrevationsAsString.Location = new System.Drawing.Point(3, 396);
             this.labelAbbrevationsAsString.Name = "labelAbbrevationsAsString";
             this.labelAbbrevationsAsString.Size = new System.Drawing.Size(97, 20);
             this.labelAbbrevationsAsString.TabIndex = 53;
@@ -300,7 +300,7 @@
             // 
             // textBoxIgnoredSchemaList
             // 
-            this.textBoxIgnoredSchemaList.Location = new System.Drawing.Point(416, 331);
+            this.textBoxIgnoredSchemaList.Location = new System.Drawing.Point(292, 355);
             this.textBoxIgnoredSchemaList.Name = "textBoxIgnoredSchemaList";
             this.textBoxIgnoredSchemaList.Size = new System.Drawing.Size(407, 27);
             this.textBoxIgnoredSchemaList.TabIndex = 52;
@@ -308,7 +308,7 @@
             // labelIgnoredSchemaList
             // 
             this.labelIgnoredSchemaList.AutoSize = true;
-            this.labelIgnoredSchemaList.Location = new System.Drawing.Point(3, 328);
+            this.labelIgnoredSchemaList.Location = new System.Drawing.Point(3, 352);
             this.labelIgnoredSchemaList.Name = "labelIgnoredSchemaList";
             this.labelIgnoredSchemaList.Size = new System.Drawing.Size(143, 20);
             this.labelIgnoredSchemaList.TabIndex = 51;
@@ -317,9 +317,9 @@
             // checkBoxAnaSinifOnaylamaOrnekleri
             // 
             this.checkBoxAnaSinifOnaylamaOrnekleri.AutoSize = true;
-            this.checkBoxAnaSinifOnaylamaOrnekleri.Location = new System.Drawing.Point(416, 577);
+            this.checkBoxAnaSinifOnaylamaOrnekleri.Location = new System.Drawing.Point(870, 575);
             this.checkBoxAnaSinifOnaylamaOrnekleri.Name = "checkBoxAnaSinifOnaylamaOrnekleri";
-            this.checkBoxAnaSinifOnaylamaOrnekleri.Size = new System.Drawing.Size(219, 24);
+            this.checkBoxAnaSinifOnaylamaOrnekleri.Size = new System.Drawing.Size(91, 24);
             this.checkBoxAnaSinifOnaylamaOrnekleri.TabIndex = 33;
             this.checkBoxAnaSinifOnaylamaOrnekleri.Text = "Create Main Validation Class";
             this.checkBoxAnaSinifOnaylamaOrnekleri.UseVisualStyleBackColor = true;
@@ -327,7 +327,7 @@
             // checkBoxSequenceCodeGenerate
             // 
             this.checkBoxSequenceCodeGenerate.AutoSize = true;
-            this.checkBoxSequenceCodeGenerate.Location = new System.Drawing.Point(3, 495);
+            this.checkBoxSequenceCodeGenerate.Location = new System.Drawing.Point(3, 531);
             this.checkBoxSequenceCodeGenerate.Name = "checkBoxSequenceCodeGenerate";
             this.checkBoxSequenceCodeGenerate.Size = new System.Drawing.Size(198, 24);
             this.checkBoxSequenceCodeGenerate.TabIndex = 56;
@@ -337,10 +337,10 @@
             // buttonKisaltmalar
             // 
             this.buttonKisaltmalar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonKisaltmalar.Location = new System.Drawing.Point(830, 374);
+            this.buttonKisaltmalar.Location = new System.Drawing.Point(871, 401);
             this.buttonKisaltmalar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonKisaltmalar.Name = "buttonKisaltmalar";
-            this.buttonKisaltmalar.Size = new System.Drawing.Size(130, 31);
+            this.buttonKisaltmalar.Size = new System.Drawing.Size(89, 34);
             this.buttonKisaltmalar.TabIndex = 57;
             this.buttonKisaltmalar.Text = "Abbrevations";
             this.buttonKisaltmalar.UseVisualStyleBackColor = true;
@@ -348,10 +348,9 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxAnaSinifOnaylamaOrnekleri, 1, 14);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.Controls.Add(this.textBoxConnectionName, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.checkBoxSequenceCodeGenerate, 0, 12);
             this.tableLayoutPanel1.Controls.Add(this.buttonKisaltmalar, 2, 9);
@@ -382,32 +381,32 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 13);
             this.tableLayoutPanel1.Controls.Add(this.labelConnectionName, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelDbProviderName, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.checkBoxAnaSinifOnaylamaOrnekleri, 2, 13);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 15;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.660746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.749556F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.660746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.660746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.660746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.660746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.660746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.660746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.660746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.660746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.660746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.660746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.660746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.660746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.660746F));
+            this.tableLayoutPanel1.RowCount = 14;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.136062F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.231209F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.136061F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.136061F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.136061F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.136061F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.136061F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.136061F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.136061F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.136061F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.136061F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.136061F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.136061F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.136061F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(964, 622);
             this.tableLayoutPanel1.TabIndex = 58;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 533);
+            this.label1.Location = new System.Drawing.Point(3, 572);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(167, 20);
             this.label1.TabIndex = 58;
