@@ -72,9 +72,9 @@ namespace Karkas.CodeGeneration.WinApp
             // 
             // buttonTestConnectionString
             // 
-            this.buttonTestConnectionString.Location = new System.Drawing.Point(811, 739);
+            this.buttonTestConnectionString.Location = new System.Drawing.Point(953, 430);
             this.buttonTestConnectionString.Name = "buttonTestConnectionString";
-            this.buttonTestConnectionString.Size = new System.Drawing.Size(129, 89);
+            this.buttonTestConnectionString.Size = new System.Drawing.Size(113, 89);
             this.buttonTestConnectionString.TabIndex = 3;
             this.buttonTestConnectionString.Text = "test";
             this.buttonTestConnectionString.UseVisualStyleBackColor = true;
@@ -96,7 +96,7 @@ namespace Karkas.CodeGeneration.WinApp
             this.tabControlDatabase.Controls.Add(this.tabPageStoredProcedures);
             this.tabControlDatabase.Controls.Add(this.tabPageSequences);
             this.tabControlDatabase.Location = new System.Drawing.Point(4, 431);
-            this.tabControlDatabase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControlDatabase.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlDatabase.Name = "tabControlDatabase";
             this.tabControlDatabase.SelectedIndex = 0;
             this.tabControlDatabase.Size = new System.Drawing.Size(805, 277);
@@ -106,30 +106,31 @@ namespace Karkas.CodeGeneration.WinApp
             // 
             this.tabPageTableRelated.Controls.Add(this.userControlTableRelated1);
             this.tabPageTableRelated.Location = new System.Drawing.Point(4, 29);
-            this.tabPageTableRelated.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageTableRelated.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageTableRelated.Name = "tabPageTableRelated";
-            this.tabPageTableRelated.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPageTableRelated.Size = new System.Drawing.Size(797, 544);
+            this.tabPageTableRelated.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPageTableRelated.Size = new System.Drawing.Size(797, 244);
             this.tabPageTableRelated.TabIndex = 0;
             this.tabPageTableRelated.Text = "Table";
             this.tabPageTableRelated.UseVisualStyleBackColor = true;
             // 
             // userControlTableRelated1
             // 
-            this.userControlTableRelated1.Location = new System.Drawing.Point(6, 4);
+            this.userControlTableRelated1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlTableRelated1.Location = new System.Drawing.Point(4, 4);
             this.userControlTableRelated1.Margin = new System.Windows.Forms.Padding(11, 14, 11, 14);
             this.userControlTableRelated1.Name = "userControlTableRelated1";
-            this.userControlTableRelated1.Size = new System.Drawing.Size(759, 591);
+            this.userControlTableRelated1.Size = new System.Drawing.Size(789, 236);
             this.userControlTableRelated1.TabIndex = 0;
             // 
             // tabPageViewRelated
             // 
             this.tabPageViewRelated.Controls.Add(this.userControlViewRelated1);
             this.tabPageViewRelated.Location = new System.Drawing.Point(4, 29);
-            this.tabPageViewRelated.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageViewRelated.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageViewRelated.Name = "tabPageViewRelated";
-            this.tabPageViewRelated.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPageViewRelated.Size = new System.Drawing.Size(797, 544);
+            this.tabPageViewRelated.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPageViewRelated.Size = new System.Drawing.Size(192, 67);
             this.tabPageViewRelated.TabIndex = 1;
             this.tabPageViewRelated.Text = "View";
             this.tabPageViewRelated.UseVisualStyleBackColor = true;
@@ -146,9 +147,9 @@ namespace Karkas.CodeGeneration.WinApp
             // 
             this.tabPageStoredProcedures.Controls.Add(this.userControlStoredProcedureRelated1);
             this.tabPageStoredProcedures.Location = new System.Drawing.Point(4, 29);
-            this.tabPageStoredProcedures.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageStoredProcedures.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageStoredProcedures.Name = "tabPageStoredProcedures";
-            this.tabPageStoredProcedures.Size = new System.Drawing.Size(797, 544);
+            this.tabPageStoredProcedures.Size = new System.Drawing.Size(192, 67);
             this.tabPageStoredProcedures.TabIndex = 2;
             this.tabPageStoredProcedures.Text = "Stored Procedures";
             this.tabPageStoredProcedures.UseVisualStyleBackColor = true;
@@ -165,9 +166,9 @@ namespace Karkas.CodeGeneration.WinApp
             // 
             this.tabPageSequences.Controls.Add(this.userControlSequenceRelated1);
             this.tabPageSequences.Location = new System.Drawing.Point(4, 29);
-            this.tabPageSequences.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageSequences.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageSequences.Name = "tabPageSequences";
-            this.tabPageSequences.Size = new System.Drawing.Size(797, 244);
+            this.tabPageSequences.Size = new System.Drawing.Size(192, 67);
             this.tabPageSequences.TabIndex = 3;
             this.tabPageSequences.Text = "Sequences";
             this.tabPageSequences.UseVisualStyleBackColor = true;
