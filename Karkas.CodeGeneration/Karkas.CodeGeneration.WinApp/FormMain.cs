@@ -30,7 +30,6 @@ namespace Karkas.CodeGeneration.WinApp
         {
             InitializeComponent();
             userControlCodeGenerationOptions1.getLastAccessedConnectionToTextbox();
-            panelListeDisable();
         }
 
 
@@ -97,7 +96,6 @@ namespace Karkas.CodeGeneration.WinApp
 
                 labelConnectionStatus.Text = "Bağlantı Başarılı";
                 BilgileriDoldur();
-                panelListe.Enabled = true;
 
 
             }
@@ -169,14 +167,7 @@ namespace Karkas.CodeGeneration.WinApp
         }
 
 
-        private void panelListeEnable()
-        {
-            panelListe.Enabled = true;
-        }
-        private void panelListeDisable()
-        {
-            panelListe.Enabled = false;
-        }
+
 
 
 
@@ -309,8 +300,6 @@ namespace Karkas.CodeGeneration.WinApp
             FormDatabaseProviders form = new FormDatabaseProviders();
             form.ShowDialog();
         }
-
-
 
     }
 }
