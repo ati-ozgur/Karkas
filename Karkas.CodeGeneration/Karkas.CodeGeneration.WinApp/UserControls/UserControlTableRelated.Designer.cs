@@ -41,10 +41,11 @@
             // 
             // buttonSeciliTablolariUret
             // 
+            this.buttonSeciliTablolariUret.AutoSize = true;
             this.buttonSeciliTablolariUret.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSeciliTablolariUret.Location = new System.Drawing.Point(630, 97);
+            this.buttonSeciliTablolariUret.Location = new System.Drawing.Point(560, 97);
             this.buttonSeciliTablolariUret.Name = "buttonSeciliTablolariUret";
-            this.buttonSeciliTablolariUret.Size = new System.Drawing.Size(66, 277);
+            this.buttonSeciliTablolariUret.Size = new System.Drawing.Size(136, 277);
             this.buttonSeciliTablolariUret.TabIndex = 11;
             this.buttonSeciliTablolariUret.Text = "Create Selected Tables";
             this.buttonSeciliTablolariUret.UseVisualStyleBackColor = true;
@@ -70,7 +71,7 @@
             this.listBoxTableListesi.Location = new System.Drawing.Point(281, 97);
             this.listBoxTableListesi.Name = "listBoxTableListesi";
             this.listBoxTableListesi.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxTableListesi.Size = new System.Drawing.Size(343, 277);
+            this.listBoxTableListesi.Size = new System.Drawing.Size(273, 277);
             this.listBoxTableListesi.TabIndex = 9;
             // 
             // labelTabloListesi
@@ -103,10 +104,11 @@
             // 
             // buttonSeciliSemaTablolariUret
             // 
+            this.buttonSeciliSemaTablolariUret.AutoSize = true;
             this.buttonSeciliSemaTablolariUret.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSeciliSemaTablolariUret.Location = new System.Drawing.Point(630, 3);
+            this.buttonSeciliSemaTablolariUret.Location = new System.Drawing.Point(560, 3);
             this.buttonSeciliSemaTablolariUret.Name = "buttonSeciliSemaTablolariUret";
-            this.buttonSeciliSemaTablolariUret.Size = new System.Drawing.Size(66, 88);
+            this.buttonSeciliSemaTablolariUret.Size = new System.Drawing.Size(136, 88);
             this.buttonSeciliSemaTablolariUret.TabIndex = 12;
             this.buttonSeciliSemaTablolariUret.Text = "Create Tables in Schema";
             this.buttonSeciliSemaTablolariUret.UseVisualStyleBackColor = true;
@@ -117,8 +119,8 @@
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Controls.Add(this.buttonTumTablolariUret, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelSchemaList, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxSchemaList, 2, 0);
@@ -130,8 +132,8 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(699, 377);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
