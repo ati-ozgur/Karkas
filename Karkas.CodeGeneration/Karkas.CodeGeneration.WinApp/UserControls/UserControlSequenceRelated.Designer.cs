@@ -40,9 +40,9 @@
             // 
             // buttonSeciliSequenceUret
             // 
-            this.buttonSeciliSequenceUret.Location = new System.Drawing.Point(421, 116);
+            this.buttonSeciliSequenceUret.Location = new System.Drawing.Point(560, 116);
             this.buttonSeciliSequenceUret.Name = "buttonSeciliSequenceUret";
-            this.buttonSeciliSequenceUret.Size = new System.Drawing.Size(221, 73);
+            this.buttonSeciliSequenceUret.Size = new System.Drawing.Size(136, 73);
             this.buttonSeciliSequenceUret.TabIndex = 23;
             this.buttonSeciliSequenceUret.Text = "Create Selected Sequences";
             this.buttonSeciliSequenceUret.UseVisualStyleBackColor = true;
@@ -50,9 +50,9 @@
             // 
             // buttonTumSequencesUret
             // 
-            this.buttonTumSequencesUret.Location = new System.Drawing.Point(421, 3);
+            this.buttonTumSequencesUret.Location = new System.Drawing.Point(3, 3);
             this.buttonTumSequencesUret.Name = "buttonTumSequencesUret";
-            this.buttonTumSequencesUret.Size = new System.Drawing.Size(221, 61);
+            this.buttonTumSequencesUret.Size = new System.Drawing.Size(133, 61);
             this.buttonTumSequencesUret.TabIndex = 22;
             this.buttonTumSequencesUret.Text = "Create all sequences";
             this.buttonTumSequencesUret.UseVisualStyleBackColor = true;
@@ -63,7 +63,7 @@
             this.listBoxSequenceListesi.DisplayMember = "SEQUENCE_NAME";
             this.listBoxSequenceListesi.FormattingEnabled = true;
             this.listBoxSequenceListesi.ItemHeight = 20;
-            this.listBoxSequenceListesi.Location = new System.Drawing.Point(212, 116);
+            this.listBoxSequenceListesi.Location = new System.Drawing.Point(281, 116);
             this.listBoxSequenceListesi.Name = "listBoxSequenceListesi";
             this.listBoxSequenceListesi.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxSequenceListesi.Size = new System.Drawing.Size(203, 244);
@@ -72,7 +72,7 @@
             // labelSequenceListesi
             // 
             this.labelSequenceListesi.AutoSize = true;
-            this.labelSequenceListesi.Location = new System.Drawing.Point(3, 113);
+            this.labelSequenceListesi.Location = new System.Drawing.Point(142, 113);
             this.labelSequenceListesi.Name = "labelSequenceListesi";
             this.labelSequenceListesi.Size = new System.Drawing.Size(99, 20);
             this.labelSequenceListesi.TabIndex = 20;
@@ -81,7 +81,7 @@
             // labelSchemaList
             // 
             this.labelSchemaList.AutoSize = true;
-            this.labelSchemaList.Location = new System.Drawing.Point(3, 0);
+            this.labelSchemaList.Location = new System.Drawing.Point(142, 0);
             this.labelSchemaList.Name = "labelSchemaList";
             this.labelSchemaList.Size = new System.Drawing.Size(87, 20);
             this.labelSchemaList.TabIndex = 19;
@@ -91,7 +91,7 @@
             // 
             this.comboBoxSchemaList.DisplayMember = "SCHEMA_NAME";
             this.comboBoxSchemaList.FormattingEnabled = true;
-            this.comboBoxSchemaList.Location = new System.Drawing.Point(212, 3);
+            this.comboBoxSchemaList.Location = new System.Drawing.Point(281, 3);
             this.comboBoxSchemaList.Name = "comboBoxSchemaList";
             this.comboBoxSchemaList.Size = new System.Drawing.Size(203, 28);
             this.comboBoxSchemaList.TabIndex = 18;
@@ -99,16 +99,17 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.Controls.Add(this.labelSchemaList, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonSeciliSequenceUret, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxSchemaList, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.listBoxSequenceListesi, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.buttonTumSequencesUret, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.labelSequenceListesi, 0, 1);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.buttonTumSequencesUret, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.labelSchemaList, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxSchemaList, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonSeciliSequenceUret, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.listBoxSequenceListesi, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelSequenceListesi, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";

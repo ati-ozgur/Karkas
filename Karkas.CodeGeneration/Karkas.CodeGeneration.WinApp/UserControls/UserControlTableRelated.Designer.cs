@@ -41,9 +41,10 @@
             // 
             // buttonSeciliTablolariUret
             // 
+            this.buttonSeciliTablolariUret.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSeciliTablolariUret.Location = new System.Drawing.Point(630, 97);
             this.buttonSeciliTablolariUret.Name = "buttonSeciliTablolariUret";
-            this.buttonSeciliTablolariUret.Size = new System.Drawing.Size(66, 60);
+            this.buttonSeciliTablolariUret.Size = new System.Drawing.Size(66, 277);
             this.buttonSeciliTablolariUret.TabIndex = 11;
             this.buttonSeciliTablolariUret.Text = "Create Selected Tables";
             this.buttonSeciliTablolariUret.UseVisualStyleBackColor = true;
@@ -51,9 +52,10 @@
             // 
             // buttonTumTablolariUret
             // 
+            this.buttonTumTablolariUret.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonTumTablolariUret.Location = new System.Drawing.Point(3, 3);
             this.buttonTumTablolariUret.Name = "buttonTumTablolariUret";
-            this.buttonTumTablolariUret.Size = new System.Drawing.Size(133, 60);
+            this.buttonTumTablolariUret.Size = new System.Drawing.Size(133, 88);
             this.buttonTumTablolariUret.TabIndex = 10;
             this.buttonTumTablolariUret.Text = "Create All Tables";
             this.buttonTumTablolariUret.UseVisualStyleBackColor = true;
@@ -62,12 +64,13 @@
             // listBoxTableListesi
             // 
             this.listBoxTableListesi.DisplayMember = "FULL_TABLE_NAME";
+            this.listBoxTableListesi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxTableListesi.FormattingEnabled = true;
             this.listBoxTableListesi.ItemHeight = 20;
             this.listBoxTableListesi.Location = new System.Drawing.Point(281, 97);
             this.listBoxTableListesi.Name = "listBoxTableListesi";
             this.listBoxTableListesi.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxTableListesi.Size = new System.Drawing.Size(248, 204);
+            this.listBoxTableListesi.Size = new System.Drawing.Size(343, 277);
             this.listBoxTableListesi.TabIndex = 9;
             // 
             // labelTabloListesi
@@ -100,9 +103,10 @@
             // 
             // buttonSeciliSemaTablolariUret
             // 
+            this.buttonSeciliSemaTablolariUret.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSeciliSemaTablolariUret.Location = new System.Drawing.Point(630, 3);
             this.buttonSeciliSemaTablolariUret.Name = "buttonSeciliSemaTablolariUret";
-            this.buttonSeciliSemaTablolariUret.Size = new System.Drawing.Size(66, 60);
+            this.buttonSeciliSemaTablolariUret.Size = new System.Drawing.Size(66, 88);
             this.buttonSeciliSemaTablolariUret.TabIndex = 12;
             this.buttonSeciliSemaTablolariUret.Text = "Create Tables in Schema";
             this.buttonSeciliSemaTablolariUret.UseVisualStyleBackColor = true;
