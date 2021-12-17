@@ -327,6 +327,7 @@ namespace Karkas.CodeGeneration.WinApp
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel1.Controls.Add(this.tabControlDatabase, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.labelConnectionStatus, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonTestConnectionString, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.userControlCodeGenerationOptions1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -342,7 +343,6 @@ namespace Karkas.CodeGeneration.WinApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 712);
-            this.Controls.Add(this.buttonTestConnectionString);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
