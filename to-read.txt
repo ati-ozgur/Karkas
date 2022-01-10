@@ -3,5 +3,7 @@ to-read.txt
 ## Logging 
 
 https://docs.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line
+https://badecho.com/index.php/2021/01/26/net-library-log/
+
 
 
