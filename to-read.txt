@@ -1,0 +1,7 @@
+to-read.txt
+
+## Logging 
+
+https://docs.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line
+
+
