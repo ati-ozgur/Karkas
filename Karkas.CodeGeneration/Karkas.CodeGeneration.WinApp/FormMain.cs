@@ -121,14 +121,26 @@ namespace Karkas.CodeGeneration.WinApp
             //Assembly oracleAssembly = Assembly.LoadWithPartialName(ConnectionDbProviderName);
             Assembly oracleAssembly = Assembly.LoadWithPartialName(dllName);
             string connectionClassName = ConnectionDbProviderName + ".OracleConnection";
-            Object objReflection = Activator.CreateInstance(oracleAssembly.FullName, connectionClassName);
+            string factoryClassName = ConnectionDbProviderName + ".OracleClientFactory";
+            Object objReflectionConnection = Activator.CreateInstance(oracleAssembly.FullName, connectionClassName);
+            Object objReflectionFactory = Activator.CreateInstance(oracleAssembly.FullName, factoryClassName);
 
-            if (objReflection != null && objReflection is ObjectHandle)
+            if (objReflectionConnection != null
+                && objReflectionConnection is ObjectHandle
+                && objReflectionFactory != null
+                && objReflectionFactory is ObjectHandle
+                )
             {
-                ObjectHandle handle = (ObjectHandle)objReflection;
-
-                Object objConnection = handle.Unwrap();
+                ObjectHandle handleConnection = (ObjectHandle)objReflectionConnection;
+                Object objConnection = handleConnection.Unwrap();
                 connection = (DbConnection)objConnection;
+
+                ObjectHandle handleFactory = (ObjectHandle)objReflectionFactory;
+                Object objFactory = handleFactory.Unwrap();
+                DbProviderFactory factory = (DbProviderFactory)objFactory;
+
+                //Object objFactory = 
+
                 connection.ConnectionString = connectionString;
                 connection.Open();
                 connection.Close();
@@ -136,7 +148,9 @@ namespace Karkas.CodeGeneration.WinApp
                 template.Connection = connection;
                 template.DbProviderName = ConnectionDbProviderName;
                 DatabaseHelper = new DatabaseOracle( template);
-                    
+                DbProviderFactories.RegisterFactory(ConnectionDbProviderName, factory);
+
+
 
             }
         }
