@@ -67,9 +67,10 @@ namespace Karkas.CodeGeneration.WinApp
         
         private void buttonTestConnectionString_Click(object sender, EventArgs e)
         {
+            string type = userControlCodeGenerationOptions1.SelectedDatabaseType;
             string connectionString = userControlCodeGenerationOptions1.ConnectionString;
             string connectionName =userControlCodeGenerationOptions1.ConnectionName;
-            string type = userControlCodeGenerationOptions1.SelectedDatabaseType;
+            string ConnectionDbProviderName = userControlCodeGenerationOptions1.ConnectionDbProviderName;
 
             userControlTableRelated1.setComboBoxSchemaListText("");
             
@@ -85,7 +86,8 @@ namespace Karkas.CodeGeneration.WinApp
                 }
                 else if (type == DatabaseType.Oracle)
                 {
-                    testOracleSystemDataVersion(connectionString, connectionName);
+
+                    testOracle(connectionString, connectionName, ConnectionDbProviderName);
 
                 }
                 else if (type == DatabaseType.Sqlite)
@@ -108,10 +110,18 @@ namespace Karkas.CodeGeneration.WinApp
 
         }
 
-        private void testOracleSystemDataVersion(string connectionString,string databaseName)
+
+        private void testOracle(string connectionString,string databaseName, string ConnectionDbProviderName)
         {
-            Assembly oracleAssembly = Assembly.LoadWithPartialName("System.Data.OracleClient");
-            Object objReflection = Activator.CreateInstance(oracleAssembly.FullName, "System.Data.OracleClient.OracleConnection");
+            if (ConnectionDbProviderName == null)
+            {
+                throw new Exception("Please set the Connection DB Provider name");
+            }
+            string dllName = ConnectionDbProviderName.Replace(".Client", "");
+            //Assembly oracleAssembly = Assembly.LoadWithPartialName(ConnectionDbProviderName);
+            Assembly oracleAssembly = Assembly.LoadWithPartialName(dllName);
+            string connectionClassName = ConnectionDbProviderName + ".OracleConnection";
+            Object objReflection = Activator.CreateInstance(oracleAssembly.FullName, connectionClassName);
 
             if (objReflection != null && objReflection is ObjectHandle)
             {
@@ -124,7 +134,7 @@ namespace Karkas.CodeGeneration.WinApp
                 connection.Close();
                 template = new AdoTemplate();
                 template.Connection = connection;
-                template.DbProviderName = "System.Data.OracleClient";
+                template.DbProviderName = ConnectionDbProviderName;
                 DatabaseHelper = new DatabaseOracle( template);
                     
 

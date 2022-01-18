@@ -172,6 +172,14 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             }
         }
 
+        public string ConnectionDbProviderName 
+        { 
+            get
+            {
+                return textBoxDbProviderName.Text;
+            }
+        }
+
         public string ConnectionName
         {
             get
