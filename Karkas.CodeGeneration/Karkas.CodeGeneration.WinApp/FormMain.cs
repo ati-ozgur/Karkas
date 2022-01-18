@@ -85,7 +85,7 @@ namespace Karkas.CodeGeneration.WinApp
                 }
                 else if (type == DatabaseType.Oracle)
                 {
-                    testOracle(connectionString, connectionName);
+                    testOracleSystemDataVersion(connectionString, connectionName);
 
                 }
                 else if (type == DatabaseType.Sqlite)
@@ -108,7 +108,7 @@ namespace Karkas.CodeGeneration.WinApp
 
         }
 
-        private void testOracle(string connectionString,string databaseName)
+        private void testOracleSystemDataVersion(string connectionString,string databaseName)
         {
             Assembly oracleAssembly = Assembly.LoadWithPartialName("System.Data.OracleClient");
             Object objReflection = Activator.CreateInstance(oracleAssembly.FullName, "System.Data.OracleClient.OracleConnection");
