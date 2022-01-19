@@ -35,29 +35,32 @@
             // labelDatabaseProviders
             // 
             this.labelDatabaseProviders.AutoSize = true;
-            this.labelDatabaseProviders.Location = new System.Drawing.Point(26, 33);
+            this.labelDatabaseProviders.Location = new System.Drawing.Point(30, 38);
+            this.labelDatabaseProviders.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDatabaseProviders.Name = "labelDatabaseProviders";
-            this.labelDatabaseProviders.Size = new System.Drawing.Size(100, 13);
+            this.labelDatabaseProviders.Size = new System.Drawing.Size(107, 15);
             this.labelDatabaseProviders.TabIndex = 24;
             this.labelDatabaseProviders.Text = "Database Providers";
             // 
             // textBoxDatabaseProviders
             // 
-            this.textBoxDatabaseProviders.Location = new System.Drawing.Point(26, 57);
+            this.textBoxDatabaseProviders.Location = new System.Drawing.Point(30, 66);
+            this.textBoxDatabaseProviders.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxDatabaseProviders.Multiline = true;
             this.textBoxDatabaseProviders.Name = "textBoxDatabaseProviders";
-            this.textBoxDatabaseProviders.Size = new System.Drawing.Size(176, 184);
+            this.textBoxDatabaseProviders.Size = new System.Drawing.Size(205, 212);
             this.textBoxDatabaseProviders.TabIndex = 23;
-            this.textBoxDatabaseProviders.Text = "System.Data.SqlClient\r\nSystem.Data.OracleClient\r\nOracle.DataAccess.Client\r\nSystem" +
-    ".Data.SQLite\r\n";
+            this.textBoxDatabaseProviders.Text = "System.Data.SqlClient\r\n\r\nSystem.Data.OracleClient\r\nOracle.DataAccess.Client\r\nOrac" +
+    "le.ManagedDataAccess.Client\r\n\r\nSystem.Data.SQLite\r\n";
             // 
             // FormDatabaseProviders
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(295, 339);
+            this.ClientSize = new System.Drawing.Size(344, 391);
             this.Controls.Add(this.labelDatabaseProviders);
             this.Controls.Add(this.textBoxDatabaseProviders);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormDatabaseProviders";
             this.Text = "Form Database Providers";
             this.ResumeLayout(false);
