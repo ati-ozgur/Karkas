@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Data.Common;
 
 using System.Data.SQLite;
+using Karkas.Core.DataUtil;
 
 namespace Karkas.CodeGeneration.WinApp
 {
@@ -19,8 +20,12 @@ namespace Karkas.CodeGeneration.WinApp
         [STAThread]
         static void Main()
         {
-            DbProviderFactories.RegisterFactory("System.Data.SQLite", SQLiteFactory.Instance);
-       
+            string dbProviderName = "System.Data.SQLite";
+            DbProviderFactories.RegisterFactory(dbProviderName, SQLiteFactory.Instance);
+            ConnectionSingleton.Instance.ProviderName = dbProviderName;
+            ConnectionSingleton.Instance.ConnectionString = "Data Source=connectionsDb.sqlite";
+
+
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
