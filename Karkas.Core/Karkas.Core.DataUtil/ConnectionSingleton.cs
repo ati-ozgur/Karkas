@@ -22,7 +22,7 @@ namespace Karkas.Core.DataUtil
             }
             set 
             { 
-                connectionStringList.Add(MainDBName, value);
+                connectionStringList[MainDBName] =  value;
             }
         }
 
@@ -48,7 +48,7 @@ namespace Karkas.Core.DataUtil
         public static ConnectionSingleton Instance
         {
             get { return ConnectionSingleton._instance; }
-            set { ConnectionSingleton._instance = value; }
+            //set { ConnectionSingleton._instance = value; }
         }
 
         private Dictionary<string, string> connectionStringList = new Dictionary<string, string>();
@@ -84,7 +84,7 @@ namespace Karkas.Core.DataUtil
         public DbConnection getConnection(string DatabaseName)
         {
             string providerName = getProviderName(DatabaseName);
-            string connectionString = getConnectionString(providerName);
+            string connectionString = getConnectionString(DatabaseName);
 
             DbConnection conn = DbProviderFactoryHelper.Create(providerName).Factory.CreateConnection();
             conn.ConnectionString = connectionString;
