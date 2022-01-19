@@ -394,7 +394,6 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 {
                     cmd.Transaction = CurrentTransaction;
                 }
-                new LoggingInfo(cmd).LogDebug(this.GetType());
                 reader = cmd.ExecuteReader();
 
                 T row = default(T);
@@ -409,7 +408,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
             catch (DbException ex)
             {
-                ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
+                ExceptionDegistirici.Degistir(ex);
             }
             finally
             {
