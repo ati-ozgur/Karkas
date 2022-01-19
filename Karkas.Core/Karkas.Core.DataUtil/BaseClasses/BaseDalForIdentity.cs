@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using Karkas.Core.TypeLibrary;
-using log4net;
 using System.Data.Common;
 
 namespace Karkas.Core.DataUtil.BaseClasses

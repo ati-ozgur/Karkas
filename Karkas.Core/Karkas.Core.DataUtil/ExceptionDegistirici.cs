@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 using Karkas.Core.DataUtil.Exceptions;
-using log4net;
 using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
