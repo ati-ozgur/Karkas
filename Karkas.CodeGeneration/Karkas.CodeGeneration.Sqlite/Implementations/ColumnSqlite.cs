@@ -121,7 +121,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                 if (languageType == null)
                 {
 
-                    languageType = sqlTypeToDotnetCSharpType(dataTypeInDatabase);
+                    languageType = sqlTypeToDotnetCSharpType(DataTypeInDatabase);
                 }
                 return languageType;
             }
@@ -143,7 +143,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
             get
             {
-                string lowerDataTypeInDatabase = dataTypeInDatabase.ToLowerInvariant();
+                string lowerDataTypeInDatabase = DataTypeInDatabase.ToLowerInvariant();
                 if (lowerDataTypeInDatabase == "integer")
                 {
                     return "DbType.Int64";
@@ -166,7 +166,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         {
             get 
             {
-                return sqlTypeToDotnetCommonDbType(dataTypeInDatabase);
+                return sqlTypeToDotnetCommonDbType(DataTypeInDatabase);
             }
         }
 
@@ -311,7 +311,6 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             get { return tableOrView.Schema; }
         }
 
-
-
+        public string DataTypeInDatabase { get => dataTypeInDatabase; }
     }
 }

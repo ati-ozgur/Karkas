@@ -702,6 +702,7 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
             get { return tableOrView.Schema; }
         }
 
+        public string DataTypeInDatabase { get => SqlDataTypeName; }
 
 
     }

@@ -227,6 +227,21 @@ AND
             }
         }
 
+        public string DataTypeInDatabase
+        {
+            get
+            {
+                if (dataTypeInDatabase == null)
+                {
+
+                    dataTypeInDatabase = ColumnValuesInDatabase["DATA_TYPE"].ToString();
+                    languageType = sqlTypeToDotnetCSharpType(dataTypeInDatabase);
+                }
+                return dataTypeInDatabase;
+            }
+        }
+            
+
 
         public string LanguageType
         {

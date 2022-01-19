@@ -431,6 +431,7 @@ namespace Karkas.CodeGenerationHelper
             {
                 return "string";
             }
+            //else if (column.)
             else
             {
                 return column.LanguageType;

@@ -41,6 +41,7 @@ namespace Karkas.CodeGenerationHelper.Interfaces
         string ContainerName { get; }
         string ContainerSchemaName { get; }
 
+        string DataTypeInDatabase { get; }
 
 
     }
