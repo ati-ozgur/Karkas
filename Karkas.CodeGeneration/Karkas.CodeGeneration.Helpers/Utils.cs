@@ -431,7 +431,10 @@ namespace Karkas.CodeGenerationHelper
             {
                 return "string";
             }
-            //else if (column.)
+            else if (column.DataTypeInDatabase == "NVARCHAR2")
+            {
+                return "string";
+            }
             else
             {
                 return column.LanguageType;
