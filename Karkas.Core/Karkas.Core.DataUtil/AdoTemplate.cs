@@ -107,7 +107,7 @@ namespace Karkas.Core.DataUtil
             return Connection.State != ConnectionState.Closed && OtomatikConnectionYonetimi;
         }
 
-        private bool ConnectionAcilacakMi()
+        private bool ShouldOpenTheConnection()
         {
             return (Connection.State != ConnectionState.Open) && (OtomatikConnectionYonetimi);
         }
@@ -199,7 +199,7 @@ namespace Karkas.Core.DataUtil
             try
             {
                 new LoggingInfo(cmd).LogInfo(this.GetType());
-                if (ConnectionAcilacakMi())
+                if (ShouldOpenTheConnection())
                 {
                     Connection.Open();
                 }
@@ -227,7 +227,7 @@ namespace Karkas.Core.DataUtil
             try
             {
                 new LoggingInfo(cmd).LogInfo(this.GetType());
-                if (ConnectionAcilacakMi())
+                if (ShouldOpenTheConnection())
                 {
                     Connection.Open();
                 }
@@ -384,15 +384,14 @@ namespace Karkas.Core.DataUtil
             try
             {
 
-                if (ConnectionAcilacakMi())
+                if (ShouldOpenTheConnection())
                 {
-                    Connection.Open();
+                    cmd.Connection.Open();
                 }
                 if (CurrentTransaction != null)
                 {
                     cmd.Transaction = CurrentTransaction;
                 }
-                new LoggingInfo(cmd).LogDebug(this.GetType());
                 reader = cmd.ExecuteReader();
 
                 Dictionary<string, Object> row;
@@ -406,7 +405,7 @@ namespace Karkas.Core.DataUtil
             }
             catch (DbException ex)
             {
-                ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
+                ExceptionDegistirici.Degistir(ex);
             }
             finally
             {
