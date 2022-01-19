@@ -32,7 +32,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             set
             {
                 otomatikConnectionYonetimi = value;
-                this.Template.OtomatikConnectionYonetimi = value;
+                this.Template.AutomaticConnectionManagement = value;
             }
         }
 
@@ -53,7 +53,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             AdoTemplate t = new AdoTemplate();
             t.Connection = Connection;
             t.CurrentTransaction = currentTransaction;
-            t.OtomatikConnectionYonetimi = otomatikConnectionYonetimi;
+            t.AutomaticConnectionManagement = otomatikConnectionYonetimi;
             t.DbProviderName = DbProviderName;
             return t;
         }

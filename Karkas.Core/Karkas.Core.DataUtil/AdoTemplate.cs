@@ -82,34 +82,34 @@ namespace Karkas.Core.DataUtil
             }
         }
 
-        private bool otomatikConnectionYonetimi = true;
+        private bool automaticConnectionManagement = true;
         /// <summary>
         /// Eger varsayılan deger, true bırakılırsa, connection yonetimi 
         /// BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
         /// Connection'u acma ve kapama BaseDal kontrolundedir.
         /// Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
         /// </summary>
-        public bool OtomatikConnectionYonetimi
+        public bool AutomaticConnectionManagement
         {
             get
             {
-                return otomatikConnectionYonetimi;
+                return automaticConnectionManagement;
             }
             set
             {
-                otomatikConnectionYonetimi = value;
-                this.helper.OtomatikConnectionYonetimi = value;
+                automaticConnectionManagement = value;
+                this.helper.AutomaticConnectionManagement = value;
             }
         }
 
         private bool ConnectionKapatilacakMi()
         {
-            return Connection.State != ConnectionState.Closed && OtomatikConnectionYonetimi;
+            return Connection.State != ConnectionState.Closed && AutomaticConnectionManagement;
         }
 
         private bool ShouldOpenTheConnection()
         {
-            return (Connection.State != ConnectionState.Open) && (OtomatikConnectionYonetimi);
+            return (Connection.State != ConnectionState.Open) && (AutomaticConnectionManagement);
         }
 
         private DbTransaction currentTransaction;
@@ -173,7 +173,7 @@ namespace Karkas.Core.DataUtil
                 if (_helper == null)
                 {
                     _helper = new HelperFunctions(this);
-                    _helper.OtomatikConnectionYonetimi = OtomatikConnectionYonetimi;
+                    _helper.AutomaticConnectionManagement = AutomaticConnectionManagement;
                 }
                 return _helper;
             }
@@ -215,7 +215,7 @@ namespace Karkas.Core.DataUtil
             }
             finally
             {
-                if (OtomatikConnectionYonetimi)
+                if (AutomaticConnectionManagement)
                 {
                     Connection.Close();
                 }
@@ -244,7 +244,7 @@ namespace Karkas.Core.DataUtil
             }
             finally
             {
-                if (OtomatikConnectionYonetimi)
+                if (AutomaticConnectionManagement)
                 {
                     Connection.Close();
                 }
