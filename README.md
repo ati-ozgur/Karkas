@@ -13,6 +13,10 @@ Aşağıdaki Veritabanlarını desteklemektedir.
  3. Sqlite
 
 
+## TODO
+
+- Refactoring methods to English Only Names
+- Add configuration method which initializes from configuration
 
 
 ## Usage
