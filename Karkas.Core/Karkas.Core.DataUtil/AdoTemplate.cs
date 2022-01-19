@@ -130,15 +130,33 @@ namespace Karkas.Core.DataUtil
             {
                 if (connection == null)
                 {
-                    connection = ConnectionSingleton.Instance.getConnection("Main");
+                    if(connectionString != null && dbProviderName!= null)
+                    {
+                        connection = ConnectionSingleton.Instance.getConnectionUsingConnectionString(connectionString, dbProviderName);
+                    }
+                    else
+                    {
+                        connection = ConnectionSingleton.Instance.getConnection("Main");
+                    }
                 }
                 return connection;
             }
             set { connection = value; }
         }
 
+        private string connectionString;
 
-
+        public string ConnectionString 
+        { 
+            get
+            {
+                return connectionString;
+            }
+                set
+            {
+                connectionString = value;
+            }
+        }
 
 
 

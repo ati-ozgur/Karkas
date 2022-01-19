@@ -99,6 +99,16 @@ namespace Karkas.Core.DataUtil
             }
         }
 
+        public DbConnection getConnectionUsingConnectionString(string connectionString,string providerName)
+        {
+
+            DbConnection conn = DbProviderFactoryHelper.Create(providerName).Factory.CreateConnection();
+            conn.ConnectionString = connectionString;
+            return conn;
+
+        }
+
+
         public DbConnection getConnection(string DatabaseName)
         {
             string providerName = getProviderName(DatabaseName);
