@@ -2,8 +2,10 @@ to-read.txt
 
 ## Logging 
 
-https://docs.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line
-https://badecho.com/index.php/2021/01/26/net-library-log/
 
+https://docs.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0
+https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging?view=dotnet-plat-ext-6.0
+https://badecho.com/index.php/2021/01/26/net-library-log/
 
 

@@ -16,8 +16,8 @@ Aşağıdaki Veritabanlarını desteklemektedir.
 ## TODO
 
 - Refactoring methods to English Only Names
-- Add configuration method which initializes from configuration
-
+- Add configuration method which initializes from configuration files (app.config ...)
+- Read logging and fix it
 
 ## Usage
 
