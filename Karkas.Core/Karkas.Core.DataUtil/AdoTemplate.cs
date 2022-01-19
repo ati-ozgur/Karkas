@@ -16,8 +16,13 @@ namespace Karkas.Core.DataUtil
         {
 
         }
-        public AdoTemplate(String dbProviderName)
+        public AdoTemplate(string dbProviderName)
         {
+            this.dbProviderName = dbProviderName;
+        }
+        public AdoTemplate(string connectionString, string dbProviderName)
+        {
+            this.connectionString = connectionString;
             this.dbProviderName = dbProviderName;
         }
 
