@@ -10,6 +10,9 @@ namespace Karkas.Core.DataUtil
 {
     public class AdoTemplate
     {
+        private string dbProviderName;
+        private string connectionString;
+        private bool useConnectionSingleton = true;
 
 
         public AdoTemplate()
@@ -24,6 +27,7 @@ namespace Karkas.Core.DataUtil
         {
             this.connectionString = connectionString;
             this.dbProviderName = dbProviderName;
+            this.useConnectionSingleton = false;
         }
 
         public ParameterBuilder getParameterBuilder()
@@ -67,7 +71,6 @@ namespace Karkas.Core.DataUtil
 
 
 
-        private string dbProviderName;
         public String DbProviderName
         {
             get
@@ -133,23 +136,20 @@ namespace Karkas.Core.DataUtil
         {
             get
             {
-                if (connection == null)
+                if (this.useConnectionSingleton && connection == null)
                 {
-                    if(connectionString != null && dbProviderName!= null)
-                    {
-                        connection = ConnectionSingleton.Instance.getConnectionUsingConnectionString(connectionString, dbProviderName);
-                    }
-                    else
-                    {
-                        connection = ConnectionSingleton.Instance.getConnection("Main");
-                    }
+                    connection = ConnectionSingleton.Instance.getConnection("Main");
+                }
+                else if(connectionString != null && dbProviderName!= null)
+                {
+                    connection = DbProviderFactoryHelper.Create(dbProviderName).Factory.CreateConnection();
+                    connection.ConnectionString = connectionString;
                 }
                 return connection;
             }
             set { connection = value; }
         }
 
-        private string connectionString;
 
         public string ConnectionString 
         { 
@@ -157,9 +157,10 @@ namespace Karkas.Core.DataUtil
             {
                 return connectionString;
             }
-                set
+            set
             {
-                connectionString = value;
+                this.connectionString = value;
+                this.useConnectionSingleton = false;                
             }
         }
 
