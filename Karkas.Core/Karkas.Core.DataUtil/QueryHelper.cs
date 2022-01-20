@@ -50,8 +50,8 @@ namespace Karkas.Core.DataUtil
         public string GetCriteriaResultsWithWhere()
         {
             string sonuc = "";
-            sonuc += whereKriterlerininSonucunuGetir();
-            sonuc += OrderBylarinSonucunuGetir();
+            sonuc += getCriteriaResultsForWhere();
+            sonuc += GetOrderByResults();
             return sonuc;
         }
         public string GetCriteriaResultsWithoutWhere()
@@ -62,7 +62,7 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        private string OrderBylarinSonucunuGetir()
+        private string GetOrderByResults()
         {
             if (listOrderBy.Count == 0)
             {
@@ -97,7 +97,7 @@ namespace Karkas.Core.DataUtil
             listWhere.Add(wk);
         }
 
-        private string whereKriterlerininSonucunuGetir()
+        private string getCriteriaResultsForWhere()
         {
             if ((listWhere.Count == 0) && (listWhereOptional.Count == 0)
                 && (listWhereOptionalNullValues.Count == 0))
