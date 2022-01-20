@@ -30,17 +30,17 @@ namespace Karkas.Core.DataUtil
                 listOrderBy.Add(s);
             }
         }
-        public void OrderByEkle(string pKolonIsmi)
+        public void OrderByEkle(string pColumnName)
         {
-            OrderBy s = new OrderBy(pKolonIsmi);
+            OrderBy s = new OrderBy(pColumnName);
             if (!listOrderBy.Contains(s))
             {
                 listOrderBy.Add(s);
             }
         }
-        public void OrderByEkle(string pKolonIsmi, String pSiralamaTuru)
+        public void OrderByEkle(string pColumnName, String pOrderByType)
         {
-            OrderBy s = new OrderBy(pKolonIsmi, pSiralamaTuru);
+            OrderBy s = new OrderBy(pColumnName, pOrderByType);
             if (!listOrderBy.Contains(s))
             {
                 listOrderBy.Add(s);
