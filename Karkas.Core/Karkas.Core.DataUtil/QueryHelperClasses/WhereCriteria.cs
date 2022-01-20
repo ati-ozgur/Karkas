@@ -23,7 +23,7 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
 
 
 
-        public override string SqlHali
+        public override string SqlForm
         {
             get
             {

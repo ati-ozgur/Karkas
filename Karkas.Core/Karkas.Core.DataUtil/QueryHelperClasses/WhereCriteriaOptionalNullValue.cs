@@ -27,7 +27,7 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
             likePlacement = pLikePlacementEnum;
         }
 
-        public override string SqlHali
+        public override string SqlForm
         {
             get
             {

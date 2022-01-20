@@ -109,15 +109,15 @@ namespace Karkas.Core.DataUtil
             sb.Append("WHERE ");
             foreach (WhereCriteria s in listWhere)
             {
-                sb.Append(Environment.NewLine + s.SqlHali + " AND ");
+                sb.Append(Environment.NewLine + s.SqlForm + " AND ");
             }
             foreach (WhereCriteriaOptional s in listWhereOptional)
             {
-                sb.Append(Environment.NewLine + s.SqlHali + " AND ");
+                sb.Append(Environment.NewLine + s.SqlForm + " AND ");
             }
             foreach (WhereCriteriaOptionalNullValue s in listWhereOptionalNullValues)
             {
-                sb.Append(Environment.NewLine + s.SqlHali + " AND ");
+                sb.Append(Environment.NewLine + s.SqlForm + " AND ");
             }
             sb.Remove(sb.Length - 5, 5);
             sb.Append(Environment.NewLine);

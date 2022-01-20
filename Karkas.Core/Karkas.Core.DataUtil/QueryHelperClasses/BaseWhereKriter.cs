@@ -42,7 +42,7 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
             set { columnName = value; }
         }
 
-        public abstract string SqlHali
+        public abstract string SqlForm
         {
             get;
         }
