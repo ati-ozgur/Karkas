@@ -6,21 +6,21 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
 {
     public abstract class BaseWhereKriter
     {
-        protected LikePlacementEnum likeYeri = LikePlacementEnum.None;
+        protected LikePlacementEnum likePlacement = LikePlacementEnum.None;
 
-        public LikePlacementEnum LikeYeri
+        public LikePlacementEnum LikePlacement
         {
-            get { return likeYeri; }
-            set { likeYeri = value; }
+            get { return likePlacement; }
+            set { likePlacement = value; }
         }
 
 
-        protected string parameterIsmi;
+        protected string parameterName;
 
         public string ParameterIsmi
         {
-            get { return parameterIsmi; }
-            set { parameterIsmi = value; }
+            get { return parameterName; }
+            set { parameterName = value; }
         }
 
 
@@ -34,12 +34,12 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
 
 
 
-        protected string kolonIsmi;
+        protected string columnName;
 
-        public string KolonIsmi
+        public string ColumnName
         {
-            get { return kolonIsmi; }
-            set { kolonIsmi = value; }
+            get { return columnName; }
+            set { columnName = value; }
         }
 
         public abstract string SqlHali
@@ -52,22 +52,22 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
             string s = "";
             switch (whereOperator)
             {
-                case WhereOperatorEnum.BuyukEsittir:
+                case WhereOperatorEnum.GreaterAndEquals:
                     s = " >= ";
                     break;
-                case WhereOperatorEnum.Buyuktur:
+                case WhereOperatorEnum.Greater:
                     s = ">";
                     break;
-                case WhereOperatorEnum.EsitDegildir:
+                case WhereOperatorEnum.NotEquals:
                     s = "<>";
                     break;
-                case WhereOperatorEnum.Esittir:
+                case WhereOperatorEnum.Equals:
                     s = "=";
                     break;
-                case WhereOperatorEnum.KucukEsittir:
+                case WhereOperatorEnum.LesserAndEquals:
                     s = "<=";
                     break;
-                case WhereOperatorEnum.Kucuktur:
+                case WhereOperatorEnum.Lesser:
                     s = "<";
                     break;
                 case WhereOperatorEnum.Like:

@@ -81,7 +81,7 @@ namespace Karkas.Core.DataUtil
 
         public void WhereKriterineEkle(string pKolonIsmi)
         {
-            WhereCriteria wk = new WhereCriteria(pKolonIsmi,WhereOperatorEnum.Esittir , ParameterCharacter + pKolonIsmi);
+            WhereCriteria wk = new WhereCriteria(pKolonIsmi,WhereOperatorEnum.Equals , ParameterCharacter + pKolonIsmi);
             whereListesi.Add(wk);
         }
         
@@ -134,7 +134,7 @@ namespace Karkas.Core.DataUtil
         }
         public void WhereKriterineTercihliEkle(string pKolonIsmi)
         {
-            WhereKriterineTercihliEkle(pKolonIsmi, WhereOperatorEnum.Esittir, ParameterCharacter + pKolonIsmi);
+            WhereKriterineTercihliEkle(pKolonIsmi, WhereOperatorEnum.Equals, ParameterCharacter + pKolonIsmi);
         }
 
         public void WhereKriterineTercihliEkle(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum)
@@ -150,25 +150,25 @@ namespace Karkas.Core.DataUtil
         public void WhereKriterineArasindaEkle(string pKolonIsmi, string pParameterIsmi1, string pParameterIsmi2)
         {
 
-            WhereCriteria wk1 = new WhereCriteria(pKolonIsmi, WhereOperatorEnum.BuyukEsittir, pParameterIsmi1);
+            WhereCriteria wk1 = new WhereCriteria(pKolonIsmi, WhereOperatorEnum.GreaterAndEquals, pParameterIsmi1);
             whereListesi.Add(wk1);
-            WhereCriteria wk2 = new WhereCriteria(pKolonIsmi, WhereOperatorEnum.KucukEsittir, pParameterIsmi2);
+            WhereCriteria wk2 = new WhereCriteria(pKolonIsmi, WhereOperatorEnum.LesserAndEquals, pParameterIsmi2);
             whereListesi.Add(wk2);
         }
 
         public void WhereKriterineArasindaTercihliEkle(string pKolonIsmi, string pParameterIsmi1, string pParameterIsmi2)
         {
-            WhereCriteriaOptional wk1 = new WhereCriteriaOptional(pKolonIsmi, WhereOperatorEnum.BuyukEsittir, pParameterIsmi1);
+            WhereCriteriaOptional wk1 = new WhereCriteriaOptional(pKolonIsmi, WhereOperatorEnum.GreaterAndEquals, pParameterIsmi1);
             whereTercihliListesi.Add(wk1);
-            WhereCriteriaOptional wk2 = new WhereCriteriaOptional(pKolonIsmi, WhereOperatorEnum.KucukEsittir, pParameterIsmi2);
+            WhereCriteriaOptional wk2 = new WhereCriteriaOptional(pKolonIsmi, WhereOperatorEnum.LesserAndEquals, pParameterIsmi2);
             whereTercihliListesi.Add(wk2);
         }
 
         public void WhereKriterineArasindaTercihliEkleNullDegeriVer(string pKolonIsmi, string pParameterIsmi1, string pParameterIsmi2, string pNullDegeri)
         {
-            WhereCriteriaOptionalNullValue wk1 = new WhereCriteriaOptionalNullValue(pKolonIsmi, WhereOperatorEnum.BuyukEsittir, pParameterIsmi1, pNullDegeri);
+            WhereCriteriaOptionalNullValue wk1 = new WhereCriteriaOptionalNullValue(pKolonIsmi, WhereOperatorEnum.GreaterAndEquals, pParameterIsmi1, pNullDegeri);
             whereTercihliNullDegeriListesi.Add(wk1);
-            WhereCriteriaOptionalNullValue wk2 = new WhereCriteriaOptionalNullValue(pKolonIsmi, WhereOperatorEnum.KucukEsittir, pParameterIsmi2, pNullDegeri);
+            WhereCriteriaOptionalNullValue wk2 = new WhereCriteriaOptionalNullValue(pKolonIsmi, WhereOperatorEnum.LesserAndEquals, pParameterIsmi2, pNullDegeri);
             whereTercihliNullDegeriListesi.Add(wk2);
         }
 
@@ -187,7 +187,7 @@ namespace Karkas.Core.DataUtil
             , string pNullDegeri
             )
         {
-            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pKolonIsmi, WhereOperatorEnum.Esittir, ParameterCharacter + pKolonIsmi, pNullDegeri);
+            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pKolonIsmi, WhereOperatorEnum.Equals, ParameterCharacter + pKolonIsmi, pNullDegeri);
             whereTercihliNullDegeriListesi.Add(wk);
         }
 
