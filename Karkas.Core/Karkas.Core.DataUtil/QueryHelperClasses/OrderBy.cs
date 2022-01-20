@@ -7,18 +7,18 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
     internal class OrderBy
     {
 
-        public OrderBy(string pKolonIsmi) : this(pKolonIsmi,"")
+        public OrderBy(string pColumnName) : this(pColumnName,"")
         {
         }
-        public OrderBy(string pKolonIsmi, OrderByEnum pSiralamaTuru)
+        public OrderBy(string pColumnName, OrderByEnum pSiralamaTuru)
         {
             siralamaTuru = pSiralamaTuru;
-            kolonIsmi = pKolonIsmi;
+            kolonIsmi = pColumnName;
         }
-        public OrderBy(string pKolonIsmi, String pSiralamaTuru)
+        public OrderBy(string pColumnName, String pSiralamaTuru)
         {
             siralamaTuruAsString = pSiralamaTuru;
-            kolonIsmi = pKolonIsmi;
+            kolonIsmi = pColumnName;
         }
 
         private OrderByEnum siralamaTuru;

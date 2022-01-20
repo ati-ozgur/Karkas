@@ -6,14 +6,14 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
 {
     internal class WhereCriteriaOptional : BaseWhereKriter
     {
-        public WhereCriteriaOptional(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi)
+        public WhereCriteriaOptional(string pColumnName, WhereOperatorEnum pWhereOperator, string pParamaterIsmi)
         {
             whereOperator = pWhereOperator;
-            columnName = pKolonIsmi;
+            columnName = pColumnName;
             parameterName = pParamaterIsmi;
         }
-        public WhereCriteriaOptional(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi, LikePlacementEnum pLikeYeriEnum)
-            : this(pKolonIsmi, pWhereOperator, pParamaterIsmi)
+        public WhereCriteriaOptional(string pColumnName, WhereOperatorEnum pWhereOperator, string pParamaterIsmi, LikePlacementEnum pLikeYeriEnum)
+            : this(pColumnName, pWhereOperator, pParamaterIsmi)
         {
             likePlacement = pLikeYeriEnum;
         }

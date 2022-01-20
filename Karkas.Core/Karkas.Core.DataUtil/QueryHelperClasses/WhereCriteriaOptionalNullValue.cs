@@ -7,22 +7,22 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
 
     internal class WhereCriteriaOptionalNullValue : BaseWhereKriter
     {
-        public WhereCriteriaOptionalNullValue(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi, string pNullDegeri)
+        public WhereCriteriaOptionalNullValue(string pColumnName, WhereOperatorEnum pWhereOperator, string pParamaterIsmi, string pNullDegeri)
         {
             whereOperator = pWhereOperator;
-            columnName = pKolonIsmi;
+            columnName = pColumnName;
             parameterName = pParamaterIsmi;
             nullDegeri = pNullDegeri;
         }
 
         private string nullDegeri = "";
         public WhereCriteriaOptionalNullValue(
-            string pKolonIsmi
+            string pColumnName
             , WhereOperatorEnum pWhereOperator
             , string pParamaterIsmi
             , string pNullDegeri
             , LikePlacementEnum pLikeYeriEnum)
-            : this(pKolonIsmi, pWhereOperator, pParamaterIsmi, pNullDegeri)
+            : this(pColumnName, pWhereOperator, pParamaterIsmi, pNullDegeri)
         {
             likePlacement = pLikeYeriEnum;
         }

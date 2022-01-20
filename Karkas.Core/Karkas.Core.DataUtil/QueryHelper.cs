@@ -79,21 +79,21 @@ namespace Karkas.Core.DataUtil
             return sb.ToString();
         }
 
-        public void WhereKriterineEkle(string pKolonIsmi)
+        public void WhereKriterineEkle(string pColumnName)
         {
-            WhereCriteria wk = new WhereCriteria(pKolonIsmi,WhereOperatorEnum.Equals , ParameterCharacter + pKolonIsmi);
+            WhereCriteria wk = new WhereCriteria(pColumnName,WhereOperatorEnum.Equals , ParameterCharacter + pColumnName);
             listWhere.Add(wk);
         }
         
-        public void WhereKriterineEkle(string pKolonIsmi, WhereOperatorEnum whereOperator)
+        public void WhereKriterineEkle(string pColumnName, WhereOperatorEnum whereOperator)
         {
-            WhereCriteria wk = new WhereCriteria(pKolonIsmi, whereOperator, ParameterCharacter + pKolonIsmi);
+            WhereCriteria wk = new WhereCriteria(pColumnName, whereOperator, ParameterCharacter + pColumnName);
             listWhere.Add(wk);
         }
 
-        public void WhereKriterineEkle(string pKolonIsmi, WhereOperatorEnum whereOperator, string pParameterIsmi)
+        public void WhereKriterineEkle(string pColumnName, WhereOperatorEnum whereOperator, string pParameterIsmi)
         {
-            WhereCriteria wk = new WhereCriteria(pKolonIsmi, whereOperator, pParameterIsmi);
+            WhereCriteria wk = new WhereCriteria(pColumnName, whereOperator, pParameterIsmi);
             listWhere.Add(wk);
         }
 
@@ -126,75 +126,75 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        public void WhereKriterineTercihliEkle(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum, string pParameterIsmi)
+        public void WhereKriterineTercihliEkle(string pColumnName, WhereOperatorEnum pWhereOperatorEnum, string pParameterIsmi)
         {
-            WhereCriteriaOptional wk = new WhereCriteriaOptional(pKolonIsmi, pWhereOperatorEnum, pParameterIsmi);
+            WhereCriteriaOptional wk = new WhereCriteriaOptional(pColumnName, pWhereOperatorEnum, pParameterIsmi);
             listWhereOptional.Add(wk);
 
         }
-        public void WhereKriterineTercihliEkle(string pKolonIsmi)
+        public void WhereKriterineTercihliEkle(string pColumnName)
         {
-            WhereKriterineTercihliEkle(pKolonIsmi, WhereOperatorEnum.Equals, ParameterCharacter + pKolonIsmi);
+            WhereKriterineTercihliEkle(pColumnName, WhereOperatorEnum.Equals, ParameterCharacter + pColumnName);
         }
 
-        public void WhereKriterineTercihliEkle(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum)
+        public void WhereKriterineTercihliEkle(string pColumnName, WhereOperatorEnum pWhereOperatorEnum)
         {
-            WhereKriterineTercihliEkle(pKolonIsmi, pWhereOperatorEnum, ParameterCharacter + pKolonIsmi);
+            WhereKriterineTercihliEkle(pColumnName, pWhereOperatorEnum, ParameterCharacter + pColumnName);
         }
 
-        public void WhereKriterineTercihliEkle(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum, string pParameterIsmi, LikePlacementEnum pLikeYeriEnum)
+        public void WhereKriterineTercihliEkle(string pColumnName, WhereOperatorEnum pWhereOperatorEnum, string pParameterIsmi, LikePlacementEnum pLikeYeriEnum)
         {
-            WhereCriteriaOptional wk = new WhereCriteriaOptional(pKolonIsmi, pWhereOperatorEnum, pParameterIsmi, pLikeYeriEnum);
+            WhereCriteriaOptional wk = new WhereCriteriaOptional(pColumnName, pWhereOperatorEnum, pParameterIsmi, pLikeYeriEnum);
             listWhereOptional.Add(wk);
         }
-        public void WhereKriterineArasindaEkle(string pKolonIsmi, string pParameterIsmi1, string pParameterIsmi2)
+        public void WhereKriterineArasindaEkle(string pColumnName, string pParameterIsmi1, string pParameterIsmi2)
         {
 
-            WhereCriteria wk1 = new WhereCriteria(pKolonIsmi, WhereOperatorEnum.GreaterAndEquals, pParameterIsmi1);
+            WhereCriteria wk1 = new WhereCriteria(pColumnName, WhereOperatorEnum.GreaterAndEquals, pParameterIsmi1);
             listWhere.Add(wk1);
-            WhereCriteria wk2 = new WhereCriteria(pKolonIsmi, WhereOperatorEnum.LesserAndEquals, pParameterIsmi2);
+            WhereCriteria wk2 = new WhereCriteria(pColumnName, WhereOperatorEnum.LesserAndEquals, pParameterIsmi2);
             listWhere.Add(wk2);
         }
 
-        public void WhereKriterineArasindaTercihliEkle(string pKolonIsmi, string pParameterIsmi1, string pParameterIsmi2)
+        public void WhereKriterineArasindaTercihliEkle(string pColumnName, string pParameterIsmi1, string pParameterIsmi2)
         {
-            WhereCriteriaOptional wk1 = new WhereCriteriaOptional(pKolonIsmi, WhereOperatorEnum.GreaterAndEquals, pParameterIsmi1);
+            WhereCriteriaOptional wk1 = new WhereCriteriaOptional(pColumnName, WhereOperatorEnum.GreaterAndEquals, pParameterIsmi1);
             listWhereOptional.Add(wk1);
-            WhereCriteriaOptional wk2 = new WhereCriteriaOptional(pKolonIsmi, WhereOperatorEnum.LesserAndEquals, pParameterIsmi2);
+            WhereCriteriaOptional wk2 = new WhereCriteriaOptional(pColumnName, WhereOperatorEnum.LesserAndEquals, pParameterIsmi2);
             listWhereOptional.Add(wk2);
         }
 
-        public void WhereKriterineArasindaTercihliEkleNullDegeriVer(string pKolonIsmi, string pParameterIsmi1, string pParameterIsmi2, string pNullDegeri)
+        public void WhereKriterineArasindaTercihliEkleNullDegeriVer(string pColumnName, string pParameterIsmi1, string pParameterIsmi2, string pNullDegeri)
         {
-            WhereCriteriaOptionalNullValue wk1 = new WhereCriteriaOptionalNullValue(pKolonIsmi, WhereOperatorEnum.GreaterAndEquals, pParameterIsmi1, pNullDegeri);
+            WhereCriteriaOptionalNullValue wk1 = new WhereCriteriaOptionalNullValue(pColumnName, WhereOperatorEnum.GreaterAndEquals, pParameterIsmi1, pNullDegeri);
             listWhereOptionalNullValues.Add(wk1);
-            WhereCriteriaOptionalNullValue wk2 = new WhereCriteriaOptionalNullValue(pKolonIsmi, WhereOperatorEnum.LesserAndEquals, pParameterIsmi2, pNullDegeri);
+            WhereCriteriaOptionalNullValue wk2 = new WhereCriteriaOptionalNullValue(pColumnName, WhereOperatorEnum.LesserAndEquals, pParameterIsmi2, pNullDegeri);
             listWhereOptionalNullValues.Add(wk2);
         }
 
 
         public void WhereKriterineTercihliEkleNullDegeriVer(
-            string pKolonIsmi
+            string pColumnName
             , WhereOperatorEnum pWhereOperatorEnum
             , string pParameterIsmi, string pNullDegeri
             )
         {
-            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pKolonIsmi, pWhereOperatorEnum, pParameterIsmi, pNullDegeri);
+            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pColumnName, pWhereOperatorEnum, pParameterIsmi, pNullDegeri);
             listWhereOptionalNullValues.Add(wk);
         }
         public void WhereKriterineTercihliEkleNullDegeriVer(
-            string pKolonIsmi
+            string pColumnName
             , string pNullDegeri
             )
         {
-            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pKolonIsmi, WhereOperatorEnum.Equals, ParameterCharacter + pKolonIsmi, pNullDegeri);
+            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pColumnName, WhereOperatorEnum.Equals, ParameterCharacter + pColumnName, pNullDegeri);
             listWhereOptionalNullValues.Add(wk);
         }
 
 
-        public void WhereKriterineTercihliEkleNullDegeriVer(string pKolonIsmi, WhereOperatorEnum pWhereOperatorEnum, string pParameterIsmi, LikePlacementEnum pLikeYeriEnum, string pNullDegeri)
+        public void WhereKriterineTercihliEkleNullDegeriVer(string pColumnName, WhereOperatorEnum pWhereOperatorEnum, string pParameterIsmi, LikePlacementEnum pLikeYeriEnum, string pNullDegeri)
         {
-            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pKolonIsmi, pWhereOperatorEnum, pParameterIsmi, pNullDegeri, pLikeYeriEnum);
+            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pColumnName, pWhereOperatorEnum, pParameterIsmi, pNullDegeri, pLikeYeriEnum);
             listWhereOptionalNullValues.Add(wk);
         }
     }
