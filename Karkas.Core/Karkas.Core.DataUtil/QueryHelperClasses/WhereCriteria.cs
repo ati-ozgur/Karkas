@@ -7,16 +7,16 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
 
     internal class WhereCriteria : BaseWhereKriter
     {
-        public WhereCriteria(string pColumnName, WhereOperatorEnum pWhereOperator, string pParamaterIsmi)
+        public WhereCriteria(string pColumnName, WhereOperatorEnum pWhereOperator, string pParameterName)
         {
             whereOperator = pWhereOperator;
             columnName = pColumnName;
-            parameterName = pParamaterIsmi;
+            parameterName = pParameterName;
 
         }
 
-        public WhereCriteria(string pColumnName, WhereOperatorEnum pWhereOperator, string pParamaterIsmi, LikePlacementEnum pLikeYeriEnum)
-            : this(pColumnName, pWhereOperator, pParamaterIsmi)
+        public WhereCriteria(string pColumnName, WhereOperatorEnum pWhereOperator, string pParameterName, LikePlacementEnum pLikeYeriEnum)
+            : this(pColumnName, pWhereOperator, pParameterName)
         {
             likePlacement = pLikeYeriEnum;
         }

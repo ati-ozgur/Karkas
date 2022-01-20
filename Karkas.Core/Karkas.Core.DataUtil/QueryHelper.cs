@@ -164,11 +164,11 @@ namespace Karkas.Core.DataUtil
             listWhereOptional.Add(wk2);
         }
 
-        public void AddWhereCriteriaBetweenOptionalNullValueSet(string pColumnName, string pParameterName1, string pParameterName2, string pNullDegeri)
+        public void AddWhereCriteriaBetweenOptionalNullValueSet(string pColumnName, string pParameterName1, string pParameterName2, string pNullValue)
         {
-            WhereCriteriaOptionalNullValue wk1 = new WhereCriteriaOptionalNullValue(pColumnName, WhereOperatorEnum.GreaterAndEquals, pParameterName1, pNullDegeri);
+            WhereCriteriaOptionalNullValue wk1 = new WhereCriteriaOptionalNullValue(pColumnName, WhereOperatorEnum.GreaterAndEquals, pParameterName1, pNullValue);
             listWhereOptionalNullValues.Add(wk1);
-            WhereCriteriaOptionalNullValue wk2 = new WhereCriteriaOptionalNullValue(pColumnName, WhereOperatorEnum.LesserAndEquals, pParameterName2, pNullDegeri);
+            WhereCriteriaOptionalNullValue wk2 = new WhereCriteriaOptionalNullValue(pColumnName, WhereOperatorEnum.LesserAndEquals, pParameterName2, pNullValue);
             listWhereOptionalNullValues.Add(wk2);
         }
 
@@ -176,25 +176,25 @@ namespace Karkas.Core.DataUtil
         public void AddWhereCriteriaOptionalNullValueSet(
             string pColumnName
             , WhereOperatorEnum pWhereOperatorEnum
-            , string pParameterName, string pNullDegeri
+            , string pParameterName, string pNullValue
             )
         {
-            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pColumnName, pWhereOperatorEnum, pParameterName, pNullDegeri);
+            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pColumnName, pWhereOperatorEnum, pParameterName, pNullValue);
             listWhereOptionalNullValues.Add(wk);
         }
         public void AddWhereCriteriaOptionalNullValueSet(
             string pColumnName
-            , string pNullDegeri
+            , string pNullValue
             )
         {
-            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pColumnName, WhereOperatorEnum.Equals, ParameterCharacter + pColumnName, pNullDegeri);
+            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pColumnName, WhereOperatorEnum.Equals, ParameterCharacter + pColumnName, pNullValue);
             listWhereOptionalNullValues.Add(wk);
         }
 
 
-        public void AddWhereCriteriaOptionalNullValueSet(string pColumnName, WhereOperatorEnum pWhereOperatorEnum, string pParameterName, LikePlacementEnum pLikeYeriEnum, string pNullDegeri)
+        public void AddWhereCriteriaOptionalNullValueSet(string pColumnName, WhereOperatorEnum pWhereOperatorEnum, string pParameterName, LikePlacementEnum pLikeYeriEnum, string pNullValue)
         {
-            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pColumnName, pWhereOperatorEnum, pParameterName, pNullDegeri, pLikeYeriEnum);
+            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pColumnName, pWhereOperatorEnum, pParameterName, pNullValue, pLikeYeriEnum);
             listWhereOptionalNullValues.Add(wk);
         }
     }
