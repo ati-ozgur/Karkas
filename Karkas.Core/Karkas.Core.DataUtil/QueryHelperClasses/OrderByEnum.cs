@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Karkas.Core.DataUtil.SorguYardimcisiSiniflari
+namespace Karkas.Core.DataUtil.QueryHelperClasses
 {
-    public enum SiralamaEnum
+    public enum OrderByEnum
     {
         ASC = 1,
         DESC = 2,

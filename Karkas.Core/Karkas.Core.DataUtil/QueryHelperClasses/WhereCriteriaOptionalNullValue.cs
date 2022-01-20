@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Karkas.Core.DataUtil.SorguYardimcisiSiniflari
+namespace Karkas.Core.DataUtil.QueryHelperClasses
 {
 
-    internal class WhereKriterTercihliNullDegeri : BaseWhereKriter
+    internal class WhereCriteriaOptionalNullValue : BaseWhereKriter
     {
-        public WhereKriterTercihliNullDegeri(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi, string pNullDegeri)
+        public WhereCriteriaOptionalNullValue(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi, string pNullDegeri)
         {
             whereOperator = pWhereOperator;
             kolonIsmi = pKolonIsmi;
@@ -16,7 +16,7 @@ namespace Karkas.Core.DataUtil.SorguYardimcisiSiniflari
         }
 
         private string nullDegeri = "";
-        public WhereKriterTercihliNullDegeri(
+        public WhereCriteriaOptionalNullValue(
             string pKolonIsmi
             , WhereOperatorEnum pWhereOperator
             , string pParamaterIsmi

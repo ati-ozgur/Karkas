@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Karkas.Core.DataUtil.SorguYardimcisiSiniflari
+namespace Karkas.Core.DataUtil.QueryHelperClasses
 {
-    internal class WhereKriterTercihli : BaseWhereKriter
+    internal class WhereCriteriaOptional : BaseWhereKriter
     {
-        public WhereKriterTercihli(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi)
+        public WhereCriteriaOptional(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi)
         {
             whereOperator = pWhereOperator;
             kolonIsmi = pKolonIsmi;
             parameterIsmi = pParamaterIsmi;
         }
-        public WhereKriterTercihli(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi, LikeYeriEnum pLikeYeriEnum)
+        public WhereCriteriaOptional(string pKolonIsmi, WhereOperatorEnum pWhereOperator, string pParamaterIsmi, LikeYeriEnum pLikeYeriEnum)
             : this(pKolonIsmi, pWhereOperator, pParamaterIsmi)
         {
             likeYeri = pLikeYeriEnum;

@@ -2,28 +2,28 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Karkas.Core.DataUtil.SorguYardimcisiSiniflari
+namespace Karkas.Core.DataUtil.QueryHelperClasses
 {
-    internal class Siralama
+    internal class OrderBy
     {
 
-        public Siralama(string pKolonIsmi) : this(pKolonIsmi,"")
+        public OrderBy(string pKolonIsmi) : this(pKolonIsmi,"")
         {
         }
-        public Siralama(string pKolonIsmi, SiralamaEnum pSiralamaTuru)
+        public OrderBy(string pKolonIsmi, OrderByEnum pSiralamaTuru)
         {
             siralamaTuru = pSiralamaTuru;
             kolonIsmi = pKolonIsmi;
         }
-        public Siralama(string pKolonIsmi, String pSiralamaTuru)
+        public OrderBy(string pKolonIsmi, String pSiralamaTuru)
         {
             siralamaTuruAsString = pSiralamaTuru;
             kolonIsmi = pKolonIsmi;
         }
 
-        private SiralamaEnum siralamaTuru;
+        private OrderByEnum siralamaTuru;
 
-        public SiralamaEnum SiralamaTuru
+        public OrderByEnum SiralamaTuru
         {
             get { return siralamaTuru; }
             set { siralamaTuru = value; }
@@ -55,10 +55,10 @@ namespace Karkas.Core.DataUtil.SorguYardimcisiSiniflari
                 {
                     switch (siralamaTuru)
                     {
-                        case SiralamaEnum.ASC:
+                        case OrderByEnum.ASC:
                             s = "ASC";
                             break;
-                        case SiralamaEnum.Azalarak:
+                        case OrderByEnum.Azalarak:
                             s = "DESC";
                             break;
                     }
