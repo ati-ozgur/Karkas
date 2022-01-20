@@ -173,7 +173,7 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        public void AddWhereCriteriaOptionalNullDegeriVer(
+        public void AddWhereCriteriaOptionalNullValueSet(
             string pColumnName
             , WhereOperatorEnum pWhereOperatorEnum
             , string pParameterName, string pNullDegeri
@@ -182,7 +182,7 @@ namespace Karkas.Core.DataUtil
             WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pColumnName, pWhereOperatorEnum, pParameterName, pNullDegeri);
             listWhereOptionalNullValues.Add(wk);
         }
-        public void AddWhereCriteriaOptionalNullDegeriVer(
+        public void AddWhereCriteriaOptionalNullValueSet(
             string pColumnName
             , string pNullDegeri
             )
@@ -192,7 +192,7 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        public void AddWhereCriteriaOptionalNullDegeriVer(string pColumnName, WhereOperatorEnum pWhereOperatorEnum, string pParameterName, LikePlacementEnum pLikeYeriEnum, string pNullDegeri)
+        public void AddWhereCriteriaOptionalNullValueSet(string pColumnName, WhereOperatorEnum pWhereOperatorEnum, string pParameterName, LikePlacementEnum pLikeYeriEnum, string pNullDegeri)
         {
             WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pColumnName, pWhereOperatorEnum, pParameterName, pNullDegeri, pLikeYeriEnum);
             listWhereOptionalNullValues.Add(wk);
