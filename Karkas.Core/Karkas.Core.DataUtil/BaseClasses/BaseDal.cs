@@ -150,7 +150,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
                 string filtre = filtreListesi[i];
                 sy.AddWhereCriteria(filtre);
-                builder.parameterEkle(ParameterCharacter + filtre, degerListesi[i]);
+                builder.addParameter(ParameterCharacter + filtre, degerListesi[i]);
             }
             SorguCalistir(liste, sy.GetCriteriaResultsWithoutWhere(), builder.GetParameterArray());
             return liste;

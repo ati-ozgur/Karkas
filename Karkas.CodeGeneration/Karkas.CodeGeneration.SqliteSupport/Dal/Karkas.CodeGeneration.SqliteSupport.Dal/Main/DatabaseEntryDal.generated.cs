@@ -176,55 +176,55 @@ public partial class DatabaseEntryDal : BaseDal<DatabaseEntry>
 	{
 		ParameterBuilder builder = Template.getParameterBuilder();
 		builder.Command = cmd;
-		builder.parameterEkle("@ConnectionName",DbType.String, row.ConnectionName);
-		builder.parameterEkle("@ConnectionDatabaseType",DbType.String, row.ConnectionDatabaseType);
-		builder.parameterEkle("@ConnectionDbProviderName",DbType.String, row.ConnectionDbProviderName);
-		builder.parameterEkle("@ConnectionString",DbType.String, row.ConnectionString);
-		builder.parameterEkle("@DatabaseNamePhysical",DbType.String, row.DatabaseNamePhysical);
-		builder.parameterEkle("@DatabaseNameLogical",DbType.String, row.DatabaseNameLogical);
-		builder.parameterEkle("@ProjectNameSpace",DbType.String, row.ProjectNameSpace);
-		builder.parameterEkle("@CodeGenerationDirectory",DbType.String, row.CodeGenerationDirectory);
-		builder.parameterEkle("@ViewCodeGenerate",DbType.String, row.ViewCodeGenerate);
-		builder.parameterEkle("@StoredProcedureCodeGenerate",DbType.String, row.StoredProcedureCodeGenerate);
-		builder.parameterEkle("@SequenceCodeGenerate",DbType.String, row.SequenceCodeGenerate);
-		builder.parameterEkle("@UseSchemaNameInSqlQueries",DbType.String, row.UseSchemaNameInSqlQueries);
-		builder.parameterEkle("@UseSchemaNameInFolders",DbType.String, row.UseSchemaNameInFolders);
-		builder.parameterEkle("@IgnoreSystemTables",DbType.String, row.IgnoreSystemTables);
-		builder.parameterEkle("@IgnoredSchemaList",DbType.String, row.IgnoredSchemaList);
-		builder.parameterEkle("@AbbrevationsAsString",DbType.String, row.AbbrevationsAsString);
-		builder.parameterEkle("@CreationTime",DbType.String, row.CreationTime);
-		builder.parameterEkle("@LastAccessTime",DbType.String, row.LastAccessTime);
-		builder.parameterEkle("@LastWriteTime",DbType.String, row.LastWriteTime);
+		builder.addParameter("@ConnectionName",DbType.String, row.ConnectionName);
+		builder.addParameter("@ConnectionDatabaseType",DbType.String, row.ConnectionDatabaseType);
+		builder.addParameter("@ConnectionDbProviderName",DbType.String, row.ConnectionDbProviderName);
+		builder.addParameter("@ConnectionString",DbType.String, row.ConnectionString);
+		builder.addParameter("@DatabaseNamePhysical",DbType.String, row.DatabaseNamePhysical);
+		builder.addParameter("@DatabaseNameLogical",DbType.String, row.DatabaseNameLogical);
+		builder.addParameter("@ProjectNameSpace",DbType.String, row.ProjectNameSpace);
+		builder.addParameter("@CodeGenerationDirectory",DbType.String, row.CodeGenerationDirectory);
+		builder.addParameter("@ViewCodeGenerate",DbType.String, row.ViewCodeGenerate);
+		builder.addParameter("@StoredProcedureCodeGenerate",DbType.String, row.StoredProcedureCodeGenerate);
+		builder.addParameter("@SequenceCodeGenerate",DbType.String, row.SequenceCodeGenerate);
+		builder.addParameter("@UseSchemaNameInSqlQueries",DbType.String, row.UseSchemaNameInSqlQueries);
+		builder.addParameter("@UseSchemaNameInFolders",DbType.String, row.UseSchemaNameInFolders);
+		builder.addParameter("@IgnoreSystemTables",DbType.String, row.IgnoreSystemTables);
+		builder.addParameter("@IgnoredSchemaList",DbType.String, row.IgnoredSchemaList);
+		builder.addParameter("@AbbrevationsAsString",DbType.String, row.AbbrevationsAsString);
+		builder.addParameter("@CreationTime",DbType.String, row.CreationTime);
+		builder.addParameter("@LastAccessTime",DbType.String, row.LastAccessTime);
+		builder.addParameter("@LastWriteTime",DbType.String, row.LastWriteTime);
 	}
 	protected override void UpdateCommandParametersAdd(DbCommand cmd, 	DatabaseEntry	 row)
 	{
 		ParameterBuilder builder = Template.getParameterBuilder();
 		builder.Command = cmd;
-		builder.parameterEkle("@ConnectionName",DbType.String, row.ConnectionName);
-		builder.parameterEkle("@ConnectionDatabaseType",DbType.String, row.ConnectionDatabaseType);
-		builder.parameterEkle("@ConnectionDbProviderName",DbType.String, row.ConnectionDbProviderName);
-		builder.parameterEkle("@ConnectionString",DbType.String, row.ConnectionString);
-		builder.parameterEkle("@DatabaseNamePhysical",DbType.String, row.DatabaseNamePhysical);
-		builder.parameterEkle("@DatabaseNameLogical",DbType.String, row.DatabaseNameLogical);
-		builder.parameterEkle("@ProjectNameSpace",DbType.String, row.ProjectNameSpace);
-		builder.parameterEkle("@CodeGenerationDirectory",DbType.String, row.CodeGenerationDirectory);
-		builder.parameterEkle("@ViewCodeGenerate",DbType.String, row.ViewCodeGenerate);
-		builder.parameterEkle("@StoredProcedureCodeGenerate",DbType.String, row.StoredProcedureCodeGenerate);
-		builder.parameterEkle("@SequenceCodeGenerate",DbType.String, row.SequenceCodeGenerate);
-		builder.parameterEkle("@UseSchemaNameInSqlQueries",DbType.String, row.UseSchemaNameInSqlQueries);
-		builder.parameterEkle("@UseSchemaNameInFolders",DbType.String, row.UseSchemaNameInFolders);
-		builder.parameterEkle("@IgnoreSystemTables",DbType.String, row.IgnoreSystemTables);
-		builder.parameterEkle("@IgnoredSchemaList",DbType.String, row.IgnoredSchemaList);
-		builder.parameterEkle("@AbbrevationsAsString",DbType.String, row.AbbrevationsAsString);
-		builder.parameterEkle("@CreationTime",DbType.String, row.CreationTime);
-		builder.parameterEkle("@LastAccessTime",DbType.String, row.LastAccessTime);
-		builder.parameterEkle("@LastWriteTime",DbType.String, row.LastWriteTime);
+		builder.addParameter("@ConnectionName",DbType.String, row.ConnectionName);
+		builder.addParameter("@ConnectionDatabaseType",DbType.String, row.ConnectionDatabaseType);
+		builder.addParameter("@ConnectionDbProviderName",DbType.String, row.ConnectionDbProviderName);
+		builder.addParameter("@ConnectionString",DbType.String, row.ConnectionString);
+		builder.addParameter("@DatabaseNamePhysical",DbType.String, row.DatabaseNamePhysical);
+		builder.addParameter("@DatabaseNameLogical",DbType.String, row.DatabaseNameLogical);
+		builder.addParameter("@ProjectNameSpace",DbType.String, row.ProjectNameSpace);
+		builder.addParameter("@CodeGenerationDirectory",DbType.String, row.CodeGenerationDirectory);
+		builder.addParameter("@ViewCodeGenerate",DbType.String, row.ViewCodeGenerate);
+		builder.addParameter("@StoredProcedureCodeGenerate",DbType.String, row.StoredProcedureCodeGenerate);
+		builder.addParameter("@SequenceCodeGenerate",DbType.String, row.SequenceCodeGenerate);
+		builder.addParameter("@UseSchemaNameInSqlQueries",DbType.String, row.UseSchemaNameInSqlQueries);
+		builder.addParameter("@UseSchemaNameInFolders",DbType.String, row.UseSchemaNameInFolders);
+		builder.addParameter("@IgnoreSystemTables",DbType.String, row.IgnoreSystemTables);
+		builder.addParameter("@IgnoredSchemaList",DbType.String, row.IgnoredSchemaList);
+		builder.addParameter("@AbbrevationsAsString",DbType.String, row.AbbrevationsAsString);
+		builder.addParameter("@CreationTime",DbType.String, row.CreationTime);
+		builder.addParameter("@LastAccessTime",DbType.String, row.LastAccessTime);
+		builder.addParameter("@LastWriteTime",DbType.String, row.LastWriteTime);
 	}
 	protected override void DeleteCommandParametersAdd(DbCommand cmd, 	DatabaseEntry	 row)
 	{
 		ParameterBuilder builder = Template.getParameterBuilder();
 		builder.Command = cmd;
-		builder.parameterEkle("@ConnectionName",DbType.String, row.ConnectionName);
+		builder.addParameter("@ConnectionName",DbType.String, row.ConnectionName);
 	}
 	public override string DbProviderName
 	{

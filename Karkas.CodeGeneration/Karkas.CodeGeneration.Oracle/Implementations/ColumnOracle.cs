@@ -38,7 +38,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
                     if (!relatedSequenceExists.HasValue)
                     {
                         ParameterBuilder builder = template.getParameterBuilder();
-                        builder.parameterEkle("tableName", DbType.String, Table.Name);
+                        builder.addParameter("tableName", DbType.String, Table.Name);
                         Object objSonuc = template.TekDegerGetir(SQL_SEQUENCE_EXISTS, builder.GetParameterArray());
                         Decimal sonuc = (Decimal)objSonuc;
                         if (sonuc > 0)
@@ -93,9 +93,9 @@ AND cons.owner = cols.owner
                 if (!isInPrimaryKey.HasValue)
                 {
                     ParameterBuilder builder = template.getParameterBuilder();
-                    builder.parameterEkle("tableName", DbType.String, tableOrView.Name);
-                    builder.parameterEkle("schemaName", DbType.String, tableOrView.Schema);
-                    builder.parameterEkle("columnName", DbType.String, Name);
+                    builder.addParameter("tableName", DbType.String, tableOrView.Name);
+                    builder.addParameter("schemaName", DbType.String, tableOrView.Schema);
+                    builder.addParameter("columnName", DbType.String, Name);
                     Object objSonuc = template.TekDegerGetir(SQL_PRIMARY_KEY, builder.GetParameterArray());
                     Decimal sonuc = (Decimal)objSonuc;
                     if (sonuc > 0)
@@ -134,9 +134,9 @@ ON
                 if (!isInForeignKey.HasValue)
                 {
                     ParameterBuilder builder = template.getParameterBuilder();
-                    builder.parameterEkle("tableName", DbType.String, tableOrView.Name);
-                    builder.parameterEkle("schemaName", DbType.String, tableOrView.Schema);
-                    builder.parameterEkle("columnName", DbType.String, Name);
+                    builder.addParameter("tableName", DbType.String, tableOrView.Name);
+                    builder.addParameter("schemaName", DbType.String, tableOrView.Schema);
+                    builder.addParameter("columnName", DbType.String, Name);
                     Object objSonuc = template.TekDegerGetir(SQL_FOREIGN_KEY, builder.GetParameterArray());
                     Decimal sonuc = (Decimal)objSonuc;
                     if (sonuc > 0)
@@ -214,9 +214,9 @@ AND
                 if (columnValuesInDatabase == null)
                 {
                     ParameterBuilder builder = template.getParameterBuilder();
-                    builder.parameterEkle("tableName", DbType.String, tableOrView.Name);
-                    builder.parameterEkle("schemaName", DbType.String, tableOrView.Schema);
-                    builder.parameterEkle("columnName", DbType.String, Name);
+                    builder.addParameter("tableName", DbType.String, tableOrView.Name);
+                    builder.addParameter("schemaName", DbType.String, tableOrView.Schema);
+                    builder.addParameter("columnName", DbType.String, Name);
                     DataTable dtColumnValues = template.DataTableOlustur(SQL_COLUMN_VALUES, builder.GetParameterArray());
                     if (dtColumnValues.Rows.Count > 0)
                     {

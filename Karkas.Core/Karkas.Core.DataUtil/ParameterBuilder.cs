@@ -43,7 +43,7 @@ namespace Karkas.Core.DataUtil
 
 
 
-        private DbParameter parameterDegerleriniSetle(string parameterName, DbType dbType)
+        private DbParameter setParameterValue(string parameterName, DbType dbType)
         {
             DbParameter prm = getGenericDbParamater();
             prm.ParameterName = parameterName;
@@ -81,7 +81,7 @@ namespace Karkas.Core.DataUtil
         //    return prm;
         //}
 
-        private DbParameter parameterDegerleriniSetle(string parameterName, DbType dbType, object value)
+        private DbParameter setParameterValue(string parameterName, DbType dbType, object value)
         {
             DbParameter prm = getGenericDbParamater();
             prm.ParameterName = parameterName;
@@ -97,41 +97,41 @@ namespace Karkas.Core.DataUtil
             return prm;
         }
 
-        internal void parameterEkle(string parameterName, object value)
+        internal void addParameter(string parameterName, object value)
         {
             DbParameter prm = null;
             if (value is Int32)
             {
-                prm = parameterDegerleriniSetle(parameterName, DbType.Int32, value);
+                prm = setParameterValue(parameterName, DbType.Int32, value);
             }
             else if (value is string)
             {
-                prm = parameterDegerleriniSetle(parameterName, DbType.AnsiString, value);
+                prm = setParameterValue(parameterName, DbType.AnsiString, value);
             }
             else if (value is Int16)
             {
-                prm = parameterDegerleriniSetle(parameterName, DbType.Int16, value);
+                prm = setParameterValue(parameterName, DbType.Int16, value);
             }
             else if (value is Int64)
             {
-                prm = parameterDegerleriniSetle(parameterName, DbType.Int64, value);
+                prm = setParameterValue(parameterName, DbType.Int64, value);
             }
             else if (value is Int64)
             {
-                prm = parameterDegerleriniSetle(parameterName, DbType.Int64, value);
+                prm = setParameterValue(parameterName, DbType.Int64, value);
             }
             else
             {
-                prm = parameterDegerleriniSetle(parameterName, DbType.Object, value);
+                prm = setParameterValue(parameterName, DbType.Object, value);
             }
-            parameteriyiCommandYadaListeyeEkle(prm);
+            addParameterToCommandOrList(prm);
         }
 
 
-        public void parameterEkle(string parameterName, DbType dbType, object value)
+        public void addParameter(string parameterName, DbType dbType, object value)
         {
-            DbParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
-            parameteriyiCommandYadaListeyeEkle(prm);
+            DbParameter prm = setParameterValue(parameterName, dbType, value);
+            addParameterToCommandOrList(prm);
         }
         //public void parameterEkle(string parameterName, SqlDbType dbType, object value)
         //{
@@ -140,11 +140,11 @@ namespace Karkas.Core.DataUtil
         //}
 
 
-        public void parameterEkle(string parameterName, DbType dbType, object value, int size)
+        public void addParameter(string parameterName, DbType dbType, object value, int size)
         {
-            DbParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
+            DbParameter prm = setParameterValue(parameterName, dbType, value);
             prm.Size = size;
-            parameteriyiCommandYadaListeyeEkle(prm);
+            addParameterToCommandOrList(prm);
         }
 
         //public void parameterEkle(string parameterName, SqlDbType dbType, object value, int size)
@@ -154,33 +154,33 @@ namespace Karkas.Core.DataUtil
         //    parameteriyiCommandYadaListeyeEkle(prm);
         //}
 
-        public void parameterEkleReturnValue(string parameterName, DbType dbType)
+        public void addParameterReturn(string parameterName, DbType dbType)
         {
-            DbParameter prm = parameterDegerleriniSetle(parameterName, dbType);
+            DbParameter prm = setParameterValue(parameterName, dbType);
             prm.Direction = ParameterDirection.ReturnValue;
-            parameteriyiCommandYadaListeyeEkle(prm);
+            addParameterToCommandOrList(prm);
         }
-        public void parameterEkleOutput(string parameterName, DbType dbType)
+        public void addParameterOutput(string parameterName, DbType dbType)
         {
-            DbParameter prm = parameterDegerleriniSetle(parameterName, dbType);
+            DbParameter prm = setParameterValue(parameterName, dbType);
             prm.Direction = ParameterDirection.Output;
-            parameteriyiCommandYadaListeyeEkle(prm);
+            addParameterToCommandOrList(prm);
         }
-        public void parameterEkleOutput(string parameterName, DbType dbType, int size)
+        public void addParameterOutput(string parameterName, DbType dbType, int size)
         {
-            DbParameter prm = parameterDegerleriniSetle(parameterName, dbType);
+            DbParameter prm = setParameterValue(parameterName, dbType);
             prm.Direction = ParameterDirection.Output;
             prm.Size = size;
-            parameteriyiCommandYadaListeyeEkle(prm);
+            addParameterToCommandOrList(prm);
         }
-        public void parameterEkleInputOutput(string parameterName, DbType dbType)
+        public void addParameterInputOutput(string parameterName, DbType dbType)
         {
-            DbParameter prm = parameterDegerleriniSetle(parameterName, dbType);
+            DbParameter prm = setParameterValue(parameterName, dbType);
             prm.Direction = ParameterDirection.InputOutput;
-            parameteriyiCommandYadaListeyeEkle(prm);
+            addParameterToCommandOrList(prm);
         }
 
-        private void parameteriyiCommandYadaListeyeEkle(DbParameter prm)
+        private void addParameterToCommandOrList(DbParameter prm)
         {
             if (command != null)
             {

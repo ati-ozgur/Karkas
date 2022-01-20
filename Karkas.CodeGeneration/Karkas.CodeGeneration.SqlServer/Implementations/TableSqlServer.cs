@@ -84,8 +84,8 @@ TABLE_NAME = @TABLE_NAME
                 _Columns = new List<IColumn>();
 
                 ParameterBuilder builder = Template.getParameterBuilder();
-                builder.parameterEkle("@TABLE_NAME",DbType.AnsiString,tableName );
-                builder.parameterEkle("@TABLE_SCHEMA", DbType.AnsiString, schemaName);
+                builder.addParameter("@TABLE_NAME",DbType.AnsiString,tableName );
+                builder.addParameter("@TABLE_SCHEMA", DbType.AnsiString, schemaName);
 
 
 

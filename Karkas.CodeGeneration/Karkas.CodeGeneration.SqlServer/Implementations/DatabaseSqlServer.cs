@@ -69,7 +69,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
                 {
                     _tableList = new List<ITable>();
                     ParameterBuilder builder = Template.getParameterBuilder();
-                    builder.parameterEkle("@TABLE_SCHEMA", DbType.AnsiString, "__TUM_SCHEMALAR__");
+                    builder.addParameter("@TABLE_SCHEMA", DbType.AnsiString, "__TUM_SCHEMALAR__");
                     DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_TABLE_LIST,builder.GetParameterArray());
 
                     foreach (DataRow row in dtTableList.Rows)
@@ -170,7 +170,7 @@ SELECT DISTINCT TABLE_CATALOG FROM INFORMATION_SCHEMA.TABLES
         public override DataTable getTableListFromSchema(string schemaName)
         {
             ParameterBuilder builder = Template.getParameterBuilder();
-            builder.parameterEkle("@TABLE_SCHEMA", DbType.String, schemaName);
+            builder.addParameter("@TABLE_SCHEMA", DbType.String, schemaName);
             DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
             return dtTableList;
         }
@@ -187,7 +187,7 @@ ORDER BY FULL_VIEW_NAME
         public override DataTable getViewListFromSchema(string schemaName)
         {
             ParameterBuilder builder = Template.getParameterBuilder();
-            builder.parameterEkle("@TABLE_SCHEMA", DbType.String, schemaName);
+            builder.addParameter("@TABLE_SCHEMA", DbType.String, schemaName);
             DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_VIEW_LIST, builder.GetParameterArray());
             return dtTableList;
         }
@@ -209,7 +209,7 @@ ORDER BY STORED_PROCEDURE_NAME
         public override DataTable getStoredProcedureListFromSchema(string schemaName)
         {
             ParameterBuilder builder = Template.getParameterBuilder();
-            builder.parameterEkle("@SP_SCHEMA_NAME", DbType.String, schemaName);
+            builder.addParameter("@SP_SCHEMA_NAME", DbType.String, schemaName);
             DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_STORED_PROCEDURE_LIST, builder.GetParameterArray());
             return dtTableList;
         }
@@ -281,7 +281,7 @@ ORDER BY SEQUENCE_NAME
             if (SqlServerVersion.Contains("SQL Server 2012"))
             {
                 ParameterBuilder builder = Template.getParameterBuilder();
-                builder.parameterEkle("@SEQ_SCHEMA_NAME", DbType.String, schemaName);
+                builder.addParameter("@SEQ_SCHEMA_NAME", DbType.String, schemaName);
                 dt = Template.DataTableOlustur(SQL_FOR_SEQUENCES_LIST, builder.GetParameterArray());
                 return dt;
             }

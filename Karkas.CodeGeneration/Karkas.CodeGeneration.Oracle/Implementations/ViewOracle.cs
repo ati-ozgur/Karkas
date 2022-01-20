@@ -44,8 +44,8 @@ OWNER = :schemaName
                 if (columns == null)
                 {
                     ParameterBuilder builder = template.getParameterBuilder();
-                    builder.parameterEkle("tableName", DbType.String, Name);
-                    builder.parameterEkle("schemaName", DbType.String, Schema);
+                    builder.addParameter("tableName", DbType.String, Name);
+                    builder.addParameter("schemaName", DbType.String, Schema);
 
                     DataTable dtColumnList = template.DataTableOlustur(SQL_FOR_COLUMN_LIST, builder.GetParameterArray());
                     columns = new List<IColumn>();
