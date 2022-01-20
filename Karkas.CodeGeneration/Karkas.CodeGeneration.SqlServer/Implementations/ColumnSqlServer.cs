@@ -42,9 +42,9 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
         private ParameterBuilder getBuilderWithDefaultValues()
         {
             ParameterBuilder builder = template.getParameterBuilder();
-            builder.addParameter("@TABLE_NAME", DbType.AnsiString, tableOrView.Name);
-            builder.addParameter("@TABLE_SCHEMA", DbType.AnsiString, tableOrView.Schema);
-            builder.addParameter("@COLUMN_NAME", DbType.AnsiString, columnName);
+            builder.AddParameter("@TABLE_NAME", DbType.AnsiString, tableOrView.Name);
+            builder.AddParameter("@TABLE_SCHEMA", DbType.AnsiString, tableOrView.Schema);
+            builder.AddParameter("@COLUMN_NAME", DbType.AnsiString, columnName);
             return builder;
         }
 
@@ -300,7 +300,7 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
 ";
 
             ParameterBuilder builder = Template.getParameterBuilder();
-            builder.addParameter("@UserDefinedTypeName", DbType.String, pUserDefinedTypeName);
+            builder.AddParameter("@UserDefinedTypeName", DbType.String, pUserDefinedTypeName);
             underlyingType = (string)template.TekDegerGetir(sql, builder.GetParameterArray());
 
             return underlyingType;

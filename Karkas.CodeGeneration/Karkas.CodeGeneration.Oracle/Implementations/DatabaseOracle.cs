@@ -64,7 +64,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
                     string userName = getUserNameFromConnection(ConnectionString);
 
                     ParameterBuilder builder = Template.getParameterBuilder();
-                    builder.addParameter("TABLE_SCHEMA", DbType.String, userName);
+                    builder.AddParameter("TABLE_SCHEMA", DbType.String, userName);
 
                     DataTable dtTables = Template.DataTableOlustur(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
                     foreach (DataRow row in dtTables.Rows)
@@ -151,7 +151,7 @@ ORDER BY FULL_TABLE_NAME
         public override DataTable getTableListFromSchema(string schemaName)
         {
             ParameterBuilder builder = Template.getParameterBuilder();
-            builder.addParameter(":TABLE_SCHEMA", DbType.String, schemaName);
+            builder.AddParameter(":TABLE_SCHEMA", DbType.String, schemaName);
             DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
             return dtTableList;
         }
@@ -166,7 +166,7 @@ ORDER BY FULL_VIEW_NAME
         public override DataTable getViewListFromSchema(string schemaName)
         {
             ParameterBuilder builder = Template.getParameterBuilder();
-            builder.addParameter(":TABLE_SCHEMA", DbType.String, schemaName);
+            builder.AddParameter(":TABLE_SCHEMA", DbType.String, schemaName);
             DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_VIEW_LIST, builder.GetParameterArray());
             return dtTableList;
         }
@@ -182,7 +182,7 @@ ORDER BY STORED_PROCEDURE_NAME
         public override DataTable getStoredProcedureListFromSchema(string schemaName)
         {
             ParameterBuilder builder = Template.getParameterBuilder();
-            builder.addParameter(":SP_SCHEMA_NAME", DbType.String, schemaName);
+            builder.AddParameter(":SP_SCHEMA_NAME", DbType.String, schemaName);
             DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_STORED_PROCEDURE_LIST, builder.GetParameterArray());
             return dtTableList;
         }
@@ -199,7 +199,7 @@ ORDER BY SEQUENCE_NAME
         public override DataTable getSequenceListFromSchema(string schemaName)
         {
             ParameterBuilder builder = Template.getParameterBuilder();
-            builder.addParameter(":SEQ_SCHEMA_NAME", DbType.String, schemaName);
+            builder.AddParameter(":SEQ_SCHEMA_NAME", DbType.String, schemaName);
             DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_SEQUENCES_LIST, builder.GetParameterArray());
             return dtTableList;
         }

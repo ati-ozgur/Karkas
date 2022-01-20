@@ -97,7 +97,7 @@ namespace Karkas.Core.DataUtil
             return prm;
         }
 
-        internal void addParameter(string parameterName, object value)
+        internal void AddParameter(string parameterName, object value)
         {
             DbParameter prm = null;
             if (value is Int32)
@@ -124,14 +124,14 @@ namespace Karkas.Core.DataUtil
             {
                 prm = setParameterValue(parameterName, DbType.Object, value);
             }
-            addParameterToCommandOrList(prm);
+            AddParameterToCommandOrList(prm);
         }
 
 
-        public void addParameter(string parameterName, DbType dbType, object value)
+        public void AddParameter(string parameterName, DbType dbType, object value)
         {
             DbParameter prm = setParameterValue(parameterName, dbType, value);
-            addParameterToCommandOrList(prm);
+            AddParameterToCommandOrList(prm);
         }
         //public void parameterEkle(string parameterName, SqlDbType dbType, object value)
         //{
@@ -140,11 +140,11 @@ namespace Karkas.Core.DataUtil
         //}
 
 
-        public void addParameter(string parameterName, DbType dbType, object value, int size)
+        public void AddParameter(string parameterName, DbType dbType, object value, int size)
         {
             DbParameter prm = setParameterValue(parameterName, dbType, value);
             prm.Size = size;
-            addParameterToCommandOrList(prm);
+            AddParameterToCommandOrList(prm);
         }
 
         //public void parameterEkle(string parameterName, SqlDbType dbType, object value, int size)
@@ -154,33 +154,33 @@ namespace Karkas.Core.DataUtil
         //    parameteriyiCommandYadaListeyeEkle(prm);
         //}
 
-        public void addParameterReturn(string parameterName, DbType dbType)
+        public void AddParameterReturn(string parameterName, DbType dbType)
         {
             DbParameter prm = setParameterValue(parameterName, dbType);
             prm.Direction = ParameterDirection.ReturnValue;
-            addParameterToCommandOrList(prm);
+            AddParameterToCommandOrList(prm);
         }
-        public void addParameterOutput(string parameterName, DbType dbType)
+        public void AddParameterOutput(string parameterName, DbType dbType)
         {
             DbParameter prm = setParameterValue(parameterName, dbType);
             prm.Direction = ParameterDirection.Output;
-            addParameterToCommandOrList(prm);
+            AddParameterToCommandOrList(prm);
         }
-        public void addParameterOutput(string parameterName, DbType dbType, int size)
+        public void AddParameterOutput(string parameterName, DbType dbType, int size)
         {
             DbParameter prm = setParameterValue(parameterName, dbType);
             prm.Direction = ParameterDirection.Output;
             prm.Size = size;
-            addParameterToCommandOrList(prm);
+            AddParameterToCommandOrList(prm);
         }
-        public void addParameterInputOutput(string parameterName, DbType dbType)
+        public void AddParameterInputOutput(string parameterName, DbType dbType)
         {
             DbParameter prm = setParameterValue(parameterName, dbType);
             prm.Direction = ParameterDirection.InputOutput;
-            addParameterToCommandOrList(prm);
+            AddParameterToCommandOrList(prm);
         }
 
-        private void addParameterToCommandOrList(DbParameter prm)
+        private void AddParameterToCommandOrList(DbParameter prm)
         {
             if (command != null)
             {
