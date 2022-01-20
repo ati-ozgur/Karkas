@@ -31,7 +31,7 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
         {
             get
             {
-                string s = whereOperatorDegeriniAl();
+                string s = GetWhereOperatorValue();
                 if (WhereOperator != WhereOperatorEnum.Like)
                 {
                     return string.Format("(({2} IS NULL) OR ({2} = '{3}') OR ({0} {1} {2}))", columnName, s, parameterName, nullDegeri);

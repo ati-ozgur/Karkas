@@ -47,7 +47,7 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
             get;
         }
 
-        public string whereOperatorDegeriniAl()
+        public string GetWhereOperatorValue()
         {
             string s = "";
             switch (whereOperator)

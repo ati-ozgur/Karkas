@@ -23,7 +23,7 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
         {
             get
             {
-                string s = whereOperatorDegeriniAl();
+                string s = GetWhereOperatorValue();
 
                 if (WhereOperator != WhereOperatorEnum.Like)
                 {

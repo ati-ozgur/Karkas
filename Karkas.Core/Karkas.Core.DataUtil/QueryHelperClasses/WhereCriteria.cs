@@ -27,7 +27,7 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
         {
             get
             {
-                string s = whereOperatorDegeriniAl();
+                string s = GetWhereOperatorValue();
                 if (WhereOperator != WhereOperatorEnum.Like)
                 {
                     return string.Format("{0} {1} {2}", columnName, s, parameterName);
