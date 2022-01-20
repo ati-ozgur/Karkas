@@ -7,13 +7,13 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
     public enum WhereOperatorEnum
     {
         Like = 1,
-        Esittir = 2,
-        EsitDegildir = 3,
-        Kucuktur = 4,
-        KucukEsittir = 5,
-        Buyuktur = 6,
-        BuyukEsittir = 7,
-        Arasinda = 8,
+        Equals = 2,
+        NotEquals = 3,
+        Lesser = 4,
+        LesserAndEquals = 5,
+        Greater = 6,
+        GreaterAndEquals = 7,
+        Between = 8,
     }
 
 
