@@ -17,7 +17,7 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
 
         protected string parameterName;
 
-        public string ParameterIsmi
+        public string ParameterName
         {
             get { return parameterName; }
             set { parameterName = value; }
