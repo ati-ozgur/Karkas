@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Karkas.Core.DataUtil.QueryHelperClasses
 {
-    public enum LikeYeriEnum
+    public enum LikePlacementEnum
     {
         Yok = 1,
         Basinda = 2,

@@ -21,7 +21,7 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
             , WhereOperatorEnum pWhereOperator
             , string pParamaterIsmi
             , string pNullDegeri
-            , LikeYeriEnum pLikeYeriEnum)
+            , LikePlacementEnum pLikeYeriEnum)
             : this(pKolonIsmi, pWhereOperator, pParamaterIsmi, pNullDegeri)
         {
             likeYeri = pLikeYeriEnum;
@@ -41,16 +41,16 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
                     string son = "";
                     switch (likeYeri)
                     {
-                        case LikeYeriEnum.Yok:
+                        case LikePlacementEnum.Yok:
                             son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR ( {0} {1} {2}))", kolonIsmi, s, parameterIsmi,nullDegeri);
                             break;
-                        case LikeYeriEnum.Basinda:
+                        case LikePlacementEnum.Basinda:
                             son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR( {0} {1} {2} + '%'))", kolonIsmi, s, parameterIsmi,nullDegeri);
                             break;
-                        case LikeYeriEnum.Sonunda:
+                        case LikePlacementEnum.Sonunda:
                             son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR ( {0} {1} '%' + {2}))", kolonIsmi, s, parameterIsmi,nullDegeri);
                             break;
-                        case LikeYeriEnum.Icinde:
+                        case LikePlacementEnum.Icinde:
                             son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR ({0} {1} '%' + {2} + '%'))", kolonIsmi, s, parameterIsmi,nullDegeri);
                             break;
                     }
