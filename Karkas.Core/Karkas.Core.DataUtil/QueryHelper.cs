@@ -47,16 +47,16 @@ namespace Karkas.Core.DataUtil
             }
         }
 
-        public string KriterSonucunuGetir()
+        public string GetCriteriaResultsWithWhere()
         {
             string sonuc = "";
             sonuc += whereKriterlerininSonucunuGetir();
             sonuc += OrderBylarinSonucunuGetir();
             return sonuc;
         }
-        public string KriterSonucunuWhereOlmadanGetir()
+        public string GetCriteriaResultsWithoutWhere()
         {
-            string sonuc = KriterSonucunuGetir();
+            string sonuc = GetCriteriaResultsWithWhere();
             return sonuc.Replace("WHERE", "");
 
         }

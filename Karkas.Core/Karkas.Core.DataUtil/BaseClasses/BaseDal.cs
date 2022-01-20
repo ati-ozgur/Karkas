@@ -152,7 +152,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 sy.AddWhereCriteria(filtre);
                 builder.parameterEkle(ParameterCharacter + filtre, degerListesi[i]);
             }
-            SorguCalistir(liste, sy.KriterSonucunuWhereOlmadanGetir(), builder.GetParameterArray());
+            SorguCalistir(liste, sy.GetCriteriaResultsWithoutWhere(), builder.GetParameterArray());
             return liste;
         }
         /// <summary>
@@ -194,7 +194,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 }
             }
             // HACK buna daha duzgun bir cozum lazim;
-            SorguCalistir(liste, " 1 = 1 " + sy.KriterSonucunuWhereOlmadanGetir());
+            SorguCalistir(liste, " 1 = 1 " + sy.GetCriteriaResultsWithoutWhere());
             return liste;
         }
 
