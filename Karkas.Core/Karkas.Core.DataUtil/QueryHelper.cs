@@ -22,9 +22,9 @@ namespace Karkas.Core.DataUtil
         List<WhereCriteriaOptionalNullValue> listWhereOptionalNullValues = new List<WhereCriteriaOptionalNullValue>();
 
 
-        public void OrderByEkle(string pKolonIsmi, OrderByEnum pSiralamaTuru)
+        public void OrderByEkle(string pColumnName, OrderByEnum pOrderByType)
         {
-            OrderBy s = new OrderBy(pKolonIsmi, pSiralamaTuru);
+            OrderBy s = new OrderBy(pColumnName, pOrderByType);
             if (!listOrderBy.Contains(s))
             {
                 listOrderBy.Add(s);
