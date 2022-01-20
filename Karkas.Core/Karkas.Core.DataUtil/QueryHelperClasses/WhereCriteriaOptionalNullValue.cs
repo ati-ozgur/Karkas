@@ -21,10 +21,10 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
             , WhereOperatorEnum pWhereOperator
             , string pParameterName
             , string pNullValue
-            , LikePlacementEnum pLikeYeriEnum)
+            , LikePlacementEnum pLikePlacementEnum)
             : this(pColumnName, pWhereOperator, pParameterName, pNullValue)
         {
-            likePlacement = pLikeYeriEnum;
+            likePlacement = pLikePlacementEnum;
         }
 
         public override string SqlHali

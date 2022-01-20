@@ -15,10 +15,10 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
 
         }
 
-        public WhereCriteria(string pColumnName, WhereOperatorEnum pWhereOperator, string pParameterName, LikePlacementEnum pLikeYeriEnum)
+        public WhereCriteria(string pColumnName, WhereOperatorEnum pWhereOperator, string pParameterName, LikePlacementEnum pLikePlacementEnum)
             : this(pColumnName, pWhereOperator, pParameterName)
         {
-            likePlacement = pLikeYeriEnum;
+            likePlacement = pLikePlacementEnum;
         }
 
 

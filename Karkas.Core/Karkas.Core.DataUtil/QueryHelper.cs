@@ -142,9 +142,9 @@ namespace Karkas.Core.DataUtil
             AddWhereCriteriaOptional(pColumnName, pWhereOperatorEnum, ParameterCharacter + pColumnName);
         }
 
-        public void AddWhereCriteriaOptional(string pColumnName, WhereOperatorEnum pWhereOperatorEnum, string pParameterName, LikePlacementEnum pLikeYeriEnum)
+        public void AddWhereCriteriaOptional(string pColumnName, WhereOperatorEnum pWhereOperatorEnum, string pParameterName, LikePlacementEnum pLikePlacementEnum)
         {
-            WhereCriteriaOptional wk = new WhereCriteriaOptional(pColumnName, pWhereOperatorEnum, pParameterName, pLikeYeriEnum);
+            WhereCriteriaOptional wk = new WhereCriteriaOptional(pColumnName, pWhereOperatorEnum, pParameterName, pLikePlacementEnum);
             listWhereOptional.Add(wk);
         }
         public void AddWhereCriteriaBetween(string pColumnName, string pParameterName1, string pParameterName2)
@@ -192,9 +192,9 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        public void AddWhereCriteriaOptionalNullValueSet(string pColumnName, WhereOperatorEnum pWhereOperatorEnum, string pParameterName, LikePlacementEnum pLikeYeriEnum, string pNullValue)
+        public void AddWhereCriteriaOptionalNullValueSet(string pColumnName, WhereOperatorEnum pWhereOperatorEnum, string pParameterName, LikePlacementEnum pLikePlacementEnum, string pNullValue)
         {
-            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pColumnName, pWhereOperatorEnum, pParameterName, pNullValue, pLikeYeriEnum);
+            WhereCriteriaOptionalNullValue wk = new WhereCriteriaOptionalNullValue(pColumnName, pWhereOperatorEnum, pParameterName, pNullValue, pLikePlacementEnum);
             listWhereOptionalNullValues.Add(wk);
         }
     }
