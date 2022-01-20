@@ -7,7 +7,7 @@ using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
-    public class ExceptionDegistirici
+    public class ExceptionChanger
     {
 
         public static void Degistir(DbException ex, string pMesaj = "NO SQL QUERY")

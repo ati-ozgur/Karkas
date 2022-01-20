@@ -234,7 +234,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
             catch (DbException ex)
             {
-                ExceptionDegistirici.Degistir(ex, new LoggingInfo( cmd).ToString());
+                ExceptionChanger.Degistir(ex, new LoggingInfo( cmd).ToString());
             }
             catch (Exception ex)
             {
@@ -408,7 +408,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
             catch (DbException ex)
             {
-                ExceptionDegistirici.Degistir(ex);
+                ExceptionChanger.Degistir(ex);
             }
             finally
             {

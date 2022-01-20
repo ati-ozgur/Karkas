@@ -124,7 +124,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 {
                     currentTransaction.Rollback();
                 }
-                ExceptionDegistirici.Degistir(ex, new LoggingInfo(cmd).ToString());
+                ExceptionChanger.Degistir(ex, new LoggingInfo(cmd).ToString());
             }
             finally
             {
