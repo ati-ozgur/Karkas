@@ -6,10 +6,10 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
 {
     public enum LikePlacementEnum
     {
-        Yok = 1,
-        Basinda = 2,
-        Sonunda = 3,
-        Icinde = 4
+        None = 1,
+        Start = 2,
+        Last = 3,
+        Between = 4
     }
 
 }

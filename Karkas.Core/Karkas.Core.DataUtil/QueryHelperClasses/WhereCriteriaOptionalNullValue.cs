@@ -41,16 +41,16 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
                     string son = "";
                     switch (likeYeri)
                     {
-                        case LikePlacementEnum.Yok:
+                        case LikePlacementEnum.None:
                             son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR ( {0} {1} {2}))", kolonIsmi, s, parameterIsmi,nullDegeri);
                             break;
-                        case LikePlacementEnum.Basinda:
+                        case LikePlacementEnum.Start:
                             son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR( {0} {1} {2} + '%'))", kolonIsmi, s, parameterIsmi,nullDegeri);
                             break;
-                        case LikePlacementEnum.Sonunda:
+                        case LikePlacementEnum.Last:
                             son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR ( {0} {1} '%' + {2}))", kolonIsmi, s, parameterIsmi,nullDegeri);
                             break;
-                        case LikePlacementEnum.Icinde:
+                        case LikePlacementEnum.Between:
                             son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR ({0} {1} '%' + {2} + '%'))", kolonIsmi, s, parameterIsmi,nullDegeri);
                             break;
                     }

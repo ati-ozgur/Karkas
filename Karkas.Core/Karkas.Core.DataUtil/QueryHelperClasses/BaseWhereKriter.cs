@@ -6,7 +6,7 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
 {
     public abstract class BaseWhereKriter
     {
-        protected LikePlacementEnum likeYeri = LikePlacementEnum.Yok;
+        protected LikePlacementEnum likeYeri = LikePlacementEnum.None;
 
         public LikePlacementEnum LikeYeri
         {

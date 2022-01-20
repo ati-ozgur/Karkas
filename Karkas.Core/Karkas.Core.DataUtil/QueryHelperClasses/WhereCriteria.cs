@@ -37,16 +37,16 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
                     string son = "";
                     switch (likeYeri)
                     {
-                        case LikePlacementEnum.Yok:
+                        case LikePlacementEnum.None:
                             son = string.Format("{0} {1} {2}", kolonIsmi, s, parameterIsmi);
                             break;
-                        case LikePlacementEnum.Basinda:
+                        case LikePlacementEnum.Start:
                             son = string.Format("{0} {1} {2} + '%'", kolonIsmi, s, parameterIsmi);
                             break;
-                        case LikePlacementEnum.Sonunda:
+                        case LikePlacementEnum.Last:
                             son = string.Format("{0} {1} '%' + {2}", kolonIsmi, s, parameterIsmi);
                             break;
-                        case LikePlacementEnum.Icinde:
+                        case LikePlacementEnum.Between:
                             son = string.Format("{0} {1} '%' + {2} + '%'", kolonIsmi, s, parameterIsmi);
                             break;
                     }
