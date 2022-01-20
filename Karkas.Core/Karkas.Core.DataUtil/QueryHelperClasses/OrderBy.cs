@@ -10,14 +10,14 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
         public OrderBy(string pColumnName) : this(pColumnName,"")
         {
         }
-        public OrderBy(string pColumnName, OrderByEnum pSiralamaTuru)
+        public OrderBy(string pColumnName, OrderByEnum pOrderByType)
         {
-            siralamaTuru = pSiralamaTuru;
+            siralamaTuru = pOrderByType;
             kolonIsmi = pColumnName;
         }
-        public OrderBy(string pColumnName, String pSiralamaTuru)
+        public OrderBy(string pColumnName, String pOrderByType)
         {
-            siralamaTuruAsString = pSiralamaTuru;
+            siralamaTuruAsString = pOrderByType;
             kolonIsmi = pColumnName;
         }
 
