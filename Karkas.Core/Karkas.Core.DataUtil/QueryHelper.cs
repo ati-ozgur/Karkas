@@ -16,7 +16,7 @@ namespace Karkas.Core.DataUtil
 
         public string ParameterCharacter { get; set; }
 
-        List<OrderBy> siralamaListesi = new List<OrderBy>();
+        List<OrderBy> listOrderBy = new List<OrderBy>();
         List<WhereCriteria> whereListesi = new List<WhereCriteria>();
         List<WhereCriteriaOptional> whereTercihliListesi = new List<WhereCriteriaOptional>();
         List<WhereCriteriaOptionalNullValue> whereTercihliNullDegeriListesi = new List<WhereCriteriaOptionalNullValue>();
@@ -25,25 +25,25 @@ namespace Karkas.Core.DataUtil
         public void OrderByEkle(string pKolonIsmi, OrderByEnum pSiralamaTuru)
         {
             OrderBy s = new OrderBy(pKolonIsmi, pSiralamaTuru);
-            if (!siralamaListesi.Contains(s))
+            if (!listOrderBy.Contains(s))
             {
-                siralamaListesi.Add(s);
+                listOrderBy.Add(s);
             }
         }
         public void OrderByEkle(string pKolonIsmi)
         {
             OrderBy s = new OrderBy(pKolonIsmi);
-            if (!siralamaListesi.Contains(s))
+            if (!listOrderBy.Contains(s))
             {
-                siralamaListesi.Add(s);
+                listOrderBy.Add(s);
             }
         }
         public void OrderByEkle(string pKolonIsmi, String pSiralamaTuru)
         {
             OrderBy s = new OrderBy(pKolonIsmi, pSiralamaTuru);
-            if (!siralamaListesi.Contains(s))
+            if (!listOrderBy.Contains(s))
             {
-                siralamaListesi.Add(s);
+                listOrderBy.Add(s);
             }
         }
 
@@ -64,14 +64,14 @@ namespace Karkas.Core.DataUtil
 
         private string OrderBylarinSonucunuGetir()
         {
-            if (siralamaListesi.Count == 0)
+            if (listOrderBy.Count == 0)
             {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
             sb.Append(Environment.NewLine);
             sb.Append("ORDER BY ");
-            foreach (OrderBy s in siralamaListesi)
+            foreach (OrderBy s in listOrderBy)
             {
                 sb.Append(s.SqlHali + ",");
             }
