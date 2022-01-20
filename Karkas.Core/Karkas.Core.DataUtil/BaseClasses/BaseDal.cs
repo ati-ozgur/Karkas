@@ -185,12 +185,12 @@ namespace Karkas.Core.DataUtil.BaseClasses
             {
                 if (i + 1 < listeUzunluk)
                 {
-                    sy.OrderByEkle(pSiraListesi[i], pSiraListesi[i + 1]);
+                    sy.AddOrderBy(pSiraListesi[i], pSiraListesi[i + 1]);
                     i++;
                 }
                 else
                 {
-                    sy.OrderByEkle(pSiraListesi[i]);
+                    sy.AddOrderBy(pSiraListesi[i]);
                 }
             }
             // HACK buna daha duzgun bir cozum lazim;

@@ -22,7 +22,7 @@ namespace Karkas.Core.DataUtil
         List<WhereCriteriaOptionalNullValue> listWhereOptionalNullValues = new List<WhereCriteriaOptionalNullValue>();
 
 
-        public void OrderByEkle(string pColumnName, OrderByEnum pOrderByType)
+        public void AddOrderBy(string pColumnName, OrderByEnum pOrderByType)
         {
             OrderBy s = new OrderBy(pColumnName, pOrderByType);
             if (!listOrderBy.Contains(s))
@@ -30,7 +30,7 @@ namespace Karkas.Core.DataUtil
                 listOrderBy.Add(s);
             }
         }
-        public void OrderByEkle(string pColumnName)
+        public void AddOrderBy(string pColumnName)
         {
             OrderBy s = new OrderBy(pColumnName);
             if (!listOrderBy.Contains(s))
@@ -38,7 +38,7 @@ namespace Karkas.Core.DataUtil
                 listOrderBy.Add(s);
             }
         }
-        public void OrderByEkle(string pColumnName, String pOrderByType)
+        public void AddOrderBy(string pColumnName, String pOrderByType)
         {
             OrderBy s = new OrderBy(pColumnName, pOrderByType);
             if (!listOrderBy.Contains(s))
