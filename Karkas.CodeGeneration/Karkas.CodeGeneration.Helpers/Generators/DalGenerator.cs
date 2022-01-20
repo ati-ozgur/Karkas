@@ -684,7 +684,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         private void builderParameterEkleString(IOutput output, IColumn column)
         {
-            string s = "builder.parameterEkle(\"" + parameterSymbol
+            string s = "builder.AddParameter(\"" + parameterSymbol
                         + column.Name
                         + "\","
                         + getDbTargetType(column)
@@ -701,7 +701,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         private void builderParameterEkleNormal(IOutput output, IColumn column)
         {
-            string s = "builder.parameterEkle(\"" + parameterSymbol
+            string s = "builder.AddParameter(\"" + parameterSymbol
                         + column.Name
                         + "\","
                         + getDbTargetType(column)

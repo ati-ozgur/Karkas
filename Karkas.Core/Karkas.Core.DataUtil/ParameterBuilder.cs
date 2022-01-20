@@ -133,7 +133,7 @@ namespace Karkas.Core.DataUtil
             DbParameter prm = setParameterValue(parameterName, dbType, value);
             AddParameterToCommandOrList(prm);
         }
-        //public void parameterEkle(string parameterName, SqlDbType dbType, object value)
+        //public void AddParameter(string parameterName, SqlDbType dbType, object value)
         //{
         //    DbParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
         //    parameteriyiCommandYadaListeyeEkle(prm);
@@ -147,7 +147,7 @@ namespace Karkas.Core.DataUtil
             AddParameterToCommandOrList(prm);
         }
 
-        //public void parameterEkle(string parameterName, SqlDbType dbType, object value, int size)
+        //public void AddParameter(string parameterName, SqlDbType dbType, object value, int size)
         //{
         //    DbParameter prm = parameterDegerleriniSetle(parameterName, dbType, value);
         //    prm.Size = size;
