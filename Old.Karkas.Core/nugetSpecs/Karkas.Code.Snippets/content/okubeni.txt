@@ -1,8 +1,0 @@
-Bu dosya powershell scriptlerinin çalýþmasý için burada bulunmaktadýr.
-Nuget eger content içinde hiç bir dosya yoksa install.ps1 powershell script'ini çalýþtýrmýyor.
-
-Code snippetlar için aþaðýdaki url'ye bakabilirsiniz.
-
-https://github.com/ati-ozgur/karkas/tree/master/Karkas.Core/KarkasCodeSnippets
-
-
