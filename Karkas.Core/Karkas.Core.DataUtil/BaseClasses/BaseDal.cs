@@ -149,7 +149,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             {
 
                 string filtre = filtreListesi[i];
-                sy.WhereKriterineEkle(filtre);
+                sy.AddWhereCriteria(filtre);
                 builder.parameterEkle(ParameterCharacter + filtre, degerListesi[i]);
             }
             SorguCalistir(liste, sy.KriterSonucunuWhereOlmadanGetir(), builder.GetParameterArray());

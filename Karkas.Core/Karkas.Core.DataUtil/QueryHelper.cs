@@ -79,19 +79,19 @@ namespace Karkas.Core.DataUtil
             return sb.ToString();
         }
 
-        public void WhereKriterineEkle(string pColumnName)
+        public void AddWhereCriteria(string pColumnName)
         {
             WhereCriteria wk = new WhereCriteria(pColumnName,WhereOperatorEnum.Equals , ParameterCharacter + pColumnName);
             listWhere.Add(wk);
         }
         
-        public void WhereKriterineEkle(string pColumnName, WhereOperatorEnum whereOperator)
+        public void AddWhereCriteria(string pColumnName, WhereOperatorEnum whereOperator)
         {
             WhereCriteria wk = new WhereCriteria(pColumnName, whereOperator, ParameterCharacter + pColumnName);
             listWhere.Add(wk);
         }
 
-        public void WhereKriterineEkle(string pColumnName, WhereOperatorEnum whereOperator, string pParameterName)
+        public void AddWhereCriteria(string pColumnName, WhereOperatorEnum whereOperator, string pParameterName)
         {
             WhereCriteria wk = new WhereCriteria(pColumnName, whereOperator, pParameterName);
             listWhere.Add(wk);
