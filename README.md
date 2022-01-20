@@ -16,6 +16,7 @@ Aşağıdaki Veritabanlarını desteklemektedir.
 ## TODO
 
 - Refactoring methods to English Only Names
+- Remove Sqlite support and put json files for configuration. Instead of storing connection information in sqlite, json files will allow for version control also.
 - Add configuration method which initializes from configuration files (app.config ...)
 - Read logging and fix it
 
