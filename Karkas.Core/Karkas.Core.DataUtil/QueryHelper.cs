@@ -147,7 +147,7 @@ namespace Karkas.Core.DataUtil
             WhereCriteriaOptional wk = new WhereCriteriaOptional(pColumnName, pWhereOperatorEnum, pParameterName, pLikeYeriEnum);
             listWhereOptional.Add(wk);
         }
-        public void WhereKriterineArasindaEkle(string pColumnName, string pParameterName1, string pParameterName2)
+        public void AddWhereCriteriaBetween(string pColumnName, string pParameterName1, string pParameterName2)
         {
 
             WhereCriteria wk1 = new WhereCriteria(pColumnName, WhereOperatorEnum.GreaterAndEquals, pParameterName1);
@@ -156,7 +156,7 @@ namespace Karkas.Core.DataUtil
             listWhere.Add(wk2);
         }
 
-        public void WhereKriterineArasindaTercihliEkle(string pColumnName, string pParameterName1, string pParameterName2)
+        public void AddWhereCriteriaBetweenOptional(string pColumnName, string pParameterName1, string pParameterName2)
         {
             WhereCriteriaOptional wk1 = new WhereCriteriaOptional(pColumnName, WhereOperatorEnum.GreaterAndEquals, pParameterName1);
             listWhereOptional.Add(wk1);
@@ -164,7 +164,7 @@ namespace Karkas.Core.DataUtil
             listWhereOptional.Add(wk2);
         }
 
-        public void WhereKriterineArasindaTercihliEkleNullDegeriVer(string pColumnName, string pParameterName1, string pParameterName2, string pNullDegeri)
+        public void AddWhereCriteriaBetweenOptionalNullValueSet(string pColumnName, string pParameterName1, string pParameterName2, string pNullDegeri)
         {
             WhereCriteriaOptionalNullValue wk1 = new WhereCriteriaOptionalNullValue(pColumnName, WhereOperatorEnum.GreaterAndEquals, pParameterName1, pNullDegeri);
             listWhereOptionalNullValues.Add(wk1);
