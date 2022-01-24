@@ -50,7 +50,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             get { return dal; }
         }
 
-        public virtual long Ekle(TYPE_LIBRARY_TIPI k)
+        public virtual long Insert(TYPE_LIBRARY_TIPI k)
         {
             return dal.Insert(k);
         }
