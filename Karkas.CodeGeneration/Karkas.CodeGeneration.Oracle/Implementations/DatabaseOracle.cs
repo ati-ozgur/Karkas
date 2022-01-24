@@ -136,7 +136,7 @@ ORDER BY FULL_TABLE_NAME
             {
                 if (String.IsNullOrEmpty(databaseNamePhysical))
                 {
-                    databaseNamePhysical = (string)Template.TekDegerGetir(SQL_FOR_DATABASE_NAME);
+                    databaseNamePhysical = (string)Template.BringOneValue(SQL_FOR_DATABASE_NAME);
                 }
                 return databaseNamePhysical;
             }

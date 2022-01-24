@@ -156,7 +156,7 @@ SELECT DISTINCT TABLE_CATALOG FROM INFORMATION_SCHEMA.TABLES
             {
                 if (String.IsNullOrEmpty(databaseNamePhysical))
                 {
-                    databaseNamePhysical = (string)Template.TekDegerGetir(SQL_FOR_DATABASE_NAME);
+                    databaseNamePhysical = (string)Template.BringOneValue(SQL_FOR_DATABASE_NAME);
                 }
                 return databaseNamePhysical;
             }
@@ -266,7 +266,7 @@ ORDER BY SEQUENCE_NAME
             {
                 if (sqlServerVersion == null)
                 {
-                    sqlServerVersion = (string)Template.TekDegerGetir(SQL_SERVER_VERSION);
+                    sqlServerVersion = (string)Template.BringOneValue(SQL_SERVER_VERSION);
                 }
 
                 return sqlServerVersion;

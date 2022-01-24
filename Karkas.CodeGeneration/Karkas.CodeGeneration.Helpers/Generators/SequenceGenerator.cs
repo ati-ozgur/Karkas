@@ -69,7 +69,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTabLn("public decimal getNextSequenceValue()");
             BaslangicSusluParentezVeTabArtir(output);
             output.autoTabLn("AdoTemplate template = new AdoTemplate(DbProviderName);");
-            output.autoTabLn("return (decimal) template.TekDegerGetir(selectSequenceString);");
+            output.autoTabLn("return (decimal) template.BringOneValue(selectSequenceString);");
             BitisSusluParentezVeTabAzalt(output);
         }
 

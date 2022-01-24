@@ -75,11 +75,11 @@ namespace Karkas.Core.DataUtil
             AdoTemplate template = new AdoTemplate();
             if (parameters == null)
             {
-                return (int) template.TekDegerGetir(countSql);
+                return (int) template.BringOneValue(countSql);
             }
             else
             {
-                return (int) template.TekDegerGetir(countSql, parameters);
+                return (int) template.BringOneValue(countSql, parameters);
             }
         }
 

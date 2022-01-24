@@ -39,7 +39,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
                     {
                         ParameterBuilder builder = template.getParameterBuilder();
                         builder.AddParameter("tableName", DbType.String, Table.Name);
-                        Object objSonuc = template.TekDegerGetir(SQL_SEQUENCE_EXISTS, builder.GetParameterArray());
+                        Object objSonuc = template.BringOneValue(SQL_SEQUENCE_EXISTS, builder.GetParameterArray());
                         Decimal sonuc = (Decimal)objSonuc;
                         if (sonuc > 0)
                         {
@@ -96,7 +96,7 @@ AND cons.owner = cols.owner
                     builder.AddParameter("tableName", DbType.String, tableOrView.Name);
                     builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
                     builder.AddParameter("columnName", DbType.String, Name);
-                    Object objSonuc = template.TekDegerGetir(SQL_PRIMARY_KEY, builder.GetParameterArray());
+                    Object objSonuc = template.BringOneValue(SQL_PRIMARY_KEY, builder.GetParameterArray());
                     Decimal sonuc = (Decimal)objSonuc;
                     if (sonuc > 0)
                     {
@@ -137,7 +137,7 @@ ON
                     builder.AddParameter("tableName", DbType.String, tableOrView.Name);
                     builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
                     builder.AddParameter("columnName", DbType.String, Name);
-                    Object objSonuc = template.TekDegerGetir(SQL_FOREIGN_KEY, builder.GetParameterArray());
+                    Object objSonuc = template.BringOneValue(SQL_FOREIGN_KEY, builder.GetParameterArray());
                     Decimal sonuc = (Decimal)objSonuc;
                     if (sonuc > 0)
                     {

@@ -147,7 +147,7 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
                 }
                 else
                 {
-                    int sonuc = (int)template.TekDegerGetir(SQL_PRIMARY_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
+                    int sonuc = (int)template.BringOneValue(SQL_PRIMARY_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
                     return sonuc > 0;
                 }
             }
@@ -165,7 +165,7 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
                 }
                 else
                 {
-                    int sonuc = (int)template.TekDegerGetir(SQL_FOREIGN_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
+                    int sonuc = (int)template.BringOneValue(SQL_FOREIGN_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
                     if (sonuc > 0)
                     {
                         return true;
@@ -301,7 +301,7 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
 
             ParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@UserDefinedTypeName", DbType.String, pUserDefinedTypeName);
-            underlyingType = (string)template.TekDegerGetir(sql, builder.GetParameterArray());
+            underlyingType = (string)template.BringOneValue(sql, builder.GetParameterArray());
 
             return underlyingType;
 

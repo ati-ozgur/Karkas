@@ -263,7 +263,7 @@ namespace Karkas.Core.DataUtil
         /// </example>
         /// <param name="cmd"></param>
         /// <returns></returns>
-        public object TekDegerGetir(DbCommand cmd)
+        public object BringOneValue(DbCommand cmd)
         {
             cmd.Connection = Connection;
             object sonuc = 0;
@@ -273,7 +273,7 @@ namespace Karkas.Core.DataUtil
 
 
 
-        public Object TekDegerGetir(string cmdText)
+        public Object BringOneValue(string cmdText)
         {
             DbCommand cmd = getDatabaseCommand(cmdText, Connection);
             object sonuc;
@@ -281,7 +281,7 @@ namespace Karkas.Core.DataUtil
             return sonuc;
         }
 
-        public Object TekDegerGetir(string cmdText, CommandType cmdType, DbParameter[] parameters)
+        public Object BringOneValue(string cmdText, CommandType cmdType, DbParameter[] parameters)
         {
             DbCommand cmd = getDatabaseCommand(cmdText, Connection);
             cmd.CommandType = cmdType;
@@ -295,7 +295,7 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        public Object TekDegerGetir(string cmdText, DbParameter[] parameters)
+        public Object BringOneValue(string cmdText, DbParameter[] parameters)
         {
             DbCommand cmd = getDatabaseCommand(cmdText, Connection);
             foreach (DbParameter p in parameters)
@@ -353,7 +353,7 @@ namespace Karkas.Core.DataUtil
                                         else
                                         SELECT cast( 0 as bit)
                                         ", pSql);
-            return (bool)this.TekDegerGetir(calistirilacakSql, pParamListesi);
+            return (bool)this.BringOneValue(calistirilacakSql, pParamListesi);
         }
         /// <summary>
         /// verilen sql cumlesini IF EXISTS icinde calıstırır, eğer sonuc listesi varsa
@@ -372,7 +372,7 @@ namespace Karkas.Core.DataUtil
                                         else
                                         SELECT cast( 0 as bit)
                                         ", pSql);
-            return (bool)this.TekDegerGetir(calistirilacakSql);
+            return (bool)this.BringOneValue(calistirilacakSql);
         }
 
         #region "List of Dictionaries Creation"
