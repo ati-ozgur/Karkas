@@ -302,7 +302,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             DeleteCommandParametersAdd(cmd, row);
             ExecuteNonQueryCommandInternal(cmd);
         }
-        public T ExecuteQueryTekSatirGetir(String pFilterString)
+        public T ExecuteQueryBringOneRow(String pFilterString)
         {
             List<T> liste = new List<T>();
             ExecuteQuery(liste, pFilterString);
@@ -315,7 +315,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 return null;
             }
         }
-        public T ExecuteQueryTekSatirGetir(String pFilterString, DbParameter[] parameterArray)
+        public T ExecuteQueryBringOneRow(String pFilterString, DbParameter[] parameterArray)
         {
             List<T> liste = new List<T>();
             ExecuteQuery(liste, pFilterString, parameterArray);
