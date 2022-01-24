@@ -106,7 +106,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             int sonucRowSayisi = 0;
             try
             {
-                if (ConnectionAcilacakMi())
+                if (ShouldOpenConnection())
                 {
                     Connection.Open();
                 }
@@ -141,7 +141,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             return Connection.State != ConnectionState.Closed && AutomaticConnectionManagement;
         }
 
-        protected bool ConnectionAcilacakMi()
+        protected bool ShouldOpenConnection()
         {
             return (Connection.State != ConnectionState.Open) && (AutomaticConnectionManagement);
         }

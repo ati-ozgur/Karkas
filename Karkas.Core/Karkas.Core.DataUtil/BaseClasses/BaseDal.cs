@@ -212,7 +212,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
             try
             {
-                if (ConnectionAcilacakMi())
+                if (ShouldOpenConnection())
                 {
                     Connection.Open();
                 }
@@ -386,7 +386,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             try
             {
 
-                if (ConnectionAcilacakMi())
+                if (ShouldOpenConnection())
                 {
                     Connection.Open();
                 }
