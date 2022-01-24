@@ -84,7 +84,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
         public void TopluEkleGuncelleVeyaSil(List<TYPE_LIBRARY_TIPI> liste)
         {
-            dal.TopluEkleGuncelleVeyaSil(liste);
+            dal.BatchInsertUpdateDelete(liste);
         }
         public int TablodakiSatirSayisi
         {

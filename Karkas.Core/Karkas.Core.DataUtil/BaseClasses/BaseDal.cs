@@ -79,7 +79,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
 
 
-        public virtual void TopluEkleGuncelleVeyaSil(List<T> liste)
+        public virtual void BatchInsertUpdateDelete(List<T> liste)
         {
             if (liste == null)
             {
