@@ -60,7 +60,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
         public void Sil(TYPE_LIBRARY_TIPI k)
         {
-            dal.Sil(k);
+            dal.Delete(k);
         }
         public void DurumaGoreEkleGuncelleVeyaSil(TYPE_LIBRARY_TIPI k)
         {

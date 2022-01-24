@@ -146,11 +146,11 @@ namespace Karkas.CodeGenerationHelper.Generators
                 {
                     IColumn pkColumn = utils.PrimaryKeyColumnTekIseBul(container);
                     string pkPropertyName = utils.getPropertyVariableName(pkColumn);
-                    output.autoTabLn(string.Format("public void Sil({0} p{1})", pkType, pkPropertyName));
+                    output.autoTabLn(string.Format("public void Delete({0} p{1})", pkType, pkPropertyName));
                     BaslangicSusluParentezVeTabArtir(output);
                     // output.autoTabLn(string.Format("{0} row = new {0}();", classNameTypeLibrary));
 
-                    output.autoTabLn(string.Format("dal.Sil( p{0});",pkPropertyName));
+                    output.autoTabLn(string.Format("dal.Delete( p{0});",pkPropertyName));
                     BitisSusluParentezVeTabAzalt(output);
                 }
             }

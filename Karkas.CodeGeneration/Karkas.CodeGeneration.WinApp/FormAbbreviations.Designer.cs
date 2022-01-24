@@ -93,7 +93,7 @@
             this.buttonSil.Name = "buttonSil";
             this.buttonSil.Size = new System.Drawing.Size(75, 23);
             this.buttonSil.TabIndex = 6;
-            this.buttonSil.Text = "Sil";
+            this.buttonSil.Text = "Delete";
             this.buttonSil.UseVisualStyleBackColor = true;
             // 
             // FormAbbravetions

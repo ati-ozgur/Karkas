@@ -219,11 +219,11 @@ namespace Karkas.CodeGenerationHelper.Generators
                 {
                     IColumn pkColumn = utils.PrimaryKeyColumnTekIseBul(container);
                     string pkPropertyName = utils.getPropertyVariableName(pkColumn);
-                    output.autoTabLn(string.Format("public virtual void Sil({0} {1})", pkType, pkPropertyName));
+                    output.autoTabLn(string.Format("public virtual void Delete({0} {1})", pkType, pkPropertyName));
                     BaslangicSusluParentezVeTabArtir(output);
                     output.autoTabLn(string.Format("{0} satir = new {0}();", classNameTypeLibrary));
                     output.autoTabLn(string.Format("satir.{0} = {0};", pkPropertyName));
-                    output.autoTabLn("base.Sil(satir);");
+                    output.autoTabLn("base.Delete(satir);");
                     BitisSusluParentezVeTabAzalt(output);
                 }
             }
@@ -385,7 +385,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             else
             {
 
-                cumle = "throw new NotSupportedException(\"VIEW ustunden Ekle/Update/Sil desteklenmemektedir\")";
+                cumle = "throw new NotSupportedException(\"VIEW ustunden Ekle/Update/Delete desteklenmemektedir\")";
             }
 
             output.autoTabLn(cumle + whereClause + ";");
@@ -461,7 +461,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             }
             else
             {
-                output.autoTabLn("throw new NotSupportedException(\"VIEW ustunden Ekle/Update/Sil desteklenmemektedir\");");
+                output.autoTabLn("throw new NotSupportedException(\"VIEW ustunden Ekle/Update/Delete desteklenmemektedir\");");
             }
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);
@@ -521,7 +521,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             }
             else
             {
-                output.autoTabLn("throw new NotSupportedException(\"VIEW ustunden Ekle/Update/Sil desteklenmemektedir\");");
+                output.autoTabLn("throw new NotSupportedException(\"VIEW ustunden Ekle/Update/Delete desteklenmemektedir\");");
             }
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);

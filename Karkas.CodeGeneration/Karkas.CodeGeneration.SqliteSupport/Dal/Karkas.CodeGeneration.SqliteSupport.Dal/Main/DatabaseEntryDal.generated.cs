@@ -130,7 +130,7 @@ public partial class DatabaseEntryDal : BaseDal<DatabaseEntry>
 	{
 		DatabaseEntry row = new DatabaseEntry();
 		row.ConnectionName = ConnectionName;
-		base.Sil(row);
+		base.Delete(row);
 	}
 	protected override void ProcessRow(IDataReader dr, DatabaseEntry row)
 	{

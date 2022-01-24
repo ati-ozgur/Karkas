@@ -71,7 +71,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             //rowstate'i unchanged yapiyoruz
             row.RowState = DataRowState.Unchanged;
         }
-        public virtual void Sil(T row)
+        public virtual void Delete(T row)
         {
             SorguHariciKomutCalistirDelete(DeleteString, row);
             //rowstate'i unchanged yapiyoruz
@@ -99,7 +99,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                     Ekle(t);
                     break;
                 case DataRowState.Deleted:
-                    Sil(t);
+                    Delete(t);
                     break;
                 case DataRowState.Modified:
                     Update(t);

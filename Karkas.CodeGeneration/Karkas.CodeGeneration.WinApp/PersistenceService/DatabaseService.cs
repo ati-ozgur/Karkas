@@ -40,7 +40,7 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
 
         internal static void deleteDatabase(DatabaseEntry databaseEntry)
         {
-            dal.Sil(databaseEntry);
+            dal.Delete(databaseEntry);
         }
 
         internal static void Ekle(DatabaseEntry databaseEntry)
