@@ -21,7 +21,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         }
 
-        protected abstract void identityKolonDegeriniSetle(T pTypeLibrary, M pIdentityKolonValue);
+        protected abstract void setIdentityColumnValue(T pTypeLibrary, M pIdentityKolonValue);
 
         public new M Insert(T row)
         {
@@ -48,7 +48,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                     new LoggingInfo(cmd).LogInfo(this.GetType());
                     object o = cmd.ExecuteScalar();
                     sonuc = (M)Convert.ChangeType(o, sonuc.GetType());
-                    identityKolonDegeriniSetle(row, sonuc);
+                    setIdentityColumnValue(row, sonuc);
                 }
                 else
                 {
