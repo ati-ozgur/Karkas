@@ -340,7 +340,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         public void ExecuteQuery(List<T> liste, String pFilterString, DbParameter[] parameterArray, bool otomatikWhereEkle)
         {
             DbCommand cmd = Template.getDatabaseCommand(Connection);
-            filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
+            setFilterString(pFilterString, otomatikWhereEkle, cmd);
             foreach (DbParameter prm in parameterArray)
             {
                 cmd.Parameters.Add(prm);
@@ -352,11 +352,11 @@ namespace Karkas.Core.DataUtil.BaseClasses
         public void ExecuteQuery(List<T> liste, String pFilterString, bool otomatikWhereEkle)
         {
             DbCommand cmd = Template.getDatabaseCommand(Connection);
-            filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
+            setFilterString(pFilterString, otomatikWhereEkle, cmd);
             ExecuteQueryInternal(liste, cmd);
         }
 
-        private void filtreStringiniSetle(String pFilterString, bool otomatikWhereEkle, DbCommand cmd)
+        private void setFilterString(String pFilterString, bool otomatikWhereEkle, DbCommand cmd)
         {
             if (String.IsNullOrEmpty(pFilterString))
             {
