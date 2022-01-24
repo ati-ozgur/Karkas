@@ -90,7 +90,7 @@ public partial class DatabaseEntryDal : BaseDal<DatabaseEntry>
 	public DatabaseEntry SorgulaConnectionNameIle(string p1)
 	{
 		List<DatabaseEntry> liste = new List<DatabaseEntry>();
-		SorguCalistir(liste,String.Format(" ConnectionName = '{0}'", p1));		
+		ExecuteQuery(liste,String.Format(" ConnectionName = '{0}'", p1));		
 		if (liste.Count > 0)
 		{
 			return liste[0];

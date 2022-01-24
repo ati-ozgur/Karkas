@@ -68,7 +68,7 @@ namespace Karkas.Core.DataUtil
         DbConnection conn;
 
 
-        internal void SorguCalistir(DataTable dt, string sql, CommandType cmdType)
+        internal void ExecuteQuery(DataTable dt, string sql, CommandType cmdType)
         {
             DbCommand cmd = Template.getDatabaseCommand(sql, conn);
             cmd.CommandType = cmdType;
@@ -102,7 +102,7 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        internal void SorguCalistir(DataTable dt, DbCommand cmd)
+        internal void ExecuteQuery(DataTable dt, DbCommand cmd)
         {
             DbDataAdapter adapter = AdapterDondur(cmd);
 
@@ -127,7 +127,7 @@ namespace Karkas.Core.DataUtil
 
 
 
-        internal void SorguCalistir(DataTable dt, string sql, CommandType cmdType, DbParameter[] parameters)
+        internal void ExecuteQuery(DataTable dt, string sql, CommandType cmdType, DbParameter[] parameters)
         {
             DbCommand cmd = Template.getDatabaseCommand(sql, conn);
             cmd.CommandType = cmdType;
@@ -135,7 +135,7 @@ namespace Karkas.Core.DataUtil
             {
                 cmd.Parameters.Add(p);
             }
-            SorguCalistir(dt, cmd);
+            ExecuteQuery(dt, cmd);
 
 
         }

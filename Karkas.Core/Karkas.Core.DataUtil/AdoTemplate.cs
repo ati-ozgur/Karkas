@@ -482,7 +482,7 @@ namespace Karkas.Core.DataUtil
             {
                 cmd.Transaction = currentTransaction;
             }
-            helper.SorguCalistir(dataTable, cmd);
+            helper.ExecuteQuery(dataTable, cmd);
             return dataTable;
         }
 
@@ -524,24 +524,24 @@ namespace Karkas.Core.DataUtil
         public void DataTableDoldur(DataTable dataTable, string sql, CommandType commandType)
         {
             helper.ValidateFillArguments(dataTable, sql);
-            helper.SorguCalistir(dataTable, sql, commandType);
+            helper.ExecuteQuery(dataTable, sql, commandType);
         }
         public void DataTableDoldur(DataTable dataTable, string sql)
         {
             helper.ValidateFillArguments(dataTable, sql);
-            helper.SorguCalistir(dataTable, sql, CommandType.Text);
+            helper.ExecuteQuery(dataTable, sql, CommandType.Text);
         }
         public void DataTableDoldur(DataTable dataTable, string sql, CommandType commandType
                 , DbParameter[] parameters)
         {
             helper.ValidateFillArguments(dataTable, sql);
-            helper.SorguCalistir(dataTable, sql, commandType, parameters);
+            helper.ExecuteQuery(dataTable, sql, commandType, parameters);
         }
         public void DataTableDoldur(DataTable dataTable, string sql
                 , DbParameter[] parameters)
         {
             helper.ValidateFillArguments(dataTable, sql);
-            helper.SorguCalistir(dataTable, sql, CommandType.Text, parameters);
+            helper.ExecuteQuery(dataTable, sql, CommandType.Text, parameters);
         }
 
         #endregion

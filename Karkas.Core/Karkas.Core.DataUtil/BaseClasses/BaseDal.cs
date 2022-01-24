@@ -110,14 +110,14 @@ namespace Karkas.Core.DataUtil.BaseClasses
         public virtual List<T> SorgulaHepsiniGetir()
         {
             List<T> liste = new List<T>();
-            SorguCalistir(liste);
+            ExecuteQuery(liste);
             return liste;
         }
 
         public virtual List<T> SorgulaHepsiniGetir(int maxRowCount)
         {
             List<T> liste = new List<T>();
-            SorguCalistir(liste);
+            ExecuteQuery(liste);
             return liste;
         }
 
@@ -152,7 +152,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 sy.AddWhereCriteria(filtre);
                 builder.AddParameter(ParameterCharacter + filtre, degerListesi[i]);
             }
-            SorguCalistir(liste, sy.GetCriteriaResultsWithoutWhere(), builder.GetParameterArray());
+            ExecuteQuery(liste, sy.GetCriteriaResultsWithoutWhere(), builder.GetParameterArray());
             return liste;
         }
         /// <summary>
@@ -194,7 +194,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 }
             }
             // HACK buna daha duzgun bir cozum lazim;
-            SorguCalistir(liste, " 1 = 1 " + sy.GetCriteriaResultsWithoutWhere());
+            ExecuteQuery(liste, " 1 = 1 " + sy.GetCriteriaResultsWithoutWhere());
             return liste;
         }
 
@@ -302,10 +302,10 @@ namespace Karkas.Core.DataUtil.BaseClasses
             DeleteCommandParametersAdd(cmd, row);
             ExecuteNonQueryCommandInternal(cmd);
         }
-        public T SorguCalistirTekSatirGetir(String pFilterString)
+        public T ExecuteQueryTekSatirGetir(String pFilterString)
         {
             List<T> liste = new List<T>();
-            SorguCalistir(liste, pFilterString);
+            ExecuteQuery(liste, pFilterString);
             if (liste.Count > 0)
             {
                 return liste[0];
@@ -315,10 +315,10 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 return null;
             }
         }
-        public T SorguCalistirTekSatirGetir(String pFilterString, DbParameter[] parameterArray)
+        public T ExecuteQueryTekSatirGetir(String pFilterString, DbParameter[] parameterArray)
         {
             List<T> liste = new List<T>();
-            SorguCalistir(liste, pFilterString, parameterArray);
+            ExecuteQuery(liste, pFilterString, parameterArray);
             if (liste.Count > 0)
             {
                 return liste[0];
@@ -329,15 +329,15 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
         }
 
-        public void SorguCalistir(List<T> liste)
+        public void ExecuteQuery(List<T> liste)
         {
-            SorguCalistir(liste, "");
+            ExecuteQuery(liste, "");
         }
-        public void SorguCalistir(List<T> liste, String pFilterString, DbParameter[] parameterArray)
+        public void ExecuteQuery(List<T> liste, String pFilterString, DbParameter[] parameterArray)
         {
-            SorguCalistir(liste, pFilterString, parameterArray, true);
+            ExecuteQuery(liste, pFilterString, parameterArray, true);
         }
-        public void SorguCalistir(List<T> liste, String pFilterString, DbParameter[] parameterArray, bool otomatikWhereEkle)
+        public void ExecuteQuery(List<T> liste, String pFilterString, DbParameter[] parameterArray, bool otomatikWhereEkle)
         {
             DbCommand cmd = Template.getDatabaseCommand(Connection);
             filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
@@ -345,15 +345,15 @@ namespace Karkas.Core.DataUtil.BaseClasses
             {
                 cmd.Parameters.Add(prm);
             }
-            sorguCalistirInternal(liste, cmd);
+            ExecuteQueryInternal(liste, cmd);
 
         }
 
-        public void SorguCalistir(List<T> liste, String pFilterString, bool otomatikWhereEkle)
+        public void ExecuteQuery(List<T> liste, String pFilterString, bool otomatikWhereEkle)
         {
             DbCommand cmd = Template.getDatabaseCommand(Connection);
             filtreStringiniSetle(pFilterString, otomatikWhereEkle, cmd);
-            sorguCalistirInternal(liste, cmd);
+            ExecuteQueryInternal(liste, cmd);
         }
 
         private void filtreStringiniSetle(String pFilterString, bool otomatikWhereEkle, DbCommand cmd)
@@ -375,12 +375,12 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
         }
 
-        public void SorguCalistir(List<T> liste, String pFilterString)
+        public void ExecuteQuery(List<T> liste, String pFilterString)
         {
-            SorguCalistir(liste, pFilterString, true);
+            ExecuteQuery(liste, pFilterString, true);
         }
 
-        private void sorguCalistirInternal(List<T> liste, DbCommand cmd)
+        private void ExecuteQueryInternal(List<T> liste, DbCommand cmd)
         {
             DbDataReader reader = null;
             try

@@ -549,7 +549,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTabLn(classSatiri);
             BaslangicSusluParentezVeTabArtir(output);
             listeTanimla(output);
-            output.autoTab("SorguCalistir(liste,String.Format(\" " + pkAdi + " = '{0}'\", p1));");
+            output.autoTab("ExecuteQuery(liste,String.Format(\" " + pkAdi + " = '{0}'\", p1));");
             output.autoTabLn("");
             output.autoTabLn("if (liste.Count > 0)");
             output.autoTabLn("{");

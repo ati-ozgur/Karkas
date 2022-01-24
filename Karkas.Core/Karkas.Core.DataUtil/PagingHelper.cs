@@ -63,7 +63,7 @@ namespace Karkas.Core.DataUtil
         {
             pagingSqliniAyarla(ref sql, pPageSize, ref pStartRowIndex, pOrderBy);
             helper.ValidateFillArguments(dataTable, sql);
-            helper.SorguCalistir(dataTable, sql, CommandType.Text, parameters);
+            helper.ExecuteQuery(dataTable, sql, CommandType.Text, parameters);
         }
 
 
@@ -72,7 +72,7 @@ namespace Karkas.Core.DataUtil
         {
             pagingSqliniAyarla(ref sql, pPageSize, ref pStartRowIndex, pOrderBy);
             helper.ValidateFillArguments(dataTable, sql);
-            helper.SorguCalistir(dataTable, sql, CommandType.Text);
+            helper.ExecuteQuery(dataTable, sql, CommandType.Text);
 
         }
 
@@ -87,7 +87,7 @@ namespace Karkas.Core.DataUtil
             DataTable dataTable = new DataTable();
             pagingSqliniAyarla(ref sql, pPageSize, ref pStartRowIndex, pOrderBy);
             helper.ValidateFillArguments(dataTable, sql);
-            helper.SorguCalistir(dataTable, sql, CommandType.Text);
+            helper.ExecuteQuery(dataTable, sql, CommandType.Text);
             return dataTable;
         }
 
@@ -98,7 +98,7 @@ namespace Karkas.Core.DataUtil
             DataTable dataTable = new DataTable();
             pagingSqliniAyarla(ref sql, pPageSize, ref pStartRowIndex, pOrderBy);
             helper.ValidateFillArguments(dataTable, sql);
-            helper.SorguCalistir(dataTable, sql, CommandType.Text, parameters);
+            helper.ExecuteQuery(dataTable, sql, CommandType.Text, parameters);
             return dataTable;
         }
 
