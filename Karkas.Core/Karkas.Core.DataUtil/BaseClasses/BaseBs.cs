@@ -66,21 +66,21 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             dal.InsertUpdateDeleteAccordingToState(k);
         }
-        public List<TYPE_LIBRARY_TIPI> SorgulaHepsiniGetir()
+        public List<TYPE_LIBRARY_TIPI> QueryAll()
         {
-            return dal.SorgulaHepsiniGetir();
+            return dal.QueryAll();
         }
 
-        public List<TYPE_LIBRARY_TIPI> SorgulaHepsiniGetir(int maxRowCount)
+        public List<TYPE_LIBRARY_TIPI> QueryAll(int maxRowCount)
         {
-            return dal.SorgulaHepsiniGetir(maxRowCount);
+            return dal.QueryAll(maxRowCount);
         }
 
 
 
-        public List<TYPE_LIBRARY_TIPI> SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
+        public List<TYPE_LIBRARY_TIPI> QueryAllSirali(params string[] pSiraListesi)
         {
-            return dal.SorgulaHepsiniGetirSirali(pSiraListesi);
+            return dal.QueryAllSirali(pSiraListesi);
         }
         public void TopluEkleGuncelleVeyaSil(List<TYPE_LIBRARY_TIPI> liste)
         {

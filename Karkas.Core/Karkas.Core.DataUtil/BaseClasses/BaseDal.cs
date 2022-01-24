@@ -107,14 +107,14 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
         }
 
-        public virtual List<T> SorgulaHepsiniGetir()
+        public virtual List<T> QueryAll()
         {
             List<T> liste = new List<T>();
             ExecuteQuery(liste);
             return liste;
         }
 
-        public virtual List<T> SorgulaHepsiniGetir(int maxRowCount)
+        public virtual List<T> QueryAll(int maxRowCount)
         {
             List<T> liste = new List<T>();
             ExecuteQuery(liste);
@@ -176,7 +176,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
 
 
-        public virtual List<T> SorgulaHepsiniGetirSirali(params string[] pSiraListesi)
+        public virtual List<T> QueryAllSirali(params string[] pSiraListesi)
         {
             List<T> liste = new List<T>();
             QueryHelper sy = SorguYardimcisi;
