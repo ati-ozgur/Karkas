@@ -193,7 +193,7 @@ namespace Karkas.Core.DataUtil
             }
         }
 
-        private object SorguHariciKomutCalistirSonucGetirInternal(DbCommand cmd)
+        private object ExecuteNonQueryCommandSonucGetirInternal(DbCommand cmd)
         {
             object son = 0;
             try
@@ -222,7 +222,7 @@ namespace Karkas.Core.DataUtil
             }
             return son;
         }
-        private void SorguHariciKomutCalistirInternal(DbCommand cmd)
+        private void ExecuteNonQueryCommandInternal(DbCommand cmd)
         {
             try
             {
@@ -267,7 +267,7 @@ namespace Karkas.Core.DataUtil
         {
             cmd.Connection = Connection;
             object sonuc = 0;
-            sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
+            sonuc = ExecuteNonQueryCommandSonucGetirInternal(cmd);
             return sonuc;
         }
 
@@ -277,7 +277,7 @@ namespace Karkas.Core.DataUtil
         {
             DbCommand cmd = getDatabaseCommand(cmdText, Connection);
             object sonuc;
-            sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
+            sonuc = ExecuteNonQueryCommandSonucGetirInternal(cmd);
             return sonuc;
         }
 
@@ -290,7 +290,7 @@ namespace Karkas.Core.DataUtil
                 cmd.Parameters.Add(p);
             }
 
-            object sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
+            object sonuc = ExecuteNonQueryCommandSonucGetirInternal(cmd);
             return sonuc;
         }
 
@@ -303,27 +303,27 @@ namespace Karkas.Core.DataUtil
                 cmd.Parameters.Add(p);
             }
 
-            object sonuc = SorguHariciKomutCalistirSonucGetirInternal(cmd);
+            object sonuc = ExecuteNonQueryCommandSonucGetirInternal(cmd);
             return sonuc;
         }
 
-        public void SorguHariciKomutCalistir(String cmdText)
+        public void ExecuteNonQueryCommand(String cmdText)
         {
             DbCommand cmd = getDatabaseCommand(cmdText, Connection);
-            SorguHariciKomutCalistirInternal(cmd);
+            ExecuteNonQueryCommandInternal(cmd);
         }
 
 
 
-        public void SorguHariciKomutCalistir(DbCommand cmd)
+        public void ExecuteNonQueryCommand(DbCommand cmd)
         {
             cmd.Connection = Connection;
-            SorguHariciKomutCalistirInternal(cmd);
+            ExecuteNonQueryCommandInternal(cmd);
         }
 
 
 
-        public void SorguHariciKomutCalistir(string sql, DbParameter[] prmListesi)
+        public void ExecuteNonQueryCommand(string sql, DbParameter[] prmListesi)
         {
             DbCommand cmd = getDatabaseCommand(sql, Connection);
             cmd.CommandType = CommandType.Text;
@@ -332,7 +332,7 @@ namespace Karkas.Core.DataUtil
                 cmd.Parameters.Add(p);
             }
 
-            SorguHariciKomutCalistirInternal(cmd);
+            ExecuteNonQueryCommandInternal(cmd);
 
         }
 
