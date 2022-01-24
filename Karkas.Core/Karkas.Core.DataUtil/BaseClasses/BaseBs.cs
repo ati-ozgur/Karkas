@@ -98,18 +98,18 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             return dal.QueryDetailTable<T1>(degeri);
         }
-        public virtual List<TYPE_LIBRARY_TIPI> QueryUsingColumnName(string filtre, object oDegeri)
+        public virtual List<TYPE_LIBRARY_TIPI> QueryUsingColumnName(string filter, object value)
         {
-            return dal.QueryUsingColumnName(filtre, oDegeri);
+            return dal.QueryUsingColumnName(filter, value);
         }
 
-        public virtual List<TYPE_LIBRARY_TIPI> QueryUsingColumnName(List<string> filtreListesi, List<object> degerListesi)
+        public virtual List<TYPE_LIBRARY_TIPI> QueryUsingColumnName(List<string> filterList, List<object> valueList)
         {
-            return dal.QueryUsingColumnName(filtreListesi, degerListesi);
+            return dal.QueryUsingColumnName(filterList, valueList);
         }
-        public virtual List<TYPE_LIBRARY_TIPI> QueryUsingColumnName(string[] filtreListesi, object[] degerListesi)
+        public virtual List<TYPE_LIBRARY_TIPI> QueryUsingColumnName(string[] filterList, object[] valueList)
         {
-            return dal.QueryUsingColumnName(filtreListesi, degerListesi);
+            return dal.QueryUsingColumnName(filterList, valueList);
         }
 
 
