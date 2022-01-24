@@ -82,7 +82,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             return dal.QueryAllOrderBy(pSiraListesi);
         }
-        public void TopluEkleGuncelleVeyaSil(List<TYPE_LIBRARY_TIPI> liste)
+        public void BatchInsertUpdateDelete(List<TYPE_LIBRARY_TIPI> liste)
         {
             dal.BatchInsertUpdateDelete(liste);
         }
