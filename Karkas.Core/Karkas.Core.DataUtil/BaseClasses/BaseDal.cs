@@ -273,7 +273,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
-            int sonuc = SorguHariciKomutCalistirInternal(cmd);
+            int sonuc = ExecuteNonQueryCommandInternal(cmd);
 
             //rowstate'i unchanged yapiyoruz
             row.RowState = DataRowState.Unchanged;
@@ -283,7 +283,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             DbCommand cmd = Template.getDatabaseCommand(cmdText, Connection);
             UpdateCommandParametersAdd(cmd, row);
-            int kayitSayisi = SorguHariciKomutCalistirInternal(cmd);
+            int kayitSayisi = ExecuteNonQueryCommandInternal(cmd);
 
             bool updateSonucuBasarisiz = (kayitSayisi == 0);
             // Bu kod TopluEkleGuncelle icinde patlamaya yol acacak,
@@ -300,7 +300,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             DbCommand cmd = Template.getDatabaseCommand(cmdText, Connection);
             DeleteCommandParametersAdd(cmd, row);
-            SorguHariciKomutCalistirInternal(cmd);
+            ExecuteNonQueryCommandInternal(cmd);
         }
         public T SorguCalistirTekSatirGetir(String pFilterString)
         {

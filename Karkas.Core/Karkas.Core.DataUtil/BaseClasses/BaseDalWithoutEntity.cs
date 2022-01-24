@@ -101,7 +101,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             set { currentTransaction = value; }
         }
 
-        protected int SorguHariciKomutCalistirInternal(DbCommand cmd)
+        protected int ExecuteNonQueryCommandInternal(DbCommand cmd)
         {
             int sonucRowSayisi = 0;
             try
