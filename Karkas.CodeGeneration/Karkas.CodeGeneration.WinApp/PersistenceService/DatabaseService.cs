@@ -13,12 +13,12 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
         static DatabaseEntryDal dal = new DatabaseEntryDal();
         public static List<DatabaseEntry> getAllDatabaseEntriesSortedByName()
         {
-            return dal.QueryAllSirali(DatabaseEntry.PropertyIsimleri.ConnectionName);
+            return dal.QueryAllOrderBy(DatabaseEntry.PropertyIsimleri.ConnectionName);
         }
 
         public static DatabaseEntry getLastAccessedDatabaseEntry()
         {
-            List<DatabaseEntry> liste= dal.QueryAllSirali(DatabaseEntry.PropertyIsimleri.LastAccessTime,"DESC");
+            List<DatabaseEntry> liste= dal.QueryAllOrderBy(DatabaseEntry.PropertyIsimleri.LastAccessTime,"DESC");
             return liste[0];
         }
 

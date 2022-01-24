@@ -80,7 +80,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         public List<TYPE_LIBRARY_TIPI> QueryAllSirali(params string[] pSiraListesi)
         {
-            return dal.QueryAllSirali(pSiraListesi);
+            return dal.QueryAllOrderBy(pSiraListesi);
         }
         public void TopluEkleGuncelleVeyaSil(List<TYPE_LIBRARY_TIPI> liste)
         {

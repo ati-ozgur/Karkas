@@ -176,7 +176,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
 
 
-        public virtual List<T> QueryAllSirali(params string[] pSiraListesi)
+        public virtual List<T> QueryAllOrderBy(params string[] pSiraListesi)
         {
             List<T> liste = new List<T>();
             QueryHelper sy = SorguYardimcisi;
