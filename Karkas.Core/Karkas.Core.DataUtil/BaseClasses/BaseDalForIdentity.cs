@@ -23,7 +23,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         protected abstract void identityKolonDegeriniSetle(T pTypeLibrary, M pIdentityKolonValue);
 
-        public new M Ekle(T row)
+        public new M Insert(T row)
         {
             M sonuc = default(M);
             DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
