@@ -64,7 +64,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
         public void DurumaGoreEkleGuncelleVeyaSil(TYPE_LIBRARY_TIPI k)
         {
-            dal.DurumaGoreEkleGuncelleVeyaSil(k);
+            dal.InsertUpdateDeleteAccordingToState(k);
         }
         public List<TYPE_LIBRARY_TIPI> SorgulaHepsiniGetir()
         {

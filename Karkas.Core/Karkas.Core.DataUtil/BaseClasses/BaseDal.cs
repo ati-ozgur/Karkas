@@ -87,11 +87,11 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
             foreach (T t in liste)
             {
-                DurumaGoreEkleGuncelleVeyaSil(t);
+                InsertUpdateDeleteAccordingToState(t);
             }
         }
 
-        public virtual void DurumaGoreEkleGuncelleVeyaSil(T t)
+        public virtual void InsertUpdateDeleteAccordingToState(T t)
         {
             switch (t.RowState)
             {
