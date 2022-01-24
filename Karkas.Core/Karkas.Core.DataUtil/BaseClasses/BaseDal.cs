@@ -264,12 +264,12 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
             else
             {
-                return EkleNormal(row);
+                return InsertNormal(row);
             }
         }
 
 
-        private long EkleNormal(T row)
+        private long InsertNormal(T row)
         {
             DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
