@@ -244,7 +244,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
             finally
             {
-                if (ConnectionKapatilacakMi())
+                if (ShouldCloseConnection())
                 {
                     Connection.Close();
                 }
@@ -416,7 +416,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 {
                     reader.Close();
                 }
-                if (ConnectionKapatilacakMi())
+                if (ShouldCloseConnection())
                 {
                     Connection.Close();
                 }

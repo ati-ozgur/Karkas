@@ -128,7 +128,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
             finally
             {
-                if (ConnectionKapatilacakMi())
+                if (ShouldCloseConnection())
                 {
                     Connection.Close();
                 }
@@ -136,7 +136,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             return sonucRowSayisi;
         }
 
-        protected bool ConnectionKapatilacakMi()
+        protected bool ShouldCloseConnection()
         {
             return Connection.State != ConnectionState.Closed && AutomaticConnectionManagement;
         }

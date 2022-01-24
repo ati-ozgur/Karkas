@@ -66,7 +66,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
             finally
             {
-                if (ConnectionKapatilacakMi())
+                if (ShouldCloseConnection())
                 {
                     Connection.Close();
                 }
