@@ -94,9 +94,9 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
         }
 
-        public List<T1> SorgulaDetayTabloGetir<T1>(object degeri) where T1 : new()
+        public List<T1> QueryDetailTable<T1>(object degeri) where T1 : new()
         {
-            return dal.SorgulaDetayTabloGetir<T1>(degeri);
+            return dal.QueryDetailTable<T1>(degeri);
         }
         public virtual List<TYPE_LIBRARY_TIPI> SorgulaKolonIsmiIle(string filtre, object oDegeri)
         {
