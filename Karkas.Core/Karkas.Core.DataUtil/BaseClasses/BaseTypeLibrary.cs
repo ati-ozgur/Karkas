@@ -33,15 +33,15 @@ namespace Karkas.Core.TypeLibrary
             set { rowState = value; }
         }
 
-        public void SilinmesiIcinIsaretle()
+        public void SetForDeletion()
         {
             rowState = DataRowState.Deleted;
         }
-        public void EklenmesiIcinIsaretle()
+        public void SetForInsert()
         {
             rowState = DataRowState.Added;
         }
-        public void GuncellenmesiIcinIsaretle()
+        public void SetForUpdate()
         {
             rowState = DataRowState.Modified;
         }
