@@ -58,11 +58,11 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             dal.Update(k);
         }
-        public void Sil(TYPE_LIBRARY_TIPI k)
+        public void Delete(TYPE_LIBRARY_TIPI k)
         {
             dal.Delete(k);
         }
-        public void DurumaGoreEkleGuncelleVeyaSil(TYPE_LIBRARY_TIPI k)
+        public void InsertUpdateDeleteAccordingToState(TYPE_LIBRARY_TIPI k)
         {
             dal.InsertUpdateDeleteAccordingToState(k);
         }
