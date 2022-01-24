@@ -102,12 +102,12 @@ namespace Karkas.Core.DataUtil
             }
         }
 
-        private bool ConnectionKapatilacakMi()
+        private bool ShouldCloseConnection()
         {
             return Connection.State != ConnectionState.Closed && AutomaticConnectionManagement;
         }
 
-        private bool ShouldOpenTheConnection()
+        private bool ShouldOpenConnection()
         {
             return (Connection.State != ConnectionState.Open) && (AutomaticConnectionManagement);
         }
@@ -199,7 +199,7 @@ namespace Karkas.Core.DataUtil
             try
             {
                 new LoggingInfo(cmd).LogInfo(this.GetType());
-                if (ShouldOpenTheConnection())
+                if (ShouldOpenConnection())
                 {
                     Connection.Open();
                 }
@@ -227,7 +227,7 @@ namespace Karkas.Core.DataUtil
             try
             {
                 new LoggingInfo(cmd).LogInfo(this.GetType());
-                if (ShouldOpenTheConnection())
+                if (ShouldOpenConnection())
                 {
                     Connection.Open();
                 }
@@ -384,7 +384,7 @@ namespace Karkas.Core.DataUtil
             try
             {
 
-                if (ShouldOpenTheConnection())
+                if (ShouldOpenConnection())
                 {
                     cmd.Connection.Open();
                 }
@@ -413,7 +413,7 @@ namespace Karkas.Core.DataUtil
                 {
                     reader.Close();
                 }
-                if (ConnectionKapatilacakMi())
+                if (ShouldCloseConnection())
                 {
                     Connection.Close();
                 }
