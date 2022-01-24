@@ -78,7 +78,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
 
 
-        public List<TYPE_LIBRARY_TIPI> QueryAllSirali(params string[] pSiraListesi)
+        public List<TYPE_LIBRARY_TIPI> QueryAllOrderBy(params string[] pSiraListesi)
         {
             return dal.QueryAllOrderBy(pSiraListesi);
         }
@@ -86,7 +86,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             dal.BatchInsertUpdateDelete(liste);
         }
-        public int TablodakiSatirSayisi
+        public int TableRowCount
         {
             get
             {
