@@ -50,7 +50,7 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
 
         internal static void Guncelle(DatabaseEntry databaseEntry)
         {
-            dal.Guncelle(databaseEntry);
+            dal.Update(databaseEntry);
         }
 
         internal static void EkleVeyaGuncelle(DatabaseEntry databaseEntry)

@@ -54,7 +54,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
 
 
-        public virtual int TablodakiSatirSayisi
+        public virtual int TableRowCount
         {
             get
             {
@@ -64,7 +64,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
 
 
-        public virtual void Guncelle(T row)
+        public virtual void Update(T row)
         {
             SorguHariciKomutCalistirUpdate(UpdateString, row);
 
@@ -102,7 +102,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                     Sil(t);
                     break;
                 case DataRowState.Modified:
-                    Guncelle(t);
+                    Update(t);
                     break;
             }
         }

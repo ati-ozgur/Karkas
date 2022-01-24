@@ -56,7 +56,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
         public void Guncelle(TYPE_LIBRARY_TIPI k)
         {
-            dal.Guncelle(k);
+            dal.Update(k);
         }
         public void Sil(TYPE_LIBRARY_TIPI k)
         {
@@ -90,7 +90,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             get
             {
-                return dal.TablodakiSatirSayisi;
+                return dal.TableRowCount;
             }
         }
 
