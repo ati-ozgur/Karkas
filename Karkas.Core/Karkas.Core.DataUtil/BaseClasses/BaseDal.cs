@@ -73,7 +73,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
         public virtual void Delete(T row)
         {
-            SorguHariciKomutCalistirDelete(DeleteString, row);
+            ExecuteNonQueryDelete(DeleteString, row);
             //rowstate'i unchanged yapiyoruz
             row.RowState = DataRowState.Unchanged;
         }
@@ -296,7 +296,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
         }
 
-        protected void SorguHariciKomutCalistirDelete(string cmdText, T row)
+        protected void ExecuteNonQueryDelete(string cmdText, T row)
         {
             DbCommand cmd = Template.getDatabaseCommand(cmdText, Connection);
             DeleteCommandParametersAdd(cmd, row);
