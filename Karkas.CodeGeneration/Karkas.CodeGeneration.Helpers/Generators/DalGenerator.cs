@@ -598,7 +598,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
 
             output.autoTabLn("");
-            output.autoTabLn("protected override bool PkGuidMi");
+            output.autoTabLn("protected override bool IsPkGuid");
             BaslangicSusluParentezVeTabArtir(output);
             output.autoTabLn("get");
             BaslangicSusluParentezVeTabArtir(output);

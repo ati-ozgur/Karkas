@@ -449,7 +449,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             get;
         }
 
-        protected abstract bool PkGuidMi
+        protected abstract bool IsPkGuid
         {
             get;
         }

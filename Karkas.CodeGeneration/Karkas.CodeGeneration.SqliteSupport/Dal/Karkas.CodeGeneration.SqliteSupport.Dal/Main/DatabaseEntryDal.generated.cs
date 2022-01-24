@@ -109,7 +109,7 @@ public partial class DatabaseEntryDal : BaseDal<DatabaseEntry>
 		}
 	}
 	
-	protected override bool PkGuidMi
+	protected override bool IsPkGuid
 	{
 		get
 		{
