@@ -143,7 +143,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         public virtual List<T> QueryUsingColumnName(string[] filtreListesi, object[] degerListesi)
         {
             List<T> liste = new List<T>();
-            QueryHelper sy = SorguYardimcisi;
+            QueryHelper sy = QueryHelper;
             ParameterBuilder builder = getParameterBuilder();
             for (int i = 0; i < filtreListesi.Length; i++)
             {
@@ -167,7 +167,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
 
 
-        public virtual QueryHelper SorguYardimcisi
+        public virtual QueryHelper QueryHelper
         {
             get
             {
@@ -179,7 +179,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         public virtual List<T> QueryAllOrderBy(params string[] pSiraListesi)
         {
             List<T> liste = new List<T>();
-            QueryHelper sy = SorguYardimcisi;
+            QueryHelper sy = QueryHelper;
             int listeUzunluk = pSiraListesi.Length;
             for (int i = 0; i < listeUzunluk; i++)
             {
