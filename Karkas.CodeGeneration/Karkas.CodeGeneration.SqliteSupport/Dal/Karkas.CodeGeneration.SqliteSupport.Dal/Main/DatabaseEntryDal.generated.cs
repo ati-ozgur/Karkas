@@ -23,7 +23,7 @@ public partial class DatabaseEntryDal : BaseDal<DatabaseEntry>
             return "Main";
 		}
 	}
-	protected override void identityKolonDegeriniSetle(DatabaseEntry pTypeLibrary,long pIdentityKolonValue)
+	protected override void setIdentityColumnValue(DatabaseEntry pTypeLibrary,long pIdentityKolonValue)
 	{
 	}
 	protected override string SelectCountString

@@ -234,7 +234,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         private void identityKolonDegeriniSetleYaz(IOutput output, IContainer container)
         {
-            string methodYazisi = string.Format("protected override void identityKolonDegeriniSetle({0} pTypeLibrary,long pIdentityKolonValue)", classNameTypeLibrary);
+            string methodYazisi = string.Format("protected override void setIdentityColumnValue({0} pTypeLibrary,long pIdentityKolonValue)", classNameTypeLibrary);
             output.autoTabLn(methodYazisi);
             BaslangicSusluParentezVeTabArtir(output);
             if (getIdentityVarmi(utils, container))

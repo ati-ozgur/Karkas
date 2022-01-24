@@ -198,7 +198,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             return liste;
         }
 
-        protected abstract void identityKolonDegeriniSetle(T pTypeLibrary, long pIdentityKolonValue);
+        protected abstract void setIdentityColumnValue(T pTypeLibrary, long pIdentityKolonValue);
 
         private long InsertIdentity(T row)
         {
@@ -225,7 +225,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                     new LoggingInfo( cmd).LogInfo(this.GetType());
                     object id_degeri = cmd.ExecuteScalar();
                     sonuc = Convert.ToInt64(id_degeri);
-                    identityKolonDegeriniSetle(row, sonuc);
+                    setIdentityColumnValue(row, sonuc);
                 }
                 else
                 {
