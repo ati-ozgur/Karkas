@@ -483,10 +483,8 @@ namespace Karkas.Core.DataUtil.BaseClasses
         protected abstract void DeleteCommandParametersAdd(DbCommand Cmd, T row);
 
 
-        public class Siralama
+        public class OrderBy
         {
-            public const string Azalarak = "DESC";
-            public const string Artarak = "ASC";
             public const string Ascending = "ASC";
             public const string Descending = "DESC";
         }
