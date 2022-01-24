@@ -45,7 +45,7 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
 
         internal static void Ekle(DatabaseEntry databaseEntry)
         {
-            dal.Ekle(databaseEntry);
+            dal.Insert(databaseEntry);
         }
 
         internal static void Guncelle(DatabaseEntry databaseEntry)

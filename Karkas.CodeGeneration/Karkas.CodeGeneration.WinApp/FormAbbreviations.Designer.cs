@@ -51,7 +51,7 @@
             this.buttonEkle.Name = "buttonEkle";
             this.buttonEkle.Size = new System.Drawing.Size(75, 23);
             this.buttonEkle.TabIndex = 1;
-            this.buttonEkle.Text = "Ekle";
+            this.buttonEkle.Text = "Insert";
             this.buttonEkle.UseVisualStyleBackColor = true;
             this.buttonEkle.Click += new System.EventHandler(this.buttonEkle_Click);
             // 

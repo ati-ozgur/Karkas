@@ -52,7 +52,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         public virtual long Ekle(TYPE_LIBRARY_TIPI k)
         {
-            return dal.Ekle(k);
+            return dal.Insert(k);
         }
         public void Guncelle(TYPE_LIBRARY_TIPI k)
         {

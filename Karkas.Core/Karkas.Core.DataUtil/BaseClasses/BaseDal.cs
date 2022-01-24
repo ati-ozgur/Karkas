@@ -96,7 +96,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             switch (t.RowState)
             {
                 case DataRowState.Added:
-                    Ekle(t);
+                    Insert(t);
                     break;
                 case DataRowState.Deleted:
                     Delete(t);
@@ -256,7 +256,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
 
 
-        public long Ekle(T row)
+        public long Insert(T row)
         {
             if (IdentityVarMi)
             {

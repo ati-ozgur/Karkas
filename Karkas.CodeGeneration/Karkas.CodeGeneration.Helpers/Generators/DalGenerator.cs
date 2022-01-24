@@ -385,7 +385,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             else
             {
 
-                cumle = "throw new NotSupportedException(\"VIEW ustunden Ekle/Update/Delete desteklenmemektedir\")";
+                cumle = "throw new NotSupportedException(\"VIEW ustunden Insert/Update/Delete desteklenmemektedir\")";
             }
 
             output.autoTabLn(cumle + whereClause + ";");
@@ -461,7 +461,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             }
             else
             {
-                output.autoTabLn("throw new NotSupportedException(\"VIEW ustunden Ekle/Update/Delete desteklenmemektedir\");");
+                output.autoTabLn("throw new NotSupportedException(\"VIEW ustunden Insert/Update/Delete desteklenmemektedir\");");
             }
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);
@@ -521,7 +521,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             }
             else
             {
-                output.autoTabLn("throw new NotSupportedException(\"VIEW ustunden Ekle/Update/Delete desteklenmemektedir\");");
+                output.autoTabLn("throw new NotSupportedException(\"VIEW ustunden Insert/Update/Delete desteklenmemektedir\");");
             }
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);
