@@ -66,7 +66,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         public virtual void Update(T row)
         {
-            SorguHariciKomutCalistirUpdate(UpdateString, row);
+            ExecuteNonQueryUpdate(UpdateString, row);
 
             //rowstate'i unchanged yapiyoruz
             row.RowState = DataRowState.Unchanged;
@@ -200,7 +200,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         protected abstract void identityKolonDegeriniSetle(T pTypeLibrary, long pIdentityKolonValue);
 
-        private long EkleIdentity(T row)
+        private long InsertIdentity(T row)
         {
             long sonuc = 0;
             DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
@@ -260,7 +260,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             if (IdentityVarMi)
             {
-                return EkleIdentity(row);
+                return InsertIdentity(row);
             }
             else
             {
@@ -279,7 +279,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             row.RowState = DataRowState.Unchanged;
             return sonuc;
         }
-        protected void SorguHariciKomutCalistirUpdate(string cmdText, T row)
+        protected void ExecuteNonQueryUpdate(string cmdText, T row)
         {
             DbCommand cmd = Template.getDatabaseCommand(cmdText, Connection);
             UpdateCommandParametersAdd(cmd, row);
