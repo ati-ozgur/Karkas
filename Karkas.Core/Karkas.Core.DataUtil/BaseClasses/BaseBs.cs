@@ -54,7 +54,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             return dal.Insert(k);
         }
-        public void Guncelle(TYPE_LIBRARY_TIPI k)
+        public void Update(TYPE_LIBRARY_TIPI k)
         {
             dal.Update(k);
         }
