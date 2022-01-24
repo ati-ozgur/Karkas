@@ -22,7 +22,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 isInTransaction = value;
                 if (value)
                 {
-                    this.Dal.OtomatikConnectionYonetimi = false;
+                    this.Dal.AutomaticConnectionManagement = false;
                     Dal.CurrentTransaction = transaction;
 
                 }
@@ -56,7 +56,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 connection.Close();
             }
             IsInTransaction = false;
-            this.Dal.OtomatikConnectionYonetimi = true;
+            this.Dal.AutomaticConnectionManagement = true;
         }
 
         public virtual string DatabaseName

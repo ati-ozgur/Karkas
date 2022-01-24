@@ -16,22 +16,22 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
 
 
-        private bool otomatikConnectionYonetimi = true;
+        private bool automaticConnectionManagement = true;
         /// <summary>
         /// Eger varsayılan deger, true bırakılırsa, connection yonetimi 
         /// BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
         /// Connection'u acma ve kapama BaseDal kontrolundedir.
         /// Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
         /// </summary>
-        public bool OtomatikConnectionYonetimi
+        public bool AutomaticConnectionManagement
         {
             get
             {
-                return otomatikConnectionYonetimi;
+                return automaticConnectionManagement;
             }
             set
             {
-                otomatikConnectionYonetimi = value;
+                automaticConnectionManagement = value;
                 this.Template.AutomaticConnectionManagement = value;
             }
         }
@@ -53,7 +53,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             AdoTemplate t = new AdoTemplate();
             t.Connection = Connection;
             t.CurrentTransaction = currentTransaction;
-            t.AutomaticConnectionManagement = otomatikConnectionYonetimi;
+            t.AutomaticConnectionManagement = automaticConnectionManagement;
             t.DbProviderName = DbProviderName;
             return t;
         }
@@ -138,12 +138,12 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         protected bool ConnectionKapatilacakMi()
         {
-            return Connection.State != ConnectionState.Closed && OtomatikConnectionYonetimi;
+            return Connection.State != ConnectionState.Closed && AutomaticConnectionManagement;
         }
 
         protected bool ConnectionAcilacakMi()
         {
-            return (Connection.State != ConnectionState.Open) && (OtomatikConnectionYonetimi);
+            return (Connection.State != ConnectionState.Open) && (AutomaticConnectionManagement);
         }
 
 

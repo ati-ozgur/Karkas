@@ -47,7 +47,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             di.IsInTransaction = IsInTransaction;
             if (IsInTransaction)
             {
-                di.OtomatikConnectionYonetimi = false;
+                di.AutomaticConnectionManagement = false;
                 di.CurrentTransaction = CurrentTransaction;
             }
             return di;
