@@ -576,7 +576,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             }
 
             output.autoTabLn("");
-            output.autoTabLn("protected override bool IdentityVarMi");
+            output.autoTabLn("protected override bool IdentityExists");
             BaslangicSusluParentezVeTabArtir(output);
             output.autoTabLn("get");
             BaslangicSusluParentezVeTabArtir(output);

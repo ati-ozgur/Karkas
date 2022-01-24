@@ -43,7 +43,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 {
                     cmd.Transaction = CurrentTransaction;
                 }
-                if (IdentityVarMi)
+                if (IdentityExists)
                 {
                     new LoggingInfo(cmd).LogInfo(this.GetType());
                     object o = cmd.ExecuteScalar();

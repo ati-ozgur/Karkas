@@ -220,7 +220,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 {
                     cmd.Transaction = CurrentTransaction;
                 }
-                if (IdentityVarMi)
+                if (IdentityExists)
                 {
                     new LoggingInfo( cmd).LogInfo(this.GetType());
                     object id_degeri = cmd.ExecuteScalar();
@@ -258,7 +258,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         public long Insert(T row)
         {
-            if (IdentityVarMi)
+            if (IdentityExists)
             {
                 return InsertIdentity(row);
             }
@@ -444,7 +444,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             get;
         }
-        protected abstract bool IdentityVarMi
+        protected abstract bool IdentityExists
         {
             get;
         }

@@ -101,7 +101,7 @@ public partial class DatabaseEntryDal : BaseDal<DatabaseEntry>
 		}
 	}
 	
-	protected override bool IdentityVarMi
+	protected override bool IdentityExists
 	{
 		get
 		{
