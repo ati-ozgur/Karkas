@@ -6,9 +6,9 @@ using System.Data;
 
 namespace Karkas.Core.DataUtil.BaseClasses
 {
-    public abstract class BaseBs<TYPE_LIBRARY_TIPI, DAL_TIPI> : BaseBsWithoutEntity
-        where TYPE_LIBRARY_TIPI : BaseTypeLibrary, new()
-        where DAL_TIPI : BaseDal<TYPE_LIBRARY_TIPI>, new()
+    public abstract class BaseBs<TYPE_LIBRARY_TYPE, DAL_TYPE> : BaseBsWithoutEntity
+        where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
+        where DAL_TYPE : BaseDal<TYPE_LIBRARY_TYPE>, new()
     {
 
 
@@ -36,53 +36,53 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         public BaseBs()
         {
-            dal = new DAL_TIPI();
+            dal = new DAL_TYPE();
             dal.Connection = Connection;
         }
 
 
 
 
-        protected DAL_TIPI dal = new DAL_TIPI();
+        protected DAL_TYPE dal = new DAL_TYPE();
 
         protected override BaseDalWithoutEntity Dal
         {
             get { return dal; }
         }
 
-        public virtual long Insert(TYPE_LIBRARY_TIPI k)
+        public virtual long Insert(TYPE_LIBRARY_TYPE k)
         {
             return dal.Insert(k);
         }
-        public void Update(TYPE_LIBRARY_TIPI k)
+        public void Update(TYPE_LIBRARY_TYPE k)
         {
             dal.Update(k);
         }
-        public void Delete(TYPE_LIBRARY_TIPI k)
+        public void Delete(TYPE_LIBRARY_TYPE k)
         {
             dal.Delete(k);
         }
-        public void InsertUpdateDeleteAccordingToState(TYPE_LIBRARY_TIPI k)
+        public void InsertUpdateDeleteAccordingToState(TYPE_LIBRARY_TYPE k)
         {
             dal.InsertUpdateDeleteAccordingToState(k);
         }
-        public List<TYPE_LIBRARY_TIPI> QueryAll()
+        public List<TYPE_LIBRARY_TYPE> QueryAll()
         {
             return dal.QueryAll();
         }
 
-        public List<TYPE_LIBRARY_TIPI> QueryAll(int maxRowCount)
+        public List<TYPE_LIBRARY_TYPE> QueryAll(int maxRowCount)
         {
             return dal.QueryAll(maxRowCount);
         }
 
 
 
-        public List<TYPE_LIBRARY_TIPI> QueryAllOrderBy(params string[] pSiraListesi)
+        public List<TYPE_LIBRARY_TYPE> QueryAllOrderBy(params string[] pSiraListesi)
         {
             return dal.QueryAllOrderBy(pSiraListesi);
         }
-        public void BatchInsertUpdateDelete(List<TYPE_LIBRARY_TIPI> liste)
+        public void BatchInsertUpdateDelete(List<TYPE_LIBRARY_TYPE> liste)
         {
             dal.BatchInsertUpdateDelete(liste);
         }
@@ -98,16 +98,16 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             return dal.QueryDetailTable<T1>(degeri);
         }
-        public virtual List<TYPE_LIBRARY_TIPI> QueryUsingColumnName(string filter, object value)
+        public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string filter, object value)
         {
             return dal.QueryUsingColumnName(filter, value);
         }
 
-        public virtual List<TYPE_LIBRARY_TIPI> QueryUsingColumnName(List<string> filterList, List<object> valueList)
+        public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(List<string> filterList, List<object> valueList)
         {
             return dal.QueryUsingColumnName(filterList, valueList);
         }
-        public virtual List<TYPE_LIBRARY_TIPI> QueryUsingColumnName(string[] filterList, object[] valueList)
+        public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string[] filterList, object[] valueList)
         {
             return dal.QueryUsingColumnName(filterList, valueList);
         }
