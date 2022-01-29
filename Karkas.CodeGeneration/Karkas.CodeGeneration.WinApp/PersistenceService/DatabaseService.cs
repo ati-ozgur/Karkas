@@ -76,20 +76,7 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
 
         }
 
-        internal static void Insert(DatabaseEntry databaseEntry)
-        {
-            var entries = getAllDatabaseEntries();
-            entries.Add(databaseEntry);
 
-            throw new NotImplementedException();
-
-        }
-
-        internal static void Update(DatabaseEntry databaseEntry)
-        {
-            throw new NotImplementedException();
-
-        }
 
         internal static void InsertOrUpdate(DatabaseEntry databaseEntry)
         {
