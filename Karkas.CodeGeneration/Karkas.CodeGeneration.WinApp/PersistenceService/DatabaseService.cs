@@ -93,17 +93,10 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
 
         internal static void InsertOrUpdate(DatabaseEntry databaseEntry)
         {
-            throw new NotImplementedException();
-
-            //DatabaseEntry de = dal.SorgulaConnectionNameIle(databaseEntry.ConnectionName);
-            //if (de != null)
-            //{
-            //    Update(databaseEntry);
-            //}
-            //else
-            //{
-            //    Insert(databaseEntry);
-            //}
+            var entries = getAllDatabaseEntries();
+            entries.Remove(databaseEntry);
+            entries.Add(databaseEntry);
+            SaveDatabaseEntries(entries);
         }
     }
 }
