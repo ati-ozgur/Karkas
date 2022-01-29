@@ -87,7 +87,7 @@ namespace Karkas.CodeGeneration.WinApp
             this.labelConnectionStatus.Name = "labelConnectionStatus";
             this.labelConnectionStatus.Size = new System.Drawing.Size(101, 75);
             this.labelConnectionStatus.TabIndex = 4;
-            this.labelConnectionStatus.Text = "Bağlantı Denenmedi";
+            this.labelConnectionStatus.Text = "Connection is not tried yet.";
             // 
             // tabControlDatabase
             // 
