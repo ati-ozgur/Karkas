@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.CodeGeneration.Sqlit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.CodeGeneration.WinApp", "Karkas.CodeGeneration\Karkas.CodeGeneration.WinApp\Karkas.CodeGeneration.WinApp.csproj", "{FE49CC0C-0CF6-43F9-8E81-438EEDD5EE4C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.CodeGeneration.SqliteSupport", "Karkas.CodeGeneration\Karkas.CodeGeneration.SqliteSupport\Karkas.CodeGeneration.SqliteSupport.csproj", "{6E5E18F1-C8BC-45E1-843F-8EC48368FB7F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.CodeGeneration.SqlServer", "Karkas.CodeGeneration\Karkas.CodeGeneration.SqlServer\Karkas.CodeGeneration.SqlServer.csproj", "{F09A75E4-240F-4A17-961B-D6A4F3207989}"
 EndProject
 Global
@@ -49,10 +47,6 @@ Global
 		{FE49CC0C-0CF6-43F9-8E81-438EEDD5EE4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE49CC0C-0CF6-43F9-8E81-438EEDD5EE4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE49CC0C-0CF6-43F9-8E81-438EEDD5EE4C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E5E18F1-C8BC-45E1-843F-8EC48368FB7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E5E18F1-C8BC-45E1-843F-8EC48368FB7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E5E18F1-C8BC-45E1-843F-8EC48368FB7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E5E18F1-C8BC-45E1-843F-8EC48368FB7F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F09A75E4-240F-4A17-961B-D6A4F3207989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F09A75E4-240F-4A17-961B-D6A4F3207989}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F09A75E4-240F-4A17-961B-D6A4F3207989}.Release|Any CPU.ActiveCfg = Release|Any CPU

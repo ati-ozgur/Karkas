@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using Karkas.Core.TypeLibrary;
 using Karkas.CodeGenerationHelper.Interfaces;
 
-namespace Karkas.CodeGeneration.SqliteSupport.TypeLibrary.Main
+namespace Karkas.CodeGeneration.WinApp.PersistenceService
 {
     public partial class DatabaseEntry :   ICodeGenerationNotPersistedValues
     {

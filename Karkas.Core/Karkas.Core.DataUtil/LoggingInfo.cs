@@ -20,7 +20,7 @@ namespace Karkas.Core.DataUtil
             logger = factory.CreateLogger("Dal");
 
         }
-        public LoggingInfo(DbCommand sqlCommand)
+        public LoggingInfo(DbCommand sqlCommand): this()
         {
             this.sqlCommand = sqlCommand;
         }

@@ -19,7 +19,6 @@
     <ProjectReference Include="..\..\Karkas.Core\Karkas.Core.DataUtil\Karkas.Core.DataUtil.csproj" />
     <ProjectReference Include="..\Karkas.CodeGeneration.Helpers\Karkas.CodeGeneration.Helpers.csproj" />
     <ProjectReference Include="..\Karkas.CodeGeneration.Oracle\Karkas.CodeGeneration.Oracle.csproj" />
-    <ProjectReference Include="..\Karkas.CodeGeneration.SqliteSupport\Karkas.CodeGeneration.SqliteSupport.csproj" />
     <ProjectReference Include="..\Karkas.CodeGeneration.Sqlite\Karkas.CodeGeneration.Sqlite.csproj" />
     <ProjectReference Include="..\Karkas.CodeGeneration.SqlServer\Karkas.CodeGeneration.SqlServer.csproj" />
   </ItemGroup>

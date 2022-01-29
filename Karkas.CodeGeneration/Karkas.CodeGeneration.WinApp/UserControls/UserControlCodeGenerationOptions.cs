@@ -6,7 +6,6 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Karkas.CodeGeneration.SqliteSupport.TypeLibrary.Main;
 using Karkas.CodeGenerationHelper;
 using Karkas.CodeGeneration.WinApp.PersistenceService;
 using Karkas.CodeGenerationHelper.Interfaces;

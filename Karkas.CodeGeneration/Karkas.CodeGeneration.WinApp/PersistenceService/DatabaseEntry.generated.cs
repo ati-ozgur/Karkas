@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using Karkas.Core.TypeLibrary;
 using System.ComponentModel.DataAnnotations;
 
-namespace Karkas.CodeGeneration.SqliteSupport.TypeLibrary.Main
+namespace Karkas.CodeGeneration.WinApp.PersistenceService
 
 {
 	[Serializable]

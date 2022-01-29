@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using System.Collections;
 using Karkas.CodeGenerationHelper;
 using Karkas.CodeGeneration.WinApp.PersistenceService;
-using Karkas.CodeGeneration.SqliteSupport.TypeLibrary.Main;
 
 namespace Karkas.CodeGeneration.WinApp
 {
