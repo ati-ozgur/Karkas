@@ -2,18 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+
 using Karkas.CodeGeneration.SqliteSupport.TypeLibrary.Main;
 using Karkas.CodeGeneration.SqliteSupport.Dal.Main;
 using Karkas.CodeGenerationHelper;
+
+
 
 namespace Karkas.CodeGeneration.WinApp.PersistenceService
 {
     public class DatabaseService
     {
+        const string json_filename = "config.json";
         static DatabaseEntryDal dal = new DatabaseEntryDal();
         public static List<DatabaseEntry> getAllDatabaseEntriesSortedByName()
         {
-            return dal.QueryAllOrderBy(DatabaseEntry.PropertyIsimleri.ConnectionName);
+            string jsonString = File.ReadAllText(json_filename);
+            List<DatabaseEntry> entries = new List<DatabaseEntry>();
+            if (!string.IsNullOrWhiteSpace(jsonString))
+            {
+                entries = JsonSerializer.Deserialize<List<DatabaseEntry>>(jsonString);
+            }
+
+            return entries;
         }
 
         public static DatabaseEntry getLastAccessedDatabaseEntry()
