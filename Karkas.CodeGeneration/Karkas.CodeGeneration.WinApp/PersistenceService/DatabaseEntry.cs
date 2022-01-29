@@ -77,5 +77,22 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
 
         }
 
+        public override bool Equals(object obj)
+        {
+            // If the passed object is null
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is DatabaseEntry))
+            {
+                return false;
+            }
+            return (this.ConnectionName == ((DatabaseEntry)obj).ConnectionName);
+        }
+        public override int GetHashCode()
+        {
+            return ConnectionName.GetHashCode();
+        }
     }
 }
