@@ -228,7 +228,7 @@ namespace Karkas.CodeGeneration.WinApp
         private void buttonGecerliDegerleriKaydet_Click(object sender, EventArgs e)
         {
 
-            DatabaseService.EkleVeyaGuncelle(CurrentDatabaseEntry);
+            DatabaseService.InsertOrUpdate(CurrentDatabaseEntry);
 
             MessageBox.Show("Değerler Kaydedildi;");
 
@@ -297,7 +297,7 @@ namespace Karkas.CodeGeneration.WinApp
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DatabaseService.EkleVeyaGuncelle(CurrentDatabaseEntry);
+            DatabaseService.InsertOrUpdate(CurrentDatabaseEntry);
 
             MessageBox.Show("Değerler Kaydedildi;");
         }

@@ -55,26 +55,26 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
             dal.Delete(databaseEntry);
         }
 
-        internal static void Ekle(DatabaseEntry databaseEntry)
+        internal static void Insert(DatabaseEntry databaseEntry)
         {
             dal.Insert(databaseEntry);
         }
 
-        internal static void Guncelle(DatabaseEntry databaseEntry)
+        internal static void Update(DatabaseEntry databaseEntry)
         {
             dal.Update(databaseEntry);
         }
 
-        internal static void EkleVeyaGuncelle(DatabaseEntry databaseEntry)
+        internal static void InsertOrUpdate(DatabaseEntry databaseEntry)
         {
             DatabaseEntry de = dal.SorgulaConnectionNameIle(databaseEntry.ConnectionName);
             if (de != null)
             {
-                Guncelle(databaseEntry);
+                Update(databaseEntry);
             }
             else
             {
-                Ekle(databaseEntry);
+                Insert(databaseEntry);
             }
         }
     }
