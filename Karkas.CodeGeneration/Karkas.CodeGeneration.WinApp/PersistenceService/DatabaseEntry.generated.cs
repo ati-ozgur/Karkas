@@ -422,7 +422,7 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
 		}
 		
 
-		public class PropertyIsimleri
+		public class PropertyNames
 		{
 			public const string ConnectionName = "ConnectionName";
 			public const string ConnectionDatabaseType = "ConnectionDatabaseType";
