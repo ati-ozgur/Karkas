@@ -8,4 +8,6 @@ https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetco
 https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging?view=dotnet-plat-ext-6.0
 https://badecho.com/index.php/2021/01/26/net-library-log/
 
+https://github.com/serilog/serilog-sinks-console
+https://www.youtube.com/hashtag/logging
 
