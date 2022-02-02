@@ -68,13 +68,11 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             ExecuteNonQueryUpdate(UpdateString, row);
 
-            //rowstate'i unchanged yapiyoruz
             row.RowState = DataRowState.Unchanged;
         }
         public virtual void Delete(T row)
         {
             ExecuteNonQueryDelete(DeleteString, row);
-            //rowstate'i unchanged yapiyoruz
             row.RowState = DataRowState.Unchanged;
         }
 
@@ -193,7 +191,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                     sy.AddOrderBy(pSiraListesi[i]);
                 }
             }
-            // HACK buna daha duzgun bir cozum lazim;
+            // HACK Should find better solution to this;
             ExecuteQuery(liste, " 1 = 1 " + sy.GetCriteriaResultsWithoutWhere());
             return liste;
         }
@@ -275,7 +273,6 @@ namespace Karkas.Core.DataUtil.BaseClasses
             InsertCommandParametersAdd(cmd, row);
             int sonuc = ExecuteNonQueryCommandInternal(cmd);
 
-            //rowstate'i unchanged yapiyoruz
             row.RowState = DataRowState.Unchanged;
             return sonuc;
         }
