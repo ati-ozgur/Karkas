@@ -345,7 +345,7 @@ namespace Karkas.Core.DataUtil
         /// <returns></returns>
         public bool ExecuteAsIfExists(String pSql, DbParameter[] pParamListesi)
         {
-            string calistirilacakSql = string.Format(@"IF EXISTS
+            string sqlToExecute = string.Format(@"IF EXISTS
                                         (  
                                         {0}
                                         )
@@ -353,7 +353,7 @@ namespace Karkas.Core.DataUtil
                                         else
                                         SELECT cast( 0 as bit)
                                         ", pSql);
-            return (bool)this.BringOneValue(calistirilacakSql, pParamListesi);
+            return (bool)this.BringOneValue(sqlToExecute, pParamListesi);
         }
         /// <summary>
         /// Execute given sql statement inside IF EXISTS
@@ -364,7 +364,7 @@ namespace Karkas.Core.DataUtil
         /// <returns></returns>
         public bool ExecuteAsIfExists(String pSql)
         {
-            string calistirilacakSql = string.Format(@"IF EXISTS
+            string sqlToExecute = string.Format(@"IF EXISTS
                                         (  
                                         {0}
                                         )
@@ -372,7 +372,7 @@ namespace Karkas.Core.DataUtil
                                         else
                                         SELECT cast( 0 as bit)
                                         ", pSql);
-            return (bool)this.BringOneValue(calistirilacakSql);
+            return (bool)this.BringOneValue(sqlToExecute);
         }
 
         #region "List of Dictionaries Creation"
