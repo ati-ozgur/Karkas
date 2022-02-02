@@ -73,7 +73,7 @@ namespace Karkas.Core.DataUtil
             sb.Append("ORDER BY ");
             foreach (OrderBy s in listOrderBy)
             {
-                sb.Append(s.SqlHali + ",");
+                sb.Append(s.SqlForm + ",");
             }
             sb.Remove(sb.Length - 1, 1);
             return sb.ToString();

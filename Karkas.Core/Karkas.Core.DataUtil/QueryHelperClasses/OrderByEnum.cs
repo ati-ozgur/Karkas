@@ -8,8 +8,6 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
     {
         ASC = 1,
         DESC = 2,
-        Artarak = 1,
-        Azalarak = 2
     }
 }
 

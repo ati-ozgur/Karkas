@@ -12,10 +12,10 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
             whereOperator = pWhereOperator;
             columnName = pColumnName;
             parameterName = pParameterName;
-            nullDegeri = pNullValue;
+            nullValue = pNullValue;
         }
 
-        private string nullDegeri = "";
+        private string nullValue = "";
         public WhereCriteriaOptionalNullValue(
             string pColumnName
             , WhereOperatorEnum pWhereOperator
@@ -34,7 +34,7 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
                 string s = GetWhereOperatorValue();
                 if (WhereOperator != WhereOperatorEnum.Like)
                 {
-                    return string.Format("(({2} IS NULL) OR ({2} = '{3}') OR ({0} {1} {2}))", columnName, s, parameterName, nullDegeri);
+                    return string.Format("(({2} IS NULL) OR ({2} = '{3}') OR ({0} {1} {2}))", columnName, s, parameterName, nullValue);
                 }
                 else
                 {
@@ -42,16 +42,16 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
                     switch (likePlacement)
                     {
                         case LikePlacementEnum.None:
-                            son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR ( {0} {1} {2}))", columnName, s, parameterName,nullDegeri);
+                            son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR ( {0} {1} {2}))", columnName, s, parameterName,nullValue);
                             break;
                         case LikePlacementEnum.Start:
-                            son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR( {0} {1} {2} + '%'))", columnName, s, parameterName,nullDegeri);
+                            son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR( {0} {1} {2} + '%'))", columnName, s, parameterName,nullValue);
                             break;
                         case LikePlacementEnum.Last:
-                            son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR ( {0} {1} '%' + {2}))", columnName, s, parameterName,nullDegeri);
+                            son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR ( {0} {1} '%' + {2}))", columnName, s, parameterName,nullValue);
                             break;
                         case LikePlacementEnum.Between:
-                            son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR ({0} {1} '%' + {2} + '%'))", columnName, s, parameterName,nullDegeri);
+                            son = string.Format("(({2} IS NULL) OR ({2} = '{3}') OR ({0} {1} '%' + {2} + '%'))", columnName, s, parameterName,nullValue);
                             break;
                     }
                     return son;

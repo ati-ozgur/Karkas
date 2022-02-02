@@ -13,12 +13,12 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
         public OrderBy(string pColumnName, OrderByEnum pOrderByType)
         {
             orderByType = pOrderByType;
-            kolonIsmi = pColumnName;
+            columnName = pColumnName;
         }
         public OrderBy(string pColumnName, String pOrderByType)
         {
             orderByTypeAsString = pOrderByType;
-            kolonIsmi = pColumnName;
+            columnName = pColumnName;
         }
 
         private OrderByEnum orderByType;
@@ -38,15 +38,15 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
 
 
 
-        private string kolonIsmi;
+        private string columnName;
 
-        public string KolonIsmi
+        public string ColumnName
         {
-            get { return kolonIsmi; }
-            set { kolonIsmi = value; }
+            get { return columnName; }
+            set { columnName = value; }
         }
 
-        public string SqlHali
+        public string SqlForm
         {
             get
             {
@@ -58,7 +58,7 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
                         case OrderByEnum.ASC:
                             s = "ASC";
                             break;
-                        case OrderByEnum.Azalarak:
+                        case OrderByEnum.DESC:
                             s = "DESC";
                             break;
                     }
@@ -67,7 +67,7 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
                 {
                     s = orderByTypeAsString;
                 }
-                return kolonIsmi + " " + s;
+                return columnName + " " + s;
             }
         }
     }
