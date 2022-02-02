@@ -67,8 +67,8 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             }
 
 
-            entry.CreateMainClassAgain = checkBoxAnaSinifiTekrarUret.Checked;
-            entry.AnaSinifOnaylamaOrnekleriUret = checkBoxAnaSinifOnaylamaOrnekleri.Checked;
+            entry.CreateMainClassAgain = checkBoxCreateMainClassAgain.Checked;
+            entry.CreateMainClassValidationExamples = checkBoxCreateMainClassValidationExamples.Checked;
             entry.setTimeValues();
             return entry;
 

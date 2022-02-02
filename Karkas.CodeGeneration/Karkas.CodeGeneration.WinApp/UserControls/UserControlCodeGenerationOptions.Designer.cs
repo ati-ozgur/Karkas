@@ -34,7 +34,7 @@
             this.checkBoxViewCodeGenerate = new System.Windows.Forms.CheckBox();
             this.checkBoxUseSchemaNameInFolders = new System.Windows.Forms.CheckBox();
             this.checkBoxUseSchemaNameInSql = new System.Windows.Forms.CheckBox();
-            this.checkBoxAnaSinifiTekrarUret = new System.Windows.Forms.CheckBox();
+            this.checkBoxCreateMainClassAgain = new System.Windows.Forms.CheckBox();
             this.textBoxDbProviderName = new System.Windows.Forms.TextBox();
             this.labelDbProviderName = new System.Windows.Forms.Label();
             this.textBoxDatabaseNamePhysical = new System.Windows.Forms.TextBox();
@@ -56,7 +56,7 @@
             this.labelAbbrevationsAsString = new System.Windows.Forms.Label();
             this.textBoxIgnoredSchemaList = new System.Windows.Forms.TextBox();
             this.labelIgnoredSchemaList = new System.Windows.Forms.Label();
-            this.checkBoxAnaSinifOnaylamaOrnekleri = new System.Windows.Forms.CheckBox();
+            this.checkBoxCreateMainClassValidationExamples = new System.Windows.Forms.CheckBox();
             this.checkBoxSequenceCodeGenerate = new System.Windows.Forms.CheckBox();
             this.toolTipCodeGenerationOptions = new System.Windows.Forms.ToolTip(this.components);
             this.buttonKisaltmalar = new System.Windows.Forms.Button();
@@ -124,13 +124,13 @@
             // 
             // checkBoxAnaSinifiTekrarUret
             // 
-            this.checkBoxAnaSinifiTekrarUret.AutoSize = true;
-            this.checkBoxAnaSinifiTekrarUret.Location = new System.Drawing.Point(292, 575);
-            this.checkBoxAnaSinifiTekrarUret.Name = "checkBoxAnaSinifiTekrarUret";
-            this.checkBoxAnaSinifiTekrarUret.Size = new System.Drawing.Size(191, 24);
-            this.checkBoxAnaSinifiTekrarUret.TabIndex = 32;
-            this.checkBoxAnaSinifiTekrarUret.Text = "Create Main Class Again";
-            this.checkBoxAnaSinifiTekrarUret.UseVisualStyleBackColor = true;
+            this.checkBoxCreateMainClassAgain.AutoSize = true;
+            this.checkBoxCreateMainClassAgain.Location = new System.Drawing.Point(292, 575);
+            this.checkBoxCreateMainClassAgain.Name = "checkBoxAnaSinifiTekrarUret";
+            this.checkBoxCreateMainClassAgain.Size = new System.Drawing.Size(191, 24);
+            this.checkBoxCreateMainClassAgain.TabIndex = 32;
+            this.checkBoxCreateMainClassAgain.Text = "Create Main Class Again";
+            this.checkBoxCreateMainClassAgain.UseVisualStyleBackColor = true;
             // 
             // textBoxDbProviderName
             // 
@@ -316,13 +316,13 @@
             // 
             // checkBoxAnaSinifOnaylamaOrnekleri
             // 
-            this.checkBoxAnaSinifOnaylamaOrnekleri.AutoSize = true;
-            this.checkBoxAnaSinifOnaylamaOrnekleri.Location = new System.Drawing.Point(870, 575);
-            this.checkBoxAnaSinifOnaylamaOrnekleri.Name = "checkBoxAnaSinifOnaylamaOrnekleri";
-            this.checkBoxAnaSinifOnaylamaOrnekleri.Size = new System.Drawing.Size(91, 24);
-            this.checkBoxAnaSinifOnaylamaOrnekleri.TabIndex = 33;
-            this.checkBoxAnaSinifOnaylamaOrnekleri.Text = "Create Main Validation Class";
-            this.checkBoxAnaSinifOnaylamaOrnekleri.UseVisualStyleBackColor = true;
+            this.checkBoxCreateMainClassValidationExamples.AutoSize = true;
+            this.checkBoxCreateMainClassValidationExamples.Location = new System.Drawing.Point(870, 575);
+            this.checkBoxCreateMainClassValidationExamples.Name = "checkBoxAnaSinifOnaylamaOrnekleri";
+            this.checkBoxCreateMainClassValidationExamples.Size = new System.Drawing.Size(91, 24);
+            this.checkBoxCreateMainClassValidationExamples.TabIndex = 33;
+            this.checkBoxCreateMainClassValidationExamples.Text = "Create Main Validation Class";
+            this.checkBoxCreateMainClassValidationExamples.UseVisualStyleBackColor = true;
             // 
             // checkBoxSequenceCodeGenerate
             // 
@@ -377,11 +377,11 @@
             this.tableLayoutPanel1.Controls.Add(this.labelDatabaseNameLogical, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBoxDatabaseNameLogical, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.labelDatabaseNamePhysical, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxAnaSinifiTekrarUret, 1, 13);
+            this.tableLayoutPanel1.Controls.Add(this.checkBoxCreateMainClassAgain, 1, 13);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 13);
             this.tableLayoutPanel1.Controls.Add(this.labelConnectionName, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelDbProviderName, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxAnaSinifOnaylamaOrnekleri, 2, 13);
+            this.tableLayoutPanel1.Controls.Add(this.checkBoxCreateMainClassValidationExamples, 2, 13);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -433,7 +433,7 @@
         private System.Windows.Forms.CheckBox checkBoxViewCodeGenerate;
         private System.Windows.Forms.CheckBox checkBoxUseSchemaNameInFolders;
         private System.Windows.Forms.CheckBox checkBoxUseSchemaNameInSql;
-        private System.Windows.Forms.CheckBox checkBoxAnaSinifiTekrarUret;
+        private System.Windows.Forms.CheckBox checkBoxCreateMainClassAgain;
         private System.Windows.Forms.TextBox textBoxDbProviderName;
         private System.Windows.Forms.Label labelDbProviderName;
         private System.Windows.Forms.TextBox textBoxDatabaseNamePhysical;
@@ -455,7 +455,7 @@
         private System.Windows.Forms.Label labelAbbrevationsAsString;
         private System.Windows.Forms.TextBox textBoxIgnoredSchemaList;
         private System.Windows.Forms.Label labelIgnoredSchemaList;
-        private System.Windows.Forms.CheckBox checkBoxAnaSinifOnaylamaOrnekleri;
+        private System.Windows.Forms.CheckBox checkBoxCreateMainClassValidationExamples;
         private System.Windows.Forms.CheckBox checkBoxSequenceCodeGenerate;
         private System.Windows.Forms.ToolTip toolTipCodeGenerationOptions;
         private System.Windows.Forms.Button buttonKisaltmalar;
