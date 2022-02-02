@@ -5,7 +5,7 @@ using System.Text;
 namespace Karkas.Core.DataUtil.QueryHelperClasses
 {
 
-    internal class WhereCriteriaOptionalNullValue : BaseWhereKriter
+    internal class WhereCriteriaOptionalNullValue : BaseWhereCriteria
     {
         public WhereCriteriaOptionalNullValue(string pColumnName, WhereOperatorEnum pWhereOperator, string pParameterName, string pNullValue)
         {

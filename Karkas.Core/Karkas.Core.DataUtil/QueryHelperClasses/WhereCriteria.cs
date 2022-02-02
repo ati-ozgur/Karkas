@@ -5,7 +5,7 @@ using System.Text;
 namespace Karkas.Core.DataUtil.QueryHelperClasses
 {
 
-    internal class WhereCriteria : BaseWhereKriter
+    internal class WhereCriteria : BaseWhereCriteria
     {
         public WhereCriteria(string pColumnName, WhereOperatorEnum pWhereOperator, string pParameterName)
         {

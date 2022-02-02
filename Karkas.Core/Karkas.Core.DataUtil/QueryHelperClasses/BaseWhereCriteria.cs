@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Karkas.Core.DataUtil.QueryHelperClasses
 {
-    public abstract class BaseWhereKriter
+    public abstract class BaseWhereCriteria
     {
         protected LikePlacementEnum likePlacement = LikePlacementEnum.None;
 
