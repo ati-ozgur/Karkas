@@ -337,13 +337,13 @@ namespace Karkas.Core.DataUtil
         }
 
         /// <summary>
-        /// verilen sql cumlesini IF EXISTS icinde calıstırır, eğer sonuc listesi varsa
-        /// true diğer durumda false dondurur.
+        /// Execute given sql statement inside IF EXISTS
+        /// If we have value, it return true otherwise false
         /// </summary>
         /// <param name="sql"></param>
         /// <param name="prmListesi"></param>
         /// <returns></returns>
-        public bool VarMiIfExists(String pSql, DbParameter[] pParamListesi)
+        public bool ExecuteAsIfExists(String pSql, DbParameter[] pParamListesi)
         {
             string calistirilacakSql = string.Format(@"IF EXISTS
                                         (  
@@ -356,13 +356,13 @@ namespace Karkas.Core.DataUtil
             return (bool)this.BringOneValue(calistirilacakSql, pParamListesi);
         }
         /// <summary>
-        /// verilen sql cumlesini IF EXISTS icinde calıstırır, eğer sonuc listesi varsa
-        /// true diğer durumda false dondurur.
+        /// Execute given sql statement inside IF EXISTS
+        /// If we have value, it return true otherwise false
         /// </summary>
         /// <param name="sql"></param>
         /// <param name="prmListesi"></param>
         /// <returns></returns>
-        public bool VarMiIfExists(String pSql)
+        public bool ExecuteAsIfExists(String pSql)
         {
             string calistirilacakSql = string.Format(@"IF EXISTS
                                         (  
