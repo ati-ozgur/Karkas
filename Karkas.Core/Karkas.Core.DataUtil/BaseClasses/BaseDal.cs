@@ -205,7 +205,6 @@ namespace Karkas.Core.DataUtil.BaseClasses
             InsertCommandParametersAdd(cmd, row);
 
 
-            //rowstate'i unchanged yapiyoruz
             row.RowState = DataRowState.Unchanged;
 
             try
@@ -283,9 +282,9 @@ namespace Karkas.Core.DataUtil.BaseClasses
             int kayitSayisi = ExecuteNonQueryCommandInternal(cmd);
 
             bool updateSonucuBasarisiz = (kayitSayisi == 0);
-            // Bu kod TopluEkleGuncelle icinde patlamaya yol acacak,
-            // bunu kabul ederek birakiyoruz. Bu tur durumlar icin
-            // gerekirse yazilimci kendisi kod yazsin.
+
+            // This code will blow in BatchInsertUpdateDelete
+            // Developers should write their own custom logic for this purpose
 
             if (updateSonucuBasarisiz)
             {
