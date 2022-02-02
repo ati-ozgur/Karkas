@@ -12,28 +12,28 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
         }
         public OrderBy(string pColumnName, OrderByEnum pOrderByType)
         {
-            siralamaTuru = pOrderByType;
+            orderByType = pOrderByType;
             kolonIsmi = pColumnName;
         }
         public OrderBy(string pColumnName, String pOrderByType)
         {
-            siralamaTuruAsString = pOrderByType;
+            orderByTypeAsString = pOrderByType;
             kolonIsmi = pColumnName;
         }
 
-        private OrderByEnum siralamaTuru;
+        private OrderByEnum orderByType;
 
-        public OrderByEnum SiralamaTuru
+        public OrderByEnum OrderByType
         {
-            get { return siralamaTuru; }
-            set { siralamaTuru = value; }
+            get { return orderByType; }
+            set { orderByType = value; }
         }
-        private string siralamaTuruAsString;
+        private string orderByTypeAsString;
 
-        public string SiralamaTuruAsString
+        public string OrderByTypeAsString
         {
-            get { return siralamaTuruAsString; }
-            set { siralamaTuruAsString = value; }
+            get { return orderByTypeAsString; }
+            set { orderByTypeAsString = value; }
         }
 
 
@@ -51,9 +51,9 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
             get
             {
                 string s = "";
-                if (string.IsNullOrEmpty(siralamaTuruAsString))
+                if (string.IsNullOrEmpty(orderByTypeAsString))
                 {
-                    switch (siralamaTuru)
+                    switch (orderByType)
                     {
                         case OrderByEnum.ASC:
                             s = "ASC";
@@ -65,7 +65,7 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
                 }
                 else
                 {
-                    s = siralamaTuruAsString;
+                    s = orderByTypeAsString;
                 }
                 return kolonIsmi + " " + s;
             }
