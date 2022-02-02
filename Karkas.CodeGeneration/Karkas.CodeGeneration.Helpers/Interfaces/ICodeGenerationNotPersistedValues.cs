@@ -8,8 +8,8 @@ namespace Karkas.CodeGenerationHelper.Interfaces
     public interface ICodeGenerationNotPersistedValues
     {
 
-        bool AnaSinifiTekrarUret { get; set; }
-        bool AnaSinifOnaylamaOrnekleriUret { get; set; }
+        bool CreateMainClassAgain { get; set; }
+        bool CreateMainClassValidationExamples { get; set; }
 
     }
 }

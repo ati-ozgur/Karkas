@@ -50,29 +50,29 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
             database.UseSchemaNameInSqlQueries = Convert.ToBoolean(this.useSchemaNameInSqlQueries);
             database.ViewCodeGenerate = Convert.ToBoolean(this.ViewCodeGenerate);
             database.SequenceCodeGenerate = Convert.ToBoolean(this.SequenceCodeGenerate);
-            database.AnaSinifiTekrarUret = this.AnaSinifiTekrarUret;
-            database.AnaSinifOnaylamaOrnekleriUret = this.anaSinifOnaylamaOrnekleriUret;
+            database.CreateMainClassAgain = this.CreateMainClassAgain;
+            database.CreateMainClassValidationExamples = this.CreateMainClassValidationExamples;
 
         }
 
-        private bool anaSinifOnaylamaOrnekleriUret = false;
+        private bool createMainClassValidationExamples = false;
 
-        public bool AnaSinifOnaylamaOrnekleriUret
+        public bool CreateMainClassValidationExamples
         {
-            get { return anaSinifOnaylamaOrnekleriUret; }
-            set { anaSinifOnaylamaOrnekleriUret = value; }
+            get { return createMainClassValidationExamples; }
+            set { createMainClassValidationExamples = value; }
         }
 
-        private bool anaSinifiTekrarUret = false;
-        public bool AnaSinifiTekrarUret
+        private bool createMainClassAgain = false;
+        public bool CreateMainClassAgain
         {
             get
             {
-                return anaSinifiTekrarUret;
+                return createMainClassAgain;
             }
             set
             {
-                anaSinifiTekrarUret = value;
+                createMainClassAgain = value;
             }
 
         }

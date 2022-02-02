@@ -392,8 +392,8 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
 
 
         #region "Not Persisted Values"
-        public bool AnaSinifiTekrarUret { get; set; }
-        public bool AnaSinifOnaylamaOrnekleriUret { get; set; }
+        public bool CreateMainClassAgain { get; set; }
+        public bool CreateMainClassValidationExamples { get; set; }
 
         #endregion
 

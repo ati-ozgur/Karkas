@@ -71,7 +71,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
 
 
-            if (!File.Exists(outputFullFileName) || database.AnaSinifiTekrarUret  )
+            if (!File.Exists(outputFullFileName) || database.CreateMainClassAgain  )
             {
                 generateMainClassFile(output,  database, className, classNameSpace, outputFullFileName);
             }
@@ -87,7 +87,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             writeMainClass(output, className, classNameValidation);
             writeValidationClass(output, database, className, classNameValidation);
             BitisSusluParentezVeTabAzalt(output);
-            output.save(outputFullFileName, database.AnaSinifiTekrarUret);
+            output.save(outputFullFileName, database.CreateMainClassAgain);
             output.clear();
         }
 
@@ -109,7 +109,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             string mainArticleUrl  = "http://weblogs.asp.net/scottgu/archive/2010/01/15/asp-net-mvc-2-model-validation.aspx";
             string msDataAnnotationsHelpUrl = "http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx";
 
-            if (database.AnaSinifOnaylamaOrnekleriUret)
+            if (database.CreateMainClassValidationExamples)
             {
                 output.autoTabLn("// Onaylama kodlarının kullanımı için aşağıdaki makaleye bakabilirsiniz");
                 output.autoTabLn("// " + mainArticleUrl);
