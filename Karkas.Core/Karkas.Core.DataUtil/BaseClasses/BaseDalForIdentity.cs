@@ -25,7 +25,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         public new M Insert(T row)
         {
-            M sonuc = default(M);
+            M result = default(M);
             DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
 
@@ -47,8 +47,8 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 {
                     new LoggingInfo(cmd).LogInfo(this.GetType());
                     object o = cmd.ExecuteScalar();
-                    sonuc = (M)Convert.ChangeType(o, sonuc.GetType());
-                    setIdentityColumnValue(row, sonuc);
+                    result = (M)Convert.ChangeType(o, result.GetType());
+                    setIdentityColumnValue(row, result);
                 }
                 else
                 {
@@ -72,7 +72,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 }
             }
 
-            return sonuc;
+            return result;
         }
 
 

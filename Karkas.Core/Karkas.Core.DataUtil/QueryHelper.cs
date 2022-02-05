@@ -49,15 +49,15 @@ namespace Karkas.Core.DataUtil
 
         public string GetCriteriaResultsWithWhere()
         {
-            string sonuc = "";
-            sonuc += getCriteriaResultsForWhere();
-            sonuc += GetOrderByResults();
-            return sonuc;
+            string result = "";
+            result += getCriteriaResultsForWhere();
+            result += GetOrderByResults();
+            return result;
         }
         public string GetCriteriaResultsWithoutWhere()
         {
-            string sonuc = GetCriteriaResultsWithWhere();
-            return sonuc.Replace("WHERE", "");
+            string result = GetCriteriaResultsWithWhere();
+            return result.Replace("WHERE", "");
 
         }
 

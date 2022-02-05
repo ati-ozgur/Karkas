@@ -200,7 +200,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         private long InsertIdentity(T row)
         {
-            long sonuc = 0;
+            long result = 0;
             DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
 
@@ -221,8 +221,8 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 {
                     new LoggingInfo( cmd).LogInfo(this.GetType());
                     object id_degeri = cmd.ExecuteScalar();
-                    sonuc = Convert.ToInt64(id_degeri);
-                    setIdentityColumnValue(row, sonuc);
+                    result = Convert.ToInt64(id_degeri);
+                    setIdentityColumnValue(row, result);
                 }
                 else
                 {
@@ -247,7 +247,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 }
             }
 
-            return sonuc;
+            return result;
         }
 
 
@@ -270,10 +270,10 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
-            int sonuc = ExecuteNonQueryCommandInternal(cmd);
+            int result = ExecuteNonQueryCommandInternal(cmd);
 
             row.RowState = DataRowState.Unchanged;
-            return sonuc;
+            return result;
         }
         protected void ExecuteNonQueryUpdate(string cmdText, T row)
         {
@@ -462,8 +462,8 @@ namespace Karkas.Core.DataUtil.BaseClasses
             MethodInfo methodInfo = type.GetMethod("QueryUsingColumnName");
             ObjectHandle oh = Activator.CreateInstance(assemblyName, dal);
 
-            object sonuc = methodInfo.Invoke(oh.Unwrap(), new object[] { PrimaryKey, degeri });
-            return (List<T1>)sonuc;
+            object result = methodInfo.Invoke(oh.Unwrap(), new object[] { PrimaryKey, degeri });
+            return (List<T1>)result;
         }
         public virtual string PrimaryKey
         {

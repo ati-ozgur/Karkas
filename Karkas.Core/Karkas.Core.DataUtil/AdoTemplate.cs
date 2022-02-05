@@ -251,7 +251,7 @@ namespace Karkas.Core.DataUtil
             }
         }
         /// <summary>
-        /// Bu komut Ado.Net'a ait ExecuteScalar komutudur. Eğer sorgu sonucu sadece
+        /// Bu komut Ado.Net'a ait ExecuteScalar komutudur. Eğer sorgu resultu sadece
         /// tek bir değer dönmesini bekliyorsanız. Örneğin
         /// SELECT COUNT(*) FROM ORTAK.KISI
         /// Bu komutu kullanabilirsiniz. Gelen nesne (object) olarak döndüğü için
@@ -266,9 +266,9 @@ namespace Karkas.Core.DataUtil
         public object BringOneValue(DbCommand cmd)
         {
             cmd.Connection = Connection;
-            object sonuc = 0;
-            sonuc = ExecuteNonQueryCommandSonucGetirInternal(cmd);
-            return sonuc;
+            object result = 0;
+            result = ExecuteNonQueryCommandSonucGetirInternal(cmd);
+            return result;
         }
 
 
@@ -276,9 +276,9 @@ namespace Karkas.Core.DataUtil
         public Object BringOneValue(string cmdText)
         {
             DbCommand cmd = getDatabaseCommand(cmdText, Connection);
-            object sonuc;
-            sonuc = ExecuteNonQueryCommandSonucGetirInternal(cmd);
-            return sonuc;
+            object result;
+            result = ExecuteNonQueryCommandSonucGetirInternal(cmd);
+            return result;
         }
 
         public Object BringOneValue(string cmdText, CommandType cmdType, DbParameter[] parameters)
@@ -290,8 +290,8 @@ namespace Karkas.Core.DataUtil
                 cmd.Parameters.Add(p);
             }
 
-            object sonuc = ExecuteNonQueryCommandSonucGetirInternal(cmd);
-            return sonuc;
+            object result = ExecuteNonQueryCommandSonucGetirInternal(cmd);
+            return result;
         }
 
 
@@ -303,8 +303,8 @@ namespace Karkas.Core.DataUtil
                 cmd.Parameters.Add(p);
             }
 
-            object sonuc = ExecuteNonQueryCommandSonucGetirInternal(cmd);
-            return sonuc;
+            object result = ExecuteNonQueryCommandSonucGetirInternal(cmd);
+            return result;
         }
 
         public void ExecuteNonQueryCommand(String cmdText)

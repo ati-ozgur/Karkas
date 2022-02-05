@@ -99,52 +99,52 @@ namespace Karkas.CodeGenerationHelper
 
         public bool IdentityVarMi(IContainer container)
         {
-            bool sonuc = false;
+            bool result = false;
             foreach (IColumn column in container.Columns)
             {
                 if (column.IsIdentity)
                 {
-                    sonuc = true;
+                    result = true;
                     break;
                 }
             }
-            return sonuc;
+            return result;
         }
 
         public string IdentityVarMiAsString(IContainer container)
         {
-            string sonuc = "false";
+            string result = "false";
             foreach (IColumn column in container.Columns)
             {
                 if (column.IsIdentity)
                 {
-                    sonuc = "true";
+                    result = "true";
                     break;
                 }
             }
-            return sonuc;
+            return result;
         }
 
         public string GetCSharpTypeFromDotNetType(string pDotNetType)
         {
-            string sonuc = "";
+            string result = "";
             switch (pDotNetType)
             {
                 case "System.Int16":
-                    sonuc = "short";
+                    result = "short";
                     break;
 
                 case "System.Int32":
-                    sonuc = "int";
+                    result = "int";
                     break;
                 case "System.Int64":
-                    sonuc = "long";
+                    result = "long";
                     break;
                 case "System.Byte":
-                    sonuc = "byte";
+                    result = "byte";
                     break;
             }
-            return sonuc;
+            return result;
         }
 
         public bool ColumnNullDegeriAlabilirMi(IColumn pColumn)
@@ -195,23 +195,23 @@ namespace Karkas.CodeGenerationHelper
 
         public string GetConvertToSyntax(string tipi, string degiskenDegeri)
         {
-            string sonuc = string.Format("({0}) {1}", tipi, degiskenDegeri);
+            string result = string.Format("({0}) {1}", tipi, degiskenDegeri);
             switch (tipi)
             {
                 case "byte":
-                    sonuc = string.Format("Convert.ToByte({0});", degiskenDegeri);
+                    result = string.Format("Convert.ToByte({0});", degiskenDegeri);
                     break;
                 case "int":
-                    sonuc = string.Format("Convert.ToInt32({0});", degiskenDegeri);
+                    result = string.Format("Convert.ToInt32({0});", degiskenDegeri);
                     break;
                 case "long":
-                    sonuc = string.Format("Convert.ToInt64({0});", degiskenDegeri);
+                    result = string.Format("Convert.ToInt64({0});", degiskenDegeri);
                     break;
                 case "decimal":
-                    sonuc = string.Format("Convert.ToDecimal({0});", degiskenDegeri);
+                    result = string.Format("Convert.ToDecimal({0});", degiskenDegeri);
                     break;
             }
-            return sonuc;
+            return result;
         }
 
 
@@ -220,7 +220,7 @@ namespace Karkas.CodeGenerationHelper
             string degerDegiskenAdi = "value";
             string araDegiskenAdi = "_a";
             int araDegiskenYeri = 2;
-            string[] sonucListesi = new string[]{
+            string[] resultListesi = new string[]{
                     "try"
                     ,"{"
                     ,""
@@ -235,28 +235,28 @@ namespace Karkas.CodeGenerationHelper
                     };
             if (column.LanguageType == "Guid")
             {
-                sonucListesi[araDegiskenYeri] = string.Format("\tGuid {0} = new Guid({1});", araDegiskenAdi, degerDegiskenAdi); ;
-                return sonucListesi;
+                resultListesi[araDegiskenYeri] = string.Format("\tGuid {0} = new Guid({1});", araDegiskenAdi, degerDegiskenAdi); ;
+                return resultListesi;
             }
             else if (column.LanguageType == "int")
             {
-                sonucListesi[araDegiskenYeri] = string.Format("\tint {0} = Convert.ToInt32({1});", araDegiskenAdi, degerDegiskenAdi);
-                return sonucListesi;
+                resultListesi[araDegiskenYeri] = string.Format("\tint {0} = Convert.ToInt32({1});", araDegiskenAdi, degerDegiskenAdi);
+                return resultListesi;
             }
             else if (column.LanguageType == "byte")
             {
-                sonucListesi[araDegiskenYeri] = string.Format("\tbyte {0} = Convert.ToByte({1});", araDegiskenAdi, degerDegiskenAdi);
-                return sonucListesi;
+                resultListesi[araDegiskenYeri] = string.Format("\tbyte {0} = Convert.ToByte({1});", araDegiskenAdi, degerDegiskenAdi);
+                return resultListesi;
             }
             else if (column.LanguageType == "bool")
             {
-                sonucListesi[araDegiskenYeri] = string.Format("\tbool {0} = Convert.ToBoolean({1});", araDegiskenAdi, degerDegiskenAdi);
-                return sonucListesi;
+                resultListesi[araDegiskenYeri] = string.Format("\tbool {0} = Convert.ToBoolean({1});", araDegiskenAdi, degerDegiskenAdi);
+                return resultListesi;
             }
             else if (column.LanguageType == "DateTime")
             {
-                sonucListesi[araDegiskenYeri] = string.Format("\tDateTime {0} = Convert.ToDateTime({1});", araDegiskenAdi, degerDegiskenAdi);
-                return sonucListesi;
+                resultListesi[araDegiskenYeri] = string.Format("\tDateTime {0} = Convert.ToDateTime({1});", araDegiskenAdi, degerDegiskenAdi);
+                return resultListesi;
             }
             else if (column.LanguageType == "string")
             {
@@ -264,18 +264,18 @@ namespace Karkas.CodeGenerationHelper
             }
             else if (column.LanguageType == "short")
             {
-                sonucListesi[araDegiskenYeri] = string.Format("\tshort {0} = Convert.ToInt16({1});", araDegiskenAdi, degerDegiskenAdi);
-                return sonucListesi;
+                resultListesi[araDegiskenYeri] = string.Format("\tshort {0} = Convert.ToInt16({1});", araDegiskenAdi, degerDegiskenAdi);
+                return resultListesi;
             }
             else if (column.LanguageType == "long")
             {
-                sonucListesi[araDegiskenYeri] = string.Format("\tlong {0} = Convert.ToInt64({1});", araDegiskenAdi, degerDegiskenAdi);
-                return sonucListesi;
+                resultListesi[araDegiskenYeri] = string.Format("\tlong {0} = Convert.ToInt64({1});", araDegiskenAdi, degerDegiskenAdi);
+                return resultListesi;
             }
             else if (column.LanguageType == "decimal")
             {
-                sonucListesi[araDegiskenYeri] = string.Format("\tdecimal {0} = Convert.ToDecimal({1});", araDegiskenAdi, degerDegiskenAdi);
-                return sonucListesi;
+                resultListesi[araDegiskenYeri] = string.Format("\tdecimal {0} = Convert.ToDecimal({1});", araDegiskenAdi, degerDegiskenAdi);
+                return resultListesi;
             }
             else if (column.LanguageType == "byte[]")
             {
@@ -284,18 +284,18 @@ namespace Karkas.CodeGenerationHelper
             else if (column.LanguageType == "double")
             {
 
-                sonucListesi[araDegiskenYeri] = string.Format("\tdouble {0} = Convert.ToDouble({1});", araDegiskenAdi, degerDegiskenAdi);
-                return sonucListesi;
+                resultListesi[araDegiskenYeri] = string.Format("\tdouble {0} = Convert.ToDouble({1});", araDegiskenAdi, degerDegiskenAdi);
+                return resultListesi;
             }
             else if (column.LanguageType == "float")
             {
-                sonucListesi[araDegiskenYeri] = string.Format("\tfloat {0} = Convert.ToSingle({1});", araDegiskenAdi, degerDegiskenAdi);
-                return sonucListesi;
+                resultListesi[araDegiskenYeri] = string.Format("\tfloat {0} = Convert.ToSingle({1});", araDegiskenAdi, degerDegiskenAdi);
+                return resultListesi;
             }
             else if (column.LanguageType == "object")
             {
-                sonucListesi[araDegiskenYeri] = string.Format("object {0} =(object) {1};", araDegiskenAdi, degerDegiskenAdi);
-                return sonucListesi;
+                resultListesi[araDegiskenYeri] = string.Format("object {0} =(object) {1};", araDegiskenAdi, degerDegiskenAdi);
+                return resultListesi;
             }
             return new string[] { "throw new ArgumentException(\"string'ten degisken tipine cevirim desteklenmemektedir\");" };
 
@@ -475,15 +475,15 @@ namespace Karkas.CodeGenerationHelper
 
         public bool PkGuidMi(IContainer container)
         {
-            bool sonuc = false;
+            bool result = false;
             foreach (IColumn column in container.Columns)
             {
                 if ((column.IsInPrimaryKey) && (column.LanguageType == "Guid"))
                 {
-                    sonuc = true;
+                    result = true;
                 }
             }
-            return sonuc;
+            return result;
         }
 
 

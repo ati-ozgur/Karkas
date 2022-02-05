@@ -147,8 +147,8 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
                 }
                 else
                 {
-                    int sonuc = (int)template.BringOneValue(SQL_PRIMARY_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
-                    return sonuc > 0;
+                    int result = (int)template.BringOneValue(SQL_PRIMARY_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
+                    return result > 0;
                 }
             }
         }
@@ -165,8 +165,8 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
                 }
                 else
                 {
-                    int sonuc = (int)template.BringOneValue(SQL_FOREIGN_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
-                    if (sonuc > 0)
+                    int result = (int)template.BringOneValue(SQL_FOREIGN_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
+                    if (result > 0)
                     {
                         return true;
                     }
@@ -218,23 +218,23 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
                 if (String.IsNullOrEmpty(_LanguageType))
                 {
 
-                    string sonuc;
+                    string result;
                     if (SqlDataTypeName == "UserDefinedDataType")
                     {
                         throw new NotImplementedException("UserDefinedDataType cevrimi");
                         string sqlTypeName = getUnderlyingTypeOfUserDefinedType(SqlDataTypeName);
-                        sonuc = sqlTypeToDotnetCSharpType(sqlTypeName);
+                        result = sqlTypeToDotnetCSharpType(sqlTypeName);
                     }
                     else
                     {
-                        sonuc = sqlTypeToDotnetCSharpType(DataTypeName);
+                        result = sqlTypeToDotnetCSharpType(DataTypeName);
 
                     }
-                    if (sonuc.Equals("Unknown"))
+                    if (result.Equals("Unknown"))
                     {
                         Console.WriteLine("TableName : {0}, Name : {1} , DataType : {2} ", TableFullName, Name, DataTypeName);
                     }
-                    _LanguageType = sonuc;
+                    _LanguageType = result;
                 }
                 return _LanguageType;
             }

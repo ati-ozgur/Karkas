@@ -303,12 +303,12 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         private string getSqlIcinSemaBilgisi(IContainer container, bool semaIsminiSorgulardaKullan)
         {
-            string sonuc = "";
+            string result = "";
             if (semaIsminiSorgulardaKullan)
             {
-                sonuc = container.Schema + ".";
+                result = container.Schema + ".";
             }
-            return sonuc;
+            return result;
         }
 
         private void SelectCountYaz(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan)

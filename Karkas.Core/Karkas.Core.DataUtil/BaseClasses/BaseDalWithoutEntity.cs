@@ -103,7 +103,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         protected int ExecuteNonQueryCommandInternal(DbCommand cmd)
         {
-            int sonucRowSayisi = 0;
+            int resultRowSayisi = 0;
             try
             {
                 if (ShouldOpenConnection())
@@ -116,7 +116,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 }
                 new LoggingInfo( cmd).LogInfo(this.GetType());
 
-                sonucRowSayisi = cmd.ExecuteNonQuery();
+                resultRowSayisi = cmd.ExecuteNonQuery();
             }
             catch (DbException ex)
             {
@@ -133,7 +133,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                     Connection.Close();
                 }
             }
-            return sonucRowSayisi;
+            return resultRowSayisi;
         }
 
         protected bool ShouldCloseConnection()

@@ -40,8 +40,8 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
                         ParameterBuilder builder = template.getParameterBuilder();
                         builder.AddParameter("tableName", DbType.String, Table.Name);
                         Object objSonuc = template.BringOneValue(SQL_SEQUENCE_EXISTS, builder.GetParameterArray());
-                        Decimal sonuc = (Decimal)objSonuc;
-                        if (sonuc > 0)
+                        Decimal result = (Decimal)objSonuc;
+                        if (result > 0)
                         {
                             relatedSequenceExists = true;
                         }
@@ -97,8 +97,8 @@ AND cons.owner = cols.owner
                     builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
                     builder.AddParameter("columnName", DbType.String, Name);
                     Object objSonuc = template.BringOneValue(SQL_PRIMARY_KEY, builder.GetParameterArray());
-                    Decimal sonuc = (Decimal)objSonuc;
-                    if (sonuc > 0)
+                    Decimal result = (Decimal)objSonuc;
+                    if (result > 0)
                     {
                         isInPrimaryKey = true;
                     }
@@ -138,8 +138,8 @@ ON
                     builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
                     builder.AddParameter("columnName", DbType.String, Name);
                     Object objSonuc = template.BringOneValue(SQL_FOREIGN_KEY, builder.GetParameterArray());
-                    Decimal sonuc = (Decimal)objSonuc;
-                    if (sonuc > 0)
+                    Decimal result = (Decimal)objSonuc;
+                    if (result > 0)
                     {
                         isInForeignKey = true;
                     }

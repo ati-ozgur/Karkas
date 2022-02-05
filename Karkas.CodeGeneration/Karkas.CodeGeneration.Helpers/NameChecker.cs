@@ -173,8 +173,8 @@ namespace Karkas.CodeGenerationHelper
         private string solveReservedWordIssues(string degistirilecekString)
         {
             string reservedWordControl = degistirilecekString.ToLowerInvariant();
-            string sonuc = (reservedWordsForCSharp.Contains(reservedWordControl)) ? reservedWordControl + RESERVED_WORD_KEYWORD : degistirilecekString;
-            return sonuc;
+            string result = (reservedWordsForCSharp.Contains(reservedWordControl)) ? reservedWordControl + RESERVED_WORD_KEYWORD : degistirilecekString;
+            return result;
         }
 
         /// <summary>

@@ -18,8 +18,8 @@ namespace Karkas.Extensions
             System.Text.UTF8Encoding encoder = new System.Text.UTF8Encoding();
             byte[] combined = encoder.GetBytes(pValueToBedHashed);
             hash.ComputeHash(combined);
-            string sonuc = Convert.ToBase64String(hash.Hash);
-            return sonuc;
+            string result = Convert.ToBase64String(hash.Hash);
+            return result;
         }
 
 

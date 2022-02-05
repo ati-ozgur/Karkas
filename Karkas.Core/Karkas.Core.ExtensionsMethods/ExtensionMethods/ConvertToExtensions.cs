@@ -10,10 +10,10 @@ namespace Karkas.ExtensionMethods
         public static decimal? ToDecimalAsNullable(this String str)
         {
 
-            decimal sonuc;
-            if (!string.IsNullOrEmpty(str) && decimal.TryParse(str, out sonuc))
+            decimal result;
+            if (!string.IsNullOrEmpty(str) && decimal.TryParse(str, out result))
             {
-                return sonuc;
+                return result;
             }
             else
             {
@@ -23,10 +23,10 @@ namespace Karkas.ExtensionMethods
 
         public static int? ToIntAsNullable(this String str)
         {
-            int sonuc;
-            if (int.TryParse(str, out sonuc))
+            int result;
+            if (int.TryParse(str, out result))
             {
-                return sonuc;
+                return result;
             }
             else
             {
@@ -35,10 +35,10 @@ namespace Karkas.ExtensionMethods
         }
         public static byte? ToByteAsNullable(this String str)
         {
-            byte sonuc;
-            if (byte.TryParse(str, out sonuc))
+            byte result;
+            if (byte.TryParse(str, out result))
             {
-                return sonuc;
+                return result;
             }
             else
             {
@@ -47,10 +47,10 @@ namespace Karkas.ExtensionMethods
         }
         public static short? ToShortAsNullable(this String str)
         {
-            short sonuc;
-            if (short.TryParse(str, out sonuc))
+            short result;
+            if (short.TryParse(str, out result))
             {
-                return sonuc;
+                return result;
             }
             else
             {
@@ -60,10 +60,10 @@ namespace Karkas.ExtensionMethods
 
         public static long? ToLongAsNullable(this String str)
         {
-            long sonuc;
-            if (long.TryParse(str, out sonuc))
+            long result;
+            if (long.TryParse(str, out result))
             {
-                return sonuc;
+                return result;
             }
             else
             {
