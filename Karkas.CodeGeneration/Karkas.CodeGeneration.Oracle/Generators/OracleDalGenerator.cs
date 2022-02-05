@@ -44,7 +44,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.write("Dal : BaseDalOracle<");
             output.write(classNameTypeLibrary);
             output.writeLine(">");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
         }
 
 

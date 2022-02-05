@@ -72,7 +72,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             usingNamespaceleriWrite(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
             output.increaseTab();
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             classWrite(output, classNameBs, classNameDal, classNameTypeLibrary);
             BaslangicSusluParentez(output);
             OverrideDatabaseNameWrite(output, container);
@@ -94,9 +94,9 @@ namespace Karkas.CodeGenerationHelper.Generators
             if (!File.Exists(outputFullFileName))
             {
                 usingNamespaceleriWrite(output, schemaName,baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
-                BaslangicSusluParentezVeTabArtir(output);
+                AtStartCurlyBraceletIncreaseTab(output);
                 classWrite(output, classNameBs, classNameDal, classNameTypeLibrary);
-                BaslangicSusluParentezVeTabArtir(output);
+                AtStartCurlyBraceletIncreaseTab(output);
                 BitisSusluParentezVeTabAzalt(output);
                 BitisSusluParentezVeTabAzalt(output);
                 output.saveEncoding(outputFullFileName, "o", "utf8");
@@ -107,9 +107,9 @@ namespace Karkas.CodeGenerationHelper.Generators
         private void OverrideDatabaseNameWrite(IOutput output, IContainer container)
         {
             output.autoTabLn("public override string DatabaseName");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn(string.Format("return \"{0}\";", container.Database.ConnectionName));
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);
@@ -147,7 +147,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                     IColumn pkColumn = utils.PrimaryKeyColumnTekIseBul(container);
                     string pkPropertyName = utils.getPropertyVariableName(pkColumn);
                     output.autoTabLn(string.Format("public void Delete({0} p{1})", pkType, pkPropertyName));
-                    BaslangicSusluParentezVeTabArtir(output);
+                    AtStartCurlyBraceletIncreaseTab(output);
                     // output.autoTabLn(string.Format("{0} row = new {0}();", classNameTypeLibrary));
 
                     output.autoTabLn(string.Format("dal.Delete( p{0});",pkPropertyName));

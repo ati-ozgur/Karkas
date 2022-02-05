@@ -97,14 +97,14 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTabLn(metadataAttribute);
             output.autoTab("public partial class ");
             output.autoTabLn(className);
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             BitisSusluParentezVeTabAzalt(output);
         }
         private void writeValidationClass(IOutput output, IDatabase database, string className, string classNameValidation)
         {
             output.autoTab("public class ");
             output.autoTabLn(classNameValidation);
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             string mainArticleHelpImage = "http://weblogs.asp.net/blogs/scottgu/image_5F336E46.png";
             string mainArticleUrl  = "http://weblogs.asp.net/scottgu/archive/2010/01/15/asp-net-mvc-2-model-validation.aspx";
             string msDataAnnotationsHelpUrl = "http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx";
@@ -147,7 +147,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTab("namespace ");
             output.autoTabLn(classNameSpace);
             output.write("");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
         }
 
         private void ClassIsmiWrite(IOutput output, string className, IContainer container)
@@ -186,7 +186,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         private void PropertyIsimleriWrite(IOutput output, IContainer container, string className)
         {
             output.autoTabLn("public class PropertyIsimleri");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             string propertyName = "";
             foreach (IColumn column in container.Columns)
             {
@@ -346,7 +346,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         private void EtiketIsimleriWrite(IOutput output, IContainer pTable, string pNamespace)
         {
             output.autoTabLn("public static class EtiketIsimleri");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
 
             output.autoTabLn(string.Format("const string namespaceVeClass = \"{0}\";", pNamespace));
             foreach (IColumn column in pTable.Columns)
@@ -354,16 +354,16 @@ namespace Karkas.CodeGenerationHelper.Generators
                 string memberVariableName = utils.GetCamelCase(column.Name);
                 string propertyVariableName = utils.GetPascalCase(column.Name);
                 output.autoTabLn("public static string " + propertyVariableName);
-                BaslangicSusluParentezVeTabArtir(output);
+                AtStartCurlyBraceletIncreaseTab(output);
                 output.autoTabLn("get");
-                BaslangicSusluParentezVeTabArtir(output);
+                AtStartCurlyBraceletIncreaseTab(output);
                 output.autoTabLn(string.Format("string s = ConfigurationManager.AppSettings[namespaceVeClass + \".{0}\"];", propertyVariableName));
                 output.autoTabLn("if (s != null)");
-                BaslangicSusluParentezVeTabArtir(output);
+                AtStartCurlyBraceletIncreaseTab(output);
                 output.autoTabLn("return s;");
                 BitisSusluParentezVeTabAzalt(output);
                 output.autoTabLn("else");
-                BaslangicSusluParentezVeTabArtir(output);
+                AtStartCurlyBraceletIncreaseTab(output);
                 output.autoTabLn(string.Format("return \"{0}\";", propertyVariableName));
                 BitisSusluParentezVeTabAzalt(output);
                 BitisSusluParentezVeTabAzalt(output);

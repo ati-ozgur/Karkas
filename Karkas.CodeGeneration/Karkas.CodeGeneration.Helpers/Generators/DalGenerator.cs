@@ -155,7 +155,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                 UsingleriWrite(output, schemaName, baseNameSpaceTypeLibrary, baseNameSpaceDal);
                 output.autoTab("public partial class ");
                 output.writeLine(classNameTypeLibrary + "Dal");
-                BaslangicSusluParentezVeTabArtir(output);
+                AtStartCurlyBraceletIncreaseTab(output);
                 BitisSusluParentezVeTabAzalt(output);
                 BitisSusluParentezVeTabAzalt(output);
                 output.saveEncoding(outputFullFileName, "o", "utf8");
@@ -172,9 +172,9 @@ namespace Karkas.CodeGenerationHelper.Generators
         private void OverrideDbProviderNameWrite(IOutput output, IContainer container)
         {
             output.autoTabLn("public override string DbProviderName");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn(string.Format("return \"{0}\";", container.Database.ConnectionDbProviderName));
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);
@@ -185,9 +185,9 @@ namespace Karkas.CodeGenerationHelper.Generators
         {
             output.autoTabLn("");
             output.autoTabLn("public override string PrimaryKey");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn(string.Format("return \"{0}\";", pkName));
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);
@@ -220,7 +220,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                     IColumn pkColumn = utils.PrimaryKeyColumnTekIseBul(container);
                     string pkPropertyName = utils.getPropertyVariableName(pkColumn);
                     output.autoTabLn(string.Format("public virtual void Delete({0} {1})", pkType, pkPropertyName));
-                    BaslangicSusluParentezVeTabArtir(output);
+                    AtStartCurlyBraceletIncreaseTab(output);
                     output.autoTabLn(string.Format("{0} satir = new {0}();", classNameTypeLibrary));
                     output.autoTabLn(string.Format("satir.{0} = {0};", pkPropertyName));
                     output.autoTabLn("base.Delete(satir);");
@@ -236,7 +236,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         {
             string methodWriteisi = string.Format("protected override void setIdentityColumnValue({0} pTypeLibrary,long pIdentityKolonValue)", classNameTypeLibrary);
             output.autoTabLn(methodWriteisi);
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             if (getIdentityVarmi(utils, container))
             {
                 string propertySetleWriteisi = string.Format("pTypeLibrary.{0} = ({1} )pIdentityKolonValue;", utils.getIdentityColumnNameAsPascalCase(container), getIdentityType(utils,container));
@@ -250,9 +250,9 @@ namespace Karkas.CodeGenerationHelper.Generators
         private void OverrideDatabaseNameWrite(IOutput output, IContainer container)
         {
             output.autoTabLn("public override string DatabaseName");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn(string.Format("return \"{0}\";", container.Database.ConnectionName));
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);
@@ -286,7 +286,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTab("namespace ");
             output.autoTab(baseNameSpaceDal);
             output.autoTabLn("");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
 
         }
 
@@ -297,7 +297,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.write("Dal : BaseDal<");
             output.write(classNameTypeLibrary);
             output.writeLine(">");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
         }
 
 
@@ -314,9 +314,9 @@ namespace Karkas.CodeGenerationHelper.Generators
         private void SelectCountWrite(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan)
         {
             output.autoTabLn("protected override string SelectCountString");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             string cumle = "return @\"SELECT COUNT(*) FROM " 
                             + getSqlIcinSemaBilgisi(container, semaIsminiSorgulardaKullan) 
                             + container.Name + "\";";
@@ -329,9 +329,9 @@ namespace Karkas.CodeGenerationHelper.Generators
         private void SelectStringWrite(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan)
         {
             output.autoTabLn("protected override string SelectString");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get ");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             string cumle = "return @\"SELECT ";
             foreach (IColumn column in container.Columns)
             {
@@ -350,9 +350,9 @@ namespace Karkas.CodeGenerationHelper.Generators
             if (container is IView)
             {
                 output.autoTabLn("protected override string DeleteString");
-                BaslangicSusluParentezVeTabArtir(output);
+                AtStartCurlyBraceletIncreaseTab(output);
                 output.autoTabLn("get ");
-                BaslangicSusluParentezVeTabArtir(output);
+                AtStartCurlyBraceletIncreaseTab(output);
                 output.autoTabLn("return null;");
                 BitisSusluParentezVeTabAzalt(output);
                 BitisSusluParentezVeTabAzalt(output);
@@ -361,9 +361,9 @@ namespace Karkas.CodeGenerationHelper.Generators
             }
             string cumle = "";
             output.autoTabLn("protected override string DeleteString");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get ");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             cumle += "return @\"DELETE ";
 
             string whereClause = "";
@@ -410,9 +410,9 @@ namespace Karkas.CodeGenerationHelper.Generators
             if (container is IView)
             {
                 output.autoTabLn("protected override string UpdateString");
-                BaslangicSusluParentezVeTabArtir(output);
+                AtStartCurlyBraceletIncreaseTab(output);
                 output.autoTabLn("get ");
-                BaslangicSusluParentezVeTabArtir(output);
+                AtStartCurlyBraceletIncreaseTab(output);
                 output.autoTabLn("return null;");
                 BitisSusluParentezVeTabAzalt(output);
                 BitisSusluParentezVeTabAzalt(output);
@@ -422,9 +422,9 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             string cumle = "";
             output.autoTabLn("protected override string UpdateString");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get ");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             if (container is ITable)
             {
                 output.autoTabLn("return @\"UPDATE " + getSqlIcinSemaBilgisi(container, semaIsminiSorgulardaKullan) + container.Name);
@@ -474,9 +474,9 @@ namespace Karkas.CodeGenerationHelper.Generators
             string cumle = "";
 
             output.autoTabLn("protected override string InsertString");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get ");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             if (container is ITable)
             {
                 output.autoTabLn("return @\"INSERT INTO "
@@ -547,7 +547,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                             + pkAdiPascalCase + "Ile(" + pkType
                             + " p1)";
             output.autoTabLn(classSatiri);
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             listeTanimla(output);
             output.autoTab("ExecuteQuery(liste,String.Format(\" " + pkAdi + " = '{0}'\", p1));");
             output.autoTabLn("");
@@ -577,9 +577,9 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             output.autoTabLn("");
             output.autoTabLn("protected override bool IdentityExists");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("return " + identityResult + ";");
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);
@@ -599,9 +599,9 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             output.autoTabLn("");
             output.autoTabLn("protected override bool IsPkGuid");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("return " + pkGuidMiResult + ";");
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);
@@ -614,7 +614,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTab("protected override void ProcessRow(IDataReader dr, ");
             output.write(classNameTypeLibrary);
             output.writeLine(" satir)");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             for (int i = 0; i < container.Columns.Count; i++)
             {
                 IColumn column = container.Columns[i];
@@ -625,7 +625,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                 if (column.IsNullable)
                 {
                     output.autoTabLn("if (!dr.IsDBNull(" + i + "))");
-                    BaslangicSusluParentezVeTabArtir(output);
+                    AtStartCurlyBraceletIncreaseTab(output);
                     output.autoTabLn(yazi);
                     BitisSusluParentezVeTabAzalt(output);
                 }
@@ -643,7 +643,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
             output.writeLine(" satir)");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("ParameterBuilder builder = Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
 
@@ -716,7 +716,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
             output.autoTabLn(" satir)");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("ParameterBuilder builder = Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
 
@@ -736,7 +736,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
             output.autoTabLn(" satir)");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("ParameterBuilder builder = Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
 

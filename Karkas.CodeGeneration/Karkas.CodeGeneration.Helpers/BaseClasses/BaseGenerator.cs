@@ -7,7 +7,7 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
 {
     public abstract class BaseGenerator
     {
-        protected void BaslangicSusluParentezVeTabArtir(IOutput output)
+        protected void AtStartCurlyBraceletIncreaseTab(IOutput output)
         {
             output.autoTabLn("{");
             output.increaseTab();

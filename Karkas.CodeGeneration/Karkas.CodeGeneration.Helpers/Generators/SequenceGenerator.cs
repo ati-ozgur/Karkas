@@ -67,7 +67,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         {
             output.autoTabLn("");
             output.autoTabLn("public decimal getNextSequenceValue()");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("AdoTemplate template = new AdoTemplate(DbProviderName);");
             output.autoTabLn("return (decimal) template.BringOneValue(selectSequenceString);");
             BitisSusluParentezVeTabAzalt(output);
@@ -103,7 +103,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTab("namespace ");
             output.autoTab(baseNameSpaceSequencesDal);
             output.autoTabLn("");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
         }
 
 
@@ -113,15 +113,15 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTab("public partial class ");
             output.write(className);
             output.writeLine("");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
         }
 
         private void OverrideDbProviderNameWrite(IOutput output)
         {
             output.autoTabLn("public string DbProviderName");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn(string.Format("return \"{0}\";", database.ConnectionDbProviderName));
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);

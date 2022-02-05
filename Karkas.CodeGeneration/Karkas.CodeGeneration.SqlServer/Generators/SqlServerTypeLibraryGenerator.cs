@@ -36,7 +36,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             output.autoTab("namespace ");
             output.autoTabLn(classNameSpace);
             output.write("");
-            BaslangicSusluParentezVeTabArtir(output);
+            AtStartCurlyBraceletIncreaseTab(output);
         }
 
         private void generateClrTypesUsings()
