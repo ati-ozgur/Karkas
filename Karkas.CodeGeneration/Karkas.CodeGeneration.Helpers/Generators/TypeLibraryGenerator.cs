@@ -45,19 +45,19 @@ namespace Karkas.CodeGenerationHelper.Generators
             //output.setPreserveSource(outputFullFileNameGenerated, "//::", ":://");
 
 
-            usingNamespaceleriYaz(output, classNameSpace);
+            usingNamespaceleriWrite(output, classNameSpace);
 
-            ClassIsmiYaz(output, className, container);
+            ClassIsmiWrite(output, className, container);
 
             output.autoTabLn("{");
 
-            MemberVariablesYaz(output, container);
+            MemberVariablesWrite(output, container);
 
-            PropertiesYaz(output, container);
+            PropertiesWrite(output, container);
 
-            ShallowCopyYaz(output, container, className);
+            ShallowCopyWrite(output, container, className);
 
-            PropertyIsimleriYaz(output, container, className);
+            PropertyIsimleriWrite(output, container, className);
 
 
             output.writeLine("");
@@ -81,7 +81,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         private void generateMainClassFile(IOutput output, IDatabase database,string className, string classNameSpace, string outputFullFileName)
         {
-            usingNamespaceleriYaz(output, classNameSpace);
+            usingNamespaceleriWrite(output, classNameSpace);
             //output.increaseTab();
             string classNameValidation = className + "Validation";
             writeMainClass(output, className, classNameValidation);
@@ -132,7 +132,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
 
 
-        protected virtual void usingNamespaceleriYaz(IOutput output, string classNameSpace)
+        protected virtual void usingNamespaceleriWrite(IOutput output, string classNameSpace)
         {
             output.autoTabLn("using System;");
             output.autoTabLn("using System.Data;");
@@ -150,11 +150,11 @@ namespace Karkas.CodeGenerationHelper.Generators
             BaslangicSusluParentezVeTabArtir(output);
         }
 
-        private void ClassIsmiYaz(IOutput output, string className, IContainer container)
+        private void ClassIsmiWrite(IOutput output, string className, IContainer container)
         {
             output.increaseTab();
             output.autoTabLn("[Serializable]");
-            DebuggerDisplayYaz(output, container);
+            DebuggerDisplayWrite(output, container);
             output.autoTab("public partial class ");
             output.autoTab(className + ": BaseTypeLibrary");
             output.writeLine("");
@@ -162,7 +162,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         }
 
-        private void DebuggerDisplayYaz(IOutput output, IContainer container)
+        private void DebuggerDisplayWrite(IOutput output, IContainer container)
         {
             if (container is ITable)
             {
@@ -183,7 +183,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
 
 
-        private void PropertyIsimleriYaz(IOutput output, IContainer container, string className)
+        private void PropertyIsimleriWrite(IOutput output, IContainer container, string className)
         {
             output.autoTabLn("public class PropertyIsimleri");
             BaslangicSusluParentezVeTabArtir(output);
@@ -198,7 +198,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         }
 
-        private void PropertiesYaz(IOutput output, IContainer container)
+        private void PropertiesWrite(IOutput output, IContainer container)
         {
             output.increaseTab();
             foreach (IColumn column in container.Columns)
@@ -257,7 +257,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         }
 
-        private void PropertiesAsStringYaz(IOutput output, IContainer container)
+        private void PropertiesAsStringWrite(IOutput output, IContainer container)
         {
             output.increaseTab();
             foreach (IColumn column in container.Columns)
@@ -312,7 +312,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
 
 
-        private void ShallowCopyYaz(IOutput output, IContainer container, string pTypeName)
+        private void ShallowCopyWrite(IOutput output, IContainer container, string pTypeName)
         {
             output.increaseTab();
             output.autoTabLn(string.Format("public {0} ShallowCopy()", pTypeName));
@@ -331,7 +331,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
-        private void MemberVariablesYaz(IOutput output, IContainer container)
+        private void MemberVariablesWrite(IOutput output, IContainer container)
         {
             output.increaseTab();
             foreach (IColumn column in container.Columns)
@@ -343,7 +343,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
-        private void EtiketIsimleriYaz(IOutput output, IContainer pTable, string pNamespace)
+        private void EtiketIsimleriWrite(IOutput output, IContainer pTable, string pNamespace)
         {
             output.autoTabLn("public static class EtiketIsimleri");
             BaslangicSusluParentezVeTabArtir(output);

@@ -25,7 +25,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         string pkNamePascalCase = "";
         string pkType = "";
         string _identityColumnName = "";
-        bool _identityVarmi = false;
+        bool _identityExists = false;
         string _identityType = "";
 
         public string getIdentityType(Utils utils, IContainer container)
@@ -104,45 +104,45 @@ namespace Karkas.CodeGenerationHelper.Generators
             string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForDalGenerated(database, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
             string outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(database, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
 
-            UsingleriYaz(output, schemaName, baseNameSpaceTypeLibrary, baseNameSpaceDal);
+            UsingleriWrite(output, schemaName, baseNameSpaceTypeLibrary, baseNameSpaceDal);
 
-            ClassYaz(output, classNameTypeLibrary, getIdentityVarmi(utils, container), getIdentityType(utils, container));
+            ClassWrite(output, classNameTypeLibrary, getIdentityVarmi(utils, container), getIdentityType(utils, container));
             output.autoTabLn("");
 
-            OverrideDatabaseNameYaz(output, container);
+            OverrideDatabaseNameWrite(output, container);
 
-            identityKolonDegeriniSetleYaz(output, container);
+            identityKolonDegeriniSetleWrite(output, container);
 
-            SelectCountYaz(output, container, semaIsminiSorgulardaKullan);
+            SelectCountWrite(output, container, semaIsminiSorgulardaKullan);
 
-            SelectStringYaz(output, container, semaIsminiSorgulardaKullan);
+            SelectStringWrite(output, container, semaIsminiSorgulardaKullan);
 
-            DeleteStringYaz(output, container, semaIsminiSorgulardaKullan);
+            DeleteStringWrite(output, container, semaIsminiSorgulardaKullan);
 
-            UpdateStringYaz(output, container, semaIsminiSorgulardaKullan, ref pkcumlesi);
+            UpdateStringWrite(output, container, semaIsminiSorgulardaKullan, ref pkcumlesi);
 
             string sorgulardaKullanilanSema = getSqlIcinSemaBilgisi(container, semaIsminiSorgulardaKullan);
 
-            InsertStringYaz(output, container, sorgulardaKullanilanSema);
+            InsertStringWrite(output, container, sorgulardaKullanilanSema);
 
 
-            SorgulaPkIleGetirYaz(output, container, classNameTypeLibrary,pkName, pkNamePascalCase, pkType);
+            SorgulaPkIleGetirWrite(output, container, classNameTypeLibrary,pkName, pkNamePascalCase, pkType);
 
-            IdentityVarMiYaz(output, getIdentityVarmi(utils, container));
+            IdentityVarMiWrite(output, getIdentityVarmi(utils, container));
 
-            PkGuidMiYaz(output, container);
+            PkGuidMiWrite(output, container);
 
-            PrimaryKeyYaz(output, container);
+            PrimaryKeyWrite(output, container);
 
-            SilKomutuYazPkIle(output, classNameTypeLibrary, container);
+            SilKomutuWritePkIle(output, classNameTypeLibrary, container);
 
-            ProcessRowYaz(output, container, classNameTypeLibrary);
+            ProcessRowWrite(output, container, classNameTypeLibrary);
 
-            InsertCommandParametersAddYaz(output, container, classNameTypeLibrary);
-            UpdateCommandParametersAddYaz(output, container, classNameTypeLibrary);
-            DeleteCommandParametersAddYaz(output, container, classNameTypeLibrary);
+            InsertCommandParametersAddWrite(output, container, classNameTypeLibrary);
+            UpdateCommandParametersAddWrite(output, container, classNameTypeLibrary);
+            DeleteCommandParametersAddWrite(output, container, classNameTypeLibrary);
 
-            OverrideDbProviderNameYaz(output, container);
+            OverrideDbProviderNameWrite(output, container);
 
 
             BitisSusluParentezVeTabAzalt(output);
@@ -152,7 +152,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.clear();
             if (!File.Exists(outputFullFileName))
             {
-                UsingleriYaz(output, schemaName, baseNameSpaceTypeLibrary, baseNameSpaceDal);
+                UsingleriWrite(output, schemaName, baseNameSpaceTypeLibrary, baseNameSpaceDal);
                 output.autoTab("public partial class ");
                 output.writeLine(classNameTypeLibrary + "Dal");
                 BaslangicSusluParentezVeTabArtir(output);
@@ -169,7 +169,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
 
 
-        private void OverrideDbProviderNameYaz(IOutput output, IContainer container)
+        private void OverrideDbProviderNameWrite(IOutput output, IContainer container)
         {
             output.autoTabLn("public override string DbProviderName");
             BaslangicSusluParentezVeTabArtir(output);
@@ -181,7 +181,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
-        private void PrimaryKeyYaz(IOutput output, IContainer container)
+        private void PrimaryKeyWrite(IOutput output, IContainer container)
         {
             output.autoTabLn("");
             output.autoTabLn("public override string PrimaryKey");
@@ -210,7 +210,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             return result;
         }
 
-        private void SilKomutuYazPkIle(IOutput output, string classNameTypeLibrary, IContainer container)
+        private void SilKomutuWritePkIle(IOutput output, string classNameTypeLibrary, IContainer container)
         {
             ITable table = container as ITable;
             if (table != null )
@@ -232,22 +232,22 @@ namespace Karkas.CodeGenerationHelper.Generators
 
 
 
-        private void identityKolonDegeriniSetleYaz(IOutput output, IContainer container)
+        private void identityKolonDegeriniSetleWrite(IOutput output, IContainer container)
         {
-            string methodYazisi = string.Format("protected override void setIdentityColumnValue({0} pTypeLibrary,long pIdentityKolonValue)", classNameTypeLibrary);
-            output.autoTabLn(methodYazisi);
+            string methodWriteisi = string.Format("protected override void setIdentityColumnValue({0} pTypeLibrary,long pIdentityKolonValue)", classNameTypeLibrary);
+            output.autoTabLn(methodWriteisi);
             BaslangicSusluParentezVeTabArtir(output);
             if (getIdentityVarmi(utils, container))
             {
-                string propertySetleYazisi = string.Format("pTypeLibrary.{0} = ({1} )pIdentityKolonValue;", utils.getIdentityColumnNameAsPascalCase(container), getIdentityType(utils,container));
-                output.autoTabLn(propertySetleYazisi);
+                string propertySetleWriteisi = string.Format("pTypeLibrary.{0} = ({1} )pIdentityKolonValue;", utils.getIdentityColumnNameAsPascalCase(container), getIdentityType(utils,container));
+                output.autoTabLn(propertySetleWriteisi);
             }
             BitisSusluParentezVeTabAzalt(output);
 
         }
 
 
-        private void OverrideDatabaseNameYaz(IOutput output, IContainer container)
+        private void OverrideDatabaseNameWrite(IOutput output, IContainer container)
         {
             output.autoTabLn("public override string DatabaseName");
             BaslangicSusluParentezVeTabArtir(output);
@@ -259,7 +259,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
-        private void UsingleriYaz(IOutput output, string schemaName, string baseNameSpaceTypeLibrary, string baseNameSpaceDal)
+        private void UsingleriWrite(IOutput output, string schemaName, string baseNameSpaceTypeLibrary, string baseNameSpaceDal)
         {
             output.autoTabLn("");
             output.autoTabLn("using System;");
@@ -290,7 +290,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         }
 
-        protected virtual void ClassYaz(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
+        protected virtual void ClassWrite(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
         {
             output.autoTab("public partial class ");
             output.write(classNameTypeLibrary);
@@ -311,7 +311,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             return result;
         }
 
-        private void SelectCountYaz(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan)
+        private void SelectCountWrite(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan)
         {
             output.autoTabLn("protected override string SelectCountString");
             BaslangicSusluParentezVeTabArtir(output);
@@ -326,7 +326,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
-        private void SelectStringYaz(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan)
+        private void SelectStringWrite(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan)
         {
             output.autoTabLn("protected override string SelectString");
             BaslangicSusluParentezVeTabArtir(output);
@@ -345,7 +345,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             BitisSusluParentezVeTabAzalt(output);
         }
 
-        private void DeleteStringYaz(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan)
+        private void DeleteStringWrite(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan)
         {
             if (container is IView)
             {
@@ -405,7 +405,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
-        private void UpdateStringYaz(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan, ref string pkcumlesi)
+        private void UpdateStringWrite(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan, ref string pkcumlesi)
         {
             if (container is IView)
             {
@@ -469,7 +469,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
 
 
-        protected void InsertStringYaz(IOutput output, IContainer container, string sorgulardaKullanilanSema)
+        protected void InsertStringWrite(IOutput output, IContainer container, string sorgulardaKullanilanSema)
         {
             string cumle = "";
 
@@ -535,7 +535,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTabLn(listeType + " liste = new " + listeType + "();");
         }
 
-        private void SorgulaPkIleGetirYaz(IOutput output, IContainer container, string classNameTypeLibrary,  string pkAdi, string pkAdiPascalCase, string pkType)
+        private void SorgulaPkIleGetirWrite(IOutput output, IContainer container, string classNameTypeLibrary,  string pkAdi, string pkAdiPascalCase, string pkType)
         {
             if (container is IView)
             {
@@ -563,7 +563,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             }
         }
 
-        private void IdentityVarMiYaz(IOutput output, bool identityVarmi)
+        private void IdentityVarMiWrite(IOutput output, bool identityVarmi)
         {
             string identityResult = "";
             if (identityVarmi)
@@ -584,7 +584,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);
         }
-        private void PkGuidMiYaz(IOutput output, IContainer container)
+        private void PkGuidMiWrite(IOutput output, IContainer container)
         {
             string pkGuidMiResult = "";
             if (utils.PkGuidMi(container))
@@ -608,7 +608,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTabLn("");
         }
 
-        private void ProcessRowYaz(IOutput output, IContainer container, string classNameTypeLibrary)
+        private void ProcessRowWrite(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             string propertyVariableName = "";
             output.autoTab("protected override void ProcessRow(IDataReader dr, ");
@@ -638,7 +638,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
-        private void InsertCommandParametersAddYaz(IOutput output, IContainer container, string classNameTypeLibrary)
+        private void InsertCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
@@ -711,7 +711,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTabLn(s);
         }
 
-        private void DeleteCommandParametersAddYaz(IOutput output, IContainer container, string classNameTypeLibrary)
+        private void DeleteCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
@@ -731,7 +731,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             BitisSusluParentezVeTabAzalt(output);
         }
 
-        private void UpdateCommandParametersAddYaz(IOutput output, IContainer container, string classNameTypeLibrary)
+        private void UpdateCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);

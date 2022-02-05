@@ -44,15 +44,15 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForSequenceDalGenerated(database, schemaName, sequenceNamePascalCase, database.UseSchemaNameInFolders);
 
-            UsingleriYaz(output,baseNameSpaceSequencesDal);
-            ClassYaz(output, sequenceDalName);
+            UsingleriWrite(output,baseNameSpaceSequencesDal);
+            ClassWrite(output, sequenceDalName);
 
-            OverrideDbProviderNameYaz(output);
+            OverrideDbProviderNameWrite(output);
 
 
 
-            SelectSequenceStringYaz(output, database, schemaName, sequenceName);
-            getNextSequenceValueYaz(output);
+            SelectSequenceStringWrite(output, database, schemaName, sequenceName);
+            getNextSequenceValueWrite(output);
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);
 
@@ -63,7 +63,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         }
 
-        private void getNextSequenceValueYaz(IOutput output)
+        private void getNextSequenceValueWrite(IOutput output)
         {
             output.autoTabLn("");
             output.autoTabLn("public decimal getNextSequenceValue()");
@@ -73,7 +73,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             BitisSusluParentezVeTabAzalt(output);
         }
 
-        private void SelectSequenceStringYaz(IOutput output, IDatabase database, string schemaName, string sequenceName)
+        private void SelectSequenceStringWrite(IOutput output, IDatabase database, string schemaName, string sequenceName)
         {
             string selectSequenceString = "";
             if (database.UseSchemaNameInSqlQueries)
@@ -89,7 +89,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         }
 
-        private void UsingleriYaz(IOutput output, string baseNameSpaceSequencesDal)
+        private void UsingleriWrite(IOutput output, string baseNameSpaceSequencesDal)
         {
             output.autoTabLn("");
             output.autoTabLn("using System;");
@@ -107,7 +107,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
-        private void ClassYaz(IOutput output, string className)
+        private void ClassWrite(IOutput output, string className)
         {
             output.increaseTab();
             output.autoTab("public partial class ");
@@ -116,7 +116,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             BaslangicSusluParentezVeTabArtir(output);
         }
 
-        private void OverrideDbProviderNameYaz(IOutput output)
+        private void OverrideDbProviderNameWrite(IOutput output)
         {
             output.autoTabLn("public string DbProviderName");
             BaslangicSusluParentezVeTabArtir(output);

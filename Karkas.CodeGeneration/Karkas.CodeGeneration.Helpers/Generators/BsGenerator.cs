@@ -70,18 +70,18 @@ namespace Karkas.CodeGenerationHelper.Generators
             pkAdiPascalCase = utils.GetPascalCase(pkAdi);
 
 
-            usingNamespaceleriYaz(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
+            usingNamespaceleriWrite(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
             output.increaseTab();
             BaslangicSusluParentezVeTabArtir(output);
-            classYaz(output, classNameBs, classNameDal, classNameTypeLibrary);
+            classWrite(output, classNameBs, classNameDal, classNameTypeLibrary);
             BaslangicSusluParentez(output);
-            OverrideDatabaseNameYaz(output, container);
+            OverrideDatabaseNameWrite(output, container);
 
             if (container is ITable && (!string.IsNullOrEmpty(pkAdi)))
             {
-                SilKomutuYazPkIle(output, container);
+                SilKomutuWritePkIle(output, container);
 
-                sorgulaPkAdiIleYaz(output, container, classNameTypeLibrary, pkType, pkAdiPascalCase);
+                sorgulaPkAdiIleWrite(output, container, classNameTypeLibrary, pkType, pkAdiPascalCase);
             }
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);
@@ -93,9 +93,9 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             if (!File.Exists(outputFullFileName))
             {
-                usingNamespaceleriYaz(output, schemaName,baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
+                usingNamespaceleriWrite(output, schemaName,baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
                 BaslangicSusluParentezVeTabArtir(output);
-                classYaz(output, classNameBs, classNameDal, classNameTypeLibrary);
+                classWrite(output, classNameBs, classNameDal, classNameTypeLibrary);
                 BaslangicSusluParentezVeTabArtir(output);
                 BitisSusluParentezVeTabAzalt(output);
                 BitisSusluParentezVeTabAzalt(output);
@@ -104,7 +104,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             }
         }
 
-        private void OverrideDatabaseNameYaz(IOutput output, IContainer container)
+        private void OverrideDatabaseNameWrite(IOutput output, IContainer container)
         {
             output.autoTabLn("public override string DatabaseName");
             BaslangicSusluParentezVeTabArtir(output);
@@ -116,7 +116,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
-        private static void sorgulaPkAdiIleYaz(IOutput output, IContainer container, string classNameTypeLibrary, string pkType, string pkAdi)
+        private static void sorgulaPkAdiIleWrite(IOutput output, IContainer container, string classNameTypeLibrary, string pkType, string pkAdi)
         {
             ITable table = container as ITable;
             if (table != null)
@@ -137,7 +137,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             }
         }
 
-        private void SilKomutuYazPkIle(IOutput output, IContainer container)
+        private void SilKomutuWritePkIle(IOutput output, IContainer container)
         {
             ITable table = container as ITable;
             if (table != null)
@@ -157,7 +157,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         }
 
-        private static void classYaz(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary)
+        private static void classWrite(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary)
         {
             output.autoTab("public partial class ");
             output.write(classNameBs);
@@ -165,7 +165,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.writeLine(classNameDal + ">");
         }
 
-        public void usingNamespaceleriYaz(IOutput output, string schemaName, string baseNameSpace, string baseNameSpaceTypeLibrary, string baseNameSpaceBsWithSchema, string baseNameSpaceDalWithSchema)
+        public void usingNamespaceleriWrite(IOutput output, string schemaName, string baseNameSpace, string baseNameSpaceTypeLibrary, string baseNameSpaceBsWithSchema, string baseNameSpaceDalWithSchema)
         {
             output.autoTabLn("");
             output.autoTabLn("using System;");

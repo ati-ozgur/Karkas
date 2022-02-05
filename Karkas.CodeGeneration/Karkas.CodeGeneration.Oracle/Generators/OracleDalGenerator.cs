@@ -37,7 +37,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             throw new NotImplementedException();
         }
 
-        protected override void ClassYaz(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
+        protected override void ClassWrite(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
         {
             output.autoTab("public partial class ");
             output.write(classNameTypeLibrary);
