@@ -86,7 +86,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                 classNameSpace = classNameSpace + "." + schemaName;
             }
       
-            bool pkGuidMi = utils.PkGuidMi(container);
+            bool pkGuidMi = utils.IsPkGuid(container);
             string pkcumlesi = "";
 
             string baseNameSpaceDal = baseNameSpace + ".Dal";
@@ -587,7 +587,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         private void PkGuidMiWrite(IOutput output, IContainer container)
         {
             string pkGuidMiResult = "";
-            if (utils.PkGuidMi(container))
+            if (utils.IsPkGuid(container))
             {
                 pkGuidMiResult = "true";
             }

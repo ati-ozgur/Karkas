@@ -473,7 +473,7 @@ namespace Karkas.CodeGenerationHelper
 
 
 
-        public bool PkGuidMi(IContainer container)
+        public bool IsPkGuid(IContainer container)
         {
             bool result = false;
             foreach (IColumn column in container.Columns)
