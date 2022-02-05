@@ -153,7 +153,7 @@ namespace Karkas.CodeGenerationHelper
             {
                 return true;
             }
-            else if (ColumnValueTypeMi(pColumn))
+            else if (IsColumnValueType(pColumn))
             {
                 return false;
             }
@@ -164,7 +164,7 @@ namespace Karkas.CodeGenerationHelper
 
         }
 
-        public bool ArgumentValueTypeMi(string pLanguageType)
+        public bool IsArgumentValueType(string pLanguageType)
         {
             if (
                     pLanguageType == "Guid"
@@ -188,9 +188,9 @@ namespace Karkas.CodeGenerationHelper
 
         }
 
-        public bool ColumnValueTypeMi(IColumn column)
+        public bool IsColumnValueType(IColumn column)
         {
-            return ArgumentValueTypeMi(column.LanguageType);
+            return IsArgumentValueType(column.LanguageType);
         }
 
         public string GetConvertToSyntax(string tipi, string degiskenDegeri)
