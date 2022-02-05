@@ -66,7 +66,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             baseNameSpace = utils.NamespaceIniAlSchemaIle(database, container.Schema);
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
 
-            pkName = utils.PrimaryKeyAdiniBul(container);
+            pkName = utils.FindPrimaryKeyColumnName(container);
             pkNamePascalCase = utils.GetPascalCase(pkName);
             
             if (container is ITable && (!((ITable) container).HasPrimaryKey ))

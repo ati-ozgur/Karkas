@@ -46,7 +46,7 @@ namespace Karkas.CodeGenerationHelper
 
 
 
-        public string PrimaryKeyAdiniBul(IContainer container)
+        public string FindPrimaryKeyColumnName(IContainer container)
         {
             string name = "";
             foreach (IColumn column in container.Columns)

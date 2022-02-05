@@ -66,7 +66,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             string baseNameSpaceDalWithSchema = baseNameSpace + ".Dal." + schemaName;
 
             pkType = utils.FindPrimaryKeyType(container);
-            pkAdi = utils.PrimaryKeyAdiniBul(container);
+            pkAdi = utils.FindPrimaryKeyColumnName(container);
             pkAdiPascalCase = utils.GetPascalCase(pkAdi);
 
 
