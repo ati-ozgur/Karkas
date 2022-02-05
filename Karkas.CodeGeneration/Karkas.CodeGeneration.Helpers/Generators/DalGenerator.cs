@@ -217,7 +217,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             {
                 if (table.PrimaryKeyColumnCount == 1)
                 {
-                    IColumn pkColumn = utils.PrimaryKeyColumnTekIseBul(container);
+                    IColumn pkColumn = utils.FindPrimaryKeyColumnNameIfOneColumn(container);
                     string pkPropertyName = utils.getPropertyVariableName(pkColumn);
                     output.autoTabLn(string.Format("public virtual void Delete({0} {1})", pkType, pkPropertyName));
                     AtStartCurlyBraceletIncreaseTab(output);

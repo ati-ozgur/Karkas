@@ -58,7 +58,7 @@ namespace Karkas.CodeGenerationHelper
             }
             return name;
         }
-        public IColumn PrimaryKeyColumnTekIseBul(IContainer container)
+        public IColumn FindPrimaryKeyColumnNameIfOneColumn(IContainer container)
         {
             IColumn pkColon = null;
             foreach (IColumn column in container.Columns)
