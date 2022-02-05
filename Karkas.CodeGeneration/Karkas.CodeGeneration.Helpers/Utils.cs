@@ -147,7 +147,7 @@ namespace Karkas.CodeGenerationHelper
             return result;
         }
 
-        public bool ColumnNullDegeriAlabilirMi(IColumn pColumn)
+        public bool IsColumnNullable(IColumn pColumn)
         {
             if (pColumn.IsNullable)
             {

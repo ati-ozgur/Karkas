@@ -300,7 +300,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         private void ToStringDegeriDondur(IColumn column, IOutput output, string memberVariableName)
         {
-            if (utils.ColumnNullDegeriAlabilirMi(column))
+            if (utils.IsColumnNullable(column))
             {
                 output.autoTabLn(string.Format("\t return {0} != null ? {0}.ToString() : \"\"; ", memberVariableName));
             }
