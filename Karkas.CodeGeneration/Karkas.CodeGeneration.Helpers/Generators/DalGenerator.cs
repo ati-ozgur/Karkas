@@ -44,7 +44,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         {
              return utils.IdentityVarMi(container);
         }
-        string listeType = "";
+        string listType = "";
 
         public DalGenerator(IDatabase databaseHelper)
         {
@@ -99,7 +99,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             pkType = utils.PrimaryKeyTipiniBul(container);
 
-            listeType = "List<" + classNameTypeLibrary + ">";
+            listType = "List<" + classNameTypeLibrary + ">";
 
             string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForDalGenerated(database, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
             string outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(database, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
@@ -532,7 +532,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         private void listeTanimla(IOutput output)
         {
-            output.autoTabLn(listeType + " liste = new " + listeType + "();");
+            output.autoTabLn(listType + " liste = new " + listType + "();");
         }
 
         private void SorgulaPkIleGetirWrite(IOutput output, IContainer container, string classNameTypeLibrary,  string pkAdi, string pkAdiPascalCase, string pkType)
