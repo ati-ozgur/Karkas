@@ -21,10 +21,10 @@ namespace Karkas.CodeGenerationHelper.Generators
         string propertyVariableName = "";
         string baseNameSpace = "";
         string baseNameSpaceTypeLibrary = "";
-        string pkAdi = "";
-        string pkAdiPascalCase = "";
+        string pkName = "";
+        string pkNamePascalCase = "";
         string pkType = "";
-        string _identityColumnAdi = "";
+        string _identityColumnName = "";
         bool _identityVarmi = false;
         string _identityType = "";
 
@@ -66,8 +66,8 @@ namespace Karkas.CodeGenerationHelper.Generators
             baseNameSpace = utils.NamespaceIniAlSchemaIle(database, container.Schema);
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
 
-            pkAdi = utils.PrimaryKeyAdiniBul(container);
-            pkAdiPascalCase = utils.GetPascalCase(pkAdi);
+            pkName = utils.PrimaryKeyAdiniBul(container);
+            pkNamePascalCase = utils.GetPascalCase(pkName);
             
             if (container is ITable && (!((ITable) container).HasPrimaryKey ))
             {
@@ -126,7 +126,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             InsertStringYaz(output, container, sorgulardaKullanilanSema);
 
 
-            SorgulaPkIleGetirYaz(output, container, classNameTypeLibrary,pkAdi, pkAdiPascalCase, pkType);
+            SorgulaPkIleGetirYaz(output, container, classNameTypeLibrary,pkName, pkNamePascalCase, pkType);
 
             IdentityVarMiYaz(output, getIdentityVarmi(utils, container));
 
@@ -188,7 +188,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             BaslangicSusluParentezVeTabArtir(output);
             output.autoTabLn("get");
             BaslangicSusluParentezVeTabArtir(output);
-            output.autoTabLn(string.Format("return \"{0}\";", pkAdi));
+            output.autoTabLn(string.Format("return \"{0}\";", pkName));
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);
             output.autoTabLn("");

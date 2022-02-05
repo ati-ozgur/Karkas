@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading;
-using System.Web;
 using System.Data.Common;
 using Microsoft.Extensions.Logging;
 

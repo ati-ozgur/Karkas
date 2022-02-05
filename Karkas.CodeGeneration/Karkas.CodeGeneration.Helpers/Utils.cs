@@ -48,15 +48,15 @@ namespace Karkas.CodeGenerationHelper
 
         public string PrimaryKeyAdiniBul(IContainer container)
         {
-            string adi = "";
+            string name = "";
             foreach (IColumn column in container.Columns)
             {
                 if (column.IsInPrimaryKey)
                 {
-                    adi = column.Name;
+                    name = column.Name;
                 }
             }
-            return adi;
+            return name;
         }
         public IColumn PrimaryKeyColumnTekIseBul(IContainer container)
         {
@@ -491,21 +491,21 @@ namespace Karkas.CodeGenerationHelper
 
         public string getIdentityColumnName(IContainer container)
         {
-            string adi = "";
+            string name = "";
             foreach (IColumn column in container.Columns)
             {
                 if (column.IsIdentity)
                 {
-                    adi = column.Name;
+                    name = column.Name;
                 }
             }
-            return adi;
+            return name;
         }
 
         public string getIdentityColumnNameAsPascalCase(IContainer container)
         {
-            string adi = GetPascalCase(getIdentityColumnName(container));
-           return adi;
+            string name = GetPascalCase(getIdentityColumnName(container));
+           return name;
         }
 
 
