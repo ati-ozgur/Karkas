@@ -71,7 +71,7 @@ namespace Karkas.CodeGenerationHelper
             return pkColon;
         }
 
-        public List<IColumn> PrimaryKeyColumnlariniBul(IContainer container)
+        public List<IColumn> FindPrimaryKeyColumns(IContainer container)
         {
             List<IColumn> pkColonListesi = new List<IColumn>();
             foreach (IColumn column in container.Columns)
