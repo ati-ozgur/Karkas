@@ -65,7 +65,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             string baseNameSpaceBsWithSchema = baseNameSpace + ".Bs." + schemaName;
             string baseNameSpaceDalWithSchema = baseNameSpace + ".Dal." + schemaName;
 
-            pkType = utils.PrimaryKeyTipiniBul(container);
+            pkType = utils.FindPrimaryKeyType(container);
             pkAdi = utils.PrimaryKeyAdiniBul(container);
             pkAdiPascalCase = utils.GetPascalCase(pkAdi);
 

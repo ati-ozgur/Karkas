@@ -97,7 +97,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             
             
 
-            pkType = utils.PrimaryKeyTipiniBul(container);
+            pkType = utils.FindPrimaryKeyType(container);
 
             listType = "List<" + classNameTypeLibrary + ">";
 

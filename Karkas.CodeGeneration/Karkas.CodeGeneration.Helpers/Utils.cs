@@ -84,7 +84,7 @@ namespace Karkas.CodeGenerationHelper
             return pkColonListesi;
         }
 
-        public string PrimaryKeyTipiniBul(IContainer container)
+        public string FindPrimaryKeyType(IContainer container)
         {
             string tip = "";
             foreach (IColumn column in container.Columns)
