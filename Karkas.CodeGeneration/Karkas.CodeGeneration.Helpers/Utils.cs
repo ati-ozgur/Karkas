@@ -29,14 +29,15 @@ namespace Karkas.CodeGenerationHelper
 
         #region "Parser Helper Fonksiyonlari"
 
-        public string ProjeNamespaceIsminiAl(IDatabase database)
+        public string GetProjeNamespaceName(IDatabase database)
         {
             return database.ProjectNameSpace;
         }
 
-        internal string NamespaceIniAlSchemaIle(IDatabase database, string p)
+        // TODO, Why this is the same as other one?
+        internal string GetProjectNamespaceWithSchema(IDatabase database, string pSchema)
         {
-            return ProjeNamespaceIsminiAl(database);
+            return GetProjeNamespaceName(database);
         }
 
 

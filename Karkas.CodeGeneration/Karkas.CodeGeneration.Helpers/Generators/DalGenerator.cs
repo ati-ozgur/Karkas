@@ -63,7 +63,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         {
             output.tabLevel = 0;
             IDatabase database = container.Database;
-            baseNameSpace = utils.NamespaceIniAlSchemaIle(database, container.Schema);
+            baseNameSpace = utils.GetProjectNamespaceWithSchema(database, container.Schema);
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
 
             pkName = utils.FindPrimaryKeyColumnName(container);

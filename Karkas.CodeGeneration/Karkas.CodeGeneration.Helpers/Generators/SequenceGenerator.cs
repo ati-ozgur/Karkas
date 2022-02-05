@@ -32,7 +32,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             , string sequenceName)
         {
             output.tabLevel = 0;
-            baseNameSpace = utils.NamespaceIniAlSchemaIle(database, schemaName);
+            baseNameSpace = utils.GetProjectNamespaceWithSchema(database, schemaName);
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
 
             string schemaNamepascalCase = utils.GetPascalCase(schemaName);
