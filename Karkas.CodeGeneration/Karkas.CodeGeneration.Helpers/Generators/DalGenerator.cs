@@ -42,7 +42,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         public bool getIdentityVarmi(Utils utils,IContainer container)
         {
-             return utils.IdentityVarMi(container);
+             return utils.IdentityExists(container);
         }
         string listType = "";
 

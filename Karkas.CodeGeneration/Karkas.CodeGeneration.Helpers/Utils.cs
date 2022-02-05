@@ -97,7 +97,7 @@ namespace Karkas.CodeGenerationHelper
             return tip;
         }
 
-        public bool IdentityVarMi(IContainer container)
+        public bool IdentityExists(IContainer container)
         {
             bool result = false;
             foreach (IColumn column in container.Columns)
@@ -111,7 +111,7 @@ namespace Karkas.CodeGenerationHelper
             return result;
         }
 
-        public string IdentityVarMiAsString(IContainer container)
+        public string IdentityExistsAsString(IContainer container)
         {
             string result = "false";
             foreach (IColumn column in container.Columns)
