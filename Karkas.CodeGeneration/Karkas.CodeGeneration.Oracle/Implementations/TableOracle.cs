@@ -52,8 +52,8 @@ AND cons.owner = cols.owner
                     ParameterBuilder builder = template.getParameterBuilder();
                     builder.AddParameter("tableName", DbType.String, Name);
                     builder.AddParameter("schemaName", DbType.String, Schema);
-                    Object objSonuc = template.BringOneValue(SQL_PRIMARY_KEY, builder.GetParameterArray());
-                     primaryKeyColumnCount = (Decimal)objSonuc;
+                    Object objResult = template.BringOneValue(SQL_PRIMARY_KEY, builder.GetParameterArray());
+                     primaryKeyColumnCount = (Decimal)objResult;
 
                 }
                 return (int) primaryKeyColumnCount.Value;

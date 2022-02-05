@@ -193,7 +193,7 @@ namespace Karkas.Core.DataUtil
             }
         }
 
-        private object ExecuteNonQueryCommandSonucGetirInternal(DbCommand cmd)
+        private object ExecuteNonQueryCommandResultGetirInternal(DbCommand cmd)
         {
             object son = 0;
             try
@@ -267,7 +267,7 @@ namespace Karkas.Core.DataUtil
         {
             cmd.Connection = Connection;
             object result = 0;
-            result = ExecuteNonQueryCommandSonucGetirInternal(cmd);
+            result = ExecuteNonQueryCommandResultGetirInternal(cmd);
             return result;
         }
 
@@ -277,7 +277,7 @@ namespace Karkas.Core.DataUtil
         {
             DbCommand cmd = getDatabaseCommand(cmdText, Connection);
             object result;
-            result = ExecuteNonQueryCommandSonucGetirInternal(cmd);
+            result = ExecuteNonQueryCommandResultGetirInternal(cmd);
             return result;
         }
 
@@ -290,7 +290,7 @@ namespace Karkas.Core.DataUtil
                 cmd.Parameters.Add(p);
             }
 
-            object result = ExecuteNonQueryCommandSonucGetirInternal(cmd);
+            object result = ExecuteNonQueryCommandResultGetirInternal(cmd);
             return result;
         }
 
@@ -303,7 +303,7 @@ namespace Karkas.Core.DataUtil
                 cmd.Parameters.Add(p);
             }
 
-            object result = ExecuteNonQueryCommandSonucGetirInternal(cmd);
+            object result = ExecuteNonQueryCommandResultGetirInternal(cmd);
             return result;
         }
 

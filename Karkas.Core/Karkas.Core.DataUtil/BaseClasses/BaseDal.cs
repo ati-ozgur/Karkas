@@ -281,12 +281,12 @@ namespace Karkas.Core.DataUtil.BaseClasses
             UpdateCommandParametersAdd(cmd, row);
             int kayitSayisi = ExecuteNonQueryCommandInternal(cmd);
 
-            bool updateSonucuBasarisiz = (kayitSayisi == 0);
+            bool updateResultuBasarisiz = (kayitSayisi == 0);
 
             // This code will blow in BatchInsertUpdateDelete
             // Developers should write their own custom logic for this purpose
 
-            if (updateSonucuBasarisiz)
+            if (updateResultuBasarisiz)
             {
                 throw new UniqueKeyConstraintException("Guncellemeye calıstıgınız kayıt daha önce başkası tarafından güncellenmiştir");
             }

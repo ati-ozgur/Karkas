@@ -39,8 +39,8 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
                     {
                         ParameterBuilder builder = template.getParameterBuilder();
                         builder.AddParameter("tableName", DbType.String, Table.Name);
-                        Object objSonuc = template.BringOneValue(SQL_SEQUENCE_EXISTS, builder.GetParameterArray());
-                        Decimal result = (Decimal)objSonuc;
+                        Object objResult = template.BringOneValue(SQL_SEQUENCE_EXISTS, builder.GetParameterArray());
+                        Decimal result = (Decimal)objResult;
                         if (result > 0)
                         {
                             relatedSequenceExists = true;
@@ -96,8 +96,8 @@ AND cons.owner = cols.owner
                     builder.AddParameter("tableName", DbType.String, tableOrView.Name);
                     builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
                     builder.AddParameter("columnName", DbType.String, Name);
-                    Object objSonuc = template.BringOneValue(SQL_PRIMARY_KEY, builder.GetParameterArray());
-                    Decimal result = (Decimal)objSonuc;
+                    Object objResult = template.BringOneValue(SQL_PRIMARY_KEY, builder.GetParameterArray());
+                    Decimal result = (Decimal)objResult;
                     if (result > 0)
                     {
                         isInPrimaryKey = true;
@@ -137,8 +137,8 @@ ON
                     builder.AddParameter("tableName", DbType.String, tableOrView.Name);
                     builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
                     builder.AddParameter("columnName", DbType.String, Name);
-                    Object objSonuc = template.BringOneValue(SQL_FOREIGN_KEY, builder.GetParameterArray());
-                    Decimal result = (Decimal)objSonuc;
+                    Object objResult = template.BringOneValue(SQL_FOREIGN_KEY, builder.GetParameterArray());
+                    Decimal result = (Decimal)objResult;
                     if (result > 0)
                     {
                         isInForeignKey = true;

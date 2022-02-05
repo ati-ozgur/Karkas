@@ -565,14 +565,14 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         private void IdentityVarMiYaz(IOutput output, bool identityVarmi)
         {
-            string identitySonuc = "";
+            string identityResult = "";
             if (identityVarmi)
             {
-                identitySonuc = "true";
+                identityResult = "true";
             }
             else
             {
-                identitySonuc = "false";
+                identityResult = "false";
             }
 
             output.autoTabLn("");
@@ -580,20 +580,20 @@ namespace Karkas.CodeGenerationHelper.Generators
             BaslangicSusluParentezVeTabArtir(output);
             output.autoTabLn("get");
             BaslangicSusluParentezVeTabArtir(output);
-            output.autoTabLn("return " + identitySonuc + ";");
+            output.autoTabLn("return " + identityResult + ";");
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);
         }
         private void PkGuidMiYaz(IOutput output, IContainer container)
         {
-            string pkGuidMiSonuc = "";
+            string pkGuidMiResult = "";
             if (utils.PkGuidMi(container))
             {
-                pkGuidMiSonuc = "true";
+                pkGuidMiResult = "true";
             }
             else
             {
-                pkGuidMiSonuc = "false";
+                pkGuidMiResult = "false";
             }
 
 
@@ -602,7 +602,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             BaslangicSusluParentezVeTabArtir(output);
             output.autoTabLn("get");
             BaslangicSusluParentezVeTabArtir(output);
-            output.autoTabLn("return " + pkGuidMiSonuc + ";");
+            output.autoTabLn("return " + pkGuidMiResult + ";");
             BitisSusluParentezVeTabAzalt(output);
             BitisSusluParentezVeTabAzalt(output);
             output.autoTabLn("");
