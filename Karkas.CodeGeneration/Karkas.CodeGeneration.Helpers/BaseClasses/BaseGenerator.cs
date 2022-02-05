@@ -12,7 +12,7 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
             output.autoTabLn("{");
             output.increaseTab();
         }
-        protected void BitisSusluParentezVeTabAzalt(IOutput output)
+        protected void AtEndCurlyBraceletDescreaseTab(IOutput output)
         {
             output.decreaseTab();
             output.autoTabLn("}");

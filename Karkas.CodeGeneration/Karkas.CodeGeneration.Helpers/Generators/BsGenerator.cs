@@ -83,8 +83,8 @@ namespace Karkas.CodeGenerationHelper.Generators
 
                 sorgulaPkAdiIleWrite(output, container, classNameTypeLibrary, pkType, pkAdiPascalCase);
             }
-            BitisSusluParentezVeTabAzalt(output);
-            BitisSusluParentezVeTabAzalt(output);
+            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDescreaseTab(output);
 
             string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForBsGenerated(database, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
             string outputFullFileName = utils.FileUtilsHelper.getBaseNameForBs(database, schemaName, classNameTypeLibrary, semaIsminiDizinlerdeKullan); 
@@ -97,8 +97,8 @@ namespace Karkas.CodeGenerationHelper.Generators
                 AtStartCurlyBraceletIncreaseTab(output);
                 classWrite(output, classNameBs, classNameDal, classNameTypeLibrary);
                 AtStartCurlyBraceletIncreaseTab(output);
-                BitisSusluParentezVeTabAzalt(output);
-                BitisSusluParentezVeTabAzalt(output);
+                AtEndCurlyBraceletDescreaseTab(output);
+                AtEndCurlyBraceletDescreaseTab(output);
                 output.saveEncoding(outputFullFileName, "o", "utf8");
                 output.clear();
             }
@@ -111,8 +111,8 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn(string.Format("return \"{0}\";", container.Database.ConnectionName));
-            BitisSusluParentezVeTabAzalt(output);
-            BitisSusluParentezVeTabAzalt(output);
+            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDescreaseTab(output);
         }
 
 
@@ -151,7 +151,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                     // output.autoTabLn(string.Format("{0} row = new {0}();", classNameTypeLibrary));
 
                     output.autoTabLn(string.Format("dal.Delete( p{0});",pkPropertyName));
-                    BitisSusluParentezVeTabAzalt(output);
+                    AtEndCurlyBraceletDescreaseTab(output);
                 }
             }
 

@@ -62,8 +62,8 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             output.writeLine("");
 
-            BitisSusluParentezVeTabAzalt(output);
-            BitisSusluParentezVeTabAzalt(output);
+            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDescreaseTab(output);
 
             output.saveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.clear();
@@ -86,7 +86,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             string classNameValidation = className + "Validation";
             writeMainClass(output, className, classNameValidation);
             writeValidationClass(output, database, className, classNameValidation);
-            BitisSusluParentezVeTabAzalt(output);
+            AtEndCurlyBraceletDescreaseTab(output);
             output.save(outputFullFileName, database.CreateMainClassAgain);
             output.clear();
         }
@@ -98,7 +98,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTab("public partial class ");
             output.autoTabLn(className);
             AtStartCurlyBraceletIncreaseTab(output);
-            BitisSusluParentezVeTabAzalt(output);
+            AtEndCurlyBraceletDescreaseTab(output);
         }
         private void writeValidationClass(IOutput output, IDatabase database, string className, string classNameValidation)
         {
@@ -126,7 +126,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                 output.autoTabLn("// public int Yasi { get; set; }");
                 output.autoTabLn("");
             }
-            BitisSusluParentezVeTabAzalt(output);
+            AtEndCurlyBraceletDescreaseTab(output);
         }
 
 
@@ -194,7 +194,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                 string yazi = string.Format("public const string {0} = \"{1}\";", propertyName, column.Name);
                 output.autoTabLn(yazi);
             }
-            BitisSusluParentezVeTabAzalt(output);
+            AtEndCurlyBraceletDescreaseTab(output);
 
         }
 
@@ -361,15 +361,15 @@ namespace Karkas.CodeGenerationHelper.Generators
                 output.autoTabLn("if (s != null)");
                 AtStartCurlyBraceletIncreaseTab(output);
                 output.autoTabLn("return s;");
-                BitisSusluParentezVeTabAzalt(output);
+                AtEndCurlyBraceletDescreaseTab(output);
                 output.autoTabLn("else");
                 AtStartCurlyBraceletIncreaseTab(output);
                 output.autoTabLn(string.Format("return \"{0}\";", propertyVariableName));
-                BitisSusluParentezVeTabAzalt(output);
-                BitisSusluParentezVeTabAzalt(output);
-                BitisSusluParentezVeTabAzalt(output);
+                AtEndCurlyBraceletDescreaseTab(output);
+                AtEndCurlyBraceletDescreaseTab(output);
+                AtEndCurlyBraceletDescreaseTab(output);
             }
-            BitisSusluParentezVeTabAzalt(output);
+            AtEndCurlyBraceletDescreaseTab(output);
         }
 
 

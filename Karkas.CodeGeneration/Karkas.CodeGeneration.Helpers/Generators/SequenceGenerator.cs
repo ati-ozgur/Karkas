@@ -53,8 +53,8 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             SelectSequenceStringWrite(output, database, schemaName, sequenceName);
             getNextSequenceValueWrite(output);
-            BitisSusluParentezVeTabAzalt(output);
-            BitisSusluParentezVeTabAzalt(output);
+            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDescreaseTab(output);
 
             output.saveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.clear();
@@ -70,7 +70,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("AdoTemplate template = new AdoTemplate(DbProviderName);");
             output.autoTabLn("return (decimal) template.BringOneValue(selectSequenceString);");
-            BitisSusluParentezVeTabAzalt(output);
+            AtEndCurlyBraceletDescreaseTab(output);
         }
 
         private void SelectSequenceStringWrite(IOutput output, IDatabase database, string schemaName, string sequenceName)
@@ -123,8 +123,8 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn(string.Format("return \"{0}\";", database.ConnectionDbProviderName));
-            BitisSusluParentezVeTabAzalt(output);
-            BitisSusluParentezVeTabAzalt(output);
+            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDescreaseTab(output);
         }
 
     }
