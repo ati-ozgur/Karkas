@@ -74,7 +74,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.increaseTab();
             AtStartCurlyBraceletIncreaseTab(output);
             classWrite(output, classNameBs, classNameDal, classNameTypeLibrary);
-            BaslangicSusluParentez(output);
+            AtStartCurlyBracelet(output);
             OverrideDatabaseNameWrite(output, container);
 
             if (container is ITable && (!string.IsNullOrEmpty(pkAdi)))

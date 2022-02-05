@@ -17,10 +17,9 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
             output.decreaseTab();
             output.autoTabLn("}");
         }
-        protected void BaslangicSusluParentez(IOutput output)
+        protected void AtStartCurlyBracelet(IOutput output)
         {
             output.autoTabLn("{");
-            output.increaseTab();
         }
         protected void BitisSusluParentez(IOutput output)
         {
