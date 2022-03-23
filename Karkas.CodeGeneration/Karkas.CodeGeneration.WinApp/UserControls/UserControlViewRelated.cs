@@ -77,7 +77,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         private void buttonTumViewlariUret_Click(object sender, EventArgs e)
         {
-            if (this.ParentMainForm.TumVeritabaniKodUretmeEminMisiniz())
+            if (this.ParentMainForm.ProduceAllTablesAreYouSure())
             {
 
                 try

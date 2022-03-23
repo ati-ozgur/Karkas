@@ -257,7 +257,7 @@ namespace Karkas.CodeGeneration.WinApp
         }
 
 
-        public bool TumVeritabaniKodUretmeEminMisiniz()
+        public bool ProduceAllTablesAreYouSure()
         {
             string databaseType = entry.ConnectionDatabaseType;
             if (databaseType == DatabaseType.Oracle)

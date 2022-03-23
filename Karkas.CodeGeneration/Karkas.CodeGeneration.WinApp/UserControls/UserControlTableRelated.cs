@@ -28,9 +28,9 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
 
 
-        private void buttonTumTablolariUret_Click(object sender, EventArgs e)
+        private void buttonProduceAllTables_Click(object sender, EventArgs e)
         {
-            if (this.ParentMainForm.TumVeritabaniKodUretmeEminMisiniz())
+            if (this.ParentMainForm.ProduceAllTablesAreYouSure())
             {
 
                 try

@@ -60,7 +60,7 @@
             this.buttonTumTablolariUret.TabIndex = 10;
             this.buttonTumTablolariUret.Text = "Create All Tables";
             this.buttonTumTablolariUret.UseVisualStyleBackColor = true;
-            this.buttonTumTablolariUret.Click += new System.EventHandler(this.buttonTumTablolariUret_Click);
+            this.buttonTumTablolariUret.Click += new System.EventHandler(this.buttonProduceAllTables_Click);
             // 
             // listBoxTableListesi
             // 
