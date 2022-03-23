@@ -75,7 +75,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         }
 
-        private void buttonTumViewlariUret_Click(object sender, EventArgs e)
+        private void buttonProduceAllViews_Click(object sender, EventArgs e)
         {
             if (this.ParentMainForm.ProduceAllTablesAreYouSure())
             {

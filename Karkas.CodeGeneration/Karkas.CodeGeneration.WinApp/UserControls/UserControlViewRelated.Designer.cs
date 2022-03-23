@@ -58,7 +58,7 @@
             this.buttonTumViewlariUret.TabIndex = 16;
             this.buttonTumViewlariUret.Text = "Create All Views";
             this.buttonTumViewlariUret.UseVisualStyleBackColor = true;
-            this.buttonTumViewlariUret.Click += new System.EventHandler(this.buttonTumViewlariUret_Click);
+            this.buttonTumViewlariUret.Click += new System.EventHandler(this.buttonProduceAllViews_Click);
             // 
             // listBoxViewListesi
             // 
