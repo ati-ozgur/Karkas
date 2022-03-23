@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonSeciliViewlariUret = new System.Windows.Forms.Button();
+            this.buttonProduceSelectedViews = new System.Windows.Forms.Button();
             this.buttonTumViewlariUret = new System.Windows.Forms.Button();
             this.listBoxViewListesi = new System.Windows.Forms.ListBox();
             this.labelViewListesi = new System.Windows.Forms.Label();
@@ -39,16 +39,16 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonSeciliViewlariUret
+            // buttonProduceSelectedViews
             // 
-            this.buttonSeciliViewlariUret.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSeciliViewlariUret.Location = new System.Drawing.Point(560, 97);
-            this.buttonSeciliViewlariUret.Name = "buttonSeciliViewlariUret";
-            this.buttonSeciliViewlariUret.Size = new System.Drawing.Size(136, 277);
-            this.buttonSeciliViewlariUret.TabIndex = 17;
-            this.buttonSeciliViewlariUret.Text = "Select Selected Views";
-            this.buttonSeciliViewlariUret.UseVisualStyleBackColor = true;
-            this.buttonSeciliViewlariUret.Click += new System.EventHandler(this.buttonSeciliViewlariUret_Click);
+            this.buttonProduceSelectedViews.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonProduceSelectedViews.Location = new System.Drawing.Point(560, 97);
+            this.buttonProduceSelectedViews.Name = "buttonProduceSelectedViews";
+            this.buttonProduceSelectedViews.Size = new System.Drawing.Size(136, 277);
+            this.buttonProduceSelectedViews.TabIndex = 17;
+            this.buttonProduceSelectedViews.Text = "Select Selected Views";
+            this.buttonProduceSelectedViews.UseVisualStyleBackColor = true;
+            this.buttonProduceSelectedViews.Click += new System.EventHandler(this.buttonProduceSelectedViews_Click);
             // 
             // buttonTumViewlariUret
             // 
@@ -124,7 +124,7 @@
             this.tableLayoutPanel1.Controls.Add(this.buttonSeciliSemaViewUret, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.listBoxViewListesi, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.labelViewListesi, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.buttonSeciliViewlariUret, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.buttonProduceSelectedViews, 3, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -150,7 +150,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonSeciliViewlariUret;
+        private System.Windows.Forms.Button buttonProduceSelectedViews;
         private System.Windows.Forms.Button buttonTumViewlariUret;
         private System.Windows.Forms.ListBox listBoxViewListesi;
         private System.Windows.Forms.Label labelViewListesi;

@@ -54,7 +54,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         }
 
-        private void buttonSeciliViewlariUret_Click(object sender, EventArgs e)
+        private void buttonProduceSelectedViews_Click(object sender, EventArgs e)
         {
 
         }
