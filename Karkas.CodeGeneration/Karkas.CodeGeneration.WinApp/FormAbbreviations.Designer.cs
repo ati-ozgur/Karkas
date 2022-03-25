@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.listBoxAbbrevations = new System.Windows.Forms.ListBox();
-            this.buttonEkle = new System.Windows.Forms.Button();
+            this.buttonInsert = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxAbbreviations = new System.Windows.Forms.TextBox();
@@ -41,19 +41,19 @@
             // 
             this.listBoxAbbrevations.FormattingEnabled = true;
             this.listBoxAbbrevations.Location = new System.Drawing.Point(12, 123);
-            this.listBoxAbbrevations.Name = "listBoxKisaltmalar";
+            this.listBoxAbbrevations.Name = "listBoxAbbrevations";
             this.listBoxAbbrevations.Size = new System.Drawing.Size(243, 212);
             this.listBoxAbbrevations.TabIndex = 0;
             // 
             // buttonEkle
             // 
-            this.buttonEkle.Location = new System.Drawing.Point(408, 11);
-            this.buttonEkle.Name = "buttonEkle";
-            this.buttonEkle.Size = new System.Drawing.Size(75, 23);
-            this.buttonEkle.TabIndex = 1;
-            this.buttonEkle.Text = "Insert";
-            this.buttonEkle.UseVisualStyleBackColor = true;
-            this.buttonEkle.Click += new System.EventHandler(this.buttonInsert_Click);
+            this.buttonInsert.Location = new System.Drawing.Point(408, 11);
+            this.buttonInsert.Name = "buttonInsert";
+            this.buttonInsert.Size = new System.Drawing.Size(75, 23);
+            this.buttonInsert.TabIndex = 1;
+            this.buttonInsert.Text = "Insert";
+            this.buttonInsert.UseVisualStyleBackColor = true;
+            this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
             // 
             // label1
             // 
@@ -106,7 +106,7 @@
             this.Controls.Add(this.textBoxAbbreviations);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonEkle);
+            this.Controls.Add(this.buttonInsert);
             this.Controls.Add(this.listBoxAbbrevations);
             this.Name = "FormAbbravetions";
             this.Text = "FormKisaltmalar";
@@ -118,7 +118,7 @@
         #endregion
 
         private System.Windows.Forms.ListBox listBoxAbbrevations;
-        private System.Windows.Forms.Button buttonEkle;
+        private System.Windows.Forms.Button buttonInsert;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxAbbreviations;
