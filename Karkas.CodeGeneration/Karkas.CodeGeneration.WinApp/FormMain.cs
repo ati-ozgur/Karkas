@@ -95,7 +95,7 @@ namespace Karkas.CodeGeneration.WinApp
                 }
 
                 labelConnectionStatus.Text = "Connection is SUCCESFULL";
-                BilgileriDoldur();
+                fillInformation();
 
 
             }
@@ -197,7 +197,7 @@ namespace Karkas.CodeGeneration.WinApp
 
 
 
-        private void BilgileriDoldur( )
+        private void fillInformation( )
         {
             userControlCodeGenerationOptions1.databaseNameLabelDoldur(DatabaseHelper);
             fillSchema();
@@ -223,14 +223,6 @@ namespace Karkas.CodeGeneration.WinApp
 
 
 
-        private void buttonGecerliDegerleriKaydet_Click(object sender, EventArgs e)
-        {
-
-            DatabaseService.InsertOrUpdate(CurrentDatabaseEntry);
-
-            MessageBox.Show("Values saved;");
-
-        }
 
 
 
