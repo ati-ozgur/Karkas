@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxAbbreviations = new System.Windows.Forms.TextBox();
-            this.textBoxYerineGecenYazi = new System.Windows.Forms.TextBox();
+            this.textBoxReplacementText = new System.Windows.Forms.TextBox();
             this.buttonSil = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -82,10 +82,10 @@
             // 
             // textBoxYerineGecenYazi
             // 
-            this.textBoxYerineGecenYazi.Location = new System.Drawing.Point(165, 49);
-            this.textBoxYerineGecenYazi.Name = "textBoxYerineGecenYazi";
-            this.textBoxYerineGecenYazi.Size = new System.Drawing.Size(100, 20);
-            this.textBoxYerineGecenYazi.TabIndex = 5;
+            this.textBoxReplacementText.Location = new System.Drawing.Point(165, 49);
+            this.textBoxReplacementText.Name = "textBoxYerineGecenYazi";
+            this.textBoxReplacementText.Size = new System.Drawing.Size(100, 20);
+            this.textBoxReplacementText.TabIndex = 5;
             // 
             // buttonSil
             // 
@@ -102,7 +102,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 386);
             this.Controls.Add(this.buttonSil);
-            this.Controls.Add(this.textBoxYerineGecenYazi);
+            this.Controls.Add(this.textBoxReplacementText);
             this.Controls.Add(this.textBoxAbbreviations);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -122,7 +122,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxAbbreviations;
-        private System.Windows.Forms.TextBox textBoxYerineGecenYazi;
+        private System.Windows.Forms.TextBox textBoxReplacementText;
         private System.Windows.Forms.Button buttonSil;
     }
 }
