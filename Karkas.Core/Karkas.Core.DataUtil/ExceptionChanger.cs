@@ -18,56 +18,56 @@ namespace Karkas.Core.DataUtil
 
         private static void DegistirPrivate(DbException ex, string pMesaj = "NO SQL QUERY")
         {
-            Exception firlatilacakException = null;
+            Exception exceptionToThrow = null;
             // TODO burayı oracle ve diğer veritabanları için yazmak gerekiyor.
             switch (ex.ErrorCode)
             {
                 default:
-                    firlatilacakException = new KarkasDataException(String.Format("Tanimlanamayan Veri Hatasi, Mesaji = {0}", ex.Message), ex);
+                    exceptionToThrow = new KarkasDataException(String.Format("Unknown Data Exception , Messsage = {0}", ex.Message), ex);
                     break;
                 case 137:
-                    firlatilacakException = new WrongSQLQueryException(String.Format("sql cumlesi icindeki parametreler duzgun tanımlanmamış, sql cumles = {0}, orjinal hata Mesajı = {1}", pMesaj, ex.Message), ex);
+                    exceptionToThrow = new WrongSQLQueryException(String.Format("sql cumlesi icindeki parametreler duzgun tanımlanmamış, sql cumles = {0}, orjinal hata Mesajı = {1}", pMesaj, ex.Message), ex);
                     break;
                 case -1:
-                    firlatilacakException = new DatabaseConnectionException(String.Format("{0} connection string'i baglantisi ile sunucuya baglanilamiyor. Verilen Hata Mesaji = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message), ex);
+                    exceptionToThrow = new DatabaseConnectionException(String.Format("{0} connection string'i baglantisi ile sunucuya baglanilamiyor. Verilen Hata Mesaji = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message), ex);
                     break;
                 case 102:
                 case 207:
-                    firlatilacakException = new WrongSQLQueryException(String.Format("{0} sql cumlesi hatalı yazılmıştır. Sunucudan gelen mesaj {1}", pMesaj, ex.Message), ex);
+                    exceptionToThrow = new WrongSQLQueryException(String.Format("{0} sql cumlesi hatalı yazılmıştır. Sunucudan gelen mesaj {1}", pMesaj, ex.Message), ex);
                     break;
                 case 2627:
-                    firlatilacakException = new KarkasDataException(String.Format("Primary Key olarak secilen kolonunda bu degeri alan satir zaten var."), ex);
+                    exceptionToThrow = new KarkasDataException(String.Format("Primary Key olarak secilen kolonunda bu degeri alan satir zaten var."), ex);
                     break;
                 case 109:
-                    firlatilacakException = new KarkasDataException(String.Format("Veri eklerken belirtilen her kolon için bilgi girilmedi."), ex);
+                    exceptionToThrow = new KarkasDataException(String.Format("Veri eklerken belirtilen her kolon için bilgi girilmedi."), ex);
                     break;
                 case 515:
-                    firlatilacakException = new KarkasDataException(String.Format("Veri içermesi zorunlu olan bir kolona veri girilmedi."), ex);
+                    exceptionToThrow = new KarkasDataException(String.Format("Veri içermesi zorunlu olan bir kolona veri girilmedi."), ex);
                     break;
                 case 110:
-                    firlatilacakException = new KarkasDataException(String.Format("Veri girerken gerekenden fazla parametre yollandı."), ex);
+                    exceptionToThrow = new KarkasDataException(String.Format("Veri girerken gerekenden fazla parametre yollandı."), ex);
                     break;
                 case 245:
-                    firlatilacakException = new KarkasDataException(String.Format("Kolonda belirtilen türden farklı bir tür eklenmeye çalışıldı."), ex);
+                    exceptionToThrow = new KarkasDataException(String.Format("Kolonda belirtilen türden farklı bir tür eklenmeye çalışıldı."), ex);
                     break;
                 case 2812:
-                    firlatilacakException = new KarkasDataException(String.Format("Primary Key olarak secilen kolonunda bu degeri alan satir zaten var."), ex);
+                    exceptionToThrow = new KarkasDataException(String.Format("Primary Key olarak secilen kolonunda bu degeri alan satir zaten var."), ex);
                     break;
                 case 8144:
-                    firlatilacakException = new KarkasDataException(String.Format("{0} prosedürü için belirlenenden fazla parametre girildi.", ex.Data), ex);
+                    exceptionToThrow = new KarkasDataException(String.Format("{0} prosedürü için belirlenenden fazla parametre girildi.", ex.Data), ex);
                     break;
                 case 201:
-                    firlatilacakException = new KarkasDataException(String.Format("{0} prosedürü için eksik parametre girildi. {1}", ex.Data), ex);
+                    exceptionToThrow = new KarkasDataException(String.Format("{0} prosedürü için eksik parametre girildi. {1}", ex.Data), ex);
                     break;
                 case 547:
-                    firlatilacakException = new ForeignKeyException(String.Format("Tablo ilişkileri ile ilgili hatalı bir işlem yapıldı."), ex);
+                    exceptionToThrow = new ForeignKeyException(String.Format("Tablo ilişkileri ile ilgili hatalı bir işlem yapıldı."), ex);
                     break;
                 case 208:
-                    firlatilacakException = new DatabaseConnectionException(String.Format("Veritabanina baglanilamadi lutfen connection string'in dogrulugunu ve veritabanininin calisip calismadigini kontrol ediniz, Kullanilan ConnectionString = {0}, verilen hata Mesaji = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message));
+                    exceptionToThrow = new DatabaseConnectionException(String.Format("Veritabanina baglanilamadi lutfen connection string'in dogrulugunu ve veritabanininin calisip calismadigini kontrol ediniz, Kullanilan ConnectionString = {0}, verilen hata Mesaji = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message));
                     break;
             }
-            new LoggingInfo().LogInfo(Type.GetType(" Karkas.Core.DataUtil.ExceptionDegistirici"), ex, pMesaj);
-            throw firlatilacakException;
+            new LoggingInfo().LogInfo(Type.GetType("Karkas.Core.DataUtil.ExceptionChanger"), ex, pMesaj);
+            throw exceptionToThrow;
         }
 
 
