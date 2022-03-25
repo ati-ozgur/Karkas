@@ -32,7 +32,7 @@
             this.buttonEkle = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxKisaltma = new System.Windows.Forms.TextBox();
+            this.textBoxAbbreviations = new System.Windows.Forms.TextBox();
             this.textBoxYerineGecenYazi = new System.Windows.Forms.TextBox();
             this.buttonSil = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -75,10 +75,10 @@
             // 
             // textBoxKisaltma
             // 
-            this.textBoxKisaltma.Location = new System.Drawing.Point(165, 21);
-            this.textBoxKisaltma.Name = "textBoxKisaltma";
-            this.textBoxKisaltma.Size = new System.Drawing.Size(100, 20);
-            this.textBoxKisaltma.TabIndex = 4;
+            this.textBoxAbbreviations.Location = new System.Drawing.Point(165, 21);
+            this.textBoxAbbreviations.Name = "textBoxKisaltma";
+            this.textBoxAbbreviations.Size = new System.Drawing.Size(100, 20);
+            this.textBoxAbbreviations.TabIndex = 4;
             // 
             // textBoxYerineGecenYazi
             // 
@@ -103,7 +103,7 @@
             this.ClientSize = new System.Drawing.Size(534, 386);
             this.Controls.Add(this.buttonSil);
             this.Controls.Add(this.textBoxYerineGecenYazi);
-            this.Controls.Add(this.textBoxKisaltma);
+            this.Controls.Add(this.textBoxAbbreviations);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonEkle);
@@ -121,7 +121,7 @@
         private System.Windows.Forms.Button buttonEkle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxKisaltma;
+        private System.Windows.Forms.TextBox textBoxAbbreviations;
         private System.Windows.Forms.TextBox textBoxYerineGecenYazi;
         private System.Windows.Forms.Button buttonSil;
     }
