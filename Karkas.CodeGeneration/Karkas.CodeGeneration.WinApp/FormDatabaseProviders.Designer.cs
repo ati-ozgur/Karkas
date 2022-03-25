@@ -50,8 +50,22 @@
             this.textBoxDatabaseProviders.Name = "textBoxDatabaseProviders";
             this.textBoxDatabaseProviders.Size = new System.Drawing.Size(205, 212);
             this.textBoxDatabaseProviders.TabIndex = 23;
-            this.textBoxDatabaseProviders.Text = "System.Data.SqlClient\r\n\r\nSystem.Data.OracleClient\r\nOracle.DataAccess.Client\r\nOrac" +
-    "le.ManagedDataAccess.Client\r\n\r\nSystem.Data.SQLite\r\n";
+            this.textBoxDatabaseProviders.Text = @"
+
+---SQL Server---
+System.Data.SqlClient
+Integrated Security = SSPI; Persist Security Info=False;Initial Catalog=KARKAS_EXAMPLE;Data Source=localhost
+--------------------------
+---Oracle---
+System.Data.OracleClient
+Oracle.DataAccess.Client
+Oracle.ManagedDataAccess.Client
+Data Source=KARKAS_EXAMPLE;User Id=APPUSER;Password=appuser;
+---Sqlite---
+System.Data.SQLite
+            
+            
+            ";
             // 
             // FormDatabaseProviders
             // 
