@@ -53,17 +53,26 @@
             this.textBoxDatabaseProviders.Text = @"
 
 ---SQL Server---
+Provider Name:  
 System.Data.SqlClient
+
+Example Connection String
 Integrated Security = SSPI; Persist Security Info=False;Initial Catalog=KARKAS_EXAMPLE;Data Source=localhost
 --------------------------
 ---Oracle---
+Provider Name:  
 System.Data.OracleClient
 Oracle.DataAccess.Client
 Oracle.ManagedDataAccess.Client
+
+Example Connection String
 Data Source=KARKAS_EXAMPLE;User Id=APPUSER;Password=appuser;
 ---Sqlite---
+Provider Name:  
 System.Data.SQLite
-            
+Example Connection String
+
+Data Source=P:\karkas\karkas_example.db;Version=3;            
             
             ";
             // 
