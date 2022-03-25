@@ -22,7 +22,7 @@ namespace Karkas.CodeGeneration.WinApp
             this.DatabaseEntry = pDatabaseEntry;
             InitializeComponent();
 
-            this.listBoxKisaltmalar.DataSource = null;// this.DatabaseEntry.getAbbreviationsDataSource();
+            this.listBoxAbbrevations.DataSource = null;// this.DatabaseEntry.getAbbreviationsDataSource();
         }
 
 
@@ -41,7 +41,7 @@ namespace Karkas.CodeGeneration.WinApp
             //this.DatabaseEntry.AddAbbreviations(abbr);
 
 
-            this.listBoxKisaltmalar.DataSource = null;
+            this.listBoxAbbrevations.DataSource = null;
             
         }
     }

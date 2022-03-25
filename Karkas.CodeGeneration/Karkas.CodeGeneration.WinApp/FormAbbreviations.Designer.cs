@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBoxKisaltmalar = new System.Windows.Forms.ListBox();
+            this.listBoxAbbrevations = new System.Windows.Forms.ListBox();
             this.buttonEkle = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,11 +39,11 @@
             // 
             // listBoxKisaltmalar
             // 
-            this.listBoxKisaltmalar.FormattingEnabled = true;
-            this.listBoxKisaltmalar.Location = new System.Drawing.Point(12, 123);
-            this.listBoxKisaltmalar.Name = "listBoxKisaltmalar";
-            this.listBoxKisaltmalar.Size = new System.Drawing.Size(243, 212);
-            this.listBoxKisaltmalar.TabIndex = 0;
+            this.listBoxAbbrevations.FormattingEnabled = true;
+            this.listBoxAbbrevations.Location = new System.Drawing.Point(12, 123);
+            this.listBoxAbbrevations.Name = "listBoxKisaltmalar";
+            this.listBoxAbbrevations.Size = new System.Drawing.Size(243, 212);
+            this.listBoxAbbrevations.TabIndex = 0;
             // 
             // buttonEkle
             // 
@@ -107,7 +107,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonEkle);
-            this.Controls.Add(this.listBoxKisaltmalar);
+            this.Controls.Add(this.listBoxAbbrevations);
             this.Name = "FormAbbravetions";
             this.Text = "FormKisaltmalar";
             this.ResumeLayout(false);
@@ -117,7 +117,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBoxKisaltmalar;
+        private System.Windows.Forms.ListBox listBoxAbbrevations;
         private System.Windows.Forms.Button buttonEkle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
