@@ -38,7 +38,7 @@
             this.labelDatabaseProviders.Location = new System.Drawing.Point(30, 38);
             this.labelDatabaseProviders.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDatabaseProviders.Name = "labelDatabaseProviders";
-            this.labelDatabaseProviders.Size = new System.Drawing.Size(107, 15);
+            this.labelDatabaseProviders.Size = new System.Drawing.Size(500, 100);
             this.labelDatabaseProviders.TabIndex = 24;
             this.labelDatabaseProviders.Text = "Database Providers";
             // 
@@ -48,7 +48,7 @@
             this.textBoxDatabaseProviders.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxDatabaseProviders.Multiline = true;
             this.textBoxDatabaseProviders.Name = "textBoxDatabaseProviders";
-            this.textBoxDatabaseProviders.Size = new System.Drawing.Size(205, 212);
+            this.textBoxDatabaseProviders.Size = new System.Drawing.Size(600, 500);
             this.textBoxDatabaseProviders.TabIndex = 23;
             this.textBoxDatabaseProviders.Text = @"
 
@@ -71,7 +71,7 @@ System.Data.SQLite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 391);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.labelDatabaseProviders);
             this.Controls.Add(this.textBoxDatabaseProviders);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
