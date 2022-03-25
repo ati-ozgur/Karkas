@@ -28,7 +28,7 @@ namespace Karkas.CodeGeneration.WinApp
 
         public DatabaseEntry DatabaseEntry { get; set; }
 
-        private void buttonEkle_Click(object sender, EventArgs e)
+        private void buttonInsert_Click(object sender, EventArgs e)
         {
             DatabaseAbbreviations abbr = new DatabaseAbbreviations();
             abbr.FullNameReplacement = textBoxYerineGecenYazi.Text;
