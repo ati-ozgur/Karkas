@@ -57,7 +57,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
             catch (DbException ex)
             {
-                ExceptionChanger.Degistir(ex, new LoggingInfo(cmd).ToString());
+                ExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
             }
             catch (Exception ex)
             {

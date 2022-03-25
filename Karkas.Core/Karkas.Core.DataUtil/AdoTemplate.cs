@@ -211,7 +211,7 @@ namespace Karkas.Core.DataUtil
             }
             catch (DbException ex)
             {
-                ExceptionChanger.Degistir(ex, new LoggingInfo(cmd).ToString());
+                ExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
             }
             finally
             {
@@ -240,7 +240,7 @@ namespace Karkas.Core.DataUtil
             }
             catch (DbException ex)
             {
-                ExceptionChanger.Degistir(ex, new LoggingInfo(cmd).ToString());
+                ExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
             }
             finally
             {
@@ -405,7 +405,7 @@ namespace Karkas.Core.DataUtil
             }
             catch (DbException ex)
             {
-                ExceptionChanger.Degistir(ex);
+                ExceptionChanger.Change(ex);
             }
             finally
             {

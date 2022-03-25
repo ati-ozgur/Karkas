@@ -10,7 +10,7 @@ namespace Karkas.Core.DataUtil
     public class ExceptionChanger
     {
 
-        public static void Degistir(DbException ex, string pMesaj = "NO SQL QUERY")
+        public static void Change(DbException ex, string pMesaj = "NO SQL QUERY")
         {
             DegistirPrivate(ex, pMesaj);
         }
