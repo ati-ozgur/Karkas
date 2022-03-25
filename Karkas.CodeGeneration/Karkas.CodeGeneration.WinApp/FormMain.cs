@@ -94,7 +94,7 @@ namespace Karkas.CodeGeneration.WinApp
 
                 }
 
-                labelConnectionStatus.Text = "Bağlantı Başarılı";
+                labelConnectionStatus.Text = "Connection is SUCCESFULL";
                 BilgileriDoldur();
 
 
@@ -103,7 +103,7 @@ namespace Karkas.CodeGeneration.WinApp
             {
                 MessageBox.Show(ex.Message);
                 labelConnectionStatus.ForeColor = Color.Red;
-                labelConnectionStatus.Text = "!!!!Bağlantı BAŞARISIZ!!!!";
+                labelConnectionStatus.Text = "!!!!Connection is NOT succesfull!!!!";
             }
 
         }
@@ -228,7 +228,7 @@ namespace Karkas.CodeGeneration.WinApp
 
             DatabaseService.InsertOrUpdate(CurrentDatabaseEntry);
 
-            MessageBox.Show("Değerler Kaydedildi;");
+            MessageBox.Show("Values saved;");
 
         }
 
@@ -262,8 +262,8 @@ namespace Karkas.CodeGeneration.WinApp
             string databaseType = entry.ConnectionDatabaseType;
             if (databaseType == DatabaseType.Oracle)
             {
-                string message = "Oracle veritabanında genellikle sadece bir şema için Kod üretilir , emin Misiniz";
-                string caption = "TUM VERİTABANI İÇİN KOD ÜRETME";
+                string message = "Normally, codes are produced for only one schema in Oracle database. Are you sure?";
+                string caption = "PRODUCE CODE FOR ALL DATABASE";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result;
 
@@ -297,7 +297,7 @@ namespace Karkas.CodeGeneration.WinApp
         {
             DatabaseService.InsertOrUpdate(CurrentDatabaseEntry);
 
-            MessageBox.Show("Değerler Kaydedildi;");
+            MessageBox.Show("Values saved;");
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
