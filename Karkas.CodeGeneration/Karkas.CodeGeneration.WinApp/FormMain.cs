@@ -177,12 +177,21 @@ namespace Karkas.CodeGeneration.WinApp
 
         private void testSqlServer(string connectionString,string databaseName)
         {
+            const string providerName = "System.Data.SqlClient";
+
+            DbProviderFactories.TryGetFactory(providerName, out var factory);
+
+            if(factory == null)
+            {
+                DbProviderFactories.RegisterFactory(providerName, SqlClientFactory.Instance);
+            }
+
             connection = new SqlConnection(connectionString);
             connection.Open();
             connection.Close();
             template = new AdoTemplate();
             template.Connection = connection;
-            template.DbProviderName = "System.Data.SqlClient";
+            template.DbProviderName = providerName;
 
             DatabaseHelper = new DatabaseSqlServer(template);
 
