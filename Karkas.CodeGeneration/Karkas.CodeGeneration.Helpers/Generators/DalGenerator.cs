@@ -104,7 +104,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForDalGenerated(database, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
             string outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(database, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
 
-            UsingleriWrite(output, schemaName, baseNameSpaceTypeLibrary, baseNameSpaceDal);
+            WriteUsings(output, schemaName, baseNameSpaceTypeLibrary, baseNameSpaceDal);
 
             ClassWrite(output, classNameTypeLibrary, getIdentityVarmi(utils, container), getIdentityType(utils, container));
             output.autoTabLn("");
@@ -152,7 +152,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.clear();
             if (!File.Exists(outputFullFileName))
             {
-                UsingleriWrite(output, schemaName, baseNameSpaceTypeLibrary, baseNameSpaceDal);
+                WriteUsings(output, schemaName, baseNameSpaceTypeLibrary, baseNameSpaceDal);
                 output.autoTab("public partial class ");
                 output.writeLine(classNameTypeLibrary + "Dal");
                 AtStartCurlyBraceletIncreaseTab(output);
@@ -259,7 +259,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
-        private void UsingleriWrite(IOutput output, string schemaName, string baseNameSpaceTypeLibrary, string baseNameSpaceDal)
+        private void WriteUsings(IOutput output, string schemaName, string baseNameSpaceTypeLibrary, string baseNameSpaceDal)
         {
             output.autoTabLn("");
             output.autoTabLn("using System;");
