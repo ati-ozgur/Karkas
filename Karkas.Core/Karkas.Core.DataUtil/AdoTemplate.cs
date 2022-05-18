@@ -29,7 +29,7 @@ namespace Karkas.Core.DataUtil
             this.useConnectionSingleton = false;
         }
 
-        public ParameterBuilder getParameterBuilder()
+        public virtual ParameterBuilder getParameterBuilder()
         {
             return new ParameterBuilder(dbProviderName);
 

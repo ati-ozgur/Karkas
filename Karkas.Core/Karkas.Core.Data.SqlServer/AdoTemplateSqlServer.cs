@@ -9,5 +9,10 @@ namespace Karkas.Core.Data.SqlServer
 {
     public class AdoTemplateSqlServer : AdoTemplate
     {
+
+        public override ParameterBuilder getParameterBuilder()
+        {
+            return  new ParameterBuilderSqlServer();
+        }
     }
 }
