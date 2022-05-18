@@ -331,8 +331,8 @@ namespace Karkas.CodeGeneration.WinApp
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.Controls.Add(this.tabControlDatabase, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.labelConnectionStatus, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonTestConnectionString, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelConnectionStatus, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.buttonTestConnectionString, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.userControlCodeGenerationOptions1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 30);
@@ -355,7 +355,7 @@ namespace Karkas.CodeGeneration.WinApp
             this.Name = "FormMain";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Karkas  CodeGeneration WinApp";
+            this.Text = "Karkas CodeGeneration WinApp";
             this.tabControlDatabase.ResumeLayout(false);
             this.tabPageTableRelated.ResumeLayout(false);
             this.tabPageViewRelated.ResumeLayout(false);
