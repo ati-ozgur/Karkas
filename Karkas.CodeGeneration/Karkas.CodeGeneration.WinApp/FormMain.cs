@@ -145,7 +145,7 @@ namespace Karkas.CodeGeneration.WinApp
                 template = new AdoTemplate();
                 template.Connection = connection;
                 template.DbProviderName = ConnectionDbProviderName;
-                DatabaseHelper = new DatabaseOracle( template);
+                DatabaseHelper = new CodeGenerationOracle( template);
                 DbProviderFactories.RegisterFactory(ConnectionDbProviderName, factory);
 
 

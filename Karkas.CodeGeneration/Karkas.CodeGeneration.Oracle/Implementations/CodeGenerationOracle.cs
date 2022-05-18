@@ -12,15 +12,15 @@ using Karkas.CodeGenerationHelper.BaseClasses;
 
 namespace Karkas.CodeGeneration.Oracle.Implementations
 {
-    public class DatabaseOracle : BaseCodeGenerationDatabase
+    public class CodeGenerationOracle : BaseCodeGenerationDatabase
     {
 
-        public DatabaseOracle(AdoTemplate template) : base(template)
+        public CodeGenerationOracle(AdoTemplate template) : base(template)
         {
         }
 
 
-        public DatabaseOracle(AdoTemplate template
+        public CodeGenerationOracle(AdoTemplate template
             ,string connectionString
             , string pDatabaseName
             , string pProjectNameSpace

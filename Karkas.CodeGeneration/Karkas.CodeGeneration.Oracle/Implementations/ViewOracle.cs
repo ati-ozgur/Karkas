@@ -10,14 +10,14 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
 {
     public class ViewOracle : IView
     {
-        public ViewOracle(DatabaseOracle database, AdoTemplate template, string viewName, string schemaName)
+        public ViewOracle(CodeGenerationOracle database, AdoTemplate template, string viewName, string schemaName)
         {
             this.database = database;
             this.template = template;
             this.viewName = viewName;
             this.schemaName = schemaName;
         }
-        DatabaseOracle database;
+        CodeGenerationOracle database;
         AdoTemplate template;
         string viewName;
         string schemaName;

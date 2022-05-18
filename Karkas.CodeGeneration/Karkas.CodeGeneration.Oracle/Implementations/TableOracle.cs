@@ -11,7 +11,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
     public class TableOracle : ITable
     {
 
-        public TableOracle(DatabaseOracle pDatabase, AdoTemplate template, String pTableName, String pSchemaName)
+        public TableOracle(CodeGenerationOracle pDatabase, AdoTemplate template, String pTableName, String pSchemaName)
         {
             this.database = pDatabase;
             this.template = template;
@@ -19,7 +19,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
             this.schemaName = pSchemaName;
         }
 
-        DatabaseOracle database;
+        CodeGenerationOracle database;
 
         AdoTemplate template;
         String tableName;
