@@ -48,19 +48,19 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
         }
 
 
-        bool semaIsminiSorgulardaKullan;
+        bool useSchemaNameInQueries;
 
         public bool UseSchemaNameInSqlQueries
         {
-            get { return semaIsminiSorgulardaKullan; }
-            set { semaIsminiSorgulardaKullan = value; }
+            get { return useSchemaNameInQueries; }
+            set { useSchemaNameInQueries = value; }
         }
-        bool semaIsminiDizinlerdeKullan;
+        bool useSchemaNameInFolders;
 
         public bool UseSchemaNameInFolders
         {
-            get { return semaIsminiDizinlerdeKullan; }
-            set { semaIsminiDizinlerdeKullan = value; }
+            get { return useSchemaNameInFolders; }
+            set { useSchemaNameInFolders = value; }
         }
         List<DatabaseAbbreviations> listDatabaseAbbreviations;
 
