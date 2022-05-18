@@ -14,7 +14,7 @@ using Karkas.CodeGenerationHelper.BaseClasses;
 
 namespace Karkas.CodeGeneration.SqlServer.Implementations
 {
-    public class SqlServerDalGenerator : BaseDatabase
+    public class SqlServerDalGenerator : BaseCodeGenerationDatabase
     {
 
         public SqlServerDalGenerator(AdoTemplate template)

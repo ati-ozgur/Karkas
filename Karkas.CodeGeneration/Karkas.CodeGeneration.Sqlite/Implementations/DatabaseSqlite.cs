@@ -12,7 +12,7 @@ using Karkas.CodeGenerationHelper.BaseClasses;
 
 namespace Karkas.CodeGeneration.Sqlite.Implementations
 {
-    public class DatabaseSqlite : BaseDatabase
+    public class DatabaseSqlite : BaseCodeGenerationDatabase
     {
 
         public DatabaseSqlite(AdoTemplate template)

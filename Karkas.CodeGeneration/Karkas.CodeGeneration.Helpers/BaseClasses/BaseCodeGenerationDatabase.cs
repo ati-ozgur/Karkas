@@ -9,9 +9,9 @@ using Karkas.CodeGenerationHelper.Generators;
 
 namespace Karkas.CodeGenerationHelper.BaseClasses
 {
-    public abstract class BaseDatabase : IDatabase
+    public abstract class BaseCodeGenerationDatabase : IDatabase
     {
-        public BaseDatabase(AdoTemplate template)
+        public BaseCodeGenerationDatabase(AdoTemplate template)
 	    {
             Template = template;
 	    }
