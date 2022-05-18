@@ -40,5 +40,16 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             return ";SELECT scope_identity();";
         }
 
+
+        protected override void ClassWrite(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
+        {
+            output.autoTab("public partial class ");
+            output.write(classNameTypeLibrary);
+            output.write("Dal : BaseDalSqlServer<");
+            output.write(classNameTypeLibrary);
+            output.writeLine(">");
+            AtStartCurlyBraceletIncreaseTab(output);
+        }
+
     }
 }

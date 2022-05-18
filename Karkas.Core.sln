@@ -17,6 +17,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.CodeGeneration.WinAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.CodeGeneration.SqlServer", "Karkas.CodeGeneration\Karkas.CodeGeneration.SqlServer\Karkas.CodeGeneration.SqlServer.csproj", "{F09A75E4-240F-4A17-961B-D6A4F3207989}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.Core.Data.SqlServer", "Karkas.Core\Karkas.Core.Data.SqlServer\Karkas.Core.Data.SqlServer.csproj", "{CA0B5150-0823-4069-940F-2FFD922AFCC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeGeneration", "CodeGeneration", "{08303D61-1889-4CDE-AFBE-3C647476EF95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{17DC9C2A-7DBA-4318-896E-5968F01F918F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,9 +57,22 @@ Global
 		{F09A75E4-240F-4A17-961B-D6A4F3207989}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F09A75E4-240F-4A17-961B-D6A4F3207989}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F09A75E4-240F-4A17-961B-D6A4F3207989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA0B5150-0823-4069-940F-2FFD922AFCC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA0B5150-0823-4069-940F-2FFD922AFCC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA0B5150-0823-4069-940F-2FFD922AFCC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA0B5150-0823-4069-940F-2FFD922AFCC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{70BE1E58-2D5E-4A47-AF62-30E90E5C978A} = {17DC9C2A-7DBA-4318-896E-5968F01F918F}
+		{56C267AA-A885-4FF7-ADB9-9478AD486811} = {17DC9C2A-7DBA-4318-896E-5968F01F918F}
+		{650C3586-09DA-4E21-AD89-35A601C169CC} = {08303D61-1889-4CDE-AFBE-3C647476EF95}
+		{06536AC1-DE7D-48C5-975C-57C296944F1D} = {08303D61-1889-4CDE-AFBE-3C647476EF95}
+		{75E0329D-B2F7-4B9C-97F6-DEC9C8B78153} = {08303D61-1889-4CDE-AFBE-3C647476EF95}
+		{F09A75E4-240F-4A17-961B-D6A4F3207989} = {08303D61-1889-4CDE-AFBE-3C647476EF95}
+		{CA0B5150-0823-4069-940F-2FFD922AFCC1} = {17DC9C2A-7DBA-4318-896E-5968F01F918F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {99AA2444-1453-4517-8FEB-F1B9350A401F}

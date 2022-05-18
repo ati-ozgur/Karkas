@@ -39,7 +39,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
 
         private AdoTemplate template;
-        public AdoTemplate Template
+        public virtual AdoTemplate Template
         {
             get
             {
