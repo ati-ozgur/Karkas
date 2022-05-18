@@ -17,12 +17,12 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
 	    }
 
 
-        bool sysTablolariniAtla;
+        bool ignoreSystemTables;
 
         public bool IgnoreSystemTables
         {
-            get { return sysTablolariniAtla; }
-            set { sysTablolariniAtla = value; }
+            get { return ignoreSystemTables; }
+            set { ignoreSystemTables = value; }
         }
 
         string connectionDatabaseType;
