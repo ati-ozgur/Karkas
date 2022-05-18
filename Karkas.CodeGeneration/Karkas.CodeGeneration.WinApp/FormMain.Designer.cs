@@ -76,7 +76,7 @@ namespace Karkas.CodeGeneration.WinApp
             this.buttonTestConnectionString.Name = "buttonTestConnectionString";
             this.buttonTestConnectionString.Size = new System.Drawing.Size(101, 76);
             this.buttonTestConnectionString.TabIndex = 3;
-            this.buttonTestConnectionString.Text = "test";
+            this.buttonTestConnectionString.Text = "Test Connection";
             this.buttonTestConnectionString.UseVisualStyleBackColor = true;
             this.buttonTestConnectionString.Click += new System.EventHandler(this.buttonTestConnectionString_Click);
             // 
