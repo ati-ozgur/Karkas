@@ -28,7 +28,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             , string dbProviderName
             , bool semaIsminiSorgulardaKullan
             , bool semaIsminiDizinlerdeKullan
-            , bool sysTablolariniAtla
+            , bool ignoreSystemTables
             , List<DatabaseAbbreviations> listDatabaseAbbreviations
 
             )
@@ -46,7 +46,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             this.UseSchemaNameInFolders = semaIsminiDizinlerdeKullan;
             this.ListDatabaseAbbreviations = listDatabaseAbbreviations;
 
-            this.IgnoreSystemTables = sysTablolariniAtla;
+            this.IgnoreSystemTables = ignoreSystemTables;
 
         }
 
@@ -196,7 +196,19 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             return new ViewSqlite(this, Template, pViewName, pSchemaName);
         }
 
+        public override bool CheckIfCodeShouldBeGenerated(string pTableName, string pSchemaName)
+        {
+            // TODO ignore table name suffix . Make this generic
+            if (pTableName.StartsWith("sqlite_"))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
 
+        }
 
         public override DalGenerator DalGenerator
         {

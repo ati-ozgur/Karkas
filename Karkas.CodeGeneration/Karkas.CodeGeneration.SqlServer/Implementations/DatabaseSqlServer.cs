@@ -336,6 +336,21 @@ ORDER BY SEQUENCE_NAME
         {
             return "dbo";
         }
+        private string[] sqlserverSystemTableList = { "sysdiagrams" };
+
+        public override bool CheckIfCodeShouldBeGenerated(string pTableName, string pSchemaName)
+        {
+            if (IgnoreSystemTables)
+            {
+                if (sqlserverSystemTableList.Contains(pTableName))
+                {
+                    return false;
+
+                }
+            }
+            return true;
+
+        }
 
     }
 }

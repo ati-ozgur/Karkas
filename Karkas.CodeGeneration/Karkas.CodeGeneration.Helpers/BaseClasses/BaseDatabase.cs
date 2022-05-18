@@ -203,10 +203,6 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
             {
                 try
                 {
-                    if (ignoredSchemaList.Contains(item.Schema))
-                    {
-                        continue;
-                    }
                     CodeGenerateOneTable(item.Name, item.Schema);
                 }
                 catch(Exception ex)
@@ -286,26 +282,28 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
         public abstract IOutput Output { get; }
         public abstract IView GetView(string pViewName, string pSchemaName);
 
+        public abstract bool CheckIfCodeShouldBeGenerated(string pTableName, string pSchemaName);
+        
 
+        
 
         public void CodeGenerateOneTable(string pTableName, string pSchemaName)
         {
-            // TODO ignore table name suffix . Make this generic
-            if (pTableName.StartsWith("sqlite_"))
+            if(CheckIfCodeShouldBeGenerated(pTableName,pSchemaName))
             {
-                return;
+                TypeLibraryGenerator typeGen = this.TypeLibraryGenerator;
+                DalGenerator dalGen = this.DalGenerator;
+                BsGenerator bsGen = new BsGenerator(this);
+
+                ITable table = this.getTable(pTableName, pSchemaName);
+
+
+                typeGen.Render(Output, table, UseSchemaNameInSqlQueries, UseSchemaNameInFolders, ListDatabaseAbbreviations);
+                dalGen.Render(Output, table, UseSchemaNameInSqlQueries, UseSchemaNameInFolders, ListDatabaseAbbreviations);
+                bsGen.Render(Output, table, UseSchemaNameInSqlQueries, UseSchemaNameInFolders, ListDatabaseAbbreviations);
+
             }
 
-            TypeLibraryGenerator typeGen = this.TypeLibraryGenerator;
-            DalGenerator dalGen = this.DalGenerator;
-            BsGenerator bsGen = new BsGenerator(this);
-
-            ITable table = this.getTable(pTableName, pSchemaName);
-
-
-            typeGen.Render(Output, table, UseSchemaNameInSqlQueries, UseSchemaNameInFolders, ListDatabaseAbbreviations);
-            dalGen.Render(Output, table, UseSchemaNameInSqlQueries, UseSchemaNameInFolders, ListDatabaseAbbreviations);
-            bsGen.Render(Output, table, UseSchemaNameInSqlQueries, UseSchemaNameInFolders, ListDatabaseAbbreviations);
         }
 
 

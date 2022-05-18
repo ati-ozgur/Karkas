@@ -273,7 +273,20 @@ ORDER BY SEQUENCE_NAME
 
         }
 
+        private string[] oracleSystemSchemaList = { "SYS" };
 
+        public override bool CheckIfCodeShouldBeGenerated(string pTableName, string pSchemaName)
+        {
+            if(IgnoreSystemTables)
+            {
+                if(oracleSystemSchemaList.Contains(pSchemaName.ToUpper()))
+                {
+                    return false;
 
+                }
+            }
+            return true;
+
+        }
     }
 }
