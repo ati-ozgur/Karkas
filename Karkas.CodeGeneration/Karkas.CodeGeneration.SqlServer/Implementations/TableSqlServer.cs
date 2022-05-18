@@ -17,7 +17,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 
 
 
-        public TableSqlServer(DatabaseSqlServer pDatabase,AdoTemplate template,  string pTableName,string pSchemaName)
+        public TableSqlServer(SqlServerDalGenerator pDatabase,AdoTemplate template,  string pTableName,string pSchemaName)
         {
             this.database = pDatabase;
             this.template = template;

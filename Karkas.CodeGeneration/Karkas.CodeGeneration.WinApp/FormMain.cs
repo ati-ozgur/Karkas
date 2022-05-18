@@ -193,7 +193,7 @@ namespace Karkas.CodeGeneration.WinApp
             template.Connection = connection;
             template.DbProviderName = providerName;
 
-            DatabaseHelper = new DatabaseSqlServer(template);
+            DatabaseHelper = new SqlServerDalGenerator(template);
 
         }
 

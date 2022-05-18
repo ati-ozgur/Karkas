@@ -14,15 +14,15 @@ using Karkas.CodeGenerationHelper.BaseClasses;
 
 namespace Karkas.CodeGeneration.SqlServer.Implementations
 {
-    public class DatabaseSqlServer : BaseDatabase
+    public class SqlServerDalGenerator : BaseDatabase
     {
 
-        public DatabaseSqlServer(AdoTemplate template)
+        public SqlServerDalGenerator(AdoTemplate template)
             : base(template)
         {
         }
 
-        public DatabaseSqlServer(
+        public SqlServerDalGenerator(
             AdoTemplate template
             , String pConnectionString
             , string pDatabaseName
@@ -324,7 +324,7 @@ ORDER BY SEQUENCE_NAME
 
         public override DalGenerator DalGenerator
         {
-            get { return new SqlServerDalGenerator(this); }
+            get { return new Generators.SqlServerDalGenerator(this); }
         }
 
         public override TypeLibraryGenerator TypeLibraryGenerator
