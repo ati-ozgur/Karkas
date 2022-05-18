@@ -35,6 +35,12 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             }
         }
 
+        protected override void WriteUsingDatabaseClient(IOutput output)
+        {
+            output.autoTabLn("using System.Data.SqlClient;");
+        }
+
+
         protected override string getAutoIncrementKeySql()
         {
             return ";SELECT scope_identity();";

@@ -258,6 +258,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtEndCurlyBraceletDescreaseTab(output);
         }
 
+        protected abstract void WriteUsingDatabaseClient(IOutput output);
 
         private void WriteUsings(IOutput output, string schemaName, string baseNameSpaceTypeLibrary, string baseNameSpaceDal)
         {
@@ -266,7 +267,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTabLn("using System.Collections.Generic;");
             output.autoTabLn("using System.Data;");
             output.autoTabLn("using System.Data.Common;");
-            output.autoTabLn("using System.Data.SqlClient;");
+            WriteUsingDatabaseClient(output);
             output.autoTabLn("using System.Text;");
             output.autoTabLn("using Karkas.Core.DataUtil;");
             output.autoTabLn("using Karkas.Core.DataUtil.BaseClasses;");

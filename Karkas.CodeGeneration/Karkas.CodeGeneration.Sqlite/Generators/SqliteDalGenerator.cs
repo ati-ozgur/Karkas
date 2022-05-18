@@ -35,5 +35,11 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         {
             return ";select last_insert_rowid();";
         }
+
+        protected override void WriteUsingDatabaseClient(IOutput output)
+        {
+            output.autoTabLn("using System.Data.SQLite;");
+        }
     }
 }
+
