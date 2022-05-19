@@ -96,6 +96,7 @@ namespace Karkas.CodeGeneration.WinApp
 
                 labelConnectionStatus.Text = "Connection is SUCCESFULL";
                 fillInformation();
+                this.tabControlDatabase.Enabled = true;
 
 
             }

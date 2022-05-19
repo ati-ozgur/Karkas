@@ -102,6 +102,7 @@ namespace Karkas.CodeGeneration.WinApp
             this.tabControlDatabase.SelectedIndex = 0;
             this.tabControlDatabase.Size = new System.Drawing.Size(954, 147);
             this.tabControlDatabase.TabIndex = 0;
+            this.tabControlDatabase.Enabled = false;
             // 
             // tabPageTableRelated
             // 
