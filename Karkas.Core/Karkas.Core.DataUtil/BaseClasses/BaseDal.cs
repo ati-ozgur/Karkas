@@ -12,11 +12,11 @@ using System.Data.Common;
 namespace Karkas.Core.DataUtil.BaseClasses
 {
     /// <summary>
-    /// T TypeLibrary Class
-    /// M Type of Primary Key of T
+    /// TL TypeLibrary Class
+    /// M Type of Primary Key of TL
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public abstract class BaseDal<T> : BaseDalWithoutEntity where T : BaseTypeLibrary, new()
+    /// <typeparam name="TL"></typeparam>
+    public abstract class BaseDal<TL> : BaseDalWithoutEntity where TL : BaseTypeLibrary, new()
     {
 
 
@@ -64,32 +64,32 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
 
 
-        public virtual void Update(T row)
+        public virtual void Update(TL row)
         {
             ExecuteNonQueryUpdate(UpdateString, row);
 
             row.RowState = DataRowState.Unchanged;
         }
-        public virtual void Delete(T row)
+        public virtual void Delete(TL row)
         {
             ExecuteNonQueryDelete(DeleteString, row);
             row.RowState = DataRowState.Unchanged;
         }
 
 
-        public virtual void BatchInsertUpdateDelete(List<T> liste)
+        public virtual void BatchInsertUpdateDelete(List<TL> liste)
         {
             if (liste == null)
             {
                 return;
             }
-            foreach (T t in liste)
+            foreach (TL t in liste)
             {
                 InsertUpdateDeleteAccordingToState(t);
             }
         }
 
-        public virtual void InsertUpdateDeleteAccordingToState(T t)
+        public virtual void InsertUpdateDeleteAccordingToState(TL t)
         {
             switch (t.RowState)
             {
@@ -105,16 +105,16 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
         }
 
-        public virtual List<T> QueryAll()
+        public virtual List<TL> QueryAll()
         {
-            List<T> liste = new List<T>();
+            List<TL> liste = new List<TL>();
             ExecuteQuery(liste);
             return liste;
         }
 
-        public virtual List<T> QueryAll(int maxRowCount)
+        public virtual List<TL> QueryAll(int maxRowCount)
         {
-            List<T> liste = new List<T>();
+            List<TL> liste = new List<TL>();
             ExecuteQuery(liste);
             return liste;
         }
@@ -130,17 +130,17 @@ namespace Karkas.Core.DataUtil.BaseClasses
         ///  TypeLibraryName.PropertyIsimleri.PropertyName kullanmanız tavsiye edilir.</param>
         /// <param name="oDegeri"> aranacak kolonun filtre değeri</param>
         /// <returns></returns>
-        public virtual List<T> QueryUsingColumnName(string filtre, object oDegeri)
+        public virtual List<TL> QueryUsingColumnName(string filtre, object oDegeri)
         {
             return QueryUsingColumnName(new String[] { filtre }, new Object[] { oDegeri });
         }
-        public virtual List<T> QueryUsingColumnName(List<string> filtreListesi, List<object> degerListesi)
+        public virtual List<TL> QueryUsingColumnName(List<string> filtreListesi, List<object> degerListesi)
         {
             return QueryUsingColumnName(filtreListesi.ToArray(), degerListesi.ToArray());
         }
-        public virtual List<T> QueryUsingColumnName(string[] filtreListesi, object[] degerListesi)
+        public virtual List<TL> QueryUsingColumnName(string[] filtreListesi, object[] degerListesi)
         {
-            List<T> liste = new List<T>();
+            List<TL> liste = new List<TL>();
             QueryHelper sy = QueryHelper;
             ParameterBuilder builder = getParameterBuilder();
             for (int i = 0; i < filtreListesi.Length; i++)
@@ -174,9 +174,9 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
 
 
-        public virtual List<T> QueryAllOrderBy(params string[] pSiraListesi)
+        public virtual List<TL> QueryAllOrderBy(params string[] pSiraListesi)
         {
-            List<T> liste = new List<T>();
+            List<TL> liste = new List<TL>();
             QueryHelper sy = QueryHelper;
             int listeUzunluk = pSiraListesi.Length;
             for (int i = 0; i < listeUzunluk; i++)
@@ -196,9 +196,9 @@ namespace Karkas.Core.DataUtil.BaseClasses
             return liste;
         }
 
-        protected abstract void setIdentityColumnValue(T pTypeLibrary, long pIdentityKolonValue);
+        protected abstract void setIdentityColumnValue(TL pTypeLibrary, long pIdentityKolonValue);
 
-        private long InsertIdentity(T row)
+        private long InsertIdentity(TL row)
         {
             long result = 0;
             DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
@@ -253,7 +253,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
 
 
-        public long Insert(T row)
+        public long Insert(TL row)
         {
             if (IdentityExists)
             {
@@ -266,7 +266,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
 
 
-        private long InsertNormal(T row)
+        private long InsertNormal(TL row)
         {
             DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
@@ -275,7 +275,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             row.RowState = DataRowState.Unchanged;
             return result;
         }
-        protected void ExecuteNonQueryUpdate(string cmdText, T row)
+        protected void ExecuteNonQueryUpdate(string cmdText, TL row)
         {
             DbCommand cmd = Template.getDatabaseCommand(cmdText, Connection);
             UpdateCommandParametersAdd(cmd, row);
@@ -292,15 +292,15 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
         }
 
-        protected void ExecuteNonQueryDelete(string cmdText, T row)
+        protected void ExecuteNonQueryDelete(string cmdText, TL row)
         {
             DbCommand cmd = Template.getDatabaseCommand(cmdText, Connection);
             DeleteCommandParametersAdd(cmd, row);
             ExecuteNonQueryCommandInternal(cmd);
         }
-        public T ExecuteQueryBringOneRow(String pFilterString)
+        public TL ExecuteQueryBringOneRow(String pFilterString)
         {
-            List<T> liste = new List<T>();
+            List<TL> liste = new List<TL>();
             ExecuteQuery(liste, pFilterString);
             if (liste.Count > 0)
             {
@@ -311,9 +311,9 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 return null;
             }
         }
-        public T ExecuteQueryBringOneRow(String pFilterString, DbParameter[] parameterArray)
+        public TL ExecuteQueryBringOneRow(String pFilterString, DbParameter[] parameterArray)
         {
-            List<T> liste = new List<T>();
+            List<TL> liste = new List<TL>();
             ExecuteQuery(liste, pFilterString, parameterArray);
             if (liste.Count > 0)
             {
@@ -325,15 +325,15 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
         }
 
-        public void ExecuteQuery(List<T> liste)
+        public void ExecuteQuery(List<TL> liste)
         {
             ExecuteQuery(liste, "");
         }
-        public void ExecuteQuery(List<T> liste, String pFilterString, DbParameter[] parameterArray)
+        public void ExecuteQuery(List<TL> liste, String pFilterString, DbParameter[] parameterArray)
         {
             ExecuteQuery(liste, pFilterString, parameterArray, true);
         }
-        public void ExecuteQuery(List<T> liste, String pFilterString, DbParameter[] parameterArray, bool otomatikWhereEkle)
+        public void ExecuteQuery(List<TL> liste, String pFilterString, DbParameter[] parameterArray, bool otomatikWhereEkle)
         {
             DbCommand cmd = Template.getDatabaseCommand(Connection);
             setFilterString(pFilterString, otomatikWhereEkle, cmd);
@@ -345,7 +345,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         }
 
-        public void ExecuteQuery(List<T> liste, String pFilterString, bool otomatikWhereEkle)
+        public void ExecuteQuery(List<TL> liste, String pFilterString, bool otomatikWhereEkle)
         {
             DbCommand cmd = Template.getDatabaseCommand(Connection);
             setFilterString(pFilterString, otomatikWhereEkle, cmd);
@@ -371,12 +371,12 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
         }
 
-        public void ExecuteQuery(List<T> liste, String pFilterString)
+        public void ExecuteQuery(List<TL> liste, String pFilterString)
         {
             ExecuteQuery(liste, pFilterString, true);
         }
 
-        private void ExecuteQueryInternal(List<T> liste, DbCommand cmd)
+        private void ExecuteQueryInternal(List<TL> liste, DbCommand cmd)
         {
             DbDataReader reader = null;
             try
@@ -392,10 +392,10 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 }
                 reader = cmd.ExecuteReader();
 
-                T row = default(T);
+                TL row = default(TL);
                 while (reader.Read())
                 {
-                    row = new T();
+                    row = new TL();
                     ProcessRow(reader, row);
                     row.RowState = DataRowState.Unchanged;
                     liste.Add(row);
@@ -473,10 +473,10 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
         }
 
-        protected abstract void ProcessRow(IDataReader dr, T row);
-        protected abstract void InsertCommandParametersAdd(DbCommand Cmd, T row);
-        protected abstract void UpdateCommandParametersAdd(DbCommand Cmd, T row);
-        protected abstract void DeleteCommandParametersAdd(DbCommand Cmd, T row);
+        protected abstract void ProcessRow(IDataReader dr, TL row);
+        protected abstract void InsertCommandParametersAdd(DbCommand Cmd, TL row);
+        protected abstract void UpdateCommandParametersAdd(DbCommand Cmd, TL row);
+        protected abstract void DeleteCommandParametersAdd(DbCommand Cmd, TL row);
 
 
         public class OrderBy
