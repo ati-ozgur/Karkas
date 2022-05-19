@@ -7,7 +7,7 @@ using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
-    public class AdoTemplate
+    public class AdoTemplate : IAdoTemplate
     {
         private string dbProviderName;
         private string connectionString;
@@ -139,7 +139,7 @@ namespace Karkas.Core.DataUtil
                 {
                     connection = ConnectionSingleton.Instance.getConnection("Main");
                 }
-                else if(connectionString != null && dbProviderName!= null)
+                else if (connectionString != null && dbProviderName != null)
                 {
                     connection = DbProviderFactoryHelper.Create(dbProviderName).Factory.CreateConnection();
                     connection.ConnectionString = connectionString;
@@ -150,8 +150,8 @@ namespace Karkas.Core.DataUtil
         }
 
 
-        public string ConnectionString 
-        { 
+        public string ConnectionString
+        {
             get
             {
                 return connectionString;
@@ -159,7 +159,7 @@ namespace Karkas.Core.DataUtil
             set
             {
                 this.connectionString = value;
-                this.useConnectionSingleton = false;                
+                this.useConnectionSingleton = false;
             }
         }
 
@@ -377,7 +377,7 @@ namespace Karkas.Core.DataUtil
 
         #region "List of Dictionaries Creation"
 
-        public List<Dictionary<String,Object>> GetListOfDictionary(DbCommand cmd)
+        public List<Dictionary<String, Object>> GetListOfDictionary(DbCommand cmd)
         {
             List<Dictionary<string, Object>> liste = new List<Dictionary<string, object>>();
             DbDataReader reader = null;
@@ -425,10 +425,10 @@ namespace Karkas.Core.DataUtil
         private void ProcessRow(DbDataReader reader, Dictionary<string, object> row)
         {
             for (int i = 0; i < reader.FieldCount; i++)
-			{
+            {
                 string columnName = reader.GetName(i);
-                row.Add(columnName,reader.GetValue(i));
-			}
+                row.Add(columnName, reader.GetValue(i));
+            }
         }
 
         public List<Dictionary<String, Object>> GetListOfDictionary(string sql)

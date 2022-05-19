@@ -8,6 +8,7 @@ using System.Data.Common;
 namespace Karkas.Core.DataUtil.BaseClasses
 {
     public abstract class BaseBsWithoutEntity<ADOTEMPLATE_DB_TYPE>
+            where ADOTEMPLATE_DB_TYPE : AdoTemplate, new()
     {
 
         private bool isInTransaction = false;

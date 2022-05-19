@@ -7,7 +7,7 @@ using System.Data.Common;
 
 namespace Karkas.Core.DataUtil.BaseClasses
 {
-    public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE>
+    public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE>  where ADOTEMPLATE_DB_TYPE : AdoTemplate, new()
     {
 
         public BaseDalWithoutEntity()
@@ -38,8 +38,8 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
 
 
-        private AdoTemplate template;
-        public virtual AdoTemplate Template
+        private ADOTEMPLATE_DB_TYPE template;
+        public virtual ADOTEMPLATE_DB_TYPE Template
         {
             get
             {
@@ -48,9 +48,9 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
         }
 
-        protected AdoTemplate getNewAdoTemplate()
+        protected ADOTEMPLATE_DB_TYPE getNewAdoTemplate()
         {
-            AdoTemplate t = new AdoTemplate();
+            ADOTEMPLATE_DB_TYPE t = new ADOTEMPLATE_DB_TYPE();
             t.Connection = Connection;
             t.CurrentTransaction = currentTransaction;
             t.AutomaticConnectionManagement = automaticConnectionManagement;

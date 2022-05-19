@@ -16,7 +16,9 @@ namespace Karkas.Core.DataUtil.BaseClasses
     /// M Type of Primary Key of TYPE_LIBRARY_TYPE
     /// </summary>
     /// <typeparam name="TYPE_LIBRARY_TYPE"></typeparam>
-    public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE> : BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE> where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
+    public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE> : BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE> 
+            where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
+            where ADOTEMPLATE_DB_TYPE: AdoTemplate, new()
     {
 
 

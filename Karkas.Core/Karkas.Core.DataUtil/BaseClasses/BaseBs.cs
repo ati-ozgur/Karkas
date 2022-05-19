@@ -8,6 +8,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 {
     public abstract class BaseBs<TYPE_LIBRARY_TYPE, DAL_TYPE, ADOTEMPLATE_DB_TYPE> : BaseBsWithoutEntity<ADOTEMPLATE_DB_TYPE>
         where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
+        where ADOTEMPLATE_DB_TYPE: AdoTemplate, new()
         where DAL_TYPE : BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE>, new()
     {
 
