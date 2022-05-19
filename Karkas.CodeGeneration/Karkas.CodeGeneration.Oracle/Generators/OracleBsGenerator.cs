@@ -24,5 +24,11 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.write(classNameDal + ",  AdoTemplatOracle");
             output.writeLine(">");
         }
+
+        protected override void WriteUsingsDatabaseSpecific(IOutput output)
+        {
+            output.autoTabLn("using Karkas.Core.Data.Oracle;");
+            output.autoTabLn("using Oracle.ManagedDataAccess.Client;");
+        }
     }
 }

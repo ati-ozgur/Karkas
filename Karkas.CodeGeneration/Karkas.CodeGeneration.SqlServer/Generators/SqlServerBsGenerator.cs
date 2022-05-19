@@ -22,5 +22,13 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             output.write(classNameDal + ",  AdoTemplateSqlServer");
             output.writeLine(">");
         }
+
+        protected override void WriteUsingsDatabaseSpecific(IOutput output)
+        {
+            output.autoTabLn("using Karkas.Core.Data.SqlServer;");
+            output.autoTabLn("using System.Data.SqlClient;");
+
+
+        }
     }
 }

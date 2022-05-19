@@ -159,7 +159,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         protected abstract void classWrite(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary);
 
-
+        protected abstract void WriteUsingsDatabaseSpecific(IOutput output);
 
         public void WriteUsings(IOutput output, string schemaName, string baseNameSpace, string baseNameSpaceTypeLibrary, string baseNameSpaceBsWithSchema, string baseNameSpaceDalWithSchema)
         {
@@ -167,7 +167,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTabLn("using System;");
             output.autoTabLn("using System.Collections.Generic;");
             output.autoTabLn("using System.Data;");
-            output.autoTabLn("using System.Data.SqlClient;");
+            WriteUsingsDatabaseSpecific(output);
             output.autoTabLn("using System.Text;");
             output.autoTabLn("using Karkas.Core.DataUtil;");
             output.autoTabLn("using Karkas.Core.DataUtil.BaseClasses;");

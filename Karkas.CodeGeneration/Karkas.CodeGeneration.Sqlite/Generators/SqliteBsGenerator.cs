@@ -24,5 +24,12 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             output.write(classNameDal + ",  AdoTemplateSqlite");
             output.writeLine(">");
         }
+
+        protected override void WriteUsingsDatabaseSpecific(IOutput output)
+        {
+            output.autoTabLn("using Susing Karkas.Core.Data.Sqlite;");
+            output.autoTabLn("using System.Data.Sqlite;");
+
+        }
     }
 }
