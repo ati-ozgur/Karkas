@@ -7,7 +7,9 @@ using System.Data.Common;
 
 namespace Karkas.Core.DataUtil.BaseClasses
 {
-    public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE>  where ADOTEMPLATE_DB_TYPE : IAdoTemplate, new()
+    public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE,PARAMETER_BUILDER>
+        where ADOTEMPLATE_DB_TYPE : IAdoTemplate<IParameterBuilder>, new()
+        where PARAMETER_BUILDER : IParameterBuilder, new()
     {
 
         public BaseDalWithoutEntity()
@@ -148,9 +150,9 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
 
 
-        protected ParameterBuilder getParameterBuilder()
+        public IParameterBuilder getParameterBuilder()
         {
-            return Template.getParameterBuilder();
+            return new PARAMETER_BUILDER();
         }
     }
 }

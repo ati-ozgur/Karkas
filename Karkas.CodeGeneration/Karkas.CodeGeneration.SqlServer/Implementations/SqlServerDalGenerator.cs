@@ -17,13 +17,12 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
     public class SqlServerDalGenerator : BaseCodeGenerationDatabase
     {
 
-        public SqlServerDalGenerator(AdoTemplate template)
-            : base(template)
+        public SqlServerDalGenerator(IAdoTemplate<IParameterBuilder> template) : base(template)
         {
-        }
 
+        }
         public SqlServerDalGenerator(
-            AdoTemplate template
+             IAdoTemplate<IParameterBuilder> template
             , String pConnectionString
             , string pDatabaseName
             , string pProjectNameSpace
@@ -34,10 +33,9 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
             , bool sysTablolariniAtla
             , List<DatabaseAbbreviations> listDatabaseAbbreviations
 
-            )
-            : base(template)
+            ) : base(template)
         {
-            this.Template = template;
+
             this.ConnectionString = ConnectionHelper.RemoveProviderFromConnectionString(pConnectionString);
             this.ProjectNameSpace = pProjectNameSpace;
             this.CodeGenerationDirectory = codeGenerationDirectory;
@@ -51,7 +49,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 
         }
 
-        private AdoTemplate template;
+        private IAdoTemplate<IParameterBuilder> template;
 
         string databaseName;
 
@@ -68,7 +66,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
                 if (_tableList == null || _tableList.Count == 0)
                 {
                     _tableList = new List<ITable>();
-                    ParameterBuilder builder = Template.getParameterBuilder();
+                    IParameterBuilder builder = Template.getParameterBuilder();
                     builder.AddParameter("@TABLE_SCHEMA", DbType.AnsiString, "__TUM_SCHEMALAR__");
                     DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_TABLE_LIST,builder.GetParameterArray());
 
@@ -169,7 +167,7 @@ SELECT DISTINCT TABLE_CATALOG FROM INFORMATION_SCHEMA.TABLES
 
         public override DataTable getTableListFromSchema(string schemaName)
         {
-            ParameterBuilder builder = Template.getParameterBuilder();
+            IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@TABLE_SCHEMA", DbType.String, schemaName);
             DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
             return dtTableList;
@@ -186,7 +184,7 @@ ORDER BY FULL_VIEW_NAME
 
         public override DataTable getViewListFromSchema(string schemaName)
         {
-            ParameterBuilder builder = Template.getParameterBuilder();
+            IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@TABLE_SCHEMA", DbType.String, schemaName);
             DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_VIEW_LIST, builder.GetParameterArray());
             return dtTableList;
@@ -208,7 +206,7 @@ ORDER BY STORED_PROCEDURE_NAME
 
         public override DataTable getStoredProcedureListFromSchema(string schemaName)
         {
-            ParameterBuilder builder = Template.getParameterBuilder();
+            IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@SP_SCHEMA_NAME", DbType.String, schemaName);
             DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_STORED_PROCEDURE_LIST, builder.GetParameterArray());
             return dtTableList;
@@ -280,7 +278,7 @@ ORDER BY SEQUENCE_NAME
         {
             if (SqlServerVersion.Contains("SQL Server 2012"))
             {
-                ParameterBuilder builder = Template.getParameterBuilder();
+                IParameterBuilder builder = Template.getParameterBuilder();
                 builder.AddParameter("@SEQ_SCHEMA_NAME", DbType.String, schemaName);
                 dt = Template.DataTableOlustur(SQL_FOR_SEQUENCES_LIST, builder.GetParameterArray());
                 return dt;
@@ -336,7 +334,6 @@ ORDER BY SEQUENCE_NAME
         {
             get { return new SqlServerBsGenerator(this); }
         }
-
 
 
         public override string getDefaultSchema()

@@ -19,7 +19,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             output.autoTab("public partial class ");
             output.write(classNameBs);
             output.write(" : BaseBs<" + classNameTypeLibrary + ", ");
-            output.write(classNameDal + ",  AdoTemplateSqlServer");
+            output.write(classNameDal + ",  AdoTemplateSqlServer,ParameterBuilderSqlServer");
             output.writeLine(">");
         }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Karkas.CodeGenerationHelper;
 using Karkas.CodeGenerationHelper.Generators;
 using Karkas.CodeGenerationHelper.Interfaces;
 
@@ -52,5 +53,69 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.autoTabLn("Oracle.ManagedDataAccess.Core;");
             
         }
+
+        public override void InsertCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
+        {
+            output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
+            output.write(classNameTypeLibrary);
+            output.writeLine(" satir)");
+            AtStartCurlyBraceletIncreaseTab(output);
+            output.autoTabLn("ParameterBuilderOracle builder = (ParameterBuilderOracle)Template.getParameterBuilder();");
+            output.autoTabLn("builder.Command = cmd;");
+
+            foreach (IColumn column in container.Columns)
+            {
+                if (!columnParametreOlmaliMi(column))
+                {
+                    builderParameterEkle(output, column);
+                }
+            }
+
+            AtEndCurlyBraceletDescreaseTab(output);
+        }
+
+        public override void DeleteCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
+        {
+            output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
+            output.autoTab(classNameTypeLibrary);
+            output.autoTabLn(" satir)");
+            AtStartCurlyBraceletIncreaseTab(output);
+            output.autoTabLn("ParameterBuilderOracle builder = (ParameterBuilderOracle)Template.getParameterBuilder();");
+            output.autoTabLn("builder.Command = cmd;");
+
+            foreach (IColumn column in container.Columns)
+            {
+                if (column.IsInPrimaryKey)
+                {
+                    builderParameterEkle(output, column);
+                }
+            }
+
+            AtEndCurlyBraceletDescreaseTab(output);
+        }
+
+        public override void UpdateCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
+        {
+            output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
+            output.autoTab(classNameTypeLibrary);
+            output.autoTabLn(" satir)");
+            AtStartCurlyBraceletIncreaseTab(output);
+            output.autoTabLn("ParameterBuilderOracle builder = (ParameterBuilderOracle)Template.getParameterBuilder();");
+            output.autoTabLn("builder.Command = cmd;");
+
+            foreach (IColumn column in container.Columns)
+            {
+                if (column.IsInPrimaryKey || !columnParametreOlmaliMi(column))
+                {
+                    builderParameterEkle(output, column);
+                }
+                if (columnVersiyonZamaniMi(column))
+                {
+                    builderParameterEkle(output, column);
+                }
+            }
+            AtEndCurlyBraceletDescreaseTab(output);
+        }
+
     }
 }

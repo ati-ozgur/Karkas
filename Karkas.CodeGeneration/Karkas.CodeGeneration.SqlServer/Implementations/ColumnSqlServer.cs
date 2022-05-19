@@ -16,21 +16,21 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
         string columnName;
         DataRow columnValuesFromInformationSchema;
         DataRow columnValuesFromSysViews;
-        AdoTemplate template;
+        IAdoTemplate<IParameterBuilder> template;
 
-        public AdoTemplate Template
+        public IAdoTemplate<IParameterBuilder> Template
         {
             get { return template; }
         }
 
-        public ColumnSqlServer(IContainer pTableOrView, AdoTemplate template, string columnName, DataRow columnValues)
+        public ColumnSqlServer(IContainer pTableOrView, IAdoTemplate<IParameterBuilder> template, string columnName, DataRow columnValues)
         {
             tableOrView = pTableOrView;
             this.template = template;
             this.columnName = columnName;
             this.columnValuesFromInformationSchema = columnValues;
 
-            ParameterBuilder defaultParameterBuilder = getBuilderWithDefaultValues();
+            IParameterBuilder defaultParameterBuilder = getBuilderWithDefaultValues();
 
             DataTable dt = template.DataTableOlustur(SQL_COLUMN_VALUES_FROM_SYS, defaultParameterBuilder.GetParameterArray());
             columnValuesFromSysViews = dt.Rows[0];
@@ -39,9 +39,9 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 
         }
 
-        private ParameterBuilder getBuilderWithDefaultValues()
+        private IParameterBuilder getBuilderWithDefaultValues()
         {
-            ParameterBuilder builder = template.getParameterBuilder();
+            IParameterBuilder builder = template.getParameterBuilder();
             builder.AddParameter("@TABLE_NAME", DbType.AnsiString, tableOrView.Name);
             builder.AddParameter("@TABLE_SCHEMA", DbType.AnsiString, tableOrView.Schema);
             builder.AddParameter("@COLUMN_NAME", DbType.AnsiString, columnName);
@@ -299,7 +299,7 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
  and is_user_defined = 0
 ";
 
-            ParameterBuilder builder = Template.getParameterBuilder();
+            IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@UserDefinedTypeName", DbType.String, pUserDefinedTypeName);
             underlyingType = (string)template.BringOneValue(sql, builder.GetParameterArray());
 

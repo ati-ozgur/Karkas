@@ -11,7 +11,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
     public class TableOracle : ITable
     {
 
-        public TableOracle(CodeGenerationOracle pDatabase, AdoTemplate template, String pTableName, String pSchemaName)
+        public TableOracle(CodeGenerationOracle pDatabase, IAdoTemplate<IParameterBuilder> template, String pTableName, String pSchemaName)
         {
             this.database = pDatabase;
             this.template = template;
@@ -21,7 +21,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
 
         CodeGenerationOracle database;
 
-        AdoTemplate template;
+        IAdoTemplate<IParameterBuilder> template;
         String tableName;
         String schemaName;
 
@@ -49,7 +49,7 @@ AND cons.owner = cols.owner
             {
                 if (!primaryKeyColumnCount.HasValue)
                 {
-                    ParameterBuilder builder = template.getParameterBuilder();
+                    IParameterBuilder builder = template.getParameterBuilder();
                     builder.AddParameter("tableName", DbType.String, Name);
                     builder.AddParameter("schemaName", DbType.String, Schema);
                     Object objResult = template.BringOneValue(SQL_PRIMARY_KEY, builder.GetParameterArray());
@@ -87,7 +87,7 @@ OWNER = :schemaName
             {
                 if (columns == null)
                 {
-                    ParameterBuilder builder = template.getParameterBuilder();
+                    IParameterBuilder builder = template.getParameterBuilder();
                     builder.AddParameter("tableName", DbType.String, Name);
                     builder.AddParameter("schemaName",DbType.String,Schema);
 

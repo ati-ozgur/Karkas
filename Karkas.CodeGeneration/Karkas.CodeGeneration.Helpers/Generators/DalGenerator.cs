@@ -394,7 +394,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtEndCurlyBraceletDescreaseTab(output);
         }
 
-        private static bool updateWhereSatirindaOlmaliMi(IColumn column)
+        public bool updateWhereSatirindaOlmaliMi(IColumn column)
         {
             return ((column.IsInPrimaryKey) || columnVersiyonZamaniMi(column));
         }
@@ -638,39 +638,20 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtEndCurlyBraceletDescreaseTab(output);
         }
 
-
-        private void InsertCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
-        {
-            output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
-            output.write(classNameTypeLibrary);
-            output.writeLine(" satir)");
-            AtStartCurlyBraceletIncreaseTab(output);
-            output.autoTabLn("ParameterBuilder builder = Template.getParameterBuilder();");
-            output.autoTabLn("builder.Command = cmd;");
-
-            foreach (IColumn column in container.Columns)
-            {
-                if (!columnParametreOlmaliMi(column))
-                {
-                    builderParameterEkle(output, column);
-                }
-            }
-
-            AtEndCurlyBraceletDescreaseTab(output);
-        }
+        public abstract void InsertCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary);
 
 
-        private static bool columnParametreOlmaliMi(IColumn column)
+        public bool columnParametreOlmaliMi(IColumn column)
         {
             return ((column.IsAutoKey) || (column.IsComputed));
         }
 
-        private static bool columnVersiyonZamaniMi(IColumn column)
+        public bool columnVersiyonZamaniMi(IColumn column)
         {
             return (column.Name == "VersiyonZamani");
         }
 
-        private void builderParameterEkle(IOutput output, IColumn column)
+        public void builderParameterEkle(IOutput output, IColumn column)
         {
             if (!column.isStringTypeWithoutLength && column.isStringType)
             {
@@ -711,51 +692,9 @@ namespace Karkas.CodeGenerationHelper.Generators
                         + ");";
             output.autoTabLn(s);
         }
-
-        private void DeleteCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
-        {
-            output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
-            output.autoTab(classNameTypeLibrary);
-            output.autoTabLn(" satir)");
-            AtStartCurlyBraceletIncreaseTab(output);
-            output.autoTabLn("ParameterBuilder builder = Template.getParameterBuilder();");
-            output.autoTabLn("builder.Command = cmd;");
-
-            foreach (IColumn column in container.Columns)
-            {
-                if (column.IsInPrimaryKey)
-                {
-                    builderParameterEkle(output, column);
-                }
-            }
-
-            AtEndCurlyBraceletDescreaseTab(output);
-        }
-
-        private void UpdateCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
-        {
-            output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
-            output.autoTab(classNameTypeLibrary);
-            output.autoTabLn(" satir)");
-            AtStartCurlyBraceletIncreaseTab(output);
-            output.autoTabLn("ParameterBuilder builder = Template.getParameterBuilder();");
-            output.autoTabLn("builder.Command = cmd;");
-
-            foreach (IColumn column in container.Columns)
-            {
-                if (column.IsInPrimaryKey || !columnParametreOlmaliMi(column))
-                {
-                    builderParameterEkle(output, column);
-                }
-                if (columnVersiyonZamaniMi(column))
-                {
-                    builderParameterEkle(output, column);
-                }
-            }
-            AtEndCurlyBraceletDescreaseTab(output);
-        }
-
-
+        public abstract void UpdateCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary);
+        public abstract void DeleteCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary);
+ 
 
 
 

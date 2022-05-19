@@ -16,9 +16,10 @@ namespace Karkas.Core.DataUtil.BaseClasses
     /// M Type of Primary Key of TYPE_LIBRARY_TYPE
     /// </summary>
     /// <typeparam name="TYPE_LIBRARY_TYPE"></typeparam>
-    public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE> : BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE> 
+    public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> : BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>
             where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
-            where ADOTEMPLATE_DB_TYPE: IAdoTemplate, new()
+            where ADOTEMPLATE_DB_TYPE: IAdoTemplate<IParameterBuilder>, new()
+            where PARAMETER_BUILDER : IParameterBuilder, new()
     {
 
 
@@ -40,9 +41,10 @@ namespace Karkas.Core.DataUtil.BaseClasses
             set { isInTransaction = value; }
         }
 
-        public DIGER_DAL_TIPI GetDalInstance<DIGER_DAL_TIPI, DIGER_TYPE_LIBRARY_TIPI>()
+        public DIGER_DAL_TIPI GetDalInstance<DIGER_DAL_TIPI, DIGER_TYPE_LIBRARY_TIPI, PARAMETER_BUILDER>()
             where DIGER_TYPE_LIBRARY_TIPI : BaseTypeLibrary, new()
-            where DIGER_DAL_TIPI : BaseDal<DIGER_TYPE_LIBRARY_TIPI,ADOTEMPLATE_DB_TYPE>, new()
+            where DIGER_DAL_TIPI : BaseDal<DIGER_TYPE_LIBRARY_TIPI,ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>, new()
+            where PARAMETER_BUILDER : IParameterBuilder, new()
         {
             DIGER_DAL_TIPI di = new DIGER_DAL_TIPI();
             di.Connection = Connection;
@@ -144,7 +146,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
             QueryHelper sy = QueryHelper;
-            ParameterBuilder builder = getParameterBuilder();
+            IParameterBuilder builder = getParameterBuilder();
             for (int i = 0; i < filtreListesi.Length; i++)
             {
 

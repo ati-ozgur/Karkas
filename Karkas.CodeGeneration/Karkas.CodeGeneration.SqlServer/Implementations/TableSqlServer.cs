@@ -17,7 +17,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 
 
 
-        public TableSqlServer(SqlServerDalGenerator pDatabase,AdoTemplate template,  string pTableName,string pSchemaName)
+        public TableSqlServer(SqlServerDalGenerator pDatabase, IAdoTemplate<IParameterBuilder> template,  string pTableName,string pSchemaName)
         {
             this.database = pDatabase;
             this.template = template;
@@ -25,9 +25,9 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
             this.schemaName = pSchemaName;
         }
 
-        private AdoTemplate template;
+        private IAdoTemplate<IParameterBuilder> template;
 
-        public AdoTemplate Template
+        public IAdoTemplate<IParameterBuilder> Template
         {
             get { return template; }
             set { template = value; }
@@ -83,7 +83,7 @@ TABLE_NAME = @TABLE_NAME
                 }
                 _Columns = new List<IColumn>();
 
-                ParameterBuilder builder = Template.getParameterBuilder();
+                IParameterBuilder builder = Template.getParameterBuilder();
                 builder.AddParameter("@TABLE_NAME",DbType.AnsiString,tableName );
                 builder.AddParameter("@TABLE_SCHEMA", DbType.AnsiString, schemaName);
 

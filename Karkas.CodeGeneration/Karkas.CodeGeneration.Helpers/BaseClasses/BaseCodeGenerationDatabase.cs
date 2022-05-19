@@ -11,10 +11,24 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
 {
     public abstract class BaseCodeGenerationDatabase : IDatabase
     {
-        public BaseCodeGenerationDatabase(AdoTemplate template)
-	    {
-            Template = template;
-	    }
+        IAdoTemplate<IParameterBuilder> template;
+        public BaseCodeGenerationDatabase(IAdoTemplate<IParameterBuilder> pTemplate)
+        {
+            this.template = pTemplate;
+        }
+
+        public IAdoTemplate<IParameterBuilder> Template
+        {
+            get
+            {
+                return template;
+            }
+            set 
+            { 
+                template = value; 
+            }
+        }
+
 
 
         bool ignoreSystemTables;
@@ -71,7 +85,7 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
         }
 
 
-        private AdoTemplate template;
+
         string projectNameSpace;
         string codeGenerationDirectory;
         string connectionName;
@@ -151,11 +165,7 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
             set { databaseAbbreviations = value; }
         }
 
-        public AdoTemplate Template
-        {
-            get { return template; }
-            set { template = value; }
-        }
+
         string databaseName;
 
         public virtual string DatabaseNameLogical
@@ -174,7 +184,7 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
             {
                 if (String.IsNullOrEmpty(databaseNamePhysical))
                 {
-                    databaseNamePhysical = template.Connection.Database; ;
+                    databaseNamePhysical = Template.Connection.Database; ;
                 }
                 return databaseNamePhysical;
             }

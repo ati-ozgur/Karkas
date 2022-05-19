@@ -19,7 +19,7 @@ namespace Karkas.CodeGenerationHelper.Interfaces
 
         string getDefaultSchema();
 
-        AdoTemplate Template
+        IAdoTemplate<IParameterBuilder> Template
         {
             get;
             set;

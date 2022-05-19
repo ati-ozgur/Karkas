@@ -11,7 +11,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
 {
     class ColumnOracle : IColumn
     {
-        public ColumnOracle(AdoTemplate pTemplate, IContainer pTableOrView,string pColumnName)
+        public ColumnOracle(IAdoTemplate<IParameterBuilder> pTemplate, IContainer pTableOrView,string pColumnName)
         {
 
             template = pTemplate;
@@ -20,7 +20,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
         }
 
         private string columnName;
-        private AdoTemplate template;
+        private IAdoTemplate<IParameterBuilder> template;
 
         private IContainer tableOrView;
 
@@ -37,7 +37,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
                 {
                     if (!relatedSequenceExists.HasValue)
                     {
-                        ParameterBuilder builder = template.getParameterBuilder();
+                        IParameterBuilder builder = template.getParameterBuilder();
                         builder.AddParameter("tableName", DbType.String, Table.Name);
                         Object objResult = template.BringOneValue(SQL_SEQUENCE_EXISTS, builder.GetParameterArray());
                         Decimal result = (Decimal)objResult;
@@ -92,7 +92,7 @@ AND cons.owner = cols.owner
             {
                 if (!isInPrimaryKey.HasValue)
                 {
-                    ParameterBuilder builder = template.getParameterBuilder();
+                    IParameterBuilder builder = template.getParameterBuilder();
                     builder.AddParameter("tableName", DbType.String, tableOrView.Name);
                     builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
                     builder.AddParameter("columnName", DbType.String, Name);
@@ -133,7 +133,7 @@ ON
             {
                 if (!isInForeignKey.HasValue)
                 {
-                    ParameterBuilder builder = template.getParameterBuilder();
+                    IParameterBuilder builder = template.getParameterBuilder();
                     builder.AddParameter("tableName", DbType.String, tableOrView.Name);
                     builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
                     builder.AddParameter("columnName", DbType.String, Name);
@@ -213,7 +213,7 @@ AND
             {
                 if (columnValuesInDatabase == null)
                 {
-                    ParameterBuilder builder = template.getParameterBuilder();
+                    IParameterBuilder builder = template.getParameterBuilder();
                     builder.AddParameter("tableName", DbType.String, tableOrView.Name);
                     builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
                     builder.AddParameter("columnName", DbType.String, Name);

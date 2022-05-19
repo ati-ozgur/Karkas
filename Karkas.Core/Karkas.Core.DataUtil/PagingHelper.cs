@@ -11,10 +11,17 @@ namespace Karkas.Core.DataUtil
     internal class PagingHelper
     {
 
-        private AdoTemplate template;
+        private IAdoTemplate<IParameterBuilder> template;
         private DbTransaction currentTransaction;
         private Guid komutuCalistiranKullaniciKisiKey;
         private HelperFunctions helper;
+
+
+        public PagingHelper(IAdoTemplate<IParameterBuilder> pTemplate)
+        {
+            template = pTemplate;
+            helper = new HelperFunctions(pTemplate);
+        }
 
 
         /// <summary>
@@ -36,11 +43,7 @@ namespace Karkas.Core.DataUtil
             set { currentTransaction = value; }
         }
 
-        public PagingHelper(AdoTemplate pTemplate)
-        {
-            template = pTemplate;
-            helper = new HelperFunctions(pTemplate);
-        }
+
 
 
         private const string PAGING_SQL = @"

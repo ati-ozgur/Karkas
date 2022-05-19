@@ -6,6 +6,7 @@ namespace Karkas.Core.DataUtil
     public interface IParameterBuilder
     {
         DbCommand Command { get; set; }
+        void AddParameter(string parameterName, object value);
 
         void AddParameter(string parameterName, DbType dbType, object value);
         void AddParameter(string parameterName, DbType dbType, object value, int size);

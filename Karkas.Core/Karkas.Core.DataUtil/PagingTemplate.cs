@@ -15,9 +15,12 @@ namespace Karkas.Core.DataUtil
         private PagingHelper pHelper = null;
         private Guid komutuCalistiranKullaniciKisiKey;
         private DbTransaction currentTransaction;
-        private AdoTemplate template;
-        
+        private IAdoTemplate<IParameterBuilder> template;
 
+        public PagingTemplate(IAdoTemplate<IParameterBuilder> template)
+        {
+            this.template = template;
+        }
 
         /// <summary>
         /// Dal komutumuzu calistiran kisinin guid olarak key bilgisi.
@@ -37,13 +40,13 @@ namespace Karkas.Core.DataUtil
             get { return currentTransaction; }
             set { currentTransaction = value; }
         }
-        public PagingTemplate(AdoTemplate template, string pSql, DbParameter[] pParameters)
+        public PagingTemplate(IAdoTemplate<IParameterBuilder> template, string pSql, DbParameter[] pParameters)
             : this(template, pSql)
         {
             this.parameters = pParameters;
         }
 
-        public PagingTemplate(AdoTemplate template,string pSql)
+        public PagingTemplate(IAdoTemplate<IParameterBuilder> template,string pSql)
         {
             this.template = template;
             new PagingHelper(template);
@@ -72,7 +75,7 @@ namespace Karkas.Core.DataUtil
 
         public int KayitSayisiniBul()
         {
-            AdoTemplate template = new AdoTemplate();
+
             if (parameters == null)
             {
                 return (int) template.BringOneValue(countSql);

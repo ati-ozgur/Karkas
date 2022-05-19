@@ -13,7 +13,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
     {
 
 
-        public ColumnSqlite(AdoTemplate template, IContainer pTableOrView, string columnName, string columnType, bool columnNotNull, string columnDefaultValue, bool columnPK,bool isColumnAutoIncrement)
+        public ColumnSqlite(IAdoTemplate<IParameterBuilder> template, IContainer pTableOrView, string columnName, string columnType, bool columnNotNull, string columnDefaultValue, bool columnPK,bool isColumnAutoIncrement)
         {
             // TODO: Complete member initialization
             this.template = template;
@@ -26,7 +26,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             this.isAutoKey = isColumnAutoIncrement;
         }
 
-        private AdoTemplate template;
+        private IAdoTemplate<IParameterBuilder> template;
 
         private IContainer tableOrView;
 

@@ -7,10 +7,11 @@ using System.Data.Common;
 
 namespace Karkas.Core.Data.SqlServer
 {
-    public abstract class BaseDalSqlServer<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE> : 
-        BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE>
+    public abstract class BaseDalSqlServer<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> : 
+        BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>
         where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new ()
-        where ADOTEMPLATE_DB_TYPE : IAdoTemplate, new()
+        where ADOTEMPLATE_DB_TYPE : IAdoTemplate<IParameterBuilder>, new()
+        where PARAMETER_BUILDER : IParameterBuilder, new()
     {
 
         private ADOTEMPLATE_DB_TYPE templateSqlServer;

@@ -15,12 +15,12 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
     public class DatabaseSqlite : BaseCodeGenerationDatabase
     {
 
-        public DatabaseSqlite(AdoTemplate template)
-            : base(template)
-        {
-        }
 
-        public DatabaseSqlite(AdoTemplate template
+        public DatabaseSqlite(IAdoTemplate<IParameterBuilder> template) : base(template)
+        {
+
+        }
+        public DatabaseSqlite(IAdoTemplate<IParameterBuilder> template
             , String connectionString
             , string connectionName
             , string projectNameSpace
@@ -31,10 +31,10 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             , bool ignoreSystemTables
             , List<DatabaseAbbreviations> listDatabaseAbbreviations
 
-            )
-            : base(template)
-        {
+            ) : base(template)
 
+        {
+ 
             this.ConnectionString = connectionString;
 
             this.ProjectNameSpace = projectNameSpace;
@@ -221,5 +221,6 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         }
 
         public override BsGenerator BsGenerator => throw new NotImplementedException();
+
     }
 }

@@ -7,7 +7,8 @@ using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
-    public class AdoTemplate : IAdoTemplate
+    public class AdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParameterBuilder>
+        where PARAMETER_BUILDER : IParameterBuilder, new()
     {
         private string dbProviderName;
         private string connectionString;
@@ -29,11 +30,7 @@ namespace Karkas.Core.DataUtil
             this.useConnectionSingleton = false;
         }
 
-        public virtual ParameterBuilder getParameterBuilder()
-        {
-            return new ParameterBuilder(dbProviderName);
 
-        }
 
 
         public DbDataAdapter getDatabaseAdapter(DbCommand cmd)
@@ -375,6 +372,16 @@ namespace Karkas.Core.DataUtil
             return (bool)this.BringOneValue(sqlToExecute);
         }
 
+        //public PARAMETER_BUILDER getParameterBuilder()
+        //{
+        //    return new PARAMETER_BUILDER();
+        //}
+
+        public IParameterBuilder getParameterBuilder()
+        {
+            return new PARAMETER_BUILDER();
+        }
+
         #region "List of Dictionaries Creation"
 
         public List<Dictionary<String, Object>> GetListOfDictionary(DbCommand cmd)
@@ -602,6 +609,10 @@ namespace Karkas.Core.DataUtil
             dataSet.Locale = CultureInfo.InvariantCulture;
             return dataSet;
         }
+
+
+
+
 
         #endregion
 

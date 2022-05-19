@@ -19,6 +19,8 @@ using Karkas.CodeGeneration.WinApp.PersistenceService;
 using Karkas.CodeGeneration.Oracle.Implementations;
 using Karkas.CodeGeneration.Sqlite.Implementations;
 using Karkas.CodeGeneration.SqlServer.Implementations;
+using Karkas.Core.Data.Oracle;
+using Karkas.Core.Data.SqlServer;
 
 namespace Karkas.CodeGeneration.WinApp
 {
@@ -32,7 +34,7 @@ namespace Karkas.CodeGeneration.WinApp
 
 
         DbConnection connection;
-        AdoTemplate template;
+        IAdoTemplate<IParameterBuilder> template;
         private IDatabase databaseHelper;
 
         public IDatabase DatabaseHelper
@@ -143,11 +145,13 @@ namespace Karkas.CodeGeneration.WinApp
                 connection.ConnectionString = connectionString;
                 connection.Open();
                 connection.Close();
-                template = new AdoTemplate();
-                template.Connection = connection;
-                template.DbProviderName = ConnectionDbProviderName;
-                DatabaseHelper = new CodeGenerationOracle( template);
-                DbProviderFactories.RegisterFactory(ConnectionDbProviderName, factory);
+                
+                // TODO fix Oracle
+                //template = new AdoTemplateOracle();
+                //template.Connection = connection;
+                //template.DbProviderName = ConnectionDbProviderName;
+                //DatabaseHelper = new CodeGenerationOracle( template);
+                //DbProviderFactories.RegisterFactory(ConnectionDbProviderName, factory);
 
 
 
@@ -168,10 +172,11 @@ namespace Karkas.CodeGeneration.WinApp
                 connection.ConnectionString = connectionString;
                 connection.Open();
                 connection.Close();
-                template = new AdoTemplate();
-                template.Connection = connection;
-                template.DbProviderName = "System.Data.SQLite";
-                DatabaseHelper = new DatabaseSqlite(template);
+                // TODO Fix Sqlite
+                //template = new AdoTemplate();
+                //template.Connection = connection;
+                //template.DbProviderName = "System.Data.SQLite";
+                //DatabaseHelper = new DatabaseSqlite(template);
             }
         }
 
@@ -190,7 +195,7 @@ namespace Karkas.CodeGeneration.WinApp
             connection = new SqlConnection(connectionString);
             connection.Open();
             connection.Close();
-            template = new AdoTemplate();
+            template = new AdoTemplateSqlServer();
             template.Connection = connection;
             template.DbProviderName = providerName;
 

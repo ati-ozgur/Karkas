@@ -3,7 +3,7 @@ using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
-    public interface IAdoTemplate
+    public interface IAdoTemplate<IParameterBuilder>
     {
         bool AutomaticConnectionManagement { get; set; }
         DbConnection Connection { get; set; }
@@ -41,6 +41,6 @@ namespace Karkas.Core.DataUtil
         List<Dictionary<string, object>> GetListOfDictionary(string sql, CommandType commandType);
         List<Dictionary<string, object>> GetListOfDictionary(string sql, CommandType commandType, DbParameter[] parameters);
         List<Dictionary<string, object>> GetListOfDictionary(string sql, DbParameter[] parameters);
-        ParameterBuilder getParameterBuilder();
+        IParameterBuilder getParameterBuilder();
     }
 }

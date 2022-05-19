@@ -9,15 +9,15 @@ namespace Karkas.Core.DataUtil
     internal class HelperFunctions
     {
 
-        private AdoTemplate template;
+        private IAdoTemplate<IParameterBuilder> template;
 
-        public AdoTemplate Template
+        public IAdoTemplate<IParameterBuilder> Template
         {
             get { return template; }
             set { template = value; }
         }
 
-        public HelperFunctions(AdoTemplate pTemplate)
+        public HelperFunctions(IAdoTemplate<IParameterBuilder> pTemplate)
         {
             template = pTemplate;
             this.currentTransaction = pTemplate.CurrentTransaction;

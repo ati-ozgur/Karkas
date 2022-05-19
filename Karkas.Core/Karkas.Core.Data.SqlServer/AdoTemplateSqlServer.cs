@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace Karkas.Core.Data.SqlServer
 {
-    public class AdoTemplateSqlServer : AdoTemplate
+    public class AdoTemplateSqlServer : AdoTemplate<ParameterBuilderSqlServer>
     {
-
-        public override ParameterBuilder getParameterBuilder()
-        {
-            return  new ParameterBuilderSqlServer();
-        }
     }
 }

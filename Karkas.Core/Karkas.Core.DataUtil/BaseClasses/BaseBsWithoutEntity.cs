@@ -7,8 +7,10 @@ using System.Data.Common;
 
 namespace Karkas.Core.DataUtil.BaseClasses
 {
-    public abstract class BaseBsWithoutEntity<ADOTEMPLATE_DB_TYPE>
-            where ADOTEMPLATE_DB_TYPE : IAdoTemplate, new()
+    public abstract class BaseBsWithoutEntity<ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>
+            where ADOTEMPLATE_DB_TYPE : IAdoTemplate<IParameterBuilder>, new()
+            where PARAMETER_BUILDER : IParameterBuilder, new()
+
     {
 
         private bool isInTransaction = false;
@@ -30,7 +32,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
         }
 
-        protected abstract BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE> Dal
+        protected abstract BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE,PARAMETER_BUILDER> Dal
         {
             get;
         }

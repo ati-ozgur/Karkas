@@ -10,7 +10,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
 {
     public class ViewOracle : IView
     {
-        public ViewOracle(CodeGenerationOracle database, AdoTemplate template, string viewName, string schemaName)
+        public ViewOracle(CodeGenerationOracle database, IAdoTemplate<IParameterBuilder> template, string viewName, string schemaName)
         {
             this.database = database;
             this.template = template;
@@ -18,7 +18,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
             this.schemaName = schemaName;
         }
         CodeGenerationOracle database;
-        AdoTemplate template;
+        IAdoTemplate<IParameterBuilder> template;
         string viewName;
         string schemaName;
 
@@ -43,7 +43,7 @@ OWNER = :schemaName
             {
                 if (columns == null)
                 {
-                    ParameterBuilder builder = template.getParameterBuilder();
+                    IParameterBuilder builder = template.getParameterBuilder();
                     builder.AddParameter("tableName", DbType.String, Name);
                     builder.AddParameter("schemaName", DbType.String, Schema);
 

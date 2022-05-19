@@ -15,12 +15,13 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
     public class CodeGenerationOracle : BaseCodeGenerationDatabase
     {
 
-        public CodeGenerationOracle(AdoTemplate template) : base(template)
+        public CodeGenerationOracle(IAdoTemplate<IParameterBuilder> template) : base(template)
         {
+
         }
 
 
-        public CodeGenerationOracle(AdoTemplate template
+        public CodeGenerationOracle(IAdoTemplate<IParameterBuilder> template
             ,string connectionString
             , string pDatabaseName
             , string pProjectNameSpace
@@ -31,10 +32,9 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
             , bool sysTablolariniAtla
             , List<DatabaseAbbreviations> listDatabaseAbbreviations
 
-            )
-            : base(template)
+            ) : base(template)
         {
-            this.Template = template;
+
 
             this.ConnectionString = connectionString;
 
@@ -63,7 +63,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
                     _tables = new List<ITable>();
                     string userName = getUserNameFromConnection(ConnectionString);
 
-                    ParameterBuilder builder = Template.getParameterBuilder();
+                    IParameterBuilder builder = Template.getParameterBuilder();
                     builder.AddParameter("TABLE_SCHEMA", DbType.String, userName);
 
                     DataTable dtTables = Template.DataTableOlustur(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
@@ -150,7 +150,7 @@ ORDER BY FULL_TABLE_NAME
 
         public override DataTable getTableListFromSchema(string schemaName)
         {
-            ParameterBuilder builder = Template.getParameterBuilder();
+            IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":TABLE_SCHEMA", DbType.String, schemaName);
             DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
             return dtTableList;
@@ -165,7 +165,7 @@ ORDER BY FULL_VIEW_NAME
 ";
         public override DataTable getViewListFromSchema(string schemaName)
         {
-            ParameterBuilder builder = Template.getParameterBuilder();
+            IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":TABLE_SCHEMA", DbType.String, schemaName);
             DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_VIEW_LIST, builder.GetParameterArray());
             return dtTableList;
@@ -181,7 +181,7 @@ ORDER BY STORED_PROCEDURE_NAME
 ";
         public override DataTable getStoredProcedureListFromSchema(string schemaName)
         {
-            ParameterBuilder builder = Template.getParameterBuilder();
+            IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":SP_SCHEMA_NAME", DbType.String, schemaName);
             DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_STORED_PROCEDURE_LIST, builder.GetParameterArray());
             return dtTableList;
@@ -198,7 +198,7 @@ ORDER BY SEQUENCE_NAME
 ";
         public override DataTable getSequenceListFromSchema(string schemaName)
         {
-            ParameterBuilder builder = Template.getParameterBuilder();
+            IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":SEQ_SCHEMA_NAME", DbType.String, schemaName);
             DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_SEQUENCES_LIST, builder.GetParameterArray());
             return dtTableList;
@@ -265,6 +265,8 @@ ORDER BY SEQUENCE_NAME
         {
             get { return new OracleBsGenerator(this); }
         }
+
+
 
         string defaultSchema;
         public override string getDefaultSchema()

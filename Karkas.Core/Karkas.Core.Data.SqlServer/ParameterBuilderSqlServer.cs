@@ -32,6 +32,11 @@ namespace Karkas.Core.Data.SqlServer
             }
             return prm;
         }
+        public void AddParameter(string parameterName, SqlDbType dbType, object value)
+        {
+            DbParameter prm = setParameterValue(parameterName, dbType, value);
+            AddParameterToCommandOrList(prm);
+        }
 
         public void AddParameter(string parameterName, SqlDbType dbType, object value, int size)
         { 
