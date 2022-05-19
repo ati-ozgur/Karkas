@@ -70,7 +70,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             pkAdiPascalCase = utils.GetPascalCase(pkAdi);
 
 
-            usingNamespaceleriWrite(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
+            WriteUsings(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
             output.increaseTab();
             AtStartCurlyBraceletIncreaseTab(output);
             classWrite(output, classNameBs, classNameDal, classNameTypeLibrary);
@@ -93,7 +93,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             if (!File.Exists(outputFullFileName))
             {
-                usingNamespaceleriWrite(output, schemaName,baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
+                WriteUsings(output, schemaName,baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
                 AtStartCurlyBraceletIncreaseTab(output);
                 classWrite(output, classNameBs, classNameDal, classNameTypeLibrary);
                 AtStartCurlyBraceletIncreaseTab(output);
@@ -160,7 +160,8 @@ namespace Karkas.CodeGenerationHelper.Generators
         protected abstract void classWrite(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary);
 
 
-        public void usingNamespaceleriWrite(IOutput output, string schemaName, string baseNameSpace, string baseNameSpaceTypeLibrary, string baseNameSpaceBsWithSchema, string baseNameSpaceDalWithSchema)
+
+        public void WriteUsings(IOutput output, string schemaName, string baseNameSpace, string baseNameSpaceTypeLibrary, string baseNameSpaceBsWithSchema, string baseNameSpaceDalWithSchema)
         {
             output.autoTabLn("");
             output.autoTabLn("using System;");
