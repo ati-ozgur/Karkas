@@ -332,6 +332,13 @@ ORDER BY SEQUENCE_NAME
             get { return new SqlServerTypeLibraryGenerator(this); }
         }
 
+        public override BsGenerator BsGenerator
+        {
+            get { return new SqlServerBsGenerator(this); }
+        }
+
+
+
         public override string getDefaultSchema()
         {
             return "dbo";

@@ -55,6 +55,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             output.write(classNameTypeLibrary);
             output.write("Dal : BaseDalSqlServer<");
             output.write(classNameTypeLibrary);
+            output.write(", AdoTemplateSqlServer" );
             output.writeLine(">");
             AtStartCurlyBraceletIncreaseTab(output);
         }

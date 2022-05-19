@@ -293,7 +293,7 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
             {
                 TypeLibraryGenerator typeGen = this.TypeLibraryGenerator;
                 DalGenerator dalGen = this.DalGenerator;
-                BsGenerator bsGen = new BsGenerator(this);
+                BsGenerator bsGen =  this.BsGenerator;
 
                 ITable table = this.getTable(pTableName, pSchemaName);
 
@@ -312,7 +312,7 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
         {
             TypeLibraryGenerator typeGen = new TypeLibraryGenerator(this);
             DalGenerator dalGen = this.DalGenerator;
-            BsGenerator bsGen = new BsGenerator(this);
+            BsGenerator bsGen = this.BsGenerator;
 
             IView view = GetView( pViewName, pSchemaName);
 
@@ -367,7 +367,10 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
             }
             return exceptionMessages.ToString();
         }
-
+        public abstract BsGenerator BsGenerator
+        {
+            get;
+        }
         public  abstract DalGenerator DalGenerator
         {
             get;

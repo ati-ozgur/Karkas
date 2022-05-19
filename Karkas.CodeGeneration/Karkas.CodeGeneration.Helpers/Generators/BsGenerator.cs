@@ -11,7 +11,7 @@ using Karkas.CodeGenerationHelper.BaseClasses;
 
 namespace Karkas.CodeGenerationHelper.Generators
 {
-    public class BsGenerator : BaseGenerator
+    public abstract class BsGenerator : BaseGenerator
     {
         string classNameTypeLibrary = "";
         string classNameDal = "";
@@ -157,13 +157,8 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         }
 
-        private static void classWrite(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary)
-        {
-            output.autoTab("public partial class ");
-            output.write(classNameBs);
-            output.write(" : BaseBs<" + classNameTypeLibrary + ", ");
-            output.writeLine(classNameDal + ">");
-        }
+        protected abstract void classWrite(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary);
+
 
         public void usingNamespaceleriWrite(IOutput output, string schemaName, string baseNameSpace, string baseNameSpaceTypeLibrary, string baseNameSpaceBsWithSchema, string baseNameSpaceDalWithSchema)
         {

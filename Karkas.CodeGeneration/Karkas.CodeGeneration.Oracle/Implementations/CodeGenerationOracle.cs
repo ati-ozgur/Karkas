@@ -261,6 +261,10 @@ ORDER BY SEQUENCE_NAME
             get { return new TypeLibraryGenerator(this); }
         }
 
+        public override BsGenerator BsGenerator
+        {
+            get { return new OracleBsGenerator(this); }
+        }
 
         string defaultSchema;
         public override string getDefaultSchema()
