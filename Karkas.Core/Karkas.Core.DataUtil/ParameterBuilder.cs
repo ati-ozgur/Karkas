@@ -6,7 +6,7 @@ using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
-    public class ParameterBuilder
+    public class ParameterBuilder : IParameterBuilder
     {
 
         private DbCommand command;
@@ -30,14 +30,14 @@ namespace Karkas.Core.DataUtil
 
         private void setDbProviderFactoryHelper()
         {
-            
+
             if (string.IsNullOrEmpty(dbProviderName))
             {
-                dbProviderFactoryHelper =  DbProviderFactoryHelper.Create(DbProviderFactoryHelper.DbProviderSqlServer);
+                dbProviderFactoryHelper = DbProviderFactoryHelper.Create(DbProviderFactoryHelper.DbProviderSqlServer);
             }
             else
             {
-                dbProviderFactoryHelper =  DbProviderFactoryHelper.Create(dbProviderName);
+                dbProviderFactoryHelper = DbProviderFactoryHelper.Create(dbProviderName);
             }
         }
 
@@ -53,9 +53,9 @@ namespace Karkas.Core.DataUtil
 
         private DbParameter getGenericDbParamater()
         {
-            DbParameter prm  = dbProviderFactoryHelper.Factory.CreateParameter();
+            DbParameter prm = dbProviderFactoryHelper.Factory.CreateParameter();
 
-            
+
             return prm;
         }
 
@@ -177,7 +177,7 @@ namespace Karkas.Core.DataUtil
             {
                 sb.Append(string.Format("DECLARE {0} {1} = {2}"
                     , param.ParameterName
-                    ,param.DbType
+                    , param.DbType
                     , param.Value));
                 sb.Append(Environment.NewLine);
             }
