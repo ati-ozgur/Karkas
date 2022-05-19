@@ -8,12 +8,12 @@ using System.Data.Common;
 namespace Karkas.Core.DataUtil.BaseClasses
 {
     /// <summary>
-    /// TL TypeLibrary Class
-    /// PK Type of Primary Key of TL
+    /// TYPE_LIBRARY_TYPE TypeLibrary Class
+    /// PRIMARY_KEY Type of Primary Key of TYPE_LIBRARY_TYPE
     /// </summary>
-    /// <typeparam name="TL"></typeparam>
-    /// <typeparam name="PK"></typeparam>
-    public abstract class BaseDalForIdentity<TL, PK> : BaseDal<TL> where TL : BaseTypeLibrary, new()
+    /// <typeparam name="TYPE_LIBRARY_TYPE"></typeparam>
+    /// <typeparam name="PRIMARY_KEY"></typeparam>
+    public abstract class BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY> : BaseDal<TYPE_LIBRARY_TYPE> where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
     {
 
         public BaseDalForIdentity()
@@ -21,11 +21,11 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         }
 
-        protected abstract void setIdentityColumnValue(TL pTypeLibrary, PK pIdentityKolonValue);
+        protected abstract void setIdentityColumnValue(TYPE_LIBRARY_TYPE pTypeLibrary, PRIMARY_KEY pIdentityKolonValue);
 
-        public new PK Insert(TL row)
+        public new PRIMARY_KEY Insert(TYPE_LIBRARY_TYPE row)
         {
-            PK result = default(PK);
+            PRIMARY_KEY result = default(PRIMARY_KEY);
             DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
 
@@ -47,7 +47,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 {
                     new LoggingInfo(cmd).LogInfo(this.GetType());
                     object o = cmd.ExecuteScalar();
-                    result = (PK)Convert.ChangeType(o, result.GetType());
+                    result = (PRIMARY_KEY)Convert.ChangeType(o, result.GetType());
                     setIdentityColumnValue(row, result);
                 }
                 else
