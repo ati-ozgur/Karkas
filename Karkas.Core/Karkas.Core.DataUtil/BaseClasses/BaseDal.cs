@@ -16,7 +16,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
     /// M Type of Primary Key of TYPE_LIBRARY_TYPE
     /// </summary>
     /// <typeparam name="TYPE_LIBRARY_TYPE"></typeparam>
-    public abstract class BaseDal<TYPE_LIBRARY_TYPE> : BaseDalWithoutEntity where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
+    public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE> : BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE> where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
     {
 
 
@@ -40,7 +40,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         public DIGER_DAL_TIPI GetDalInstance<DIGER_DAL_TIPI, DIGER_TYPE_LIBRARY_TIPI>()
             where DIGER_TYPE_LIBRARY_TIPI : BaseTypeLibrary, new()
-            where DIGER_DAL_TIPI : BaseDal<DIGER_TYPE_LIBRARY_TIPI>, new()
+            where DIGER_DAL_TIPI : BaseDal<DIGER_TYPE_LIBRARY_TIPI,ADOTEMPLATE_DB_TYPE>, new()
         {
             DIGER_DAL_TIPI di = new DIGER_DAL_TIPI();
             di.Connection = Connection;

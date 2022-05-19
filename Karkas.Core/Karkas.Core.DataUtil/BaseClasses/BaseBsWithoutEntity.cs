@@ -7,7 +7,7 @@ using System.Data.Common;
 
 namespace Karkas.Core.DataUtil.BaseClasses
 {
-    public abstract class BaseBsWithoutEntity
+    public abstract class BaseBsWithoutEntity<ADOTEMPLATE_DB_TYPE>
     {
 
         private bool isInTransaction = false;
@@ -29,7 +29,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
         }
 
-        protected abstract BaseDalWithoutEntity Dal
+        protected abstract BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE> Dal
         {
             get;
         }

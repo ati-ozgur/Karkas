@@ -6,9 +6,9 @@ using System.Data;
 
 namespace Karkas.Core.DataUtil.BaseClasses
 {
-    public abstract class BaseBs<TYPE_LIBRARY_TYPE, DAL_TYPE> : BaseBsWithoutEntity
+    public abstract class BaseBs<TYPE_LIBRARY_TYPE, DAL_TYPE, ADOTEMPLATE_DB_TYPE> : BaseBsWithoutEntity<ADOTEMPLATE_DB_TYPE>
         where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
-        where DAL_TYPE : BaseDal<TYPE_LIBRARY_TYPE>, new()
+        where DAL_TYPE : BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE>, new()
     {
 
 
@@ -16,7 +16,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         public DIGER_DAL_TIPI GetDalInstance<DIGER_DAL_TIPI, DIGER_TYPE_LIBRARY_TIPI>()
             where DIGER_TYPE_LIBRARY_TIPI : BaseTypeLibrary, new()
-            where DIGER_DAL_TIPI : BaseDal<DIGER_TYPE_LIBRARY_TIPI>, new()
+            where DIGER_DAL_TIPI : BaseDal<DIGER_TYPE_LIBRARY_TIPI, ADOTEMPLATE_DB_TYPE>, new()
         {
             DIGER_DAL_TIPI di = new DIGER_DAL_TIPI();
             di.Connection = Connection;
@@ -45,7 +45,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         protected DAL_TYPE dal = new DAL_TYPE();
 
-        protected override BaseDalWithoutEntity Dal
+        protected override BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE> Dal
         {
             get { return dal; }
         }

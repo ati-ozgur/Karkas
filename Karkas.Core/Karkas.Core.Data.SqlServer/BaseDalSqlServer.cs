@@ -7,7 +7,7 @@ using System.Data.Common;
 
 namespace Karkas.Core.Data.SqlServer
 {
-    public abstract class BaseDalSqlServer<T> : BaseDal<T> where T : BaseTypeLibrary, new ()
+    public abstract class BaseDalSqlServer<T, ADOTEMPLATE_DB_TYPE> : BaseDal<T, ADOTEMPLATE_DB_TYPE> where T : BaseTypeLibrary, new ()
     {
 
         private AdoTemplateSqlServer templateSqlServer;
