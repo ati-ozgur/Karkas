@@ -7,7 +7,7 @@ using System.Data.Common;
 
 namespace Karkas.Core.DataUtil.BaseClasses
 {
-    public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE>  where ADOTEMPLATE_DB_TYPE : AdoTemplate, new()
+    public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE>  where ADOTEMPLATE_DB_TYPE : IAdoTemplate, new()
     {
 
         public BaseDalWithoutEntity()

@@ -16,7 +16,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
     public abstract class BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMPLATE_DB_TYPE> 
             : BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE> 
             where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
-            where ADOTEMPLATE_DB_TYPE : AdoTemplate, new()
+            where ADOTEMPLATE_DB_TYPE : IAdoTemplate, new()
     {
 
         public BaseDalForIdentity()

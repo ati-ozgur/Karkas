@@ -10,11 +10,11 @@ namespace Karkas.Core.Data.SqlServer
     public abstract class BaseDalSqlServer<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE> : 
         BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE>
         where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new ()
-        where ADOTEMPLATE_DB_TYPE : AdoTemplate, new()
+        where ADOTEMPLATE_DB_TYPE : IAdoTemplate, new()
     {
 
-        private AdoTemplateSqlServer templateSqlServer;
-        public override AdoTemplate Template
+        private ADOTEMPLATE_DB_TYPE templateSqlServer;
+        public override ADOTEMPLATE_DB_TYPE Template
         {
             get
             {
@@ -23,9 +23,9 @@ namespace Karkas.Core.Data.SqlServer
             }
         }
 
-        protected AdoTemplateSqlServer getNewAdoTemplateSqlServer()
+        protected ADOTEMPLATE_DB_TYPE getNewAdoTemplateSqlServer()
         {
-            AdoTemplateSqlServer t = new AdoTemplateSqlServer();
+            ADOTEMPLATE_DB_TYPE t = new ADOTEMPLATE_DB_TYPE();
             t.Connection = Connection;
             t.CurrentTransaction = CurrentTransaction;
             t.AutomaticConnectionManagement = AutomaticConnectionManagement;
