@@ -72,7 +72,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             if (container is ITable && (!((ITable) container).HasPrimaryKey ))
             {
                 string warningMessage = 
-                 "Sectiginiz tablolardan " + container.Name  + " icinde Primary Key yoktur. Code Generation (DAL) sadace primaryKey'i olan tablolarda duzgun calisir.";
+                 "Chosen Table " + container.Name  + " has NO Primary Key. Code Generation (DAL) only works with tables who has primaryKey.";
                 throw new Exception(warningMessage);
             }
 
