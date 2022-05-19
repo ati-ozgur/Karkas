@@ -8,12 +8,12 @@ using System.Data.Common;
 namespace Karkas.Core.DataUtil.BaseClasses
 {
     /// <summary>
-    /// T TypeLibrary Class
-    /// M Type of Primary Key of T
+    /// TL TypeLibrary Class
+    /// PK Type of Primary Key of TL
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="M"></typeparam>
-    public abstract class BaseDalForIdentity<T, M> : BaseDal<T> where T : BaseTypeLibrary, new()
+    /// <typeparam name="TL"></typeparam>
+    /// <typeparam name="PK"></typeparam>
+    public abstract class BaseDalForIdentity<TL, PK> : BaseDal<TL> where TL : BaseTypeLibrary, new()
     {
 
         public BaseDalForIdentity()
@@ -21,11 +21,11 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         }
 
-        protected abstract void setIdentityColumnValue(T pTypeLibrary, M pIdentityKolonValue);
+        protected abstract void setIdentityColumnValue(TL pTypeLibrary, PK pIdentityKolonValue);
 
-        public new M Insert(T row)
+        public new PK Insert(TL row)
         {
-            M result = default(M);
+            PK result = default(PK);
             DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
 
@@ -47,7 +47,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 {
                     new LoggingInfo(cmd).LogInfo(this.GetType());
                     object o = cmd.ExecuteScalar();
-                    result = (M)Convert.ChangeType(o, result.GetType());
+                    result = (PK)Convert.ChangeType(o, result.GetType());
                     setIdentityColumnValue(row, result);
                 }
                 else
