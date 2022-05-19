@@ -6,7 +6,7 @@ using Karkas.Core.TypeLibrary;
 
 namespace Karkas.Core.DataUtil.BaseClasses
 {
-    public abstract class BaseDalOracle<T, ADOTEMPLATE_DB_TYPE> : BaseDal<T, ADOTEMPLATE_DB_TYPE> where T : BaseTypeLibrary, new()
+    public abstract class BaseDalOracle<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE> : BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE> where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
     {
         public override string DbProviderName
         {
