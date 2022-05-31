@@ -126,7 +126,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             InsertStringWrite(output, container, sorgulardaKullanilanSema);
 
 
-            SorgulaPkIleGetirWrite(output, container, classNameTypeLibrary,pkName, pkNamePascalCase, pkType);
+            QueryByPkWrite(output, container, classNameTypeLibrary,pkName, pkNamePascalCase, pkType);
 
             IdentityVarMiWrite(output, getIdentityVarmi(utils, container));
 
@@ -536,32 +536,33 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTabLn(listType + " liste = new " + listType + "();");
         }
 
-        private void SorgulaPkIleGetirWrite(IOutput output, IContainer container, string classNameTypeLibrary,  string pkAdi, string pkAdiPascalCase, string pkType)
+        private void QueryByPkWrite(IOutput output, IContainer container, string classNameTypeLibrary,  string pkName, string pkNamePascalCase, string pkType)
         {
             if (container is IView)
             {
                 return;
             }
-            if (!string.IsNullOrEmpty(pkAdi))
+            if (!string.IsNullOrEmpty(pkName))
             {
-            string classSatiri = "public " + classNameTypeLibrary + " Sorgula"
-                            + pkAdiPascalCase + "Ile(" + pkType
-                            + " p1)";
-            output.autoTabLn(classSatiri);
-            AtStartCurlyBraceletIncreaseTab(output);
-            listeTanimla(output);
-            output.autoTab("ExecuteQuery(liste,String.Format(\" " + pkAdi + " = '{0}'\", p1));");
-            output.autoTabLn("");
-            output.autoTabLn("if (liste.Count > 0)");
-            output.autoTabLn("{");
-            output.autoTabLn("\treturn liste[0];");
-            output.autoTabLn("}");
-            output.autoTabLn("else");
-            output.autoTabLn("{");
-            output.autoTabLn("\treturn null;");
-            output.autoTabLn("}");
-            AtEndCurlyBraceletDescreaseTab(output);
-            }
+                string variableName = "p" + pkName;
+                string methodLine = "public " + classNameTypeLibrary + " QueryBy"
+                            + pkNamePascalCase + "(" + pkType
+                                + variableName +" )";
+                output.autoTabLn(methodLine);
+                AtStartCurlyBraceletIncreaseTab(output);
+                listeTanimla(output);
+                output.autoTab("ExecuteQuery(liste,String.Format(\" " + pkName + " = '{0}'\"," +variableName+ "p1));");
+                output.autoTabLn("");
+                output.autoTabLn("if (liste.Count > 0)");
+                output.autoTabLn("{");
+                output.autoTabLn("\treturn liste[0];");
+                output.autoTabLn("}");
+                output.autoTabLn("else");
+                output.autoTabLn("{");
+                output.autoTabLn("\treturn null;");
+                output.autoTabLn("}");
+                AtEndCurlyBraceletDescreaseTab(output);
+                }
         }
 
         private void IdentityVarMiWrite(IOutput output, bool identityVarmi)
