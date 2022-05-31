@@ -547,11 +547,11 @@ namespace Karkas.CodeGenerationHelper.Generators
                 string variableName = "p" + pkName;
                 string methodLine = "public " + classNameTypeLibrary + " QueryBy"
                             + pkNamePascalCase + "(" + pkType
-                                + variableName +" )";
+                                + " " + variableName +" )";
                 output.autoTabLn(methodLine);
                 AtStartCurlyBraceletIncreaseTab(output);
                 listeTanimla(output);
-                output.autoTab("ExecuteQuery(liste,String.Format(\" " + pkName + " = '{0}'\"," +variableName+ "p1));");
+                output.autoTab("ExecuteQuery(liste,String.Format(\" " + pkName + " = '{0}'\"," +variableName+ "));");
                 output.autoTabLn("");
                 output.autoTabLn("if (liste.Count > 0)");
                 output.autoTabLn("{");
