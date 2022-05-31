@@ -20,8 +20,8 @@ namespace Karkas.CodeGenerationHelper.Generators
         string classNameSpace = "";
         string memberVariableName = "";
         string propertyVariableName = "";
-        string pkAdi = "";
-        string pkAdiPascalCase = "";
+        string pkName = "";
+        string pkNamePascalCase = "";
         string pkType = "";
 
 
@@ -66,8 +66,8 @@ namespace Karkas.CodeGenerationHelper.Generators
             string baseNameSpaceDalWithSchema = baseNameSpace + ".Dal." + schemaName;
 
             pkType = utils.FindPrimaryKeyType(container);
-            pkAdi = utils.FindPrimaryKeyColumnName(container);
-            pkAdiPascalCase = utils.GetPascalCase(pkAdi);
+            pkName = utils.FindPrimaryKeyColumnName(container);
+            pkNamePascalCase = utils.GetPascalCase(pkName);
 
 
             WriteUsings(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
@@ -77,11 +77,11 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtStartCurlyBracelet(output);
             OverrideDatabaseNameWrite(output, container);
 
-            if (container is ITable && (!string.IsNullOrEmpty(pkAdi)))
+            if (container is ITable && (!string.IsNullOrEmpty(pkName)))
             {
                 SilKomutuWritePkIle(output, container);
 
-                sorgulaPkAdiIleWrite(output, container, classNameTypeLibrary, pkType, pkAdiPascalCase);
+                sorgulaPkAdiIleWrite(output, container, classNameTypeLibrary, pkType, pkNamePascalCase);
             }
             AtEndCurlyBraceletDescreaseTab(output);
             AtEndCurlyBraceletDescreaseTab(output);
