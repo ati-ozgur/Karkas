@@ -470,7 +470,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
 
 
-        protected void InsertStringWrite(IOutput output, IContainer container, string sorgulardaKullanilanSema)
+        protected void InsertStringWrite(IOutput output, IContainer container, string schemaNameForQueries)
         {
             string cumle = "";
 
@@ -481,7 +481,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             if (container is ITable)
             {
                 output.autoTabLn("return @\"INSERT INTO "
-                    + sorgulardaKullanilanSema
+                    + schemaNameForQueries
                     + container.Name + " ");
                 cumle += " (";
                 foreach (IColumn column in container.Columns)
@@ -522,7 +522,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             }
             else
             {
-                output.autoTabLn("throw new NotSupportedException(\"VIEW ustunden Insert/Update/Delete desteklenmemektedir\");");
+                output.autoTabLn("throw new NotSupportedException(\" Insert/Update/Delete is not supported for VIEWs \");");
             }
             AtEndCurlyBraceletDescreaseTab(output);
             AtEndCurlyBraceletDescreaseTab(output);
