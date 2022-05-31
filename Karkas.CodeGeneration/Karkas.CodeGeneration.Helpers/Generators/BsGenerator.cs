@@ -81,7 +81,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             {
                 SilKomutuWritePkIle(output, container);
 
-                sorgulaPkAdiIleWrite(output, container, classNameTypeLibrary, pkType, pkNamePascalCase);
+                QueryByPkNameWrite(output, container, classNameTypeLibrary, pkType, pkNamePascalCase);
             }
             AtEndCurlyBraceletDescreaseTab(output);
             AtEndCurlyBraceletDescreaseTab(output);
@@ -116,7 +116,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
-        private static void sorgulaPkAdiIleWrite(IOutput output, IContainer container, string classNameTypeLibrary, string pkType, string pkName)
+        private static void QueryByPkNameWrite(IOutput output, IContainer container, string classNameTypeLibrary, string pkType, string pkName)
         {
             ITable table = container as ITable;
             string variableName = "p" + pkName;
