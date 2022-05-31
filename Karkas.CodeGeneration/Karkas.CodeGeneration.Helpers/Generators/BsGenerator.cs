@@ -116,21 +116,22 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
-        private static void sorgulaPkAdiIleWrite(IOutput output, IContainer container, string classNameTypeLibrary, string pkType, string pkAdi)
+        private static void sorgulaPkAdiIleWrite(IOutput output, IContainer container, string classNameTypeLibrary, string pkType, string pkName)
         {
             ITable table = container as ITable;
+            string variableName = "p" + pkName;
             if (table != null)
             {
                 if (table.PrimaryKeyColumnCount == 1)
                 {
 
-                    string classSatiri = "public " + classNameTypeLibrary + " Sorgula"
-                                    + pkAdi + "Ile(" + pkType
-                                    + " p1)";
-                    output.autoTabLn(classSatiri);
+                    string classLine = "public " + classNameTypeLibrary + " QueryBy"
+                                    + pkName + "(" + pkType
+                                    + " " + variableName +  ")";
+                    output.autoTabLn(classLine);
                     output.autoTabLn("{");
                     output.increaseTab();
-                    output.autoTabLn("return dal.Sorgula" + pkAdi + "Ile(p1);");
+                    output.autoTabLn("return dal.QueryBy" + pkName + "("+ variableName + ");");
                     output.decreaseTab();
                     output.autoTabLn("}");
                 }
