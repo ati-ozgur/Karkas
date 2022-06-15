@@ -57,12 +57,12 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
         private static DatabaseEntry getExampleDatabaseEntry()
         {
             DatabaseEntry de = new DatabaseEntry();
-            de.CodeGenerationDirectory = "P:\\karkas\\Karkas.Ornek";
-            de.ProjectNameSpace = "Karkas.Ornek";
+            de.CodeGenerationDirectory = "$HOME\\Projects\\my-projects\\KarkasExampleSqlServer";
+            de.ProjectNameSpace = "Karkas.Example";
             de.ConnectionDatabaseType = DatabaseType.SqlServer;
-            de.ConnectionName = "KARKAS_ORNEK";
+            de.ConnectionName = "KARKAS_EXAMPLE";
             
-            de.ConnectionString = "Integrated Security = SSPI; Persist Security Info=False;Initial Catalog=KARKAS_ORNEK;Data Source=localhost";
+            de.ConnectionString = "Integrated Security = SSPI; Persist Security Info=False;Initial Catalog=KARKAS_EXAMPLE;Data Source=localhost";
             de.setTimeValues();
             return de;
         }

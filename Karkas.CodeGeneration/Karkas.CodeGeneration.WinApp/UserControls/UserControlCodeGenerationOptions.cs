@@ -49,7 +49,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         private string getCodeGenerationDirectory()
         {
-            string codeGenerationDirectory = textBoxCodeGenerationDizini.Text.Replace("$HOME", HomeDirectory);
+            string codeGenerationDirectory = textBoxCodeGenerationFolder.Text.Replace("$HOME", HomeDirectory);
             return codeGenerationDirectory;
         }
 
@@ -104,7 +104,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             DialogResult dialogResult = folderBrowserDialog.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                textBoxCodeGenerationDizini.Text = folderBrowserDialog.SelectedPath;
+                textBoxCodeGenerationFolder.Text = folderBrowserDialog.SelectedPath;
             }
 
         }
@@ -132,7 +132,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
             if (!string.IsNullOrWhiteSpace(entry.CodeGenerationDirectory))
             {
-                textBoxCodeGenerationDizini.Text = entry.CodeGenerationDirectory;
+                textBoxCodeGenerationFolder.Text = entry.CodeGenerationDirectory;
             }
 
             bool parsedValue;
@@ -175,7 +175,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
         public void ClearInputControlValues()
         {
             
-            textBoxCodeGenerationDizini.Text = "";
+            textBoxCodeGenerationFolder.Text = "";
             textBoxConnectionName.Text = "";
             textBoxProjectNamespace.Text = "";
             textBoxConnectionString.Text = "";
@@ -223,7 +223,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             }
         }
 
-        private void buttonKisaltmalar_Click(object sender, EventArgs e)
+        private void buttonAbbreviations_Click(object sender, EventArgs e)
         {
             Form frm = new FormAbbreviations(getDatabaseEntry());
             frm.ShowDialog();

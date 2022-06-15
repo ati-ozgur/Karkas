@@ -48,7 +48,7 @@
             this.textBoxProjectNamespace = new System.Windows.Forms.TextBox();
             this.labelProjectNamespace = new System.Windows.Forms.Label();
             this.buttonFolderDialog = new System.Windows.Forms.Button();
-            this.textBoxCodeGenerationDizini = new System.Windows.Forms.TextBox();
+            this.textBoxCodeGenerationFolder = new System.Windows.Forms.TextBox();
             this.labelCodeGenerationFolder = new System.Windows.Forms.Label();
             this.textBoxConnectionString = new System.Windows.Forms.TextBox();
             this.labelConnectionString = new System.Windows.Forms.Label();
@@ -252,10 +252,10 @@
             // 
             // textBoxCodeGenerationDizini
             // 
-            this.textBoxCodeGenerationDizini.Location = new System.Drawing.Point(292, 311);
-            this.textBoxCodeGenerationDizini.Name = "textBoxCodeGenerationDizini";
-            this.textBoxCodeGenerationDizini.Size = new System.Drawing.Size(407, 27);
-            this.textBoxCodeGenerationDizini.TabIndex = 37;
+            this.textBoxCodeGenerationFolder.Location = new System.Drawing.Point(292, 311);
+            this.textBoxCodeGenerationFolder.Name = "textBoxCodeGenerationDizini";
+            this.textBoxCodeGenerationFolder.Size = new System.Drawing.Size(407, 27);
+            this.textBoxCodeGenerationFolder.TabIndex = 37;
             // 
             // labelCodeGenerationFolder
             // 
@@ -371,7 +371,7 @@
             this.tableLayoutPanel1.Controls.Add(this.textBoxProjectNamespace, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.buttonFolderDialog, 2, 7);
             this.tableLayoutPanel1.Controls.Add(this.textBoxDatabaseNamePhysical, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxCodeGenerationDizini, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxCodeGenerationFolder, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.labelProjectNamespace, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.labelCodeGenerationFolder, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.labelDatabaseNameLogical, 0, 4);
@@ -447,7 +447,7 @@
         private System.Windows.Forms.TextBox textBoxProjectNamespace;
         private System.Windows.Forms.Label labelProjectNamespace;
         private System.Windows.Forms.Button buttonFolderDialog;
-        private System.Windows.Forms.TextBox textBoxCodeGenerationDizini;
+        private System.Windows.Forms.TextBox textBoxCodeGenerationFolder;
         private System.Windows.Forms.Label labelCodeGenerationFolder;
         private System.Windows.Forms.TextBox textBoxConnectionString;
         private System.Windows.Forms.Label labelConnectionString;
