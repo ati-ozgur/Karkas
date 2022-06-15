@@ -247,11 +247,10 @@ namespace Karkas.Core.DataUtil
             }
         }
         /// <summary>
-        /// Bu komut Ado.Net'a ait ExecuteScalar komutudur. Eğer sorgu resultu sadece
-        /// tek bir değer dönmesini bekliyorsanız. Örneğin
-        /// SELECT COUNT(*) FROM ORTAK.KISI
-        /// Bu komutu kullanabilirsiniz. Gelen nesne (object) olarak döndüğü için
-        /// cast işlemi yapmanız gerekmektedir.
+        /// Wrapper for ADO.NET ExecuteScalar
+        /// If you expect only one result from your query, you could use this command.
+        /// example SELECT COUNT(*) FROM COMMON.USERS
+        /// return type of ExecuteScalar is object therefore you need to cast it, for example (int) for above query.
         /// </summary>
         /// <example>
         /// 
