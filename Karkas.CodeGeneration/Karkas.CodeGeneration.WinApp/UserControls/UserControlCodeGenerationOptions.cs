@@ -187,7 +187,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
         {
             get
             {
-                return textBoxConnectionString.Text;
+                return textBoxConnectionString.Text.Replace("$HOME",HomeDirectory);
             }
         }
 
