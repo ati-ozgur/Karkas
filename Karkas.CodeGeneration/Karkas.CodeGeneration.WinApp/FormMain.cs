@@ -145,8 +145,10 @@ namespace Karkas.CodeGeneration.WinApp
                 connection.ConnectionString = connectionString;
                 connection.Open();
                 connection.Close();
-                
+
                 // TODO fix Oracle
+                throw new NotImplementedException("Oracle code needed to be fixed");
+
                 //template = new AdoTemplateOracle();
                 //template.Connection = connection;
                 //template.DbProviderName = ConnectionDbProviderName;
@@ -173,7 +175,8 @@ namespace Karkas.CodeGeneration.WinApp
                 connection.Open();
                 connection.Close();
                 // TODO Fix Sqlite
-                //template = new AdoTemplate();
+                throw new NotImplementedException("Sqlite code needed to be fixed");
+                //template = new AdoTemplateSqlite();
                 //template.Connection = connection;
                 //template.DbProviderName = "System.Data.SQLite";
                 //DatabaseHelper = new DatabaseSqlite(template);
