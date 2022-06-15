@@ -81,10 +81,9 @@ namespace Karkas.Core.DataUtil
 
         private bool automaticConnectionManagement = true;
         /// <summary>
-        /// Eger varsayılan deger, true bırakılırsa, connection yonetimi 
-        /// BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
-        /// Connection'u acma ve kapama BaseDal kontrolundedir.
-        /// Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.
+        /// If Default true value is preserved, connections are managed by BaseDal.
+        /// Before queries, connections are automatically, opened and closed by BaseDal.
+        /// Otherwise, if  AutomaticConnectionManagement is false, User have to open and close connections.
         /// </summary>
         public bool AutomaticConnectionManagement
         {
