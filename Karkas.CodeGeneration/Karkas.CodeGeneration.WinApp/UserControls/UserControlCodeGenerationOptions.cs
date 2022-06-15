@@ -33,15 +33,25 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             }
         }
 
-        private string getHomeDirectory()
+
+        private string HomeDirectory
         {
-            string homePath = (Environment.OSVersion.Platform == PlatformID.Unix ||
-                   Environment.OSVersion.Platform == PlatformID.MacOSX)
-                ? Environment.GetEnvironmentVariable("HOME")
-                : Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%");
-            return homePath;
+            get
+            {
+                string homePath = (Environment.OSVersion.Platform == PlatformID.Unix ||
+                       Environment.OSVersion.Platform == PlatformID.MacOSX)
+                    ? Environment.GetEnvironmentVariable("HOME")
+                    : Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+                return homePath;
+
+            }
         }
 
+        private string getCodeGenerationDirectory()
+        {
+            string codeGenerationDirectory = textBoxCodeGenerationDizini.Text.Replace("$HOME", HomeDirectory);
+            return codeGenerationDirectory;
+        }
 
         public DatabaseEntry getDatabaseEntry()
         {
@@ -57,7 +67,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             entry.DatabaseNameLogical = textBoxDatabaseNameLogical.Text;
 
             entry.ProjectNameSpace = textBoxProjectNamespace.Text;
-            entry.CodeGenerationDirectory = textBoxCodeGenerationDizini.Text;
+            entry.CodeGenerationDirectory = getCodeGenerationDirectory();
 
             entry.ViewCodeGenerate = checkBoxViewCodeGenerate.Checked.ToString();
             entry.SequenceCodeGenerate = checkBoxSequenceCodeGenerate.Checked.ToString();
