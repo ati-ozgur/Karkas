@@ -20,8 +20,8 @@ namespace Karkas.CodeGenerationHelper.Generators
         string classNameSpace = "";
         string memberVariableName = "";
         string propertyVariableName = "";
-        string pkAdi = "";
-        string pkAdiPascalCase = "";
+        string pkName = "";
+        string pkNamePascalCase = "";
         string pkType = "";
 
 
@@ -66,8 +66,8 @@ namespace Karkas.CodeGenerationHelper.Generators
             string baseNameSpaceDalWithSchema = baseNameSpace + ".Dal." + schemaName;
 
             pkType = utils.FindPrimaryKeyType(container);
-            pkAdi = utils.FindPrimaryKeyColumnName(container);
-            pkAdiPascalCase = utils.GetPascalCase(pkAdi);
+            pkName = utils.FindPrimaryKeyColumnName(container);
+            pkNamePascalCase = utils.GetPascalCase(pkName);
 
 
             WriteUsings(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
@@ -77,11 +77,11 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtStartCurlyBracelet(output);
             OverrideDatabaseNameWrite(output, container);
 
-            if (container is ITable && (!string.IsNullOrEmpty(pkAdi)))
+            if (container is ITable && (!string.IsNullOrEmpty(pkName)))
             {
                 SilKomutuWritePkIle(output, container);
 
-                sorgulaPkAdiIleWrite(output, container, classNameTypeLibrary, pkType, pkAdiPascalCase);
+                QueryByPkNameWrite(output, container, classNameTypeLibrary, pkType, pkNamePascalCase);
             }
             AtEndCurlyBraceletDescreaseTab(output);
             AtEndCurlyBraceletDescreaseTab(output);
@@ -116,21 +116,22 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
-        private static void sorgulaPkAdiIleWrite(IOutput output, IContainer container, string classNameTypeLibrary, string pkType, string pkAdi)
+        private static void QueryByPkNameWrite(IOutput output, IContainer container, string classNameTypeLibrary, string pkType, string pkName)
         {
             ITable table = container as ITable;
+            string variableName = "p" + pkName;
             if (table != null)
             {
                 if (table.PrimaryKeyColumnCount == 1)
                 {
 
-                    string classSatiri = "public " + classNameTypeLibrary + " Sorgula"
-                                    + pkAdi + "Ile(" + pkType
-                                    + " p1)";
-                    output.autoTabLn(classSatiri);
+                    string classLine = "public " + classNameTypeLibrary + " QueryBy"
+                                    + pkName + "(" + pkType
+                                    + " " + variableName +  ")";
+                    output.autoTabLn(classLine);
                     output.autoTabLn("{");
                     output.increaseTab();
-                    output.autoTabLn("return dal.Sorgula" + pkAdi + "Ile(p1);");
+                    output.autoTabLn("return dal.QueryBy" + pkName + "("+ variableName + ");");
                     output.decreaseTab();
                     output.autoTabLn("}");
                 }

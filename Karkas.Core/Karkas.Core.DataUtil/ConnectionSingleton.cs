@@ -62,6 +62,13 @@ namespace Karkas.Core.DataUtil
 
         }
         private Dictionary<string, string> providerNameList = new Dictionary<string, string>();
+
+        public void AddConnection(string pDatabaseName,string pProviderName,string pConnectionString)
+        {
+            providerNameList.Add(pDatabaseName, pProviderName);
+            connectionStringList.Add(pDatabaseName, pConnectionString);
+        }
+
         private string getProviderName(string pDatabaseName)
         {
             if (providerNameList.ContainsKey(pDatabaseName))
