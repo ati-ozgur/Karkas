@@ -21,6 +21,7 @@ using Karkas.CodeGeneration.Sqlite.Implementations;
 using Karkas.CodeGeneration.SqlServer.Implementations;
 using Karkas.Core.Data.Oracle;
 using Karkas.Core.Data.SqlServer;
+using Karkas.Core.Data.Sqlite;
 
 namespace Karkas.CodeGeneration.WinApp
 {
@@ -69,7 +70,7 @@ namespace Karkas.CodeGeneration.WinApp
         {
             string type = userControlCodeGenerationOptions1.SelectedDatabaseType;
             string connectionString = userControlCodeGenerationOptions1.ConnectionString;
-            string connectionName =userControlCodeGenerationOptions1.ConnectionName;
+            string connectionName = userControlCodeGenerationOptions1.ConnectionName;
             string ConnectionDbProviderName = userControlCodeGenerationOptions1.ConnectionDbProviderName;
 
             userControlTableRelated1.setComboBoxSchemaListText("");
@@ -175,11 +176,11 @@ namespace Karkas.CodeGeneration.WinApp
                 connection.Open();
                 connection.Close();
                 // TODO Fix Sqlite
-                throw new NotImplementedException("Sqlite code needed to be fixed");
-                //template = new AdoTemplateSqlite();
-                //template.Connection = connection;
-                //template.DbProviderName = "System.Data.SQLite";
-                //DatabaseHelper = new DatabaseSqlite(template);
+                //throw new NotImplementedException("Sqlite code needed to be fixed");
+                template = new AdoTemplateSqlite();
+                template.Connection = connection;
+                template.DbProviderName = "System.Data.SQLite";
+                DatabaseHelper = new DatabaseSqlite(template);
             }
         }
 

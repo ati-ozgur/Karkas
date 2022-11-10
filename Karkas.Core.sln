@@ -23,7 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeGeneration", "CodeGener
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{17DC9C2A-7DBA-4318-896E-5968F01F918F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Core.Data.Oracle", "Karkas.Core\Karkas.Core.Data.Oracle\Karkas.Core.Data.Oracle.csproj", "{010F43FF-0D74-4921-B932-A9C238F40298}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.Core.Data.Oracle", "Karkas.Core\Karkas.Core.Data.Oracle\Karkas.Core.Data.Oracle.csproj", "{010F43FF-0D74-4921-B932-A9C238F40298}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karkas.Core.Data.Sqlite", "Karkas.Core.Data.Sqlite\Karkas.Core.Data.Sqlite.csproj", "{20A4DFF7-EAC7-4EAF-A307-0410D45B29F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{010F43FF-0D74-4921-B932-A9C238F40298}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{010F43FF-0D74-4921-B932-A9C238F40298}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{010F43FF-0D74-4921-B932-A9C238F40298}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20A4DFF7-EAC7-4EAF-A307-0410D45B29F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20A4DFF7-EAC7-4EAF-A307-0410D45B29F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20A4DFF7-EAC7-4EAF-A307-0410D45B29F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20A4DFF7-EAC7-4EAF-A307-0410D45B29F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +86,7 @@ Global
 		{F09A75E4-240F-4A17-961B-D6A4F3207989} = {08303D61-1889-4CDE-AFBE-3C647476EF95}
 		{CA0B5150-0823-4069-940F-2FFD922AFCC1} = {17DC9C2A-7DBA-4318-896E-5968F01F918F}
 		{010F43FF-0D74-4921-B932-A9C238F40298} = {17DC9C2A-7DBA-4318-896E-5968F01F918F}
+		{20A4DFF7-EAC7-4EAF-A307-0410D45B29F4} = {17DC9C2A-7DBA-4318-896E-5968F01F918F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {99AA2444-1453-4517-8FEB-F1B9350A401F}

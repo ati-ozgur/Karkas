@@ -220,7 +220,10 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             get { return new TypeLibraryGenerator(this); }
         }
 
-        public override BsGenerator BsGenerator => throw new NotImplementedException();
+        public override BsGenerator BsGenerator
+        {
+            get { return new SqliteBsGenerator(this); }
+        }
 
     }
 }
