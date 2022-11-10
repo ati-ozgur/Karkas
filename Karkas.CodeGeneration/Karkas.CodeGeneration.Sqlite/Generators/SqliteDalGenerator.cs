@@ -15,6 +15,8 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         {
         }
 
+
+
         protected override void ClassWrite(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
         {
             output.autoTab("public partial class ");
@@ -47,11 +49,13 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         {
             return ";select last_insert_rowid();";
         }
-
         protected override void WriteUsingDatabaseClient(IOutput output)
         {
             output.autoTabLn("using System.Data.SQLite;");
+            output.autoTabLn("using Karkas.Core.Data.Sqlite;");
+
         }
+
 
         public override void InsertCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
         {
