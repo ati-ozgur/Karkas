@@ -15,6 +15,17 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         {
         }
 
+        protected override void ClassWrite(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
+        {
+            output.autoTab("public partial class ");
+            output.write(classNameTypeLibrary);
+            output.write("Dal : BaseDalSqlite<");
+            output.write(classNameTypeLibrary);
+            output.write(", AdoTemplateSqlite, ParameterBuilderSqlite");
+            output.writeLine(">");
+            AtStartCurlyBraceletIncreaseTab(output);
+        }
+
         protected override string parameterSymbol
         {
             get { return "@"; }
