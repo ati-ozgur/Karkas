@@ -21,14 +21,17 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             output.autoTab("public partial class ");
             output.write(classNameBs);
             output.write(" : BaseBs<" + classNameTypeLibrary + ", ");
-            output.write(classNameDal + ",  AdoTemplateSqlite");
+            output.write(classNameDal + ",  AdoTemplateSqlite, ParameterBuilderSqlite");
             output.writeLine(">");
         }
 
         protected override void WriteUsingsDatabaseSpecific(IOutput output)
         {
-            output.autoTabLn("using Susing Karkas.Core.Data.Sqlite;");
-            output.autoTabLn("using System.Data.Sqlite;");
+            output.autoTabLn("using Karkas.Core.Data.Sqlite;");
+            output.autoTabLn("using System.Data.SQLite;");
+            output.autoTabLn("using Karkas.Core.Data.Sqlite;");
+            
+
 
         }
     }
