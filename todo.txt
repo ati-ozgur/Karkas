@@ -1,0 +1,7 @@
+todo.txt
+
+- use mermaid as markdown to create some diagrams
+
+https://mermaid-js.github.io/mermaid/
+
+
