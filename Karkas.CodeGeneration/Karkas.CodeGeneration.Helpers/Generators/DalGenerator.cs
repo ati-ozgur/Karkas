@@ -337,7 +337,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             string cumle = "return @\"SELECT ";
             foreach (IColumn column in container.Columns)
             {
-                cumle += column.Name + ",";
+                cumle += getColumnName(column) + ",";
             }
             cumle = cumle.Remove(cumle.Length - 1);
             cumle += " FROM ";
@@ -436,13 +436,13 @@ namespace Karkas.CodeGenerationHelper.Generators
                 {
                     if (updateWhereSatirindaOlmaliMi(column))
                     {
-                        pkcumlesi += " " + column.Name + " = " + parameterSymbol + column.Name + Environment.NewLine + " AND"  ;
+                        pkcumlesi += " " + getColumnName(column) + " = " + parameterSymbol + column.Name + Environment.NewLine + " AND"  ;
                     }
                     if (!columnParametreOlmaliMi(column))
                     {
                         if (!updateWhereSatirindaOlmaliMi(column))
                         {
-                            cumle += column.Name + " = " + parameterSymbol + column.Name +  Environment.NewLine + "," ;
+                            cumle += getColumnName(column) + " = " + parameterSymbol + column.Name +  Environment.NewLine + "," ;
                         }
                     }
                 }
@@ -469,7 +469,21 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtEndCurlyBraceletDescreaseTab(output);
         }
 
+        private string getColumnName(IColumn column)
+        {
+            string lowerName = column.Name.ToLowerInvariant();
+            string upperName = column.Name.ToUpperInvariant();
 
+            if(GetReservedKeywords().Contains(lowerName) 
+                || GetReservedKeywords().Contains(upperName))
+            {
+                return StringEscapeCharacterStart 
+                    + column.Name
+                    + StringEscapeCharacterEnd
+                    ;
+            }
+            return column.Name;
+        }
 
 
         protected void InsertStringWrite(IOutput output, IContainer container, string schemaNameForQueries)
@@ -495,7 +509,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                     if (!column.IsAutoKey)
                     {
                         
-                        cumle += column.Name + ",";
+                        cumle += getColumnName(column) + ",";
                     }
                 }
                 cumle = cumle.Remove(cumle.Length - 1);
