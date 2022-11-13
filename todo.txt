@@ -1,9 +1,11 @@
 todo.txt
 
-- fix sqlite keywords issue.
+- fix sqlite keywords issue. DONE
 https://www.sqlite.org/lang_keywords.html
 
 - add [JsonPropertyName("XXX")] to code generation
+
+- add foreign key code generations
 
 
 - use mermaid as markdown to create some diagrams
