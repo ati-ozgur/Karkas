@@ -113,6 +113,8 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             identityKolonDegeriniSetleWrite(output, container);
 
+            string sorgulardaKullanilanSema = getSqlIcinSemaBilgisi(container, semaIsminiSorgulardaKullan);
+
             SelectCountWrite(output, container, semaIsminiSorgulardaKullan);
 
             SelectStringWrite(output, container, semaIsminiSorgulardaKullan);
@@ -121,7 +123,6 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             UpdateStringWrite(output, container, semaIsminiSorgulardaKullan, ref pkcumlesi);
 
-            string sorgulardaKullanilanSema = getSqlIcinSemaBilgisi(container, semaIsminiSorgulardaKullan);
 
             InsertStringWrite(output, container, sorgulardaKullanilanSema);
 
@@ -470,6 +471,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
 
 
+
         protected void InsertStringWrite(IOutput output, IContainer container, string schemaNameForQueries)
         {
             string cumle = "";
@@ -492,6 +494,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                     }
                     if (!column.IsAutoKey)
                     {
+                        
                         cumle += column.Name + ",";
                     }
                 }
@@ -695,11 +698,13 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
         public abstract void UpdateCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary);
         public abstract void DeleteCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary);
- 
 
 
 
+        public abstract List<string> GetReservedKeywords();
 
+        public abstract string StringEscapeCharacterStart { get; }
+        public abstract string StringEscapeCharacterEnd { get; }
 
 
 
