@@ -1,5 +1,11 @@
 todo.txt
 
+- fix sqlite keywords issue.
+https://www.sqlite.org/lang_keywords.html
+
+- add [JsonPropertyName("XXX")] to code generation
+
+
 - use mermaid as markdown to create some diagrams
 
 https://mermaid-js.github.io/mermaid/
