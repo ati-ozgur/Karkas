@@ -147,8 +147,6 @@ namespace Karkas.CodeGeneration.WinApp
                 connection.Open();
                 connection.Close();
 
-                // TODO fix Oracle
-                //throw new NotImplementedException("Oracle code needed to be fixed");
 
                 template = new AdoTemplateOracle();
                 template.Connection = connection;
