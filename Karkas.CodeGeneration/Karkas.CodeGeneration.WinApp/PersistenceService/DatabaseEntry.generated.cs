@@ -30,6 +30,8 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
 		private string useSchemaNameInFolders;
 		private string ignoreSystemTables;
 		private string ignoredSchemaList;
+		private string schemaList;
+
 		private string abbrevationsAsString;
 		private string creationTime;
 		private string lastAccessTime;
@@ -317,6 +319,25 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
 					this.RowState = DataRowState.Modified;
 				}
 				ignoredSchemaList = value;
+			}
+		}
+
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		public string SchemaList
+		{
+			[DebuggerStepThrough]
+			get
+			{
+				return schemaList;
+			}
+			[DebuggerStepThrough]
+			set
+			{
+				if ((this.RowState == DataRowState.Unchanged) && (ignoredSchemaList != value))
+				{
+					this.RowState = DataRowState.Modified;
+				}
+				schemaList = value;
 			}
 		}
 

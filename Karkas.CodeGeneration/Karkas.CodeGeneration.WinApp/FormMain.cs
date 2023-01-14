@@ -269,9 +269,9 @@ namespace Karkas.CodeGeneration.WinApp
         public bool ProduceAllTablesAreYouSure()
         {
             string databaseType = entry.ConnectionDatabaseType;
-            if (databaseType == DatabaseType.Oracle)
+            if (databaseType == DatabaseType.Oracle && string.IsNullOrEmpty(entry.SchemaList))
             {
-                string message = "Normally, codes are produced for only one schema in Oracle database. Are you sure?";
+                string message = "Normally, codes are produced for only somes schemas in Oracle database. May be you should fill TEXTBOX SCHEMA LIST. Are you sure to generate tables for all schemas in oracle?";
                 string caption = "PRODUCE CODE FOR ALL DATABASE";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result;
