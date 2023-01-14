@@ -44,13 +44,14 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.write(classNameTypeLibrary);
             output.write("Dal : BaseDalOracle<");
             output.write(classNameTypeLibrary);
+            output.write(", AdoTemplateOracle, ParameterBuilderOracle");
             output.writeLine(">");
             AtStartCurlyBraceletIncreaseTab(output);
         }
 
         protected override void WriteUsingDatabaseClient(IOutput output)
         {
-            output.autoTabLn("Oracle.ManagedDataAccess.Core;");
+            output.autoTabLn("using Oracle.ManagedDataAccess;");
 
         }
 
