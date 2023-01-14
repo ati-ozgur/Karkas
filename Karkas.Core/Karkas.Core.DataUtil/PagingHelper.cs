@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Text.RegularExpressions;
-using Karkas.Extensions;
 using System.Data.Common;
+using Karkas.Extensions;
 
 namespace Karkas.Core.DataUtil
 {
