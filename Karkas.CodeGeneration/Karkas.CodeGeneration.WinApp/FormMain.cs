@@ -148,13 +148,13 @@ namespace Karkas.CodeGeneration.WinApp
                 connection.Close();
 
                 // TODO fix Oracle
-                throw new NotImplementedException("Oracle code needed to be fixed");
+                //throw new NotImplementedException("Oracle code needed to be fixed");
 
-                //template = new AdoTemplateOracle();
-                //template.Connection = connection;
-                //template.DbProviderName = ConnectionDbProviderName;
-                //DatabaseHelper = new CodeGenerationOracle( template);
-                //DbProviderFactories.RegisterFactory(ConnectionDbProviderName, factory);
+                template = new AdoTemplateOracle();
+                template.Connection = connection;
+                template.DbProviderName = ConnectionDbProviderName;
+                DatabaseHelper = new CodeGenerationOracle( template);
+                DbProviderFactories.RegisterFactory(ConnectionDbProviderName, factory);
 
 
 
