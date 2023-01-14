@@ -65,6 +65,11 @@ namespace Karkas.CodeGeneration.WinApp
             }
         }
         
+        public string[] GetSchemaList()
+        {
+            return CurrentDatabaseEntry.getSchemaList();
+        }
+
         
         private void buttonTestConnectionString_Click(object sender, EventArgs e)
         {

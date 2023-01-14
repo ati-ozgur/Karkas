@@ -323,9 +323,9 @@
             this.labelIgnoredSchemaList.AutoSize = true;
             this.labelIgnoredSchemaList.Location = new System.Drawing.Point(3, 248);
             this.labelIgnoredSchemaList.Name = "labelIgnoredSchemaList";
-            this.labelIgnoredSchemaList.Size = new System.Drawing.Size(114, 15);
+            this.labelIgnoredSchemaList.Size = new System.Drawing.Size(128, 15);
             this.labelIgnoredSchemaList.TabIndex = 51;
-            this.labelIgnoredSchemaList.Text = "Ignored Schema List";
+            this.labelIgnoredSchemaList.Text = "Ignored Schema List (,)";
             // 
             // checkBoxCreateMainClassValidationExamples
             // 
@@ -427,9 +427,9 @@
             this.labelAdditionalSchemaList.AutoSize = true;
             this.labelAdditionalSchemaList.Location = new System.Drawing.Point(3, 279);
             this.labelAdditionalSchemaList.Name = "labelAdditionalSchemaList";
-            this.labelAdditionalSchemaList.Size = new System.Drawing.Size(128, 15);
+            this.labelAdditionalSchemaList.Size = new System.Drawing.Size(84, 15);
             this.labelAdditionalSchemaList.TabIndex = 58;
-            this.labelAdditionalSchemaList.Text = "Additional Schema List";
+            this.labelAdditionalSchemaList.Text = "Schema List (,)";
             // 
             // textBoxAdditionalSchemaList
             // 
