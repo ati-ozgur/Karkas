@@ -138,12 +138,41 @@ OWNER = :schemaName
             get { return schemaName; }
         }
 
+
+        private const string SQL_FOR_IDENTITY = @"
+select COUNT(*) from ALL_TAB_COLS  C 
+   WHERE
+   1 = 1
+AND
+        C.table_name = :tableName
+         AND C.OWNER = :schemaName
+         AND C.IDENTITY_COLUMN =  'YES'
+";
+
+        private int getIdentityColumnCount()
+        {
+            IParameterBuilder builder = template.getParameterBuilder();
+            builder.AddParameter("tableName", DbType.String, Name);
+            builder.AddParameter("schemaName", DbType.String, Schema);
+
+            int count = (int) template.BringOneValue(SQL_FOR_IDENTITY, builder.GetParameterArray());
+            return count;
+
+        }
+
+
+        private bool? identityValue;
         public bool IdentityVarmi
         {
             get
             {
-                // There is no identity in Oracle
-                return false;
+                if(!identityValue.HasValue)
+                {
+                    identityValue = getIdentityColumnCount() > 0;
+                    return identityValue.Value;
+
+                }
+                return identityValue.Value;
             }
         }
 
