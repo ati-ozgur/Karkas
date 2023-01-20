@@ -1,5 +1,22 @@
-karkas
+# karkas
 ======
+
+
+## How it works after code generation 1
+
+```mermaid
+sequenceDiagram
+    Web-UI->>+Web-API: sends TypeLibrary JSON
+    Web-API->>+Bs:  Call Bs Insert method with argument TypeLibrary
+    Bs->>+Dal: Call Dal Insert method with argument TypeLibrary
+    Dal->>+Database: Send SQL statement
+    Database-->>-Dal: Send Result Back
+    Dal-->>-Bs: Send Result Back
+    Bs-->>-Web-API: Send Result Back
+    Web-API-->>-Web-UI: Send Result Back
+``
+
+
 
 Aşağıdaki parçalardan oluşur.
  1. DAL - Data Access Library - Veri Ulaşım Kütüphanesi
