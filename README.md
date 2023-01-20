@@ -41,17 +41,15 @@ Aşağıdaki Veritabanlarını desteklemektedir.
 
 ...
 
-## Installation - Kurulum
+## Installation 
 
-Kolay kullanımı desteklemek amacı ile nuget paketleri ile çalışmaktadır.
-Aşağıdaki paketleri kullanabilirsiniz.
+Unfortunately, there is no easy installation right now.
+Clone the project and run the Karkas.CodeGeneration.WinApp project in Visual Studio
 
-1. Karkas.CodeGeneration.WinApp.1.0.0
-2. Karkas.Core.DataUtil.1.0.0
 
 ## Requirements
 
-Visual Studio 2008-2012 ile çalışmaktadır.
+Karkas uses Visual Studio 2022 but generated code is usable from .NET 4, .Net Core 1-3 and .Net 6, and .Net 7.
 
 
 ## Contributing
@@ -68,5 +66,5 @@ TODO
 
 ## License
 
-project-x is released under the MIT License. See the bundled LICENSE file for
+Karkas is released under the MIT License. See the bundled LICENSE file for
 details.
