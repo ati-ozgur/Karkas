@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Karkas.Core.DataUtil;
+using Karkas.Core.DataUtil.BaseClasses;
 using Karkas.Core.TypeLibrary;
 
-namespace Karkas.Core.DataUtil.BaseClasses
+namespace Karkas.Core.Data.Oracle
 {
 
     public abstract class BaseDalOracle<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> :

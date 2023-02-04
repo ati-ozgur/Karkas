@@ -77,6 +77,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             entry.UseSchemaNameInFolders = checkBoxUseSchemaNameInFolders.Checked.ToString();
             entry.IgnoreSystemTables = checkBoxIgnoreSystemTables.Checked.ToString();
             entry.IgnoredSchemaList = textBoxIgnoredSchemaList.Text;
+            entry.SchemaList = textBoxAdditionalSchemaList.Text;
             if (string.IsNullOrEmpty(textBoxAbbrevationsAsString.Text))
             {
                 entry.AbbrevationsAsString = null;
@@ -162,6 +163,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             }
 
             textBoxIgnoredSchemaList.Text = entry.IgnoredSchemaList;
+            textBoxAdditionalSchemaList.Text = entry.SchemaList;
             textBoxAbbrevationsAsString.Text = entry.AbbrevationsAsString;
 
 

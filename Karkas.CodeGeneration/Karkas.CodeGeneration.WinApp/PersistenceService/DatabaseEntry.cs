@@ -32,6 +32,11 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
             
         }
 
+        public string[] getSchemaList()
+        {
+            return this.SchemaList.Split(",");
+        }
+
 
         public void setIDatabaseValues(IDatabase database)
         {

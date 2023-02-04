@@ -104,7 +104,9 @@ namespace Karkas.CodeGenerationHelper.Generators
             string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForDalGenerated(database, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
             string outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(database, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
 
-            WriteUsings(output, schemaName, baseNameSpaceTypeLibrary, baseNameSpaceDal);
+            WriteUsings(output, schemaName, baseNameSpaceTypeLibrary);
+
+            WriteNamespaceStart(output, baseNameSpaceDal);
 
             ClassWrite(output, classNameTypeLibrary, getIdentityVarmi(utils, container), getIdentityType(utils, container));
             output.autoTabLn("");
@@ -153,7 +155,8 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.clear();
             if (!File.Exists(outputFullFileName))
             {
-                WriteUsings(output, schemaName, baseNameSpaceTypeLibrary, baseNameSpaceDal);
+                WriteUsings(output, schemaName, baseNameSpaceTypeLibrary);
+                WriteNamespaceStart(output, baseNameSpaceDal);
                 output.autoTab("public partial class ");
                 output.writeLine(classNameTypeLibrary + "Dal");
                 AtStartCurlyBraceletIncreaseTab(output);
@@ -260,8 +263,12 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
         protected abstract void WriteUsingDatabaseClient(IOutput output);
+        protected virtual void WriteUsingsAdditional(IOutput output)
+        {
 
-        private void WriteUsings(IOutput output, string schemaName, string baseNameSpaceTypeLibrary, string baseNameSpaceDal)
+        }
+
+        private void WriteUsings(IOutput output, string schemaName, string baseNameSpaceTypeLibrary)
         {
             output.autoTabLn("");
             output.autoTabLn("using System;");
@@ -275,7 +282,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTab("using ");
             output.autoTab(baseNameSpaceTypeLibrary);
             output.autoTabLn(";");
-            if ( !string.IsNullOrWhiteSpace(schemaName))
+            if (!string.IsNullOrWhiteSpace(schemaName))
             {
                 output.autoTab("using ");
                 output.autoTab(baseNameSpaceTypeLibrary);
@@ -283,6 +290,10 @@ namespace Karkas.CodeGenerationHelper.Generators
                 output.autoTab(schemaName);
                 output.autoTabLn(";");
             }
+            WriteUsingsAdditional(output);
+        }
+        private void WriteNamespaceStart(IOutput output, string baseNameSpaceDal)
+        { 
             output.autoTabLn("");
             output.autoTabLn("");
             output.autoTab("namespace ");
@@ -291,6 +302,8 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtStartCurlyBraceletIncreaseTab(output);
 
         }
+
+
 
         protected virtual void ClassWrite(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
         {

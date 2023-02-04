@@ -32,12 +32,26 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
         {
             if (this.ParentMainForm.ProduceAllTablesAreYouSure())
             {
-
+                string[] schemaList = this.ParentMainForm.GetSchemaList();
+                string hatalar = "";
+                string message = "";
                 try
                 {
+                    if (schemaList.Length == 0)
+                    {
+                        hatalar = ParentMainForm.DatabaseHelper.CodeGenerateAllTables();
+                        message = "Code generated for all tables in database";
+                    }
+                    else
+                    {
+                        foreach(string schemaName in schemaList)
+                        {
+                            hatalar = hatalar + ParentMainForm.DatabaseHelper.CodeGenerateAllTablesInSchema(schemaName);
+                        }
+                        message = "Code generated for all tables in following schemas: " + string.Join(",",schemaList);
 
-                    String hatalar = ParentMainForm.DatabaseHelper.CodeGenerateAllTables();
-                    string message = "TÜM TABLOLAR İÇİN KOD ÜRETİLDİ";
+                    }
+
                     if (!string.IsNullOrEmpty(hatalar))
                     {
                         message = message + ", HATALAR " + hatalar;

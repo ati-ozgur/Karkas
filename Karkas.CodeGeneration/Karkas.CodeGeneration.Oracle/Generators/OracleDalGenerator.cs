@@ -38,19 +38,25 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             throw new NotImplementedException();
         }
 
+        protected override void WriteUsingsAdditional(IOutput output)
+        {
+            output.write("using Karkas.Core.Data.Oracle;");
+        }
+
         protected override void ClassWrite(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
         {
             output.autoTab("public partial class ");
             output.write(classNameTypeLibrary);
             output.write("Dal : BaseDalOracle<");
             output.write(classNameTypeLibrary);
+            output.write(", AdoTemplateOracle, ParameterBuilderOracle");
             output.writeLine(">");
             AtStartCurlyBraceletIncreaseTab(output);
         }
 
         protected override void WriteUsingDatabaseClient(IOutput output)
         {
-            output.autoTabLn("Oracle.ManagedDataAccess.Core;");
+            output.autoTabLn("using Oracle.ManagedDataAccess;");
 
         }
 

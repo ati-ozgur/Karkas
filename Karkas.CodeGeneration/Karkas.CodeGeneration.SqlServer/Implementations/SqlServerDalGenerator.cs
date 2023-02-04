@@ -208,6 +208,7 @@ ORDER BY STORED_PROCEDURE_NAME
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@SP_SCHEMA_NAME", DbType.String, schemaName);
+            //var result = Template.GetListOfDictionary(SQL_FOR_STORED_PROCEDURE_LIST, builder.GetParameterArray());
             DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_STORED_PROCEDURE_LIST, builder.GetParameterArray());
             return dtTableList;
         }

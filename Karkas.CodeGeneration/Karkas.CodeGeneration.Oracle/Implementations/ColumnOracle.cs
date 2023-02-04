@@ -55,14 +55,29 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
                 }
         }
 
+        private bool? isAutoKey = null;
         public bool IsAutoKey
         {
-            get 
+            get
             {
-                // TODO Bunua daha sonra yap
-                return false;
+                if (!isAutoKey.HasValue)
+                {
+                    String val = ColumnValuesInDatabase["IDENTITY_COLUMN"].ToString();
+                    if (val == "YES")
+                    {
+                        isAutoKey = true;
+                    }
+                    else
+                    {
+                        isAutoKey = false;
+                    }
+                }
+                return isAutoKey.Value;
             }
         }
+
+
+
 
         public string Name
         {

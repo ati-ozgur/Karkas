@@ -21,7 +21,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.autoTab("public partial class ");
             output.write(classNameBs);
             output.write(" : BaseBs<" + classNameTypeLibrary + ", ");
-            output.write(classNameDal + ",  AdoTemplatOracle");
+            output.write(classNameDal + ", AdoTemplateOracle,ParameterBuilderOracle");
             output.writeLine(">");
         }
 
