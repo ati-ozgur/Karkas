@@ -62,15 +62,9 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
             {
                 if (!isAutoKey.HasValue)
                 {
-                    String val = ColumnValuesInDatabase["IDENTITY_COLUMN"].ToString();
-                    if (val == "YES")
-                    {
-                        isAutoKey = true;
-                    }
-                    else
-                    {
-                        isAutoKey = false;
-                    }
+
+                    isAutoKey = IsIdentity || IsComputed;
+
                 }
                 return isAutoKey.Value;
             }
@@ -647,9 +641,24 @@ AND
         }
 
 
+        private bool? isIdentity = false;
         public bool IsIdentity
         {
-            get { return false; }
+            get
+            {
+                if (!isIdentity.HasValue)
+                {
+                    isIdentity = false;
+                    string valIdentityColumn = ColumnValuesInDatabase["IDENTITY_COLUMN"].ToString();
+                    if (valIdentityColumn == "YES")
+                    {
+                        isIdentity = true;
+                    }
+
+
+                }
+                return isIdentity.Value;
+            }
         }
     }
 }
