@@ -546,7 +546,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                 cumle += ")";
                 if (getIdentityVarmi(utils, container))
                 {
-                    cumle = cumle +  getAutoIncrementKeySql();
+                    cumle = cumle +  getAutoIncrementKeySql(container);
                 }
                 output.autoTabLn(cumle + "\";");
             }
@@ -559,7 +559,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
-        protected abstract String getAutoIncrementKeySql();
+        protected abstract String getAutoIncrementKeySql(IContainer container);
 
         private void listeTanimla(IOutput output)
         {

@@ -33,9 +33,23 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             }
         }
 
-        protected override string getAutoIncrementKeySql()
+        protected override string getAutoIncrementKeySql(IContainer container)
         {
-            throw new NotImplementedException();
+            string retValue = "";
+            foreach (IColumn column in container.Columns)
+            {
+                if (column.IsComputed || !column.IsAutoKey)
+                {
+                    continue;
+                }
+
+                string dataDefault = column.GetColumnInformationSchemaProperty("DATA_DEFAULT");
+                if (dataDefault != null && dataDefault.ToLowerInvariant().Contains("nextval"))
+                {
+                    retValue = dataDefault.Replace("nextval", "currval");
+                }
+            }
+            return retValue;
         }
 
         protected override void WriteUsingsAdditional(IOutput output)

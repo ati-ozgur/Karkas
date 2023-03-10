@@ -44,7 +44,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         }
 
 
-        protected override string getAutoIncrementKeySql()
+        protected override string getAutoIncrementKeySql(IContainer container)
         {
             return ";SELECT scope_identity();";
         }

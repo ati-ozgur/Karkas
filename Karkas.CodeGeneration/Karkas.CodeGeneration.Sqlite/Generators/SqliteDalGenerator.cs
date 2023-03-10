@@ -46,7 +46,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             }
         }
 
-        protected override string getAutoIncrementKeySql()
+        protected override string getAutoIncrementKeySql(IContainer container)
         {
             return ";select last_insert_rowid();";
         }
