@@ -502,7 +502,6 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         protected void InsertStringWrite(IOutput output, IContainer container, string schemaNameForQueries)
         {
-            string cumle = "";
 
             output.autoTabLn("protected override string InsertString");
             AtStartCurlyBraceletIncreaseTab(output);
@@ -513,7 +512,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                 output.autoTabLn("return @\"INSERT INTO "
                     + schemaNameForQueries
                     + container.Name + " ");
-                cumle = getInsertString(output, container, cumle);
+                string cumle = getInsertString(output, container);
                 output.autoTabLn(cumle + "\";");
             }
             else
@@ -524,9 +523,9 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtEndCurlyBraceletDescreaseTab(output);
         }
 
-        private string getInsertString(IOutput output, IContainer container, string cumle)
+        private string getInsertString(IOutput output, IContainer container)
         {
-            cumle += " (";
+            string cumle = " (";
             foreach (IColumn column in container.Columns)
             {
                 if (column.IsComputed)
