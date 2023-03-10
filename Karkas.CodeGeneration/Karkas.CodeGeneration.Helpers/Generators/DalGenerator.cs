@@ -499,6 +499,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
+
         protected void InsertStringWrite(IOutput output, IContainer container, string schemaNameForQueries)
         {
             string cumle = "";
@@ -512,42 +513,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                 output.autoTabLn("return @\"INSERT INTO "
                     + schemaNameForQueries
                     + container.Name + " ");
-                cumle += " (";
-                foreach (IColumn column in container.Columns)
-                {
-                    if (column.IsComputed)
-                    {
-                        continue;
-                    }
-                    if (!column.IsAutoKey)
-                    {
-                        
-                        cumle += getColumnName(column) + ",";
-                    }
-                }
-                cumle = cumle.Remove(cumle.Length - 1);
-                cumle += ") ";
-                output.autoTabLn(cumle);
-                output.autoTabLn(" VALUES ");
-                cumle = "(";
-                output.autoTab("");
-                foreach (IColumn column in container.Columns)
-                {
-                    if (column.IsComputed)
-                    {
-                        continue;
-                    }
-                    if (!column.IsAutoKey)
-                    {
-                        cumle += parameterSymbol  + column.Name + ",";
-                    }
-                }
-                cumle = cumle.Remove(cumle.Length - 1);
-                cumle += ")";
-                if (getIdentityVarmi(utils, container))
-                {
-                    cumle = cumle +  getAutoIncrementKeySql(container);
-                }
+                cumle = getInsertString(output, container, cumle);
                 output.autoTabLn(cumle + "\";");
             }
             else
@@ -558,6 +524,47 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtEndCurlyBraceletDescreaseTab(output);
         }
 
+        private string getInsertString(IOutput output, IContainer container, string cumle)
+        {
+            cumle += " (";
+            foreach (IColumn column in container.Columns)
+            {
+                if (column.IsComputed)
+                {
+                    continue;
+                }
+                if (!column.IsAutoKey)
+                {
+
+                    cumle += getColumnName(column) + ",";
+                }
+            }
+            cumle = cumle.Remove(cumle.Length - 1);
+            cumle += ") ";
+            output.autoTabLn(cumle);
+            output.autoTabLn(" VALUES ");
+            cumle = "(";
+            output.autoTab("");
+            foreach (IColumn column in container.Columns)
+            {
+                if (column.IsComputed)
+                {
+                    continue;
+                }
+                if (!column.IsAutoKey)
+                {
+                    cumle += parameterSymbol + column.Name + ",";
+                }
+            }
+            cumle = cumle.Remove(cumle.Length - 1);
+            cumle += ")";
+            if (getIdentityVarmi(utils, container))
+            {
+                cumle = cumle + getAutoIncrementKeySql(container);
+            }
+
+            return cumle;
+        }
 
         protected abstract String getAutoIncrementKeySql(IContainer container);
 
