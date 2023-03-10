@@ -43,6 +43,6 @@ namespace Karkas.CodeGenerationHelper.Interfaces
 
         string DataTypeInDatabase { get; }
 
-
+        string GetColumnInformationSchemaProperty(string propertyName);
     }
 }

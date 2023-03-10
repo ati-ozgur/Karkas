@@ -277,6 +277,13 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             return "Unknown";
         }
 
+        public string GetColumnInformationSchemaProperty(string propertyName)
+        {
+            // TODO Implement it later, not needed right now.
+            throw new NotImplementedException();
+        }
+
+
         public ITable Table
         {
             get

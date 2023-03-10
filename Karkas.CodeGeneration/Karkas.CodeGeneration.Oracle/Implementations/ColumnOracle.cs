@@ -213,10 +213,10 @@ AND
 
 
 
-        private DataRow columnValuesInDatabase = null;
+        private Dictionary<string,object> columnValuesInDatabase = null;
 
 
-        private DataRow ColumnValuesInDatabase
+        private Dictionary<string, object> ColumnValuesInDatabase
         {
             get
             {
@@ -226,15 +226,21 @@ AND
                     builder.AddParameter("tableName", DbType.String, tableOrView.Name);
                     builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
                     builder.AddParameter("columnName", DbType.String, Name);
-                    DataTable dtColumnValues = template.DataTableOlustur(SQL_COLUMN_VALUES, builder.GetParameterArray());
-                    if (dtColumnValues.Rows.Count > 0)
+                    var liste = template.GetListOfDictionary(SQL_COLUMN_VALUES, builder.GetParameterArray());
+
+                    if (liste.Count > 0)
                     {
-                        columnValuesInDatabase = dtColumnValues.Rows[0];
+                        columnValuesInDatabase = liste[0];
                     }
                 }
                 return columnValuesInDatabase;
             }
         }
+        public string GetColumnInformationSchemaProperty(string propertyName)
+        {
+            return ColumnValuesInDatabase[propertyName].ToString();
+        }
+
 
         public string DataTypeInDatabase
         {
@@ -641,7 +647,7 @@ AND
         }
 
 
-        private bool? isIdentity = false;
+        private bool? isIdentity;
         public bool IsIdentity
         {
             get

@@ -435,6 +435,11 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
             return "Unknown";
         }
 
+        public string GetColumnInformationSchemaProperty(string propertyName)
+        {
+            // TODO Implement it later, not needed right now.
+            throw new NotImplementedException();
+        }
 
         public bool isNewSqlServerCLRType
         {
