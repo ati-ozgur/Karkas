@@ -509,9 +509,10 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             if (container is ITable)
             {
-                string start = $"return @\"INSERT INTO {schemaNameForQueries}{container.Name}";
-                string cumle = getInsertString(start, output, container);
-                output.autoTabLn(cumle + "\";");
+                string sentence = $"return @\"INSERT INTO {schemaNameForQueries}{container.Name}";
+                sentence += getInsertString( output, container);
+                sentence += "\";";
+                output.autoTabLn(sentence);
             }
             else
             {
@@ -521,9 +522,9 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtEndCurlyBraceletDescreaseTab(output);
         }
 
-        private string getInsertString(string start, IOutput output, IContainer container)
+        private string getInsertString(IOutput output, IContainer container)
         {
-            string insertSentence = start + " (";
+            string insertSentence = " (";
             foreach (IColumn column in container.Columns)
             {
                 if (column.IsComputed)
@@ -557,7 +558,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             insertSentence += ")";
             if (getIdentityVarmi(utils, container))
             {
-                insertSentence = insertSentence + getAutoIncrementKeySql(container);
+                insertSentence += getAutoIncrementKeySql(container);
             }
 
             return insertSentence;

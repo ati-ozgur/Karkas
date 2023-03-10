@@ -46,7 +46,9 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                 string dataDefault = column.GetColumnInformationSchemaProperty("DATA_DEFAULT");
                 if (dataDefault != null && dataDefault.ToLowerInvariant().Contains("nextval"))
                 {
-                    retValue = dataDefault.Replace("nextval", "currval");
+                    dataDefault = dataDefault.Replace("nextval", "currval");
+                    retValue = $";SELECT {dataDefault} from dual;";
+                    break;
                 }
             }
             return retValue;

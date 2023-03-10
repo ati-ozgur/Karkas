@@ -201,7 +201,30 @@ ON
 
 
 
-        private const string SQL_COLUMN_VALUES = @"select * from ALL_TAB_COLS  C 
+        private const string SQL_COLUMN_VALUES = @"
+WITH FUNCTION GET_VARCHAR_DATA_DEFAULT(p_schema_name IN varchar2,p_table_name IN varchar2,p_column_name IN varchar2) RETURN varchar2 IS s_data_default varchar2(1000);
+BEGIN
+		select C.data_default into s_data_default
+		FROM ALL_TAB_COLS C
+		WHERE 
+		C.table_name = p_table_name
+		 AND C.OWNER = p_schema_name
+		 AND C.COLUMN_NAME =  p_column_name;
+		
+		return s_data_default;
+END;
+
+select 
+OWNER,
+TABLE_NAME,
+COLUMN_NAME,
+DATA_TYPE,
+DATA_LENGTH, 
+NULLABLE,
+GET_VARCHAR_DATA_DEFAULT(C.OWNER,C.TABLE_NAME,C.COLUMN_NAME)  DATA_DEFAULT,
+VIRTUAL_COLUMN,
+IDENTITY_COLUMN
+from ALL_TAB_COLS  C 
    WHERE
    1 = 1
 AND
