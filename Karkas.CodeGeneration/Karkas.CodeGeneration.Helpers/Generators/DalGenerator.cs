@@ -509,10 +509,8 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             if (container is ITable)
             {
-                output.autoTabLn("return @\"INSERT INTO "
-                    + schemaNameForQueries
-                    + container.Name + " ");
-                string cumle = getInsertString(output, container);
+                string start = $"return @\"INSERT INTO {schemaNameForQueries}{container.Name}";
+                string cumle = getInsertString(start, output, container);
                 output.autoTabLn(cumle + "\";");
             }
             else
@@ -523,9 +521,9 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtEndCurlyBraceletDescreaseTab(output);
         }
 
-        private string getInsertString(IOutput output, IContainer container)
+        private string getInsertString(string start, IOutput output, IContainer container)
         {
-            string cumle = " (";
+            string insertSentence = start + " (";
             foreach (IColumn column in container.Columns)
             {
                 if (column.IsComputed)
@@ -535,14 +533,14 @@ namespace Karkas.CodeGenerationHelper.Generators
                 if (!column.IsAutoKey)
                 {
 
-                    cumle += getColumnName(column) + ",";
+                    insertSentence += getColumnName(column) + ",";
                 }
             }
-            cumle = cumle.Remove(cumle.Length - 1);
-            cumle += ") ";
-            output.autoTabLn(cumle);
+            insertSentence = insertSentence.Remove(insertSentence.Length - 1);
+            insertSentence += ") ";
+            output.autoTabLn(insertSentence);
             output.autoTabLn(" VALUES ");
-            cumle = "(";
+            insertSentence = "(";
             output.autoTab("");
             foreach (IColumn column in container.Columns)
             {
@@ -552,17 +550,17 @@ namespace Karkas.CodeGenerationHelper.Generators
                 }
                 if (!column.IsAutoKey)
                 {
-                    cumle += parameterSymbol + column.Name + ",";
+                    insertSentence += parameterSymbol + column.Name + ",";
                 }
             }
-            cumle = cumle.Remove(cumle.Length - 1);
-            cumle += ")";
+            insertSentence = insertSentence.Remove(insertSentence.Length - 1);
+            insertSentence += ")";
             if (getIdentityVarmi(utils, container))
             {
-                cumle = cumle + getAutoIncrementKeySql(container);
+                insertSentence = insertSentence + getAutoIncrementKeySql(container);
             }
 
-            return cumle;
+            return insertSentence;
         }
 
         protected abstract String getAutoIncrementKeySql(IContainer container);
