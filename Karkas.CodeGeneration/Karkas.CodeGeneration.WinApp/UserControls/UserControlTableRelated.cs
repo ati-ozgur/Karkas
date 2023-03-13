@@ -71,7 +71,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
         {
             try
             {
-                foreach (var item in listBoxTableListesi.SelectedItems)
+                foreach (var item in listBoxTables.SelectedItems)
                 {
                     DataRowView view = (DataRowView)item;
                     string tableSchema = view["TABLE_SCHEMA"].ToString();
@@ -91,10 +91,10 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
         }
 
 
-        public void fillTableslistBox()
+        public void fillTablesInListBox()
         {
             DataTable dtTableList = ParentMainForm.DatabaseHelper.getTableListFromSchema(comboBoxSchemaList.Text);
-            listBoxTableListesi.DataSource = dtTableList;
+            listBoxTables.DataSource = dtTableList;
         }
 
 
@@ -110,7 +110,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         private void comboBoxSchemaList_SelectedValueChanged(object sender, EventArgs e)
         {
-            fillTableslistBox();
+            fillTablesInListBox();
         }
 
 
@@ -129,11 +129,11 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             {
                 string selectedSchemaName = getSelectedSchemaName();
 
-                String hatalar = ParentMainForm.DatabaseHelper.CodeGenerateAllTablesInSchema(selectedSchemaName);
+                String errorMessages = ParentMainForm.DatabaseHelper.CodeGenerateAllTablesInSchema(selectedSchemaName);
                 string message = "Code genereated for all tables in selected schema: " + selectedSchemaName;
-                if (!string.IsNullOrEmpty(hatalar))
+                if (!string.IsNullOrEmpty(errorMessages))
                 {
-                    message = message + ", HATALAR " + hatalar;
+                    message = message + ", ERRORS: " + errorMessages;
                 }
                 MessageBox.Show(message);
             }

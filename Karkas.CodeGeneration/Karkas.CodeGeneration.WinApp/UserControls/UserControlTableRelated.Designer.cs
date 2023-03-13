@@ -30,7 +30,7 @@
         {
             this.buttonSeciliTablolariUret = new System.Windows.Forms.Button();
             this.buttonTumTablolariUret = new System.Windows.Forms.Button();
-            this.listBoxTableListesi = new System.Windows.Forms.ListBox();
+            this.listBoxTables = new System.Windows.Forms.ListBox();
             this.labelTabloListesi = new System.Windows.Forms.Label();
             this.labelSchemaList = new System.Windows.Forms.Label();
             this.comboBoxSchemaList = new System.Windows.Forms.ComboBox();
@@ -64,15 +64,15 @@
             // 
             // listBoxTableListesi
             // 
-            this.listBoxTableListesi.DisplayMember = "FULL_TABLE_NAME";
-            this.listBoxTableListesi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxTableListesi.FormattingEnabled = true;
-            this.listBoxTableListesi.ItemHeight = 20;
-            this.listBoxTableListesi.Location = new System.Drawing.Point(281, 97);
-            this.listBoxTableListesi.Name = "listBoxTableListesi";
-            this.listBoxTableListesi.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxTableListesi.Size = new System.Drawing.Size(273, 277);
-            this.listBoxTableListesi.TabIndex = 9;
+            this.listBoxTables.DisplayMember = "FULL_TABLE_NAME";
+            this.listBoxTables.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxTables.FormattingEnabled = true;
+            this.listBoxTables.ItemHeight = 20;
+            this.listBoxTables.Location = new System.Drawing.Point(281, 97);
+            this.listBoxTables.Name = "listBoxTableListesi";
+            this.listBoxTables.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBoxTables.Size = new System.Drawing.Size(273, 277);
+            this.listBoxTables.TabIndex = 9;
             // 
             // labelTabloListesi
             // 
@@ -124,7 +124,7 @@
             this.tableLayoutPanel1.Controls.Add(this.buttonTumTablolariUret, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelSchemaList, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxSchemaList, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.listBoxTableListesi, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.listBoxTables, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.labelTabloListesi, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonSeciliSemaTablolariUret, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonSeciliTablolariUret, 3, 1);
@@ -155,7 +155,7 @@
 
         private System.Windows.Forms.Button buttonSeciliTablolariUret;
         private System.Windows.Forms.Button buttonTumTablolariUret;
-        private System.Windows.Forms.ListBox listBoxTableListesi;
+        private System.Windows.Forms.ListBox listBoxTables;
         private System.Windows.Forms.Label labelTabloListesi;
         private System.Windows.Forms.Label labelSchemaList;
         private System.Windows.Forms.ComboBox comboBoxSchemaList;

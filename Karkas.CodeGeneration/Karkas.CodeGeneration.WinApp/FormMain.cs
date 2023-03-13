@@ -224,7 +224,7 @@ namespace Karkas.CodeGeneration.WinApp
             userControlCodeGenerationOptions1.databaseNameLabelDoldur(DatabaseHelper);
             fillSchema();
 
-            userControlTableRelated1.fillTableslistBox();
+            userControlTableRelated1.fillTablesInListBox();
             userControlViewRelated1.listBoxViewListDoldur();
             userControlStoredProcedureRelated1.listBoxStoredProcedureListDoldur();
             userControlSequenceRelated1.listBoxSequenceListDoldur();
