@@ -49,7 +49,7 @@
             this.buttonSeciliTablolariUret.TabIndex = 11;
             this.buttonSeciliTablolariUret.Text = "Create Selected Tables";
             this.buttonSeciliTablolariUret.UseVisualStyleBackColor = true;
-            this.buttonSeciliTablolariUret.Click += new System.EventHandler(this.buttonSeciliTablolariUret_Click);
+            this.buttonSeciliTablolariUret.Click += new System.EventHandler(this.buttonGenerateSelectedTables_Click);
             // 
             // buttonTumTablolariUret
             // 

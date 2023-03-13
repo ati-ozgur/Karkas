@@ -67,7 +67,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
         }
 
 
-        private void buttonSeciliTablolariUret_Click(object sender, EventArgs e)
+        private void buttonGenerateSelectedTables_Click(object sender, EventArgs e)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
                     ParentMainForm.DatabaseHelper.CodeGenerateOneTable(tableName, tableSchema);
 
                 }
-                MessageBox.Show("SEÇİLEN TABLOLAR İÇİN KOD ÜRETİLDİ");
+                MessageBox.Show("Codes are generated for selected tables");
             }
             catch (Exception ex)
             {
