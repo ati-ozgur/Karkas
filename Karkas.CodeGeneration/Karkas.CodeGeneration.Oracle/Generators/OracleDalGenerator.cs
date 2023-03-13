@@ -35,24 +35,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
         protected override string getAutoIncrementKeySql(IContainer container)
         {
-            string retValue = "";
-            foreach (IColumn column in container.Columns)
-            {
-                if (column.IsComputed || !column.IsAutoKey)
-                {
-                    continue;
-                }
-
-                string dataDefault = column.GetColumnInformationSchemaProperty("DATA_DEFAULT");
-                if (dataDefault != null && dataDefault.ToLowerInvariant().Contains("nextval"))
-                {
-                    dataDefault = dataDefault.Replace("nextval", "currval");
-                    dataDefault = dataDefault.Replace("\"", "\"\"");
-                    retValue = $";\nSELECT {dataDefault} from dual;";
-                    break;
-                }
-            }
-            return retValue;
+            return "";
         }
 
         protected override void WriteUsingsAdditional(IOutput output)
