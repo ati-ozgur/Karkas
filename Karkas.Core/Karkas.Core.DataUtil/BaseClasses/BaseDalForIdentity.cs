@@ -7,11 +7,7 @@ using System.Data.Common;
 
 namespace Karkas.Core.DataUtil.BaseClasses
 {
-    public enum CommandIdentityHowToGetEnum
-    {
-        ValueReturnParameter =1,
-        ValueOutParameter = 2
-    }
+
 
 
     /// <summary>
@@ -34,13 +30,6 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
 
 
-        public virtual CommandIdentityHowToGetEnum CommandIdentityHowToGet
-        { 
-            get
-            {
-                return CommandIdentityHowToGetEnum.ValueReturnParameter;
-            }
-         }
 
 
         protected abstract void setIdentityColumnValue(TYPE_LIBRARY_TYPE pTypeLibrary, PRIMARY_KEY pIdentityColumnValue);

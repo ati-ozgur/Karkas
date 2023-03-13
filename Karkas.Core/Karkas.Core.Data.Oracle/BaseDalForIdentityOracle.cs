@@ -33,13 +33,7 @@ namespace Karkas.Core.Data.Oracle
             }
         }
 
-        public virtual CommandIdentityHowToGetEnum CommandIdentityHowToGet
-        {
-            get
-            {
-                return CommandIdentityHowToGetEnum.ValueOutParameter;
-            }
-        }
+
 
         public abstract string IdentityParameterName { get;  }
 
