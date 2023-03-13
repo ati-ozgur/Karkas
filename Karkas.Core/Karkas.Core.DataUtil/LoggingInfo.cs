@@ -53,6 +53,10 @@ namespace Karkas.Core.DataUtil
         {
             logger.Log(LogLevel.Information,this.ToString());
         }
+        public void LogInfo(Type pLoggingType,string message)
+        {
+            logger.Log(LogLevel.Information, this.ToString() + $"{pLoggingType}: {message}");
+        }
 
         internal void LogInfo(Type pLoggingType, DbException ex, string pMesaj)
         {
