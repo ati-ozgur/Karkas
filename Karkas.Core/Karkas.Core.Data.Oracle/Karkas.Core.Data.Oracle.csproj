@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.90" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Karkas.Core.DataUtil\Karkas.Core.DataUtil.csproj" />
   </ItemGroup>
 
