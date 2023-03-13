@@ -454,7 +454,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                     {
                         pkcumlesi += " " + getColumnName(column) + " = " + parameterSymbol + column.Name + Environment.NewLine + " AND"  ;
                     }
-                    if (!columnParametreOlmaliMi(column))
+                    if (!shouldAddcolumnToParameters(column))
                     {
                         if (!updateWhereSatirindaOlmaliMi(column))
                         {
@@ -694,7 +694,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         public abstract void InsertCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary);
 
 
-        public bool columnParametreOlmaliMi(IColumn column)
+        public bool shouldAddcolumnToParameters(IColumn column)
         {
             return ((column.IsAutoKey) || (column.IsComputed));
         }

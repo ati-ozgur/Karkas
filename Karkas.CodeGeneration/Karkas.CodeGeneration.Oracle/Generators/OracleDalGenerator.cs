@@ -141,7 +141,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
             foreach (IColumn column in container.Columns)
             {
-                if (!columnParametreOlmaliMi(column))
+                if (!shouldAddcolumnToParameters(column))
                 {
                     builderParameterAdd(output, column);
                 }
@@ -181,7 +181,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
             foreach (IColumn column in container.Columns)
             {
-                if (column.IsInPrimaryKey || !columnParametreOlmaliMi(column))
+                if (column.IsInPrimaryKey || !shouldAddcolumnToParameters(column))
                 {
                     builderParameterAdd(output, column);
                 }
