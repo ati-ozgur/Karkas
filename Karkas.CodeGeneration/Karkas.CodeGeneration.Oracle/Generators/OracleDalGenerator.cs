@@ -62,6 +62,28 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
         protected override void ClassWrite(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
         {
+            if(identityVarmi)
+            {
+                ClassWriteIdentity(output, classNameTypeLibrary, identityType);
+            }
+            else
+            {
+                ClassWriteNormal(output, classNameTypeLibrary);
+            }
+        }
+
+        protected void ClassWriteNormal(IOutput output, string classNameTypeLibrary)
+        {
+            output.autoTab("public partial class ");
+            output.write(classNameTypeLibrary);
+            output.write("Dal : BaseDalOracle<");
+            output.write(classNameTypeLibrary);
+            output.write(", AdoTemplateOracle, ParameterBuilderOracle");
+            output.writeLine(">");
+            AtStartCurlyBraceletIncreaseTab(output);
+        }
+        protected void ClassWriteIdentity(IOutput output, string classNameTypeLibrary, string identityType)
+        {
             output.autoTab("public partial class ");
             output.write(classNameTypeLibrary);
             output.write("Dal : BaseDalOracle<");

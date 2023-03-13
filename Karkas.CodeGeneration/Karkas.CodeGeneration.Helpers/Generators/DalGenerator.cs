@@ -51,7 +51,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             utils = new Utils(databaseHelper);
 
         }
-        Utils utils = null;
+        protected Utils utils;
 
 
 
