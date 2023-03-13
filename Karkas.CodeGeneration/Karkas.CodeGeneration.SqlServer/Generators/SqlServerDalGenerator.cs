@@ -65,7 +65,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         {
             output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
-            output.writeLine(" satir)");
+            output.writeLine(" row)");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("ParameterBuilderSqlServer builder = (ParameterBuilderSqlServer)Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
@@ -84,7 +84,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         {
             output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
-            output.autoTabLn(" satir)");
+            output.autoTabLn(" row)");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("ParameterBuilderSqlServer builder = (ParameterBuilderSqlServer)Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
@@ -104,7 +104,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         {
             output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
-            output.autoTabLn(" satir)");
+            output.autoTabLn(" row)");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("ParameterBuilderSqlServer builder = (ParameterBuilderSqlServer)Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");

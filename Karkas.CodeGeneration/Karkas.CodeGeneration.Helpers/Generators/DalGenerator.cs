@@ -225,9 +225,9 @@ namespace Karkas.CodeGenerationHelper.Generators
                     string pkPropertyName = utils.getPropertyVariableName(pkColumn);
                     output.autoTabLn(string.Format("public virtual void Delete({0} {1})", pkType, pkPropertyName));
                     AtStartCurlyBraceletIncreaseTab(output);
-                    output.autoTabLn(string.Format("{0} satir = new {0}();", classNameTypeLibrary));
-                    output.autoTabLn(string.Format("satir.{0} = {0};", pkPropertyName));
-                    output.autoTabLn("base.Delete(satir);");
+                    output.autoTabLn(string.Format("{0} row = new {0}();", classNameTypeLibrary));
+                    output.autoTabLn(string.Format("row.{0} = {0};", pkPropertyName));
+                    output.autoTabLn("base.Delete(row);");
                     AtEndCurlyBraceletDescreaseTab(output);
                 }
             }
@@ -667,13 +667,13 @@ namespace Karkas.CodeGenerationHelper.Generators
             string propertyVariableName = "";
             output.autoTab("protected override void ProcessRow(IDataReader dr, ");
             output.write(classNameTypeLibrary);
-            output.writeLine(" satir)");
+            output.writeLine(" row)");
             AtStartCurlyBraceletIncreaseTab(output);
             for (int i = 0; i < container.Columns.Count; i++)
             {
                 IColumn column = container.Columns[i];
                 propertyVariableName = utils.getPropertyVariableName(column);
-                string yazi = "satir." + propertyVariableName + " = " +
+                string yazi = "row." + propertyVariableName + " = " +
                                 utils.GetDataReaderSyntax(column)
                                 + "(" + i + ");";
                 if (column.IsNullable)
@@ -704,12 +704,11 @@ namespace Karkas.CodeGenerationHelper.Generators
             return (column.Name == "VersiyonZamani");
         }
 
-        public void builderParameterAdd(IOutput output, IColumn column)
+        public virtual void builderParameterAdd(IOutput output, IColumn column)
         {
             if (!column.isStringTypeWithoutLength && column.isStringType)
             {
-                builderParameterAddString(output, column);
-
+                builderParameterAddStringDbType(output, column);
             }
             else
             {
@@ -717,13 +716,13 @@ namespace Karkas.CodeGenerationHelper.Generators
             }
         }
 
-        private void builderParameterAddString(IOutput output, IColumn column)
+        private void builderParameterAddStringDbType(IOutput output, IColumn column)
         {
             string s = "builder.AddParameter(\"" + parameterSymbol
                         + column.Name
                         + "\","
                         + getDbTargetType(column)
-                        + ", satir."
+                        + ", row."
                         + utils.getPropertyVariableName(column)
                         + ","
                         + Convert.ToString(column.CharacterMaxLength)
@@ -740,7 +739,7 @@ namespace Karkas.CodeGenerationHelper.Generators
                         + column.Name
                         + "\","
                         + getDbTargetType(column)
-                        + ", satir."
+                        + ", row."
                         + utils.getPropertyVariableName(column)
                         + ");";
             output.autoTabLn(s);

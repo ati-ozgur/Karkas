@@ -134,7 +134,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         {
             output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
-            output.writeLine(" satir)");
+            output.writeLine(" row)");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("ParameterBuilderOracle builder = (ParameterBuilderOracle)Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
@@ -145,16 +145,67 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                 {
                     builderParameterAdd(output, column);
                 }
+                else if (column.IsIdentity)
+                {
+                    builderParameterAddOutput(output, column);
+                }
             }
 
             AtEndCurlyBraceletDescreaseTab(output);
+        }
+        public override void builderParameterAdd(IOutput output, IColumn column)
+        {
+            if (!column.isStringTypeWithoutLength && column.isStringType)
+            {
+                builderParameterAddStringDbType(output, column);
+            }
+            else
+            {
+                builderParameterAddNormal(output, column);
+            }
+        }
+
+        private void builderParameterAddStringDbType(IOutput output, IColumn column)
+        {
+            string s = "builder.AddParameter(\"" + parameterSymbol
+                        + column.Name
+                        + "\","
+                        + getDbTargetType(column)
+                        + ", row."
+                        + utils.getPropertyVariableName(column)
+                        + ","
+                        + Convert.ToString(column.CharacterMaxLength)
+                        + ");";
+            output.autoTabLn(s);
+        }
+
+
+        private void builderParameterAddOutput(IOutput output, IColumn column)
+        {
+            string s = "builder.AddParameterOutput(\"" + parameterSymbol
+                        + column.Name
+                        + "\","
+                        + getDbTargetType(column)
+                        + ");";
+            output.autoTabLn(s);
+        }
+        private void builderParameterAddNormal(IOutput output, IColumn column)
+        {
+            string s = "builder.AddParameter(\"" + parameterSymbol
+                        + column.Name
+                        + "\","
+                        + getDbTargetType(column)
+                        + ", row."
+                        + utils.getPropertyVariableName(column)
+                        + ");";
+            output.autoTabLn(s);
         }
 
         public override void DeleteCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
-            output.autoTabLn(" satir)");
+            output.autoTabLn(" row)");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("ParameterBuilderOracle builder = (ParameterBuilderOracle)Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
@@ -174,7 +225,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         {
             output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
-            output.autoTabLn(" satir)");
+            output.autoTabLn(" row)");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("ParameterBuilderOracle builder = (ParameterBuilderOracle)Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
