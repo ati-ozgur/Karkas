@@ -704,7 +704,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             return (column.Name == "VersiyonZamani");
         }
 
-        public void builderParameterEkle(IOutput output, IColumn column)
+        public void builderParameterAdd(IOutput output, IColumn column)
         {
             if (!column.isStringTypeWithoutLength && column.isStringType)
             {

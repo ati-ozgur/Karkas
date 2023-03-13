@@ -71,7 +71,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             {
                 if (!columnParametreOlmaliMi(column))
                 {
-                    builderParameterEkle(output, column);
+                    builderParameterAdd(output, column);
                 }
             }
 
@@ -91,7 +91,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             {
                 if (column.IsInPrimaryKey)
                 {
-                    builderParameterEkle(output, column);
+                    builderParameterAdd(output, column);
                 }
             }
 
@@ -111,11 +111,11 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             {
                 if (column.IsInPrimaryKey || !columnParametreOlmaliMi(column))
                 {
-                    builderParameterEkle(output, column);
+                    builderParameterAdd(output, column);
                 }
                 if (columnVersiyonZamaniMi(column))
                 {
-                    builderParameterEkle(output, column);
+                    builderParameterAdd(output, column);
                 }
             }
             AtEndCurlyBraceletDescreaseTab(output);
