@@ -86,8 +86,9 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         {
             output.autoTab("public partial class ");
             output.write(classNameTypeLibrary);
-            output.write("Dal : BaseDalOracle<");
-            output.write(classNameTypeLibrary);
+            output.write("Dal : BaseDalForIdentityOracle<");
+            output.write(classNameTypeLibrary + ", ");
+            output.write(identityType);
             output.write(", AdoTemplateOracle, ParameterBuilderOracle");
             output.writeLine(">");
             AtStartCurlyBraceletIncreaseTab(output);
