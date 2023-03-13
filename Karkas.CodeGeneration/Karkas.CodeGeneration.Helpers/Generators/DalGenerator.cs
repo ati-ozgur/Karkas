@@ -576,7 +576,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         protected virtual string getInsertString(IContainer container)
         {
             string insertSentence = getColumnNamesForInsertString(container);
-            insertSentence += "\n VALUES \n";
+            insertSentence += "VALUES \n";
             insertSentence += getColumnNamesForInsertStringAsParams(container);
 
             if (getIdentityVarmi(utils, container))
