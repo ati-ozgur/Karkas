@@ -708,16 +708,16 @@ namespace Karkas.CodeGenerationHelper.Generators
         {
             if (!column.isStringTypeWithoutLength && column.isStringType)
             {
-                builderParameterEkleString(output, column);
+                builderParameterAddString(output, column);
 
             }
             else
             {
-                builderParameterEkleNormal(output, column);
+                builderParameterAddNormal(output, column);
             }
         }
 
-        private void builderParameterEkleString(IOutput output, IColumn column)
+        private void builderParameterAddString(IOutput output, IColumn column)
         {
             string s = "builder.AddParameter(\"" + parameterSymbol
                         + column.Name
@@ -734,7 +734,7 @@ namespace Karkas.CodeGenerationHelper.Generators
         
 
 
-        private void builderParameterEkleNormal(IOutput output, IColumn column)
+        private void builderParameterAddNormal(IOutput output, IColumn column)
         {
             string s = "builder.AddParameter(\"" + parameterSymbol
                         + column.Name
