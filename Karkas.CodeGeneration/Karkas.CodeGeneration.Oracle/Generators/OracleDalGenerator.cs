@@ -83,6 +83,21 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
         }
 
+        protected override void write_SetIdentityColumnValue(IOutput output, IContainer container)
+        {
+            base.write_SetIdentityColumnValue(output, container);
+            bool identityExists = getIdentityVarmi(utils, container);
+            if(identityExists)
+            {
+                string identityColumnName = getIdentityColumnName(utils, container);
+                string value = $"public override string IdentityParameterName {{ get {{return \":{identityColumnName}\"; }} }}";
+                output.autoTabLn(value);
+            }
+
+
+        }
+
+
         protected override void InsertStringWrite(IOutput output, IContainer container, string schemaNameForQueries)
         {
 

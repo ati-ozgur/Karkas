@@ -236,7 +236,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
 
 
-        private void write_SetIdentityColumnValue(IOutput output, IContainer container)
+        protected virtual void write_SetIdentityColumnValue(IOutput output, IContainer container)
         {
             bool identityExists = getIdentityVarmi(utils, container);
             if(identityExists)
