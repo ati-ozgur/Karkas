@@ -47,8 +47,8 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                 if (dataDefault != null && dataDefault.ToLowerInvariant().Contains("nextval"))
                 {
                     dataDefault = dataDefault.Replace("nextval", "currval");
-                    dataDefault = dataDefault.Replace("\"", "\\\"");
-                    retValue = $";SELECT {dataDefault} from dual;";
+                    dataDefault = dataDefault.Replace("\"", "\"\"");
+                    retValue = $";\nSELECT {dataDefault} from dual;";
                     break;
                 }
             }

@@ -1,50 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
+﻿using Karkas.Core.DataUtil;
+using Karkas.Core.DataUtil.BaseClasses;
 using Karkas.Core.TypeLibrary;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Karkas.Core.DataUtil.BaseClasses
+namespace Karkas.Core.Data.Oracle
 {
-    public enum CommandIdentityHowToGetEnum
-    {
-        ValueReturnParameter =1,
-        ValueOutParameter = 2
-    }
 
-
-    /// <summary>
-    /// TYPE_LIBRARY_TYPE TypeLibrary Class
-    /// PRIMARY_KEY Type of Primary Key of TYPE_LIBRARY_TYPE
-    /// </summary>
-    /// <typeparam name="TYPE_LIBRARY_TYPE"></typeparam>
-    /// <typeparam name="PRIMARY_KEY"></typeparam>
-    public abstract class BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> 
-            : BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> 
-            where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
-            where PRIMARY_KEY :  struct
-            where ADOTEMPLATE_DB_TYPE : IAdoTemplate<IParameterBuilder>, new()
-            where PARAMETER_BUILDER : IParameterBuilder, new()
+    public abstract class BaseDalForIdentityOracle<TYPE_LIBRARY_TYPE,PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> :
+        BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>
+        where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
+        where PRIMARY_KEY : struct
+        where ADOTEMPLATE_DB_TYPE : IAdoTemplate<IParameterBuilder>, new()
+        where PARAMETER_BUILDER : IParameterBuilder, new()
     {
 
-        public BaseDalForIdentity()
+        public override string DbProviderName
         {
-
+            get { return "Oracle.DataAccess.Client"; }
         }
 
-
-        public virtual CommandIdentityHowToGetEnum CommandIdentityHowToGet
-        { 
+        public override string ParameterCharacter
+        {
             get
             {
-                return CommandIdentityHowToGetEnum.ValueReturnParameter;
+                return ":";
             }
-         }
+        }
 
+        public virtual CommandIdentityHowToGetEnum CommandIdentityHowToGet
+        {
+            get
+            {
+                return CommandIdentityHowToGetEnum.ValueOutParameter;
+            }
+        }
 
-        protected abstract void setIdentityColumnValue(TYPE_LIBRARY_TYPE pTypeLibrary, PRIMARY_KEY pIdentityKolonValue);
-
+        public abstract string IdentityParameterName { get;  }
 
         public new PRIMARY_KEY Insert(TYPE_LIBRARY_TYPE row)
         {
@@ -53,7 +50,6 @@ namespace Karkas.Core.DataUtil.BaseClasses
             InsertCommandParametersAdd(cmd, row);
 
 
-            //rowstate'i unchanged yapiyoruz
             row.RowState = DataRowState.Unchanged;
 
             try
@@ -69,7 +65,8 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 if (IdentityExists)
                 {
                     new LoggingInfo(cmd).LogInfo(this.GetType());
-                    object o = cmd.ExecuteScalar();
+                    cmd.ExecuteNonQuery();
+                    object o = cmd.Parameters[IdentityParameterName].Value;
                     result = (PRIMARY_KEY)Convert.ChangeType(o, result.GetType());
                     setIdentityColumnValue(row, result);
                 }
@@ -84,7 +81,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
             catch (Exception ex)
             {
-                new LoggingInfo(cmd).LogInfo(this.GetType(),ex);
+                new LoggingInfo(cmd).LogInfo(this.GetType(), ex.ToString());
             }
 
             finally
@@ -100,7 +97,5 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
 
 
-
     }
 }
-

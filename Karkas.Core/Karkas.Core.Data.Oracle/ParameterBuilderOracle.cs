@@ -1,6 +1,8 @@
 ﻿using Karkas.Core.DataUtil;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +18,20 @@ namespace Karkas.Core.Data.Oracle
         }
         public ParameterBuilderOracle(string providerName) : base(providerName)
         {
+        }
+
+        private OracleParameter getParameterValue(string parameterName, OracleDbType dbType)
+        {
+            OracleParameter prm = new OracleParameter();
+            prm.ParameterName = parameterName;
+            prm.OracleDbType = dbType;
+            return prm;
+        }
+        public void AddParameterOutput(string parameterName, OracleDbType dbType)
+        {
+            OracleParameter prm = getParameterValue(parameterName, dbType);
+            prm.Direction = ParameterDirection.Output;
+            AddParameterToCommandOrList(prm);
         }
     }
 }

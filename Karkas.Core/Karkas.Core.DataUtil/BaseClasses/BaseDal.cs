@@ -200,73 +200,13 @@ namespace Karkas.Core.DataUtil.BaseClasses
             return liste;
         }
 
-        protected abstract void setIdentityColumnValue(TYPE_LIBRARY_TYPE pTypeLibrary, long pIdentityKolonValue);
-
-        private long InsertIdentity(TYPE_LIBRARY_TYPE row)
-        {
-            long result = 0;
-            DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
-            InsertCommandParametersAdd(cmd, row);
-
-
-            row.RowState = DataRowState.Unchanged;
-
-            try
-            {
-                if (ShouldOpenConnection())
-                {
-                    Connection.Open();
-                }
-                if (CurrentTransaction != null)
-                {
-                    cmd.Transaction = CurrentTransaction;
-                }
-                if (IdentityExists)
-                {
-                    new LoggingInfo( cmd).LogInfo(this.GetType());
-                    object id_degeri = cmd.ExecuteScalar();
-                    result = Convert.ToInt64(id_degeri);
-                    setIdentityColumnValue(row, result);
-                }
-                else
-                {
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch (DbException ex)
-            {
-                ExceptionChanger.Change(ex, new LoggingInfo( cmd).ToString());
-            }
-            catch (Exception ex)
-            {
-                new LoggingInfo( cmd).LogInfo(this.GetType(),ex);
-                throw;
-            }
-
-            finally
-            {
-                if (ShouldCloseConnection())
-                {
-                    Connection.Close();
-                }
-            }
-
-            return result;
-        }
 
 
 
 
         public long Insert(TYPE_LIBRARY_TYPE row)
         {
-            if (IdentityExists)
-            {
-                return InsertIdentity(row);
-            }
-            else
-            {
-                return InsertNormal(row);
-            }
+            return InsertNormal(row);
         }
 
 

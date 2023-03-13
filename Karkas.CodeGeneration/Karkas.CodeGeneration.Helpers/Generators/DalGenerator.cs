@@ -509,8 +509,8 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             if (container is ITable)
             {
-                string sentence = $"return @\"INSERT INTO {schemaNameForQueries}{container.Name}";
-                sentence += getInsertString( output, container);
+                string sentence = $"return @\"INSERT INTO {schemaNameForQueries}{container.Name}\n";
+                sentence += getInsertString( container);
                 sentence += "\";";
                 output.autoTabLn(sentence);
             }
@@ -522,9 +522,10 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtEndCurlyBraceletDescreaseTab(output);
         }
 
-        private string getInsertString(IOutput output, IContainer container)
+
+        private string getColumnNamesForInsertString(IContainer container)
         {
-            string insertSentence = " (";
+            string sentence = " (";
             foreach (IColumn column in container.Columns)
             {
                 if (column.IsComputed)
@@ -534,15 +535,18 @@ namespace Karkas.CodeGenerationHelper.Generators
                 if (!column.IsAutoKey)
                 {
 
-                    insertSentence += getColumnName(column) + ",";
+                    sentence += getColumnName(column) + ",";
                 }
             }
-            insertSentence = insertSentence.Remove(insertSentence.Length - 1);
-            insertSentence += ") ";
-            output.autoTabLn(insertSentence);
-            output.autoTabLn(" VALUES ");
-            insertSentence = "(";
-            output.autoTab("");
+            sentence = sentence.Remove(sentence.Length - 1);
+            sentence += ") ";
+            sentence += Environment.NewLine;
+            return sentence;
+        }
+
+        private string getColumnNamesForInsertStringAsParams(IContainer container)
+        {
+            string sentence = "(";
             foreach (IColumn column in container.Columns)
             {
                 if (column.IsComputed)
@@ -551,11 +555,21 @@ namespace Karkas.CodeGenerationHelper.Generators
                 }
                 if (!column.IsAutoKey)
                 {
-                    insertSentence += parameterSymbol + column.Name + ",";
+                    sentence += parameterSymbol + column.Name + ",";
                 }
             }
-            insertSentence = insertSentence.Remove(insertSentence.Length - 1);
-            insertSentence += ")";
+            sentence = sentence.Remove(sentence.Length - 1);
+            sentence += ")";
+            return sentence;
+
+        }
+
+        private string getInsertString(IContainer container)
+        {
+            string insertSentence = getColumnNamesForInsertString(container);
+            insertSentence += "\n VALUES \n";
+            insertSentence += getColumnNamesForInsertStringAsParams(container);
+
             if (getIdentityVarmi(utils, container))
             {
                 insertSentence += getAutoIncrementKeySql(container);
