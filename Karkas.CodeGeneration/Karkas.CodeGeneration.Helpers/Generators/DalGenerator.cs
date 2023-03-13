@@ -113,7 +113,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             OverrideDatabaseNameWrite(output, container);
 
-            identityKolonDegeriniSetleWrite(output, container);
+            write_SetIdentityColumnValue(output, container);
 
             string sorgulardaKullanilanSema = getSqlIcinSemaBilgisi(container, semaIsminiSorgulardaKullan);
 
@@ -236,7 +236,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
 
 
-        private void identityKolonDegeriniSetleWrite(IOutput output, IContainer container)
+        private void write_SetIdentityColumnValue(IOutput output, IContainer container)
         {
             string methodWriteisi = string.Format("protected override void setIdentityColumnValue({0} pTypeLibrary,long pIdentityKolonValue)", classNameTypeLibrary);
             output.autoTabLn(methodWriteisi);
