@@ -107,16 +107,15 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             if (container is ITable)
             {
-                string sentence = $"return @\"INSERT INTO {schemaNameForQueries}{container.Name}\n";
+
                 string identityColumnName = utils.getIdentityColumnName(container);
                 string insertString = getInsertString(container);
-                string sentenceInner = $@" 
-                begin
-                    {insertString}  returning {identityColumnName} into :{identityColumnName};
-                 end;\n";
+                string sentenceInner = $"{insertString}  returning {identityColumnName} into :{identityColumnName};";
 
-
-                sentence += sentenceInner;
+                string sentence = $"return @\" begin" + Environment.NewLine;
+                sentence = sentence +   $"INSERT INTO {schemaNameForQueries}{container.Name}" + Environment.NewLine;
+                sentence += sentenceInner + Environment.NewLine;
+                sentence = sentence + "end; ";
                 sentence +=  "\";";
                 output.autoTabLn(sentence);
             }
