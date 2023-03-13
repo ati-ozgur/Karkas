@@ -224,7 +224,7 @@ namespace Karkas.CodeGeneration.WinApp
             userControlCodeGenerationOptions1.databaseNameLabelDoldur(DatabaseHelper);
             fillSchema();
 
-            userControlTableRelated1.listBoxTableListDoldur();
+            userControlTableRelated1.fillTableslistBox();
             userControlViewRelated1.listBoxViewListDoldur();
             userControlStoredProcedureRelated1.listBoxStoredProcedureListDoldur();
             userControlSequenceRelated1.listBoxSequenceListDoldur();
@@ -233,7 +233,7 @@ namespace Karkas.CodeGeneration.WinApp
         private void fillSchema()
         {
             var schemaList = DatabaseHelper.getSchemaList();
-            userControlTableRelated1.comboBoxSchemaListDoldur(schemaList);
+            userControlTableRelated1.fillComboBoxSchemaList(schemaList);
             userControlViewRelated1.comboBoxSchemaListDoldur(schemaList);
             userControlStoredProcedureRelated1.comboBoxSchemaListDoldur(schemaList);
             userControlSequenceRelated1.comboBoxSchemaListDoldur(schemaList);

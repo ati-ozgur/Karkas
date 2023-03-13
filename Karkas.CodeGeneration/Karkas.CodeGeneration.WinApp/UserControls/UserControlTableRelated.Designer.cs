@@ -60,7 +60,7 @@
             this.buttonTumTablolariUret.TabIndex = 10;
             this.buttonTumTablolariUret.Text = "Create All Tables";
             this.buttonTumTablolariUret.UseVisualStyleBackColor = true;
-            this.buttonTumTablolariUret.Click += new System.EventHandler(this.buttonProduceAllTables_Click);
+            this.buttonTumTablolariUret.Click += new System.EventHandler(this.buttonGenerateAllTables_Click);
             // 
             // listBoxTableListesi
             // 
@@ -112,7 +112,7 @@
             this.buttonSeciliSemaTablolariUret.TabIndex = 12;
             this.buttonSeciliSemaTablolariUret.Text = "Create Tables in Schema";
             this.buttonSeciliSemaTablolariUret.UseVisualStyleBackColor = true;
-            this.buttonSeciliSemaTablolariUret.Click += new System.EventHandler(this.buttonSeciliSemaTablolariUret_Click);
+            this.buttonSeciliSemaTablolariUret.Click += new System.EventHandler(this.buttonGenerateTablesForSelectedSchema_Click);
             // 
             // tableLayoutPanel1
             // 

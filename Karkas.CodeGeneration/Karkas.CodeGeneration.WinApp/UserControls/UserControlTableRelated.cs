@@ -28,7 +28,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
 
 
-        private void buttonProduceAllTables_Click(object sender, EventArgs e)
+        private void buttonGenerateAllTables_Click(object sender, EventArgs e)
         {
             if (this.ParentMainForm.ProduceAllTablesAreYouSure())
             {
@@ -91,7 +91,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
         }
 
 
-        public void listBoxTableListDoldur()
+        public void fillTableslistBox()
         {
             DataTable dtTableList = ParentMainForm.DatabaseHelper.getTableListFromSchema(comboBoxSchemaList.Text);
             listBoxTableListesi.DataSource = dtTableList;
@@ -99,7 +99,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
 
 
-        public void comboBoxSchemaListDoldur(DataTable dtSchemaList)
+        public void fillComboBoxSchemaList(DataTable dtSchemaList)
         {
             if (dtSchemaList.Rows.Count > 0)
             {
@@ -110,7 +110,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         private void comboBoxSchemaList_SelectedValueChanged(object sender, EventArgs e)
         {
-            listBoxTableListDoldur();
+            fillTableslistBox();
         }
 
 
@@ -123,14 +123,14 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             comboBoxSchemaList.Text = pText;
         }
 
-        private void buttonSeciliSemaTablolariUret_Click(object sender, EventArgs e)
+        private void buttonGenerateTablesForSelectedSchema_Click(object sender, EventArgs e)
         {
             try
             {
                 string selectedSchemaName = getSelectedSchemaName();
 
                 String hatalar = ParentMainForm.DatabaseHelper.CodeGenerateAllTablesInSchema(selectedSchemaName);
-                string message = "TÜM TABLOLAR İÇİN KOD ÜRETİLDİ";
+                string message = "Code genereated for all tables in selected schema: " + selectedSchemaName;
                 if (!string.IsNullOrEmpty(hatalar))
                 {
                     message = message + ", HATALAR " + hatalar;
