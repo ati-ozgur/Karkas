@@ -503,7 +503,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
 
 
-        protected void InsertStringWrite(IOutput output, IContainer container, string schemaNameForQueries)
+        protected virtual void InsertStringWrite(IOutput output, IContainer container, string schemaNameForQueries)
         {
 
             output.autoTabLn("protected override string InsertString");
@@ -567,7 +567,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         }
 
-        private string getInsertString(IContainer container)
+        protected string getInsertString(IContainer container)
         {
             string insertSentence = getColumnNamesForInsertString(container);
             insertSentence += "\n VALUES \n";

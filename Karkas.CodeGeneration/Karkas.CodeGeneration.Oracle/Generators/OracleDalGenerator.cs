@@ -100,6 +100,36 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
         }
 
+        protected override void InsertStringWrite(IOutput output, IContainer container, string schemaNameForQueries)
+        {
+
+            output.autoTabLn("protected override string InsertString");
+            AtStartCurlyBraceletIncreaseTab(output);
+            output.autoTabLn("get ");
+            AtStartCurlyBraceletIncreaseTab(output);
+            if (container is ITable)
+            {
+                string sentence = $"return @\"INSERT INTO {schemaNameForQueries}{container.Name}\n";
+                string identityColumnName = utils.getIdentityColumnName(container);
+                string insertString = getInsertString(container);
+                string sentenceInner = $@" begin
+    {insertString}  returning {identityColumnName} into :{identityColumnName};
+ end;
+";
+
+
+                sentence += sentenceInner;
+                sentence +=  "\";";
+                output.autoTabLn(sentence);
+            }
+            else
+            {
+                output.autoTabLn("throw new NotSupportedException(\" Insert/Update/Delete is not supported for VIEWs \");");
+            }
+            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDescreaseTab(output);
+        }
+
         public override void InsertCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
