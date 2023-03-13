@@ -43,7 +43,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
          }
 
 
-        protected abstract void setIdentityColumnValue(TYPE_LIBRARY_TYPE pTypeLibrary, PRIMARY_KEY pIdentityKolonValue);
+        protected abstract void setIdentityColumnValue(TYPE_LIBRARY_TYPE pTypeLibrary, PRIMARY_KEY pIdentityColumnValue);
 
 
         public new PRIMARY_KEY Insert(TYPE_LIBRARY_TYPE row)

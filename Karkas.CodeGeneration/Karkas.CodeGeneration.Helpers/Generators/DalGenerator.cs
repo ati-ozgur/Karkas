@@ -238,13 +238,16 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         private void write_SetIdentityColumnValue(IOutput output, IContainer container)
         {
-            string methodWriteisi = string.Format("protected override void setIdentityColumnValue({0} pTypeLibrary,long pIdentityKolonValue)", classNameTypeLibrary);
-            output.autoTabLn(methodWriteisi);
+            string identityType = getIdentityType(utils, container);
+
+            string methodSignature = $"protected override void setIdentityColumnValue({classNameTypeLibrary} pTypeLibrary,{identityType} pIdentityColumnValue)";
+            output.autoTabLn(methodSignature);
             AtStartCurlyBraceletIncreaseTab(output);
             if (getIdentityVarmi(utils, container))
             {
-                string propertySetleWriteisi = string.Format("pTypeLibrary.{0} = ({1} )pIdentityKolonValue;", utils.getIdentityColumnNameAsPascalCase(container), getIdentityType(utils,container));
-                output.autoTabLn(propertySetleWriteisi);
+                string identityColumnName = utils.getIdentityColumnNameAsPascalCase(container);
+                string propertySetSignature = $"pTypeLibrary.{identityColumnName} = ({identityType} )pIdentityColumnValue;";
+                output.autoTabLn(propertySetSignature);
             }
             AtEndCurlyBraceletDescreaseTab(output);
 
