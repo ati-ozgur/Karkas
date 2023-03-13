@@ -238,18 +238,24 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         private void write_SetIdentityColumnValue(IOutput output, IContainer container)
         {
-            string identityType = getIdentityType(utils, container);
-
-            string methodSignature = $"protected override void setIdentityColumnValue({classNameTypeLibrary} pTypeLibrary,{identityType} pIdentityColumnValue)";
-            output.autoTabLn(methodSignature);
-            AtStartCurlyBraceletIncreaseTab(output);
-            if (getIdentityVarmi(utils, container))
+            bool identityExists = getIdentityVarmi(utils, container);
+            if(identityExists)
             {
-                string identityColumnName = utils.getIdentityColumnNameAsPascalCase(container);
-                string propertySetSignature = $"pTypeLibrary.{identityColumnName} = ({identityType} )pIdentityColumnValue;";
-                output.autoTabLn(propertySetSignature);
+                string identityType = getIdentityType(utils, container);
+
+                string methodSignature = $"protected override void setIdentityColumnValue({classNameTypeLibrary} pTypeLibrary,{identityType} pIdentityColumnValue)";
+                output.autoTabLn(methodSignature);
+                AtStartCurlyBraceletIncreaseTab(output);
+                if (getIdentityVarmi(utils, container))
+                {
+                    string identityColumnName = utils.getIdentityColumnNameAsPascalCase(container);
+                    string propertySetSignature = $"pTypeLibrary.{identityColumnName} = ({identityType} )pIdentityColumnValue;";
+                    output.autoTabLn(propertySetSignature);
+                }
+                AtEndCurlyBraceletDescreaseTab(output);
+
             }
-            AtEndCurlyBraceletDescreaseTab(output);
+
 
         }
 
@@ -567,7 +573,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         }
 
-        protected string getInsertString(IContainer container)
+        protected virtual string getInsertString(IContainer container)
         {
             string insertSentence = getColumnNamesForInsertString(container);
             insertSentence += "\n VALUES \n";
@@ -581,7 +587,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             return insertSentence;
         }
 
-        protected abstract String getAutoIncrementKeySql(IContainer container);
+        protected abstract string getAutoIncrementKeySql(IContainer container);
 
         private void listeTanimla(IOutput output)
         {
