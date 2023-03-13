@@ -112,10 +112,10 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                 string sentence = $"return @\"INSERT INTO {schemaNameForQueries}{container.Name}\n";
                 string identityColumnName = utils.getIdentityColumnName(container);
                 string insertString = getInsertString(container);
-                string sentenceInner = $@" begin
-    {insertString}  returning {identityColumnName} into :{identityColumnName};
- end;
-";
+                string sentenceInner = $@" 
+                begin
+                    {insertString}  returning {identityColumnName} into :{identityColumnName};
+                 end;\n";
 
 
                 sentence += sentenceInner;
