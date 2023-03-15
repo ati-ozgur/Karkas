@@ -43,7 +43,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
 
 
-        internal void listBoxStoredProcedureListDoldur()
+        internal void fillListBoxStoredProcedures()
         {
             DataTable dtStoredProcedureList = ParentMainForm.DatabaseHelper.getStoredProcedureListFromSchema(comboBoxSchemaList.Text);
             listBoxStoredProcedureListesi.DataSource = dtStoredProcedureList;
@@ -52,22 +52,22 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         private void comboBoxSchemaList_SelectedValueChanged(object sender, EventArgs e)
         {
-            listBoxStoredProcedureListDoldur();
+            fillListBoxStoredProcedures();
         }
 
         private void buttonSemaIcinTumStoredProcedureUret_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("NOT IMPLEMENTED");
         }
 
         private void buttonProduceSelectedViews_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("NOT IMPLEMENTED");
         }
 
         private void buttonTumStoredProcedureUret_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("NOT IMPLEMENTED");
         }
 
     }

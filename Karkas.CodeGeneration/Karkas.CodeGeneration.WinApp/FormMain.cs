@@ -227,7 +227,7 @@ namespace Karkas.CodeGeneration.WinApp
 
             userControlTableRelated1.fillTablesInListBox();
             userControlViewRelated1.listBoxViewListDoldur();
-            userControlStoredProcedureRelated1.listBoxStoredProcedureListDoldur();
+            userControlStoredProcedureRelated1.fillListBoxStoredProcedures();
             userControlSequenceRelated1.fillListBoxSequences();
         }
 
