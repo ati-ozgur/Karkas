@@ -72,7 +72,7 @@ namespace Karkas.CodeGeneration.WinApp
             // 
             // buttonTestConnectionString
             // 
-            this.buttonTestConnectionString.Location = new System.Drawing.Point(965, 425);
+            this.buttonTestConnectionString.Location = new System.Drawing.Point(965, 3);
             this.buttonTestConnectionString.Name = "buttonTestConnectionString";
             this.buttonTestConnectionString.Size = new System.Drawing.Size(101, 76);
             this.buttonTestConnectionString.TabIndex = 3;
@@ -83,7 +83,7 @@ namespace Karkas.CodeGeneration.WinApp
             // labelConnectionStatus
             // 
             this.labelConnectionStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelConnectionStatus.Location = new System.Drawing.Point(965, 0);
+            this.labelConnectionStatus.Location = new System.Drawing.Point(965, 426);
             this.labelConnectionStatus.Name = "labelConnectionStatus";
             this.labelConnectionStatus.Size = new System.Drawing.Size(101, 75);
             this.labelConnectionStatus.TabIndex = 4;
@@ -96,22 +96,22 @@ namespace Karkas.CodeGeneration.WinApp
             this.tabControlDatabase.Controls.Add(this.tabPageStoredProcedures);
             this.tabControlDatabase.Controls.Add(this.tabPageSequences);
             this.tabControlDatabase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlDatabase.Location = new System.Drawing.Point(4, 425);
+            this.tabControlDatabase.Enabled = false;
+            this.tabControlDatabase.Location = new System.Drawing.Point(4, 429);
             this.tabControlDatabase.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabControlDatabase.Name = "tabControlDatabase";
             this.tabControlDatabase.SelectedIndex = 0;
-            this.tabControlDatabase.Size = new System.Drawing.Size(954, 147);
+            this.tabControlDatabase.Size = new System.Drawing.Size(954, 148);
             this.tabControlDatabase.TabIndex = 0;
-            this.tabControlDatabase.Enabled = false;
             // 
             // tabPageTableRelated
             // 
             this.tabPageTableRelated.Controls.Add(this.userControlTableRelated1);
-            this.tabPageTableRelated.Location = new System.Drawing.Point(4, 26);
+            this.tabPageTableRelated.Location = new System.Drawing.Point(4, 24);
             this.tabPageTableRelated.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPageTableRelated.Name = "tabPageTableRelated";
             this.tabPageTableRelated.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPageTableRelated.Size = new System.Drawing.Size(946, 117);
+            this.tabPageTableRelated.Size = new System.Drawing.Size(946, 120);
             this.tabPageTableRelated.TabIndex = 0;
             this.tabPageTableRelated.Text = "Table";
             this.tabPageTableRelated.UseVisualStyleBackColor = true;
@@ -122,65 +122,68 @@ namespace Karkas.CodeGeneration.WinApp
             this.userControlTableRelated1.Location = new System.Drawing.Point(4, 3);
             this.userControlTableRelated1.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.userControlTableRelated1.Name = "userControlTableRelated1";
-            this.userControlTableRelated1.Size = new System.Drawing.Size(938, 111);
+            this.userControlTableRelated1.Size = new System.Drawing.Size(938, 114);
             this.userControlTableRelated1.TabIndex = 0;
             // 
             // tabPageViewRelated
             // 
             this.tabPageViewRelated.Controls.Add(this.userControlViewRelated1);
-            this.tabPageViewRelated.Location = new System.Drawing.Point(4, 29);
+            this.tabPageViewRelated.Location = new System.Drawing.Point(4, 24);
             this.tabPageViewRelated.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPageViewRelated.Name = "tabPageViewRelated";
             this.tabPageViewRelated.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPageViewRelated.Size = new System.Drawing.Size(192, 67);
+            this.tabPageViewRelated.Size = new System.Drawing.Size(946, 120);
             this.tabPageViewRelated.TabIndex = 1;
             this.tabPageViewRelated.Text = "View";
             this.tabPageViewRelated.UseVisualStyleBackColor = true;
             // 
             // userControlViewRelated1
             // 
-            this.userControlViewRelated1.Location = new System.Drawing.Point(0, 8);
+            this.userControlViewRelated1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlViewRelated1.Location = new System.Drawing.Point(4, 3);
             this.userControlViewRelated1.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.userControlViewRelated1.Name = "userControlViewRelated1";
-            this.userControlViewRelated1.Size = new System.Drawing.Size(699, 442);
+            this.userControlViewRelated1.Size = new System.Drawing.Size(938, 114);
             this.userControlViewRelated1.TabIndex = 0;
             // 
             // tabPageStoredProcedures
             // 
             this.tabPageStoredProcedures.Controls.Add(this.userControlStoredProcedureRelated1);
-            this.tabPageStoredProcedures.Location = new System.Drawing.Point(4, 29);
+            this.tabPageStoredProcedures.Location = new System.Drawing.Point(4, 24);
             this.tabPageStoredProcedures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPageStoredProcedures.Name = "tabPageStoredProcedures";
-            this.tabPageStoredProcedures.Size = new System.Drawing.Size(192, 67);
+            this.tabPageStoredProcedures.Size = new System.Drawing.Size(946, 120);
             this.tabPageStoredProcedures.TabIndex = 2;
             this.tabPageStoredProcedures.Text = "Stored Procedures";
             this.tabPageStoredProcedures.UseVisualStyleBackColor = true;
             // 
             // userControlStoredProcedureRelated1
             // 
-            this.userControlStoredProcedureRelated1.Location = new System.Drawing.Point(4, 0);
+            this.userControlStoredProcedureRelated1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlStoredProcedureRelated1.Location = new System.Drawing.Point(0, 0);
             this.userControlStoredProcedureRelated1.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.userControlStoredProcedureRelated1.Name = "userControlStoredProcedureRelated1";
-            this.userControlStoredProcedureRelated1.Size = new System.Drawing.Size(699, 442);
+            this.userControlStoredProcedureRelated1.Size = new System.Drawing.Size(946, 120);
             this.userControlStoredProcedureRelated1.TabIndex = 0;
             // 
             // tabPageSequences
             // 
             this.tabPageSequences.Controls.Add(this.userControlSequenceRelated1);
-            this.tabPageSequences.Location = new System.Drawing.Point(4, 29);
+            this.tabPageSequences.Location = new System.Drawing.Point(4, 24);
             this.tabPageSequences.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPageSequences.Name = "tabPageSequences";
-            this.tabPageSequences.Size = new System.Drawing.Size(192, 67);
+            this.tabPageSequences.Size = new System.Drawing.Size(946, 120);
             this.tabPageSequences.TabIndex = 3;
             this.tabPageSequences.Text = "Sequences";
             this.tabPageSequences.UseVisualStyleBackColor = true;
             // 
             // userControlSequenceRelated1
             // 
-            this.userControlSequenceRelated1.Location = new System.Drawing.Point(8, 3);
+            this.userControlSequenceRelated1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlSequenceRelated1.Location = new System.Drawing.Point(0, 0);
             this.userControlSequenceRelated1.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.userControlSequenceRelated1.Name = "userControlSequenceRelated1";
-            this.userControlSequenceRelated1.Size = new System.Drawing.Size(699, 442);
+            this.userControlSequenceRelated1.Size = new System.Drawing.Size(946, 120);
             this.userControlSequenceRelated1.TabIndex = 0;
             // 
             // aboutToolStripMenuItem
@@ -256,7 +259,7 @@ namespace Karkas.CodeGeneration.WinApp
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1069, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1069, 25);
             this.menuStrip1.TabIndex = 23;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -267,27 +270,27 @@ namespace Karkas.CodeGeneration.WinApp
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 19);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -297,20 +300,20 @@ namespace Karkas.CodeGeneration.WinApp
             this.aboutToolStripMenuItem2,
             this.databaseProvidersToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 19);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem2
             // 
             this.aboutToolStripMenuItem2.Name = "aboutToolStripMenuItem2";
-            this.aboutToolStripMenuItem2.Size = new System.Drawing.Size(220, 26);
+            this.aboutToolStripMenuItem2.Size = new System.Drawing.Size(174, 22);
             this.aboutToolStripMenuItem2.Text = "About";
             this.aboutToolStripMenuItem2.Click += new System.EventHandler(this.aboutToolStripMenuItem2_Click);
             // 
             // databaseProvidersToolStripMenuItem
             // 
             this.databaseProvidersToolStripMenuItem.Name = "databaseProvidersToolStripMenuItem";
-            this.databaseProvidersToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.databaseProvidersToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.databaseProvidersToolStripMenuItem.Text = "Database Providers";
             this.databaseProvidersToolStripMenuItem.Click += new System.EventHandler(this.databaseProvidersToolStripMenuItem_Click);
             // 
@@ -321,7 +324,7 @@ namespace Karkas.CodeGeneration.WinApp
             this.userControlCodeGenerationOptions1.Location = new System.Drawing.Point(11, 12);
             this.userControlCodeGenerationOptions1.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.userControlCodeGenerationOptions1.Name = "userControlCodeGenerationOptions1";
-            this.userControlCodeGenerationOptions1.Size = new System.Drawing.Size(940, 398);
+            this.userControlCodeGenerationOptions1.Size = new System.Drawing.Size(940, 402);
             this.userControlCodeGenerationOptions1.TabIndex = 20;
             // 
             // tableLayoutPanel1
@@ -336,17 +339,17 @@ namespace Karkas.CodeGeneration.WinApp
             this.tableLayoutPanel1.Controls.Add(this.buttonTestConnectionString, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.userControlCodeGenerationOptions1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 30);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 25);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.55372F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.44628F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1069, 575);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1069, 580);
             this.tableLayoutPanel1.TabIndex = 24;
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 605);
             this.Controls.Add(this.tableLayoutPanel1);
