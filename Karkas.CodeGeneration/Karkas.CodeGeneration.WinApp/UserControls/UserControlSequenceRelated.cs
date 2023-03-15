@@ -44,8 +44,12 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         internal void fillListBoxSequences()
         {
-            DataTable dtSequenceList = ParentMainForm.DatabaseHelper.getSequenceListFromSchema(comboBoxSchemaList.Text);
-            listBoxSequences.DataSource = dtSequenceList;
+            string selectedSchema = comboBoxSchemaList.Text;
+            if(!string.IsNullOrWhiteSpace(selectedSchema))
+            {
+                DataTable dtSequenceList = ParentMainForm.DatabaseHelper.getSequenceListFromSchema(selectedSchema);
+                listBoxSequences.DataSource = dtSequenceList;
+            }
 
         }
 
