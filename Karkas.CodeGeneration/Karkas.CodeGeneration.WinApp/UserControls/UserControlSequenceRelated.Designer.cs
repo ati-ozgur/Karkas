@@ -39,45 +39,49 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonSeciliSequenceUret
+            // buttonGenerateSelectedSequences
             // 
+            this.buttonGenerateSelectedSequences.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonGenerateSelectedSequences.Location = new System.Drawing.Point(491, 86);
             this.buttonGenerateSelectedSequences.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonGenerateSelectedSequences.Name = "buttonSeciliSequenceUret";
-            this.buttonGenerateSelectedSequences.Size = new System.Drawing.Size(118, 55);
+            this.buttonGenerateSelectedSequences.Name = "buttonGenerateSelectedSequences";
+            this.buttonGenerateSelectedSequences.Size = new System.Drawing.Size(118, 195);
             this.buttonGenerateSelectedSequences.TabIndex = 23;
             this.buttonGenerateSelectedSequences.Text = "Create Selected Sequences";
             this.buttonGenerateSelectedSequences.UseVisualStyleBackColor = true;
             this.buttonGenerateSelectedSequences.Click += new System.EventHandler(this.buttonGenerateSelectedSequences_Click);
             // 
-            // buttonTumSequencesUret
+            // buttonGenerateAllSequencesInDatabase
             // 
+            this.buttonGenerateAllSequencesInDatabase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonGenerateAllSequencesInDatabase.Location = new System.Drawing.Point(3, 2);
             this.buttonGenerateAllSequencesInDatabase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonGenerateAllSequencesInDatabase.Name = "buttonTumSequencesUret";
-            this.buttonGenerateAllSequencesInDatabase.Size = new System.Drawing.Size(116, 46);
+            this.buttonGenerateAllSequencesInDatabase.Name = "buttonGenerateAllSequencesInDatabase";
+            this.buttonGenerateAllSequencesInDatabase.Size = new System.Drawing.Size(116, 80);
             this.buttonGenerateAllSequencesInDatabase.TabIndex = 22;
             this.buttonGenerateAllSequencesInDatabase.Text = "Create all sequences in all Database";
             this.buttonGenerateAllSequencesInDatabase.UseVisualStyleBackColor = true;
             this.buttonGenerateAllSequencesInDatabase.Click += new System.EventHandler(this.buttonGenerateAllSequencesInDatabase_Click);
             // 
-            // listBoxSequenceListesi
+            // listBoxSequences
             // 
             this.listBoxSequences.DisplayMember = "SEQUENCE_NAME";
+            this.listBoxSequences.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxSequences.FormattingEnabled = true;
             this.listBoxSequences.ItemHeight = 15;
             this.listBoxSequences.Location = new System.Drawing.Point(247, 86);
             this.listBoxSequences.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxSequences.Name = "listBoxSequenceListesi";
+            this.listBoxSequences.Name = "listBoxSequences";
             this.listBoxSequences.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxSequences.Size = new System.Drawing.Size(178, 184);
+            this.listBoxSequences.Size = new System.Drawing.Size(238, 195);
             this.listBoxSequences.TabIndex = 21;
+            this.listBoxSequences.ValueMember = "SEQUENCE_NAME";
             // 
-            // labelSequenceListesi
+            // labelSequenceList
             // 
             this.labelSequenceList.AutoSize = true;
             this.labelSequenceList.Location = new System.Drawing.Point(125, 84);
-            this.labelSequenceList.Name = "labelSequenceListesi";
+            this.labelSequenceList.Name = "labelSequenceList";
             this.labelSequenceList.Size = new System.Drawing.Size(79, 15);
             this.labelSequenceList.TabIndex = 20;
             this.labelSequenceList.Text = "Sequence List";
@@ -126,12 +130,13 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(612, 283);
             this.tableLayoutPanel1.TabIndex = 24;
             // 
-            // buttonCreateSequenceInSchema
+            // buttonGenerateSequenceInSelectedSchema
             // 
+            this.buttonGenerateSequenceInSelectedSchema.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonGenerateSequenceInSelectedSchema.Location = new System.Drawing.Point(491, 2);
             this.buttonGenerateSequenceInSelectedSchema.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonGenerateSequenceInSelectedSchema.Name = "buttonCreateSequenceInSchema";
-            this.buttonGenerateSequenceInSelectedSchema.Size = new System.Drawing.Size(116, 46);
+            this.buttonGenerateSequenceInSelectedSchema.Name = "buttonGenerateSequenceInSelectedSchema";
+            this.buttonGenerateSequenceInSelectedSchema.Size = new System.Drawing.Size(118, 80);
             this.buttonGenerateSequenceInSelectedSchema.TabIndex = 24;
             this.buttonGenerateSequenceInSelectedSchema.Text = "Create all sequences in all Database";
             this.buttonGenerateSequenceInSelectedSchema.UseVisualStyleBackColor = true;
@@ -142,7 +147,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserControlSequenceRelated";
             this.Size = new System.Drawing.Size(612, 283);
             this.tableLayoutPanel1.ResumeLayout(false);
