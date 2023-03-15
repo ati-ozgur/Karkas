@@ -67,10 +67,11 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             MessageBox.Show("SEÇİLEN SEQUENCES İÇİN KOD ÜRETİLDİ");
         }
 
-        private void buttonTumSequencesUret_Click(object sender, EventArgs e)
+        private void buttonGenerateAllSequencesInDatabase_Click(object sender, EventArgs e)
         {
 
-            
+            MessageBox.Show("NOT IMPLEMENTED YET");
+
         }
 
         private string getSelectedSchemaName()
@@ -80,7 +81,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             return schema;
         }
 
-        private void buttonCreateSequenceInSchema_Click(object sender, EventArgs e)
+        private void buttonGenerateSequenceInSelectedSchema_Click(object sender, EventArgs e)
         {
             try
             {
