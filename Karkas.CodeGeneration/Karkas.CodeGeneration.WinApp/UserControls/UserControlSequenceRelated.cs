@@ -69,23 +69,6 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         private void buttonTumSequencesUret_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string selectedSchemaName = getSelectedSchemaName();
-
-
-                String hatalar = ParentMainForm.DatabaseHelper.CodeGenerateAllSequencesInSchema(selectedSchemaName);
-                string message = "TÜM SEQUENCES İÇİN KOD ÜRETİLDİ";
-                if (!string.IsNullOrEmpty(hatalar))
-                {
-                    message = message + ", HATALAR " + hatalar;
-                }
-                MessageBox.Show(message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
             
         }
@@ -95,6 +78,28 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             DataRowView drv = (DataRowView) comboBoxSchemaList.SelectedValue;
             string schema = drv["SCHEMA_NAME"].ToString();
             return schema;
+        }
+
+        private void buttonCreateSequenceInSchema_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string selectedSchemaName = getSelectedSchemaName();
+
+
+                string errors = ParentMainForm.DatabaseHelper.CodeGenerateAllSequencesInSchema(selectedSchemaName);
+                string message = $"Sequences created in schema {selectedSchemaName}";
+                if (!string.IsNullOrEmpty(errors))
+                {
+                    message = message + ", Errors " + errors;
+                }
+                MessageBox.Show(message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }
