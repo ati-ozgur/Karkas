@@ -68,7 +68,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
             }
 
-            MessageBox.Show("SEÇİLEN SEQUENCES İÇİN KOD ÜRETİLDİ");
+            MessageBox.Show("Code generated for selected sequences");
         }
 
         private void buttonGenerateAllSequencesInDatabase_Click(object sender, EventArgs e)
