@@ -392,7 +392,7 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
 
 
 
-        public abstract DataTable getSchemaList();
+        public abstract string[] getSchemaList();
 
         public abstract string getDefaultSchema();
 

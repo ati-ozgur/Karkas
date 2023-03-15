@@ -15,7 +15,7 @@ namespace Karkas.CodeGenerationHelper.Interfaces
         List<DatabaseAbbreviations> ListDatabaseAbbreviations { get; set; }
 
 
-        DataTable getSchemaList();
+        string[] getSchemaList();
 
         string getDefaultSchema();
 

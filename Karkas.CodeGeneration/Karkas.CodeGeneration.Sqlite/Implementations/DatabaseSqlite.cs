@@ -167,9 +167,9 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         }
 
 
-        public override DataTable getSchemaList()
+        public override string[] getSchemaList()
         {
-            return new DataTable();
+            throw new NotImplementedException();
         }
 
 

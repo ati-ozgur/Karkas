@@ -232,10 +232,14 @@ namespace Karkas.CodeGeneration.WinApp
 
         private void fillSchema()
         {
-            var schemaList = DatabaseHelper.getSchemaList();
+            string[] schemaList = userControlCodeGenerationOptions1.GetSchemaList();
+            if(schemaList == null || schemaList.Length == 0)
+            {
+                schemaList = DatabaseHelper.getSchemaList();
+            }
             userControlTableRelated1.fillComboBoxSchemaList(schemaList);
-            userControlViewRelated1.comboBoxSchemaListDoldur(schemaList);
-            userControlStoredProcedureRelated1.comboBoxSchemaListDoldur(schemaList);
+            userControlViewRelated1.fillComboBoxSchemaList(schemaList);
+            userControlStoredProcedureRelated1.fillComboBoxSchemaList(schemaList);
             userControlSequenceRelated1.fillComboBoxSchemaList(schemaList);
         }
 

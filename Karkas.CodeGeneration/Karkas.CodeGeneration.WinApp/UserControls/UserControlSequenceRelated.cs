@@ -27,15 +27,19 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
 
 
-        public void fillComboBoxSchemaList(DataTable dtSchemaList)
+        public void fillComboBoxSchemaList(string[] schemaList)
         {
-            if (dtSchemaList.Rows.Count > 0)
+            comboBoxSchemaList.DataSource = schemaList;
+            string defaultSchema = ParentMainForm.DatabaseHelper.getDefaultSchema();
+            if (schemaList.Contains(defaultSchema))
             {
-                comboBoxSchemaList.DataSource = dtSchemaList;
-                comboBoxSchemaList.Text = ParentMainForm.DatabaseHelper.getDefaultSchema();
+                comboBoxSchemaList.Text = defaultSchema;
+            }
+            else
+            {
+                comboBoxSchemaList.Text = schemaList[0];
             }
         }
-
 
 
         internal void fillListBoxSequences()

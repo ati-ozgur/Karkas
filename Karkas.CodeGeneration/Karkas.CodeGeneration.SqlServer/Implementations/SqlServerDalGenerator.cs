@@ -125,7 +125,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 
 
 
-        private const string SQL__FOR_SCHEMA_LIST = @"
+        private const string SQL_FOR_SCHEMA_LIST = @"
 SELECT '__TUM_SCHEMALAR__' AS SCHEMA_NAME FROM INFORMATION_SCHEMA.TABLES
 UNION
 SELECT DISTINCT T.TABLE_SCHEMA AS SCHEMA_NAME FROM INFORMATION_SCHEMA.TABLES T
@@ -292,10 +292,18 @@ ORDER BY SEQUENCE_NAME
         }
 
 
-        public override DataTable getSchemaList()
+        public override string[] getSchemaList()
         {
-            return Template.DataTableOlustur(SQL__FOR_SCHEMA_LIST);
+            DataTable dt = Template.DataTableOlustur(SQL_FOR_SCHEMA_LIST);
+            string[] schemaList = new string[dt.Rows.Count];
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                var row = dt.Rows[i];
+                schemaList[i] = row[0].ToString();
+            }
+            return schemaList;
         }
+    
 
 
         public override void CodeGenerateOneSequence(string sequenceName, string schemaName)

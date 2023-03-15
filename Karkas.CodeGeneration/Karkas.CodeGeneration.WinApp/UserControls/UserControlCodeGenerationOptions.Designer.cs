@@ -62,7 +62,7 @@
             this.buttonKisaltmalar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelAdditionalSchemaList = new System.Windows.Forms.Label();
-            this.textBoxAdditionalSchemaList = new System.Windows.Forms.TextBox();
+            this.textBoxSchemaList = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -397,7 +397,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelDbProviderName, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.checkBoxCreateMainClassValidationExamples, 2, 14);
             this.tableLayoutPanel1.Controls.Add(this.labelAdditionalSchemaList, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxAdditionalSchemaList, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxSchemaList, 1, 9);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -431,12 +431,12 @@
             this.labelAdditionalSchemaList.TabIndex = 58;
             this.labelAdditionalSchemaList.Text = "Schema List (,)";
             // 
-            // textBoxAdditionalSchemaList
+            // textBoxSchemaList
             // 
-            this.textBoxAdditionalSchemaList.Location = new System.Drawing.Point(256, 282);
-            this.textBoxAdditionalSchemaList.Name = "textBoxAdditionalSchemaList";
-            this.textBoxAdditionalSchemaList.Size = new System.Drawing.Size(357, 23);
-            this.textBoxAdditionalSchemaList.TabIndex = 59;
+            this.textBoxSchemaList.Location = new System.Drawing.Point(256, 282);
+            this.textBoxSchemaList.Name = "textBoxSchemaList";
+            this.textBoxSchemaList.Size = new System.Drawing.Size(357, 23);
+            this.textBoxSchemaList.TabIndex = 59;
             // 
             // UserControlCodeGenerationOptions
             // 
@@ -493,6 +493,6 @@
         private Label label1;
         private Label label2;
         private Label labelAdditionalSchemaList;
-        private TextBox textBoxAdditionalSchemaList;
+        private TextBox textBoxSchemaList;
     }
 }

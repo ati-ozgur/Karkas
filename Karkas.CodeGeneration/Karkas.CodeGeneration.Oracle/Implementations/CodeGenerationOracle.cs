@@ -206,9 +206,16 @@ ORDER BY SEQUENCE_NAME
 
         
 
-        public override DataTable getSchemaList()
+        public override string[] getSchemaList()
         {
-            return Template.DataTableOlustur(SQL_FOR_SCHEMA_LIST);
+            DataTable dt = Template.DataTableOlustur(SQL_FOR_SCHEMA_LIST);
+            string[] schemaList = new string[dt.Rows.Count];
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                var row = dt.Rows[i];
+                schemaList[i] = row[0].ToString();
+            }
+            return schemaList;
         }
 
 
