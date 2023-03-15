@@ -31,6 +31,7 @@ namespace Karkas.CodeGeneration.WinApp
         {
             InitializeComponent();
             userControlCodeGenerationOptions1.getLastAccessedConnectionToTextbox();
+            this.WindowState = FormWindowState.Maximized;
         }
 
 
