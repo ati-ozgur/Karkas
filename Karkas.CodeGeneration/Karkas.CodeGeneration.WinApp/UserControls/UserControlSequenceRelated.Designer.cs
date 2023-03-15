@@ -30,7 +30,7 @@
         {
             this.buttonGenerateSelectedSequences = new System.Windows.Forms.Button();
             this.buttonGenerateAllSequencesInDatabase = new System.Windows.Forms.Button();
-            this.listBoxSequenceListesi = new System.Windows.Forms.ListBox();
+            this.listBoxSequences = new System.Windows.Forms.ListBox();
             this.labelSequenceList = new System.Windows.Forms.Label();
             this.labelSchemaList = new System.Windows.Forms.Label();
             this.comboBoxSchemaList = new System.Windows.Forms.ComboBox();
@@ -48,7 +48,7 @@
             this.buttonGenerateSelectedSequences.TabIndex = 23;
             this.buttonGenerateSelectedSequences.Text = "Create Selected Sequences";
             this.buttonGenerateSelectedSequences.UseVisualStyleBackColor = true;
-            this.buttonGenerateSelectedSequences.Click += new System.EventHandler(this.buttonSeciliSequenceUret_Click);
+            this.buttonGenerateSelectedSequences.Click += new System.EventHandler(this.buttonGenerateSelectedSequences_Click);
             // 
             // buttonTumSequencesUret
             // 
@@ -63,15 +63,15 @@
             // 
             // listBoxSequenceListesi
             // 
-            this.listBoxSequenceListesi.DisplayMember = "SEQUENCE_NAME";
-            this.listBoxSequenceListesi.FormattingEnabled = true;
-            this.listBoxSequenceListesi.ItemHeight = 15;
-            this.listBoxSequenceListesi.Location = new System.Drawing.Point(247, 86);
-            this.listBoxSequenceListesi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxSequenceListesi.Name = "listBoxSequenceListesi";
-            this.listBoxSequenceListesi.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxSequenceListesi.Size = new System.Drawing.Size(178, 184);
-            this.listBoxSequenceListesi.TabIndex = 21;
+            this.listBoxSequences.DisplayMember = "SEQUENCE_NAME";
+            this.listBoxSequences.FormattingEnabled = true;
+            this.listBoxSequences.ItemHeight = 15;
+            this.listBoxSequences.Location = new System.Drawing.Point(247, 86);
+            this.listBoxSequences.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxSequences.Name = "listBoxSequenceListesi";
+            this.listBoxSequences.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBoxSequences.Size = new System.Drawing.Size(178, 184);
+            this.listBoxSequences.TabIndex = 21;
             // 
             // labelSequenceListesi
             // 
@@ -113,7 +113,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelSchemaList, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxSchemaList, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonGenerateSelectedSequences, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.listBoxSequenceListesi, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.listBoxSequences, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.labelSequenceList, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonGenerateSequenceInSelectedSchema, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -155,7 +155,7 @@
 
         private System.Windows.Forms.Button buttonGenerateSelectedSequences;
         private System.Windows.Forms.Button buttonGenerateAllSequencesInDatabase;
-        private System.Windows.Forms.ListBox listBoxSequenceListesi;
+        private System.Windows.Forms.ListBox listBoxSequences;
         private System.Windows.Forms.Label labelSequenceList;
         private System.Windows.Forms.Label labelSchemaList;
         private System.Windows.Forms.ComboBox comboBoxSchemaList;

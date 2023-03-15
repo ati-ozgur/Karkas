@@ -27,7 +27,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
 
 
-        public void comboBoxSchemaListDoldur(DataTable dtSchemaList)
+        public void fillComboBoxSchemaList(DataTable dtSchemaList)
         {
             if (dtSchemaList.Rows.Count > 0)
             {
@@ -38,21 +38,21 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
 
 
-        internal void listBoxSequenceListDoldur()
+        internal void fillListBoxSequences()
         {
             DataTable dtSequenceList = ParentMainForm.DatabaseHelper.getSequenceListFromSchema(comboBoxSchemaList.Text);
-            listBoxSequenceListesi.DataSource = dtSequenceList;
+            listBoxSequences.DataSource = dtSequenceList;
 
         }
 
         private void comboBoxSchemaList_SelectedValueChanged(object sender, EventArgs e)
         {
-            listBoxSequenceListDoldur();
+            fillListBoxSequences();
         }
 
-        private void buttonSeciliSequenceUret_Click(object sender, EventArgs e)
+        private void buttonGenerateSelectedSequences_Click(object sender, EventArgs e)
         {
-            foreach (var item in listBoxSequenceListesi.SelectedItems)
+            foreach (var item in listBoxSequences.SelectedItems)
             {
                 DataRowView view = (DataRowView)item;
                 string schemaName = view["SEQ_SCHEMA_NAME"].ToString();

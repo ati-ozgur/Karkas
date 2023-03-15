@@ -227,7 +227,7 @@ namespace Karkas.CodeGeneration.WinApp
             userControlTableRelated1.fillTablesInListBox();
             userControlViewRelated1.listBoxViewListDoldur();
             userControlStoredProcedureRelated1.listBoxStoredProcedureListDoldur();
-            userControlSequenceRelated1.listBoxSequenceListDoldur();
+            userControlSequenceRelated1.fillListBoxSequences();
         }
 
         private void fillSchema()
@@ -236,7 +236,7 @@ namespace Karkas.CodeGeneration.WinApp
             userControlTableRelated1.fillComboBoxSchemaList(schemaList);
             userControlViewRelated1.comboBoxSchemaListDoldur(schemaList);
             userControlStoredProcedureRelated1.comboBoxSchemaListDoldur(schemaList);
-            userControlSequenceRelated1.comboBoxSchemaListDoldur(schemaList);
+            userControlSequenceRelated1.fillComboBoxSchemaList(schemaList);
         }
 
 
