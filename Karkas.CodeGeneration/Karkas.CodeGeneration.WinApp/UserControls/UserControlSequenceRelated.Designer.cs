@@ -138,7 +138,7 @@
             this.buttonGenerateSequenceInSelectedSchema.Name = "buttonGenerateSequenceInSelectedSchema";
             this.buttonGenerateSequenceInSelectedSchema.Size = new System.Drawing.Size(118, 80);
             this.buttonGenerateSequenceInSelectedSchema.TabIndex = 24;
-            this.buttonGenerateSequenceInSelectedSchema.Text = "Create all sequences in all Database";
+            this.buttonGenerateSequenceInSelectedSchema.Text = "Create all sequences in selected schema\r\n";
             this.buttonGenerateSequenceInSelectedSchema.UseVisualStyleBackColor = true;
             this.buttonGenerateSequenceInSelectedSchema.Click += new System.EventHandler(this.buttonGenerateSequenceInSelectedSchema_Click);
             // 
