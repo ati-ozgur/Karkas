@@ -143,17 +143,17 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             return QueryUsingColumnName(filtreListesi.ToArray(), degerListesi.ToArray());
         }
-        public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string[] filtreListesi, object[] degerListesi)
+        public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string[] pListFilterColumnNames, object[] pListValues)
         {
             List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
             QueryHelper sy = QueryHelper;
             IParameterBuilder builder = getParameterBuilder();
-            for (int i = 0; i < filtreListesi.Length; i++)
+            for (int i = 0; i < pListFilterColumnNames.Length; i++)
             {
 
-                string filtre = filtreListesi[i];
+                string filtre = pListFilterColumnNames[i];
                 sy.AddWhereCriteria(filtre);
-                builder.AddParameter(ParameterCharacter + filtre, degerListesi[i]);
+                builder.AddParameter(ParameterCharacter + filtre, pListValues[i]);
             }
             ExecuteQuery(liste, sy.GetCriteriaResultsWithoutWhere(), builder.GetParameterArray());
             return liste;
