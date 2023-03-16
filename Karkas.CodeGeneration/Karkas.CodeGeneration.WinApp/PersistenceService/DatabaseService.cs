@@ -72,7 +72,10 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
 
         internal static void deleteDatabase(DatabaseEntry databaseEntry)
         {
-            throw new NotImplementedException();
+
+            var entries = getAllDatabaseEntries();
+            entries.Remove(databaseEntry);
+            SaveDatabaseEntries(entries);
 
         }
 
