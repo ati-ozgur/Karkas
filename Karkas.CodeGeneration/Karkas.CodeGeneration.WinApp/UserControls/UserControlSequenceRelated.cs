@@ -82,27 +82,25 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         }
 
-        private string getSelectedSchemaName()
-        {
-            DataRowView drv = (DataRowView) comboBoxSchemaList.SelectedValue;
-            string schema = drv["SCHEMA_NAME"].ToString();
-            return schema;
-        }
 
         private void buttonGenerateSequenceInSelectedSchema_Click(object sender, EventArgs e)
         {
             try
             {
-                string selectedSchemaName = getSelectedSchemaName();
-
-
-                string errors = ParentMainForm.DatabaseHelper.CodeGenerateAllSequencesInSchema(selectedSchemaName);
-                string message = $"Sequences created in schema {selectedSchemaName}";
-                if (!string.IsNullOrEmpty(errors))
+                if(comboBoxSchemaList.SelectedValue != null)
                 {
-                    message = message + ", Errors " + errors;
+                    string selectedSchemaName = comboBoxSchemaList.SelectedValue.ToString();
+
+
+                    string errors = ParentMainForm.DatabaseHelper.CodeGenerateAllSequencesInSchema(selectedSchemaName);
+                    string message = $"Sequences created in schema {selectedSchemaName}";
+                    if (!string.IsNullOrEmpty(errors))
+                    {
+                        message = message + ", Errors " + errors;
+                    }
+                    MessageBox.Show(message);
+
                 }
-                MessageBox.Show(message);
             }
             catch (Exception ex)
             {
