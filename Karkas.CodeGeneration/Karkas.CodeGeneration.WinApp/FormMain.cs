@@ -103,6 +103,7 @@ namespace Karkas.CodeGeneration.WinApp
 
                 }
 
+                labelConnectionStatus.ForeColor = Color.Black;
                 labelConnectionStatus.Text = "Connection is SUCCESFULL";
                 fillInformation();
                 this.tabControlDatabase.Enabled = true;
