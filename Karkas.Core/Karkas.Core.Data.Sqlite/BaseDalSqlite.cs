@@ -83,6 +83,18 @@ namespace Karkas.Core.Data.Sqlite
             //}
         }
 
+        // 
+        /// <summary>
+        /// https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/parameters
+        /// Parameters can be prefixed with either :, @, or $.
+        /// </summary>
+        public override string ParameterCharacter
+        {
+            get
+            {
+                return "@";
+            }
+        }
 
     }
 }

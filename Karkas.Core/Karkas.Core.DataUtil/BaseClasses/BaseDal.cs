@@ -158,16 +158,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             ExecuteQuery(liste, sy.GetCriteriaResultsWithoutWhere(), builder.GetParameterArray());
             return liste;
         }
-        /// <summary>
-        /// Uses @ for sql server, any other should override this in code generation.
-        /// </summary>
-        public virtual string ParameterCharacter
-        {
-            get
-            {
-                return "@";
-            }
-        }
+        public abstract string ParameterCharacter { get;  }
 
 
         public virtual QueryHelper QueryHelper

@@ -75,6 +75,14 @@ namespace Karkas.Core.Data.SqlServer
             //}
         }
 
+        public override string ParameterCharacter
+        {
+            get
+            {
+                return "@";
+            }
+        }
+
 
     }
 }
