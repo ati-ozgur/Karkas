@@ -179,21 +179,21 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
 
 
-        public virtual List<TYPE_LIBRARY_TYPE> QueryAllOrderBy(params string[] pSiraListesi)
+        public virtual List<TYPE_LIBRARY_TYPE> QueryAllOrderBy(params string[] pListOrderBy)
         {
             List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
             QueryHelper sy = QueryHelper;
-            int listeUzunluk = pSiraListesi.Length;
+            int listeUzunluk = pListOrderBy.Length;
             for (int i = 0; i < listeUzunluk; i++)
             {
                 if (i + 1 < listeUzunluk)
                 {
-                    sy.AddOrderBy(pSiraListesi[i], pSiraListesi[i + 1]);
+                    sy.AddOrderBy(pListOrderBy[i], pListOrderBy[i + 1]);
                     i++;
                 }
                 else
                 {
-                    sy.AddOrderBy(pSiraListesi[i]);
+                    sy.AddOrderBy(pListOrderBy[i]);
                 }
             }
             // HACK Should find better solution to this;
