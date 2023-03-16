@@ -118,6 +118,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
         public virtual List<TYPE_LIBRARY_TYPE> QueryAll(int maxRowCount)
         {
+            // TODO does it work with all databases, this does not seem to work with even SQL Server
             List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
             ExecuteQuery(liste);
             return liste;
