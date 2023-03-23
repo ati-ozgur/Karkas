@@ -42,7 +42,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             string sequenceDalName = sequenceNamePascalCase + "Dal";
 
-            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForSequenceDalGenerated(database, schemaName, sequenceNamePascalCase, database.UseSchemaNameInFolders);
+            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForSequenceDalGenerated(database, schemaNamepascalCase, sequenceNamePascalCase, database.UseSchemaNameInFolders);
 
             UsingleriWrite(output,baseNameSpaceSequencesDal);
             ClassWrite(output, sequenceDalName);

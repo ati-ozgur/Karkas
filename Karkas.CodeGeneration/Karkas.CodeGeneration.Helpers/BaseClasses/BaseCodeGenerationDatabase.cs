@@ -333,7 +333,7 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
         }
 
 
-        public virtual void CodeGenerateOneSequence(string sequenceName, string schemaName)
+        public virtual void CodeGenerateOneSequence(string schemaName, string sequenceName)
         {
             SequenceGenerator seqGen = new SequenceGenerator(this);
             seqGen.Render(Output, schemaName, sequenceName);
@@ -348,7 +348,7 @@ namespace Karkas.CodeGenerationHelper.BaseClasses
                 {
                     string sequenceName = row["SEQUENCE_NAME"].ToString();
                     string seqSchemaName = row["SEQ_SCHEMA_NAME"].ToString();
-                    CodeGenerateOneSequence(seqSchemaName, seqSchemaName);
+                    CodeGenerateOneSequence(seqSchemaName, sequenceName);
                 }
                 catch (Exception ex)
                 {
