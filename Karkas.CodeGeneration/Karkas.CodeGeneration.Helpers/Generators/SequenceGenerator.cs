@@ -52,7 +52,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
 
             writeSelectSequenceStrings(output, database, schemaName, sequenceName);
-            getNextSequenceValueWrite(output);
+            writeGetNextSequenceValue(output);
             AtEndCurlyBraceletDescreaseTab(output);
             AtEndCurlyBraceletDescreaseTab(output);
 
@@ -63,7 +63,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         }
 
-        private void getNextSequenceValueWrite(IOutput output)
+        private void writeGetNextSequenceValue(IOutput output)
         {
             output.autoTabLn("");
             output.autoTabLn("public decimal getNextSequenceValue()");
