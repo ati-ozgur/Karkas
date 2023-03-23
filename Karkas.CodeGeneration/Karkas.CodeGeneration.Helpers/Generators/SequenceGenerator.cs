@@ -51,7 +51,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
 
 
-            SelectSequenceStringWrite(output, database, schemaName, sequenceName);
+            writeSelectSequenceStrings(output, database, schemaName, sequenceName);
             getNextSequenceValueWrite(output);
             AtEndCurlyBraceletDescreaseTab(output);
             AtEndCurlyBraceletDescreaseTab(output);
@@ -73,18 +73,19 @@ namespace Karkas.CodeGenerationHelper.Generators
             AtEndCurlyBraceletDescreaseTab(output);
         }
 
-        private void SelectSequenceStringWrite(IOutput output, IDatabase database, string schemaName, string sequenceName)
+
+        private void writeSelectSequenceStrings(IOutput output, IDatabase database, string schemaName, string sequenceName)
         {
-            string selectSequenceString = "";
+            string selectNextSequenceString = "";
             if (database.UseSchemaNameInSqlQueries)
             {
-                selectSequenceString = string.Format("private const string selectSequenceString = \"SELECT {0}.{1}.NEXTVAL FROM DUAL\";", schemaName, sequenceName);
+                selectNextSequenceString = string.Format("private const string selectSequenceString = \"SELECT {0}.{1}.NEXTVAL FROM DUAL\";", schemaName, sequenceName);
             }
             else
             {
-                selectSequenceString = string.Format("private const string selectSequenceString = \"SELECT {0}.NEXTVAL FROM DUAL\";",  sequenceName);
+                selectNextSequenceString = string.Format("private const string selectSequenceString = \"SELECT {0}.NEXTVAL FROM DUAL\";",  sequenceName);
             }
-            output.autoTabLn(selectSequenceString);
+            output.autoTabLn(selectNextSequenceString);
 
 
         }
