@@ -44,10 +44,10 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForSequenceDalGenerated(database, schemaNamepascalCase, sequenceNamePascalCase, database.UseSchemaNameInFolders);
 
-            UsingleriWrite(output,baseNameSpaceSequencesDal);
-            ClassWrite(output, sequenceDalName);
+            writeUsings(output,baseNameSpaceSequencesDal);
+            writeClass(output, sequenceDalName);
 
-            OverrideDbProviderNameWrite(output);
+            writeOverrideDbProviderName(output);
 
 
 
@@ -99,7 +99,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
         }
 
-        private void UsingleriWrite(IOutput output, string baseNameSpaceSequencesDal)
+        private void writeUsings(IOutput output, string baseNameSpaceSequencesDal)
         {
             output.autoTabLn("");
             output.autoTabLn("using System;");
@@ -118,14 +118,14 @@ namespace Karkas.CodeGenerationHelper.Generators
         }
 
 
-        private void ClassWrite(IOutput output, string className)
+        private void writeClass(IOutput output, string className)
         {
             output.increaseTab();
             output.autoTab($"public partial class {className} : BaseDalWithoutEntityOracle");
             AtStartCurlyBraceletIncreaseTab(output);
         }
 
-        private void OverrideDbProviderNameWrite(IOutput output)
+        private void writeOverrideDbProviderName(IOutput output)
         {
             output.autoTabLn("public override string DbProviderName");
             AtStartCurlyBraceletIncreaseTab(output);
