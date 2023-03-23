@@ -53,6 +53,7 @@ namespace Karkas.CodeGenerationHelper.Generators
 
             writeSelectSequenceStrings(output, database, schemaName, sequenceName);
             writeGetNextSequenceValue(output);
+            writeGetCurrentSequenceValue(output);
             AtEndCurlyBraceletDescreaseTab(output);
             AtEndCurlyBraceletDescreaseTab(output);
 
@@ -69,15 +70,23 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTabLn("public decimal getNextSequenceValue()");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("AdoTemplate template = new AdoTemplate(DbProviderName);");
-            output.autoTabLn("return (decimal) template.BringOneValue(selectSequenceString);");
+            output.autoTabLn("return (decimal) template.BringOneValue(selectNextSequenceString);");
             AtEndCurlyBraceletDescreaseTab(output);
         }
-
+        private void writeGetCurrentSequenceValue(IOutput output)
+        {
+            output.autoTabLn("");
+            output.autoTabLn("public decimal getCurrentSequenceValue()");
+            AtStartCurlyBraceletIncreaseTab(output);
+            output.autoTabLn("AdoTemplate template = new AdoTemplate(DbProviderName);");
+            output.autoTabLn("return (decimal) template.BringOneValue(selectCurrentSequenceString);");
+            AtEndCurlyBraceletDescreaseTab(output);
+        }
 
         private void writeSelectSequenceStrings(IOutput output, IDatabase database, string schemaName, string sequenceName)
         {
             string selectNextSequenceString = "";
-            string selectCurrentSequenceString = $"private const string selectNextSequenceString = \"SELECT last_number FROM all_sequences WHERE sequence_owner = '{schemaName}' AND sequence_name = '{sequenceName}'\";";
+            string selectCurrentSequenceString = $"private const string selectCurrentSequenceString = \"SELECT last_number FROM all_sequences WHERE sequence_owner = '{schemaName}' AND sequence_name = '{sequenceName}'\";";
             if (database.UseSchemaNameInSqlQueries)
             {
                 selectNextSequenceString = $"private const string selectNextSequenceString = \"SELECT {schemaName}.{sequenceName}.NEXTVAL FROM DUAL\";";
