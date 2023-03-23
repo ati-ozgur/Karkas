@@ -77,15 +77,17 @@ namespace Karkas.CodeGenerationHelper.Generators
         private void writeSelectSequenceStrings(IOutput output, IDatabase database, string schemaName, string sequenceName)
         {
             string selectNextSequenceString = "";
+            string selectCurrentSequenceString = $"private const string selectNextSequenceString = \"SELECT last_number FROM all_sequences WHERE sequence_owner = '{schemaName}' AND sequence_name = '{sequenceName}'\";";
             if (database.UseSchemaNameInSqlQueries)
             {
-                selectNextSequenceString = string.Format("private const string selectSequenceString = \"SELECT {0}.{1}.NEXTVAL FROM DUAL\";", schemaName, sequenceName);
+                selectNextSequenceString = $"private const string selectNextSequenceString = \"SELECT {schemaName}.{sequenceName}.NEXTVAL FROM DUAL\";";
             }
             else
             {
-                selectNextSequenceString = string.Format("private const string selectSequenceString = \"SELECT {0}.NEXTVAL FROM DUAL\";",  sequenceName);
+                selectNextSequenceString = $"private const string selectNextSequenceString = \"SELECT {sequenceName}.NEXTVAL FROM DUAL\";";
             }
             output.autoTabLn(selectNextSequenceString);
+            output.autoTabLn(selectCurrentSequenceString);
 
 
         }
