@@ -69,8 +69,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTabLn("");
             output.autoTabLn("public decimal getNextSequenceValue()");
             AtStartCurlyBraceletIncreaseTab(output);
-            output.autoTabLn("AdoTemplate template = new AdoTemplate(DbProviderName);");
-            output.autoTabLn("return (decimal) template.BringOneValue(selectNextSequenceString);");
+            output.autoTabLn("return (decimal) Template.BringOneValue(selectNextSequenceString);");
             AtEndCurlyBraceletDescreaseTab(output);
         }
         private void writeGetCurrentSequenceValue(IOutput output)
@@ -78,8 +77,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTabLn("");
             output.autoTabLn("public decimal getCurrentSequenceValue()");
             AtStartCurlyBraceletIncreaseTab(output);
-            output.autoTabLn("AdoTemplate template = new AdoTemplate(DbProviderName);");
-            output.autoTabLn("return (decimal) template.BringOneValue(selectCurrentSequenceString);");
+            output.autoTabLn("return (decimal) Template.BringOneValue(selectCurrentSequenceString);");
             AtEndCurlyBraceletDescreaseTab(output);
         }
 
@@ -111,6 +109,7 @@ namespace Karkas.CodeGenerationHelper.Generators
             output.autoTabLn("using System.Data.SqlClient;");
             output.autoTabLn("using System.Text;");
             output.autoTabLn("using Karkas.Core.DataUtil;");
+            output.autoTabLn("using Karkas.Core.Data.Oracle;");
             output.autoTabLn("");
             output.autoTab("namespace ");
             output.autoTab(baseNameSpaceSequencesDal);
@@ -122,15 +121,13 @@ namespace Karkas.CodeGenerationHelper.Generators
         private void ClassWrite(IOutput output, string className)
         {
             output.increaseTab();
-            output.autoTab("public partial class ");
-            output.write(className);
-            output.writeLine("");
+            output.autoTab($"public partial class {className} : BaseDalWithoutEntityOracle");
             AtStartCurlyBraceletIncreaseTab(output);
         }
 
         private void OverrideDbProviderNameWrite(IOutput output)
         {
-            output.autoTabLn("public string DbProviderName");
+            output.autoTabLn("public override string DbProviderName");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
