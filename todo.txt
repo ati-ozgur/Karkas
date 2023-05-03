@@ -1,5 +1,10 @@
 todo.txt
 
+- https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file
+think about multiple version support
+
+
+
 - fix sqlite keywords issue. DONE
 https://www.sqlite.org/lang_keywords.html
 
