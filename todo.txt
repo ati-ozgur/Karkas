@@ -17,4 +17,7 @@ https://www.sqlite.org/lang_keywords.html
 
 https://mermaid-js.github.io/mermaid/
 
+- github actions and database containers for automated testing?
+- https://github.com/gvenzl/oci-oracle-free
+
 
