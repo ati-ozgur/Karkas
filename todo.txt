@@ -1,5 +1,12 @@
 todo.txt
 
+unit testing database
+
+- https://github.com/gvenzl/oci-oracle-free
+- https://github.com/marketplace/actions/setup-oracle-db-free
+
+
+
 - https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file
 think about multiple version support
 
