@@ -30,39 +30,46 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         private void buttonGenerateAllTables_Click(object sender, EventArgs e)
         {
-            if (this.ParentMainForm.ProduceAllTablesAreYouSure())
+            string[] schemaList = this.ParentMainForm.GetSchemaList();
+            if (schemaList.Length == 0)
             {
-                string[] schemaList = this.ParentMainForm.GetSchemaList();
-                string hatalar = "";
-                string message = "";
-                try
+                bool answer = this.ParentMainForm.ProduceAllTablesAreYouSure();
+                if (!answer)
                 {
-                    if (schemaList.Length == 0)
-                    {
-                        hatalar = ParentMainForm.DatabaseHelper.CodeGenerateAllTables();
-                        message = "Code generated for all tables in database";
-                    }
-                    else
-                    {
-                        foreach(string schemaName in schemaList)
-                        {
-                            hatalar = hatalar + ParentMainForm.DatabaseHelper.CodeGenerateAllTablesInSchema(schemaName);
-                        }
-                        message = "Code generated for all tables in following schemas: " + string.Join(",",schemaList);
-
-                    }
-
-                    if (!string.IsNullOrEmpty(hatalar))
-                    {
-                        message = message + ", HATALAR " + hatalar;
-                    }
-                    MessageBox.Show(message);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    return;
                 }
             }
+
+            string hatalar = "";
+            string message = "";
+            try
+            {
+                if (schemaList.Length == 0)
+                {
+                    hatalar = ParentMainForm.DatabaseHelper.CodeGenerateAllTables();
+                    message = "Code generated for all tables in database";
+                }
+                else
+                {
+                    foreach (string schemaName in schemaList)
+                    {
+                        hatalar = hatalar + ParentMainForm.DatabaseHelper.CodeGenerateAllTablesInSchema(schemaName);
+                    }
+                    message = "Code generated for all tables in following schemas: " + string.Join(",", schemaList);
+
+                }
+
+                if (!string.IsNullOrEmpty(hatalar))
+                {
+                    message = message + ", HATALAR " + hatalar;
+                }
+                MessageBox.Show(message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
 
         }
 
