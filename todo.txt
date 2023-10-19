@@ -11,6 +11,10 @@ unit testing database
 think about multiple version support
 
 
+2. change logging
+https://learn.microsoft.com/en-us/dotnet/core/extensions/logger-message-generator
+https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-7.0
+
 
 - fix sqlite keywords issue. DONE
 https://www.sqlite.org/lang_keywords.html

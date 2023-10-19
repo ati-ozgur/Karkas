@@ -4,3 +4,5 @@ https://github.com/tiangolo/sqlmodel
 https://github.com/ati-ozgur/massive-js
 https://massivejs.org/get-started
 https://gitlab.com/dmfay/massive-js
+https://github.com/DapperLib/Dapper/blob/main/Readme.md
+https://dapperlib.github.io/Dapper/
