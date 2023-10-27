@@ -157,9 +157,19 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         private string getSelectedSchemaName()
         {
-            DataRowView drv = (DataRowView)comboBoxSchemaList.SelectedValue;
-            string schema = drv["SCHEMA_NAME"].ToString();
-            return schema;
+            string schemaName = comboBoxSchemaList.SelectedValue as string;
+            if (schemaName != null)
+            {
+                return schemaName;
+            }
+            DataRowView drv = comboBoxSchemaList.SelectedValue as DataRowView;
+
+            if (drv != null)
+            {
+                schemaName = drv["SCHEMA_NAME"].ToString();
+                return schemaName;
+            }
+            throw new ArgumentException("problem in the schema binding");
         }
 
 
