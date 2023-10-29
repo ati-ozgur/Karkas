@@ -233,6 +233,11 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         public string[] GetSchemaList()
         {
+            if(string.IsNullOrEmpty(this.textBoxSchemaList.Text))
+            {
+                return null;
+            }
+
             string[] schemaList = this.textBoxSchemaList.Text.Split(",");
             return schemaList;
         }
