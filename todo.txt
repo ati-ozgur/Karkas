@@ -1,5 +1,7 @@
 todo.txt
 
+- add global usings to interface
+
 - fix sqlite keywords issue. DONE
 https://www.sqlite.org/lang_keywords.html
 
