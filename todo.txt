@@ -1,5 +1,10 @@
 todo.txt
 
+0. global usings
+1. record pattern
+2. 
+
+
 unit testing database
 
 - https://github.com/gvenzl/oci-oracle-free
