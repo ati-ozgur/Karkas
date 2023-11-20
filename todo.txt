@@ -2,7 +2,8 @@ todo.txt
 
 0. global usings
 1. record pattern
-2. 
+2. Dependency injection of Asp.Net 
+builder.Services.AddSingleton
 
 
 unit testing database
