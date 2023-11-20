@@ -1,8 +1,10 @@
 todo.txt
 
-0. global usings
-1. record pattern
-2. Dependency injection of Asp.Net 
+- add global usings to interface
+
+- add new namespace syntax to interface
+- record pattern
+- Dependency injection of Asp.Net 
 builder.Services.AddSingleton
 
 
