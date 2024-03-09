@@ -25,7 +25,10 @@ https://www.sqlite.org/lang_keywords.html
 
 - add [JsonPropertyName("XXX")] to code generation
 
+JsonNamingPolicy includes new naming policies for snake_case (with an underscore) 
+
 - add foreign key code generations
+
 
 
 - use mermaid as markdown to create some diagrams
