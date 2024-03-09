@@ -37,3 +37,11 @@ https://mermaid-js.github.io/mermaid/
 
 - github actions and database containers for automated testing?
 - https://github.com/gvenzl/oci-oracle-free
+
+
+
+## sample databases
+
+- https://github.com/lerocha/chinook-database
+- https://github.com/jpwhite3/northwind-SQLite3/
+- https://github.com/bradleygrant/sakila-sqlite3
