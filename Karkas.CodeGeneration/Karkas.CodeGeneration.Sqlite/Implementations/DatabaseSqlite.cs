@@ -169,7 +169,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         public override string[] getSchemaList()
         {
-            throw new NotImplementedException();
+            return new string[] { "main"};
         }
 
 
