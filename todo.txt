@@ -4,11 +4,14 @@ todo.txt
 - add new namespace syntax to interface
 
 
-unit testing database
+## unit testing database
 
 - https://github.com/gvenzl/oci-oracle-free
 - https://github.com/marketplace/actions/setup-oracle-db-free
 
+- record pattern
+- Dependency injection of Asp.Net 
+builder.Services.AddSingleton
 
 
 - https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file
