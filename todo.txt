@@ -1,5 +1,10 @@
 todo.txt
 
+1. column --> expected .net type
+
+start TDD for creation of code generation
+
+
 - add global usings to interface
 - add new namespace syntax to interface
 
