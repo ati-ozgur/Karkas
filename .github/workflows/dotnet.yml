@@ -24,4 +24,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore Karkas.Core.sln
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test  Karkas.Core.sln --no-build --verbosity normal
