@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "C#: Karkas.CodeGeneration.ConsoleApp Debug",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp/Karkas.CodeGeneration.ConsoleApp.csproj"
+        },
+
+    ]
+}
