@@ -25,10 +25,14 @@
     <ProjectReference Include="..\Karkas.CodeGeneration.SqlServer\Karkas.CodeGeneration.SqlServer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+
+<ItemGroup>
+  <ContentWithTargetPath Include="../config.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <TargetPath>config.json</TargetPath>
+  </ContentWithTargetPath>
+  <None Include="../config.json" />
+</ItemGroup>
+
 
 </Project>
