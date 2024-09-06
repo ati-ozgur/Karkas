@@ -12,7 +12,8 @@ namespace Karkas.CodeGeneration.WinApp.PersistenceService
 {
     public class DatabaseService
     {
-        const string json_filename = "config.json";
+
+        const string json_filename = $"{AppDomain.CurrentDomain.BaseDirectory}/config.json";
 
         public static List<DatabaseEntry> getAllDatabaseEntriesSortedByName()
         {
