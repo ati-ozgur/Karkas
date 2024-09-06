@@ -1,5 +1,13 @@
 todo.txt
 
+1. Later check multiple .net SDK versions
+For now, we work with .net6
+    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file
+
+
+
+
 1. Check why we have references to following dlls
 
 - Microsoft.Identity.Client.*
