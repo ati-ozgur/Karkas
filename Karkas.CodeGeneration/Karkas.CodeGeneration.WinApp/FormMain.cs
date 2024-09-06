@@ -166,28 +166,7 @@ namespace Karkas.CodeGeneration.WinApp
             }
         }
 
-        private void testSqlite(string connectionString)
-        {
-            Assembly assembly = Assembly.LoadWithPartialName("System.Data.SQLite");
-            Object objReflection = Activator.CreateInstance(assembly.FullName, "System.Data.SQLite.SQLiteConnection");
 
-            if (objReflection != null && objReflection is ObjectHandle)
-            {
-                ObjectHandle handle = (ObjectHandle)objReflection;
-
-                Object objConnection = handle.Unwrap();
-                connection = (DbConnection)objConnection;
-                connection.ConnectionString = connectionString;
-                connection.Open();
-                connection.Close();
-                // TODO Fix Sqlite
-                //throw new NotImplementedException("Sqlite code needed to be fixed");
-                template = new AdoTemplateSqlite();
-                template.Connection = connection;
-                template.DbProviderName = "System.Data.SQLite";
-                DatabaseHelper = new DatabaseSqlite(template);
-            }
-        }
 
 
         private void testSqlServer(string connectionString,string databaseName)

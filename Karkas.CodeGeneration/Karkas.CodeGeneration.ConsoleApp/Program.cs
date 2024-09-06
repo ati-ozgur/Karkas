@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Karkas.CodeGeneration.Helpers;
 using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 string[] arguments = Environment.GetCommandLineArgs();
@@ -9,6 +9,11 @@ string[] arguments = Environment.GetCommandLineArgs();
 //     Console.WriteLine(arg);
     
 // }
+
+#if(DEBUG)
+    arguments = new string[2]{arguments[0],"Chinook"};
+#endif
+
 
 if(arguments.Length != 2)
 {
@@ -22,9 +27,23 @@ string connectionName = arguments[1];
 
 DatabaseEntry db = DatabaseService.GetByConnectionName(connectionName);
 
-System.Console.WriteLine(db);
+string homeDirectory = Environment.GetEnvironmentVariable("HOME");
+
+if(db.ConnectionString.Contains("$HOME"))
+{
+    db.ConnectionString = db.ConnectionString.Replace("$HOME",homeDirectory);    
+}
+if(db.CodeGenerationDirectory.Contains("$HOME"))
+{
+    db.CodeGenerationDirectory = db.CodeGenerationDirectory.Replace("$HOME",homeDirectory);    
+}
 
 
+Console.WriteLine(db);
+
+Console.WriteLine($"trying connection string {db.ConnectionString}");
+
+ConnectionHelper.TestSqlite(db.ConnectionString);
 
 
 
