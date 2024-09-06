@@ -27,8 +27,8 @@ namespace Karkas.CodeGeneration.Helpers
         {
             try
             {
-                Assembly assembly = Assembly.LoadWithPartialName("System.Data.SQLite");
-                Object objReflection = Activator.CreateInstance(assembly.FullName, "System.Data.SQLite.SQLiteConnection");
+                Assembly assembly = Assembly.LoadWithPartialName("Microsoft.Data.Sqlite");
+                Object objReflection = Activator.CreateInstance(assembly.FullName, "Microsoft.Data.Sqlite.SqliteConnection");
 
 
                 if (objReflection != null && objReflection is ObjectHandle)

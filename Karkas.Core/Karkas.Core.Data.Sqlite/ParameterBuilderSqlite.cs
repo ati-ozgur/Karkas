@@ -10,7 +10,7 @@ namespace Karkas.Core.Data.Sqlite
     public class ParameterBuilderSqlite : ParameterBuilder
     {
 
-        public ParameterBuilderSqlite() : this("System.Data.SQLite")
+        public ParameterBuilderSqlite() : this("Microsoft.Data.Sqlite")
         {
 
         }

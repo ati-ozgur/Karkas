@@ -69,7 +69,7 @@ Example Connection String
 Data Source=KARKAS_EXAMPLE;User Id=APPUSER;Password=appuser;
 ---Sqlite---
 Provider Name:  
-System.Data.SQLite
+Microsoft.Data.Sqlite
 Example Connection String
 
 Data Source=P:\karkas\karkas_example.db;Version=3;            

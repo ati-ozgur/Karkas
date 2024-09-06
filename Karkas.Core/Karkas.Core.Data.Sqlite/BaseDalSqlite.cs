@@ -11,7 +11,9 @@ using Karkas.Core.TypeLibrary;
 using System.Data;
 using System.Data.Common;
 
-using System.Data.SQLite;
+
+using Microsoft.Data.Sqlite;
+
 
 namespace Karkas.Core.Data.Sqlite
 {
@@ -43,14 +45,14 @@ namespace Karkas.Core.Data.Sqlite
         }
 
 
-        private SQLiteParameter  getSqlParameter()
+        private SqliteParameter  getSqlParameter()
         {
-            SQLiteParameter prm = new SQLiteParameter();
+            SqliteParameter prm = new SqliteParameter();
             return prm;
         }
         private DbParameter setParameterValue(string parameterName, DbType dbType, object value)
         {
-            SQLiteParameter prm = getSqlParameter();
+            SqliteParameter prm = getSqlParameter();
             prm.ParameterName = parameterName;
             prm.DbType = dbType;
 

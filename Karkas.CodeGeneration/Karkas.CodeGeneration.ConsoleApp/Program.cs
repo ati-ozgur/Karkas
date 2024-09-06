@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.Common;
 using Karkas.CodeGeneration.Helpers;
 using Karkas.CodeGeneration.Helpers.Interfaces;
@@ -61,11 +62,25 @@ else
 
 IAdoTemplate<IParameterBuilder> template = new AdoTemplateSqlite();
 template.Connection = connection;
-template.DbProviderName = "System.Data.SQLite";
+template.DbProviderName = "Microsoft.Data.Sqlite";
 
 
 IDatabase databaseHelper = new DatabaseSqlite(template);;
 db.setIDatabaseValues(databaseHelper);
+
+
+
+// Retrieve the installed providers and factories.
+DataTable table = DbProviderFactories.GetFactoryClasses();
+
+// Display each row and column value.
+foreach (DataRow row in table.Rows)
+{
+    foreach (DataColumn column in table.Columns)
+    {
+        Console.WriteLine(row[column]);
+    }
+}
 
 
 databaseHelper.CodeGenerateAllTables();

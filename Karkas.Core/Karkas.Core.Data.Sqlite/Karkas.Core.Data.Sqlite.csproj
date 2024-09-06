@@ -8,6 +8,11 @@
 
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.8" />    
+  </ItemGroup>
+
+
+  <ItemGroup>
     <ProjectReference Include="..\Karkas.Core.DataUtil\Karkas.Core.DataUtil.csproj" />
   </ItemGroup>
 
