@@ -8,4 +8,29 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="4.1.0" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.90" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.116" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Karkas.Core\Karkas.Core.Data.Oracle\Karkas.Core.Data.Oracle.csproj" />
+    <ProjectReference Include="..\..\Karkas.Core\Karkas.Core.Data.Sqlite\Karkas.Core.Data.Sqlite.csproj" />
+    <ProjectReference Include="..\..\Karkas.Core\Karkas.Core.Data.SqlServer\Karkas.Core.Data.SqlServer.csproj" />
+    <ProjectReference Include="..\..\Karkas.Core\Karkas.Core.DataUtil\Karkas.Core.DataUtil.csproj" />
+    <ProjectReference Include="..\Karkas.CodeGeneration.Helpers\Karkas.CodeGeneration.Helpers.csproj" />
+    <ProjectReference Include="..\Karkas.CodeGeneration.Oracle\Karkas.CodeGeneration.Oracle.csproj" />
+    <ProjectReference Include="..\Karkas.CodeGeneration.Sqlite\Karkas.CodeGeneration.Sqlite.csproj" />
+    <ProjectReference Include="..\Karkas.CodeGeneration.SqlServer\Karkas.CodeGeneration.SqlServer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+
 </Project>
