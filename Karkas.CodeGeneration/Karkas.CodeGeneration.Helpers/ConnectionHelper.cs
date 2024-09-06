@@ -23,28 +23,38 @@ namespace Karkas.CodeGeneration.Helpers
         }
 
 
-        public static void TestSqlite(string connectionString)
+        public static bool TestSqlite(string connectionString)
         {
-            Assembly assembly = Assembly.LoadWithPartialName("System.Data.SQLite");
-            Object objReflection = Activator.CreateInstance(assembly.FullName, "System.Data.SQLite.SQLiteConnection");
-
-
-            if (objReflection != null && objReflection is ObjectHandle)
+            try
             {
-                ObjectHandle handle = (ObjectHandle)objReflection;
+                Assembly assembly = Assembly.LoadWithPartialName("System.Data.SQLite");
+                Object objReflection = Activator.CreateInstance(assembly.FullName, "System.Data.SQLite.SQLiteConnection");
 
-                Object objConnection = handle.Unwrap();
-                DbConnection connection = (DbConnection)objConnection;
-                connection.ConnectionString = connectionString;
-                connection.Open();
-                connection.Close();
-                // TODO Fix Sqlite
-                //throw new NotImplementedException("Sqlite code needed to be fixed");
-                // template = new AdoTemplateSqlite();
-                // template.Connection = connection;
-                // template.DbProviderName = "System.Data.SQLite";
-                // DatabaseHelper = new DatabaseSqlite(template);
+
+                if (objReflection != null && objReflection is ObjectHandle)
+                {
+                    ObjectHandle handle = (ObjectHandle)objReflection;
+
+                    Object objConnection = handle.Unwrap();
+                    DbConnection connection = (DbConnection)objConnection;
+                    connection.ConnectionString = connectionString;
+                    connection.Open();
+                    connection.Close();
+                    return true;
+                    // TODO Fix Sqlite
+                    //throw new NotImplementedException("Sqlite code needed to be fixed");
+                    // template = new AdoTemplateSqlite();
+                    // template.Connection = connection;
+                    // template.DbProviderName = "System.Data.SQLite";
+                    // DatabaseHelper = new DatabaseSqlite(template);
+                }
+                
             }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return false;
         }
 
     }

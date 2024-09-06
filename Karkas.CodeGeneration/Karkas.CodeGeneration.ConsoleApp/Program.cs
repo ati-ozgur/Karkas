@@ -39,12 +39,20 @@ if(db.CodeGenerationDirectory.Contains("$HOME"))
 }
 
 
-Console.WriteLine(db);
+//Console.WriteLine(db);
 
 Console.WriteLine($"trying connection string {db.ConnectionString}");
 
-ConnectionHelper.TestSqlite(db.ConnectionString);
-
+bool result = ConnectionHelper.TestSqlite(db.ConnectionString);
+if(!result)
+{
+    Console.WriteLine($"error in connecting sqlite using connection string {db.ConnectionString}");
+    return;
+}
+else
+{
+    Console.WriteLine($"Successfully connected. Starting code generation in folder {db.CodeGenerationDirectory}");
+}
 
 
 
