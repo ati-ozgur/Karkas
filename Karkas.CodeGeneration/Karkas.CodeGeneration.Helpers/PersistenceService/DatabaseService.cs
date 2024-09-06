@@ -8,12 +8,12 @@ using Karkas.CodeGeneration.Helpers;
 
 
 
-namespace Karkas.CodeGeneration.WinApp.PersistenceService
+namespace Karkas.CodeGeneration.Helpers.PersistenceService
 {
     public class DatabaseService
     {
 
-        const string json_filename = $"{AppDomain.CurrentDomain.BaseDirectory}/config.json";
+        static string json_filename = $"{AppDomain.CurrentDomain.BaseDirectory}/config.json";
 
         public static List<DatabaseEntry> getAllDatabaseEntriesSortedByName()
         {

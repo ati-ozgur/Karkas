@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using Karkas.Core.TypeLibrary;
 using Karkas.CodeGeneration.Helpers.Interfaces;
 
-namespace Karkas.CodeGeneration.G.PersistenceService
+namespace Karkas.CodeGeneration.Helpers.PersistenceService
 {
     public partial class DatabaseEntry :   ICodeGenerationNotPersistedValues
     {
