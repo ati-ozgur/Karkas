@@ -47,6 +47,24 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
         }
 
+
+        public static DatabaseEntry? GetByConnectionName(string connectionName)
+        {
+            DatabaseEntry entry = null;
+            var liste = getAllDatabaseEntries();            
+            foreach (var e in liste)
+            {
+                if(e.ConnectionName == connectionName)
+                {
+                    entry = e;
+                }
+                
+            }
+
+            return entry;
+        }
+
+
         public static DatabaseEntry getLastAccessedDatabaseEntry()
         {
             var list = getAllDatabaseEntries();            

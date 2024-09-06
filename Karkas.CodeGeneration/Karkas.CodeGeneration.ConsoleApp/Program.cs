@@ -1,15 +1,8 @@
-﻿using System.IO;
+﻿using Karkas.CodeGeneration.Helpers.PersistenceService;
+
+string connectionName = "EXAMPLE_SQLITE";
 
 
-// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+DatabaseEntry db = DatabaseService.GetByConnectionName("EXAMPLE_SQLITE");
 
-Console.WriteLine(Directory.GetCurrentDirectory());
-
-Console.WriteLine();
-
-string jsonFilePath = $"{AppDomain.CurrentDomain.BaseDirectory}/config.json";
-
-string fileContents = File.ReadAllText(jsonFilePath);
-
-Console.WriteLine(fileContents);
+System.Console.WriteLine(db);
