@@ -1,5 +1,11 @@
 todo.txt
 
+1. Check why we have references to following dlls
+
+- Microsoft.Identity.Client.*
+
+
+
 1. column --> expected .net type
 
 start TDD for creation of code generation
