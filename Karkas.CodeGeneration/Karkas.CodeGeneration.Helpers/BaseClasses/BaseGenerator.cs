@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Karkas.CodeGenerationHelper.Interfaces;
+using Karkas.CodeGeneration.Helpers.Interfaces;
 
-namespace Karkas.CodeGenerationHelper.BaseClasses
+namespace Karkas.CodeGeneration.Helpers.BaseClasses
 {
     public abstract class BaseGenerator
     {

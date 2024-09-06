@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using Karkas.Core.DataUtil;
 using System.Data;
-using Karkas.CodeGenerationHelper.Generators;
+using Karkas.CodeGeneration.Helpers.Generators;
 
-namespace Karkas.CodeGenerationHelper.Interfaces
+namespace Karkas.CodeGeneration.Helpers.Interfaces
 {
     public interface IDatabase : ICodeGenerationPersistanceValues, ICodeGenerationNotPersistedValues
     {

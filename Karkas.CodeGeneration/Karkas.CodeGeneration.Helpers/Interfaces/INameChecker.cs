@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Karkas.CodeGenerationHelper.Interfaces
+namespace Karkas.CodeGeneration.Helpers.Interfaces
 {
     public interface INameChecker
     {

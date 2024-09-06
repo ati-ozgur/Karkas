@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Karkas.CodeGenerationHelper.Interfaces
+namespace Karkas.CodeGeneration.Helpers.Interfaces
 {
     public enum ParamDirection
     {

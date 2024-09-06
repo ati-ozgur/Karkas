@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Karkas.CodeGenerationHelper
+namespace Karkas.CodeGeneration.Helpers
 {
     public class TurkishHelper
     {

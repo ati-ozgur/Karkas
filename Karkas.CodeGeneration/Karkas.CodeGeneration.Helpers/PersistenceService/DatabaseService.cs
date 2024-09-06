@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 
-using Karkas.CodeGenerationHelper;
+using Karkas.CodeGeneration.Helpers;
 
 
 

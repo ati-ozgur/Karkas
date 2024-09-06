@@ -6,9 +6,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Karkas.CodeGenerationHelper;
+using Karkas.CodeGeneration.Helpers;
 using Karkas.CodeGeneration.WinApp.PersistenceService;
-using Karkas.CodeGenerationHelper.Interfaces;
+using Karkas.CodeGeneration.Helpers.Interfaces;
 
 namespace Karkas.CodeGeneration.WinApp.UserControls
 {

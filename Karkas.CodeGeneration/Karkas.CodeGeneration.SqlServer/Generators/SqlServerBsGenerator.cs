@@ -1,5 +1,5 @@
-﻿using Karkas.CodeGenerationHelper.Generators;
-using Karkas.CodeGenerationHelper.Interfaces;
+﻿using Karkas.CodeGeneration.Helpers.Generators;
+using Karkas.CodeGeneration.Helpers.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

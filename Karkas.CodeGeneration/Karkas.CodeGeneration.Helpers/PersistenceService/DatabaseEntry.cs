@@ -6,9 +6,9 @@ using System.Diagnostics;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Karkas.Core.TypeLibrary;
-using Karkas.CodeGenerationHelper.Interfaces;
+using Karkas.CodeGeneration.Helpers.Interfaces;
 
-namespace Karkas.CodeGeneration.WinApp.PersistenceService
+namespace Karkas.CodeGeneration.G.PersistenceService
 {
     public partial class DatabaseEntry :   ICodeGenerationNotPersistedValues
     {

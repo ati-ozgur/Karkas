@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
-using Karkas.CodeGenerationHelper;
+using Karkas.CodeGeneration.Helpers;
 using Karkas.CodeGeneration.WinApp.PersistenceService;
 
 namespace Karkas.CodeGeneration.WinApp

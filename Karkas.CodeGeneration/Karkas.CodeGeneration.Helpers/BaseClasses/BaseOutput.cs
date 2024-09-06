@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.CodeGenerationHelper.Interfaces;
+using Karkas.CodeGeneration.Helpers.Interfaces;
 using System.IO;
 
-namespace Karkas.CodeGenerationHelper.BaseClasses
+namespace Karkas.CodeGeneration.Helpers.BaseClasses
 {
     public class BaseOutput : IOutput
     {

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.CodeGenerationHelper.Interfaces;
+using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.Core.DataUtil;
 using System.Data;
-using Karkas.CodeGenerationHelper.Generators;
+using Karkas.CodeGeneration.Helpers.Generators;
 using Karkas.CodeGeneration.Sqlite.Generators;
-using Karkas.CodeGenerationHelper;
-using Karkas.CodeGenerationHelper.BaseClasses;
+using Karkas.CodeGeneration.Helpers;
+using Karkas.CodeGeneration.Helpers.BaseClasses;
 
 namespace Karkas.CodeGeneration.Sqlite.Implementations
 {

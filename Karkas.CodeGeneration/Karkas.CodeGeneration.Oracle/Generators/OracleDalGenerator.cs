@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.CodeGenerationHelper;
-using Karkas.CodeGenerationHelper.Generators;
-using Karkas.CodeGenerationHelper.Interfaces;
+using Karkas.CodeGeneration.Helpers;
+using Karkas.CodeGeneration.Helpers.Generators;
+using Karkas.CodeGeneration.Helpers.Interfaces;
 
 namespace Karkas.CodeGeneration.Oracle.Generators
 {

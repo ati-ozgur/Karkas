@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Karkas.CodeGenerationHelper.Interfaces;
+using Karkas.CodeGeneration.Helpers.Interfaces;
 
-namespace Karkas.CodeGenerationHelper
+namespace Karkas.CodeGeneration.Helpers
 {
     public class NameChecker : INameChecker
     {

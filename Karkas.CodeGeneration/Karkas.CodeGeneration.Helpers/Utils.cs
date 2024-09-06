@@ -5,12 +5,12 @@ using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
 using System.Xml;
-using Karkas.CodeGenerationHelper.Generators;
+using Karkas.CodeGeneration.Helpers.Generators;
 using System.IO;
 using System.Globalization;
-using Karkas.CodeGenerationHelper.Interfaces;
+using Karkas.CodeGeneration.Helpers.Interfaces;
 
-namespace Karkas.CodeGenerationHelper
+namespace Karkas.CodeGeneration.Helpers
 {
     public partial class Utils
     {

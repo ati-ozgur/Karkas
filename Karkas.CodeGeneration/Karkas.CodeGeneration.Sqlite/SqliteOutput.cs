@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.CodeGenerationHelper;
-using Karkas.CodeGenerationHelper.BaseClasses;
+using Karkas.CodeGeneration.Helpers;
+using Karkas.CodeGeneration.Helpers.BaseClasses;
 
 namespace Karkas.CodeGeneration.Sqlite
 {

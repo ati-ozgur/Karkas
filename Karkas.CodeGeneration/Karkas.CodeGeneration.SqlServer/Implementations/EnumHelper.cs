@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Data.SqlClient;
 using System.Data;
-using Karkas.CodeGenerationHelper.Interfaces;
+using Karkas.CodeGeneration.Helpers.Interfaces;
 
-namespace Karkas.CodeGenerationHelper
+namespace Karkas.CodeGeneration.Helpers
 {
     public class EnumHelper
     {

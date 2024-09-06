@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.CodeGenerationHelper.Interfaces;
-using Karkas.CodeGenerationHelper;
+using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers;
 using System.Data.SqlClient;
-using Karkas.CodeGenerationHelper.Generators;
+using Karkas.CodeGeneration.Helpers.Generators;
 using Karkas.Core.DataUtil;
 using System.Data;
 using Karkas.CodeGeneration.SqlServer.Generators;
-using Karkas.CodeGenerationHelper.BaseClasses;
+using Karkas.CodeGeneration.Helpers.BaseClasses;
 
 
 namespace Karkas.CodeGeneration.SqlServer.Implementations

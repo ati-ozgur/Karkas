@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.CodeGenerationHelper.Interfaces;
+using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.Core.DataUtil;
 using System.Data;
-using Karkas.CodeGenerationHelper.Generators;
+using Karkas.CodeGeneration.Helpers.Generators;
 
-namespace Karkas.CodeGenerationHelper.BaseClasses
+namespace Karkas.CodeGeneration.Helpers.BaseClasses
 {
     public abstract class BaseCodeGenerationDatabase : IDatabase
     {

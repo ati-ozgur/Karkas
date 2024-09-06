@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections;
 using System.Text;
-using Karkas.CodeGenerationHelper;
+using Karkas.CodeGeneration.Helpers;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Globalization;
-using Karkas.CodeGenerationHelper.Interfaces;
+using Karkas.CodeGeneration.Helpers.Interfaces;
 using System.Collections.Generic;
-using Karkas.CodeGenerationHelper.BaseClasses;
+using Karkas.CodeGeneration.Helpers.BaseClasses;
 
-namespace Karkas.CodeGenerationHelper.Generators
+namespace Karkas.CodeGeneration.Helpers.Generators
 {
     public class SequenceGenerator : BaseGenerator
     {
