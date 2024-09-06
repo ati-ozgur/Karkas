@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Data.Common;
 using Karkas.CodeGeneration.Helpers;
+using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.CodeGeneration.Helpers.PersistenceService;
+using Karkas.CodeGeneration.Sqlite.Implementations;
+using Karkas.Core.Data.Sqlite;
+using Karkas.Core.DataUtil;
 
 string[] arguments = Environment.GetCommandLineArgs();
 
@@ -43,8 +48,8 @@ if(db.CodeGenerationDirectory.Contains("$HOME"))
 
 Console.WriteLine($"trying connection string {db.ConnectionString}");
 
-bool result = ConnectionHelper.TestSqlite(db.ConnectionString);
-if(!result)
+DbConnection connection = ConnectionHelper.TestSqlite(db.ConnectionString);
+if(connection == null)
 {
     Console.WriteLine($"error in connecting sqlite using connection string {db.ConnectionString}");
     return;
@@ -54,5 +59,13 @@ else
     Console.WriteLine($"Successfully connected. Starting code generation in folder {db.CodeGenerationDirectory}");
 }
 
+IAdoTemplate<IParameterBuilder> template = new AdoTemplateSqlite();
+template.Connection = connection;
+template.DbProviderName = "System.Data.SQLite";
 
 
+IDatabase databaseHelper = new DatabaseSqlite(template);;
+db.setIDatabaseValues(databaseHelper);
+
+
+databaseHelper.CodeGenerateAllTables();

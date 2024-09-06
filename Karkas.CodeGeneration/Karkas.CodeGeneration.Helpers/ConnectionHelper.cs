@@ -23,7 +23,7 @@ namespace Karkas.CodeGeneration.Helpers
         }
 
 
-        public static bool TestSqlite(string connectionString)
+        public static DbConnection TestSqlite(string connectionString)
         {
             try
             {
@@ -40,13 +40,8 @@ namespace Karkas.CodeGeneration.Helpers
                     connection.ConnectionString = connectionString;
                     connection.Open();
                     connection.Close();
-                    return true;
-                    // TODO Fix Sqlite
-                    //throw new NotImplementedException("Sqlite code needed to be fixed");
-                    // template = new AdoTemplateSqlite();
-                    // template.Connection = connection;
-                    // template.DbProviderName = "System.Data.SQLite";
-                    // DatabaseHelper = new DatabaseSqlite(template);
+                    return connection;
+
                 }
                 
             }
@@ -54,7 +49,7 @@ namespace Karkas.CodeGeneration.Helpers
             {
                 Console.WriteLine(ex.Message);
             }
-            return false;
+            return null;
         }
 
     }
