@@ -81,10 +81,10 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                     columns = new List<IColumn>();
                     string columnSql = string.Format(COLUMN_SQL, tableName);
 
-                    DataTable dtColumns = template.DataTableOlustur(columnSql);
+                    List<Dictionary<string,object>>  dtColumns = template.GetListOfDictionary(columnSql);
 
                     IColumn column;
-                    foreach (DataRow rowColumn in dtColumns.Rows)
+                    foreach (var rowColumn in dtColumns)
                     {
                         // cid|name|type|notnull|dflt_value|pk
                         String columnName = rowColumn["name"].ToString();
