@@ -17,15 +17,31 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
 
 
 
-        protected override void ClassWrite(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
+        protected override void ClassWrite(IOutput output, string classNameTypeLibrary, bool isIdentity, string identityType)
         {
-            output.autoTab("public partial class ");
-            output.write(classNameTypeLibrary);
-            output.write("Dal : BaseDalSqlite<");
-            output.write(classNameTypeLibrary);
-            output.write(", AdoTemplateSqlite, ParameterBuilderSqlite");
-            output.writeLine(">");
-            AtStartCurlyBraceletIncreaseTab(output);
+            if(isIdentity)
+            {
+                output.autoTab("public partial class ");
+                output.write(classNameTypeLibrary);
+                output.write("Dal : BaseDalForIdentitySqlite<");
+                output.write(classNameTypeLibrary);
+                output.write(",");
+                output.write(identityType);
+                output.write(", AdoTemplateSqlite, ParameterBuilderSqlite");
+                output.writeLine(">");
+                AtStartCurlyBraceletIncreaseTab(output);
+            }
+            else
+            {
+                output.autoTab("public partial class ");
+                output.write(classNameTypeLibrary);
+                output.write("Dal : BaseDalSqlite<");
+                output.write(classNameTypeLibrary);
+                output.write(", AdoTemplateSqlite, ParameterBuilderSqlite");
+                output.writeLine(">");
+                AtStartCurlyBraceletIncreaseTab(output);
+
+            }
         }
 
         protected override string parameterSymbol
@@ -98,11 +114,11 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             AtEndCurlyBraceletDescreaseTab(output);
         }
 
-        protected override void write_SetIdentityColumnValue(IOutput output, IContainer container)
-        {
-            // TODO check sqlite identity auto increment later
-            // do nothing for sqlite identity
-        }
+        // protected override void write_SetIdentityColumnValue(IOutput output, IContainer container)
+        // {
+        //     // TODO check sqlite identity auto increment later
+        //     // do nothing for sqlite identity
+        // }
 
         public override void UpdateCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
         {
