@@ -98,6 +98,12 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             AtEndCurlyBraceletDescreaseTab(output);
         }
 
+        protected override void write_SetIdentityColumnValue(IOutput output, IContainer container)
+        {
+            // TODO check sqlite identity auto increment later
+            // do nothing for sqlite identity
+        }
+
         public override void UpdateCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
