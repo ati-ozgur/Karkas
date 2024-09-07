@@ -225,10 +225,10 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             //BLOB - a blob of data
             pSqlTypeName = pSqlTypeName.ToLowerInvariant();
 
-            pSqlTypeName = pSqlTypeName.ToLowerInvariant();
             if (
                     pSqlTypeName.Equals("text")
                     || pSqlTypeName.Equals("varchar")
+                    || pSqlTypeName.Contains("varchar")
                 )
             {
 
@@ -239,9 +239,18 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             {
                 return "long";
             }
+            if (pSqlTypeName.Equals("datetime"))
+            {
+                return "DateTime";
+            }
             if (pSqlTypeName.Equals("real"))
             {
                 return "double";
+            }
+            // TODO check if numeric is equal to decimal
+            if (pSqlTypeName.Contains("numeric"))
+            {
+                return "decimal";
             }
             if ( pSqlTypeName.Equals("blob") )
             {
