@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System;
 using System.Data.Common;
 using Microsoft.Data.Sqlite;
 
@@ -20,21 +21,53 @@ ConnectionSingleton.Instance.AddConnection("Main", dbProviderName, dbConnectionS
 
 
 
-Console.WriteLine("Hello, World!");
-
-
 
 AlbumDal dal = new AlbumDal();
 
-var liste = dal.QueryAll();
 
-foreach (var item in liste)
-{
-    Console.WriteLine(item.Title);
-}
+string albumTitle = "Deneme";
 
 Album a = new Album();
-a.Title = "Deneme";
+a.Title = albumTitle;
 a.ArtistId = 2;
 
-dal.Insert(a);
+long albumId = dal.Insert(a);
+
+var albumList = dal.QueryUsingColumnName(Album.PropertyIsimleri.Title,albumTitle);
+
+Album b = albumList[albumList.Count-1];
+if(
+albumId == a.AlbumId
+&& albumId == b.AlbumId
+&& a.AlbumId == b.AlbumId
+&& a.Title ==b.Title
+&& a.ArtistId == b.ArtistId
+)
+{
+    Console.WriteLine("Insert for Identity works");
+}
+
+
+
+
+void printAlbums()
+{
+    AlbumDal dal = new AlbumDal();
+
+    var liste = dal.QueryAll();
+
+    foreach (var item in liste)
+    {
+        Console.WriteLine(item.Title);
+    }
+
+}
+
+void assertEquals(object p1, object p2)
+{
+    if (p1!=p2)
+    {
+
+        throw new Exception($"Assertion error, {p1} != {p2}");
+    }
+}
