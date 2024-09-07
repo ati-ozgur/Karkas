@@ -125,12 +125,12 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
             set { codeGenerationDirectory = value; }
         }
 
-        bool viewCodeGenerateEtsinMi;
+        bool viewCodeGenerate;
 
         public bool ViewCodeGenerate
         {
-            get { return viewCodeGenerateEtsinMi; }
-            set { viewCodeGenerateEtsinMi = value; }
+            get { return viewCodeGenerate; }
+            set { viewCodeGenerate = value; }
         }
         bool storedProcedureCodeGenerateEtsinMi;
 
