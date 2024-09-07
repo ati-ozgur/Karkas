@@ -20,7 +20,7 @@ string[] arguments = Environment.GetCommandLineArgs();
 // }
 
 #if(DEBUG)
-    arguments = new string[2]{arguments[0],"Chinook"};
+    arguments = new string[2]{arguments[0],"ChinookSqlite"};
 #endif
 
 
