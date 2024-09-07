@@ -33,7 +33,7 @@ namespace Karkas.Core.DataUtil
 
 
 
-        public DbDataAdapter getDatabaseAdapter(DbCommand cmd)
+        public virtual DbDataAdapter getDatabaseAdapter(DbCommand cmd)
         {
             DbDataAdapter adapter = DbProviderFactoryHelper.Create(dbProviderName).Factory.CreateDataAdapter();
             adapter.SelectCommand = cmd;

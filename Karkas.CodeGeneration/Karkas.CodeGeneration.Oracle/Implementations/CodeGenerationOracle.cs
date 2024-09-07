@@ -91,8 +91,8 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
                 {
                     _viewList = new List<IView>();
 
-                    DataTable dtViews = getViewListFromSchema(null);
-                    foreach (DataRow row in dtViews.Rows)
+                    List<Dictionary<string,object>>  dtViews = getViewListFromSchema(null);
+                    foreach (var row in dtViews)
                     {
                         IView t = new ViewOracle(this, Template, row["TABLE_NAME"].ToString(), row["TABLE_SCHEMA"].ToString());
                         _viewList.Add(t);
@@ -148,11 +148,11 @@ ORDER BY FULL_TABLE_NAME
 
 
 
-        public override DataTable getTableListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  getTableListFromSchema(string schemaName)
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":TABLE_SCHEMA", DbType.String, schemaName);
-            DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
+            var dtTableList = Template.GetListOfDictionary(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
             return dtTableList;
         }
 
@@ -163,11 +163,11 @@ WHERE
 (:TABLE_SCHEMA IS NULL) OR ( lower(OWNER) = lower(:TABLE_SCHEMA))
 ORDER BY FULL_VIEW_NAME
 ";
-        public override DataTable getViewListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  getViewListFromSchema(string schemaName)
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":TABLE_SCHEMA", DbType.String, schemaName);
-            DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_VIEW_LIST, builder.GetParameterArray());
+            var dtTableList = Template.GetListOfDictionary(SQL_FOR_VIEW_LIST, builder.GetParameterArray());
             return dtTableList;
         }
 
@@ -179,11 +179,11 @@ AND
 ( (:SP_SCHEMA_NAME IS NULL) OR ( lower(OWNER) = lower(:SP_SCHEMA_NAME)))
 ORDER BY STORED_PROCEDURE_NAME
 ";
-        public override DataTable getStoredProcedureListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  getStoredProcedureListFromSchema(string schemaName)
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":SP_SCHEMA_NAME", DbType.String, schemaName);
-            DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_STORED_PROCEDURE_LIST, builder.GetParameterArray());
+            var dtTableList = Template.GetListOfDictionary(SQL_FOR_STORED_PROCEDURE_LIST, builder.GetParameterArray());
             return dtTableList;
         }
 
@@ -196,11 +196,11 @@ WHERE
 ( (:SEQ_SCHEMA_NAME IS NULL) OR ( lower(OWNER) = lower(:SEQ_SCHEMA_NAME)))
 ORDER BY SEQUENCE_NAME
 ";
-        public override DataTable getSequenceListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  getSequenceListFromSchema(string schemaName)
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":SEQ_SCHEMA_NAME", DbType.String, schemaName);
-            DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_SEQUENCES_LIST, builder.GetParameterArray());
+            var dtTableList = Template.GetListOfDictionary(SQL_FOR_SEQUENCES_LIST, builder.GetParameterArray());
             return dtTableList;
         }
 

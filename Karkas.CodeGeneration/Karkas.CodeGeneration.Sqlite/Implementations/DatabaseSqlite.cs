@@ -75,11 +75,11 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             {
                 if (_tableList == null)
                 {
-                    DataTable dtTables = getTableList();
+                    var dtTables = getTableList();
                     _tableList = new List<ITable>();
-                    foreach (DataRow rowTable in dtTables.Rows)
+                    foreach (var rowTable in dtTables)
                     {
-                        String tableName = rowTable["TABLE_NAME"].ToString();
+                        string tableName = rowTable["TABLE_NAME"].ToString();
                         TableSqlite table = new TableSqlite(this, Template, tableName, this.ConnectionName);
                         _tableList.Add(table);
                     }
@@ -98,8 +98,8 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                 {
                     _viewList = new List<IView>();
 
-                    DataTable dtViews = getViewListFromSchema(null);
-                    foreach (DataRow row in dtViews.Rows)
+                    var dtViews = getViewListFromSchema(null);
+                    foreach (var row in dtViews)
                     {
                         IView t = new ViewSqlite(this, Template, row["TABLE_NAME"].ToString(), row["TABLE_SCHEMA"].ToString());
                         _viewList.Add(t);
@@ -111,14 +111,14 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         }
 
 
-        public DataTable getTableList()
+        public List<Dictionary<string,object>> getTableList()
         {
-            DataTable dtTables = Template.DataTableOlustur(TABLE_LIST_SQL);
+            var dtTables = Template.GetListOfDictionary(TABLE_LIST_SQL);
             return dtTables;
         }
-        public DataTable getViewList()
+        public List<Dictionary<string,object>> getViewList()
         {
-            DataTable dtTables = Template.DataTableOlustur(TABLE_LIST_SQL);
+            var dtTables = Template.GetListOfDictionary(TABLE_LIST_SQL);
             return dtTables;
         }
 
@@ -140,30 +140,28 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             return "";
         }
 
-        public override DataTable getTableListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  getTableListFromSchema(string schemaName)
         {
             return getTableList();
         }
 
-        public override DataTable getViewListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  getViewListFromSchema(string schemaName)
         {
-            DataTable dtView = Template.DataTableOlustur(TABLE_LIST_SQL);
+            List<Dictionary<string,object>>  dtView = Template.GetListOfDictionary(TABLE_LIST_SQL);
             return dtView;
 
         }
 
-        public override DataTable getStoredProcedureListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>> getStoredProcedureListFromSchema(string schemaName)
         {
             // sqlite does not support stored procedures
-            DataTable dt = new DataTable();
-            return dt;
+            return new List<Dictionary<string,object>>();
         }
 
-        public override DataTable getSequenceListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>> getSequenceListFromSchema(string schemaName)
         {
             // sqlite does not support sequences
-            DataTable dt = new DataTable();
-            return dt;
+            return new List<Dictionary<string,object>>();
         }
 
 

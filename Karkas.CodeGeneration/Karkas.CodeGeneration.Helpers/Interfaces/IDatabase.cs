@@ -29,13 +29,13 @@ namespace Karkas.CodeGeneration.Helpers.Interfaces
         List<IView> Views { get; }
 
 
-        DataTable getTableListFromSchema(string schemaName);
-        DataTable getViewListFromSchema(string schemaName);
+        List<Dictionary<string,object>>  getTableListFromSchema(string schemaName);
+        List<Dictionary<string,object>>  getViewListFromSchema(string schemaName);
 
 
 
-        DataTable getStoredProcedureListFromSchema(string schemaName);
-        DataTable getSequenceListFromSchema(string schemaName);
+        List<Dictionary<string,object>>  getStoredProcedureListFromSchema(string schemaName);
+        List<Dictionary<string,object>>  getSequenceListFromSchema(string schemaName);
 
         ITable getTable(string pTableName, string pSchemaName);
 

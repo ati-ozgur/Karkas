@@ -8,6 +8,8 @@ using Karkas.CodeGeneration.Sqlite.Implementations;
 using Karkas.Core.Data.Sqlite;
 using Karkas.Core.DataUtil;
 
+using Microsoft.Data.Sqlite;
+
 string[] arguments = Environment.GetCommandLineArgs();
 
 // foreach (var arg in arguments)
@@ -59,6 +61,10 @@ else
 {
     Console.WriteLine($"Successfully connected. Starting code generation in folder {db.CodeGenerationDirectory}");
 }
+
+
+DbProviderFactories.RegisterFactory("Microsoft.Data.Sqlite",SqliteFactory.Instance);
+
 
 IAdoTemplate<IParameterBuilder> template = new AdoTemplateSqlite();
 template.Connection = connection;

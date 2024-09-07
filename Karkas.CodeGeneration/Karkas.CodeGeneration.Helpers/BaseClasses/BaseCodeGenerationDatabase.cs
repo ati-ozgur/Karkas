@@ -207,10 +207,10 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         public abstract List<ITable> Tables { get; }
         public abstract List<IView> Views { get; }
 
-        public abstract DataTable getTableListFromSchema(string schemaName);
-        public abstract DataTable getViewListFromSchema(string schemaName);
-        public abstract DataTable getStoredProcedureListFromSchema(string schemaName);
-        public abstract DataTable getSequenceListFromSchema(string schemaName);
+        public abstract List<Dictionary<string,object>>  getTableListFromSchema(string schemaName);
+        public abstract List<Dictionary<string,object>>  getViewListFromSchema(string schemaName);
+        public abstract List<Dictionary<string,object>>  getStoredProcedureListFromSchema(string schemaName);
+        public abstract List<Dictionary<string,object>>  getSequenceListFromSchema(string schemaName);
         
 
         public abstract ITable getTable(string pTableName, string pSchemaName);
@@ -242,9 +242,9 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
             }
             else
             {
-                DataTable dtTables = getTableListFromSchema(pSchemaName);
+                var dtTables = getTableListFromSchema(pSchemaName);
 
-                foreach (DataRow item in dtTables.Rows)
+                foreach (var item in dtTables)
                 {
                     try
                     {
@@ -262,8 +262,8 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         public string CodeGenerateAllViewsInSchema(string pSchemaName)
         {
             StringBuilder exceptionMessages = new StringBuilder();
-            DataTable dtViews = getViewListFromSchema(pSchemaName);
-            foreach (DataRow item in dtViews.Rows )
+            var dtViews = getViewListFromSchema(pSchemaName);
+            foreach (var item in dtViews )
             {
                 try
                 {
@@ -350,8 +350,8 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         public string CodeGenerateAllSequencesInSchema(string schemaName)
         {
             StringBuilder exceptionMessages = new StringBuilder();
-            DataTable dtSequenceList = getSequenceListFromSchema(schemaName);
-            foreach (DataRow row in dtSequenceList.Rows)
+            var dtSequenceList = getSequenceListFromSchema(schemaName);
+            foreach (var row in dtSequenceList)
             {
                 try
                 {
@@ -370,8 +370,8 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         public string CodeGenerateAllSequences()
         {
             StringBuilder exceptionMessages = new StringBuilder();
-            DataTable dtSequenceList = getSequenceListFromSchema(getDefaultSchema());
-            foreach (DataRow row in dtSequenceList.Rows)
+            var dtSequenceList = getSequenceListFromSchema(getDefaultSchema());
+            foreach (var row in dtSequenceList)
             {
                 try
                 {

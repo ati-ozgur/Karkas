@@ -94,8 +94,8 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
                 {
                     _viewList = new List<IView>();
 
-                    DataTable dtViews = getViewListFromSchema(null);
-                    foreach (DataRow row in dtViews.Rows)
+                    List<Dictionary<string,object>>  dtViews = getViewListFromSchema(null);
+                    foreach (var row in dtViews)
                     {
                         IView t = new ViewSqlServer(this, Template, row["TABLE_NAME"].ToString(), row["TABLE_SCHEMA"].ToString());
                         _viewList.Add(t);
@@ -165,11 +165,11 @@ SELECT DISTINCT TABLE_CATALOG FROM INFORMATION_SCHEMA.TABLES
 
         }
 
-        public override DataTable getTableListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  getTableListFromSchema(string schemaName)
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@TABLE_SCHEMA", DbType.String, schemaName);
-            DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
+            var dtTableList = Template.GetListOfDictionary(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
             return dtTableList;
         }
 
@@ -182,11 +182,11 @@ ORDER BY FULL_VIEW_NAME
 ";
 
 
-        public override DataTable getViewListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  getViewListFromSchema(string schemaName)
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@TABLE_SCHEMA", DbType.String, schemaName);
-            DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_VIEW_LIST, builder.GetParameterArray());
+            var dtTableList = Template.GetListOfDictionary(SQL_FOR_VIEW_LIST, builder.GetParameterArray());
             return dtTableList;
         }
 
@@ -204,11 +204,11 @@ ORDER BY STORED_PROCEDURE_NAME
 ";
 
 
-        public override DataTable getStoredProcedureListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  getStoredProcedureListFromSchema(string schemaName)
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@SP_SCHEMA_NAME", DbType.String, schemaName);
-            DataTable dtStoredProcedures = Template.DataTableOlustur(SQL_FOR_STORED_PROCEDURE_LIST, builder.GetParameterArray());
+            var dtStoredProcedures = Template.GetListOfDictionary(SQL_FOR_STORED_PROCEDURE_LIST, builder.GetParameterArray());
             return dtStoredProcedures;
         }
 
@@ -228,14 +228,14 @@ ORDER BY SEQUENCE_NAME
 
         private bool? isSequenceSupported;
 
-        public override DataTable getSequenceListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  getSequenceListFromSchema(string schemaName)
         {
-            DataTable dt = new DataTable();
+            List<Dictionary<string,object>>  dt = new List<Dictionary<string,object>>();
             if (!isSequenceSupported.HasValue)
             {
                 try
                 {
-                    dt = findSequenceDataTable(schemaName, dt);
+                    dt = findSequenceDataTable(schemaName);
                     isSequenceSupported = true;
                 }
                 catch
@@ -249,7 +249,7 @@ ORDER BY SEQUENCE_NAME
             }
             else if (isSequenceSupported.Value)
             {
-                dt = findSequenceDataTable(schemaName, dt);
+                dt = findSequenceDataTable(schemaName);
             }
             return dt;
         }
@@ -274,18 +274,18 @@ ORDER BY SEQUENCE_NAME
 
 
 
-        private DataTable findSequenceDataTable(string schemaName, DataTable dt)
+        private List<Dictionary<string,object>>  findSequenceDataTable(string schemaName)
         {
             if (SqlServerVersion.Contains("SQL Server 2012"))
             {
                 IParameterBuilder builder = Template.getParameterBuilder();
                 builder.AddParameter("@SEQ_SCHEMA_NAME", DbType.String, schemaName);
-                dt = Template.DataTableOlustur(SQL_FOR_SEQUENCES_LIST, builder.GetParameterArray());
+                List<Dictionary<string,object>> dt = Template.GetListOfDictionary(SQL_FOR_SEQUENCES_LIST, builder.GetParameterArray());
                 return dt;
             }
             else
             {
-                return new DataTable();
+                return new List<Dictionary<string,object>> ();
             }
 
 
@@ -294,12 +294,12 @@ ORDER BY SEQUENCE_NAME
 
         public override string[] getSchemaList()
         {
-            DataTable dt = Template.DataTableOlustur(SQL_FOR_SCHEMA_LIST);
-            string[] schemaList = new string[dt.Rows.Count];
-            for (int i = 0; i < dt.Rows.Count; i++)
+            List<Dictionary<string,object>>  dt = Template.GetListOfDictionary(SQL_FOR_SCHEMA_LIST);
+            string[] schemaList = new string[dt.Count];
+            for (int i = 0; i < dt.Count; i++)
             {
-                var row = dt.Rows[i];
-                schemaList[i] = row[0].ToString();
+                var row = dt[i];
+                schemaList[i] = row["SCHEMA_NAME"].ToString();
             }
             return schemaList;
         }
