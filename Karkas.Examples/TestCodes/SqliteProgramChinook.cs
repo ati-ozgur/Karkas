@@ -6,7 +6,7 @@ using System.Data.Common;
 using Karkas.Core.DataUtil;
 
 
-string dbConnectionString = "Data Source=Chinook.db;";
+string dbConnectionString = "Data Source=Chinook.db;Mode=ReadWrite;";
 string dbProviderName = "Microsoft.Data.Sqlite";
 string dbName = "ChinookSqlite";
 
