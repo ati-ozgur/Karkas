@@ -114,11 +114,20 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             AtEndCurlyBraceletDescreaseTab(output);
         }
 
-        // protected override void write_SetIdentityColumnValue(IOutput output, IContainer container)
-        // {
-        //     // TODO check sqlite identity auto increment later
-        //     // do nothing for sqlite identity
-        // }
+        protected override void write_SetIdentityColumnValue(IOutput output, IContainer container)
+        {
+            base.write_SetIdentityColumnValue(output, container);
+            bool identityExists = getIdentityVarmi(utils, container);
+            if(identityExists)
+            {
+                string identityColumnName = getIdentityColumnName(utils, container);
+                string value = $"public override string IdentityParameterName {{ get {{return \":{identityColumnName}\"; }} }}";
+                output.autoTabLn(value);
+            }
+
+
+        }
+
 
         public override void UpdateCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
         {
