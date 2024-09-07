@@ -5,7 +5,7 @@
     "ConnectionName": "Chinook",
     "ConnectionDatabaseType": "sqlite",
     "ConnectionDbProviderName": "Microsoft.Data.Sqlite",
-    "ConnectionString": "Data Source=$HOME/Projects/my-projects/Karkas/Karkas.Examples/Chinook/Chinook.db",
+    "ConnectionString": "Data Source=$HOME/Projects/my-projects/Karkas/Karkas.Examples/Chinook/Chinook.db;Mode=ReadWrite;",
     "DatabaseNamePhysical": "main",
     "DatabaseNameLogical": "Chinook",
     "ProjectNameSpace": "Karkas.Examples.Chinook",

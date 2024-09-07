@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Runtime.Remoting;
 using System.Data.Common;
 
+using Microsoft.Data.Sqlite;
 
 namespace Karkas.CodeGeneration.Helpers
 {
@@ -23,27 +24,19 @@ namespace Karkas.CodeGeneration.Helpers
         }
 
 
-        public static DbConnection TestSqlite(string connectionString)
+        public static SqliteConnection TestSqlite(string connectionString)
         {
             try
             {
-                Assembly assembly = Assembly.LoadWithPartialName("Microsoft.Data.Sqlite");
-                Object objReflection = Activator.CreateInstance(assembly.FullName, "Microsoft.Data.Sqlite.SqliteConnection");
+
+                string ConnectionDbProviderName = "Microsoft.Data.Sqlite";
 
 
-                if (objReflection != null && objReflection is ObjectHandle)
-                {
-                    ObjectHandle handle = (ObjectHandle)objReflection;
 
-                    Object objConnection = handle.Unwrap();
-                    DbConnection connection = (DbConnection)objConnection;
-                    connection.ConnectionString = connectionString;
-                    connection.Open();
-                    connection.Close();
-                    return connection;
-
-                }
-                
+                var connection = new SqliteConnection(connectionString);
+                connection.Open();
+                connection.Close();
+                return connection;
             }
             catch (System.Exception ex)
             {
