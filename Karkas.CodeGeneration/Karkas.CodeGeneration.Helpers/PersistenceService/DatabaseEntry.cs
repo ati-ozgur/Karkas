@@ -53,6 +53,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
             database.StoredProcedureCodeGenerate = Convert.ToBoolean(this.StoredProcedureCodeGenerate);
             database.UseSchemaNameInFolders = Convert.ToBoolean(this.UseSchemaNameInFolders);
             database.UseSchemaNameInSqlQueries = Convert.ToBoolean(this.useSchemaNameInSqlQueries);
+            database.TableCodeGenerate = Convert.ToBoolean(this.TableCodeGenerate);
             database.ViewCodeGenerate = Convert.ToBoolean(this.ViewCodeGenerate);
             database.SequenceCodeGenerate = Convert.ToBoolean(this.SequenceCodeGenerate);
             database.CreateMainClassAgain = this.CreateMainClassAgain;

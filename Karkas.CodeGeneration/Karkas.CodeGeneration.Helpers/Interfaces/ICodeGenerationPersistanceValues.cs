@@ -17,6 +17,7 @@ namespace Karkas.CodeGeneration.Helpers.Interfaces
         string ProjectNameSpace { get; set; }
         string CodeGenerationDirectory { get; set; }
 
+        bool TableCodeGenerate { get; set; }
         bool ViewCodeGenerate { get; set; }
         bool StoredProcedureCodeGenerate { get; set; }
         bool SequenceCodeGenerate { get; set; }

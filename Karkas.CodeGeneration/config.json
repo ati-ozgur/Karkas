@@ -10,6 +10,7 @@
     "DatabaseNameLogical": "Chinook",
     "ProjectNameSpace": "Karkas.Examples.Chinook",
     "CodeGenerationDirectory": "$HOME/Projects/my-projects/Karkas/Karkas.Examples/Chinook",
+    "TableCodeGenerate": "True",
     "ViewCodeGenerate": "False",
     "StoredProcedureCodeGenerate": "False",
     "SequenceCodeGenerate": "False",

@@ -125,6 +125,15 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
             set { codeGenerationDirectory = value; }
         }
 
+
+        bool tableCodeGenerate;
+
+        public bool TableCodeGenerate
+        {
+            get { return tableCodeGenerate; }
+            set { tableCodeGenerate = value; }
+        }
+
         bool viewCodeGenerate;
 
         public bool ViewCodeGenerate

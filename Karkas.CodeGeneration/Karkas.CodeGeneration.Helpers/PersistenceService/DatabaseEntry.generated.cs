@@ -23,6 +23,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		private string databaseNameLogical;
 		private string projectNameSpace;
 		private string codeGenerationDirectory;
+		private string tableCodeGenerate;
 		private string viewCodeGenerate;
 		private string storedProcedureCodeGenerate;
 		private string sequenceCodeGenerate;
@@ -186,6 +187,24 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 					this.RowState = DataRowState.Modified;
 				}
 				codeGenerationDirectory = value;
+			}
+		}
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		public string TableCodeGenerate
+		{
+			[DebuggerStepThrough]
+			get
+			{
+				return tableCodeGenerate;
+			}
+			[DebuggerStepThrough]
+			set
+			{
+				if ((this.RowState == DataRowState.Unchanged) && (viewCodeGenerate!= value))
+				{
+					this.RowState = DataRowState.Modified;
+				}
+				tableCodeGenerate = value;
 			}
 		}
 
