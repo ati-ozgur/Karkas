@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.Common;
+using System.Drawing.Text;
 using Karkas.CodeGeneration.Helpers;
 using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.CodeGeneration.Helpers.PersistenceService;
@@ -46,33 +47,50 @@ if(db.CodeGenerationDirectory.Contains("$HOME"))
     db.CodeGenerationDirectory = db.CodeGenerationDirectory.Replace("$HOME",homeDirectory);    
 }
 
+Console.WriteLine(db.ConnectionDatabaseType);
 
-//Console.WriteLine(db);
-
-Console.WriteLine($"trying connection string {db.ConnectionString}");
-
-DbConnection connection = ConnectionHelper.TestSqlite(db.ConnectionString);
-if(connection == null)
-{
-    Console.WriteLine($"error in connecting sqlite using connection string {db.ConnectionString}");
-    return;
-}
-else
-{
-    Console.WriteLine($"Successfully connected. Starting code generation in folder {db.CodeGenerationDirectory}");
+switch (db.ConnectionDatabaseType)
+{    
+    case "sqlite":
+        generateSqliteCode(db);
+        break;
+    default:
+        Console.WriteLine($"NOT Supported yet in commandline {db.ConnectionDatabaseType}");
+        break;
 }
 
 
-DbProviderFactories.RegisterFactory("Microsoft.Data.Sqlite",SqliteFactory.Instance);
+void generateSqliteCode(DatabaseEntry db)
+{
+
+    Console.WriteLine($"trying connection string {db.ConnectionString}");
+
+    DbConnection connection = ConnectionHelper.TestSqlite(db.ConnectionString);
+    if(connection == null)
+    {
+        Console.WriteLine($"error in connecting sqlite using connection string {db.ConnectionString}");
+        return;
+    }
+    else
+    {
+        Console.WriteLine($"Successfully connected. Starting code generation in folder {db.CodeGenerationDirectory}");
+    }
 
 
-IAdoTemplate<IParameterBuilder> template = new AdoTemplateSqlite();
-template.Connection = connection;
+    DbProviderFactories.RegisterFactory("Microsoft.Data.Sqlite",SqliteFactory.Instance);
+
+
+    IAdoTemplate<IParameterBuilder> template = new AdoTemplateSqlite();
+    template.Connection = connection;
 
 
 
-IDatabase databaseHelper = new DatabaseSqlite(template);
-db.setIDatabaseValues(databaseHelper);
+    IDatabase databaseHelper = new DatabaseSqlite(template);
+    db.setIDatabaseValues(databaseHelper);
 
 
-databaseHelper.CodeGenerateAllTables();
+    databaseHelper.CodeGenerateAllTables();
+    Console.WriteLine("Code generation finished");
+
+}
+
