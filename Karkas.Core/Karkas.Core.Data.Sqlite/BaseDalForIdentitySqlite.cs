@@ -66,8 +66,7 @@ namespace Karkas.Core.Data.Sqlite
                 if (IdentityExists)
                 {
                     new LoggingInfo(cmd).LogInfo(this.GetType());
-                    cmd.ExecuteNonQuery();
-                    object o = cmd.Parameters[IdentityParameterName].Value;
+                    object o = cmd.ExecuteScalar();
                     result = (PRIMARY_KEY)Convert.ChangeType(o, result.GetType());
                     setIdentityColumnValue(row, result);
                 }
