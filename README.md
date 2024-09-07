@@ -1,6 +1,35 @@
 # karkas
 ======
 
+## Database first
+
+Karkas works according to **database first** principle.
+
+
+## Supported databases 
+
+Karkas supports following databases:
+
+1. Sql Server
+2. Oracle
+3. Sqlite
+
+
+## Code generation
+
+Code generation has following interfaces:
+
+- console app
+- windows forms (Windows only)
+- Asp.Net (planned)
+
+Using above interfaces and given database schema, karkas generates following code libraries for every table.
+
+- TypeLibrary (POCO plain ordinary csharp objects)
+- Dal (Data Access Layer)
+- Bs (Business Services)
+
+
 
 ## How it works after code generation 1
 
@@ -18,24 +47,8 @@ sequenceDiagram
 
 
 
-Aşağıdaki parçalardan oluşur.
- 1. DAL - Data Access Library - Veri Ulaşım Kütüphanesi
- 2. Code Generation
-
-Bu hem kendisine ait bir kod kütüphanesi hemde bir code generation - kod üretme mantığı ile çalışmaktadır.
-
-Aşağıdaki Veritabanlarını desteklemektedir.
- 1. Sql Server
- 2. Oracle
- 3. Sqlite
 
 
-## TODO
-
-- Refactoring methods to English Only Names
-- Remove Sqlite support and put json files for configuration. Instead of storing connection information in sqlite, json files will allow for version control also.
-- Add configuration method which initializes from configuration files (app.config ...)
-- Read logging and fix it
 
 ## Usage
 
@@ -49,7 +62,7 @@ Clone the project and run the Karkas.CodeGeneration.WinApp project in Visual Stu
 
 ## Requirements
 
-Karkas uses Visual Studio 2022 but generated code is usable from .NET 4, .Net Core 1-3 and .Net 6, and .Net 7.
+Karkas uses Visual Studio 2022 but generated code is usable from .NET 4, .Net Core 1-3 and .Net 6, and .Net 7 and .Net 8.
 
 
 ## Contributing
@@ -66,5 +79,5 @@ TODO
 
 ## License
 
-Karkas is released under the MIT License. See the bundled LICENSE file for
-details.
+Karkas is released under the BSD-3 License. 
+See the bundled LICENSE file for details.

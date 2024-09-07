@@ -1,5 +1,14 @@
 todo.txt
 
+
+## TODO
+
+- Refactoring methods to English Only Names
+- give examples for dependency injection
+- Add configuration method which initializes from configuration files (app.config ...)
+- Read logging and fix it
+
+
 1. Later check multiple .net SDK versions
 For now, we work with .net6
     <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
