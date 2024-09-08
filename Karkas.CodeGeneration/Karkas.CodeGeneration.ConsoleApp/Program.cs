@@ -10,31 +10,22 @@ using Karkas.Core.Data.Sqlite;
 using Karkas.Core.DataUtil;
 
 using Microsoft.Data.Sqlite;
+using CommandLine;
 
-string[] arguments = Environment.GetCommandLineArgs();
-
-// foreach (var arg in arguments)
-// {
-//     Console.WriteLine(arg);
-    
-// }
+CommandLineOptions arguments;
 
 #if(DEBUG)
-    arguments = new string[2]{arguments[0],"ChinookSqlite"};
+    arguments = new CommandLineOptions();
+    arguments.ConfigFileName = "config.json";
+    arguments.ConnectionName = "ChinookSqlite";
+#endif
+
+#if(!DEBUG)
+    arguments = Parser.Default.ParseArguments<CommandLineOptions>(args);
 #endif
 
 
-if(arguments.Length != 2)
-{
-    string commandName = arguments[0];
-    Console.WriteLine($"please use as \n {commandName} DB_NAME");
-    return;
-}
-
-
-string connectionName = arguments[1];
-
-DatabaseEntry db = DatabaseService.GetByConnectionName(connectionName);
+DatabaseEntry db = DatabaseService.GetByConnectionName(arguments.ConnectionName);
 
 string homeDirectory = Environment.GetEnvironmentVariable("HOME")!;
 
