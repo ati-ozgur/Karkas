@@ -50,13 +50,12 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
         public static DatabaseEntry GetByConnectionName(string connectionName)
         {
-            DatabaseEntry entry;
             var liste = getAllDatabaseEntries();            
             foreach (var e in liste)
             {
                 if(e.ConnectionName == connectionName)
                 {
-                    entry = e;
+                    return e;
                 }
                 
             }
