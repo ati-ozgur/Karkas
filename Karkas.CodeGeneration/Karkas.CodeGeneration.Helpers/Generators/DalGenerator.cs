@@ -16,17 +16,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         string classNameTypeLibrary = "";
         string schemaName = "";
-        string classNameSpace = "";
-        string memberVariableName = "";
-        string propertyVariableName = "";
         string baseNameSpace = "";
         string baseNameSpaceTypeLibrary = "";
         string pkName = "";
         string pkNamePascalCase = "";
         string pkType = "";
-        string _identityColumnName = "";
-        bool _identityExists = false;
-        string _identityType = "";
 
         public string getIdentityType(Utils utils, IContainer container)
         {
