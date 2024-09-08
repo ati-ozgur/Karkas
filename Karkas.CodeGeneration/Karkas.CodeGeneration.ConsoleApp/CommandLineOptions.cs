@@ -1,5 +1,7 @@
 using CommandLine;
 
+namespace Karkas.CodeGeneration.ConsoleApp;
+
 // https://github.com/commandlineparser/commandline
 public class CommandLineOptions
 {
@@ -9,9 +11,9 @@ public class CommandLineOptions
     [Option('c', "connectionname", Required = true, HelpText = "Which connection name will be used in config.json")]
     public string ConnectionName { get; set; }
 
-    string _configFileName = "config2.json";
+    string _configFileName = "config.json";
 
-    [Option('f', "configfilename", Required = true, HelpText = "Which connection name will be used in config.json")]
+    [Option('f', "configfilename", Required = false, HelpText = "default configuration filename is config.json")]
     public string ConfigFileName 
     { 
         get

@@ -1,11 +1,22 @@
 {
     "configurations": [
         {
-            "name": "C#: Karkas.CodeGeneration.ConsoleApp Debug",
+            "name": "C#: Karkas.CodeGeneration.ConsoleApp Debug 1",
             "type": "dotnet",
             "request": "launch",
-            "projectPath": "${workspaceFolder}/Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp/Karkas.CodeGeneration.ConsoleApp.csproj"
+            "projectPath": "${workspaceFolder}/Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp/Karkas.CodeGeneration.ConsoleApp.csproj",
         },
+        {
+            "name": "C#: Karkas.CodeGeneration.ConsoleApp Debug 2",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",            
+            "program": "${workspaceFolder}/Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp/bin/Debug/net6.0/Karkas.CodeGeneration.ConsoleApp.dll",
+            "args": ["--connectionname", "ChinookSqlite"],
+            "cwd": "${workspaceRoot}",
+            "stopAtEntry": false,
+            "externalConsole": false
+        }
 
     ]
 }

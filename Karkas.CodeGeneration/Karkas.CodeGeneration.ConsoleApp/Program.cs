@@ -14,91 +14,89 @@ using CommandLine;
 
 using System.IO;
 
-CommandLineOptions arguments;
-
-
-
-
-#if(DEBUG)
-    arguments = new CommandLineOptions();
-    arguments.ConfigFileName = "config.json";
-    arguments.ConnectionName = "ChinookSqlite";
-    Console.WriteLine("DEBUGGING CODE WORKS HERE");
-#endif
-
-#if(!DEBUG)
-    arguments = Parser.Default.ParseArguments<CommandLineOptions>(args);
-#endif
-
-
-DatabaseEntry db = DatabaseService.GetByConnectionName(arguments.ConnectionName);
-
-#if(DEBUG)
-    string currentDirectory = Directory.GetCurrentDirectory();
-    currentDirectory = currentDirectory.Replace("/Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp","");
-    Directory.SetCurrentDirectory(currentDirectory);
-    currentDirectory = Directory.GetCurrentDirectory();
-    Console.WriteLine($"The current directory is {currentDirectory}");
-
-#endif
-
-Console.WriteLine($"arguments {arguments}");
-
-string homeDirectory = Environment.GetEnvironmentVariable("HOME")!;
-
-if(db.ConnectionString.Contains("$HOME"))
+namespace Karkas.CodeGeneration.ConsoleApp
 {
-    db.ConnectionString = db.ConnectionString.Replace("$HOME",homeDirectory);    
-}
-if(db.CodeGenerationDirectory.Contains("$HOME"))
-{
-    db.CodeGenerationDirectory = db.CodeGenerationDirectory.Replace("$HOME",homeDirectory);    
-}
-
-Console.WriteLine(db.ConnectionDatabaseType);
-
-switch (db.ConnectionDatabaseType)
-{    
-    case "sqlite":
-        generateSqliteCode(db);
-        break;
-    default:
-        Console.WriteLine($"NOT Supported yet in commandline {db.ConnectionDatabaseType}");
-        break;
-}
-
-
-void generateSqliteCode(DatabaseEntry db)
-{
-
-    Console.WriteLine($"trying connection string {db.ConnectionString}");
-
-    DbConnection connection = ConnectionHelper.TestSqlite(db.ConnectionString);
-    if(connection == null)
+    public class Program
     {
-        Console.WriteLine($"error in connecting sqlite using connection string {db.ConnectionString}");
-        return;
+        public static void Main(string[] args)
+        {
+            // check launch.json for arguments
+            var parsedOptions = Parser.Default.ParseArguments<CommandLineOptions>(args);
+            if( parsedOptions.Value is null)
+            {
+                return;
+            }
+            CommandLineOptions options = parsedOptions.Value;
+
+            Console.WriteLine($"arguments {options}");
+
+            DatabaseEntry db = DatabaseService.GetByConnectionName(options.ConnectionName);
+
+            string homeDirectory = Environment.GetEnvironmentVariable("HOME")!;
+
+            if (db.ConnectionString.Contains("$HOME"))
+            {
+                db.ConnectionString = db.ConnectionString.Replace("$HOME", homeDirectory);
+            }
+            if (db.CodeGenerationDirectory.Contains("$HOME"))
+            {
+                db.CodeGenerationDirectory = db.CodeGenerationDirectory.Replace("$HOME", homeDirectory);
+            }
+
+            Console.WriteLine(db.ConnectionDatabaseType);
+
+            switch (db.ConnectionDatabaseType)
+            {
+                case "sqlite":
+                    generateSqliteCode(db);
+                    break;
+                default:
+                    Console.WriteLine($"NOT Supported yet in commandline {db.ConnectionDatabaseType}");
+                    break;
+            }
+
+        }
+
+
+        private static void generateSqliteCode(DatabaseEntry db)
+        {
+
+            Console.WriteLine($"trying connection string {db.ConnectionString}");
+
+            DbConnection connection = ConnectionHelper.TestSqlite(db.ConnectionString);
+            if (connection == null)
+            {
+                Console.WriteLine($"error in connecting sqlite using connection string {db.ConnectionString}");
+                return;
+            }
+            else
+            {
+                Console.WriteLine($"Successfully connected. Starting code generation in folder {db.CodeGenerationDirectory}");
+            }
+
+
+            DbProviderFactories.RegisterFactory("Microsoft.Data.Sqlite", SqliteFactory.Instance);
+
+
+            IAdoTemplate<IParameterBuilder> template = new AdoTemplateSqlite();
+            template.Connection = connection;
+
+
+
+            IDatabase databaseHelper = new DatabaseSqlite(template);
+            db.setIDatabaseValues(databaseHelper);
+
+
+            databaseHelper.CodeGenerateAllTables();
+            Console.WriteLine("Code generation finished");
+
+        }
+
+
     }
-    else
-    {
-        Console.WriteLine($"Successfully connected. Starting code generation in folder {db.CodeGenerationDirectory}");
-    }
-
-
-    DbProviderFactories.RegisterFactory("Microsoft.Data.Sqlite",SqliteFactory.Instance);
-
-
-    IAdoTemplate<IParameterBuilder> template = new AdoTemplateSqlite();
-    template.Connection = connection;
-
-
-
-    IDatabase databaseHelper = new DatabaseSqlite(template);
-    db.setIDatabaseValues(databaseHelper);
-
-
-    databaseHelper.CodeGenerateAllTables();
-    Console.WriteLine("Code generation finished");
-
 }
+
+
+
+
 
