@@ -463,8 +463,6 @@ namespace Karkas.CodeGeneration.Helpers
                 case "TimeSpan":
                 case "long":
                     return true;
-                    break;
-
                 default:
                     return false;
             }
@@ -479,7 +477,7 @@ namespace Karkas.CodeGeneration.Helpers
             bool result = false;
             foreach (IColumn column in container.Columns)
             {
-                if ((column.IsInPrimaryKey) && (column.LanguageType == "Guid"))
+                if (column.IsInPrimaryKey && column.LanguageType == "Guid")
                 {
                     result = true;
                 }
