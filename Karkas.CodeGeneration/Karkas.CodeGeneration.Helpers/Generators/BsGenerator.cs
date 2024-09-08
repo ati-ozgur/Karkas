@@ -59,8 +59,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             schemaName = utils.GetPascalCase(container.Schema);
             classNameSpace = baseNameSpace + "." + schemaName;
-            bool identityVarmi;
-            string pkcumlesi = "";
 
             string baseNameSpaceBsWithSchema = baseNameSpace + ".Bs." + schemaName;
             string baseNameSpaceDalWithSchema = baseNameSpace + ".Dal." + schemaName;
