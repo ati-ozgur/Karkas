@@ -6,18 +6,14 @@ using Microsoft.Data.Sqlite;
 
 using Karkas.Core.DataUtil;
 
+
+using Karkas.Examples;
+
 using Karkas.Examples.Chinook.Dal.ChinookSqlite;
 using Karkas.Examples.Chinook.TypeLibrary.ChinookSqlite;
 
+ConnectionHelper.SetupDatabaseConnection();
 
-string dbConnectionString = "Data Source=Chinook.db;Mode=ReadWrite;";
-string dbProviderName = "Microsoft.Data.Sqlite";
-string dbName = "ChinookSqlite";
-
-DbProviderFactories.RegisterFactory(dbProviderName, Microsoft.Data.Sqlite.SqliteFactory.Instance);
-
-ConnectionSingleton.Instance.AddConnection(dbName, dbProviderName, dbConnectionString);
-ConnectionSingleton.Instance.AddConnection("Main", dbProviderName, dbConnectionString);
 
 
 
@@ -50,24 +46,4 @@ albumId == a.AlbumId
 
 
 
-void printAlbums()
-{
-    AlbumDal dal = new AlbumDal();
 
-    var liste = dal.QueryAll();
-
-    foreach (var item in liste)
-    {
-        Console.WriteLine(item.Title);
-    }
-
-}
-
-void assertEquals(object p1, object p2)
-{
-    if (p1!=p2)
-    {
-
-        throw new Exception($"Assertion error, {p1} != {p2}");
-    }
-}
