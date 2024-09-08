@@ -28,11 +28,6 @@ namespace Karkas.CodeGeneration.Helpers
         {
             try
             {
-
-                string ConnectionDbProviderName = "Microsoft.Data.Sqlite";
-
-
-
                 var connection = new SqliteConnection(connectionString);
                 connection.Open();
                 connection.Close();
