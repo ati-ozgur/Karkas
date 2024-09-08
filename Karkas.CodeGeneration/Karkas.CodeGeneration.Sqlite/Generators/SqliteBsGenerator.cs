@@ -27,12 +27,8 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
 
         protected override void WriteUsingsDatabaseSpecific(IOutput output)
         {
-            output.autoTabLn("using Karkas.Core.Data.Sqlite;");
             output.autoTabLn("using Microsoft.Data.Sqlite;");
             output.autoTabLn("using Karkas.Core.Data.Sqlite;");
-            
-
-
         }
     }
 }
