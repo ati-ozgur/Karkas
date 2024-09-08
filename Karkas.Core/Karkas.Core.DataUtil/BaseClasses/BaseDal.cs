@@ -41,10 +41,10 @@ namespace Karkas.Core.DataUtil.BaseClasses
             set { isInTransaction = value; }
         }
 
-        public DIGER_DAL_TIPI GetDalInstance<DIGER_DAL_TIPI, DIGER_TYPE_LIBRARY_TIPI, PARAMETER_BUILDER>()
+        public DIGER_DAL_TIPI GetDalInstance<DIGER_DAL_TIPI, DIGER_TYPE_LIBRARY_TIPI, DIGER_PARAMETER_BUILDER>()
             where DIGER_TYPE_LIBRARY_TIPI : BaseTypeLibrary, new()
             where DIGER_DAL_TIPI : BaseDal<DIGER_TYPE_LIBRARY_TIPI,ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>, new()
-            where PARAMETER_BUILDER : IParameterBuilder, new()
+            where DIGER_PARAMETER_BUILDER : IParameterBuilder, new()
         {
             DIGER_DAL_TIPI di = new DIGER_DAL_TIPI();
             di.Connection = Connection;
