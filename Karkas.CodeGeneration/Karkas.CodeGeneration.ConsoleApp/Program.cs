@@ -30,7 +30,7 @@ namespace Karkas.CodeGeneration.ConsoleApp
 
             Console.WriteLine($"arguments {options}");
 
-            DatabaseEntry db = DatabaseService.GetByConnectionName(options.ConnectionName);
+            DatabaseEntry db = DatabaseService.GetByConnectionName(options.ConfigFileName, options.ConnectionName);
 
             string homeDirectory = Environment.GetEnvironmentVariable("HOME")!;
 

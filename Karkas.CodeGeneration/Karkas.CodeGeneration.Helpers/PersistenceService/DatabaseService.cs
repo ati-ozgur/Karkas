@@ -13,16 +13,19 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
     public class DatabaseService
     {
 
-        static string json_filename = $"{AppDomain.CurrentDomain.BaseDirectory}/config.json";
 
-        public static List<DatabaseEntry> getAllDatabaseEntriesSortedByName()
-        {
-            // TODO sort later
-            return getAllDatabaseEntries();
-        }
 
-        public static List<DatabaseEntry> getAllDatabaseEntries()
+        public static List<DatabaseEntry> getAllDatabaseEntries(string configFileName)
         {
+            string json_filename;
+            if(Path.IsPathRooted(configFileName))
+            {
+                json_filename = configFileName;
+            }
+            else
+            {
+                json_filename = $"{AppDomain.CurrentDomain.BaseDirectory}{configFileName}";
+            }
             string jsonString = File.ReadAllText(json_filename);
             List<DatabaseEntry> entries = new List<DatabaseEntry>();
             if (string.IsNullOrWhiteSpace(jsonString))
@@ -39,18 +42,18 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
             return entries;
         }
 
-        public static void SaveDatabaseEntries(List<DatabaseEntry> entries)
+        public static void SaveDatabaseEntries(string configFileName,List<DatabaseEntry> entries)
         {
             var options = new JsonSerializerOptions { WriteIndented = true };
             string jsonString = JsonSerializer.Serialize(entries, options);
-            File.WriteAllText(json_filename, jsonString, Encoding.UTF8);
+            File.WriteAllText(configFileName, jsonString, Encoding.UTF8);
 
         }
 
 
-        public static DatabaseEntry GetByConnectionName(string connectionName)
+        public static DatabaseEntry GetByConnectionName(string configFileName,string connectionName)
         {
-            var liste = getAllDatabaseEntries();            
+            var liste = getAllDatabaseEntries(configFileName);            
             foreach (var e in liste)
             {
                 if(e.ConnectionName == connectionName)
@@ -63,13 +66,6 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
         }
 
 
-        public static DatabaseEntry getLastAccessedDatabaseEntry()
-        {
-            var list = getAllDatabaseEntries();            
-            return list[0];
-            //List<DatabaseEntry> liste= dal.QueryAllOrderBy(DatabaseEntry.PropertyIsimleri.LastAccessTime,"DESC");
-            //return liste[0];
-        }
 
         private static DatabaseEntry getExampleDatabaseEntry()
         {
@@ -87,23 +83,23 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
 
 
-        internal static void deleteDatabase(DatabaseEntry databaseEntry)
+        internal static void deleteDatabase(string configFileName,DatabaseEntry databaseEntry)
         {
 
-            var entries = getAllDatabaseEntries();
+            var entries = getAllDatabaseEntries(configFileName);
             entries.Remove(databaseEntry);
-            SaveDatabaseEntries(entries);
+            SaveDatabaseEntries(configFileName,entries);
 
         }
 
 
 
-        internal static void InsertOrUpdate(DatabaseEntry databaseEntry)
+        internal static void InsertOrUpdate(string configFileName,DatabaseEntry databaseEntry)
         {
-            var entries = getAllDatabaseEntries();
+            var entries = getAllDatabaseEntries(configFileName);
             entries.Remove(databaseEntry);
             entries.Add(databaseEntry);
-            SaveDatabaseEntries(entries);
+            SaveDatabaseEntries(configFileName, entries);
         }
     }
 }
