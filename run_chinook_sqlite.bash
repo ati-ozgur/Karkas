@@ -10,7 +10,7 @@
 set -euxo pipefail
 
 rm -rf Karkas.Examples/GeneratedProjects/ChinookSqlite
-dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp ChinookSqlite
+dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname ChinookSqlite
 cd Karkas.Examples/GeneratedProjects/ChinookSqlite
 dotnet new console
 dotnet add package Microsoft.Data.Sqlite
