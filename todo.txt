@@ -19,6 +19,7 @@ https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-framewor
 2. Nullable compile warnings
     <Nullable>enable</Nullable>
     <Nullable>disable</Nullable>
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/nullable-warnings
 
 
 1. Check why we have references to following dlls

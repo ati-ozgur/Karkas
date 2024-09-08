@@ -6,3 +6,11 @@ https://massivejs.org/get-started
 https://gitlab.com/dmfay/massive-js
 https://github.com/DapperLib/Dapper/blob/main/Readme.md
 https://dapperlib.github.io/Dapper/
+
+An AI-based Low-Code and No-Code Software Development Automation Framework
+https://github.com/polterguy/magic
+
+
+
+
+https://aspnetboilerplate.com/api-docs/index.html
