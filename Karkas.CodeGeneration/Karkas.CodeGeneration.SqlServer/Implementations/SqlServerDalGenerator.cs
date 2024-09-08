@@ -49,10 +49,6 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 
         }
 
-        private IAdoTemplate<IParameterBuilder> template;
-
-        string databaseName;
-
 
 
 
