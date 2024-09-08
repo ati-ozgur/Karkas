@@ -1,12 +1,9 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
-name: dotnet8-chinook-sqlite
+name: dotnet8-chinook-sqlserver
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ "master" ]
+#  push:
+#    branches: [ "master" ]
 
 jobs:
   build:
@@ -20,4 +17,4 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: code generate for chinook_sqlite database and run simple tests
-      run: ./Tests/run_chinook_sqlite.bash
+      run: ./Tests/chinook-sqlserver/run_chinook_sqlserver.bash
