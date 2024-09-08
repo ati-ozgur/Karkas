@@ -130,7 +130,7 @@ ORDER BY FULL_TABLE_NAME
 
         private string databaseNamePhysical;
 
-        public string DatabaseNamePhysical
+        public override string DatabaseNamePhysical
         {
             get
             {
