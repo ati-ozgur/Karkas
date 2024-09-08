@@ -48,9 +48,9 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
         }
 
 
-        public static DatabaseEntry? GetByConnectionName(string connectionName)
+        public static DatabaseEntry GetByConnectionName(string connectionName)
         {
-            DatabaseEntry entry = null;
+            DatabaseEntry entry;
             var liste = getAllDatabaseEntries();            
             foreach (var e in liste)
             {
@@ -60,8 +60,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
                 }
                 
             }
-
-            return entry;
+            throw new Exception($"connection {connectionName} is not found");
         }
 
 

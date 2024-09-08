@@ -36,7 +36,7 @@ string connectionName = arguments[1];
 
 DatabaseEntry db = DatabaseService.GetByConnectionName(connectionName);
 
-string homeDirectory = Environment.GetEnvironmentVariable("HOME");
+string homeDirectory = Environment.GetEnvironmentVariable("HOME")!;
 
 if(db.ConnectionString.Contains("$HOME"))
 {
