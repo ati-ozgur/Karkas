@@ -148,7 +148,8 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
                 else
                 {
                     int result = (int)template.BringOneValue(SQL_PRIMARY_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
-                    return result > 0;
+                    isInPrimaryKey = result > 0;
+                    return isInPrimaryKey.Value;
                 }
             }
         }
