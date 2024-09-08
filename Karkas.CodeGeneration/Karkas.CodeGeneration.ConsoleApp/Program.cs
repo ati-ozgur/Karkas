@@ -23,6 +23,7 @@ CommandLineOptions arguments;
     arguments = new CommandLineOptions();
     arguments.ConfigFileName = "config.json";
     arguments.ConnectionName = "ChinookSqlite";
+    Console.WriteLine("DEBUGGING CODE WORKS HERE");
 #endif
 
 #if(!DEBUG)
@@ -41,6 +42,7 @@ DatabaseEntry db = DatabaseService.GetByConnectionName(arguments.ConnectionName)
 
 #endif
 
+Console.WriteLine($"arguments {arguments}");
 
 string homeDirectory = Environment.GetEnvironmentVariable("HOME")!;
 
