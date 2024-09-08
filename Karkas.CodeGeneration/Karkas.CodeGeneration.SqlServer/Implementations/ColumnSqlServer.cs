@@ -167,14 +167,8 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
                 else
                 {
                     int result = (int)template.BringOneValue(SQL_FOREIGN_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
-                    if (result > 0)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    isInForeignKey = result > 0;
+                    return isInForeignKey.Value;
                 }
             }
         }
