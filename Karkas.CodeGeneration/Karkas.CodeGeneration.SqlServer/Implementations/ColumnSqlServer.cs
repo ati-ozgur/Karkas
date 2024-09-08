@@ -205,7 +205,6 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
 
 
         string _LanguageType;
-        string _SqlDataType;
         public string LanguageType
         {
             get
@@ -216,9 +215,7 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
                     string result;
                     if (SqlDataTypeName == "UserDefinedDataType")
                     {
-                        throw new NotImplementedException("UserDefinedDataType cevrimi");
-                        string sqlTypeName = getUnderlyingTypeOfUserDefinedType(SqlDataTypeName);
-                        result = sqlTypeToDotnetCSharpType(sqlTypeName);
+                        throw new NotImplementedException("UserDefinedDataType is not supported yet");
                     }
                     else
                     {

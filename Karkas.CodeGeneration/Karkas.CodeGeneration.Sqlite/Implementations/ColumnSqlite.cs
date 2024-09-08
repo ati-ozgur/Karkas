@@ -67,6 +67,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             }
         }
 
+        // TODO Fix this one later
         private bool? isInForeignKey;
         public bool IsInForeignKey
         {
