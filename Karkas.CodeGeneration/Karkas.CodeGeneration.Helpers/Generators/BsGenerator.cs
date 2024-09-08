@@ -17,9 +17,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         string classNameDal = "";
         string classNameBs = "";
         string schemaName = "";
-        string classNameSpace = "";
-        string memberVariableName = "";
-        string propertyVariableName = "";
         string pkName = "";
         string pkNamePascalCase = "";
         string pkType = "";
@@ -28,8 +25,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         string baseNameSpace = "";
         string baseNameSpaceTypeLibrary = "";
-        string baseNameSpaceDal = "";
-        string baseNameSpaceBs = "";
 
         public BsGenerator(IDatabase databaseHelper)
         {
@@ -50,15 +45,12 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             IDatabase database = container.Database;
             baseNameSpace = utils.GetProjectNamespaceWithSchema(database, container.Schema);
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
-            baseNameSpaceDal = baseNameSpace + ".Dal";
-            baseNameSpaceBs = baseNameSpace + ".Bs";
 
             classNameTypeLibrary = utils.getClassNameForTypeLibrary(container.Name, listDatabaseAbbreviations);
             classNameDal = classNameTypeLibrary + "Dal";
             classNameBs = classNameTypeLibrary + "Bs";
 
             schemaName = utils.GetPascalCase(container.Schema);
-            classNameSpace = baseNameSpace + "." + schemaName;
 
             string baseNameSpaceBsWithSchema = baseNameSpace + ".Bs." + schemaName;
             string baseNameSpaceDalWithSchema = baseNameSpace + ".Dal." + schemaName;
