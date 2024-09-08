@@ -16,8 +16,6 @@ namespace Karkas.CodeGeneration.Helpers
             liste.Add("Ogrenim", "Öğrenim");
             liste.Add("Bolum", "Bolüm");
             liste.Add("Giris", "Giriş");
-            string a = @"
-            Aciklama";
                 
         }
 
