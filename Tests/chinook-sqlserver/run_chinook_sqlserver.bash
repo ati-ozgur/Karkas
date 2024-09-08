@@ -9,22 +9,39 @@
 
 set -euo pipefail
 
+CONTAINER_NAME="chinook-sqlserver-container1"
+IMAGE_NAME="chinook-sqlserver-image1"
+
 #!/bin/bash
 
-CONTAINER_NAME="sql1"
+WORKING_DIR=$PWD
+echo $PWD
+
+cp Karkas.Examples/Chinook/DatabaseScripts/Chinook_SqlServer_AutoIncrementPKs.sql Tests/chinook-sqlserver/
+
+cd Tests/chinook-sqlserver/
+
+docker build -t $IMAGE_NAME .
+
+echo "docker build finished"
 
 if docker ps -a --format '{{.Names}}' | grep -q "^$CONTAINER_NAME\$"; then
-    echo "Container $CONTAINER_NAME is running"
-    echo "Stopping Container $CONTAINER_NAME "
-	docker stop "$CONTAINER_NAME" &>/dev/null && echo "Stopped container $CONTAINER_NAME"
-	docker rm sql1
-else
-  echo "Container $CONTAINER_NAME is not running"
-fi
+     echo "Container $CONTAINER_NAME is running"
+     echo "Stopping Container $CONTAINER_NAME "
+  	docker stop "$CONTAINER_NAME" &>/dev/null && echo "Stopped container $CONTAINER_NAME"
+  	docker rm "$CONTAINER_NAME"
+ else
+   echo "Container $CONTAINER_NAME is not running"
+ fi
+
+echo "starting docker container $CONTAINER_NAME with image $IMAGE_NAME"
+
+docker run --detach -p 1433:1433 --name $CONTAINER_NAME  --hostname $CONTAINER_NAME  $IMAGE_NAME
+
+echo "go to ${WORKING_DIR}"
+cd $WORKING_DIR
 
 
-# -d Run the container in the background (daemon).
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Karkas@Passw0rd" -p 1433:1433 --name $CONTAINER_NAME  --hostname sql1 -d mcr.microsoft.com/mssql/server:2022-latest
 
 #rm -rf Karkas.Examples/GeneratedProjects/ChinookSqlServer
 
