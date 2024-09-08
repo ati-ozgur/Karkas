@@ -12,7 +12,12 @@ using Karkas.Core.DataUtil;
 using Microsoft.Data.Sqlite;
 using CommandLine;
 
+using System.IO;
+
 CommandLineOptions arguments;
+
+
+
 
 #if(DEBUG)
     arguments = new CommandLineOptions();
@@ -26,6 +31,16 @@ CommandLineOptions arguments;
 
 
 DatabaseEntry db = DatabaseService.GetByConnectionName(arguments.ConnectionName);
+
+#if(DEBUG)
+    string currentDirectory = Directory.GetCurrentDirectory();
+    currentDirectory = currentDirectory.Replace("/Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp","");
+    Directory.SetCurrentDirectory(currentDirectory);
+    currentDirectory = Directory.GetCurrentDirectory();
+    Console.WriteLine($"The current directory is {currentDirectory}");
+
+#endif
+
 
 string homeDirectory = Environment.GetEnvironmentVariable("HOME")!;
 
