@@ -1,6 +1,7 @@
 todo.txt
 
 
+
 ## TODO
 
 - Refactoring methods to English Only Names
@@ -15,6 +16,9 @@ For now, we work with .net6
 https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file
 
 
+2. Nullable compile warnings
+    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
 
 
 1. Check why we have references to following dlls
