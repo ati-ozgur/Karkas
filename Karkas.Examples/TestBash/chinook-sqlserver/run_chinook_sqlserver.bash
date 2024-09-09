@@ -11,6 +11,7 @@ set -euo pipefail
 
 CONTAINER_NAME="chinook-sqlserver-container1"
 IMAGE_NAME="chinook-sqlserver-image1"
+DB_PASSWORD="Karkas@Passw0rd"
 
 #!/bin/bash
 
@@ -42,6 +43,9 @@ cd $WORKING_DIR
 
 CONTAINER_ID=$(docker inspect --format="{{.Id}}" "$CONTAINER_NAME")
 echo "CONTAINER_ID ${CONTAINER_ID}"
+
+
+docker exec $CONTAINER_ID bash /home/create_chinook_sqlserver_autoincrementpks.bash
 
 
 
