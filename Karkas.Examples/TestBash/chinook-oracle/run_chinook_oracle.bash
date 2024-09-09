@@ -38,13 +38,25 @@ echo "starting docker container $CONTAINER_NAME with image $IMAGE_NAME"
 
 docker run --detach -p 1521:1521 --name $CONTAINER_NAME  --hostname $CONTAINER_NAME  $IMAGE_NAME
 
-sleep 10s
+CONTAINER_ID=$(docker inspect --format="{{.Id}}" "$CONTAINER_NAME")
+echo "CONTAINER_ID ${CONTAINER_ID}"
+
+CONTAINER_STATUS=$(docker logs $CONTAINER_ID | grep "DATABASE IS READY TO USE!")
+until [ $CONTAINER_STATUS == '"DATABASE IS READY TO USE!"' ]
+do
+  echo "Waiting for container to start..."
+  echo "Current status $CONTAINER_STATUS"
+  sleep 1
+  CONTAINER_STATUS=$(docker logs $CONTAINER_ID | grep "DATABASE IS READY TO USE!")
+done
+
+
+
 
 echo "go to ${WORKING_DIR}"
 cd $WORKING_DIR
 
-CONTAINER_ID=$(docker inspect --format="{{.Id}}" "$CONTAINER_NAME")
-echo "CONTAINER_ID ${CONTAINER_ID}"
+
 
 
 

@@ -38,7 +38,9 @@ echo "starting docker container $CONTAINER_NAME with image $IMAGE_NAME"
 
 docker run --detach -p 1433:1433 --name $CONTAINER_NAME  --hostname $CONTAINER_NAME  $IMAGE_NAME
 
-sleep 10s
+
+
+docker wait $CONTAINER_NAME
 
 echo "go to ${WORKING_DIR}"
 cd $WORKING_DIR
