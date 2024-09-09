@@ -91,9 +91,9 @@ OWNER = :schemaName
                     builder.AddParameter("tableName", DbType.String, Name);
                     builder.AddParameter("schemaName",DbType.String,Schema);
 
-                    DataTable dtColumnList = template.DataTableOlustur(SQL_FOR_COLUMN_LIST, builder.GetParameterArray());
+                    var dtColumnList = template.GetListOfDictionary(SQL_FOR_COLUMN_LIST, builder.GetParameterArray());
                     columns = new List<IColumn>();
-                    foreach (DataRow row in dtColumnList.Rows)
+                    foreach (var row in dtColumnList)
                     {
                         string columnName = row["column_name"].ToString();
                         IColumn column = new ColumnOracle(template,this,columnName);

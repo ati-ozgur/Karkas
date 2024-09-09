@@ -77,6 +77,7 @@ namespace Karkas.CodeGeneration.Helpers
                 case "SqlServer":
                     connection  = testSqlserver(connectionString);
                     DbProviderFactories.RegisterFactory("Microsoft.Data.SqlClient", SqlClientFactory.Instance);
+                    DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
                     template = new AdoTemplateSqlServer();
                     template.Connection = connection; 
                     return template;                 

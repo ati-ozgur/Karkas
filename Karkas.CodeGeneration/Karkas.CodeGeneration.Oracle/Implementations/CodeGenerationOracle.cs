@@ -66,8 +66,8 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
                     IParameterBuilder builder = Template.getParameterBuilder();
                     builder.AddParameter("TABLE_SCHEMA", DbType.String, userName);
 
-                    DataTable dtTables = Template.DataTableOlustur(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
-                    foreach (DataRow row in dtTables.Rows)
+                    var dtTables = Template.GetListOfDictionary(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
+                    foreach (var row in dtTables)
                     {
                         string tableName = row["TABLE_NAME"].ToString();
                         string tableSchema = row["TABLE_SCHEMA"].ToString();
@@ -208,14 +208,13 @@ ORDER BY SEQUENCE_NAME
 
         public override string[] getSchemaList()
         {
-            DataTable dt = Template.DataTableOlustur(SQL_FOR_SCHEMA_LIST);
-            string[] schemaList = new string[dt.Rows.Count];
-            for (int i = 0; i < dt.Rows.Count; i++)
+            var dt = Template.GetListOfDictionary(SQL_FOR_SCHEMA_LIST);
+            var schemaList = new List<string>();
+            foreach (var item in dt)
             {
-                var row = dt.Rows[i];
-                schemaList[i] = row[0].ToString();
+                schemaList.Add(item["SCHEMA_NAME"].ToString());
             }
-            return schemaList;
+            return schemaList.ToArray<string>();
         }
 
 

@@ -64,9 +64,9 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
                     _tableList = new List<ITable>();
                     IParameterBuilder builder = Template.getParameterBuilder();
                     builder.AddParameter("@TABLE_SCHEMA", DbType.AnsiString, "__TUM_SCHEMALAR__");
-                    DataTable dtTableList = Template.DataTableOlustur(SQL_FOR_TABLE_LIST,builder.GetParameterArray());
+                    var dtTableList = Template.GetListOfDictionary(SQL_FOR_TABLE_LIST,builder.GetParameterArray());
 
-                    foreach (DataRow row in dtTableList.Rows)
+                    foreach (var row in dtTableList)
                     {
                         string schemaName = row[SCHEMA_NAME_IN_TABLE_SQL_QUERIES].ToString();
                         string tableName = row[TABLE_NAME_IN_TABLE_SQL_QUERIES].ToString();

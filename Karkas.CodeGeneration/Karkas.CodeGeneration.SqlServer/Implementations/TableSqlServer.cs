@@ -89,10 +89,10 @@ TABLE_NAME = @TABLE_NAME
 
 
 
-                DataTable dtColumns = Template.DataTableOlustur(SQL_COLUMN_LIST, builder.GetParameterArray());
+                var dtColumns = Template.GetListOfDictionary(SQL_COLUMN_LIST, builder.GetParameterArray());
 
 
-                foreach (DataRow row in dtColumns.Rows)
+                foreach (var row in dtColumns)
                 {
                     string columnName = row["COLUMN_NAME"].ToString();
                     IColumn column = new ColumnSqlServer(this,template, columnName, row);

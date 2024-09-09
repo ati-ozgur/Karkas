@@ -14,8 +14,8 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
     {
         IContainer tableOrView;
         string columnName;
-        DataRow columnValuesFromInformationSchema;
-        DataRow columnValuesFromSysViews;
+        Dictionary<string,object>  columnValuesFromInformationSchema;
+        Dictionary<string,object> columnValuesFromSysViews;
         IAdoTemplate<IParameterBuilder> template;
 
         public IAdoTemplate<IParameterBuilder> Template
@@ -23,7 +23,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
             get { return template; }
         }
 
-        public ColumnSqlServer(IContainer pTableOrView, IAdoTemplate<IParameterBuilder> template, string columnName, DataRow columnValues)
+        public ColumnSqlServer(IContainer pTableOrView, IAdoTemplate<IParameterBuilder> template, string columnName, Dictionary<string,object> columnValues)
         {
             tableOrView = pTableOrView;
             this.template = template;
@@ -32,8 +32,8 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 
             IParameterBuilder defaultParameterBuilder = getBuilderWithDefaultValues();
 
-            DataTable dt = template.DataTableOlustur(SQL_COLUMN_VALUES_FROM_SYS, defaultParameterBuilder.GetParameterArray());
-            columnValuesFromSysViews = dt.Rows[0];
+            var dt = template.GetListOfDictionary(SQL_COLUMN_VALUES_FROM_SYS, defaultParameterBuilder.GetParameterArray());
+            columnValuesFromSysViews = dt[0];
 
 
 

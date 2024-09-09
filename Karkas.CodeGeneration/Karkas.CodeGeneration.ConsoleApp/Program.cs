@@ -99,8 +99,10 @@ namespace Karkas.CodeGeneration.ConsoleApp
             db.setIDatabaseValues(databaseHelper);
 
 
-            databaseHelper.CodeGenerateAllTables();
+            string result = databaseHelper.CodeGenerateAllTables();
             Console.WriteLine("Code generation finished");
+            Console.WriteLine("Errors: ");
+            Console.WriteLine(result);
 
         }
 
