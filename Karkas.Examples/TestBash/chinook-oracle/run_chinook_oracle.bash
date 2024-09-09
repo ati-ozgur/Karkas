@@ -42,15 +42,11 @@ CONTAINER_ID=$(docker inspect --format="{{.Id}}" "$CONTAINER_NAME")
 echo "CONTAINER_ID $CONTAINER_ID"
 
 
-timeout 60s grep -q '│DATABASE IS READY TO USE!' <(docker logs -f $CONTAINER_ID) || exit 1
+timeout 60s grep -q 'DATABASE IS READY TO USE!' <(docker logs -f $CONTAINER_ID) || exit 1
 
 
 echo "go to ${WORKING_DIR}"
 cd $WORKING_DIR
-
-
-
-
 
 rm -rf Karkas.Examples/GeneratedProjects/ChinookOracle
 
