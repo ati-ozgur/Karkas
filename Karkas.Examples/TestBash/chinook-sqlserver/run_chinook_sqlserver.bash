@@ -49,10 +49,9 @@ docker exec $CONTAINER_ID bash /home/create_chinook_sqlserver_autoincrementpks.b
 
 
 
-#rm -rf Karkas.Examples/GeneratedProjects/ChinookSqlServer
+rm -rf Karkas.Examples/GeneratedProjects/ChinookSqlServer
 
-# rm -rf Karkas.Examples/GeneratedProjects/ChinookSqlite
-# dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname ChinookSqlite
+dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname ChinookSqlServer
 # cd Karkas.Examples/GeneratedProjects/ChinookSqlite
 # dotnet new console
 # dotnet add package Microsoft.Data.Sqlite
