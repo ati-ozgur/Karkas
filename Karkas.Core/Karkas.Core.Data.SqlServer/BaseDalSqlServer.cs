@@ -59,21 +59,10 @@ namespace Karkas.Core.Data.SqlServer
         public void AddParameter(string parameterName, SqlDbType dbType, object value)
         {
             DbParameter prm = setParameterValue(parameterName, dbType, value);
-            AddParameterToCommandOrList(prm);
         }
 
 
-        private void AddParameterToCommandOrList(DbParameter prm)
-        {
-            //if (command != null)
-            //{
-            //    command.Parameters.Add(prm);
-            //}
-            //else
-            //{
-            //    parameterList.Add(prm);
-            //}
-        }
+        public virtual string IdentityParameterName { get;  }
 
         public override string ParameterCharacter
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using Karkas.CodeGeneration.Helpers;
@@ -50,12 +51,23 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         }
 
 
-        protected override void ClassWrite(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
+        protected override void ClassWrite(IOutput output, string classNameTypeLibrary, bool identityExists, string identityType)
         {
             output.autoTab("public partial class ");
             output.write(classNameTypeLibrary);
-            output.write("Dal : BaseDalSqlServer<");
-            output.write(classNameTypeLibrary);
+            output.write("Dal : ");
+            if(identityExists)
+            {
+                output.write("BaseDalForIdentitySqlServer<");
+                output.write(classNameTypeLibrary);
+                output.write( ","+ identityType);
+            }
+            else
+            {
+                output.write("BaseDalSqlServer<");
+                output.write(classNameTypeLibrary);
+            }
+            
             output.write(", AdoTemplateSqlServer, ParameterBuilderSqlServer");
             output.writeLine(">");
             AtStartCurlyBraceletIncreaseTab(output);
