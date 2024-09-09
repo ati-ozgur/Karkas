@@ -1672,1007 +1672,2008 @@ INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milli
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES (1000, 'What If I Do?', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 302994, 9929799, 0.99);
 
 
+
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
-    (1001, 'Miracle', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 209684, 6877994, 0.99),
-    (1002, 'Another Round', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 265848, 8752670, 0.99),
-    (1003, 'Friend Of A Friend', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 193280, 6355088, 0.99),
-    (1004, 'Over And Out', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 316264, 10428382, 0.99),
-    (1005, 'On The Mend', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 271908, 9071997, 0.99),
-    (1006, 'Virginia Moon', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 229198, 7494639, 0.99),
-    (1007, 'Cold Day In The Sun', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 200724, 6596617, 0.99),
-    (1008, 'Razor', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 293276, 9721373, 0.99),
-    (1009, 'All My Life', 81, 1, 4, 'Foo Fighters', 263653, 8665545, 0.99),
-    (1010, 'Low', 81, 1, 4, 'Foo Fighters', 268120, 8847196, 0.99),
-    (1011, 'Have It All', 81, 1, 4, 'Foo Fighters', 298057, 9729292, 0.99),
-    (1012, 'Times Like These', 81, 1, 4, 'Foo Fighters', 266370, 8624691, 0.99),
-    (1013, 'Disenchanted Lullaby', 81, 1, 4, 'Foo Fighters', 273528, 8919111, 0.99),
-    (1014, 'Tired Of You', 81, 1, 4, 'Foo Fighters', 311353, 10094743, 0.99),
-    (1015, 'Halo', 81, 1, 4, 'Foo Fighters', 306442, 10026371, 0.99),
-    (1016, 'Lonely As You', 81, 1, 4, 'Foo Fighters', 277185, 9022628, 0.99),
-    (1017, 'Overdrive', 81, 1, 4, 'Foo Fighters', 270550, 8793187, 0.99),
-    (1018, 'Burn Away', 81, 1, 4, 'Foo Fighters', 298396, 9678073, 0.99),
-    (1019, 'Come Back', 81, 1, 4, 'Foo Fighters', 469968, 15371980, 0.99),
-    (1020, 'Doll', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 83487, 2702572, 0.99),
-    (1021, 'Monkey Wrench', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 231523, 7527531, 0.99),
-    (1022, 'Hey, Johnny Park!', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 248528, 8079480, 0.99),
-    (1023, 'My Poor Brain', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 213446, 6973746, 0.99),
-    (1024, 'Wind Up', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 152163, 4950667, 0.99),
-    (1025, 'Up In Arms', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 135732, 4406227, 0.99),
-    (1026, 'My Hero', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 260101, 8472365, 0.99),
-    (1027, 'See You', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 146782, 4888173, 0.99),
-    (1028, 'Enough Space', 82, 1, 1, 'Dave Grohl', 157387, 5169280, 0.99),
-    (1029, 'February Stars', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 289306, 9344875, 0.99),
-    (1030, 'Everlong', 82, 1, 1, 'Dave Grohl', 250749, 8270816, 0.99),
-    (1031, 'Walking After You', 82, 1, 1, 'Dave Grohl', 303856, 9898992, 0.99),
-    (1032, 'New Way Home', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 342230, 11205664, 0.99),
-    (1033, 'My Way', 83, 1, 12, 'claude françois/gilles thibault/jacques revaux/paul anka', 275879, 8928684, 0.99),
-    (1034, 'Strangers In The Night', 83, 1, 12, 'berthold kaempfert/charles singleton/eddie snyder', 155794, 5055295, 0.99),
-    (1035, 'New York, New York', 83, 1, 12, 'fred ebb/john kander', 206001, 6707993, 0.99),
-    (1036, 'I Get A Kick Out Of You', 83, 1, 12, 'cole porter', 194429, 6332441, 0.99),
-    (1037, 'Something Stupid', 83, 1, 12, 'carson c. parks', 158615, 5210643, 0.99),
-    (1038, 'Moon River', 83, 1, 12, 'henry mancini/johnny mercer', 198922, 6395808, 0.99),
-    (1039, 'What Now My Love', 83, 1, 12, 'carl sigman/gilbert becaud/pierre leroyer', 149995, 4913383, 0.99),
-    (1040, 'Summer Love', 83, 1, 12, 'hans bradtke/heinz meier/johnny mercer', 174994, 5693242, 0.99),
-    (1041, 'For Once In My Life', 83, 1, 12, 'orlando murden/ronald miller', 171154, 5557537, 0.99),
-    (1042, 'Love And Marriage', 83, 1, 12, 'jimmy van heusen/sammy cahn', 89730, 2930596, 0.99),
-    (1043, 'They Can'||chr(39)||'t Take That Away From Me', 83, 1, 12, 'george gershwin/ira gershwin', 161227, 5240043, 0.99),
-    (1044, 'My Kind Of Town', 83, 1, 12, 'jimmy van heusen/sammy cahn', 188499, 6119915, 0.99),
-    (1045, 'Fly Me To The Moon', 83, 1, 12, 'bart howard', 149263, 4856954, 0.99),
-    (1046, 'I'||chr(39)||'ve Got You Under My Skin', 83, 1, 12, 'cole porter', 210808, 6883787, 0.99),
-    (1047, 'The Best Is Yet To Come', 83, 1, 12, 'carolyn leigh/cy coleman', 173583, 5633730, 0.99),
-    (1048, 'It Was A Very Good Year', 83, 1, 12, 'ervin drake', 266605, 8554066, 0.99),
-    (1049, 'Come Fly With Me', 83, 1, 12, 'jimmy van heusen/sammy cahn', 190458, 6231029, 0.99),
-    (1050, 'That'||chr(39)||'s Life', 83, 1, 12, 'dean kay thompson/kelly gordon', 187010, 6095727, 0.99),
-    (1051, 'The Girl From Ipanema', 83, 1, 12, 'antonio carlos jobim/norman gimbel/vinicius de moraes', 193750, 6410674, 0.99),
-    (1052, 'The Lady Is A Tramp', 83, 1, 12, 'lorenz hart/richard rodgers', 184111, 5987372, 0.99),
-    (1053, 'Bad, Bad Leroy Brown', 83, 1, 12, 'jim croce', 169900, 5548581, 0.99),
-    (1054, 'Mack The Knife', 83, 1, 12, 'bert brecht/kurt weill/marc blitzstein', 292075, 9541052, 0.99),
-    (1055, 'Loves Been Good To Me', 83, 1, 12, 'rod mckuen', 203964, 6645365, 0.99),
-    (1056, 'L.A. Is My Lady', 83, 1, 12, 'alan bergman/marilyn bergman/peggy lipton jones/quincy jones', 193175, 6378511, 0.99),
-    (1057, 'Entrando Na Sua (Intro)', 84, 1, 7, NULL, 179252, 5840027, 0.99),
-    (1058, 'Nervosa', 84, 1, 7, NULL, 229537, 7680421, 0.99),
-    (1059, 'Funk De Bamba (Com Fernanda Abreu)', 84, 1, 7, NULL, 237191, 7866165, 0.99),
-    (1060, 'Call Me At Cleo´s', 84, 1, 7, NULL, 236617, 7920510, 0.99),
-    (1061, 'Olhos Coloridos (Com Sandra De Sá)', 84, 1, 7, NULL, 321332, 10567404, 0.99),
-    (1062, 'Zambação', 84, 1, 7, NULL, 301113, 10030604, 0.99),
-    (1063, 'Funk Hum', 84, 1, 7, NULL, 244453, 8084475, 0.99),
-    (1064, 'Forty Days (Com DJ Hum)', 84, 1, 7, NULL, 221727, 7347172, 0.99),
-    (1065, 'Balada Da Paula', 84, 1, 7, 'Emerson Villani', 322821, 10603717, 0.99),
-    (1066, 'Dujji', 84, 1, 7, NULL, 324597, 10833935, 0.99),
-    (1067, 'Meu Guarda-Chuva', 84, 1, 7, NULL, 248528, 8216625, 0.99),
-    (1068, 'Motéis', 84, 1, 7, NULL, 213498, 7041077, 0.99),
-    (1069, 'Whistle Stop', 84, 1, 7, NULL, 526132, 17533664, 0.99),
-    (1070, '16 Toneladas', 84, 1, 7, NULL, 191634, 6390885, 0.99),
-    (1071, 'Divirta-Se (Saindo Da Sua)', 84, 1, 7, NULL, 74919, 2439206, 0.99),
-    (1072, 'Forty Days Instrumental', 84, 1, 7, NULL, 292493, 9584317, 0.99),
-    (1073, 'Óia Eu Aqui De Novo', 85, 1, 10, NULL, 219454, 7469735, 0.99),
-    (1074, 'Baião Da Penha', 85, 1, 10, NULL, 247928, 8393047, 0.99),
-    (1075, 'Esperando Na Janela', 85, 1, 10, 'Manuca/Raimundinho DoAcordion/Targino Godim', 261041, 8660617, 0.99),
-    (1076, 'Juazeiro', 85, 1, 10, 'Humberto Teixeira/Luiz Gonzaga', 222275, 7349779, 0.99),
-    (1077, 'Último Pau-De-Arara', 85, 1, 10, 'Corumbá/José Gumarães/Venancio', 200437, 6638563, 0.99),
-    (1078, 'Asa Branca', 85, 1, 10, 'Humberto Teixeira/Luiz Gonzaga', 217051, 7387183, 0.99),
-    (1079, 'Qui Nem Jiló', 85, 1, 10, 'Humberto Teixeira/Luiz Gonzaga', 204695, 6937472, 0.99),
-    (1080, 'Assum Preto', 85, 1, 10, 'Humberto Teixeira/Luiz Gonzaga', 199653, 6625000, 0.99),
-    (1081, 'Pau-De-Arara', 85, 1, 10, 'Guio De Morais E Seus "Parentes"/Luiz Gonzaga', 191660, 6340649, 0.99),
-    (1082, 'A Volta Da Asa Branca', 85, 1, 10, 'Luiz Gonzaga/Zé Dantas', 271020, 9098093, 0.99),
-    (1083, 'O Amor Daqui De Casa', 85, 1, 10, 'Gilberto Gil', 148636, 4888292, 0.99),
-    (1084, 'As Pegadas Do Amor', 85, 1, 10, 'Gilberto Gil', 209136, 6899062, 0.99),
-    (1085, 'Lamento Sertanejo', 85, 1, 10, 'Dominguinhos/Gilberto Gil', 260963, 8518290, 0.99),
-    (1086, 'Casinha Feliz', 85, 1, 10, 'Gilberto Gil', 32287, 1039615, 0.99),
-    (1087, 'Introdução (Live)', 86, 1, 7, NULL, 154096, 5227579, 0.99),
-    (1088, 'Palco (Live)', 86, 1, 7, NULL, 238315, 8026622, 0.99),
-    (1089, 'Is This Love (Live)', 86, 1, 7, NULL, 295262, 9819759, 0.99),
-    (1090, 'Stir It Up (Live)', 86, 1, 7, NULL, 282409, 9594738, 0.99),
-    (1091, 'Refavela (Live)', 86, 1, 7, NULL, 236695, 7985305, 0.99),
-    (1092, 'Vendedor De Caranguejo (Live)', 86, 1, 7, NULL, 248842, 8358128, 0.99),
-    (1093, 'Quanta (Live)', 86, 1, 7, NULL, 357485, 11774865, 0.99),
-    (1094, 'Estrela (Live)', 86, 1, 7, NULL, 285309, 9436411, 0.99),
-    (1095, 'Pela Internet (Live)', 86, 1, 7, NULL, 263471, 8804401, 0.99),
-    (1096, 'Cérebro Eletrônico (Live)', 86, 1, 7, NULL, 231627, 7805352, 0.99),
-    (1097, 'Opachorô (Live)', 86, 1, 7, NULL, 259526, 8596384, 0.99),
-    (1098, 'Copacabana (Live)', 86, 1, 7, NULL, 289671, 9673672, 0.99),
-    (1099, 'A Novidade (Live)', 86, 1, 7, NULL, 316969, 10508000, 0.99),
-    (1100, 'Ghandi (Live)', 86, 1, 7, NULL, 222458, 7481950, 0.99),
-    (1101, 'De Ouro E Marfim (Live)', 86, 1, 7, NULL, 234971, 7838453, 0.99),
-    (1102, 'Doce De Carnaval (Candy All)', 87, 1, 2, NULL, 356101, 11998470, 0.99),
-    (1103, 'Lamento De Carnaval', 87, 1, 2, NULL, 294530, 9819276, 0.99),
-    (1104, 'Pretinha', 87, 1, 2, NULL, 265273, 8914579, 0.99),
-    (1105, 'A Novidade', 73, 1, 7, 'Gilberto Gil', 324780, 10765600, 0.99),
-    (1106, 'Tenho Sede', 73, 1, 7, 'Gilberto Gil', 261616, 8708114, 0.99),
-    (1107, 'Refazenda', 73, 1, 7, 'Gilberto Gil', 218305, 7237784, 0.99),
-    (1108, 'Realce', 73, 1, 7, 'Gilberto Gil', 264489, 8847612, 0.99),
-    (1109, 'Esotérico', 73, 1, 7, 'Gilberto Gil', 317779, 10530533, 0.99),
-    (1110, 'Drão', 73, 1, 7, 'Gilberto Gil', 301453, 9931950, 0.99),
-    (1111, 'A Paz', 73, 1, 7, 'Gilberto Gil', 293093, 9593064, 0.99),
-    (1112, 'Beira Mar', 73, 1, 7, 'Gilberto Gil', 295444, 9597994, 0.99),
-    (1113, 'Sampa', 73, 1, 7, 'Gilberto Gil', 225697, 7469905, 0.99),
-    (1114, 'Parabolicamará', 73, 1, 7, 'Gilberto Gil', 284943, 9543435, 0.99),
-    (1115, 'Tempo Rei', 73, 1, 7, 'Gilberto Gil', 302733, 10019269, 0.99),
-    (1116, 'Expresso 2222', 73, 1, 7, 'Gilberto Gil', 284760, 9690577, 0.99),
-    (1117, 'Aquele Abraço', 73, 1, 7, 'Gilberto Gil', 263993, 8805003, 0.99),
-    (1118, 'Palco', 73, 1, 7, 'Gilberto Gil', 270550, 9049901, 0.99),
-    (1119, 'Toda Menina Baiana', 73, 1, 7, 'Gilberto Gil', 278177, 9351000, 0.99),
-    (1120, 'Sítio Do Pica-Pau Amarelo', 73, 1, 7, 'Gilberto Gil', 218070, 7217955, 0.99),
-    (1121, 'Straight Out Of Line', 88, 1, 3, 'Sully Erna', 259213, 8511877, 0.99),
-    (1122, 'Faceless', 88, 1, 3, 'Sully Erna', 216006, 6992417, 0.99),
-    (1123, 'Changes', 88, 1, 3, 'Sully Erna; Tony Rombola', 260022, 8455835, 0.99),
-    (1124, 'Make Me Believe', 88, 1, 3, 'Sully Erna', 248607, 8075050, 0.99),
-    (1125, 'I Stand Alone', 88, 1, 3, 'Sully Erna', 246125, 8017041, 0.99),
-    (1126, 'Re-Align', 88, 1, 3, 'Sully Erna', 260884, 8513891, 0.99),
-    (1127, 'I Fucking Hate You', 88, 1, 3, 'Sully Erna', 247170, 8059642, 0.99),
-    (1128, 'Releasing The Demons', 88, 1, 3, 'Sully Erna', 252760, 8276372, 0.99),
-    (1129, 'Dead And Broken', 88, 1, 3, 'Sully Erna', 251454, 8206611, 0.99),
-    (1130, 'I Am', 88, 1, 3, 'Sully Erna', 239516, 7803270, 0.99),
-    (1131, 'The Awakening', 88, 1, 3, 'Sully Erna', 89547, 3035251, 0.99),
-    (1132, 'Serenity', 88, 1, 3, 'Sully Erna; Tony Rombola', 274834, 9172976, 0.99),
-    (1133, 'American Idiot', 89, 1, 4, 'Billie Joe Armstrong, Mike Dirnt, Tré Cool', 174419, 5705793, 0.99),
-    (1134, 'Jesus Of Suburbia / City Of The Damned / I Don'||chr(39)||'t Care / Dearly Beloved / Tales Of Another Broken Home', 89, 1, 4, 'Billie Joe Armstrong/Green Day', 548336, 17875209, 0.99),
-    (1135, 'Holiday', 89, 1, 4, 'Billie Joe Armstrong, Mike Dirnt, Tré Cool', 232724, 7599602, 0.99),
-    (1136, 'Boulevard Of Broken Dreams', 89, 1, 4, 'Mike Dint, Billie Joe, Tré Cool', 260858, 8485122, 0.99),
-    (1137, 'Are We The Waiting', 89, 1, 4, 'Green Day', 163004, 5328329, 0.99),
-    (1138, 'St. Jimmy', 89, 1, 4, 'Green Day', 175307, 5716589, 0.99),
-    (1139, 'Give Me Novacaine', 89, 1, 4, 'Green Day', 205871, 6752485, 0.99),
-    (1140, 'She'||chr(39)||'s A Rebel', 89, 1, 4, 'Green Day', 120528, 3901226, 0.99),
-    (1141, 'Extraordinary Girl', 89, 1, 4, 'Green Day', 214021, 6975177, 0.99),
-    (1142, 'Letterbomb', 89, 1, 4, 'Green Day', 246151, 7980902, 0.99),
-    (1143, 'Wake Me Up When September Ends', 89, 1, 4, 'Mike Dint, Billie Joe, Tré Cool', 285753, 9325597, 0.99),
-    (1144, 'Homecoming / The Death Of St. Jimmy / East 12th St. / Nobody Likes You / Rock And Roll Girlfriend / We'||chr(39)||'re Coming Home Again', 89, 1, 4, 'Mike Dirnt/Tré Cool', 558602, 18139840, 0.99),
-    (1145, 'Whatsername', 89, 1, 4, 'Green Day', 252316, 8244843, 0.99),
-    (1146, 'Welcome to the Jungle', 90, 2, 1, NULL, 273552, 4538451, 0.99),
-    (1147, 'It'||chr(39)||'s So Easy', 90, 2, 1, NULL, 202824, 3394019, 0.99),
-    (1148, 'Nightrain', 90, 2, 1, NULL, 268537, 4457283, 0.99),
-    (1149, 'Out Ta Get Me', 90, 2, 1, NULL, 263893, 4382147, 0.99),
-    (1150, 'Mr. Brownstone', 90, 2, 1, NULL, 228924, 3816323, 0.99),
-    (1151, 'Paradise City', 90, 2, 1, NULL, 406347, 6687123, 0.99),
-    (1152, 'My Michelle', 90, 2, 1, NULL, 219961, 3671299, 0.99),
-    (1153, 'Think About You', 90, 2, 1, NULL, 231640, 3860275, 0.99),
-    (1154, 'Sweet Child O'||chr(39)||' Mine', 90, 2, 1, NULL, 356424, 5879347, 0.99),
-    (1155, 'You'||chr(39)||'re Crazy', 90, 2, 1, NULL, 197135, 3301971, 0.99),
-    (1156, 'Anything Goes', 90, 2, 1, NULL, 206400, 3451891, 0.99),
-    (1157, 'Rocket Queen', 90, 2, 1, NULL, 375349, 6185539, 0.99),
-    (1158, 'Right Next Door to Hell', 91, 2, 1, NULL, 182321, 3175950, 0.99),
-    (1159, 'Dust N'||chr(39)||' Bones', 91, 2, 1, NULL, 298374, 5053742, 0.99),
-    (1160, 'Live and Let Die', 91, 2, 1, NULL, 184016, 3203390, 0.99),
-    (1161, 'Don'||chr(39)||'t Cry (Original)', 91, 2, 1, NULL, 284744, 4833259, 0.99),
-    (1162, 'Perfect Crime', 91, 2, 1, NULL, 143637, 2550030, 0.99),
-    (1163, 'You Ain'||chr(39)||'t the First', 91, 2, 1, NULL, 156268, 2754414, 0.99),
-    (1164, 'Bad Obsession', 91, 2, 1, NULL, 328282, 5537678, 0.99),
-    (1165, 'Back off Bitch', 91, 2, 1, NULL, 303436, 5135662, 0.99),
-    (1166, 'Double Talkin'||chr(39)||' Jive', 91, 2, 1, NULL, 203637, 3520862, 0.99),
-    (1167, 'November Rain', 91, 2, 1, NULL, 537540, 8923566, 0.99),
-    (1168, 'The Garden', 91, 2, 1, NULL, 322175, 5438862, 0.99),
-    (1169, 'Garden of Eden', 91, 2, 1, NULL, 161539, 2839694, 0.99),
-    (1170, 'Don'||chr(39)||'t Damn Me', 91, 2, 1, NULL, 318901, 5385886, 0.99),
-    (1171, 'Bad Apples', 91, 2, 1, NULL, 268351, 4567966, 0.99),
-    (1172, 'Dead Horse', 91, 2, 1, NULL, 257600, 4394014, 0.99),
-    (1173, 'Coma', 91, 2, 1, NULL, 616511, 10201342, 0.99),
-    (1174, 'Civil War', 92, 1, 3, 'Duff McKagan/Slash/W. Axl Rose', 461165, 15046579, 0.99),
-    (1175, '14 Years', 92, 1, 3, 'Izzy Stradlin'||chr(39)||'/W. Axl Rose', 261355, 8543664, 0.99),
-    (1176, 'Yesterdays', 92, 1, 3, 'Billy/Del James/W. Axl Rose/West Arkeen', 196205, 6398489, 0.99),
-    (1177, 'Knockin'||chr(39)||' On Heaven'||chr(39)||'s Door', 92, 1, 3, 'Bob Dylan', 336457, 10986716, 0.99),
-    (1178, 'Get In The Ring', 92, 1, 3, 'Duff McKagan/Slash/W. Axl Rose', 341054, 11134105, 0.99),
-    (1179, 'Shotgun Blues', 92, 1, 3, 'W. Axl Rose', 203206, 6623916, 0.99),
-    (1180, 'Breakdown', 92, 1, 3, 'W. Axl Rose', 424960, 13978284, 0.99),
-    (1181, 'Pretty Tied Up', 92, 1, 3, 'Izzy Stradlin'||chr(39)||'', 287477, 9408754, 0.99),
-    (1182, 'Locomotive', 92, 1, 3, 'Slash/W. Axl Rose', 522396, 17236842, 0.99),
-    (1183, 'So Fine', 92, 1, 3, 'Duff McKagan', 246491, 8039484, 0.99),
-    (1184, 'Estranged', 92, 1, 3, 'W. Axl Rose', 563800, 18343787, 0.99),
-    (1185, 'You Could Be Mine', 92, 1, 3, 'Izzy Stradlin'||chr(39)||'/W. Axl Rose', 343875, 11207355, 0.99),
-    (1186, 'Don'||chr(39)||'t Cry', 92, 1, 3, 'Izzy Stradlin'||chr(39)||'/W. Axl Rose', 284238, 9222458, 0.99),
-    (1187, 'My World', 92, 1, 3, 'W. Axl Rose', 84532, 2764045, 0.99),
-    (1188, 'Colibri', 93, 1, 2, 'Richard Bull', 361012, 12055329, 0.99),
-    (1189, 'Love Is The Colour', 93, 1, 2, 'R. Carless', 251585, 8419165, 0.99),
-    (1190, 'Magnetic Ocean', 93, 1, 2, 'Patrick Claher/Richard Bull', 321123, 10720741, 0.99),
-    (1191, 'Deep Waters', 93, 1, 2, 'Richard Bull', 396460, 13075359, 0.99),
-    (1192, 'L'||chr(39)||'Arc En Ciel De Miles', 93, 1, 2, 'Kevin Robinson/Richard Bull', 242390, 8053997, 0.99),
-    (1193, 'Gypsy', 93, 1, 2, 'Kevin Robinson', 330997, 11083374, 0.99),
-    (1194, 'Journey Into Sunlight', 93, 1, 2, 'Jean Paul Maunick', 249756, 8241177, 0.99),
-    (1195, 'Sunchild', 93, 1, 2, 'Graham Harvey', 259970, 8593143, 0.99),
-    (1196, 'Millenium', 93, 1, 2, 'Maxton Gig Beesley Jnr.', 379167, 12511939, 0.99),
-    (1197, 'Thinking '||chr(39)||'Bout Tomorrow', 93, 1, 2, 'Fayyaz Virgi/Richard Bull', 355395, 11865384, 0.99),
-    (1198, 'Jacob'||chr(39)||'s Ladder', 93, 1, 2, 'Julian Crampton', 367647, 12201595, 0.99),
-    (1199, 'She Wears Black', 93, 1, 2, 'G Harvey/R Hope-Taylor', 528666, 17617944, 0.99),
-    (1200, 'Dark Side Of The Cog', 93, 1, 2, 'Jean Paul Maunick', 377155, 12491122, 0.99),
-    (1201, 'Different World', 94, 2, 1, NULL, 258692, 4383764, 0.99),
-    (1202, 'These Colours Don'||chr(39)||'t Run', 94, 2, 1, NULL, 412152, 6883500, 0.99),
-    (1203, 'Brighter Than a Thousand Suns', 94, 2, 1, NULL, 526255, 8721490, 0.99),
-    (1204, 'The Pilgrim', 94, 2, 1, NULL, 307593, 5172144, 0.99),
-    (1205, 'The Longest Day', 94, 2, 1, NULL, 467810, 7785748, 0.99),
-    (1206, 'Out of the Shadows', 94, 2, 1, NULL, 336896, 5647303, 0.99),
-    (1207, 'The Reincarnation of Benjamin Breeg', 94, 2, 1, NULL, 442106, 7367736, 0.99),
-    (1208, 'For the Greater Good of God', 94, 2, 1, NULL, 564893, 9367328, 0.99),
-    (1209, 'Lord of Light', 94, 2, 1, NULL, 444614, 7393698, 0.99),
-    (1210, 'The Legacy', 94, 2, 1, NULL, 562966, 9314287, 0.99),
-    (1211, 'Hallowed Be Thy Name (Live) [Non Album Bonus Track]', 94, 2, 1, NULL, 431262, 7205816, 0.99),
-    (1212, 'The Number Of The Beast', 95, 1, 3, 'Steve Harris', 294635, 4718897, 0.99),
-    (1213, 'The Trooper', 95, 1, 3, 'Steve Harris', 235311, 3766272, 0.99),
-    (1214, 'Prowler', 95, 1, 3, 'Steve Harris', 255634, 4091904, 0.99),
-    (1215, 'Transylvania', 95, 1, 3, 'Steve Harris', 265874, 4255744, 0.99),
-    (1216, 'Remember Tomorrow', 95, 1, 3, 'Paul Di'||chr(39)||'Anno/Steve Harris', 352731, 5648438, 0.99),
-    (1217, 'Where Eagles Dare', 95, 1, 3, 'Steve Harris', 289358, 4630528, 0.99),
-    (1218, 'Sanctuary', 95, 1, 3, 'David Murray/Paul Di'||chr(39)||'Anno/Steve Harris', 293250, 4694016, 0.99),
-    (1219, 'Running Free', 95, 1, 3, 'Paul Di'||chr(39)||'Anno/Steve Harris', 228937, 3663872, 0.99),
-    (1220, 'Run To The Hilss', 95, 1, 3, 'Steve Harris', 237557, 3803136, 0.99),
-    (1221, '2 Minutes To Midnight', 95, 1, 3, 'Adrian Smith/Bruce Dickinson', 337423, 5400576, 0.99),
-    (1222, 'Iron Maiden', 95, 1, 3, 'Steve Harris', 324623, 5195776, 0.99),
-    (1223, 'Hallowed Be Thy Name', 95, 1, 3, 'Steve Harris', 471849, 7550976, 0.99),
-    (1224, 'Be Quick Or Be Dead', 96, 1, 3, 'Bruce Dickinson/Janick Gers', 196911, 3151872, 0.99),
-    (1225, 'From Here To Eternity', 96, 1, 3, 'Steve Harris', 259866, 4159488, 0.99),
-    (1226, 'Can I Play With Madness', 96, 1, 3, 'Adrian Smith/Bruce Dickinson/Steve Harris', 282488, 4521984, 0.99),
-    (1227, 'Wasting Love', 96, 1, 3, 'Bruce Dickinson/Janick Gers', 347846, 5566464, 0.99),
-    (1228, 'Tailgunner', 96, 1, 3, 'Bruce Dickinson/Steve Harris', 249469, 3993600, 0.99),
-    (1229, 'The Evil That Men Do', 96, 1, 3, 'Adrian Smith/Bruce Dickinson/Steve Harris', 325929, 5216256, 0.99),
-    (1230, 'Afraid To Shoot Strangers', 96, 1, 3, 'Steve Harris', 407980, 6529024, 0.99),
-    (1231, 'Bring Your Daughter... To The Slaughter', 96, 1, 3, 'Bruce Dickinson', 317727, 5085184, 0.99),
-    (1232, 'Heaven Can Wait', 96, 1, 3, 'Steve Harris', 448574, 7178240, 0.99),
-    (1233, 'The Clairvoyant', 96, 1, 3, 'Steve Harris', 269871, 4319232, 0.99),
-    (1234, 'Fear Of The Dark', 96, 1, 3, 'Steve Harris', 431333, 6906078, 0.99),
-    (1235, 'The Wicker Man', 97, 1, 1, 'Adrian Smith/Bruce Dickinson/Steve Harris', 275539, 11022464, 0.99),
-    (1236, 'Ghost Of The Navigator', 97, 1, 1, 'Bruce Dickinson/Janick Gers/Steve Harris', 410070, 16404608, 0.99),
-    (1237, 'Brave New World', 97, 1, 1, 'Bruce Dickinson/David Murray/Steve Harris', 378984, 15161472, 0.99),
-    (1238, 'Blood Brothers', 97, 1, 1, 'Steve Harris', 434442, 17379456, 0.99),
-    (1239, 'The Mercenary', 97, 1, 1, 'Janick Gers/Steve Harris', 282488, 11300992, 0.99),
-    (1240, 'Dream Of Mirrors', 97, 1, 1, 'Janick Gers/Steve Harris', 561162, 22448256, 0.99),
-    (1241, 'The Fallen Angel', 97, 1, 1, 'Adrian Smith/Steve Harris', 240718, 9629824, 0.99),
-    (1242, 'The Nomad', 97, 1, 1, 'David Murray/Steve Harris', 546115, 21846144, 0.99),
-    (1243, 'Out Of The Silent Planet', 97, 1, 1, 'Bruce Dickinson/Janick Gers/Steve Harris', 385541, 15423616, 0.99),
-    (1244, 'The Thin Line Between Love '||chr(38)||' Hate', 97, 1, 1, 'David Murray/Steve Harris', 506801, 20273280, 0.99),
-    (1245, 'Wildest Dreams', 98, 1, 13, 'Adrian Smith/Steve Harris', 232777, 9312384, 0.99),
-    (1246, 'Rainmaker', 98, 1, 13, 'Bruce Dickinson/David Murray/Steve Harris', 228623, 9146496, 0.99),
-    (1247, 'No More Lies', 98, 1, 13, 'Steve Harris', 441782, 17672320, 0.99),
-    (1248, 'Montsegur', 98, 1, 13, 'Bruce Dickinson/Janick Gers/Steve Harris', 350484, 14020736, 0.99),
-    (1249, 'Dance Of Death', 98, 1, 13, 'Janick Gers/Steve Harris', 516649, 20670727, 0.99),
-    (1250, 'Gates Of Tomorrow', 98, 1, 13, 'Bruce Dickinson/Janick Gers/Steve Harris', 312032, 12482688, 0.99),
-    (1251, 'New Frontier', 98, 1, 13, 'Adrian Smith/Bruce Dickinson/Nicko McBrain', 304509, 12181632, 0.99),
-    (1252, 'Paschendale', 98, 1, 13, 'Adrian Smith/Steve Harris', 508107, 20326528, 0.99),
-    (1253, 'Face In The Sand', 98, 1, 13, 'Adrian Smith/Bruce Dickinson/Steve Harris', 391105, 15648948, 0.99),
-    (1254, 'Age Of Innocence', 98, 1, 13, 'David Murray/Steve Harris', 370468, 14823478, 0.99),
-    (1255, 'Journeyman', 98, 1, 13, 'Bruce Dickinson/David Murray/Steve Harris', 427023, 17082496, 0.99),
-    (1256, 'Be Quick Or Be Dead', 99, 1, 1, 'Bruce Dickinson/Janick Gers', 204512, 8181888, 0.99),
-    (1257, 'From Here To Eternity', 99, 1, 1, 'Steve Harris', 218357, 8739038, 0.99),
-    (1258, 'Afraid To Shoot Strangers', 99, 1, 1, 'Steve Harris', 416496, 16664589, 0.99),
-    (1259, 'Fear Is The Key', 99, 1, 1, 'Bruce Dickinson/Janick Gers', 335307, 13414528, 0.99),
-    (1260, 'Childhood'||chr(39)||'s End', 99, 1, 1, 'Steve Harris', 280607, 11225216, 0.99),
-    (1261, 'Wasting Love', 99, 1, 1, 'Bruce Dickinson/Janick Gers', 350981, 14041216, 0.99),
-    (1262, 'The Fugitive', 99, 1, 1, 'Steve Harris', 294112, 11765888, 0.99),
-    (1263, 'Chains Of Misery', 99, 1, 1, 'Bruce Dickinson/David Murray', 217443, 8700032, 0.99),
-    (1264, 'The Apparition', 99, 1, 1, 'Janick Gers/Steve Harris', 234605, 9386112, 0.99),
-    (1265, 'Judas Be My Guide', 99, 1, 1, 'Bruce Dickinson/David Murray', 188786, 7553152, 0.99),
-    (1266, 'Weekend Warrior', 99, 1, 1, 'Janick Gers/Steve Harris', 339748, 13594678, 0.99),
-    (1267, 'Fear Of The Dark', 99, 1, 1, 'Steve Harris', 436976, 17483789, 0.99),
-    (1268, '01 - Prowler', 100, 1, 6, 'Steve Harris', 236173, 5668992, 0.99),
-    (1269, '02 - Sanctuary', 100, 1, 6, 'David Murray/Paul Di'||chr(39)||'Anno/Steve Harris', 196284, 4712576, 0.99),
-    (1270, '03 - Remember Tomorrow', 100, 1, 6, 'Harris/Paul Di´Anno', 328620, 7889024, 0.99),
-    (1271, '04 - Running Free', 100, 1, 6, 'Harris/Paul Di´Anno', 197276, 4739122, 0.99),
-    (1272, '05 - Phantom of the Opera', 100, 1, 6, 'Steve Harris', 428016, 10276872, 0.99),
-    (1273, '06 - Transylvania', 100, 1, 6, 'Steve Harris', 259343, 6226048, 0.99),
-    (1274, '07 - Strange World', 100, 1, 6, 'Steve Harris', 332460, 7981184, 0.99),
-    (1275, '08 - Charlotte the Harlot', 100, 1, 6, 'Murray  Dave', 252708, 6066304, 0.99),
-    (1276, '09 - Iron Maiden', 100, 1, 6, 'Steve Harris', 216058, 5189891, 0.99),
-    (1277, 'The Ides Of March', 101, 1, 13, 'Steve Harris', 105926, 2543744, 0.99),
-    (1278, 'Wrathchild', 101, 1, 13, 'Steve Harris', 174471, 4188288, 0.99),
-    (1279, 'Murders In The Rue Morgue', 101, 1, 13, 'Steve Harris', 258377, 6205786, 0.99),
-    (1280, 'Another Life', 101, 1, 13, 'Steve Harris', 203049, 4874368, 0.99),
-    (1281, 'Genghis Khan', 101, 1, 13, 'Steve Harris', 187141, 4493440, 0.99),
-    (1282, 'Innocent Exile', 101, 1, 13, 'Di´Anno/Harris', 232515, 5584861, 0.99),
-    (1283, 'Killers', 101, 1, 13, 'Steve Harris', 300956, 7227440, 0.99),
-    (1284, 'Prodigal Son', 101, 1, 13, 'Steve Harris', 372349, 8937600, 0.99),
-    (1285, 'Purgatory', 101, 1, 13, 'Steve Harris', 200150, 4804736, 0.99),
-    (1286, 'Drifter', 101, 1, 13, 'Steve Harris', 288757, 6934660, 0.99),
-    (1287, 'Intro- Churchill S Speech', 102, 1, 13, NULL, 48013, 1154488, 0.99),
-    (1288, 'Aces High', 102, 1, 13, NULL, 276375, 6635187, 0.99),
-    (1289, '2 Minutes To Midnight', 102, 1, 3, 'Smith/Dickinson', 366550, 8799380, 0.99),
-    (1290, 'The Trooper', 102, 1, 3, 'Harris', 268878, 6455255, 0.99),
-    (1291, 'Revelations', 102, 1, 3, 'Dickinson', 371826, 8926021, 0.99),
-    (1292, 'Flight Of Icarus', 102, 1, 3, 'Smith/Dickinson', 229982, 5521744, 0.99),
-    (1293, 'Rime Of The Ancient Mariner', 102, 1, 3, NULL, 789472, 18949518, 0.99),
-    (1294, 'Powerslave', 102, 1, 3, NULL, 454974, 10921567, 0.99),
-    (1295, 'The Number Of The Beast', 102, 1, 3, 'Harris', 275121, 6605094, 0.99),
-    (1296, 'Hallowed Be Thy Name', 102, 1, 3, 'Harris', 451422, 10836304, 0.99),
-    (1297, 'Iron Maiden', 102, 1, 3, 'Harris', 261955, 6289117, 0.99),
-    (1298, 'Run To The Hills', 102, 1, 3, 'Harris', 231627, 5561241, 0.99),
-    (1299, 'Running Free', 102, 1, 3, 'Harris/Di Anno', 204617, 4912986, 0.99),
-    (1300, 'Wrathchild', 102, 1, 13, 'Steve Harris', 183666, 4410181, 0.99),
-    (1301, 'Acacia Avenue', 102, 1, 13, NULL, 379872, 9119118, 0.99),
-    (1302, 'Children Of The Damned', 102, 1, 13, 'Steve Harris', 278177, 6678446, 0.99),
-    (1303, 'Die With Your Boots On', 102, 1, 13, 'Adrian Smith/Bruce Dickinson/Steve Harris', 314174, 7542367, 0.99),
-    (1304, 'Phantom Of The Opera', 102, 1, 13, 'Steve Harris', 441155, 10589917, 0.99),
-    (1305, 'Be Quick Or Be Dead', 103, 1, 1, NULL, 233142, 5599853, 0.99),
-    (1306, 'The Number Of The Beast', 103, 1, 1, NULL, 294008, 7060625, 0.99),
-    (1307, 'Wrathchild', 103, 1, 1, NULL, 174106, 4182963, 0.99),
-    (1308, 'From Here To Eternity', 103, 1, 1, NULL, 284447, 6831163, 0.99),
-    (1309, 'Can I Play With Madness', 103, 1, 1, NULL, 213106, 5118995, 0.99),
-    (1310, 'Wasting Love', 103, 1, 1, NULL, 336953, 8091301, 0.99),
-    (1311, 'Tailgunner', 103, 1, 1, NULL, 247640, 5947795, 0.99),
-    (1312, 'The Evil That Men Do', 103, 1, 1, NULL, 478145, 11479913, 0.99),
-    (1313, 'Afraid To Shoot Strangers', 103, 1, 1, NULL, 412525, 9905048, 0.99),
-    (1314, 'Fear Of The Dark', 103, 1, 1, NULL, 431542, 10361452, 0.99),
-    (1315, 'Bring Your Daughter... To The Slaughter...', 104, 1, 1, NULL, 376711, 9045532, 0.99),
-    (1316, 'The Clairvoyant', 104, 1, 1, NULL, 262426, 6302648, 0.99),
-    (1317, 'Heaven Can Wait', 104, 1, 1, NULL, 440555, 10577743, 0.99),
-    (1318, 'Run To The Hills', 104, 1, 1, NULL, 235859, 5665052, 0.99),
-    (1319, '2 Minutes To Midnight', 104, 1, 1, 'Adrian Smith/Bruce Dickinson', 338233, 8122030, 0.99),
-    (1320, 'Iron Maiden', 104, 1, 1, NULL, 494602, 11874875, 0.99),
-    (1321, 'Hallowed Be Thy Name', 104, 1, 1, NULL, 447791, 10751410, 0.99),
-    (1322, 'The Trooper', 104, 1, 1, NULL, 232672, 5588560, 0.99),
-    (1323, 'Sanctuary', 104, 1, 1, NULL, 318511, 7648679, 0.99),
-    (1324, 'Running Free', 104, 1, 1, NULL, 474017, 11380851, 0.99),
-    (1325, 'Tailgunner', 105, 1, 3, 'Bruce Dickinson/Steve Harris', 255582, 4089856, 0.99),
-    (1326, 'Holy Smoke', 105, 1, 3, 'Bruce Dickinson/Steve Harris', 229459, 3672064, 0.99),
-    (1327, 'No Prayer For The Dying', 105, 1, 3, 'Steve Harris', 263941, 4225024, 0.99),
-    (1328, 'Public Enema Number One', 105, 1, 3, 'Bruce Dickinson/David Murray', 254197, 4071587, 0.99),
-    (1329, 'Fates Warning', 105, 1, 3, 'David Murray/Steve Harris', 250853, 4018088, 0.99),
-    (1330, 'The Assassin', 105, 1, 3, 'Steve Harris', 258768, 4141056, 0.99),
-    (1331, 'Run Silent Run Deep', 105, 1, 3, 'Bruce Dickinson/Steve Harris', 275408, 4407296, 0.99),
-    (1332, 'Hooks In You', 105, 1, 3, 'Adrian Smith/Bruce Dickinson', 247510, 3960832, 0.99),
-    (1333, 'Bring Your Daughter... ...To The Slaughter', 105, 1, 3, 'Bruce Dickinson', 284238, 4548608, 0.99),
-    (1334, 'Mother Russia', 105, 1, 3, 'Steve Harris', 332617, 5322752, 0.99),
-    (1335, 'Where Eagles Dare', 106, 1, 3, 'Steve Harris', 369554, 5914624, 0.99),
-    (1336, 'Revelations', 106, 1, 3, 'Bruce Dickinson', 408607, 6539264, 0.99),
-    (1337, 'Flight Of The Icarus', 106, 1, 3, 'Adrian Smith/Bruce Dickinson', 230269, 3686400, 0.99),
-    (1338, 'Die With Your Boots On', 106, 1, 3, 'Adrian Smith/Bruce Dickinson/Steve Harris', 325694, 5212160, 0.99),
-    (1339, 'The Trooper', 106, 1, 3, 'Steve Harris', 251454, 4024320, 0.99),
-    (1340, 'Still Life', 106, 1, 3, 'David Murray/Steve Harris', 294347, 4710400, 0.99),
-    (1341, 'Quest For Fire', 106, 1, 3, 'Steve Harris', 221309, 3543040, 0.99),
-    (1342, 'Sun And Steel', 106, 1, 3, 'Adrian Smith/Bruce Dickinson', 206367, 3306324, 0.99),
-    (1343, 'To Tame A Land', 106, 1, 3, 'Steve Harris', 445283, 7129264, 0.99),
-    (1344, 'Aces High', 107, 1, 3, 'Harris', 269531, 6472088, 0.99),
-    (1345, '2 Minutes To Midnight', 107, 1, 3, 'Smith/Dickinson', 359810, 8638809, 0.99),
-    (1346, 'Losfer Words', 107, 1, 3, 'Steve Harris', 252891, 6074756, 0.99),
-    (1347, 'Flash of The Blade', 107, 1, 3, 'Dickinson', 242729, 5828861, 0.99),
-    (1348, 'Duelists', 107, 1, 3, 'Steve Harris', 366471, 8800686, 0.99),
-    (1349, 'Back in the Village', 107, 1, 3, 'Dickinson/Smith', 320548, 7696518, 0.99),
-    (1350, 'Powerslave', 107, 1, 3, 'Dickinson', 407823, 9791106, 0.99),
-    (1351, 'Rime of the Ancient Mariner', 107, 1, 3, 'Harris', 816509, 19599577, 0.99),
-    (1352, 'Intro', 108, 1, 3, NULL, 115931, 4638848, 0.99),
-    (1353, 'The Wicker Man', 108, 1, 3, 'Adrian Smith/Bruce Dickinson/Steve Harris', 281782, 11272320, 0.99),
-    (1354, 'Ghost Of The Navigator', 108, 1, 3, 'Bruce Dickinson/Janick Gers/Steve Harris', 408607, 16345216, 0.99),
-    (1355, 'Brave New World', 108, 1, 3, 'Bruce Dickinson/David Murray/Steve Harris', 366785, 14676148, 0.99),
-    (1356, 'Wrathchild', 108, 1, 3, 'Steve Harris', 185808, 7434368, 0.99),
-    (1357, '2 Minutes To Midnight', 108, 1, 3, 'Adrian Smith/Bruce Dickinson', 386821, 15474816, 0.99),
-    (1358, 'Blood Brothers', 108, 1, 3, 'Steve Harris', 435513, 17422464, 0.99),
-    (1359, 'Sign Of The Cross', 108, 1, 3, 'Steve Harris', 649116, 25966720, 0.99),
-    (1360, 'The Mercenary', 108, 1, 3, 'Janick Gers/Steve Harris', 282697, 11309184, 0.99),
-    (1361, 'The Trooper', 108, 1, 3, 'Steve Harris', 273528, 10942592, 0.99),
-    (1362, 'Dream Of Mirrors', 109, 1, 1, 'Janick Gers/Steve Harris', 578324, 23134336, 0.99),
-    (1363, 'The Clansman', 109, 1, 1, 'Steve Harris', 559203, 22370432, 0.99),
-    (1364, 'The Evil That Men Do', 109, 1, 3, 'Adrian Smith/Bruce Dickinson/Steve Harris', 280737, 11231360, 0.99),
-    (1365, 'Fear Of The Dark', 109, 1, 1, 'Steve Harris', 460695, 18430080, 0.99),
-    (1366, 'Iron Maiden', 109, 1, 1, 'Steve Harris', 351869, 14076032, 0.99),
-    (1367, 'The Number Of The Beast', 109, 1, 1, 'Steve Harris', 300434, 12022107, 0.99),
-    (1368, 'Hallowed Be Thy Name', 109, 1, 1, 'Steve Harris', 443977, 17760384, 0.99),
-    (1369, 'Sanctuary', 109, 1, 1, 'David Murray/Paul Di'||chr(39)||'Anno/Steve Harris', 317335, 12695680, 0.99),
-    (1370, 'Run To The Hills', 109, 1, 1, 'Steve Harris', 292179, 11688064, 0.99),
-    (1371, 'Moonchild', 110, 1, 3, 'Adrian Smith; Bruce Dickinson', 340767, 8179151, 0.99),
-    (1372, 'Infinite Dreams', 110, 1, 3, 'Steve Harris', 369005, 8858669, 0.99),
-    (1373, 'Can I Play With Madness', 110, 1, 3, 'Adrian Smith; Bruce Dickinson; Steve Harris', 211043, 5067867, 0.99),
-    (1374, 'The Evil That Men Do', 110, 1, 3, 'Adrian Smith; Bruce Dickinson; Steve Harris', 273998, 6578930, 0.99),
-    (1375, 'Seventh Son of a Seventh Son', 110, 1, 3, 'Steve Harris', 593580, 14249000, 0.99),
-    (1376, 'The Prophecy', 110, 1, 3, 'Dave Murray; Steve Harris', 305475, 7334450, 0.99),
-    (1377, 'The Clairvoyant', 110, 1, 3, 'Adrian Smith; Bruce Dickinson; Steve Harris', 267023, 6411510, 0.99),
-    (1378, 'Only the Good Die Young', 110, 1, 3, 'Bruce Dickinson; Harris', 280894, 6744431, 0.99),
-    (1379, 'Caught Somewhere in Time', 111, 1, 3, 'Steve Harris', 445779, 10701149, 0.99),
-    (1380, 'Wasted Years', 111, 1, 3, 'Adrian Smith', 307565, 7384358, 0.99),
-    (1381, 'Sea of Madness', 111, 1, 3, 'Adrian Smith', 341995, 8210695, 0.99),
-    (1382, 'Heaven Can Wait', 111, 1, 3, 'Steve Harris', 441417, 10596431, 0.99),
-    (1383, 'Stranger in a Strange Land', 111, 1, 3, 'Adrian Smith', 344502, 8270899, 0.99),
-    (1384, 'Alexander the Great', 111, 1, 3, 'Steve Harris', 515631, 12377742, 0.99),
-    (1385, 'De Ja Vu', 111, 1, 3, 'David Murray/Steve Harris', 296176, 7113035, 0.99),
-    (1386, 'The Loneliness of the Long Dis', 111, 1, 3, 'Steve Harris', 391314, 9393598, 0.99),
-    (1387, '22 Acacia Avenue', 112, 1, 3, 'Adrian Smith/Steve Harris', 395572, 5542516, 0.99),
-    (1388, 'Children of the Damned', 112, 1, 3, 'Steve Harris', 274364, 3845631, 0.99),
-    (1389, 'Gangland', 112, 1, 3, 'Adrian Smith/Clive Burr/Steve Harris', 228440, 3202866, 0.99),
-    (1390, 'Hallowed Be Thy Name', 112, 1, 3, 'Steve Harris', 428669, 6006107, 0.99),
-    (1391, 'Invaders', 112, 1, 3, 'Steve Harris', 203180, 2849181, 0.99),
-    (1392, 'Run to the Hills', 112, 1, 3, 'Steve Harris', 228884, 3209124, 0.99),
-    (1393, 'The Number Of The Beast', 112, 1, 1, 'Steve Harris', 293407, 11737216, 0.99),
-    (1394, 'The Prisoner', 112, 1, 3, 'Adrian Smith/Steve Harris', 361299, 5062906, 0.99),
-    (1395, 'Sign Of The Cross', 113, 1, 1, 'Steve Harris', 678008, 27121792, 0.99),
-    (1396, 'Lord Of The Flies', 113, 1, 1, 'Janick Gers/Steve Harris', 303699, 12148864, 0.99),
-    (1397, 'Man On The Edge', 113, 1, 1, 'Blaze Bayley/Janick Gers', 253413, 10137728, 0.99),
-    (1398, 'Fortunes Of War', 113, 1, 1, 'Steve Harris', 443977, 17760384, 0.99),
-    (1399, 'Look For The Truth', 113, 1, 1, 'Blaze Bayley/Janick Gers/Steve Harris', 310230, 12411008, 0.99),
-    (1400, 'The Aftermath', 113, 1, 1, 'Blaze Bayley/Janick Gers/Steve Harris', 380786, 15233152, 0.99),
-    (1401, 'Judgement Of Heaven', 113, 1, 1, 'Steve Harris', 312476, 12501120, 0.99),
-    (1402, 'Blood On The World'||chr(39)||'s Hands', 113, 1, 1, 'Steve Harris', 357799, 14313600, 0.99),
-    (1403, 'The Edge Of Darkness', 113, 1, 1, 'Blaze Bayley/Janick Gers/Steve Harris', 399333, 15974528, 0.99),
-    (1404, '2 A.M.', 113, 1, 1, 'Blaze Bayley/Janick Gers/Steve Harris', 337658, 13511087, 0.99),
-    (1405, 'The Unbeliever', 113, 1, 1, 'Janick Gers/Steve Harris', 490422, 19617920, 0.99),
-    (1406, 'Futureal', 114, 1, 1, 'Blaze Bayley/Steve Harris', 175777, 7032960, 0.99),
-    (1407, 'The Angel And The Gambler', 114, 1, 1, 'Steve Harris', 592744, 23711872, 0.99),
-    (1408, 'Lightning Strikes Twice', 114, 1, 1, 'David Murray/Steve Harris', 290377, 11616384, 0.99),
-    (1409, 'The Clansman', 114, 1, 1, 'Steve Harris', 539689, 21592327, 0.99),
-    (1410, 'When Two Worlds Collide', 114, 1, 1, 'Blaze Bayley/David Murray/Steve Harris', 377312, 15093888, 0.99),
-    (1411, 'The Educated Fool', 114, 1, 1, 'Steve Harris', 404767, 16191616, 0.99),
-    (1412, 'Don'||chr(39)||'t Look To The Eyes Of A Stranger', 114, 1, 1, 'Steve Harris', 483657, 19347584, 0.99),
-    (1413, 'Como Estais Amigos', 114, 1, 1, 'Blaze Bayley/Janick Gers', 330292, 13213824, 0.99),
-    (1414, 'Please Please Please', 115, 1, 14, 'James Brown/Johnny Terry', 165067, 5394585, 0.99),
-    (1415, 'Think', 115, 1, 14, 'Lowman Pauling', 166739, 5513208, 0.99),
-    (1416, 'Night Train', 115, 1, 14, 'Jimmy Forrest/Lewis C. Simpkins/Oscar Washington', 212401, 7027377, 0.99),
-    (1417, 'Out Of Sight', 115, 1, 14, 'Ted Wright', 143725, 4711323, 0.99),
-    (1418, 'Papa'||chr(39)||'s Got A Brand New Bag Pt.1', 115, 1, 14, 'James Brown', 127399, 4174420, 0.99),
-    (1419, 'I Got You (I Feel Good)', 115, 1, 14, 'James Brown', 167392, 5468472, 0.99),
-    (1420, 'It'||chr(39)||'s A Man'||chr(39)||'s Man'||chr(39)||'s Man'||chr(39)||'s World', 115, 1, 14, 'Betty Newsome/James Brown', 168228, 5541611, 0.99),
-    (1421, 'Cold Sweat', 115, 1, 14, 'Alfred Ellis/James Brown', 172408, 5643213, 0.99),
-    (1422, 'Say It Loud, I'||chr(39)||'m Black And I'||chr(39)||'m Proud Pt.1', 115, 1, 14, 'Alfred Ellis/James Brown', 167392, 5478117, 0.99),
-    (1423, 'Get Up (I Feel Like Being A) Sex Machine', 115, 1, 14, 'Bobby Byrd/James Brown/Ron Lenhoff', 316551, 10498031, 0.99),
-    (1424, 'Hey America', 115, 1, 14, 'Addie William Jones/Nat Jones', 218226, 7187857, 0.99),
-    (1425, 'Make It Funky Pt.1', 115, 1, 14, 'Charles Bobbitt/James Brown', 196231, 6507782, 0.99),
-    (1426, 'I'||chr(39)||'m A Greedy Man Pt.1', 115, 1, 14, 'Charles Bobbitt/James Brown', 217730, 7251211, 0.99),
-    (1427, 'Get On The Good Foot', 115, 1, 14, 'Fred Wesley/James Brown/Joseph Mims', 215902, 7182736, 0.99),
-    (1428, 'Get Up Offa That Thing', 115, 1, 14, 'Deanna Brown/Deidra Jenkins/Yamma Brown', 250723, 8355989, 0.99),
-    (1429, 'It'||chr(39)||'s Too Funky In Here', 115, 1, 14, 'Brad Shapiro/George Jackson/Robert Miller/Walter Shaw', 239072, 7973979, 0.99),
-    (1430, 'Living In America', 115, 1, 14, 'Charlie Midnight/Dan Hartman', 282880, 9432346, 0.99),
-    (1431, 'I'||chr(39)||'m Real', 115, 1, 14, 'Full Force/James Brown', 334236, 11183457, 0.99),
-    (1432, 'Hot Pants Pt.1', 115, 1, 14, 'Fred Wesley/James Brown', 188212, 6295110, 0.99),
-    (1433, 'Soul Power (Live)', 115, 1, 14, 'James Brown', 260728, 8593206, 0.99),
-    (1434, 'When You Gonna Learn (Digeridoo)', 116, 1, 1, 'Jay Kay/Kay, Jay', 230635, 7655482, 0.99),
-    (1435, 'Too Young To Die', 116, 1, 1, 'Smith, Toby', 365818, 12391660, 0.99),
-    (1436, 'Hooked Up', 116, 1, 1, 'Smith, Toby', 275879, 9301687, 0.99),
-    (1437, 'If I Like It, I Do It', 116, 1, 1, 'Gelder, Nick van', 293093, 9848207, 0.99),
-    (1438, 'Music Of The Wind', 116, 1, 1, 'Smith, Toby', 383033, 12870239, 0.99),
-    (1439, 'Emergency On Planet Earth', 116, 1, 1, 'Smith, Toby', 245263, 8117218, 0.99),
-    (1440, 'Whatever It Is, I Just Can'||chr(39)||'t Stop', 116, 1, 1, 'Jay Kay/Kay, Jay', 247222, 8249453, 0.99),
-    (1441, 'Blow Your Mind', 116, 1, 1, 'Smith, Toby', 512339, 17089176, 0.99),
-    (1442, 'Revolution 1993', 116, 1, 1, 'Smith, Toby', 616829, 20816872, 0.99),
-    (1443, 'Didgin'||chr(39)||' Out', 116, 1, 1, 'Buchanan, Wallis', 157100, 5263555, 0.99),
-    (1444, 'Canned Heat', 117, 1, 14, 'Jay Kay', 331964, 11042037, 0.99),
-    (1445, 'Planet Home', 117, 1, 14, 'Jay Kay/Toby Smith', 284447, 9566237, 0.99),
-    (1446, 'Black Capricorn Day', 117, 1, 14, 'Jay Kay', 341629, 11477231, 0.99),
-    (1447, 'Soul Education', 117, 1, 14, 'Jay Kay/Toby Smith', 255477, 8575435, 0.99),
-    (1448, 'Failling', 117, 1, 14, 'Jay Kay/Toby Smith', 225227, 7503999, 0.99),
-    (1449, 'Destitute Illusions', 117, 1, 14, 'Derrick McKenzie/Jay Kay/Toby Smith', 340218, 11452651, 0.99),
-    (1450, 'Supersonic', 117, 1, 14, 'Jay Kay', 315872, 10699265, 0.99),
-    (1451, 'Butterfly', 117, 1, 14, 'Jay Kay/Toby Smith', 268852, 8947356, 0.99),
-    (1452, 'Were Do We Go From Here', 117, 1, 14, 'Jay Kay', 313626, 10504158, 0.99),
-    (1453, 'King For A Day', 117, 1, 14, 'Jay Kay/Toby Smith', 221544, 7335693, 0.99),
-    (1454, 'Deeper Underground', 117, 1, 14, 'Toby Smith', 281808, 9351277, 0.99),
-    (1455, 'Just Another Story', 118, 1, 15, 'Toby Smith', 529684, 17582818, 0.99),
-    (1456, 'Stillness In Time', 118, 1, 15, 'Toby Smith', 257097, 8644290, 0.99),
-    (1457, 'Half The Man', 118, 1, 15, 'Toby Smith', 289854, 9577679, 0.99),
-    (1458, 'Light Years', 118, 1, 15, 'Toby Smith', 354560, 11796244, 0.99),
-    (1459, 'Manifest Destiny', 118, 1, 15, 'Toby Smith', 382197, 12676962, 0.99),
-    (1460, 'The Kids', 118, 1, 15, 'Toby Smith', 309995, 10334529, 0.99),
-    (1461, 'Mr. Moon', 118, 1, 15, 'Stuard Zender/Toby Smith', 329534, 11043559, 0.99),
-    (1462, 'Scam', 118, 1, 15, 'Stuart Zender', 422321, 14019705, 0.99),
-    (1463, 'Journey To Arnhemland', 118, 1, 15, 'Toby Smith/Wallis Buchanan', 322455, 10843832, 0.99),
-    (1464, 'Morning Glory', 118, 1, 15, 'J. Kay/Jay Kay', 384130, 12777210, 0.99),
-    (1465, 'Space Cowboy', 118, 1, 15, 'J. Kay/Jay Kay', 385697, 12906520, 0.99),
-    (1466, 'Last Chance', 119, 1, 4, 'C. Cester/C. Muncey', 112352, 3683130, 0.99),
-    (1467, 'Are You Gonna Be My Girl', 119, 1, 4, 'C. Muncey/N. Cester', 213890, 6992324, 0.99),
-    (1468, 'Rollover D.J.', 119, 1, 4, 'C. Cester/N. Cester', 196702, 6406517, 0.99),
-    (1469, 'Look What You'||chr(39)||'ve Done', 119, 1, 4, 'N. Cester', 230974, 7517083, 0.99),
-    (1470, 'Get What You Need', 119, 1, 4, 'C. Cester/C. Muncey/N. Cester', 247719, 8043765, 0.99),
-    (1471, 'Move On', 119, 1, 4, 'C. Cester/N. Cester', 260623, 8519353, 0.99),
-    (1472, 'Radio Song', 119, 1, 4, 'C. Cester/C. Muncey/N. Cester', 272117, 8871509, 0.99),
-    (1473, 'Get Me Outta Here', 119, 1, 4, 'C. Cester/N. Cester', 176274, 5729098, 0.99),
-    (1474, 'Cold Hard Bitch', 119, 1, 4, 'C. Cester/C. Muncey/N. Cester', 243278, 7929610, 0.99),
-    (1475, 'Come Around Again', 119, 1, 4, 'C. Muncey/N. Cester', 270497, 8872405, 0.99),
-    (1476, 'Take It Or Leave It', 119, 1, 4, 'C. Muncey/N. Cester', 142889, 4643370, 0.99),
-    (1477, 'Lazy Gun', 119, 1, 4, 'C. Cester/N. Cester', 282174, 9186285, 0.99),
-    (1478, 'Timothy', 119, 1, 4, 'C. Cester', 270341, 8856507, 0.99),
-    (1479, 'Foxy Lady', 120, 1, 1, 'Jimi Hendrix', 199340, 6480896, 0.99),
-    (1480, 'Manic Depression', 120, 1, 1, 'Jimi Hendrix', 222302, 7289272, 0.99),
-    (1481, 'Red House', 120, 1, 1, 'Jimi Hendrix', 224130, 7285851, 0.99),
-    (1482, 'Can You See Me', 120, 1, 1, 'Jimi Hendrix', 153077, 4987068, 0.99),
-    (1483, 'Love Or Confusion', 120, 1, 1, 'Jimi Hendrix', 193123, 6329408, 0.99),
-    (1484, 'I Don'||chr(39)||'t Live Today', 120, 1, 1, 'Jimi Hendrix', 235311, 7661214, 0.99),
-    (1485, 'May This Be Love', 120, 1, 1, 'Jimi Hendrix', 191216, 6240028, 0.99),
-    (1486, 'Fire', 120, 1, 1, 'Jimi Hendrix', 164989, 5383075, 0.99),
-    (1487, 'Third Stone From The Sun', 120, 1, 1, 'Jimi Hendrix', 404453, 13186975, 0.99),
-    (1488, 'Remember', 120, 1, 1, 'Jimi Hendrix', 168150, 5509613, 0.99),
-    (1489, 'Are You Experienced?', 120, 1, 1, 'Jimi Hendrix', 254537, 8292497, 0.99),
-    (1490, 'Hey Joe', 120, 1, 1, 'Billy Roberts', 210259, 6870054, 0.99),
-    (1491, 'Stone Free', 120, 1, 1, 'Jimi Hendrix', 216293, 7002331, 0.99),
-    (1492, 'Purple Haze', 120, 1, 1, 'Jimi Hendrix', 171572, 5597056, 0.99),
-    (1493, '51st Anniversary', 120, 1, 1, 'Jimi Hendrix', 196388, 6398044, 0.99),
-    (1494, 'The Wind Cries Mary', 120, 1, 1, 'Jimi Hendrix', 200463, 6540638, 0.99),
-    (1495, 'Highway Chile', 120, 1, 1, 'Jimi Hendrix', 212453, 6887949, 0.99),
-    (1496, 'Surfing with the Alien', 121, 2, 1, NULL, 263707, 4418504, 0.99),
-    (1497, 'Ice 9', 121, 2, 1, NULL, 239721, 4036215, 0.99),
-    (1498, 'Crushing Day', 121, 2, 1, NULL, 314768, 5232158, 0.99),
-    (1499, 'Always With Me, Always With You', 121, 2, 1, NULL, 202035, 3435777, 0.99),
-    (1500, 'Satch Boogie', 121, 2, 1, NULL, 193560, 3300654, 0.99),
-    (1501, 'Hill of the Skull', 121, 2, 1, 'J. Satriani', 108435, 1944738, 0.99),
-    (1502, 'Circles', 121, 2, 1, NULL, 209071, 3548553, 0.99),
-    (1503, 'Lords of Karma', 121, 2, 1, 'J. Satriani', 288227, 4809279, 0.99),
-    (1504, 'Midnight', 121, 2, 1, 'J. Satriani', 102630, 1851753, 0.99),
-    (1505, 'Echo', 121, 2, 1, 'J. Satriani', 337570, 5595557, 0.99),
-    (1506, 'Engenho De Dentro', 122, 1, 7, NULL, 310073, 10211473, 0.99),
-    (1507, 'Alcohol', 122, 1, 7, NULL, 355239, 12010478, 0.99),
-    (1508, 'Mama Africa', 122, 1, 7, NULL, 283062, 9488316, 0.99),
-    (1509, 'Salve Simpatia', 122, 1, 7, NULL, 343484, 11314756, 0.99),
-    (1510, 'W/Brasil (Chama O Síndico)', 122, 1, 7, NULL, 317100, 10599953, 0.99),
-    (1511, 'País Tropical', 122, 1, 7, NULL, 452519, 14946972, 0.99),
-    (1512, 'Os Alquimistas Estão Chegando', 122, 1, 7, NULL, 367281, 12304520, 0.99),
-    (1513, 'Charles Anjo 45', 122, 1, 7, NULL, 389276, 13022833, 0.99),
-    (1514, 'Selassiê', 122, 1, 7, NULL, 326321, 10724982, 0.99),
-    (1515, 'Menina Sarará', 122, 1, 7, NULL, 191477, 6393818, 0.99),
-    (1516, 'Que Maravilha', 122, 1, 7, NULL, 338076, 10996656, 0.99),
-    (1517, 'Santa Clara Clareou', 122, 1, 7, NULL, 380081, 12524725, 0.99),
-    (1518, 'Filho Maravilha', 122, 1, 7, NULL, 227526, 7498259, 0.99),
-    (1519, 'Taj Mahal', 122, 1, 7, NULL, 289750, 9502898, 0.99),
-    (1520, 'Rapidamente', 123, 1, 7, NULL, 252238, 8470107, 0.99),
-    (1521, 'As Dores do Mundo', 123, 1, 7, 'Hyldon', 255477, 8537092, 0.99),
-    (1522, 'Vou Pra Ai', 123, 1, 7, NULL, 300878, 10053718, 0.99),
-    (1523, 'My Brother', 123, 1, 7, NULL, 253231, 8431821, 0.99),
-    (1524, 'Há Quanto Tempo', 123, 1, 7, NULL, 270027, 9004470, 0.99),
-    (1525, 'Vício', 123, 1, 7, NULL, 269897, 8887216, 0.99),
-    (1526, 'Encontrar Alguém', 123, 1, 7, 'Marco Tulio Lara/Rogerio Flausino', 224078, 7437935, 0.99),
-    (1527, 'Dance Enquanto é Tempo', 123, 1, 7, NULL, 229093, 7583799, 0.99),
-    (1528, 'A Tarde', 123, 1, 7, NULL, 266919, 8836127, 0.99),
-    (1529, 'Always Be All Right', 123, 1, 7, NULL, 128078, 4299676, 0.99),
-    (1530, 'Sem Sentido', 123, 1, 7, NULL, 250462, 8292108, 0.99),
-    (1531, 'Onibusfobia', 123, 1, 7, NULL, 315977, 10474904, 0.99),
-    (1532, 'Pura Elegancia', 124, 1, 16, 'João Suplicy', 284107, 9632269, 0.99),
-    (1533, 'Choramingando', 124, 1, 16, 'João Suplicy', 190484, 6400532, 0.99),
-    (1534, 'Por Merecer', 124, 1, 16, 'João Suplicy', 230582, 7764601, 0.99),
-    (1535, 'No Futuro', 124, 1, 16, 'João Suplicy', 182308, 6056200, 0.99),
-    (1536, 'Voce Inteira', 124, 1, 16, 'João Suplicy', 241084, 8077282, 0.99),
-    (1537, 'Cuando A Noite Vai Chegando', 124, 1, 16, 'João Suplicy', 270628, 9081874, 0.99),
-    (1538, 'Naquele Dia', 124, 1, 16, 'João Suplicy', 251768, 8452654, 0.99),
-    (1539, 'Equinocio', 124, 1, 16, 'João Suplicy', 269008, 8871455, 0.99),
-    (1540, 'Papelão', 124, 1, 16, 'João Suplicy', 213263, 7257390, 0.99),
-    (1541, 'Cuando Eu For Pro Ceu', 124, 1, 16, 'João Suplicy', 118804, 3948371, 0.99),
-    (1542, 'Do Nosso Amor', 124, 1, 16, 'João Suplicy', 203415, 6774566, 0.99),
-    (1543, 'Borogodo', 124, 1, 16, 'João Suplicy', 208457, 7104588, 0.99),
-    (1544, 'Cafezinho', 124, 1, 16, 'João Suplicy', 180924, 6031174, 0.99),
-    (1545, 'Enquanto O Dia Não Vem', 124, 1, 16, 'João Suplicy', 220891, 7248336, 0.99),
-    (1546, 'The Green Manalishi', 125, 1, 3, NULL, 205792, 6720789, 0.99),
-    (1547, 'Living After Midnight', 125, 1, 3, NULL, 213289, 7056785, 0.99),
-    (1548, 'Breaking The Law (Live)', 125, 1, 3, NULL, 144195, 4728246, 0.99),
-    (1549, 'Hot Rockin'||chr(39)||'', 125, 1, 3, NULL, 197328, 6509179, 0.99),
-    (1550, 'Heading Out To The Highway (Live)', 125, 1, 3, NULL, 276427, 9006022, 0.99),
-    (1551, 'The Hellion', 125, 1, 3, NULL, 41900, 1351993, 0.99),
-    (1552, 'Electric Eye', 125, 1, 3, NULL, 222197, 7231368, 0.99),
-    (1553, 'You'||chr(39)||'ve Got Another Thing Comin'||chr(39)||'', 125, 1, 3, NULL, 305162, 9962558, 0.99),
-    (1554, 'Turbo Lover', 125, 1, 3, NULL, 335542, 11068866, 0.99),
-    (1555, 'Freewheel Burning', 125, 1, 3, NULL, 265952, 8713599, 0.99),
-    (1556, 'Some Heads Are Gonna Roll', 125, 1, 3, NULL, 249939, 8198617, 0.99),
-    (1557, 'Metal Meltdown', 125, 1, 3, NULL, 290664, 9390646, 0.99),
-    (1558, 'Ram It Down', 125, 1, 3, NULL, 292179, 9554023, 0.99),
-    (1559, 'Diamonds And Rust (Live)', 125, 1, 3, NULL, 219350, 7163147, 0.99),
-    (1560, 'Victim Of Change (Live)', 125, 1, 3, NULL, 430942, 14067512, 0.99),
-    (1561, 'Tyrant (Live)', 125, 1, 3, NULL, 282253, 9190536, 0.99),
-    (1562, 'Comin'||chr(39)||' Home', 126, 1, 1, 'Paul Stanley, Ace Frehley', 172068, 5661120, 0.99),
-    (1563, 'Plaster Caster', 126, 1, 1, 'Gene Simmons', 198060, 6528719, 0.99),
-    (1564, 'Goin'||chr(39)||' Blind', 126, 1, 1, 'Gene Simmons, Stephen Coronel', 217652, 7167523, 0.99),
-    (1565, 'Do You Love Me', 126, 1, 1, 'Paul Stanley, Bob Ezrin, Kim Fowley', 193619, 6343111, 0.99),
-    (1566, 'Domino', 126, 1, 1, 'Gene Simmons', 226377, 7488191, 0.99),
-    (1567, 'Sure Know Something', 126, 1, 1, 'Paul Stanley, Vincent Poncia', 254354, 8375190, 0.99),
-    (1568, 'A World Without Heroes', 126, 1, 1, 'Paul Stanley, Gene Simmons, Bob Ezrin, Lewis Reed', 177815, 5832524, 0.99),
-    (1569, 'Rock Bottom', 126, 1, 1, 'Paul Stanley, Ace Frehley', 200594, 6560818, 0.99),
-    (1570, 'See You Tonight', 126, 1, 1, 'Gene Simmons', 146494, 4817521, 0.99),
-    (1571, 'I Still Love You', 126, 1, 1, 'Paul Stanley', 369815, 12086145, 0.99),
-    (1572, 'Every Time I Look At You', 126, 1, 1, 'Paul Stanley, Vincent Cusano', 283898, 9290948, 0.99),
-    (1573, '2,000 Man', 126, 1, 1, 'Mick Jagger, Keith Richard', 312450, 10292829, 0.99),
-    (1574, 'Beth', 126, 1, 1, 'Peter Criss, Stan Penridge, Bob Ezrin', 170187, 5577807, 0.99),
-    (1575, 'Nothin'||chr(39)||' To Lose', 126, 1, 1, 'Gene Simmons', 222354, 7351460, 0.99),
-    (1576, 'Rock And Roll All Nite', 126, 1, 1, 'Paul Stanley, Gene Simmons', 259631, 8549296, 0.99),
-    (1577, 'Immigrant Song', 127, 1, 1, 'Robert Plant', 201247, 6457766, 0.99),
-    (1578, 'Heartbreaker', 127, 1, 1, 'John Bonham/John Paul Jones/Robert Plant', 316081, 10179657, 0.99),
-    (1579, 'Since I'||chr(39)||'ve Been Loving You', 127, 1, 1, 'John Paul Jones/Robert Plant', 416365, 13471959, 0.99),
-    (1580, 'Black Dog', 127, 1, 1, 'John Paul Jones/Robert Plant', 317622, 10267572, 0.99),
-    (1581, 'Dazed And Confused', 127, 1, 1, 'Jimmy Page/Led Zeppelin', 1116734, 36052247, 0.99),
-    (1582, 'Stairway To Heaven', 127, 1, 1, 'Robert Plant', 529658, 17050485, 0.99),
-    (1583, 'Going To California', 127, 1, 1, 'Robert Plant', 234605, 7646749, 0.99),
-    (1584, 'That'||chr(39)||'s The Way', 127, 1, 1, 'Robert Plant', 343431, 11248455, 0.99),
-    (1585, 'Whole Lotta Love (Medley)', 127, 1, 1, 'Arthur Crudup/Bernard Besman/Bukka White/Doc Pomus/John Bonham/John Lee Hooker/John Paul Jones/Mort Shuman/Robert Plant/Willie Dixon', 825103, 26742545, 0.99),
-    (1586, 'Thank You', 127, 1, 1, 'Robert Plant', 398262, 12831826, 0.99),
-    (1587, 'We'||chr(39)||'re Gonna Groove', 128, 1, 1, 'Ben E.King/James Bethea', 157570, 5180975, 0.99),
-    (1588, 'Poor Tom', 128, 1, 1, 'Jimmy Page/Robert Plant', 182491, 6016220, 0.99),
-    (1589, 'I Can'||chr(39)||'t Quit You Baby', 128, 1, 1, 'Willie Dixon', 258168, 8437098, 0.99),
-    (1590, 'Walter'||chr(39)||'s Walk', 128, 1, 1, 'Jimmy Page, Robert Plant', 270785, 8712499, 0.99),
-    (1591, 'Ozone Baby', 128, 1, 1, 'Jimmy Page, Robert Plant', 215954, 7079588, 0.99),
-    (1592, 'Darlene', 128, 1, 1, 'Jimmy Page, Robert Plant, John Bonham, John Paul Jones', 307226, 10078197, 0.99),
-    (1593, 'Bonzo'||chr(39)||'s Montreux', 128, 1, 1, 'John Bonham', 258925, 8557447, 0.99),
-    (1594, 'Wearing And Tearing', 128, 1, 1, 'Jimmy Page, Robert Plant', 330004, 10701590, 0.99),
-    (1595, 'The Song Remains The Same', 129, 1, 1, 'Jimmy Page/Jimmy Page '||chr(38)||' Robert Plant/Robert Plant', 330004, 10708950, 0.99),
-    (1596, 'The Rain Song', 129, 1, 1, 'Jimmy Page/Jimmy Page '||chr(38)||' Robert Plant/Robert Plant', 459180, 15029875, 0.99),
-    (1597, 'Over The Hills And Far Away', 129, 1, 1, 'Jimmy Page/Jimmy Page '||chr(38)||' Robert Plant/Robert Plant', 290089, 9552829, 0.99),
-    (1598, 'The Crunge', 129, 1, 1, 'John Bonham/John Paul Jones', 197407, 6460212, 0.99),
-    (1599, 'Dancing Days', 129, 1, 1, 'Jimmy Page/Jimmy Page '||chr(38)||' Robert Plant/Robert Plant', 223216, 7250104, 0.99),
-    (1600, 'D'||chr(39)||'Yer Mak'||chr(39)||'er', 129, 1, 1, 'John Bonham/John Paul Jones', 262948, 8645935, 0.99),
-    (1601, 'No Quarter', 129, 1, 1, 'John Paul Jones', 420493, 13656517, 0.99),
-    (1602, 'The Ocean', 129, 1, 1, 'John Bonham/John Paul Jones', 271098, 8846469, 0.99),
-    (1603, 'In The Evening', 130, 1, 1, 'Jimmy Page, Robert Plant '||chr(38)||' John Paul Jones', 410566, 13399734, 0.99),
-    (1604, 'South Bound Saurez', 130, 1, 1, 'John Paul Jones '||chr(38)||' Robert Plant', 254406, 8420427, 0.99),
-    (1605, 'Fool In The Rain', 130, 1, 1, 'Jimmy Page, Robert Plant '||chr(38)||' John Paul Jones', 372950, 12371433, 0.99),
-    (1606, 'Hot Dog', 130, 1, 1, 'Jimmy Page '||chr(38)||' Robert Plant', 197198, 6536167, 0.99),
-    (1607, 'Carouselambra', 130, 1, 1, 'John Paul Jones, Jimmy Page '||chr(38)||' Robert Plant', 634435, 20858315, 0.99),
-    (1608, 'All My Love', 130, 1, 1, 'Robert Plant '||chr(38)||' John Paul Jones', 356284, 11684862, 0.99),
-    (1609, 'I'||chr(39)||'m Gonna Crawl', 130, 1, 1, 'Jimmy Page, Robert Plant '||chr(38)||' John Paul Jones', 329639, 10737665, 0.99),
-    (1610, 'Black Dog', 131, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones', 296672, 9660588, 0.99),
-    (1611, 'Rock '||chr(38)||' Roll', 131, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones, John Bonham', 220917, 7142127, 0.99),
-    (1612, 'The Battle Of Evermore', 131, 1, 1, 'Jimmy Page, Robert Plant', 351555, 11525689, 0.99),
-    (1613, 'Stairway To Heaven', 131, 1, 1, 'Jimmy Page, Robert Plant', 481619, 15706767, 0.99),
-    (1614, 'Misty Mountain Hop', 131, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones', 278857, 9092799, 0.99),
-    (1615, 'Four Sticks', 131, 1, 1, 'Jimmy Page, Robert Plant', 284447, 9481301, 0.99),
-    (1616, 'Going To California', 131, 1, 1, 'Jimmy Page, Robert Plant', 215693, 7068737, 0.99),
-    (1617, 'When The Levee Breaks', 131, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones, John Bonham, Memphis Minnie', 427702, 13912107, 0.99),
-    (1618, 'Good Times Bad Times', 132, 1, 1, 'Jimmy Page/John Bonham/John Paul Jones', 166164, 5464077, 0.99),
-    (1619, 'Babe I'||chr(39)||'m Gonna Leave You', 132, 1, 1, 'Jimmy Page/Robert Plant', 401475, 13189312, 0.99),
-    (1620, 'You Shook Me', 132, 1, 1, 'J. B. Lenoir/Willie Dixon', 388179, 12643067, 0.99),
-    (1621, 'Dazed and Confused', 132, 1, 1, 'Jimmy Page', 386063, 12610326, 0.99),
-    (1622, 'Your Time Is Gonna Come', 132, 1, 1, 'Jimmy Page/John Paul Jones', 274860, 9011653, 0.99),
-    (1623, 'Black Mountain Side', 132, 1, 1, 'Jimmy Page', 132702, 4440602, 0.99),
-    (1624, 'Communication Breakdown', 132, 1, 1, 'Jimmy Page/John Bonham/John Paul Jones', 150230, 4899554, 0.99),
-    (1625, 'I Can'||chr(39)||'t Quit You Baby', 132, 1, 1, 'Willie Dixon', 282671, 9252733, 0.99),
-    (1626, 'How Many More Times', 132, 1, 1, 'Jimmy Page/John Bonham/John Paul Jones', 508055, 16541364, 0.99),
-    (1627, 'Whole Lotta Love', 133, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones, John Bonham', 334471, 11026243, 0.99),
-    (1628, 'What Is And What Should Never Be', 133, 1, 1, 'Jimmy Page, Robert Plant', 287973, 9369385, 0.99),
-    (1629, 'The Lemon Song', 133, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones, John Bonham', 379141, 12463496, 0.99),
-    (1630, 'Thank You', 133, 1, 1, 'Jimmy Page, Robert Plant', 287791, 9337392, 0.99),
-    (1631, 'Heartbreaker', 133, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones, John Bonham', 253988, 8387560, 0.99),
-    (1632, 'Living Loving Maid (She'||chr(39)||'s Just A Woman)', 133, 1, 1, 'Jimmy Page, Robert Plant', 159216, 5219819, 0.99),
-    (1633, 'Ramble On', 133, 1, 1, 'Jimmy Page, Robert Plant', 275591, 9199710, 0.99),
-    (1634, 'Moby Dick', 133, 1, 1, 'John Bonham, John Paul Jones, Jimmy Page', 260728, 8664210, 0.99),
-    (1635, 'Bring It On Home', 133, 1, 1, 'Jimmy Page, Robert Plant', 259970, 8494731, 0.99),
-    (1636, 'Immigrant Song', 134, 1, 1, 'Jimmy Page, Robert Plant', 144875, 4786461, 0.99),
-    (1637, 'Friends', 134, 1, 1, 'Jimmy Page, Robert Plant', 233560, 7694220, 0.99),
-    (1638, 'Celebration Day', 134, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones', 209528, 6871078, 0.99),
-    (1639, 'Since I'||chr(39)||'ve Been Loving You', 134, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones', 444055, 14482460, 0.99),
-    (1640, 'Out On The Tiles', 134, 1, 1, 'Jimmy Page, Robert Plant, John Bonham', 246047, 8060350, 0.99),
-    (1641, 'Gallows Pole', 134, 1, 1, 'Traditional', 296228, 9757151, 0.99),
-    (1642, 'Tangerine', 134, 1, 1, 'Jimmy Page', 189675, 6200893, 0.99),
-    (1643, 'That'||chr(39)||'s The Way', 134, 1, 1, 'Jimmy Page, Robert Plant', 337345, 11202499, 0.99),
-    (1644, 'Bron-Y-Aur Stomp', 134, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones', 259500, 8674508, 0.99),
-    (1645, 'Hats Off To (Roy) Harper', 134, 1, 1, 'Traditional', 219376, 7236640, 0.99),
-    (1646, 'In The Light', 135, 1, 1, 'John Paul Jones/Robert Plant', 526785, 17033046, 0.99),
-    (1647, 'Bron-Yr-Aur', 135, 1, 1, 'Jimmy Page', 126641, 4150746, 0.99),
-    (1648, 'Down By The Seaside', 135, 1, 1, 'Robert Plant', 316186, 10371282, 0.99),
-    (1649, 'Ten Years Gone', 135, 1, 1, 'Robert Plant', 393116, 12756366, 0.99),
-    (1650, 'Night Flight', 135, 1, 1, 'John Paul Jones/Robert Plant', 217547, 7160647, 0.99),
-    (1651, 'The Wanton Song', 135, 1, 1, 'Robert Plant', 249887, 8180988, 0.99),
-    (1652, 'Boogie With Stu', 135, 1, 1, 'Ian Stewart/John Bonham/John Paul Jones/Mrs. Valens/Robert Plant', 233273, 7657086, 0.99),
-    (1653, 'Black Country Woman', 135, 1, 1, 'Robert Plant', 273084, 8951732, 0.99),
-    (1654, 'Sick Again', 135, 1, 1, 'Robert Plant', 283036, 9279263, 0.99),
-    (1655, 'Achilles Last Stand', 136, 1, 1, 'Jimmy Page/Robert Plant', 625502, 20593955, 0.99),
-    (1656, 'For Your Life', 136, 1, 1, 'Jimmy Page/Robert Plant', 384391, 12633382, 0.99),
-    (1657, 'Royal Orleans', 136, 1, 1, 'John Bonham/John Paul Jones', 179591, 5930027, 0.99),
-    (1658, 'Nobody'||chr(39)||'s Fault But Mine', 136, 1, 1, 'Jimmy Page/Robert Plant', 376215, 12237859, 0.99),
-    (1659, 'Candy Store Rock', 136, 1, 1, 'Jimmy Page/Robert Plant', 252055, 8397423, 0.99),
-    (1660, 'Hots On For Nowhere', 136, 1, 1, 'Jimmy Page/Robert Plant', 284107, 9342342, 0.99),
-    (1661, 'Tea For One', 136, 1, 1, 'Jimmy Page/Robert Plant', 566752, 18475264, 0.99),
-    (1662, 'Rock '||chr(38)||' Roll', 137, 1, 1, 'John Bonham/John Paul Jones/Robert Plant', 242442, 7897065, 0.99),
-    (1663, 'Celebration Day', 137, 1, 1, 'John Paul Jones/Robert Plant', 230034, 7478487, 0.99),
-    (1664, 'The Song Remains The Same', 137, 1, 1, 'Robert Plant', 353358, 11465033, 0.99),
-    (1665, 'Rain Song', 137, 1, 1, 'Robert Plant', 505808, 16273705, 0.99),
-    (1666, 'Dazed And Confused', 137, 1, 1, 'Jimmy Page', 1612329, 52490554, 0.99),
-    (1667, 'No Quarter', 138, 1, 1, 'John Paul Jones/Robert Plant', 749897, 24399285, 0.99),
-    (1668, 'Stairway To Heaven', 138, 1, 1, 'Robert Plant', 657293, 21354766, 0.99),
-    (1669, 'Moby Dick', 138, 1, 1, 'John Bonham/John Paul Jones', 766354, 25345841, 0.99),
-    (1670, 'Whole Lotta Love', 138, 1, 1, 'John Bonham/John Paul Jones/Robert Plant/Willie Dixon', 863895, 28191437, 0.99),
-    (1671, 'Natália', 139, 1, 7, 'Renato Russo', 235728, 7640230, 0.99),
-    (1672, 'L'||chr(39)||'Avventura', 139, 1, 7, 'Renato Russo', 278256, 9165769, 0.99),
-    (1673, 'Música De Trabalho', 139, 1, 7, 'Renato Russo', 260231, 8590671, 0.99),
-    (1674, 'Longe Do Meu Lado', 139, 1, 7, 'Renato Russo - Marcelo Bonfá', 266161, 8655249, 0.99),
-    (1675, 'A Via Láctea', 139, 1, 7, 'Renato Russo', 280084, 9234879, 0.99),
-    (1676, 'Música Ambiente', 139, 1, 7, 'Renato Russo', 247614, 8234388, 0.99),
-    (1677, 'Aloha', 139, 1, 7, 'Renato Russo', 325955, 10793301, 0.99),
-    (1678, 'Soul Parsifal', 139, 1, 7, 'Renato Russo - Marisa Monte', 295053, 9853589, 0.99),
-    (1679, 'Dezesseis', 139, 1, 7, 'Renato Russo', 323918, 10573515, 0.99),
-    (1680, 'Mil Pedaços', 139, 1, 7, 'Renato Russo', 203337, 6643291, 0.99),
-    (1681, 'Leila', 139, 1, 7, 'Renato Russo', 323056, 10608239, 0.99),
-    (1682, '1º De Julho', 139, 1, 7, 'Renato Russo', 290298, 9619257, 0.99),
-    (1683, 'Esperando Por Mim', 139, 1, 7, 'Renato Russo', 261668, 8844133, 0.99),
-    (1684, 'Quando Você Voltar', 139, 1, 7, 'Renato Russo', 173897, 5781046, 0.99),
-    (1685, 'O Livro Dos Dias', 139, 1, 7, 'Renato Russo', 257253, 8570929, 0.99),
-    (1686, 'Será', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 148401, 4826528, 0.99),
-    (1687, 'Ainda É Cedo', 140, 1, 7, 'Dado Villa-Lobos/Ico Ouro-Preto/Marcelo Bonfá', 236826, 7796400, 0.99),
-    (1688, 'Geração Coca-Cola', 140, 1, 7, 'Renato Russo', 141453, 4625731, 0.99),
-    (1689, 'Eduardo E Mônica', 140, 1, 7, 'Renato Russo', 271229, 9026691, 0.99),
-    (1690, 'Tempo Perdido', 140, 1, 7, 'Renato Russo', 302158, 9963914, 0.99),
-    (1691, 'Indios', 140, 1, 7, 'Renato Russo', 258168, 8610226, 0.99),
-    (1692, 'Que País É Este', 140, 1, 7, 'Renato Russo', 177606, 5822124, 0.99),
-    (1693, 'Faroeste Caboclo', 140, 1, 7, 'Renato Russo', 543007, 18092739, 0.99),
-    (1694, 'Há Tempos', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 197146, 6432922, 0.99),
-    (1695, 'Pais E Filhos', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 308401, 10130685, 0.99),
-    (1696, 'Meninos E Meninas', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 203781, 6667802, 0.99),
-    (1697, 'Vento No Litoral', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 366445, 12063806, 0.99),
-    (1698, 'Perfeição', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 276558, 9258489, 0.99),
-    (1699, 'Giz', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 202213, 6677671, 0.99),
-    (1700, 'Dezesseis', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 321724, 10501773, 0.99),
-    (1701, 'Antes Das Seis', 140, 1, 7, 'Dado Villa-Lobos', 189231, 6296531, 0.99),
-    (1702, 'Are You Gonna Go My Way', 141, 1, 1, 'Craig Ross/Lenny Kravitz', 211591, 6905135, 0.99),
-    (1703, 'Fly Away', 141, 1, 1, 'Lenny Kravitz', 221962, 7322085, 0.99),
-    (1704, 'Rock And Roll Is Dead', 141, 1, 1, 'Lenny Kravitz', 204199, 6680312, 0.99),
-    (1705, 'Again', 141, 1, 1, 'Lenny Kravitz', 228989, 7490476, 0.99),
-    (1706, 'It Ain'||chr(39)||'t Over '||chr(39)||'Til It'||chr(39)||'s Over', 141, 1, 1, 'Lenny Kravitz', 242703, 8078936, 0.99),
-    (1707, 'Can'||chr(39)||'t Get You Off My Mind', 141, 1, 1, 'Lenny Kravitz', 273815, 8937150, 0.99),
-    (1708, 'Mr. Cab Driver', 141, 1, 1, 'Lenny Kravitz', 230321, 7668084, 0.99),
-    (1709, 'American Woman', 141, 1, 1, 'B. Cummings/G. Peterson/M.J. Kale/R. Bachman', 261773, 8538023, 0.99),
-    (1710, 'Stand By My Woman', 141, 1, 1, 'Henry Kirssch/Lenny Kravitz/S. Pasch A. Krizan', 259683, 8447611, 0.99),
-    (1711, 'Always On The Run', 141, 1, 1, 'Lenny Kravitz/Slash', 232515, 7593397, 0.99),
-    (1712, 'Heaven Help', 141, 1, 1, 'Gerry DeVeaux/Terry Britten', 190354, 6222092, 0.99),
-    (1713, 'I Belong To You', 141, 1, 1, 'Lenny Kravitz', 257123, 8477980, 0.99),
-    (1714, 'Believe', 141, 1, 1, 'Henry Hirsch/Lenny Kravitz', 295131, 9661978, 0.99),
-    (1715, 'Let Love Rule', 141, 1, 1, 'Lenny Kravitz', 342648, 11298085, 0.99),
-    (1716, 'Black Velveteen', 141, 1, 1, 'Lenny Kravitz', 290899, 9531301, 0.99),
-    (1717, 'Assim Caminha A Humanidade', 142, 1, 7, NULL, 210755, 6993763, 0.99),
-    (1718, 'Honolulu', 143, 1, 7, NULL, 261433, 8558481, 0.99),
-    (1719, 'Dancin´Days', 143, 1, 7, NULL, 237400, 7875347, 0.99),
-    (1720, 'Um Pro Outro', 142, 1, 7, NULL, 236382, 7825215, 0.99),
-    (1721, 'Aviso Aos Navegantes', 143, 1, 7, NULL, 242808, 8058651, 0.99),
-    (1722, 'Casa', 142, 1, 7, NULL, 307591, 10107269, 0.99),
-    (1723, 'Condição', 142, 1, 7, NULL, 263549, 8778465, 0.99),
-    (1724, 'Hyperconectividade', 143, 1, 7, NULL, 180636, 5948039, 0.99),
-    (1725, 'O Descobridor Dos Sete Mares', 143, 1, 7, NULL, 225854, 7475780, 0.99),
-    (1726, 'Satisfação', 142, 1, 7, NULL, 208065, 6901681, 0.99),
-    (1727, 'Brumário', 142, 1, 7, NULL, 216241, 7243499, 0.99),
-    (1728, 'Um Certo Alguém', 143, 1, 7, NULL, 194063, 6430939, 0.99),
-    (1729, 'Fullgás', 143, 1, 7, NULL, 346070, 11505484, 0.99),
-    (1730, 'Sábado À Noite', 142, 1, 7, NULL, 193854, 6435114, 0.99),
-    (1731, 'A Cura', 142, 1, 7, NULL, 280920, 9260588, 0.99),
-    (1732, 'Aquilo', 143, 1, 7, NULL, 246073, 8167819, 0.99),
-    (1733, 'Atrás Do Trio Elétrico', 142, 1, 7, NULL, 149080, 4917615, 0.99),
-    (1734, 'Senta A Pua', 143, 1, 7, NULL, 217547, 7205844, 0.99),
-    (1735, 'Ro-Que-Se-Da-Ne', 143, 1, 7, NULL, 146703, 4805897, 0.99),
-    (1736, 'Tudo Bem', 142, 1, 7, NULL, 196101, 6419139, 0.99),
-    (1737, 'Toda Forma De Amor', 142, 1, 7, NULL, 227813, 7496584, 0.99),
-    (1738, 'Tudo Igual', 143, 1, 7, NULL, 276035, 9201645, 0.99),
-    (1739, 'Fogo De Palha', 143, 1, 7, NULL, 246804, 8133732, 0.99),
-    (1740, 'Sereia', 142, 1, 7, NULL, 278047, 9121087, 0.99),
-    (1741, 'Assaltaram A Gramática', 143, 1, 7, NULL, 261041, 8698959, 0.99),
-    (1742, 'Se Você Pensa', 142, 1, 7, NULL, 195996, 6552490, 0.99),
-    (1743, 'Lá Vem O Sol (Here Comes The Sun)', 142, 1, 7, NULL, 189492, 6229645, 0.99),
-    (1744, 'O Último Romântico (Ao Vivo)', 143, 1, 7, NULL, 231993, 7692697, 0.99),
-    (1745, 'Pseudo Silk Kimono', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 134739, 4334038, 0.99),
-    (1746, 'Kayleigh', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 234605, 7716005, 0.99),
-    (1747, 'Lavender', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 153417, 4999814, 0.99),
-    (1748, 'Bitter Suite: Brief Encounter / Lost Weekend / Blue Angel', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 356493, 11791068, 0.99),
-    (1749, 'Heart Of Lothian: Wide Boy / Curtain Call', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 366053, 11893723, 0.99),
-    (1750, 'Waterhole (Expresso Bongo)', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 133093, 4378835, 0.99),
-    (1751, 'Lords Of The Backstage', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 112875, 3741319, 0.99),
-    (1752, 'Blind Curve: Vocal Under A Bloodlight / Passing Strangers / Mylo / Perimeter Walk / Threshold', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 569704, 18578995, 0.99),
-    (1753, 'Childhoods End?', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 272796, 9015366, 0.99),
-    (1754, 'White Feather', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 143595, 4711776, 0.99),
-    (1755, 'Arrepio', 145, 1, 7, 'Carlinhos Brown', 136254, 4511390, 0.99),
-    (1756, 'Magamalabares', 145, 1, 7, 'Carlinhos Brown', 215875, 7183757, 0.99),
-    (1757, 'Chuva No Brejo', 145, 1, 7, 'Morais', 145606, 4857761, 0.99),
-    (1758, 'Cérebro Eletrônico', 145, 1, 7, 'Gilberto Gil', 172800, 5760864, 0.99),
-    (1759, 'Tempos Modernos', 145, 1, 7, 'Lulu Santos', 183066, 6066234, 0.99),
-    (1760, 'Maraçá', 145, 1, 7, 'Carlinhos Brown', 230008, 7621482, 0.99),
-    (1761, 'Blanco', 145, 1, 7, 'Marisa Monte/poema de Octavio Paz/versão: Haroldo de Campos', 45191, 1454532, 0.99),
-    (1762, 'Panis Et Circenses', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 192339, 6318373, 0.99),
-    (1763, 'De Noite Na Cama', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 209005, 7012658, 0.99),
-    (1764, 'Beija Eu', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 197276, 6512544, 0.99),
-    (1765, 'Give Me Love', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 249808, 8196331, 0.99),
-    (1766, 'Ainda Lembro', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 218801, 7211247, 0.99),
-    (1767, 'A Menina Dança', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 129410, 4326918, 0.99),
-    (1768, 'Dança Da Solidão', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 203520, 6699368, 0.99),
-    (1769, 'Ao Meu Redor', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 275591, 9158834, 0.99),
-    (1770, 'Bem Leve', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 159190, 5246835, 0.99),
-    (1771, 'Segue O Seco', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 178207, 5922018, 0.99),
-    (1772, 'O Xote Das Meninas', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 291866, 9553228, 0.99),
-    (1773, 'Wherever I Lay My Hat', 146, 1, 14, NULL, 136986, 4477321, 0.99),
-    (1774, 'Get My Hands On Some Lovin'||chr(39)||'', 146, 1, 14, NULL, 149054, 4860380, 0.99),
-    (1775, 'No Good Without You', 146, 1, 14, 'William "Mickey" Stevenson', 161410, 5259218, 0.99),
-    (1776, 'You'||chr(39)||'ve Been A Long Time Coming', 146, 1, 14, 'Brian Holland/Eddie Holland/Lamont Dozier', 137221, 4437949, 0.99),
-    (1777, 'When I Had Your Love', 146, 1, 14, 'Robert Rogers/Warren "Pete" Moore/William "Mickey" Stevenson', 152424, 4972815, 0.99),
-    (1778, 'You'||chr(39)||'re What'||chr(39)||'s Happening (In The World Today)', 146, 1, 14, 'Allen Story/George Gordy/Robert Gordy', 142027, 4631104, 0.99),
-    (1779, 'Loving You Is Sweeter Than Ever', 146, 1, 14, 'Ivy Hunter/Stevie Wonder', 166295, 5377546, 0.99),
-    (1780, 'It'||chr(39)||'s A Bitter Pill To Swallow', 146, 1, 14, 'Smokey Robinson/Warren "Pete" Moore', 194821, 6477882, 0.99),
-    (1781, 'Seek And You Shall Find', 146, 1, 14, 'Ivy Hunter/William "Mickey" Stevenson', 223451, 7306719, 0.99),
-    (1782, 'Gonna Keep On Tryin'||chr(39)||' Till I Win Your Love', 146, 1, 14, 'Barrett Strong/Norman Whitfield', 176404, 5789945, 0.99),
-    (1783, 'Gonna Give Her All The Love I'||chr(39)||'ve Got', 146, 1, 14, 'Barrett Strong/Norman Whitfield', 210886, 6893603, 0.99),
-    (1784, 'I Wish It Would Rain', 146, 1, 14, 'Barrett Strong/Norman Whitfield/Roger Penzabene', 172486, 5647327, 0.99),
-    (1785, 'Abraham, Martin And John', 146, 1, 14, 'Dick Holler', 273057, 8888206, 0.99),
-    (1786, 'Save The Children', 146, 1, 14, 'Al Cleveland/Marvin Gaye/Renaldo Benson', 194821, 6342021, 0.99),
-    (1787, 'You Sure Love To Ball', 146, 1, 14, 'Marvin Gaye', 218540, 7217872, 0.99),
-    (1788, 'Ego Tripping Out', 146, 1, 14, 'Marvin Gaye', 314514, 10383887, 0.99),
-    (1789, 'Praise', 146, 1, 14, 'Marvin Gaye', 235833, 7839179, 0.99),
-    (1790, 'Heavy Love Affair', 146, 1, 14, 'Marvin Gaye', 227892, 7522232, 0.99),
-    (1791, 'Down Under', 147, 1, 1, NULL, 222171, 7366142, 0.99),
-    (1792, 'Overkill', 147, 1, 1, NULL, 225410, 7408652, 0.99),
-    (1793, 'Be Good Johnny', 147, 1, 1, NULL, 216320, 7139814, 0.99),
-    (1794, 'Everything I Need', 147, 1, 1, NULL, 216476, 7107625, 0.99),
-    (1795, 'Down by the Sea', 147, 1, 1, NULL, 408163, 13314900, 0.99),
-    (1796, 'Who Can It Be Now?', 147, 1, 1, NULL, 202396, 6682850, 0.99),
-    (1797, 'It'||chr(39)||'s a Mistake', 147, 1, 1, NULL, 273371, 8979965, 0.99),
-    (1798, 'Dr. Heckyll '||chr(38)||' Mr. Jive', 147, 1, 1, NULL, 278465, 9110403, 0.99),
-    (1799, 'Shakes and Ladders', 147, 1, 1, NULL, 198008, 6560753, 0.99),
-    (1800, 'No Sign of Yesterday', 147, 1, 1, NULL, 362004, 11829011, 0.99),
-    (1801, 'Enter Sandman', 148, 1, 3, 'James Hetfield, Lars Ulrich and Kirk Hammett', 332251, 10852002, 0.99),
-    (1802, 'Sad But True', 148, 1, 3, 'Ulrich', 324754, 10541258, 0.99),
-    (1803, 'Holier Than Thou', 148, 1, 3, 'Ulrich', 227892, 7462011, 0.99),
-    (1804, 'The Unforgiven', 148, 1, 3, 'James Hetfield, Lars Ulrich and Kirk Hammett', 387082, 12646886, 0.99),
-    (1805, 'Wherever I May Roam', 148, 1, 3, 'Ulrich', 404323, 13161169, 0.99),
-    (1806, 'Don'||chr(39)||'t Tread On Me', 148, 1, 3, 'Ulrich', 240483, 7827907, 0.99),
-    (1807, 'Through The Never', 148, 1, 3, 'James Hetfield, Lars Ulrich and Kirk Hammett', 244375, 8024047, 0.99),
-    (1808, 'Nothing Else Matters', 148, 1, 3, 'Ulrich', 388832, 12606241, 0.99),
-    (1809, 'Of Wolf And Man', 148, 1, 3, 'James Hetfield, Lars Ulrich and Kirk Hammett', 256835, 8339785, 0.99),
-    (1810, 'The God That Failed', 148, 1, 3, 'Ulrich', 308610, 10055959, 0.99),
-    (1811, 'My Friend Of Misery', 148, 1, 3, 'James Hetfield, Lars Ulrich and Jason Newsted', 409547, 13293515, 0.99),
-    (1812, 'The Struggle Within', 148, 1, 3, 'Ulrich', 234240, 7654052, 0.99),
-    (1813, 'Helpless', 149, 1, 3, 'Harris/Tatler', 398315, 12977902, 0.99),
-    (1814, 'The Small Hours', 149, 1, 3, 'Holocaust', 403435, 13215133, 0.99),
-    (1815, 'The Wait', 149, 1, 3, 'Killing Joke', 295418, 9688418, 0.99),
-    (1816, 'Crash Course In Brain Surgery', 149, 1, 3, 'Bourge/Phillips/Shelley', 190406, 6233729, 0.99),
-    (1817, 'Last Caress/Green Hell', 149, 1, 3, 'Danzig', 209972, 6854313, 0.99),
-    (1818, 'Am I Evil?', 149, 1, 3, 'Harris/Tatler', 470256, 15387219, 0.99),
-    (1819, 'Blitzkrieg', 149, 1, 3, 'Jones/Sirotto/Smith', 216685, 7090018, 0.99),
-    (1820, 'Breadfan', 149, 1, 3, 'Bourge/Phillips/Shelley', 341551, 11100130, 0.99),
-    (1821, 'The Prince', 149, 1, 3, 'Harris/Tatler', 265769, 8624492, 0.99),
-    (1822, 'Stone Cold Crazy', 149, 1, 3, 'Deacon/May/Mercury/Taylor', 137717, 4514830, 0.99),
-    (1823, 'So What', 149, 1, 3, 'Culmer/Exalt', 189152, 6162894, 0.99),
-    (1824, 'Killing Time', 149, 1, 3, 'Sweet Savage', 183693, 6021197, 0.99),
-    (1825, 'Overkill', 149, 1, 3, 'Clarke/Kilmister/Tayler', 245133, 7971330, 0.99),
-    (1826, 'Damage Case', 149, 1, 3, 'Clarke/Farren/Kilmister/Tayler', 220212, 7212997, 0.99),
-    (1827, 'Stone Dead Forever', 149, 1, 3, 'Clarke/Kilmister/Tayler', 292127, 9556060, 0.99),
-    (1828, 'Too Late Too Late', 149, 1, 3, 'Clarke/Kilmister/Tayler', 192052, 6276291, 0.99),
-    (1829, 'Hit The Lights', 150, 1, 3, 'James Hetfield, Lars Ulrich', 257541, 8357088, 0.99),
-    (1830, 'The Four Horsemen', 150, 1, 3, 'James Hetfield, Lars Ulrich, Dave Mustaine', 433188, 14178138, 0.99),
-    (1831, 'Motorbreath', 150, 1, 3, 'James Hetfield', 188395, 6153933, 0.99),
-    (1832, 'Jump In The Fire', 150, 1, 3, 'James Hetfield, Lars Ulrich, Dave Mustaine', 281573, 9135755, 0.99),
-    (1833, '(Anesthesia) Pulling Teeth', 150, 1, 3, 'Cliff Burton', 254955, 8234710, 0.99),
-    (1834, 'Whiplash', 150, 1, 3, 'James Hetfield, Lars Ulrich', 249208, 8102839, 0.99),
-    (1835, 'Phantom Lord', 150, 1, 3, 'James Hetfield, Lars Ulrich, Dave Mustaine', 302053, 9817143, 0.99),
-    (1836, 'No Remorse', 150, 1, 3, 'James Hetfield, Lars Ulrich', 386795, 12672166, 0.99),
-    (1837, 'Seek '||chr(38)||' Destroy', 150, 1, 3, 'James Hetfield, Lars Ulrich', 415817, 13452301, 0.99),
-    (1838, 'Metal Militia', 150, 1, 3, 'James Hetfield, Lars Ulrich, Dave Mustaine', 311327, 10141785, 0.99),
-    (1839, 'Ain'||chr(39)||'t My Bitch', 151, 1, 3, 'James Hetfield, Lars Ulrich', 304457, 9931015, 0.99),
-    (1840, '2 X 4', 151, 1, 3, 'James Hetfield, Lars Ulrich, Kirk Hammett', 328254, 10732251, 0.99),
-    (1841, 'The House Jack Built', 151, 1, 3, 'James Hetfield, Lars Ulrich, Kirk Hammett', 398942, 13005152, 0.99),
-    (1842, 'Until It Sleeps', 151, 1, 3, 'James Hetfield, Lars Ulrich', 269740, 8837394, 0.99),
-    (1843, 'King Nothing', 151, 1, 3, 'James Hetfield, Lars Ulrich, Kirk Hammett', 328097, 10681477, 0.99),
-    (1844, 'Hero Of The Day', 151, 1, 3, 'James Hetfield, Lars Ulrich, Kirk Hammett', 261982, 8540298, 0.99),
-    (1845, 'Bleeding Me', 151, 1, 3, 'James Hetfield, Lars Ulrich, Kirk Hammett', 497998, 16249420, 0.99),
-    (1846, 'Cure', 151, 1, 3, 'James Hetfield, Lars Ulrich', 294347, 9648615, 0.99),
-    (1847, 'Poor Twisted Me', 151, 1, 3, 'James Hetfield, Lars Ulrich', 240065, 7854349, 0.99),
-    (1848, 'Wasted My Hate', 151, 1, 3, 'James Hetfield, Lars Ulrich, Kirk Hammett', 237296, 7762300, 0.99),
-    (1849, 'Mama Said', 151, 1, 3, 'James Hetfield, Lars Ulrich', 319764, 10508310, 0.99),
-    (1850, 'Thorn Within', 151, 1, 3, 'James Hetfield, Lars Ulrich, Kirk Hammett', 351738, 11486686, 0.99),
-    (1851, 'Ronnie', 151, 1, 3, 'James Hetfield, Lars Ulrich', 317204, 10390947, 0.99),
-    (1852, 'The Outlaw Torn', 151, 1, 3, 'James Hetfield, Lars Ulrich', 588721, 19286261, 0.99),
-    (1853, 'Battery', 152, 1, 3, 'J.Hetfield/L.Ulrich', 312424, 10229577, 0.99),
-    (1854, 'Master Of Puppets', 152, 1, 3, 'K.Hammett', 515239, 16893720, 0.99),
-    (1855, 'The Thing That Should Not Be', 152, 1, 3, 'K.Hammett', 396199, 12952368, 0.99),
-    (1856, 'Welcome Home (Sanitarium)', 152, 1, 3, 'K.Hammett', 387186, 12679965, 0.99),
-    (1857, 'Disposable Heroes', 152, 1, 3, 'J.Hetfield/L.Ulrich', 496718, 16135560, 0.99),
-    (1858, 'Leper Messiah', 152, 1, 3, 'C.Burton', 347428, 11310434, 0.99),
-    (1859, 'Orion', 152, 1, 3, 'K.Hammett', 500062, 16378477, 0.99),
-    (1860, 'Damage Inc.', 152, 1, 3, 'K.Hammett', 330919, 10725029, 0.99),
-    (1861, 'Fuel', 153, 1, 3, 'Hetfield, Ulrich, Hammett', 269557, 8876811, 0.99),
-    (1862, 'The Memory Remains', 153, 1, 3, 'Hetfield, Ulrich', 279353, 9110730, 0.99),
-    (1863, 'Devil'||chr(39)||'s Dance', 153, 1, 3, 'Hetfield, Ulrich', 318955, 10414832, 0.99),
-    (1864, 'The Unforgiven II', 153, 1, 3, 'Hetfield, Ulrich, Hammett', 395520, 12886474, 0.99),
-    (1865, 'Better Than You', 153, 1, 3, 'Hetfield, Ulrich', 322899, 10549070, 0.99),
-    (1866, 'Slither', 153, 1, 3, 'Hetfield, Ulrich, Hammett', 313103, 10199789, 0.99),
-    (1867, 'Carpe Diem Baby', 153, 1, 3, 'Hetfield, Ulrich, Hammett', 372480, 12170693, 0.99),
-    (1868, 'Bad Seed', 153, 1, 3, 'Hetfield, Ulrich, Hammett', 245394, 8019586, 0.99),
-    (1869, 'Where The Wild Things Are', 153, 1, 3, 'Hetfield, Ulrich, Newsted', 414380, 13571280, 0.99),
-    (1870, 'Prince Charming', 153, 1, 3, 'Hetfield, Ulrich', 365061, 12009412, 0.99),
-    (1871, 'Low Man'||chr(39)||'s Lyric', 153, 1, 3, 'Hetfield, Ulrich', 457639, 14855583, 0.99),
-    (1872, 'Attitude', 153, 1, 3, 'Hetfield, Ulrich', 315898, 10335734, 0.99),
-    (1873, 'Fixxxer', 153, 1, 3, 'Hetfield, Ulrich, Hammett', 496065, 16190041, 0.99),
-    (1874, 'Fight Fire With Fire', 154, 1, 3, 'Metallica', 285753, 9420856, 0.99),
-    (1875, 'Ride The Lightning', 154, 1, 3, 'Metallica', 397740, 13055884, 0.99),
-    (1876, 'For Whom The Bell Tolls', 154, 1, 3, 'Metallica', 311719, 10159725, 0.99),
-    (1877, 'Fade To Black', 154, 1, 3, 'Metallica', 414824, 13531954, 0.99),
-    (1878, 'Trapped Under Ice', 154, 1, 3, 'Metallica', 244532, 7975942, 0.99),
-    (1879, 'Escape', 154, 1, 3, 'Metallica', 264359, 8652332, 0.99),
-    (1880, 'Creeping Death', 154, 1, 3, 'Metallica', 396878, 12955593, 0.99),
-    (1881, 'The Call Of Ktulu', 154, 1, 3, 'Metallica', 534883, 17486240, 0.99),
-    (1882, 'Frantic', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 350458, 11510849, 0.99),
-    (1883, 'St. Anger', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 441234, 14363779, 0.99),
-    (1884, 'Some Kind Of Monster', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 505626, 16557497, 0.99),
-    (1885, 'Dirty Window', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 324989, 10670604, 0.99),
-    (1886, 'Invisible Kid', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 510197, 16591800, 0.99),
-    (1887, 'My World', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 345626, 11253756, 0.99),
-    (1888, 'Shoot Me Again', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 430210, 14093551, 0.99),
-    (1889, 'Sweet Amber', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 327235, 10616595, 0.99),
-    (1890, 'The Unnamed Feeling', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 429479, 14014582, 0.99),
-    (1891, 'Purify', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 314017, 10232537, 0.99),
-    (1892, 'All Within My Hands', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 527986, 17162741, 0.99),
-    (1893, 'Blackened', 156, 1, 3, 'James Hetfield, Lars Ulrich '||chr(38)||' Jason Newsted', 403382, 13254874, 0.99),
-    (1894, '...And Justice For All', 156, 1, 3, 'James Hetfield, Lars Ulrich '||chr(38)||' Kirk Hammett', 585769, 19262088, 0.99),
-    (1895, 'Eye Of The Beholder', 156, 1, 3, 'James Hetfield, Lars Ulrich '||chr(38)||' Kirk Hammett', 385828, 12747894, 0.99),
-    (1896, 'One', 156, 1, 3, 'James Hetfield '||chr(38)||' Lars Ulrich', 446484, 14695721, 0.99),
-    (1897, 'The Shortest Straw', 156, 1, 3, 'James Hetfield and Lars Ulrich', 395389, 13013990, 0.99),
-    (1898, 'Harvester Of Sorrow', 156, 1, 3, 'James Hetfield and Lars Ulrich', 345547, 11377339, 0.99),
-    (1899, 'The Frayed Ends Of Sanity', 156, 1, 3, 'James Hetfield, Lars Ulrich and Kirk Hammett', 464039, 15198986, 0.99),
-    (1900, 'To Live Is To Die', 156, 1, 3, 'James Hetfield, Lars Ulrich and Cliff Burton', 588564, 19243795, 0.99),
-    (1901, 'Dyers Eve', 156, 1, 3, 'James Hetfield, Lars Ulrich and Kirk Hammett', 313991, 10302828, 0.99),
-    (1902, 'Springsville', 157, 1, 2, 'J. Carisi', 207725, 6776219, 0.99),
-    (1903, 'The Maids Of Cadiz', 157, 1, 2, 'L. Delibes', 233534, 7505275, 0.99),
-    (1904, 'The Duke', 157, 1, 2, 'Dave Brubeck', 214961, 6977626, 0.99),
-    (1905, 'My Ship', 157, 1, 2, 'Ira Gershwin, Kurt Weill', 268016, 8581144, 0.99),
-    (1906, 'Miles Ahead', 157, 1, 2, 'Miles Davis, Gil Evans', 209893, 6807707, 0.99),
-    (1907, 'Blues For Pablo', 157, 1, 2, 'Gil Evans', 318328, 10218398, 0.99),
-    (1908, 'New Rhumba', 157, 1, 2, 'A. Jamal', 276871, 8980400, 0.99),
-    (1909, 'The Meaning Of The Blues', 157, 1, 2, 'R. Troup, L. Worth', 168594, 5395412, 0.99),
-    (1910, 'Lament', 157, 1, 2, 'J.J. Johnson', 134191, 4293394, 0.99),
-    (1911, 'I Don'||chr(39)||'t Wanna Be Kissed (By Anyone But You)', 157, 1, 2, 'H. Spina, J. Elliott', 191320, 6219487, 0.99),
-    (1912, 'Springsville (Alternate Take)', 157, 1, 2, 'J. Carisi', 196388, 6382079, 0.99),
-    (1913, 'Blues For Pablo (Alternate Take)', 157, 1, 2, 'Gil Evans', 212558, 6900619, 0.99),
-    (1914, 'The Meaning Of The Blues/Lament (Alternate Take)', 157, 1, 2, 'J.J. Johnson/R. Troup, L. Worth', 309786, 9912387, 0.99),
-    (1915, 'I Don'||chr(39)||'t Wanna Be Kissed (By Anyone But You) (Alternate Take)', 157, 1, 2, 'H. Spina, J. Elliott', 192078, 6254796, 0.99),
-    (1916, 'Coração De Estudante', 158, 1, 7, 'Wagner Tiso, Milton Nascimento', 238550, 7797308, 0.99),
-    (1917, 'A Noite Do Meu Bem', 158, 1, 7, 'Dolores Duran', 220081, 7125225, 0.99),
-    (1918, 'Paisagem Na Janela', 158, 1, 7, 'Lô Borges, Fernando Brant', 197694, 6523547, 0.99),
-    (1919, 'Cuitelinho', 158, 1, 7, 'Folclore', 209397, 6803970, 0.99),
-    (1920, 'Caxangá', 158, 1, 7, 'Milton Nascimento, Fernando Brant', 245551, 8144179, 0.99),
-    (1921, 'Nos Bailes Da Vida', 158, 1, 7, 'Milton Nascimento, Fernando Brant', 275748, 9126170, 0.99),
-    (1922, 'Menestrel Das Alagoas', 158, 1, 7, 'Milton Nascimento, Fernando Brant', 199758, 6542289, 0.99),
-    (1923, 'Brasil', 158, 1, 7, 'Milton Nascimento, Fernando Brant', 155428, 5252560, 0.99),
-    (1924, 'Canção Do Novo Mundo', 158, 1, 7, 'Beto Guedes, Ronaldo Bastos', 215353, 7032626, 0.99),
-    (1925, 'Um Gosto De Sol', 158, 1, 7, 'Milton Nascimento, Ronaldo Bastos', 307200, 9893875, 0.99),
-    (1926, 'Solar', 158, 1, 7, 'Milton Nascimento, Fernando Brant', 156212, 5098288, 0.99),
-    (1927, 'Para Lennon E McCartney', 158, 1, 7, 'Lô Borges, Márcio Borges, Fernando Brant', 321828, 10626920, 0.99),
-    (1928, 'Maria, Maria', 158, 1, 7, 'Milton Nascimento, Fernando Brant', 72463, 2371543, 0.99),
-    (1929, 'Minas', 159, 1, 7, 'Milton Nascimento, Caetano Veloso', 152293, 4921056, 0.99),
-    (1930, 'Fé Cega, Faca Amolada', 159, 1, 7, 'Milton Nascimento, Ronaldo Bastos', 278099, 9258649, 0.99),
-    (1931, 'Beijo Partido', 159, 1, 7, 'Toninho Horta', 229564, 7506969, 0.99),
-    (1932, 'Saudade Dos Aviões Da Panair (Conversando No Bar)', 159, 1, 7, 'Milton Nascimento, Fernando Brant', 268721, 8805088, 0.99),
-    (1933, 'Gran Circo', 159, 1, 7, 'Milton Nascimento, Márcio Borges', 251297, 8237026, 0.99),
-    (1934, 'Ponta de Areia', 159, 1, 7, 'Milton Nascimento, Fernando Brant', 272796, 8874285, 0.99),
-    (1935, 'Trastevere', 159, 1, 7, 'Milton Nascimento, Ronaldo Bastos', 265665, 8708399, 0.99),
-    (1936, 'Idolatrada', 159, 1, 7, 'Milton Nascimento, Fernando Brant', 286249, 9426153, 0.99),
-    (1937, 'Leila (Venha Ser Feliz)', 159, 1, 7, 'Milton Nascimento', 209737, 6898507, 0.99),
-    (1938, 'Paula E Bebeto', 159, 1, 7, 'Milton Nascimento, Caetano Veloso', 135732, 4583956, 0.99),
-    (1939, 'Simples', 159, 1, 7, 'Nelson Angelo', 133093, 4326333, 0.99),
-    (1940, 'Norwegian Wood', 159, 1, 7, 'John Lennon, Paul McCartney', 413910, 13520382, 0.99),
-    (1941, 'Caso Você Queira Saber', 159, 1, 7, 'Beto Guedes, Márcio Borges', 205688, 6787901, 0.99),
-    (1942, 'Ace Of Spades', 160, 1, 3, 'Clarke/Kilmister/Taylor', 169926, 5523552, 0.99),
-    (1943, 'Love Me Like A Reptile', 160, 1, 3, 'Clarke/Kilmister/Taylor', 203546, 6616389, 0.99),
-    (1944, 'Shoot You In The Back', 160, 1, 3, 'Clarke/Kilmister/Taylor', 160026, 5175327, 0.99),
-    (1945, 'Live To Win', 160, 1, 3, 'Clarke/Kilmister/Taylor', 217626, 7102182, 0.99),
-    (1946, 'Fast And Loose', 160, 1, 3, 'Clarke/Kilmister/Taylor', 203337, 6643350, 0.99),
-    (1947, '(We Are) The Road Crew', 160, 1, 3, 'Clarke/Kilmister/Taylor', 192600, 6283035, 0.99),
-    (1948, 'Fire Fire', 160, 1, 3, 'Clarke/Kilmister/Taylor', 164675, 5416114, 0.99),
-    (1949, 'Jailbait', 160, 1, 3, 'Clarke/Kilmister/Taylor', 213916, 6983609, 0.99),
-    (1950, 'Dance', 160, 1, 3, 'Clarke/Kilmister/Taylor', 158432, 5155099, 0.99),
-    (1951, 'Bite The Bullet', 160, 1, 3, 'Clarke/Kilmister/Taylor', 98115, 3195536, 0.99),
-    (1952, 'The Chase Is Better Than The Catch', 160, 1, 3, 'Clarke/Kilmister/Taylor', 258403, 8393310, 0.99),
-    (1953, 'The Hammer', 160, 1, 3, 'Clarke/Kilmister/Taylor', 168071, 5543267, 0.99),
-    (1954, 'Dirty Love', 160, 1, 3, 'Clarke/Kilmister/Taylor', 176457, 5805241, 0.99),
-    (1955, 'Please Don'||chr(39)||'t Touch', 160, 1, 3, 'Heath/Robinson', 169926, 5557002, 0.99),
-    (1956, 'Emergency', 160, 1, 3, 'Dufort/Johnson/McAuliffe/Williams', 180427, 5828728, 0.99),
-    (1957, 'Kir Royal', 161, 1, 16, 'Mônica Marianno', 234788, 7706552, 0.99),
-    (1958, 'O Que Vai Em Meu Coração', 161, 1, 16, 'Mônica Marianno', 255373, 8366846, 0.99),
-    (1959, 'Aos Leões', 161, 1, 16, 'Mônica Marianno', 234684, 7790574, 0.99),
-    (1960, 'Dois Índios', 161, 1, 16, 'Mônica Marianno', 219271, 7213072, 0.99),
-    (1961, 'Noite Negra', 161, 1, 16, 'Mônica Marianno', 206811, 6819584, 0.99),
-    (1962, 'Beijo do Olhar', 161, 1, 16, 'Mônica Marianno', 252682, 8369029, 0.99),
-    (1963, 'É Fogo', 161, 1, 16, 'Mônica Marianno', 194873, 6501520, 0.99),
-    (1964, 'Já Foi', 161, 1, 16, 'Mônica Marianno', 245681, 8094872, 0.99),
-    (1965, 'Só Se For Pelo Cabelo', 161, 1, 16, 'Mônica Marianno', 238288, 8006345, 0.99),
-    (1966, 'No Clima', 161, 1, 16, 'Mônica Marianno', 249495, 8362040, 0.99),
-    (1967, 'A Moça e a Chuva', 161, 1, 16, 'Mônica Marianno', 274625, 8929357, 0.99),
-    (1968, 'Demorou!', 161, 1, 16, 'Mônica Marianno', 39131, 1287083, 0.99),
-    (1969, 'Bitter Pill', 162, 1, 3, 'Mick Mars/Nikki Sixx/Tommy Lee/Vince Neil', 266814, 8666786, 0.99),
-    (1970, 'Enslaved', 162, 1, 3, 'Mick Mars/Nikki Sixx/Tommy Lee', 269844, 8789966, 0.99),
-    (1971, 'Girls, Girls, Girls', 162, 1, 3, 'Mick Mars/Nikki Sixx/Tommy Lee', 270288, 8874814, 0.99),
-    (1972, 'Kickstart My Heart', 162, 1, 3, 'Nikki Sixx', 283559, 9237736, 0.99),
-    (1973, 'Wild Side', 162, 1, 3, 'Nikki Sixx/Tommy Lee/Vince Neil', 276767, 9116997, 0.99),
-    (1974, 'Glitter', 162, 1, 3, 'Bryan Adams/Nikki Sixx/Scott Humphrey', 340114, 11184094, 0.99),
-    (1975, 'Dr. Feelgood', 162, 1, 3, 'Mick Mars/Nikki Sixx', 282618, 9281875, 0.99),
-    (1976, 'Same Ol'||chr(39)||' Situation', 162, 1, 3, 'Mick Mars/Nikki Sixx/Tommy Lee/Vince Neil', 254511, 8283958, 0.99),
-    (1977, 'Home Sweet Home', 162, 1, 3, 'Nikki Sixx/Tommy Lee/Vince Neil', 236904, 7697538, 0.99),
-    (1978, 'Afraid', 162, 1, 3, 'Nikki Sixx', 248006, 8077464, 0.99),
-    (1979, 'Don'||chr(39)||'t Go Away Mad (Just Go Away)', 162, 1, 3, 'Mick Mars/Nikki Sixx', 279980, 9188156, 0.99),
-    (1980, 'Without You', 162, 1, 3, 'Mick Mars/Nikki Sixx', 268956, 8738371, 0.99),
-    (1981, 'Smokin'||chr(39)||' in The Boys Room', 162, 1, 3, 'Cub Coda/Michael Lutz', 206837, 6735408, 0.99),
-    (1982, 'Primal Scream', 162, 1, 3, 'Mick Mars/Nikki Sixx/Tommy Lee/Vince Neil', 286197, 9421164, 0.99),
-    (1983, 'Too Fast For Love', 162, 1, 3, 'Nikki Sixx', 200829, 6580542, 0.99),
-    (1984, 'Looks That Kill', 162, 1, 3, 'Nikki Sixx', 240979, 7831122, 0.99),
-    (1985, 'Shout At The Devil', 162, 1, 3, 'Nikki Sixx', 221962, 7281974, 0.99),
-    (1986, 'Intro', 163, 1, 1, 'Kurt Cobain', 52218, 1688527, 0.99),
-    (1987, 'School', 163, 1, 1, 'Kurt Cobain', 160235, 5234885, 0.99),
-    (1988, 'Drain You', 163, 1, 1, 'Kurt Cobain', 215196, 7013175, 0.99),
-    (1989, 'Aneurysm', 163, 1, 1, 'Nirvana', 271516, 8862545, 0.99),
-    (1990, 'Smells Like Teen Spirit', 163, 1, 1, 'Nirvana', 287190, 9425215, 0.99),
-    (1991, 'Been A Son', 163, 1, 1, 'Kurt Cobain', 127555, 4170369, 0.99),
-    (1992, 'Lithium', 163, 1, 1, 'Kurt Cobain', 250017, 8148800, 0.99),
-    (1993, 'Sliver', 163, 1, 1, 'Kurt Cobain', 116218, 3784567, 0.99),
-    (1994, 'Spank Thru', 163, 1, 1, 'Kurt Cobain', 190354, 6186487, 0.99),
-    (1995, 'Scentless Apprentice', 163, 1, 1, 'Nirvana', 211200, 6898177, 0.99),
-    (1996, 'Heart-Shaped Box', 163, 1, 1, 'Kurt Cobain', 281887, 9210982, 0.99),
-    (1997, 'Milk It', 163, 1, 1, 'Kurt Cobain', 225724, 7406945, 0.99),
-    (1998, 'Negative Creep', 163, 1, 1, 'Kurt Cobain', 163761, 5354854, 0.99),
-    (1999, 'Polly', 163, 1, 1, 'Kurt Cobain', 149995, 4885331, 0.99),
-    (2000, 'Breed', 163, 1, 1, 'Kurt Cobain', 208378, 6759080, 0.99);
+ (1001, 'Miracle', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 209684, 6877994, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1002, 'Another Round', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 265848, 8752670, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1003, 'Friend Of A Friend', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 193280, 6355088, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1004, 'Over And Out', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 316264, 10428382, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1005, 'On The Mend', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 271908, 9071997, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1006, 'Virginia Moon', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 229198, 7494639, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1007, 'Cold Day In The Sun', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 200724, 6596617, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1008, 'Razor', 80, 1, 1, 'Dave Grohl, Taylor Hawkins, Nate Mendel, Chris Shiflett/FOO FIGHTERS', 293276, 9721373, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1009, 'All My Life', 81, 1, 4, 'Foo Fighters', 263653, 8665545, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1010, 'Low', 81, 1, 4, 'Foo Fighters', 268120, 8847196, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1011, 'Have It All', 81, 1, 4, 'Foo Fighters', 298057, 9729292, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1012, 'Times Like These', 81, 1, 4, 'Foo Fighters', 266370, 8624691, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1013, 'Disenchanted Lullaby', 81, 1, 4, 'Foo Fighters', 273528, 8919111, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1014, 'Tired Of You', 81, 1, 4, 'Foo Fighters', 311353, 10094743, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1015, 'Halo', 81, 1, 4, 'Foo Fighters', 306442, 10026371, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1016, 'Lonely As You', 81, 1, 4, 'Foo Fighters', 277185, 9022628, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1017, 'Overdrive', 81, 1, 4, 'Foo Fighters', 270550, 8793187, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1018, 'Burn Away', 81, 1, 4, 'Foo Fighters', 298396, 9678073, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1019, 'Come Back', 81, 1, 4, 'Foo Fighters', 469968, 15371980, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1020, 'Doll', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 83487, 2702572, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1021, 'Monkey Wrench', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 231523, 7527531, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1022, 'Hey, Johnny Park!', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 248528, 8079480, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1023, 'My Poor Brain', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 213446, 6973746, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1024, 'Wind Up', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 152163, 4950667, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1025, 'Up In Arms', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 135732, 4406227, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1026, 'My Hero', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 260101, 8472365, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1027, 'See You', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 146782, 4888173, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1028, 'Enough Space', 82, 1, 1, 'Dave Grohl', 157387, 5169280, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1029, 'February Stars', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 289306, 9344875, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1030, 'Everlong', 82, 1, 1, 'Dave Grohl', 250749, 8270816, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1031, 'Walking After You', 82, 1, 1, 'Dave Grohl', 303856, 9898992, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1032, 'New Way Home', 82, 1, 1, 'Dave, Taylor, Nate, Chris', 342230, 11205664, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1033, 'My Way', 83, 1, 12, 'claude françois/gilles thibault/jacques revaux/paul anka', 275879, 8928684, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1034, 'Strangers In The Night', 83, 1, 12, 'berthold kaempfert/charles singleton/eddie snyder', 155794, 5055295, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1035, 'New York, New York', 83, 1, 12, 'fred ebb/john kander', 206001, 6707993, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1036, 'I Get A Kick Out Of You', 83, 1, 12, 'cole porter', 194429, 6332441, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1037, 'Something Stupid', 83, 1, 12, 'carson c. parks', 158615, 5210643, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1038, 'Moon River', 83, 1, 12, 'henry mancini/johnny mercer', 198922, 6395808, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1039, 'What Now My Love', 83, 1, 12, 'carl sigman/gilbert becaud/pierre leroyer', 149995, 4913383, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1040, 'Summer Love', 83, 1, 12, 'hans bradtke/heinz meier/johnny mercer', 174994, 5693242, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1041, 'For Once In My Life', 83, 1, 12, 'orlando murden/ronald miller', 171154, 5557537, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1042, 'Love And Marriage', 83, 1, 12, 'jimmy van heusen/sammy cahn', 89730, 2930596, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1043, 'They Can'||chr(39)||'t Take That Away From Me', 83, 1, 12, 'george gershwin/ira gershwin', 161227, 5240043, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1044, 'My Kind Of Town', 83, 1, 12, 'jimmy van heusen/sammy cahn', 188499, 6119915, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1045, 'Fly Me To The Moon', 83, 1, 12, 'bart howard', 149263, 4856954, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1046, 'I'||chr(39)||'ve Got You Under My Skin', 83, 1, 12, 'cole porter', 210808, 6883787, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1047, 'The Best Is Yet To Come', 83, 1, 12, 'carolyn leigh/cy coleman', 173583, 5633730, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1048, 'It Was A Very Good Year', 83, 1, 12, 'ervin drake', 266605, 8554066, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1049, 'Come Fly With Me', 83, 1, 12, 'jimmy van heusen/sammy cahn', 190458, 6231029, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1050, 'That'||chr(39)||'s Life', 83, 1, 12, 'dean kay thompson/kelly gordon', 187010, 6095727, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1051, 'The Girl From Ipanema', 83, 1, 12, 'antonio carlos jobim/norman gimbel/vinicius de moraes', 193750, 6410674, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1052, 'The Lady Is A Tramp', 83, 1, 12, 'lorenz hart/richard rodgers', 184111, 5987372, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1053, 'Bad, Bad Leroy Brown', 83, 1, 12, 'jim croce', 169900, 5548581, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1054, 'Mack The Knife', 83, 1, 12, 'bert brecht/kurt weill/marc blitzstein', 292075, 9541052, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1055, 'Loves Been Good To Me', 83, 1, 12, 'rod mckuen', 203964, 6645365, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1056, 'L.A. Is My Lady', 83, 1, 12, 'alan bergman/marilyn bergman/peggy lipton jones/quincy jones', 193175, 6378511, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1057, 'Entrando Na Sua (Intro)', 84, 1, 7, NULL, 179252, 5840027, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1058, 'Nervosa', 84, 1, 7, NULL, 229537, 7680421, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1059, 'Funk De Bamba (Com Fernanda Abreu)', 84, 1, 7, NULL, 237191, 7866165, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1060, 'Call Me At Cleo´s', 84, 1, 7, NULL, 236617, 7920510, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1061, 'Olhos Coloridos (Com Sandra De Sá)', 84, 1, 7, NULL, 321332, 10567404, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1062, 'Zambação', 84, 1, 7, NULL, 301113, 10030604, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1063, 'Funk Hum', 84, 1, 7, NULL, 244453, 8084475, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1064, 'Forty Days (Com DJ Hum)', 84, 1, 7, NULL, 221727, 7347172, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1065, 'Balada Da Paula', 84, 1, 7, 'Emerson Villani', 322821, 10603717, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1066, 'Dujji', 84, 1, 7, NULL, 324597, 10833935, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1067, 'Meu Guarda-Chuva', 84, 1, 7, NULL, 248528, 8216625, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1068, 'Motéis', 84, 1, 7, NULL, 213498, 7041077, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1069, 'Whistle Stop', 84, 1, 7, NULL, 526132, 17533664, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1070, '16 Toneladas', 84, 1, 7, NULL, 191634, 6390885, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1071, 'Divirta-Se (Saindo Da Sua)', 84, 1, 7, NULL, 74919, 2439206, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1072, 'Forty Days Instrumental', 84, 1, 7, NULL, 292493, 9584317, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1073, 'Óia Eu Aqui De Novo', 85, 1, 10, NULL, 219454, 7469735, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1074, 'Baião Da Penha', 85, 1, 10, NULL, 247928, 8393047, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1075, 'Esperando Na Janela', 85, 1, 10, 'Manuca/Raimundinho DoAcordion/Targino Godim', 261041, 8660617, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1076, 'Juazeiro', 85, 1, 10, 'Humberto Teixeira/Luiz Gonzaga', 222275, 7349779, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1077, 'Último Pau-De-Arara', 85, 1, 10, 'Corumbá/José Gumarães/Venancio', 200437, 6638563, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1078, 'Asa Branca', 85, 1, 10, 'Humberto Teixeira/Luiz Gonzaga', 217051, 7387183, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1079, 'Qui Nem Jiló', 85, 1, 10, 'Humberto Teixeira/Luiz Gonzaga', 204695, 6937472, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1080, 'Assum Preto', 85, 1, 10, 'Humberto Teixeira/Luiz Gonzaga', 199653, 6625000, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1081, 'Pau-De-Arara', 85, 1, 10, 'Guio De Morais E Seus "Parentes"/Luiz Gonzaga', 191660, 6340649, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1082, 'A Volta Da Asa Branca', 85, 1, 10, 'Luiz Gonzaga/Zé Dantas', 271020, 9098093, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1083, 'O Amor Daqui De Casa', 85, 1, 10, 'Gilberto Gil', 148636, 4888292, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1084, 'As Pegadas Do Amor', 85, 1, 10, 'Gilberto Gil', 209136, 6899062, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1085, 'Lamento Sertanejo', 85, 1, 10, 'Dominguinhos/Gilberto Gil', 260963, 8518290, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1086, 'Casinha Feliz', 85, 1, 10, 'Gilberto Gil', 32287, 1039615, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1087, 'Introdução (Live)', 86, 1, 7, NULL, 154096, 5227579, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1088, 'Palco (Live)', 86, 1, 7, NULL, 238315, 8026622, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1089, 'Is This Love (Live)', 86, 1, 7, NULL, 295262, 9819759, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1090, 'Stir It Up (Live)', 86, 1, 7, NULL, 282409, 9594738, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1091, 'Refavela (Live)', 86, 1, 7, NULL, 236695, 7985305, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1092, 'Vendedor De Caranguejo (Live)', 86, 1, 7, NULL, 248842, 8358128, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1093, 'Quanta (Live)', 86, 1, 7, NULL, 357485, 11774865, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1094, 'Estrela (Live)', 86, 1, 7, NULL, 285309, 9436411, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1095, 'Pela Internet (Live)', 86, 1, 7, NULL, 263471, 8804401, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1096, 'Cérebro Eletrônico (Live)', 86, 1, 7, NULL, 231627, 7805352, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1097, 'Opachorô (Live)', 86, 1, 7, NULL, 259526, 8596384, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1098, 'Copacabana (Live)', 86, 1, 7, NULL, 289671, 9673672, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1099, 'A Novidade (Live)', 86, 1, 7, NULL, 316969, 10508000, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1100, 'Ghandi (Live)', 86, 1, 7, NULL, 222458, 7481950, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1101, 'De Ouro E Marfim (Live)', 86, 1, 7, NULL, 234971, 7838453, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1102, 'Doce De Carnaval (Candy All)', 87, 1, 2, NULL, 356101, 11998470, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1103, 'Lamento De Carnaval', 87, 1, 2, NULL, 294530, 9819276, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1104, 'Pretinha', 87, 1, 2, NULL, 265273, 8914579, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1105, 'A Novidade', 73, 1, 7, 'Gilberto Gil', 324780, 10765600, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1106, 'Tenho Sede', 73, 1, 7, 'Gilberto Gil', 261616, 8708114, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1107, 'Refazenda', 73, 1, 7, 'Gilberto Gil', 218305, 7237784, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1108, 'Realce', 73, 1, 7, 'Gilberto Gil', 264489, 8847612, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1109, 'Esotérico', 73, 1, 7, 'Gilberto Gil', 317779, 10530533, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1110, 'Drão', 73, 1, 7, 'Gilberto Gil', 301453, 9931950, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1111, 'A Paz', 73, 1, 7, 'Gilberto Gil', 293093, 9593064, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1112, 'Beira Mar', 73, 1, 7, 'Gilberto Gil', 295444, 9597994, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1113, 'Sampa', 73, 1, 7, 'Gilberto Gil', 225697, 7469905, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1114, 'Parabolicamará', 73, 1, 7, 'Gilberto Gil', 284943, 9543435, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1115, 'Tempo Rei', 73, 1, 7, 'Gilberto Gil', 302733, 10019269, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1116, 'Expresso 2222', 73, 1, 7, 'Gilberto Gil', 284760, 9690577, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1117, 'Aquele Abraço', 73, 1, 7, 'Gilberto Gil', 263993, 8805003, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1118, 'Palco', 73, 1, 7, 'Gilberto Gil', 270550, 9049901, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1119, 'Toda Menina Baiana', 73, 1, 7, 'Gilberto Gil', 278177, 9351000, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1120, 'Sítio Do Pica-Pau Amarelo', 73, 1, 7, 'Gilberto Gil', 218070, 7217955, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1121, 'Straight Out Of Line', 88, 1, 3, 'Sully Erna', 259213, 8511877, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1122, 'Faceless', 88, 1, 3, 'Sully Erna', 216006, 6992417, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1123, 'Changes', 88, 1, 3, 'Sully Erna; Tony Rombola', 260022, 8455835, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1124, 'Make Me Believe', 88, 1, 3, 'Sully Erna', 248607, 8075050, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1125, 'I Stand Alone', 88, 1, 3, 'Sully Erna', 246125, 8017041, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1126, 'Re-Align', 88, 1, 3, 'Sully Erna', 260884, 8513891, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1127, 'I Fucking Hate You', 88, 1, 3, 'Sully Erna', 247170, 8059642, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1128, 'Releasing The Demons', 88, 1, 3, 'Sully Erna', 252760, 8276372, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1129, 'Dead And Broken', 88, 1, 3, 'Sully Erna', 251454, 8206611, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1130, 'I Am', 88, 1, 3, 'Sully Erna', 239516, 7803270, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1131, 'The Awakening', 88, 1, 3, 'Sully Erna', 89547, 3035251, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1132, 'Serenity', 88, 1, 3, 'Sully Erna; Tony Rombola', 274834, 9172976, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1133, 'American Idiot', 89, 1, 4, 'Billie Joe Armstrong, Mike Dirnt, Tré Cool', 174419, 5705793, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1134, 'Jesus Of Suburbia / City Of The Damned / I Don'||chr(39)||'t Care / Dearly Beloved / Tales Of Another Broken Home', 89, 1, 4, 'Billie Joe Armstrong/Green Day', 548336, 17875209, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1135, 'Holiday', 89, 1, 4, 'Billie Joe Armstrong, Mike Dirnt, Tré Cool', 232724, 7599602, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1136, 'Boulevard Of Broken Dreams', 89, 1, 4, 'Mike Dint, Billie Joe, Tré Cool', 260858, 8485122, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1137, 'Are We The Waiting', 89, 1, 4, 'Green Day', 163004, 5328329, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1138, 'St. Jimmy', 89, 1, 4, 'Green Day', 175307, 5716589, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1139, 'Give Me Novacaine', 89, 1, 4, 'Green Day', 205871, 6752485, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1140, 'She'||chr(39)||'s A Rebel', 89, 1, 4, 'Green Day', 120528, 3901226, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1141, 'Extraordinary Girl', 89, 1, 4, 'Green Day', 214021, 6975177, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1142, 'Letterbomb', 89, 1, 4, 'Green Day', 246151, 7980902, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1143, 'Wake Me Up When September Ends', 89, 1, 4, 'Mike Dint, Billie Joe, Tré Cool', 285753, 9325597, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1144, 'Homecoming / The Death Of St. Jimmy / East 12th St. / Nobody Likes You / Rock And Roll Girlfriend / We'||chr(39)||'re Coming Home Again', 89, 1, 4, 'Mike Dirnt/Tré Cool', 558602, 18139840, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1145, 'Whatsername', 89, 1, 4, 'Green Day', 252316, 8244843, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1146, 'Welcome to the Jungle', 90, 2, 1, NULL, 273552, 4538451, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1147, 'It'||chr(39)||'s So Easy', 90, 2, 1, NULL, 202824, 3394019, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1148, 'Nightrain', 90, 2, 1, NULL, 268537, 4457283, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1149, 'Out Ta Get Me', 90, 2, 1, NULL, 263893, 4382147, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1150, 'Mr. Brownstone', 90, 2, 1, NULL, 228924, 3816323, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1151, 'Paradise City', 90, 2, 1, NULL, 406347, 6687123, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1152, 'My Michelle', 90, 2, 1, NULL, 219961, 3671299, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1153, 'Think About You', 90, 2, 1, NULL, 231640, 3860275, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1154, 'Sweet Child O'||chr(39)||' Mine', 90, 2, 1, NULL, 356424, 5879347, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1155, 'You'||chr(39)||'re Crazy', 90, 2, 1, NULL, 197135, 3301971, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1156, 'Anything Goes', 90, 2, 1, NULL, 206400, 3451891, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1157, 'Rocket Queen', 90, 2, 1, NULL, 375349, 6185539, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1158, 'Right Next Door to Hell', 91, 2, 1, NULL, 182321, 3175950, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1159, 'Dust N'||chr(39)||' Bones', 91, 2, 1, NULL, 298374, 5053742, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1160, 'Live and Let Die', 91, 2, 1, NULL, 184016, 3203390, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1161, 'Don'||chr(39)||'t Cry (Original)', 91, 2, 1, NULL, 284744, 4833259, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1162, 'Perfect Crime', 91, 2, 1, NULL, 143637, 2550030, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1163, 'You Ain'||chr(39)||'t the First', 91, 2, 1, NULL, 156268, 2754414, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1164, 'Bad Obsession', 91, 2, 1, NULL, 328282, 5537678, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1165, 'Back off Bitch', 91, 2, 1, NULL, 303436, 5135662, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1166, 'Double Talkin'||chr(39)||' Jive', 91, 2, 1, NULL, 203637, 3520862, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1167, 'November Rain', 91, 2, 1, NULL, 537540, 8923566, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1168, 'The Garden', 91, 2, 1, NULL, 322175, 5438862, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1169, 'Garden of Eden', 91, 2, 1, NULL, 161539, 2839694, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1170, 'Don'||chr(39)||'t Damn Me', 91, 2, 1, NULL, 318901, 5385886, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1171, 'Bad Apples', 91, 2, 1, NULL, 268351, 4567966, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1172, 'Dead Horse', 91, 2, 1, NULL, 257600, 4394014, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1173, 'Coma', 91, 2, 1, NULL, 616511, 10201342, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1174, 'Civil War', 92, 1, 3, 'Duff McKagan/Slash/W. Axl Rose', 461165, 15046579, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1175, '14 Years', 92, 1, 3, 'Izzy Stradlin'||chr(39)||'/W. Axl Rose', 261355, 8543664, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1176, 'Yesterdays', 92, 1, 3, 'Billy/Del James/W. Axl Rose/West Arkeen', 196205, 6398489, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1177, 'Knockin'||chr(39)||' On Heaven'||chr(39)||'s Door', 92, 1, 3, 'Bob Dylan', 336457, 10986716, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1178, 'Get In The Ring', 92, 1, 3, 'Duff McKagan/Slash/W. Axl Rose', 341054, 11134105, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1179, 'Shotgun Blues', 92, 1, 3, 'W. Axl Rose', 203206, 6623916, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1180, 'Breakdown', 92, 1, 3, 'W. Axl Rose', 424960, 13978284, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1181, 'Pretty Tied Up', 92, 1, 3, 'Izzy Stradlin'||chr(39)||'', 287477, 9408754, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1182, 'Locomotive', 92, 1, 3, 'Slash/W. Axl Rose', 522396, 17236842, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1183, 'So Fine', 92, 1, 3, 'Duff McKagan', 246491, 8039484, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1184, 'Estranged', 92, 1, 3, 'W. Axl Rose', 563800, 18343787, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1185, 'You Could Be Mine', 92, 1, 3, 'Izzy Stradlin'||chr(39)||'/W. Axl Rose', 343875, 11207355, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1186, 'Don'||chr(39)||'t Cry', 92, 1, 3, 'Izzy Stradlin'||chr(39)||'/W. Axl Rose', 284238, 9222458, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1187, 'My World', 92, 1, 3, 'W. Axl Rose', 84532, 2764045, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1188, 'Colibri', 93, 1, 2, 'Richard Bull', 361012, 12055329, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1189, 'Love Is The Colour', 93, 1, 2, 'R. Carless', 251585, 8419165, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1190, 'Magnetic Ocean', 93, 1, 2, 'Patrick Claher/Richard Bull', 321123, 10720741, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1191, 'Deep Waters', 93, 1, 2, 'Richard Bull', 396460, 13075359, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1192, 'L'||chr(39)||'Arc En Ciel De Miles', 93, 1, 2, 'Kevin Robinson/Richard Bull', 242390, 8053997, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1193, 'Gypsy', 93, 1, 2, 'Kevin Robinson', 330997, 11083374, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1194, 'Journey Into Sunlight', 93, 1, 2, 'Jean Paul Maunick', 249756, 8241177, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1195, 'Sunchild', 93, 1, 2, 'Graham Harvey', 259970, 8593143, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1196, 'Millenium', 93, 1, 2, 'Maxton Gig Beesley Jnr.', 379167, 12511939, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1197, 'Thinking '||chr(39)||'Bout Tomorrow', 93, 1, 2, 'Fayyaz Virgi/Richard Bull', 355395, 11865384, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1198, 'Jacob'||chr(39)||'s Ladder', 93, 1, 2, 'Julian Crampton', 367647, 12201595, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1199, 'She Wears Black', 93, 1, 2, 'G Harvey/R Hope-Taylor', 528666, 17617944, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1200, 'Dark Side Of The Cog', 93, 1, 2, 'Jean Paul Maunick', 377155, 12491122, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1201, 'Different World', 94, 2, 1, NULL, 258692, 4383764, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1202, 'These Colours Don'||chr(39)||'t Run', 94, 2, 1, NULL, 412152, 6883500, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1203, 'Brighter Than a Thousand Suns', 94, 2, 1, NULL, 526255, 8721490, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1204, 'The Pilgrim', 94, 2, 1, NULL, 307593, 5172144, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1205, 'The Longest Day', 94, 2, 1, NULL, 467810, 7785748, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1206, 'Out of the Shadows', 94, 2, 1, NULL, 336896, 5647303, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1207, 'The Reincarnation of Benjamin Breeg', 94, 2, 1, NULL, 442106, 7367736, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1208, 'For the Greater Good of God', 94, 2, 1, NULL, 564893, 9367328, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1209, 'Lord of Light', 94, 2, 1, NULL, 444614, 7393698, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1210, 'The Legacy', 94, 2, 1, NULL, 562966, 9314287, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1211, 'Hallowed Be Thy Name (Live) [Non Album Bonus Track]', 94, 2, 1, NULL, 431262, 7205816, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1212, 'The Number Of The Beast', 95, 1, 3, 'Steve Harris', 294635, 4718897, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1213, 'The Trooper', 95, 1, 3, 'Steve Harris', 235311, 3766272, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1214, 'Prowler', 95, 1, 3, 'Steve Harris', 255634, 4091904, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1215, 'Transylvania', 95, 1, 3, 'Steve Harris', 265874, 4255744, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1216, 'Remember Tomorrow', 95, 1, 3, 'Paul Di'||chr(39)||'Anno/Steve Harris', 352731, 5648438, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1217, 'Where Eagles Dare', 95, 1, 3, 'Steve Harris', 289358, 4630528, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1218, 'Sanctuary', 95, 1, 3, 'David Murray/Paul Di'||chr(39)||'Anno/Steve Harris', 293250, 4694016, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1219, 'Running Free', 95, 1, 3, 'Paul Di'||chr(39)||'Anno/Steve Harris', 228937, 3663872, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1220, 'Run To The Hilss', 95, 1, 3, 'Steve Harris', 237557, 3803136, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1221, '2 Minutes To Midnight', 95, 1, 3, 'Adrian Smith/Bruce Dickinson', 337423, 5400576, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1222, 'Iron Maiden', 95, 1, 3, 'Steve Harris', 324623, 5195776, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1223, 'Hallowed Be Thy Name', 95, 1, 3, 'Steve Harris', 471849, 7550976, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1224, 'Be Quick Or Be Dead', 96, 1, 3, 'Bruce Dickinson/Janick Gers', 196911, 3151872, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1225, 'From Here To Eternity', 96, 1, 3, 'Steve Harris', 259866, 4159488, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1226, 'Can I Play With Madness', 96, 1, 3, 'Adrian Smith/Bruce Dickinson/Steve Harris', 282488, 4521984, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1227, 'Wasting Love', 96, 1, 3, 'Bruce Dickinson/Janick Gers', 347846, 5566464, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1228, 'Tailgunner', 96, 1, 3, 'Bruce Dickinson/Steve Harris', 249469, 3993600, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1229, 'The Evil That Men Do', 96, 1, 3, 'Adrian Smith/Bruce Dickinson/Steve Harris', 325929, 5216256, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1230, 'Afraid To Shoot Strangers', 96, 1, 3, 'Steve Harris', 407980, 6529024, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1231, 'Bring Your Daughter... To The Slaughter', 96, 1, 3, 'Bruce Dickinson', 317727, 5085184, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1232, 'Heaven Can Wait', 96, 1, 3, 'Steve Harris', 448574, 7178240, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1233, 'The Clairvoyant', 96, 1, 3, 'Steve Harris', 269871, 4319232, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1234, 'Fear Of The Dark', 96, 1, 3, 'Steve Harris', 431333, 6906078, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1235, 'The Wicker Man', 97, 1, 1, 'Adrian Smith/Bruce Dickinson/Steve Harris', 275539, 11022464, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1236, 'Ghost Of The Navigator', 97, 1, 1, 'Bruce Dickinson/Janick Gers/Steve Harris', 410070, 16404608, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1237, 'Brave New World', 97, 1, 1, 'Bruce Dickinson/David Murray/Steve Harris', 378984, 15161472, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1238, 'Blood Brothers', 97, 1, 1, 'Steve Harris', 434442, 17379456, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1239, 'The Mercenary', 97, 1, 1, 'Janick Gers/Steve Harris', 282488, 11300992, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1240, 'Dream Of Mirrors', 97, 1, 1, 'Janick Gers/Steve Harris', 561162, 22448256, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1241, 'The Fallen Angel', 97, 1, 1, 'Adrian Smith/Steve Harris', 240718, 9629824, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1242, 'The Nomad', 97, 1, 1, 'David Murray/Steve Harris', 546115, 21846144, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1243, 'Out Of The Silent Planet', 97, 1, 1, 'Bruce Dickinson/Janick Gers/Steve Harris', 385541, 15423616, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1244, 'The Thin Line Between Love '||chr(38)||' Hate', 97, 1, 1, 'David Murray/Steve Harris', 506801, 20273280, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1245, 'Wildest Dreams', 98, 1, 13, 'Adrian Smith/Steve Harris', 232777, 9312384, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1246, 'Rainmaker', 98, 1, 13, 'Bruce Dickinson/David Murray/Steve Harris', 228623, 9146496, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1247, 'No More Lies', 98, 1, 13, 'Steve Harris', 441782, 17672320, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1248, 'Montsegur', 98, 1, 13, 'Bruce Dickinson/Janick Gers/Steve Harris', 350484, 14020736, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1249, 'Dance Of Death', 98, 1, 13, 'Janick Gers/Steve Harris', 516649, 20670727, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1250, 'Gates Of Tomorrow', 98, 1, 13, 'Bruce Dickinson/Janick Gers/Steve Harris', 312032, 12482688, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1251, 'New Frontier', 98, 1, 13, 'Adrian Smith/Bruce Dickinson/Nicko McBrain', 304509, 12181632, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1252, 'Paschendale', 98, 1, 13, 'Adrian Smith/Steve Harris', 508107, 20326528, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1253, 'Face In The Sand', 98, 1, 13, 'Adrian Smith/Bruce Dickinson/Steve Harris', 391105, 15648948, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1254, 'Age Of Innocence', 98, 1, 13, 'David Murray/Steve Harris', 370468, 14823478, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1255, 'Journeyman', 98, 1, 13, 'Bruce Dickinson/David Murray/Steve Harris', 427023, 17082496, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1256, 'Be Quick Or Be Dead', 99, 1, 1, 'Bruce Dickinson/Janick Gers', 204512, 8181888, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1257, 'From Here To Eternity', 99, 1, 1, 'Steve Harris', 218357, 8739038, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1258, 'Afraid To Shoot Strangers', 99, 1, 1, 'Steve Harris', 416496, 16664589, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1259, 'Fear Is The Key', 99, 1, 1, 'Bruce Dickinson/Janick Gers', 335307, 13414528, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1260, 'Childhood'||chr(39)||'s End', 99, 1, 1, 'Steve Harris', 280607, 11225216, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1261, 'Wasting Love', 99, 1, 1, 'Bruce Dickinson/Janick Gers', 350981, 14041216, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1262, 'The Fugitive', 99, 1, 1, 'Steve Harris', 294112, 11765888, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1263, 'Chains Of Misery', 99, 1, 1, 'Bruce Dickinson/David Murray', 217443, 8700032, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1264, 'The Apparition', 99, 1, 1, 'Janick Gers/Steve Harris', 234605, 9386112, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1265, 'Judas Be My Guide', 99, 1, 1, 'Bruce Dickinson/David Murray', 188786, 7553152, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1266, 'Weekend Warrior', 99, 1, 1, 'Janick Gers/Steve Harris', 339748, 13594678, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1267, 'Fear Of The Dark', 99, 1, 1, 'Steve Harris', 436976, 17483789, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1268, '01 - Prowler', 100, 1, 6, 'Steve Harris', 236173, 5668992, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1269, '02 - Sanctuary', 100, 1, 6, 'David Murray/Paul Di'||chr(39)||'Anno/Steve Harris', 196284, 4712576, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1270, '03 - Remember Tomorrow', 100, 1, 6, 'Harris/Paul Di´Anno', 328620, 7889024, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1271, '04 - Running Free', 100, 1, 6, 'Harris/Paul Di´Anno', 197276, 4739122, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1272, '05 - Phantom of the Opera', 100, 1, 6, 'Steve Harris', 428016, 10276872, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1273, '06 - Transylvania', 100, 1, 6, 'Steve Harris', 259343, 6226048, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1274, '07 - Strange World', 100, 1, 6, 'Steve Harris', 332460, 7981184, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1275, '08 - Charlotte the Harlot', 100, 1, 6, 'Murray  Dave', 252708, 6066304, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1276, '09 - Iron Maiden', 100, 1, 6, 'Steve Harris', 216058, 5189891, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1277, 'The Ides Of March', 101, 1, 13, 'Steve Harris', 105926, 2543744, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1278, 'Wrathchild', 101, 1, 13, 'Steve Harris', 174471, 4188288, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1279, 'Murders In The Rue Morgue', 101, 1, 13, 'Steve Harris', 258377, 6205786, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1280, 'Another Life', 101, 1, 13, 'Steve Harris', 203049, 4874368, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1281, 'Genghis Khan', 101, 1, 13, 'Steve Harris', 187141, 4493440, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1282, 'Innocent Exile', 101, 1, 13, 'Di´Anno/Harris', 232515, 5584861, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1283, 'Killers', 101, 1, 13, 'Steve Harris', 300956, 7227440, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1284, 'Prodigal Son', 101, 1, 13, 'Steve Harris', 372349, 8937600, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1285, 'Purgatory', 101, 1, 13, 'Steve Harris', 200150, 4804736, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1286, 'Drifter', 101, 1, 13, 'Steve Harris', 288757, 6934660, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1287, 'Intro- Churchill S Speech', 102, 1, 13, NULL, 48013, 1154488, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1288, 'Aces High', 102, 1, 13, NULL, 276375, 6635187, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1289, '2 Minutes To Midnight', 102, 1, 3, 'Smith/Dickinson', 366550, 8799380, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1290, 'The Trooper', 102, 1, 3, 'Harris', 268878, 6455255, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1291, 'Revelations', 102, 1, 3, 'Dickinson', 371826, 8926021, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1292, 'Flight Of Icarus', 102, 1, 3, 'Smith/Dickinson', 229982, 5521744, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1293, 'Rime Of The Ancient Mariner', 102, 1, 3, NULL, 789472, 18949518, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1294, 'Powerslave', 102, 1, 3, NULL, 454974, 10921567, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1295, 'The Number Of The Beast', 102, 1, 3, 'Harris', 275121, 6605094, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1296, 'Hallowed Be Thy Name', 102, 1, 3, 'Harris', 451422, 10836304, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1297, 'Iron Maiden', 102, 1, 3, 'Harris', 261955, 6289117, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1298, 'Run To The Hills', 102, 1, 3, 'Harris', 231627, 5561241, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1299, 'Running Free', 102, 1, 3, 'Harris/Di Anno', 204617, 4912986, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1300, 'Wrathchild', 102, 1, 13, 'Steve Harris', 183666, 4410181, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1301, 'Acacia Avenue', 102, 1, 13, NULL, 379872, 9119118, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1302, 'Children Of The Damned', 102, 1, 13, 'Steve Harris', 278177, 6678446, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1303, 'Die With Your Boots On', 102, 1, 13, 'Adrian Smith/Bruce Dickinson/Steve Harris', 314174, 7542367, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1304, 'Phantom Of The Opera', 102, 1, 13, 'Steve Harris', 441155, 10589917, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1305, 'Be Quick Or Be Dead', 103, 1, 1, NULL, 233142, 5599853, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1306, 'The Number Of The Beast', 103, 1, 1, NULL, 294008, 7060625, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1307, 'Wrathchild', 103, 1, 1, NULL, 174106, 4182963, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1308, 'From Here To Eternity', 103, 1, 1, NULL, 284447, 6831163, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1309, 'Can I Play With Madness', 103, 1, 1, NULL, 213106, 5118995, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1310, 'Wasting Love', 103, 1, 1, NULL, 336953, 8091301, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1311, 'Tailgunner', 103, 1, 1, NULL, 247640, 5947795, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1312, 'The Evil That Men Do', 103, 1, 1, NULL, 478145, 11479913, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1313, 'Afraid To Shoot Strangers', 103, 1, 1, NULL, 412525, 9905048, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1314, 'Fear Of The Dark', 103, 1, 1, NULL, 431542, 10361452, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1315, 'Bring Your Daughter... To The Slaughter...', 104, 1, 1, NULL, 376711, 9045532, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1316, 'The Clairvoyant', 104, 1, 1, NULL, 262426, 6302648, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1317, 'Heaven Can Wait', 104, 1, 1, NULL, 440555, 10577743, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1318, 'Run To The Hills', 104, 1, 1, NULL, 235859, 5665052, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1319, '2 Minutes To Midnight', 104, 1, 1, 'Adrian Smith/Bruce Dickinson', 338233, 8122030, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1320, 'Iron Maiden', 104, 1, 1, NULL, 494602, 11874875, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1321, 'Hallowed Be Thy Name', 104, 1, 1, NULL, 447791, 10751410, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1322, 'The Trooper', 104, 1, 1, NULL, 232672, 5588560, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1323, 'Sanctuary', 104, 1, 1, NULL, 318511, 7648679, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1324, 'Running Free', 104, 1, 1, NULL, 474017, 11380851, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1325, 'Tailgunner', 105, 1, 3, 'Bruce Dickinson/Steve Harris', 255582, 4089856, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1326, 'Holy Smoke', 105, 1, 3, 'Bruce Dickinson/Steve Harris', 229459, 3672064, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1327, 'No Prayer For The Dying', 105, 1, 3, 'Steve Harris', 263941, 4225024, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1328, 'Public Enema Number One', 105, 1, 3, 'Bruce Dickinson/David Murray', 254197, 4071587, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1329, 'Fates Warning', 105, 1, 3, 'David Murray/Steve Harris', 250853, 4018088, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1330, 'The Assassin', 105, 1, 3, 'Steve Harris', 258768, 4141056, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1331, 'Run Silent Run Deep', 105, 1, 3, 'Bruce Dickinson/Steve Harris', 275408, 4407296, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1332, 'Hooks In You', 105, 1, 3, 'Adrian Smith/Bruce Dickinson', 247510, 3960832, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1333, 'Bring Your Daughter... ...To The Slaughter', 105, 1, 3, 'Bruce Dickinson', 284238, 4548608, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1334, 'Mother Russia', 105, 1, 3, 'Steve Harris', 332617, 5322752, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1335, 'Where Eagles Dare', 106, 1, 3, 'Steve Harris', 369554, 5914624, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1336, 'Revelations', 106, 1, 3, 'Bruce Dickinson', 408607, 6539264, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1337, 'Flight Of The Icarus', 106, 1, 3, 'Adrian Smith/Bruce Dickinson', 230269, 3686400, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1338, 'Die With Your Boots On', 106, 1, 3, 'Adrian Smith/Bruce Dickinson/Steve Harris', 325694, 5212160, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1339, 'The Trooper', 106, 1, 3, 'Steve Harris', 251454, 4024320, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1340, 'Still Life', 106, 1, 3, 'David Murray/Steve Harris', 294347, 4710400, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1341, 'Quest For Fire', 106, 1, 3, 'Steve Harris', 221309, 3543040, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1342, 'Sun And Steel', 106, 1, 3, 'Adrian Smith/Bruce Dickinson', 206367, 3306324, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1343, 'To Tame A Land', 106, 1, 3, 'Steve Harris', 445283, 7129264, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1344, 'Aces High', 107, 1, 3, 'Harris', 269531, 6472088, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1345, '2 Minutes To Midnight', 107, 1, 3, 'Smith/Dickinson', 359810, 8638809, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1346, 'Losfer Words', 107, 1, 3, 'Steve Harris', 252891, 6074756, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1347, 'Flash of The Blade', 107, 1, 3, 'Dickinson', 242729, 5828861, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1348, 'Duelists', 107, 1, 3, 'Steve Harris', 366471, 8800686, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1349, 'Back in the Village', 107, 1, 3, 'Dickinson/Smith', 320548, 7696518, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1350, 'Powerslave', 107, 1, 3, 'Dickinson', 407823, 9791106, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1351, 'Rime of the Ancient Mariner', 107, 1, 3, 'Harris', 816509, 19599577, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1352, 'Intro', 108, 1, 3, NULL, 115931, 4638848, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1353, 'The Wicker Man', 108, 1, 3, 'Adrian Smith/Bruce Dickinson/Steve Harris', 281782, 11272320, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1354, 'Ghost Of The Navigator', 108, 1, 3, 'Bruce Dickinson/Janick Gers/Steve Harris', 408607, 16345216, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1355, 'Brave New World', 108, 1, 3, 'Bruce Dickinson/David Murray/Steve Harris', 366785, 14676148, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1356, 'Wrathchild', 108, 1, 3, 'Steve Harris', 185808, 7434368, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1357, '2 Minutes To Midnight', 108, 1, 3, 'Adrian Smith/Bruce Dickinson', 386821, 15474816, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1358, 'Blood Brothers', 108, 1, 3, 'Steve Harris', 435513, 17422464, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1359, 'Sign Of The Cross', 108, 1, 3, 'Steve Harris', 649116, 25966720, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1360, 'The Mercenary', 108, 1, 3, 'Janick Gers/Steve Harris', 282697, 11309184, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1361, 'The Trooper', 108, 1, 3, 'Steve Harris', 273528, 10942592, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1362, 'Dream Of Mirrors', 109, 1, 1, 'Janick Gers/Steve Harris', 578324, 23134336, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1363, 'The Clansman', 109, 1, 1, 'Steve Harris', 559203, 22370432, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1364, 'The Evil That Men Do', 109, 1, 3, 'Adrian Smith/Bruce Dickinson/Steve Harris', 280737, 11231360, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1365, 'Fear Of The Dark', 109, 1, 1, 'Steve Harris', 460695, 18430080, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1366, 'Iron Maiden', 109, 1, 1, 'Steve Harris', 351869, 14076032, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1367, 'The Number Of The Beast', 109, 1, 1, 'Steve Harris', 300434, 12022107, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1368, 'Hallowed Be Thy Name', 109, 1, 1, 'Steve Harris', 443977, 17760384, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1369, 'Sanctuary', 109, 1, 1, 'David Murray/Paul Di'||chr(39)||'Anno/Steve Harris', 317335, 12695680, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1370, 'Run To The Hills', 109, 1, 1, 'Steve Harris', 292179, 11688064, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1371, 'Moonchild', 110, 1, 3, 'Adrian Smith; Bruce Dickinson', 340767, 8179151, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1372, 'Infinite Dreams', 110, 1, 3, 'Steve Harris', 369005, 8858669, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1373, 'Can I Play With Madness', 110, 1, 3, 'Adrian Smith; Bruce Dickinson; Steve Harris', 211043, 5067867, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1374, 'The Evil That Men Do', 110, 1, 3, 'Adrian Smith; Bruce Dickinson; Steve Harris', 273998, 6578930, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1375, 'Seventh Son of a Seventh Son', 110, 1, 3, 'Steve Harris', 593580, 14249000, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1376, 'The Prophecy', 110, 1, 3, 'Dave Murray; Steve Harris', 305475, 7334450, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1377, 'The Clairvoyant', 110, 1, 3, 'Adrian Smith; Bruce Dickinson; Steve Harris', 267023, 6411510, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1378, 'Only the Good Die Young', 110, 1, 3, 'Bruce Dickinson; Harris', 280894, 6744431, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1379, 'Caught Somewhere in Time', 111, 1, 3, 'Steve Harris', 445779, 10701149, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1380, 'Wasted Years', 111, 1, 3, 'Adrian Smith', 307565, 7384358, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1381, 'Sea of Madness', 111, 1, 3, 'Adrian Smith', 341995, 8210695, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1382, 'Heaven Can Wait', 111, 1, 3, 'Steve Harris', 441417, 10596431, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1383, 'Stranger in a Strange Land', 111, 1, 3, 'Adrian Smith', 344502, 8270899, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1384, 'Alexander the Great', 111, 1, 3, 'Steve Harris', 515631, 12377742, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1385, 'De Ja Vu', 111, 1, 3, 'David Murray/Steve Harris', 296176, 7113035, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1386, 'The Loneliness of the Long Dis', 111, 1, 3, 'Steve Harris', 391314, 9393598, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1387, '22 Acacia Avenue', 112, 1, 3, 'Adrian Smith/Steve Harris', 395572, 5542516, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1388, 'Children of the Damned', 112, 1, 3, 'Steve Harris', 274364, 3845631, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1389, 'Gangland', 112, 1, 3, 'Adrian Smith/Clive Burr/Steve Harris', 228440, 3202866, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1390, 'Hallowed Be Thy Name', 112, 1, 3, 'Steve Harris', 428669, 6006107, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1391, 'Invaders', 112, 1, 3, 'Steve Harris', 203180, 2849181, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1392, 'Run to the Hills', 112, 1, 3, 'Steve Harris', 228884, 3209124, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1393, 'The Number Of The Beast', 112, 1, 1, 'Steve Harris', 293407, 11737216, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1394, 'The Prisoner', 112, 1, 3, 'Adrian Smith/Steve Harris', 361299, 5062906, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1395, 'Sign Of The Cross', 113, 1, 1, 'Steve Harris', 678008, 27121792, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1396, 'Lord Of The Flies', 113, 1, 1, 'Janick Gers/Steve Harris', 303699, 12148864, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1397, 'Man On The Edge', 113, 1, 1, 'Blaze Bayley/Janick Gers', 253413, 10137728, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1398, 'Fortunes Of War', 113, 1, 1, 'Steve Harris', 443977, 17760384, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1399, 'Look For The Truth', 113, 1, 1, 'Blaze Bayley/Janick Gers/Steve Harris', 310230, 12411008, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1400, 'The Aftermath', 113, 1, 1, 'Blaze Bayley/Janick Gers/Steve Harris', 380786, 15233152, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1401, 'Judgement Of Heaven', 113, 1, 1, 'Steve Harris', 312476, 12501120, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1402, 'Blood On The World'||chr(39)||'s Hands', 113, 1, 1, 'Steve Harris', 357799, 14313600, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1403, 'The Edge Of Darkness', 113, 1, 1, 'Blaze Bayley/Janick Gers/Steve Harris', 399333, 15974528, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1404, '2 A.M.', 113, 1, 1, 'Blaze Bayley/Janick Gers/Steve Harris', 337658, 13511087, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1405, 'The Unbeliever', 113, 1, 1, 'Janick Gers/Steve Harris', 490422, 19617920, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1406, 'Futureal', 114, 1, 1, 'Blaze Bayley/Steve Harris', 175777, 7032960, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1407, 'The Angel And The Gambler', 114, 1, 1, 'Steve Harris', 592744, 23711872, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1408, 'Lightning Strikes Twice', 114, 1, 1, 'David Murray/Steve Harris', 290377, 11616384, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1409, 'The Clansman', 114, 1, 1, 'Steve Harris', 539689, 21592327, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1410, 'When Two Worlds Collide', 114, 1, 1, 'Blaze Bayley/David Murray/Steve Harris', 377312, 15093888, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1411, 'The Educated Fool', 114, 1, 1, 'Steve Harris', 404767, 16191616, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1412, 'Don'||chr(39)||'t Look To The Eyes Of A Stranger', 114, 1, 1, 'Steve Harris', 483657, 19347584, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1413, 'Como Estais Amigos', 114, 1, 1, 'Blaze Bayley/Janick Gers', 330292, 13213824, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1414, 'Please Please Please', 115, 1, 14, 'James Brown/Johnny Terry', 165067, 5394585, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1415, 'Think', 115, 1, 14, 'Lowman Pauling', 166739, 5513208, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1416, 'Night Train', 115, 1, 14, 'Jimmy Forrest/Lewis C. Simpkins/Oscar Washington', 212401, 7027377, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1417, 'Out Of Sight', 115, 1, 14, 'Ted Wright', 143725, 4711323, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1418, 'Papa'||chr(39)||'s Got A Brand New Bag Pt.1', 115, 1, 14, 'James Brown', 127399, 4174420, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1419, 'I Got You (I Feel Good)', 115, 1, 14, 'James Brown', 167392, 5468472, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1420, 'It'||chr(39)||'s A Man'||chr(39)||'s Man'||chr(39)||'s Man'||chr(39)||'s World', 115, 1, 14, 'Betty Newsome/James Brown', 168228, 5541611, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1421, 'Cold Sweat', 115, 1, 14, 'Alfred Ellis/James Brown', 172408, 5643213, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1422, 'Say It Loud, I'||chr(39)||'m Black And I'||chr(39)||'m Proud Pt.1', 115, 1, 14, 'Alfred Ellis/James Brown', 167392, 5478117, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1423, 'Get Up (I Feel Like Being A) Sex Machine', 115, 1, 14, 'Bobby Byrd/James Brown/Ron Lenhoff', 316551, 10498031, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1424, 'Hey America', 115, 1, 14, 'Addie William Jones/Nat Jones', 218226, 7187857, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1425, 'Make It Funky Pt.1', 115, 1, 14, 'Charles Bobbitt/James Brown', 196231, 6507782, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1426, 'I'||chr(39)||'m A Greedy Man Pt.1', 115, 1, 14, 'Charles Bobbitt/James Brown', 217730, 7251211, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1427, 'Get On The Good Foot', 115, 1, 14, 'Fred Wesley/James Brown/Joseph Mims', 215902, 7182736, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1428, 'Get Up Offa That Thing', 115, 1, 14, 'Deanna Brown/Deidra Jenkins/Yamma Brown', 250723, 8355989, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1429, 'It'||chr(39)||'s Too Funky In Here', 115, 1, 14, 'Brad Shapiro/George Jackson/Robert Miller/Walter Shaw', 239072, 7973979, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1430, 'Living In America', 115, 1, 14, 'Charlie Midnight/Dan Hartman', 282880, 9432346, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1431, 'I'||chr(39)||'m Real', 115, 1, 14, 'Full Force/James Brown', 334236, 11183457, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1432, 'Hot Pants Pt.1', 115, 1, 14, 'Fred Wesley/James Brown', 188212, 6295110, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1433, 'Soul Power (Live)', 115, 1, 14, 'James Brown', 260728, 8593206, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1434, 'When You Gonna Learn (Digeridoo)', 116, 1, 1, 'Jay Kay/Kay, Jay', 230635, 7655482, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1435, 'Too Young To Die', 116, 1, 1, 'Smith, Toby', 365818, 12391660, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1436, 'Hooked Up', 116, 1, 1, 'Smith, Toby', 275879, 9301687, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1437, 'If I Like It, I Do It', 116, 1, 1, 'Gelder, Nick van', 293093, 9848207, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1438, 'Music Of The Wind', 116, 1, 1, 'Smith, Toby', 383033, 12870239, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1439, 'Emergency On Planet Earth', 116, 1, 1, 'Smith, Toby', 245263, 8117218, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1440, 'Whatever It Is, I Just Can'||chr(39)||'t Stop', 116, 1, 1, 'Jay Kay/Kay, Jay', 247222, 8249453, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1441, 'Blow Your Mind', 116, 1, 1, 'Smith, Toby', 512339, 17089176, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1442, 'Revolution 1993', 116, 1, 1, 'Smith, Toby', 616829, 20816872, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1443, 'Didgin'||chr(39)||' Out', 116, 1, 1, 'Buchanan, Wallis', 157100, 5263555, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1444, 'Canned Heat', 117, 1, 14, 'Jay Kay', 331964, 11042037, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1445, 'Planet Home', 117, 1, 14, 'Jay Kay/Toby Smith', 284447, 9566237, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1446, 'Black Capricorn Day', 117, 1, 14, 'Jay Kay', 341629, 11477231, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1447, 'Soul Education', 117, 1, 14, 'Jay Kay/Toby Smith', 255477, 8575435, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1448, 'Failling', 117, 1, 14, 'Jay Kay/Toby Smith', 225227, 7503999, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1449, 'Destitute Illusions', 117, 1, 14, 'Derrick McKenzie/Jay Kay/Toby Smith', 340218, 11452651, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1450, 'Supersonic', 117, 1, 14, 'Jay Kay', 315872, 10699265, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1451, 'Butterfly', 117, 1, 14, 'Jay Kay/Toby Smith', 268852, 8947356, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1452, 'Were Do We Go From Here', 117, 1, 14, 'Jay Kay', 313626, 10504158, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1453, 'King For A Day', 117, 1, 14, 'Jay Kay/Toby Smith', 221544, 7335693, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1454, 'Deeper Underground', 117, 1, 14, 'Toby Smith', 281808, 9351277, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1455, 'Just Another Story', 118, 1, 15, 'Toby Smith', 529684, 17582818, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1456, 'Stillness In Time', 118, 1, 15, 'Toby Smith', 257097, 8644290, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1457, 'Half The Man', 118, 1, 15, 'Toby Smith', 289854, 9577679, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1458, 'Light Years', 118, 1, 15, 'Toby Smith', 354560, 11796244, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1459, 'Manifest Destiny', 118, 1, 15, 'Toby Smith', 382197, 12676962, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1460, 'The Kids', 118, 1, 15, 'Toby Smith', 309995, 10334529, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1461, 'Mr. Moon', 118, 1, 15, 'Stuard Zender/Toby Smith', 329534, 11043559, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1462, 'Scam', 118, 1, 15, 'Stuart Zender', 422321, 14019705, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1463, 'Journey To Arnhemland', 118, 1, 15, 'Toby Smith/Wallis Buchanan', 322455, 10843832, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1464, 'Morning Glory', 118, 1, 15, 'J. Kay/Jay Kay', 384130, 12777210, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1465, 'Space Cowboy', 118, 1, 15, 'J. Kay/Jay Kay', 385697, 12906520, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1466, 'Last Chance', 119, 1, 4, 'C. Cester/C. Muncey', 112352, 3683130, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1467, 'Are You Gonna Be My Girl', 119, 1, 4, 'C. Muncey/N. Cester', 213890, 6992324, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1468, 'Rollover D.J.', 119, 1, 4, 'C. Cester/N. Cester', 196702, 6406517, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1469, 'Look What You'||chr(39)||'ve Done', 119, 1, 4, 'N. Cester', 230974, 7517083, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1470, 'Get What You Need', 119, 1, 4, 'C. Cester/C. Muncey/N. Cester', 247719, 8043765, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1471, 'Move On', 119, 1, 4, 'C. Cester/N. Cester', 260623, 8519353, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1472, 'Radio Song', 119, 1, 4, 'C. Cester/C. Muncey/N. Cester', 272117, 8871509, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1473, 'Get Me Outta Here', 119, 1, 4, 'C. Cester/N. Cester', 176274, 5729098, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1474, 'Cold Hard Bitch', 119, 1, 4, 'C. Cester/C. Muncey/N. Cester', 243278, 7929610, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1475, 'Come Around Again', 119, 1, 4, 'C. Muncey/N. Cester', 270497, 8872405, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1476, 'Take It Or Leave It', 119, 1, 4, 'C. Muncey/N. Cester', 142889, 4643370, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1477, 'Lazy Gun', 119, 1, 4, 'C. Cester/N. Cester', 282174, 9186285, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1478, 'Timothy', 119, 1, 4, 'C. Cester', 270341, 8856507, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1479, 'Foxy Lady', 120, 1, 1, 'Jimi Hendrix', 199340, 6480896, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1480, 'Manic Depression', 120, 1, 1, 'Jimi Hendrix', 222302, 7289272, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1481, 'Red House', 120, 1, 1, 'Jimi Hendrix', 224130, 7285851, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1482, 'Can You See Me', 120, 1, 1, 'Jimi Hendrix', 153077, 4987068, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1483, 'Love Or Confusion', 120, 1, 1, 'Jimi Hendrix', 193123, 6329408, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1484, 'I Don'||chr(39)||'t Live Today', 120, 1, 1, 'Jimi Hendrix', 235311, 7661214, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1485, 'May This Be Love', 120, 1, 1, 'Jimi Hendrix', 191216, 6240028, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1486, 'Fire', 120, 1, 1, 'Jimi Hendrix', 164989, 5383075, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1487, 'Third Stone From The Sun', 120, 1, 1, 'Jimi Hendrix', 404453, 13186975, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1488, 'Remember', 120, 1, 1, 'Jimi Hendrix', 168150, 5509613, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1489, 'Are You Experienced?', 120, 1, 1, 'Jimi Hendrix', 254537, 8292497, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1490, 'Hey Joe', 120, 1, 1, 'Billy Roberts', 210259, 6870054, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1491, 'Stone Free', 120, 1, 1, 'Jimi Hendrix', 216293, 7002331, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1492, 'Purple Haze', 120, 1, 1, 'Jimi Hendrix', 171572, 5597056, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1493, '51st Anniversary', 120, 1, 1, 'Jimi Hendrix', 196388, 6398044, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1494, 'The Wind Cries Mary', 120, 1, 1, 'Jimi Hendrix', 200463, 6540638, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1495, 'Highway Chile', 120, 1, 1, 'Jimi Hendrix', 212453, 6887949, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1496, 'Surfing with the Alien', 121, 2, 1, NULL, 263707, 4418504, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1497, 'Ice 9', 121, 2, 1, NULL, 239721, 4036215, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1498, 'Crushing Day', 121, 2, 1, NULL, 314768, 5232158, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1499, 'Always With Me, Always With You', 121, 2, 1, NULL, 202035, 3435777, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1500, 'Satch Boogie', 121, 2, 1, NULL, 193560, 3300654, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1501, 'Hill of the Skull', 121, 2, 1, 'J. Satriani', 108435, 1944738, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1502, 'Circles', 121, 2, 1, NULL, 209071, 3548553, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1503, 'Lords of Karma', 121, 2, 1, 'J. Satriani', 288227, 4809279, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1504, 'Midnight', 121, 2, 1, 'J. Satriani', 102630, 1851753, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1505, 'Echo', 121, 2, 1, 'J. Satriani', 337570, 5595557, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1506, 'Engenho De Dentro', 122, 1, 7, NULL, 310073, 10211473, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1507, 'Alcohol', 122, 1, 7, NULL, 355239, 12010478, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1508, 'Mama Africa', 122, 1, 7, NULL, 283062, 9488316, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1509, 'Salve Simpatia', 122, 1, 7, NULL, 343484, 11314756, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1510, 'W/Brasil (Chama O Síndico)', 122, 1, 7, NULL, 317100, 10599953, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1511, 'País Tropical', 122, 1, 7, NULL, 452519, 14946972, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1512, 'Os Alquimistas Estão Chegando', 122, 1, 7, NULL, 367281, 12304520, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1513, 'Charles Anjo 45', 122, 1, 7, NULL, 389276, 13022833, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1514, 'Selassiê', 122, 1, 7, NULL, 326321, 10724982, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1515, 'Menina Sarará', 122, 1, 7, NULL, 191477, 6393818, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1516, 'Que Maravilha', 122, 1, 7, NULL, 338076, 10996656, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1517, 'Santa Clara Clareou', 122, 1, 7, NULL, 380081, 12524725, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1518, 'Filho Maravilha', 122, 1, 7, NULL, 227526, 7498259, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1519, 'Taj Mahal', 122, 1, 7, NULL, 289750, 9502898, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1520, 'Rapidamente', 123, 1, 7, NULL, 252238, 8470107, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1521, 'As Dores do Mundo', 123, 1, 7, 'Hyldon', 255477, 8537092, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1522, 'Vou Pra Ai', 123, 1, 7, NULL, 300878, 10053718, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1523, 'My Brother', 123, 1, 7, NULL, 253231, 8431821, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1524, 'Há Quanto Tempo', 123, 1, 7, NULL, 270027, 9004470, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1525, 'Vício', 123, 1, 7, NULL, 269897, 8887216, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1526, 'Encontrar Alguém', 123, 1, 7, 'Marco Tulio Lara/Rogerio Flausino', 224078, 7437935, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1527, 'Dance Enquanto é Tempo', 123, 1, 7, NULL, 229093, 7583799, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1528, 'A Tarde', 123, 1, 7, NULL, 266919, 8836127, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1529, 'Always Be All Right', 123, 1, 7, NULL, 128078, 4299676, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1530, 'Sem Sentido', 123, 1, 7, NULL, 250462, 8292108, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1531, 'Onibusfobia', 123, 1, 7, NULL, 315977, 10474904, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1532, 'Pura Elegancia', 124, 1, 16, 'João Suplicy', 284107, 9632269, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1533, 'Choramingando', 124, 1, 16, 'João Suplicy', 190484, 6400532, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1534, 'Por Merecer', 124, 1, 16, 'João Suplicy', 230582, 7764601, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1535, 'No Futuro', 124, 1, 16, 'João Suplicy', 182308, 6056200, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1536, 'Voce Inteira', 124, 1, 16, 'João Suplicy', 241084, 8077282, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1537, 'Cuando A Noite Vai Chegando', 124, 1, 16, 'João Suplicy', 270628, 9081874, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1538, 'Naquele Dia', 124, 1, 16, 'João Suplicy', 251768, 8452654, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1539, 'Equinocio', 124, 1, 16, 'João Suplicy', 269008, 8871455, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1540, 'Papelão', 124, 1, 16, 'João Suplicy', 213263, 7257390, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1541, 'Cuando Eu For Pro Ceu', 124, 1, 16, 'João Suplicy', 118804, 3948371, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1542, 'Do Nosso Amor', 124, 1, 16, 'João Suplicy', 203415, 6774566, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1543, 'Borogodo', 124, 1, 16, 'João Suplicy', 208457, 7104588, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1544, 'Cafezinho', 124, 1, 16, 'João Suplicy', 180924, 6031174, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1545, 'Enquanto O Dia Não Vem', 124, 1, 16, 'João Suplicy', 220891, 7248336, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1546, 'The Green Manalishi', 125, 1, 3, NULL, 205792, 6720789, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1547, 'Living After Midnight', 125, 1, 3, NULL, 213289, 7056785, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1548, 'Breaking The Law (Live)', 125, 1, 3, NULL, 144195, 4728246, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1549, 'Hot Rockin'||chr(39)||'', 125, 1, 3, NULL, 197328, 6509179, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1550, 'Heading Out To The Highway (Live)', 125, 1, 3, NULL, 276427, 9006022, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1551, 'The Hellion', 125, 1, 3, NULL, 41900, 1351993, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1552, 'Electric Eye', 125, 1, 3, NULL, 222197, 7231368, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1553, 'You'||chr(39)||'ve Got Another Thing Comin'||chr(39)||'', 125, 1, 3, NULL, 305162, 9962558, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1554, 'Turbo Lover', 125, 1, 3, NULL, 335542, 11068866, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1555, 'Freewheel Burning', 125, 1, 3, NULL, 265952, 8713599, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1556, 'Some Heads Are Gonna Roll', 125, 1, 3, NULL, 249939, 8198617, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1557, 'Metal Meltdown', 125, 1, 3, NULL, 290664, 9390646, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1558, 'Ram It Down', 125, 1, 3, NULL, 292179, 9554023, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1559, 'Diamonds And Rust (Live)', 125, 1, 3, NULL, 219350, 7163147, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1560, 'Victim Of Change (Live)', 125, 1, 3, NULL, 430942, 14067512, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1561, 'Tyrant (Live)', 125, 1, 3, NULL, 282253, 9190536, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1562, 'Comin'||chr(39)||' Home', 126, 1, 1, 'Paul Stanley, Ace Frehley', 172068, 5661120, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1563, 'Plaster Caster', 126, 1, 1, 'Gene Simmons', 198060, 6528719, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1564, 'Goin'||chr(39)||' Blind', 126, 1, 1, 'Gene Simmons, Stephen Coronel', 217652, 7167523, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1565, 'Do You Love Me', 126, 1, 1, 'Paul Stanley, Bob Ezrin, Kim Fowley', 193619, 6343111, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1566, 'Domino', 126, 1, 1, 'Gene Simmons', 226377, 7488191, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1567, 'Sure Know Something', 126, 1, 1, 'Paul Stanley, Vincent Poncia', 254354, 8375190, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1568, 'A World Without Heroes', 126, 1, 1, 'Paul Stanley, Gene Simmons, Bob Ezrin, Lewis Reed', 177815, 5832524, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1569, 'Rock Bottom', 126, 1, 1, 'Paul Stanley, Ace Frehley', 200594, 6560818, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1570, 'See You Tonight', 126, 1, 1, 'Gene Simmons', 146494, 4817521, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1571, 'I Still Love You', 126, 1, 1, 'Paul Stanley', 369815, 12086145, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1572, 'Every Time I Look At You', 126, 1, 1, 'Paul Stanley, Vincent Cusano', 283898, 9290948, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1573, '2,000 Man', 126, 1, 1, 'Mick Jagger, Keith Richard', 312450, 10292829, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1574, 'Beth', 126, 1, 1, 'Peter Criss, Stan Penridge, Bob Ezrin', 170187, 5577807, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1575, 'Nothin'||chr(39)||' To Lose', 126, 1, 1, 'Gene Simmons', 222354, 7351460, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1576, 'Rock And Roll All Nite', 126, 1, 1, 'Paul Stanley, Gene Simmons', 259631, 8549296, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1577, 'Immigrant Song', 127, 1, 1, 'Robert Plant', 201247, 6457766, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1578, 'Heartbreaker', 127, 1, 1, 'John Bonham/John Paul Jones/Robert Plant', 316081, 10179657, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1579, 'Since I'||chr(39)||'ve Been Loving You', 127, 1, 1, 'John Paul Jones/Robert Plant', 416365, 13471959, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1580, 'Black Dog', 127, 1, 1, 'John Paul Jones/Robert Plant', 317622, 10267572, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1581, 'Dazed And Confused', 127, 1, 1, 'Jimmy Page/Led Zeppelin', 1116734, 36052247, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1582, 'Stairway To Heaven', 127, 1, 1, 'Robert Plant', 529658, 17050485, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1583, 'Going To California', 127, 1, 1, 'Robert Plant', 234605, 7646749, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1584, 'That'||chr(39)||'s The Way', 127, 1, 1, 'Robert Plant', 343431, 11248455, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1585, 'Whole Lotta Love (Medley)', 127, 1, 1, 'Arthur Crudup/Bernard Besman/Bukka White/Doc Pomus/John Bonham/John Lee Hooker/John Paul Jones/Mort Shuman/Robert Plant/Willie Dixon', 825103, 26742545, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1586, 'Thank You', 127, 1, 1, 'Robert Plant', 398262, 12831826, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1587, 'We'||chr(39)||'re Gonna Groove', 128, 1, 1, 'Ben E.King/James Bethea', 157570, 5180975, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1588, 'Poor Tom', 128, 1, 1, 'Jimmy Page/Robert Plant', 182491, 6016220, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1589, 'I Can'||chr(39)||'t Quit You Baby', 128, 1, 1, 'Willie Dixon', 258168, 8437098, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1590, 'Walter'||chr(39)||'s Walk', 128, 1, 1, 'Jimmy Page, Robert Plant', 270785, 8712499, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1591, 'Ozone Baby', 128, 1, 1, 'Jimmy Page, Robert Plant', 215954, 7079588, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1592, 'Darlene', 128, 1, 1, 'Jimmy Page, Robert Plant, John Bonham, John Paul Jones', 307226, 10078197, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1593, 'Bonzo'||chr(39)||'s Montreux', 128, 1, 1, 'John Bonham', 258925, 8557447, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1594, 'Wearing And Tearing', 128, 1, 1, 'Jimmy Page, Robert Plant', 330004, 10701590, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1595, 'The Song Remains The Same', 129, 1, 1, 'Jimmy Page/Jimmy Page '||chr(38)||' Robert Plant/Robert Plant', 330004, 10708950, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1596, 'The Rain Song', 129, 1, 1, 'Jimmy Page/Jimmy Page '||chr(38)||' Robert Plant/Robert Plant', 459180, 15029875, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1597, 'Over The Hills And Far Away', 129, 1, 1, 'Jimmy Page/Jimmy Page '||chr(38)||' Robert Plant/Robert Plant', 290089, 9552829, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1598, 'The Crunge', 129, 1, 1, 'John Bonham/John Paul Jones', 197407, 6460212, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1599, 'Dancing Days', 129, 1, 1, 'Jimmy Page/Jimmy Page '||chr(38)||' Robert Plant/Robert Plant', 223216, 7250104, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1600, 'D'||chr(39)||'Yer Mak'||chr(39)||'er', 129, 1, 1, 'John Bonham/John Paul Jones', 262948, 8645935, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1601, 'No Quarter', 129, 1, 1, 'John Paul Jones', 420493, 13656517, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1602, 'The Ocean', 129, 1, 1, 'John Bonham/John Paul Jones', 271098, 8846469, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1603, 'In The Evening', 130, 1, 1, 'Jimmy Page, Robert Plant '||chr(38)||' John Paul Jones', 410566, 13399734, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1604, 'South Bound Saurez', 130, 1, 1, 'John Paul Jones '||chr(38)||' Robert Plant', 254406, 8420427, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1605, 'Fool In The Rain', 130, 1, 1, 'Jimmy Page, Robert Plant '||chr(38)||' John Paul Jones', 372950, 12371433, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1606, 'Hot Dog', 130, 1, 1, 'Jimmy Page '||chr(38)||' Robert Plant', 197198, 6536167, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1607, 'Carouselambra', 130, 1, 1, 'John Paul Jones, Jimmy Page '||chr(38)||' Robert Plant', 634435, 20858315, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1608, 'All My Love', 130, 1, 1, 'Robert Plant '||chr(38)||' John Paul Jones', 356284, 11684862, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1609, 'I'||chr(39)||'m Gonna Crawl', 130, 1, 1, 'Jimmy Page, Robert Plant '||chr(38)||' John Paul Jones', 329639, 10737665, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1610, 'Black Dog', 131, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones', 296672, 9660588, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1611, 'Rock '||chr(38)||' Roll', 131, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones, John Bonham', 220917, 7142127, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1612, 'The Battle Of Evermore', 131, 1, 1, 'Jimmy Page, Robert Plant', 351555, 11525689, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1613, 'Stairway To Heaven', 131, 1, 1, 'Jimmy Page, Robert Plant', 481619, 15706767, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1614, 'Misty Mountain Hop', 131, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones', 278857, 9092799, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1615, 'Four Sticks', 131, 1, 1, 'Jimmy Page, Robert Plant', 284447, 9481301, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1616, 'Going To California', 131, 1, 1, 'Jimmy Page, Robert Plant', 215693, 7068737, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1617, 'When The Levee Breaks', 131, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones, John Bonham, Memphis Minnie', 427702, 13912107, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1618, 'Good Times Bad Times', 132, 1, 1, 'Jimmy Page/John Bonham/John Paul Jones', 166164, 5464077, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1619, 'Babe I'||chr(39)||'m Gonna Leave You', 132, 1, 1, 'Jimmy Page/Robert Plant', 401475, 13189312, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1620, 'You Shook Me', 132, 1, 1, 'J. B. Lenoir/Willie Dixon', 388179, 12643067, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1621, 'Dazed and Confused', 132, 1, 1, 'Jimmy Page', 386063, 12610326, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1622, 'Your Time Is Gonna Come', 132, 1, 1, 'Jimmy Page/John Paul Jones', 274860, 9011653, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1623, 'Black Mountain Side', 132, 1, 1, 'Jimmy Page', 132702, 4440602, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1624, 'Communication Breakdown', 132, 1, 1, 'Jimmy Page/John Bonham/John Paul Jones', 150230, 4899554, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1625, 'I Can'||chr(39)||'t Quit You Baby', 132, 1, 1, 'Willie Dixon', 282671, 9252733, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1626, 'How Many More Times', 132, 1, 1, 'Jimmy Page/John Bonham/John Paul Jones', 508055, 16541364, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1627, 'Whole Lotta Love', 133, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones, John Bonham', 334471, 11026243, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1628, 'What Is And What Should Never Be', 133, 1, 1, 'Jimmy Page, Robert Plant', 287973, 9369385, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1629, 'The Lemon Song', 133, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones, John Bonham', 379141, 12463496, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1630, 'Thank You', 133, 1, 1, 'Jimmy Page, Robert Plant', 287791, 9337392, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1631, 'Heartbreaker', 133, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones, John Bonham', 253988, 8387560, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1632, 'Living Loving Maid (She'||chr(39)||'s Just A Woman)', 133, 1, 1, 'Jimmy Page, Robert Plant', 159216, 5219819, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1633, 'Ramble On', 133, 1, 1, 'Jimmy Page, Robert Plant', 275591, 9199710, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1634, 'Moby Dick', 133, 1, 1, 'John Bonham, John Paul Jones, Jimmy Page', 260728, 8664210, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1635, 'Bring It On Home', 133, 1, 1, 'Jimmy Page, Robert Plant', 259970, 8494731, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1636, 'Immigrant Song', 134, 1, 1, 'Jimmy Page, Robert Plant', 144875, 4786461, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1637, 'Friends', 134, 1, 1, 'Jimmy Page, Robert Plant', 233560, 7694220, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1638, 'Celebration Day', 134, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones', 209528, 6871078, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1639, 'Since I'||chr(39)||'ve Been Loving You', 134, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones', 444055, 14482460, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1640, 'Out On The Tiles', 134, 1, 1, 'Jimmy Page, Robert Plant, John Bonham', 246047, 8060350, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1641, 'Gallows Pole', 134, 1, 1, 'Traditional', 296228, 9757151, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1642, 'Tangerine', 134, 1, 1, 'Jimmy Page', 189675, 6200893, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1643, 'That'||chr(39)||'s The Way', 134, 1, 1, 'Jimmy Page, Robert Plant', 337345, 11202499, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1644, 'Bron-Y-Aur Stomp', 134, 1, 1, 'Jimmy Page, Robert Plant, John Paul Jones', 259500, 8674508, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1645, 'Hats Off To (Roy) Harper', 134, 1, 1, 'Traditional', 219376, 7236640, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1646, 'In The Light', 135, 1, 1, 'John Paul Jones/Robert Plant', 526785, 17033046, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1647, 'Bron-Yr-Aur', 135, 1, 1, 'Jimmy Page', 126641, 4150746, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1648, 'Down By The Seaside', 135, 1, 1, 'Robert Plant', 316186, 10371282, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1649, 'Ten Years Gone', 135, 1, 1, 'Robert Plant', 393116, 12756366, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1650, 'Night Flight', 135, 1, 1, 'John Paul Jones/Robert Plant', 217547, 7160647, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1651, 'The Wanton Song', 135, 1, 1, 'Robert Plant', 249887, 8180988, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1652, 'Boogie With Stu', 135, 1, 1, 'Ian Stewart/John Bonham/John Paul Jones/Mrs. Valens/Robert Plant', 233273, 7657086, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1653, 'Black Country Woman', 135, 1, 1, 'Robert Plant', 273084, 8951732, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1654, 'Sick Again', 135, 1, 1, 'Robert Plant', 283036, 9279263, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1655, 'Achilles Last Stand', 136, 1, 1, 'Jimmy Page/Robert Plant', 625502, 20593955, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1656, 'For Your Life', 136, 1, 1, 'Jimmy Page/Robert Plant', 384391, 12633382, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1657, 'Royal Orleans', 136, 1, 1, 'John Bonham/John Paul Jones', 179591, 5930027, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1658, 'Nobody'||chr(39)||'s Fault But Mine', 136, 1, 1, 'Jimmy Page/Robert Plant', 376215, 12237859, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1659, 'Candy Store Rock', 136, 1, 1, 'Jimmy Page/Robert Plant', 252055, 8397423, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1660, 'Hots On For Nowhere', 136, 1, 1, 'Jimmy Page/Robert Plant', 284107, 9342342, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1661, 'Tea For One', 136, 1, 1, 'Jimmy Page/Robert Plant', 566752, 18475264, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1662, 'Rock '||chr(38)||' Roll', 137, 1, 1, 'John Bonham/John Paul Jones/Robert Plant', 242442, 7897065, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1663, 'Celebration Day', 137, 1, 1, 'John Paul Jones/Robert Plant', 230034, 7478487, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1664, 'The Song Remains The Same', 137, 1, 1, 'Robert Plant', 353358, 11465033, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1665, 'Rain Song', 137, 1, 1, 'Robert Plant', 505808, 16273705, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1666, 'Dazed And Confused', 137, 1, 1, 'Jimmy Page', 1612329, 52490554, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1667, 'No Quarter', 138, 1, 1, 'John Paul Jones/Robert Plant', 749897, 24399285, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1668, 'Stairway To Heaven', 138, 1, 1, 'Robert Plant', 657293, 21354766, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1669, 'Moby Dick', 138, 1, 1, 'John Bonham/John Paul Jones', 766354, 25345841, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1670, 'Whole Lotta Love', 138, 1, 1, 'John Bonham/John Paul Jones/Robert Plant/Willie Dixon', 863895, 28191437, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1671, 'Natália', 139, 1, 7, 'Renato Russo', 235728, 7640230, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1672, 'L'||chr(39)||'Avventura', 139, 1, 7, 'Renato Russo', 278256, 9165769, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1673, 'Música De Trabalho', 139, 1, 7, 'Renato Russo', 260231, 8590671, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1674, 'Longe Do Meu Lado', 139, 1, 7, 'Renato Russo - Marcelo Bonfá', 266161, 8655249, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1675, 'A Via Láctea', 139, 1, 7, 'Renato Russo', 280084, 9234879, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1676, 'Música Ambiente', 139, 1, 7, 'Renato Russo', 247614, 8234388, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1677, 'Aloha', 139, 1, 7, 'Renato Russo', 325955, 10793301, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1678, 'Soul Parsifal', 139, 1, 7, 'Renato Russo - Marisa Monte', 295053, 9853589, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1679, 'Dezesseis', 139, 1, 7, 'Renato Russo', 323918, 10573515, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1680, 'Mil Pedaços', 139, 1, 7, 'Renato Russo', 203337, 6643291, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1681, 'Leila', 139, 1, 7, 'Renato Russo', 323056, 10608239, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1682, '1º De Julho', 139, 1, 7, 'Renato Russo', 290298, 9619257, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1683, 'Esperando Por Mim', 139, 1, 7, 'Renato Russo', 261668, 8844133, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1684, 'Quando Você Voltar', 139, 1, 7, 'Renato Russo', 173897, 5781046, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1685, 'O Livro Dos Dias', 139, 1, 7, 'Renato Russo', 257253, 8570929, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1686, 'Será', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 148401, 4826528, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1687, 'Ainda É Cedo', 140, 1, 7, 'Dado Villa-Lobos/Ico Ouro-Preto/Marcelo Bonfá', 236826, 7796400, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1688, 'Geração Coca-Cola', 140, 1, 7, 'Renato Russo', 141453, 4625731, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1689, 'Eduardo E Mônica', 140, 1, 7, 'Renato Russo', 271229, 9026691, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1690, 'Tempo Perdido', 140, 1, 7, 'Renato Russo', 302158, 9963914, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1691, 'Indios', 140, 1, 7, 'Renato Russo', 258168, 8610226, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1692, 'Que País É Este', 140, 1, 7, 'Renato Russo', 177606, 5822124, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1693, 'Faroeste Caboclo', 140, 1, 7, 'Renato Russo', 543007, 18092739, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1694, 'Há Tempos', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 197146, 6432922, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1695, 'Pais E Filhos', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 308401, 10130685, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1696, 'Meninos E Meninas', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 203781, 6667802, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1697, 'Vento No Litoral', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 366445, 12063806, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1698, 'Perfeição', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 276558, 9258489, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1699, 'Giz', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 202213, 6677671, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1700, 'Dezesseis', 140, 1, 7, 'Dado Villa-Lobos/Marcelo Bonfá', 321724, 10501773, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1701, 'Antes Das Seis', 140, 1, 7, 'Dado Villa-Lobos', 189231, 6296531, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1702, 'Are You Gonna Go My Way', 141, 1, 1, 'Craig Ross/Lenny Kravitz', 211591, 6905135, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1703, 'Fly Away', 141, 1, 1, 'Lenny Kravitz', 221962, 7322085, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1704, 'Rock And Roll Is Dead', 141, 1, 1, 'Lenny Kravitz', 204199, 6680312, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1705, 'Again', 141, 1, 1, 'Lenny Kravitz', 228989, 7490476, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1706, 'It Ain'||chr(39)||'t Over '||chr(39)||'Til It'||chr(39)||'s Over', 141, 1, 1, 'Lenny Kravitz', 242703, 8078936, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1707, 'Can'||chr(39)||'t Get You Off My Mind', 141, 1, 1, 'Lenny Kravitz', 273815, 8937150, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1708, 'Mr. Cab Driver', 141, 1, 1, 'Lenny Kravitz', 230321, 7668084, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1709, 'American Woman', 141, 1, 1, 'B. Cummings/G. Peterson/M.J. Kale/R. Bachman', 261773, 8538023, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1710, 'Stand By My Woman', 141, 1, 1, 'Henry Kirssch/Lenny Kravitz/S. Pasch A. Krizan', 259683, 8447611, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1711, 'Always On The Run', 141, 1, 1, 'Lenny Kravitz/Slash', 232515, 7593397, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1712, 'Heaven Help', 141, 1, 1, 'Gerry DeVeaux/Terry Britten', 190354, 6222092, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1713, 'I Belong To You', 141, 1, 1, 'Lenny Kravitz', 257123, 8477980, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1714, 'Believe', 141, 1, 1, 'Henry Hirsch/Lenny Kravitz', 295131, 9661978, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1715, 'Let Love Rule', 141, 1, 1, 'Lenny Kravitz', 342648, 11298085, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1716, 'Black Velveteen', 141, 1, 1, 'Lenny Kravitz', 290899, 9531301, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1717, 'Assim Caminha A Humanidade', 142, 1, 7, NULL, 210755, 6993763, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1718, 'Honolulu', 143, 1, 7, NULL, 261433, 8558481, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1719, 'Dancin´Days', 143, 1, 7, NULL, 237400, 7875347, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1720, 'Um Pro Outro', 142, 1, 7, NULL, 236382, 7825215, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1721, 'Aviso Aos Navegantes', 143, 1, 7, NULL, 242808, 8058651, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1722, 'Casa', 142, 1, 7, NULL, 307591, 10107269, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1723, 'Condição', 142, 1, 7, NULL, 263549, 8778465, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1724, 'Hyperconectividade', 143, 1, 7, NULL, 180636, 5948039, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1725, 'O Descobridor Dos Sete Mares', 143, 1, 7, NULL, 225854, 7475780, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1726, 'Satisfação', 142, 1, 7, NULL, 208065, 6901681, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1727, 'Brumário', 142, 1, 7, NULL, 216241, 7243499, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1728, 'Um Certo Alguém', 143, 1, 7, NULL, 194063, 6430939, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1729, 'Fullgás', 143, 1, 7, NULL, 346070, 11505484, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1730, 'Sábado À Noite', 142, 1, 7, NULL, 193854, 6435114, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1731, 'A Cura', 142, 1, 7, NULL, 280920, 9260588, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1732, 'Aquilo', 143, 1, 7, NULL, 246073, 8167819, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1733, 'Atrás Do Trio Elétrico', 142, 1, 7, NULL, 149080, 4917615, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1734, 'Senta A Pua', 143, 1, 7, NULL, 217547, 7205844, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1735, 'Ro-Que-Se-Da-Ne', 143, 1, 7, NULL, 146703, 4805897, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1736, 'Tudo Bem', 142, 1, 7, NULL, 196101, 6419139, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1737, 'Toda Forma De Amor', 142, 1, 7, NULL, 227813, 7496584, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1738, 'Tudo Igual', 143, 1, 7, NULL, 276035, 9201645, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1739, 'Fogo De Palha', 143, 1, 7, NULL, 246804, 8133732, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1740, 'Sereia', 142, 1, 7, NULL, 278047, 9121087, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1741, 'Assaltaram A Gramática', 143, 1, 7, NULL, 261041, 8698959, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1742, 'Se Você Pensa', 142, 1, 7, NULL, 195996, 6552490, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1743, 'Lá Vem O Sol (Here Comes The Sun)', 142, 1, 7, NULL, 189492, 6229645, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1744, 'O Último Romântico (Ao Vivo)', 143, 1, 7, NULL, 231993, 7692697, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1745, 'Pseudo Silk Kimono', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 134739, 4334038, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1746, 'Kayleigh', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 234605, 7716005, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1747, 'Lavender', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 153417, 4999814, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1748, 'Bitter Suite: Brief Encounter / Lost Weekend / Blue Angel', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 356493, 11791068, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1749, 'Heart Of Lothian: Wide Boy / Curtain Call', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 366053, 11893723, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1750, 'Waterhole (Expresso Bongo)', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 133093, 4378835, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1751, 'Lords Of The Backstage', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 112875, 3741319, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1752, 'Blind Curve: Vocal Under A Bloodlight / Passing Strangers / Mylo / Perimeter Walk / Threshold', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 569704, 18578995, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1753, 'Childhoods End?', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 272796, 9015366, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1754, 'White Feather', 144, 1, 1, 'Kelly, Mosley, Rothery, Trewaves', 143595, 4711776, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1755, 'Arrepio', 145, 1, 7, 'Carlinhos Brown', 136254, 4511390, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1756, 'Magamalabares', 145, 1, 7, 'Carlinhos Brown', 215875, 7183757, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1757, 'Chuva No Brejo', 145, 1, 7, 'Morais', 145606, 4857761, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1758, 'Cérebro Eletrônico', 145, 1, 7, 'Gilberto Gil', 172800, 5760864, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1759, 'Tempos Modernos', 145, 1, 7, 'Lulu Santos', 183066, 6066234, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1760, 'Maraçá', 145, 1, 7, 'Carlinhos Brown', 230008, 7621482, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1761, 'Blanco', 145, 1, 7, 'Marisa Monte/poema de Octavio Paz/versão: Haroldo de Campos', 45191, 1454532, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1762, 'Panis Et Circenses', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 192339, 6318373, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1763, 'De Noite Na Cama', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 209005, 7012658, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1764, 'Beija Eu', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 197276, 6512544, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1765, 'Give Me Love', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 249808, 8196331, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1766, 'Ainda Lembro', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 218801, 7211247, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1767, 'A Menina Dança', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 129410, 4326918, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1768, 'Dança Da Solidão', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 203520, 6699368, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1769, 'Ao Meu Redor', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 275591, 9158834, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1770, 'Bem Leve', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 159190, 5246835, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1771, 'Segue O Seco', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 178207, 5922018, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1772, 'O Xote Das Meninas', 145, 1, 7, 'Caetano Veloso e Gilberto Gil', 291866, 9553228, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1773, 'Wherever I Lay My Hat', 146, 1, 14, NULL, 136986, 4477321, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1774, 'Get My Hands On Some Lovin'||chr(39)||'', 146, 1, 14, NULL, 149054, 4860380, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1775, 'No Good Without You', 146, 1, 14, 'William "Mickey" Stevenson', 161410, 5259218, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1776, 'You'||chr(39)||'ve Been A Long Time Coming', 146, 1, 14, 'Brian Holland/Eddie Holland/Lamont Dozier', 137221, 4437949, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1777, 'When I Had Your Love', 146, 1, 14, 'Robert Rogers/Warren "Pete" Moore/William "Mickey" Stevenson', 152424, 4972815, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1778, 'You'||chr(39)||'re What'||chr(39)||'s Happening (In The World Today)', 146, 1, 14, 'Allen Story/George Gordy/Robert Gordy', 142027, 4631104, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1779, 'Loving You Is Sweeter Than Ever', 146, 1, 14, 'Ivy Hunter/Stevie Wonder', 166295, 5377546, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1780, 'It'||chr(39)||'s A Bitter Pill To Swallow', 146, 1, 14, 'Smokey Robinson/Warren "Pete" Moore', 194821, 6477882, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1781, 'Seek And You Shall Find', 146, 1, 14, 'Ivy Hunter/William "Mickey" Stevenson', 223451, 7306719, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1782, 'Gonna Keep On Tryin'||chr(39)||' Till I Win Your Love', 146, 1, 14, 'Barrett Strong/Norman Whitfield', 176404, 5789945, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1783, 'Gonna Give Her All The Love I'||chr(39)||'ve Got', 146, 1, 14, 'Barrett Strong/Norman Whitfield', 210886, 6893603, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1784, 'I Wish It Would Rain', 146, 1, 14, 'Barrett Strong/Norman Whitfield/Roger Penzabene', 172486, 5647327, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1785, 'Abraham, Martin And John', 146, 1, 14, 'Dick Holler', 273057, 8888206, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1786, 'Save The Children', 146, 1, 14, 'Al Cleveland/Marvin Gaye/Renaldo Benson', 194821, 6342021, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1787, 'You Sure Love To Ball', 146, 1, 14, 'Marvin Gaye', 218540, 7217872, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1788, 'Ego Tripping Out', 146, 1, 14, 'Marvin Gaye', 314514, 10383887, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1789, 'Praise', 146, 1, 14, 'Marvin Gaye', 235833, 7839179, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1790, 'Heavy Love Affair', 146, 1, 14, 'Marvin Gaye', 227892, 7522232, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1791, 'Down Under', 147, 1, 1, NULL, 222171, 7366142, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1792, 'Overkill', 147, 1, 1, NULL, 225410, 7408652, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1793, 'Be Good Johnny', 147, 1, 1, NULL, 216320, 7139814, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1794, 'Everything I Need', 147, 1, 1, NULL, 216476, 7107625, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1795, 'Down by the Sea', 147, 1, 1, NULL, 408163, 13314900, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1796, 'Who Can It Be Now?', 147, 1, 1, NULL, 202396, 6682850, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1797, 'It'||chr(39)||'s a Mistake', 147, 1, 1, NULL, 273371, 8979965, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1798, 'Dr. Heckyll '||chr(38)||' Mr. Jive', 147, 1, 1, NULL, 278465, 9110403, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1799, 'Shakes and Ladders', 147, 1, 1, NULL, 198008, 6560753, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1800, 'No Sign of Yesterday', 147, 1, 1, NULL, 362004, 11829011, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1801, 'Enter Sandman', 148, 1, 3, 'James Hetfield, Lars Ulrich and Kirk Hammett', 332251, 10852002, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1802, 'Sad But True', 148, 1, 3, 'Ulrich', 324754, 10541258, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1803, 'Holier Than Thou', 148, 1, 3, 'Ulrich', 227892, 7462011, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1804, 'The Unforgiven', 148, 1, 3, 'James Hetfield, Lars Ulrich and Kirk Hammett', 387082, 12646886, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1805, 'Wherever I May Roam', 148, 1, 3, 'Ulrich', 404323, 13161169, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1806, 'Don'||chr(39)||'t Tread On Me', 148, 1, 3, 'Ulrich', 240483, 7827907, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1807, 'Through The Never', 148, 1, 3, 'James Hetfield, Lars Ulrich and Kirk Hammett', 244375, 8024047, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1808, 'Nothing Else Matters', 148, 1, 3, 'Ulrich', 388832, 12606241, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1809, 'Of Wolf And Man', 148, 1, 3, 'James Hetfield, Lars Ulrich and Kirk Hammett', 256835, 8339785, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1810, 'The God That Failed', 148, 1, 3, 'Ulrich', 308610, 10055959, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1811, 'My Friend Of Misery', 148, 1, 3, 'James Hetfield, Lars Ulrich and Jason Newsted', 409547, 13293515, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1812, 'The Struggle Within', 148, 1, 3, 'Ulrich', 234240, 7654052, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1813, 'Helpless', 149, 1, 3, 'Harris/Tatler', 398315, 12977902, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1814, 'The Small Hours', 149, 1, 3, 'Holocaust', 403435, 13215133, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1815, 'The Wait', 149, 1, 3, 'Killing Joke', 295418, 9688418, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1816, 'Crash Course In Brain Surgery', 149, 1, 3, 'Bourge/Phillips/Shelley', 190406, 6233729, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1817, 'Last Caress/Green Hell', 149, 1, 3, 'Danzig', 209972, 6854313, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1818, 'Am I Evil?', 149, 1, 3, 'Harris/Tatler', 470256, 15387219, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1819, 'Blitzkrieg', 149, 1, 3, 'Jones/Sirotto/Smith', 216685, 7090018, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1820, 'Breadfan', 149, 1, 3, 'Bourge/Phillips/Shelley', 341551, 11100130, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1821, 'The Prince', 149, 1, 3, 'Harris/Tatler', 265769, 8624492, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1822, 'Stone Cold Crazy', 149, 1, 3, 'Deacon/May/Mercury/Taylor', 137717, 4514830, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1823, 'So What', 149, 1, 3, 'Culmer/Exalt', 189152, 6162894, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1824, 'Killing Time', 149, 1, 3, 'Sweet Savage', 183693, 6021197, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1825, 'Overkill', 149, 1, 3, 'Clarke/Kilmister/Tayler', 245133, 7971330, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1826, 'Damage Case', 149, 1, 3, 'Clarke/Farren/Kilmister/Tayler', 220212, 7212997, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1827, 'Stone Dead Forever', 149, 1, 3, 'Clarke/Kilmister/Tayler', 292127, 9556060, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1828, 'Too Late Too Late', 149, 1, 3, 'Clarke/Kilmister/Tayler', 192052, 6276291, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1829, 'Hit The Lights', 150, 1, 3, 'James Hetfield, Lars Ulrich', 257541, 8357088, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1830, 'The Four Horsemen', 150, 1, 3, 'James Hetfield, Lars Ulrich, Dave Mustaine', 433188, 14178138, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1831, 'Motorbreath', 150, 1, 3, 'James Hetfield', 188395, 6153933, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1832, 'Jump In The Fire', 150, 1, 3, 'James Hetfield, Lars Ulrich, Dave Mustaine', 281573, 9135755, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1833, '(Anesthesia) Pulling Teeth', 150, 1, 3, 'Cliff Burton', 254955, 8234710, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1834, 'Whiplash', 150, 1, 3, 'James Hetfield, Lars Ulrich', 249208, 8102839, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1835, 'Phantom Lord', 150, 1, 3, 'James Hetfield, Lars Ulrich, Dave Mustaine', 302053, 9817143, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1836, 'No Remorse', 150, 1, 3, 'James Hetfield, Lars Ulrich', 386795, 12672166, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1837, 'Seek '||chr(38)||' Destroy', 150, 1, 3, 'James Hetfield, Lars Ulrich', 415817, 13452301, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1838, 'Metal Militia', 150, 1, 3, 'James Hetfield, Lars Ulrich, Dave Mustaine', 311327, 10141785, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1839, 'Ain'||chr(39)||'t My Bitch', 151, 1, 3, 'James Hetfield, Lars Ulrich', 304457, 9931015, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1840, '2 X 4', 151, 1, 3, 'James Hetfield, Lars Ulrich, Kirk Hammett', 328254, 10732251, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1841, 'The House Jack Built', 151, 1, 3, 'James Hetfield, Lars Ulrich, Kirk Hammett', 398942, 13005152, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1842, 'Until It Sleeps', 151, 1, 3, 'James Hetfield, Lars Ulrich', 269740, 8837394, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1843, 'King Nothing', 151, 1, 3, 'James Hetfield, Lars Ulrich, Kirk Hammett', 328097, 10681477, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1844, 'Hero Of The Day', 151, 1, 3, 'James Hetfield, Lars Ulrich, Kirk Hammett', 261982, 8540298, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1845, 'Bleeding Me', 151, 1, 3, 'James Hetfield, Lars Ulrich, Kirk Hammett', 497998, 16249420, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1846, 'Cure', 151, 1, 3, 'James Hetfield, Lars Ulrich', 294347, 9648615, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1847, 'Poor Twisted Me', 151, 1, 3, 'James Hetfield, Lars Ulrich', 240065, 7854349, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1848, 'Wasted My Hate', 151, 1, 3, 'James Hetfield, Lars Ulrich, Kirk Hammett', 237296, 7762300, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1849, 'Mama Said', 151, 1, 3, 'James Hetfield, Lars Ulrich', 319764, 10508310, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1850, 'Thorn Within', 151, 1, 3, 'James Hetfield, Lars Ulrich, Kirk Hammett', 351738, 11486686, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1851, 'Ronnie', 151, 1, 3, 'James Hetfield, Lars Ulrich', 317204, 10390947, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1852, 'The Outlaw Torn', 151, 1, 3, 'James Hetfield, Lars Ulrich', 588721, 19286261, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1853, 'Battery', 152, 1, 3, 'J.Hetfield/L.Ulrich', 312424, 10229577, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1854, 'Master Of Puppets', 152, 1, 3, 'K.Hammett', 515239, 16893720, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1855, 'The Thing That Should Not Be', 152, 1, 3, 'K.Hammett', 396199, 12952368, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1856, 'Welcome Home (Sanitarium)', 152, 1, 3, 'K.Hammett', 387186, 12679965, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1857, 'Disposable Heroes', 152, 1, 3, 'J.Hetfield/L.Ulrich', 496718, 16135560, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1858, 'Leper Messiah', 152, 1, 3, 'C.Burton', 347428, 11310434, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1859, 'Orion', 152, 1, 3, 'K.Hammett', 500062, 16378477, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1860, 'Damage Inc.', 152, 1, 3, 'K.Hammett', 330919, 10725029, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1861, 'Fuel', 153, 1, 3, 'Hetfield, Ulrich, Hammett', 269557, 8876811, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1862, 'The Memory Remains', 153, 1, 3, 'Hetfield, Ulrich', 279353, 9110730, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1863, 'Devil'||chr(39)||'s Dance', 153, 1, 3, 'Hetfield, Ulrich', 318955, 10414832, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1864, 'The Unforgiven II', 153, 1, 3, 'Hetfield, Ulrich, Hammett', 395520, 12886474, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1865, 'Better Than You', 153, 1, 3, 'Hetfield, Ulrich', 322899, 10549070, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1866, 'Slither', 153, 1, 3, 'Hetfield, Ulrich, Hammett', 313103, 10199789, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1867, 'Carpe Diem Baby', 153, 1, 3, 'Hetfield, Ulrich, Hammett', 372480, 12170693, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1868, 'Bad Seed', 153, 1, 3, 'Hetfield, Ulrich, Hammett', 245394, 8019586, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1869, 'Where The Wild Things Are', 153, 1, 3, 'Hetfield, Ulrich, Newsted', 414380, 13571280, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1870, 'Prince Charming', 153, 1, 3, 'Hetfield, Ulrich', 365061, 12009412, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1871, 'Low Man'||chr(39)||'s Lyric', 153, 1, 3, 'Hetfield, Ulrich', 457639, 14855583, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1872, 'Attitude', 153, 1, 3, 'Hetfield, Ulrich', 315898, 10335734, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1873, 'Fixxxer', 153, 1, 3, 'Hetfield, Ulrich, Hammett', 496065, 16190041, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1874, 'Fight Fire With Fire', 154, 1, 3, 'Metallica', 285753, 9420856, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1875, 'Ride The Lightning', 154, 1, 3, 'Metallica', 397740, 13055884, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1876, 'For Whom The Bell Tolls', 154, 1, 3, 'Metallica', 311719, 10159725, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1877, 'Fade To Black', 154, 1, 3, 'Metallica', 414824, 13531954, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1878, 'Trapped Under Ice', 154, 1, 3, 'Metallica', 244532, 7975942, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1879, 'Escape', 154, 1, 3, 'Metallica', 264359, 8652332, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1880, 'Creeping Death', 154, 1, 3, 'Metallica', 396878, 12955593, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1881, 'The Call Of Ktulu', 154, 1, 3, 'Metallica', 534883, 17486240, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1882, 'Frantic', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 350458, 11510849, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1883, 'St. Anger', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 441234, 14363779, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1884, 'Some Kind Of Monster', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 505626, 16557497, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1885, 'Dirty Window', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 324989, 10670604, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1886, 'Invisible Kid', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 510197, 16591800, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1887, 'My World', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 345626, 11253756, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1888, 'Shoot Me Again', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 430210, 14093551, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1889, 'Sweet Amber', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 327235, 10616595, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1890, 'The Unnamed Feeling', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 429479, 14014582, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1891, 'Purify', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 314017, 10232537, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1892, 'All Within My Hands', 155, 1, 3, 'Bob Rock/James Hetfield/Kirk Hammett/Lars Ulrich', 527986, 17162741, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1893, 'Blackened', 156, 1, 3, 'James Hetfield, Lars Ulrich '||chr(38)||' Jason Newsted', 403382, 13254874, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1894, '...And Justice For All', 156, 1, 3, 'James Hetfield, Lars Ulrich '||chr(38)||' Kirk Hammett', 585769, 19262088, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1895, 'Eye Of The Beholder', 156, 1, 3, 'James Hetfield, Lars Ulrich '||chr(38)||' Kirk Hammett', 385828, 12747894, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1896, 'One', 156, 1, 3, 'James Hetfield '||chr(38)||' Lars Ulrich', 446484, 14695721, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1897, 'The Shortest Straw', 156, 1, 3, 'James Hetfield and Lars Ulrich', 395389, 13013990, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1898, 'Harvester Of Sorrow', 156, 1, 3, 'James Hetfield and Lars Ulrich', 345547, 11377339, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1899, 'The Frayed Ends Of Sanity', 156, 1, 3, 'James Hetfield, Lars Ulrich and Kirk Hammett', 464039, 15198986, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1900, 'To Live Is To Die', 156, 1, 3, 'James Hetfield, Lars Ulrich and Cliff Burton', 588564, 19243795, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1901, 'Dyers Eve', 156, 1, 3, 'James Hetfield, Lars Ulrich and Kirk Hammett', 313991, 10302828, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1902, 'Springsville', 157, 1, 2, 'J. Carisi', 207725, 6776219, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1903, 'The Maids Of Cadiz', 157, 1, 2, 'L. Delibes', 233534, 7505275, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1904, 'The Duke', 157, 1, 2, 'Dave Brubeck', 214961, 6977626, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1905, 'My Ship', 157, 1, 2, 'Ira Gershwin, Kurt Weill', 268016, 8581144, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1906, 'Miles Ahead', 157, 1, 2, 'Miles Davis, Gil Evans', 209893, 6807707, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1907, 'Blues For Pablo', 157, 1, 2, 'Gil Evans', 318328, 10218398, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1908, 'New Rhumba', 157, 1, 2, 'A. Jamal', 276871, 8980400, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1909, 'The Meaning Of The Blues', 157, 1, 2, 'R. Troup, L. Worth', 168594, 5395412, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1910, 'Lament', 157, 1, 2, 'J.J. Johnson', 134191, 4293394, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1911, 'I Don'||chr(39)||'t Wanna Be Kissed (By Anyone But You)', 157, 1, 2, 'H. Spina, J. Elliott', 191320, 6219487, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1912, 'Springsville (Alternate Take)', 157, 1, 2, 'J. Carisi', 196388, 6382079, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1913, 'Blues For Pablo (Alternate Take)', 157, 1, 2, 'Gil Evans', 212558, 6900619, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1914, 'The Meaning Of The Blues/Lament (Alternate Take)', 157, 1, 2, 'J.J. Johnson/R. Troup, L. Worth', 309786, 9912387, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1915, 'I Don'||chr(39)||'t Wanna Be Kissed (By Anyone But You) (Alternate Take)', 157, 1, 2, 'H. Spina, J. Elliott', 192078, 6254796, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1916, 'Coração De Estudante', 158, 1, 7, 'Wagner Tiso, Milton Nascimento', 238550, 7797308, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1917, 'A Noite Do Meu Bem', 158, 1, 7, 'Dolores Duran', 220081, 7125225, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1918, 'Paisagem Na Janela', 158, 1, 7, 'Lô Borges, Fernando Brant', 197694, 6523547, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1919, 'Cuitelinho', 158, 1, 7, 'Folclore', 209397, 6803970, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1920, 'Caxangá', 158, 1, 7, 'Milton Nascimento, Fernando Brant', 245551, 8144179, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1921, 'Nos Bailes Da Vida', 158, 1, 7, 'Milton Nascimento, Fernando Brant', 275748, 9126170, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1922, 'Menestrel Das Alagoas', 158, 1, 7, 'Milton Nascimento, Fernando Brant', 199758, 6542289, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1923, 'Brasil', 158, 1, 7, 'Milton Nascimento, Fernando Brant', 155428, 5252560, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1924, 'Canção Do Novo Mundo', 158, 1, 7, 'Beto Guedes, Ronaldo Bastos', 215353, 7032626, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1925, 'Um Gosto De Sol', 158, 1, 7, 'Milton Nascimento, Ronaldo Bastos', 307200, 9893875, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1926, 'Solar', 158, 1, 7, 'Milton Nascimento, Fernando Brant', 156212, 5098288, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1927, 'Para Lennon E McCartney', 158, 1, 7, 'Lô Borges, Márcio Borges, Fernando Brant', 321828, 10626920, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1928, 'Maria, Maria', 158, 1, 7, 'Milton Nascimento, Fernando Brant', 72463, 2371543, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1929, 'Minas', 159, 1, 7, 'Milton Nascimento, Caetano Veloso', 152293, 4921056, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1930, 'Fé Cega, Faca Amolada', 159, 1, 7, 'Milton Nascimento, Ronaldo Bastos', 278099, 9258649, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1931, 'Beijo Partido', 159, 1, 7, 'Toninho Horta', 229564, 7506969, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1932, 'Saudade Dos Aviões Da Panair (Conversando No Bar)', 159, 1, 7, 'Milton Nascimento, Fernando Brant', 268721, 8805088, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1933, 'Gran Circo', 159, 1, 7, 'Milton Nascimento, Márcio Borges', 251297, 8237026, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1934, 'Ponta de Areia', 159, 1, 7, 'Milton Nascimento, Fernando Brant', 272796, 8874285, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1935, 'Trastevere', 159, 1, 7, 'Milton Nascimento, Ronaldo Bastos', 265665, 8708399, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1936, 'Idolatrada', 159, 1, 7, 'Milton Nascimento, Fernando Brant', 286249, 9426153, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1937, 'Leila (Venha Ser Feliz)', 159, 1, 7, 'Milton Nascimento', 209737, 6898507, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1938, 'Paula E Bebeto', 159, 1, 7, 'Milton Nascimento, Caetano Veloso', 135732, 4583956, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1939, 'Simples', 159, 1, 7, 'Nelson Angelo', 133093, 4326333, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1940, 'Norwegian Wood', 159, 1, 7, 'John Lennon, Paul McCartney', 413910, 13520382, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1941, 'Caso Você Queira Saber', 159, 1, 7, 'Beto Guedes, Márcio Borges', 205688, 6787901, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1942, 'Ace Of Spades', 160, 1, 3, 'Clarke/Kilmister/Taylor', 169926, 5523552, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1943, 'Love Me Like A Reptile', 160, 1, 3, 'Clarke/Kilmister/Taylor', 203546, 6616389, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1944, 'Shoot You In The Back', 160, 1, 3, 'Clarke/Kilmister/Taylor', 160026, 5175327, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1945, 'Live To Win', 160, 1, 3, 'Clarke/Kilmister/Taylor', 217626, 7102182, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1946, 'Fast And Loose', 160, 1, 3, 'Clarke/Kilmister/Taylor', 203337, 6643350, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1947, '(We Are) The Road Crew', 160, 1, 3, 'Clarke/Kilmister/Taylor', 192600, 6283035, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1948, 'Fire Fire', 160, 1, 3, 'Clarke/Kilmister/Taylor', 164675, 5416114, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1949, 'Jailbait', 160, 1, 3, 'Clarke/Kilmister/Taylor', 213916, 6983609, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1950, 'Dance', 160, 1, 3, 'Clarke/Kilmister/Taylor', 158432, 5155099, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1951, 'Bite The Bullet', 160, 1, 3, 'Clarke/Kilmister/Taylor', 98115, 3195536, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1952, 'The Chase Is Better Than The Catch', 160, 1, 3, 'Clarke/Kilmister/Taylor', 258403, 8393310, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1953, 'The Hammer', 160, 1, 3, 'Clarke/Kilmister/Taylor', 168071, 5543267, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1954, 'Dirty Love', 160, 1, 3, 'Clarke/Kilmister/Taylor', 176457, 5805241, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1955, 'Please Don'||chr(39)||'t Touch', 160, 1, 3, 'Heath/Robinson', 169926, 5557002, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1956, 'Emergency', 160, 1, 3, 'Dufort/Johnson/McAuliffe/Williams', 180427, 5828728, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1957, 'Kir Royal', 161, 1, 16, 'Mônica Marianno', 234788, 7706552, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1958, 'O Que Vai Em Meu Coração', 161, 1, 16, 'Mônica Marianno', 255373, 8366846, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1959, 'Aos Leões', 161, 1, 16, 'Mônica Marianno', 234684, 7790574, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1960, 'Dois Índios', 161, 1, 16, 'Mônica Marianno', 219271, 7213072, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1961, 'Noite Negra', 161, 1, 16, 'Mônica Marianno', 206811, 6819584, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1962, 'Beijo do Olhar', 161, 1, 16, 'Mônica Marianno', 252682, 8369029, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1963, 'É Fogo', 161, 1, 16, 'Mônica Marianno', 194873, 6501520, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1964, 'Já Foi', 161, 1, 16, 'Mônica Marianno', 245681, 8094872, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1965, 'Só Se For Pelo Cabelo', 161, 1, 16, 'Mônica Marianno', 238288, 8006345, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1966, 'No Clima', 161, 1, 16, 'Mônica Marianno', 249495, 8362040, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1967, 'A Moça e a Chuva', 161, 1, 16, 'Mônica Marianno', 274625, 8929357, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1968, 'Demorou!', 161, 1, 16, 'Mônica Marianno', 39131, 1287083, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1969, 'Bitter Pill', 162, 1, 3, 'Mick Mars/Nikki Sixx/Tommy Lee/Vince Neil', 266814, 8666786, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1970, 'Enslaved', 162, 1, 3, 'Mick Mars/Nikki Sixx/Tommy Lee', 269844, 8789966, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1971, 'Girls, Girls, Girls', 162, 1, 3, 'Mick Mars/Nikki Sixx/Tommy Lee', 270288, 8874814, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1972, 'Kickstart My Heart', 162, 1, 3, 'Nikki Sixx', 283559, 9237736, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1973, 'Wild Side', 162, 1, 3, 'Nikki Sixx/Tommy Lee/Vince Neil', 276767, 9116997, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1974, 'Glitter', 162, 1, 3, 'Bryan Adams/Nikki Sixx/Scott Humphrey', 340114, 11184094, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1975, 'Dr. Feelgood', 162, 1, 3, 'Mick Mars/Nikki Sixx', 282618, 9281875, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1976, 'Same Ol'||chr(39)||' Situation', 162, 1, 3, 'Mick Mars/Nikki Sixx/Tommy Lee/Vince Neil', 254511, 8283958, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1977, 'Home Sweet Home', 162, 1, 3, 'Nikki Sixx/Tommy Lee/Vince Neil', 236904, 7697538, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1978, 'Afraid', 162, 1, 3, 'Nikki Sixx', 248006, 8077464, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1979, 'Don'||chr(39)||'t Go Away Mad (Just Go Away)', 162, 1, 3, 'Mick Mars/Nikki Sixx', 279980, 9188156, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1980, 'Without You', 162, 1, 3, 'Mick Mars/Nikki Sixx', 268956, 8738371, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1981, 'Smokin'||chr(39)||' in The Boys Room', 162, 1, 3, 'Cub Coda/Michael Lutz', 206837, 6735408, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1982, 'Primal Scream', 162, 1, 3, 'Mick Mars/Nikki Sixx/Tommy Lee/Vince Neil', 286197, 9421164, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1983, 'Too Fast For Love', 162, 1, 3, 'Nikki Sixx', 200829, 6580542, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1984, 'Looks That Kill', 162, 1, 3, 'Nikki Sixx', 240979, 7831122, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1985, 'Shout At The Devil', 162, 1, 3, 'Nikki Sixx', 221962, 7281974, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1986, 'Intro', 163, 1, 1, 'Kurt Cobain', 52218, 1688527, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1987, 'School', 163, 1, 1, 'Kurt Cobain', 160235, 5234885, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1988, 'Drain You', 163, 1, 1, 'Kurt Cobain', 215196, 7013175, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1989, 'Aneurysm', 163, 1, 1, 'Nirvana', 271516, 8862545, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1990, 'Smells Like Teen Spirit', 163, 1, 1, 'Nirvana', 287190, 9425215, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1991, 'Been A Son', 163, 1, 1, 'Kurt Cobain', 127555, 4170369, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1992, 'Lithium', 163, 1, 1, 'Kurt Cobain', 250017, 8148800, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1993, 'Sliver', 163, 1, 1, 'Kurt Cobain', 116218, 3784567, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1994, 'Spank Thru', 163, 1, 1, 'Kurt Cobain', 190354, 6186487, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1995, 'Scentless Apprentice', 163, 1, 1, 'Nirvana', 211200, 6898177, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1996, 'Heart-Shaped Box', 163, 1, 1, 'Kurt Cobain', 281887, 9210982, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1997, 'Milk It', 163, 1, 1, 'Kurt Cobain', 225724, 7406945, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1998, 'Negative Creep', 163, 1, 1, 'Kurt Cobain', 163761, 5354854, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (1999, 'Polly', 163, 1, 1, 'Kurt Cobain', 149995, 4885331, 0.99);
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
+ (2000, 'Breed', 163, 1, 1, 'Kurt Cobain', 208378, 6759080, 0.99);
+
 
 INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES
     (2001, 'Tourette'||chr(39)||'s', 163, 1, 1, 'Kurt Cobain', 115591, 3753246, 0.99),
