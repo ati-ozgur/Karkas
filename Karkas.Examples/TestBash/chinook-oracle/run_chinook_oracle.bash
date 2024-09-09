@@ -47,14 +47,11 @@ CONTAINER_ID=$(docker inspect --format="{{.Id}}" "$CONTAINER_NAME")
 echo "CONTAINER_ID ${CONTAINER_ID}"
 
 
-#docker exec $CONTAINER_ID bash /home/create_chinook_oracle_autoincrementpks.bash
 
+rm -rf Karkas.Examples/GeneratedProjects/ChinookOracle
 
-
-rm -rf Karkas.Examples/GeneratedProjects/ChinookOracleAutoIncrement
-
-dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname ChinookOracleAutoIncrement
-cd Karkas.Examples/GeneratedProjects/ChinookOracleAutoIncrement
+dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname ChinookOracle
+cd Karkas.Examples/GeneratedProjects/ChinookOracle
 dotnet new console
 dotnet add package Microsoft.Data.SqlClient
 dotnet add reference "../../../Karkas.Core/Karkas.Core.DataUtil/Karkas.Core.DataUtil.csproj"
