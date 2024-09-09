@@ -11,15 +11,14 @@ using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 using Karkas.CodeGeneration.Sqlite.Implementations;
 using Karkas.CodeGeneration.SqlServer.Implementations;
+using Karkas.CodeGeneration.Oracle.Implementations;
 
-using Karkas.Core.Data.Sqlite;
+
 using Karkas.Core.DataUtil;
 
 
-using Microsoft.Data.Sqlite;
 using CommandLine;
 
-using System.IO;
 
 namespace Karkas.CodeGeneration.ConsoleApp
 {
@@ -53,10 +52,11 @@ namespace Karkas.CodeGeneration.ConsoleApp
 
             Console.WriteLine(db.ConnectionDatabaseType);
 
-            switch (db.ConnectionDatabaseType)
+            switch (db.ConnectionDatabaseType.ToLowerInvariant())
             {
                 case "sqlite":
-                case "SqlServer":
+                case "sqlserver":
+                case "oracle":
                     generateCode(db);
                     break;
 
@@ -93,6 +93,9 @@ namespace Karkas.CodeGeneration.ConsoleApp
                     break;
                 case "SqlServer":
                     generator = new CodeGenerationSqlServer(template,null,db);
+                    break;
+                case "Oracle":
+                    generator = new CodeGenerationOracle(template,null,db);
                     break;
 
                 default:

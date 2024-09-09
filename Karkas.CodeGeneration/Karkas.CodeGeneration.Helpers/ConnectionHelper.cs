@@ -11,6 +11,9 @@ using Microsoft.Data.SqlClient;
 using Karkas.Core.DataUtil;
 using Karkas.Core.Data.Sqlite;
 using Karkas.Core.Data.SqlServer;
+using Karkas.Core.Data.Oracle;
+
+using Oracle.ManagedDataAccess.Client;
 
 
 namespace Karkas.CodeGeneration.Helpers
@@ -61,6 +64,23 @@ namespace Karkas.CodeGeneration.Helpers
             return null;
         }
 
+        private static OracleConnection testOracle(string connectionString)
+        {
+
+            try
+            {
+                OracleConnection connection = new OracleConnection(connectionString);
+                connection.Open();
+                connection.Close();
+                return connection;
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
+        }
+
         public static IAdoTemplate<IParameterBuilder> TestConnection(string connectionDatabaseType,string connectionString)
         {
             DbConnection connection;
@@ -79,6 +99,14 @@ namespace Karkas.CodeGeneration.Helpers
                     DbProviderFactories.RegisterFactory("Microsoft.Data.SqlClient", SqlClientFactory.Instance);
                     DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
                     template = new AdoTemplateSqlServer();
+                    template.Connection = connection; 
+                    return template;                 
+                    break;
+                case "Oracle":
+                    connection  = testOracle(connectionString);
+                    DbProviderFactories.RegisterFactory("Oracle.ManagedDataAccess.Client", OracleClientFactory.Instance);
+                    //DbProviderFactories.RegisterFactory("System.Data.Oracle", OracleClientFactory.Instance);
+                    template = new AdoTemplateOracle();
                     template.Connection = connection; 
                     return template;                 
                     break;
