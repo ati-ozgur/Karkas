@@ -42,282 +42,282 @@ INSERT INTO MediaType (MediaTypeId, Name) VALUES (3, 'Protected MPEG-4 video fil
 INSERT INTO MediaType (MediaTypeId, Name) VALUES (4, 'Purchased AAC audio file');
 INSERT INTO MediaType (MediaTypeId, Name) VALUES (5, 'AAC audio file');
 
-INSERT INTO Artist (ArtistId, Name) VALUES
-    (1, 'AC/DC'),
-    (2, 'Accept'),
-    (3, 'Aerosmith'),
-    (4, 'Alanis Morissette'),
-    (5, 'Alice In Chains'),
-    (6, 'Antônio Carlos Jobim'),
-    (7, 'Apocalyptica'),
-    (8, 'Audioslave'),
-    (9, 'BackBeat'),
-    (10, 'Billy Cobham'),
-    (11, 'Black Label Society'),
-    (12, 'Black Sabbath'),
-    (13, 'Body Count'),
-    (14, 'Bruce Dickinson'),
-    (15, 'Buddy Guy'),
-    (16, 'Caetano Veloso'),
-    (17, 'Chico Buarque'),
-    (18, 'Chico Science '||chr(38)||' Nação Zumbi'),
-    (19, 'Cidade Negra'),
-    (20, 'Cláudio Zoli'),
-    (21, 'Various Artists'),
-    (22, 'Led Zeppelin'),
-    (23, 'Frank Zappa '||chr(38)||' Captain Beefheart'),
-    (24, 'Marcos Valle'),
-    (25, 'Milton Nascimento '||chr(38)||' Bebeto'),
-    (26, 'Azymuth'),
-    (27, 'Gilberto Gil'),
-    (28, 'João Gilberto'),
-    (29, 'Bebel Gilberto'),
-    (30, 'Jorge Vercilo'),
-    (31, 'Baby Consuelo'),
-    (32, 'Ney Matogrosso'),
-    (33, 'Luiz Melodia'),
-    (34, 'Nando Reis'),
-    (35, 'Pedro Luís '||chr(38)||' A Parede'),
-    (36, 'O Rappa'),
-    (37, 'Ed Motta'),
-    (38, 'Banda Black Rio'),
-    (39, 'Fernanda Porto'),
-    (40, 'Os Cariocas'),
-    (41, 'Elis Regina'),
-    (42, 'Milton Nascimento'),
-    (43, 'A Cor Do Som'),
-    (44, 'Kid Abelha'),
-    (45, 'Sandra De Sá'),
-    (46, 'Jorge Ben'),
-    (47, 'Hermeto Pascoal'),
-    (48, 'Barão Vermelho'),
-    (49, 'Edson, DJ Marky '||chr(38)||' DJ Patife Featuring Fernanda Porto'),
-    (50, 'Metallica'),
-    (51, 'Queen'),
-    (52, 'Kiss'),
-    (53, 'Spyro Gyra'),
-    (54, 'Green Day'),
-    (55, 'David Coverdale'),
-    (56, 'Gonzaguinha'),
-    (57, 'Os Mutantes'),
-    (58, 'Deep Purple'),
-    (59, 'Santana'),
-    (60, 'Santana Feat. Dave Matthews'),
-    (61, 'Santana Feat. Everlast'),
-    (62, 'Santana Feat. Rob Thomas'),
-    (63, 'Santana Feat. Lauryn Hill '||chr(38)||' Cee-Lo'),
-    (64, 'Santana Feat. The Project G'||chr(38)||'B'),
-    (65, 'Santana Feat. Maná'),
-    (66, 'Santana Feat. Eagle-Eye Cherry'),
-    (67, 'Santana Feat. Eric Clapton'),
-    (68, 'Miles Davis'),
-    (69, 'Gene Krupa'),
-    (70, 'Toquinho '||chr(38)||' Vinícius'),
-    (71, 'Vinícius De Moraes '||chr(38)||' Baden Powell'),
-    (72, 'Vinícius De Moraes'),
-    (73, 'Vinícius E Qurteto Em Cy'),
-    (74, 'Vinícius E Odette Lara'),
-    (75, 'Vinicius, Toquinho '||chr(38)||' Quarteto Em Cy'),
-    (76, 'Creedence Clearwater Revival'),
-    (77, 'Cássia Eller'),
-    (78, 'Def Leppard'),
-    (79, 'Dennis Chambers'),
-    (80, 'Djavan'),
-    (81, 'Eric Clapton'),
-    (82, 'Faith No More'),
-    (83, 'Falamansa'),
-    (84, 'Foo Fighters'),
-    (85, 'Frank Sinatra'),
-    (86, 'Funk Como Le Gusta'),
-    (87, 'Godsmack'),
-    (88, 'Guns N'||chr(39)||' Roses'),
-    (89, 'Incognito'),
-    (90, 'Iron Maiden'),
-    (91, 'James Brown'),
-    (92, 'Jamiroquai'),
-    (93, 'JET'),
-    (94, 'Jimi Hendrix'),
-    (95, 'Joe Satriani'),
-    (96, 'Jota Quest'),
-    (97, 'João Suplicy'),
-    (98, 'Judas Priest'),
-    (99, 'Legião Urbana'),
-    (100, 'Lenny Kravitz'),
-    (101, 'Lulu Santos'),
-    (102, 'Marillion'),
-    (103, 'Marisa Monte'),
-    (104, 'Marvin Gaye'),
-    (105, 'Men At Work'),
-    (106, 'Motörhead'),
-    (107, 'Motörhead '||chr(38)||' Girlschool'),
-    (108, 'Mônica Marianno'),
-    (109, 'Mötley Crüe'),
-    (110, 'Nirvana'),
-    (111, 'O Terço'),
-    (112, 'Olodum'),
-    (113, 'Os Paralamas Do Sucesso'),
-    (114, 'Ozzy Osbourne'),
-    (115, 'Page '||chr(38)||' Plant'),
-    (116, 'Passengers'),
-    (117, 'Paul D'||chr(39)||'Ianno'),
-    (118, 'Pearl Jam'),
-    (119, 'Peter Tosh'),
-    (120, 'Pink Floyd'),
-    (121, 'Planet Hemp'),
-    (122, 'R.E.M. Feat. Kate Pearson'),
-    (123, 'R.E.M. Feat. KRS-One'),
-    (124, 'R.E.M.'),
-    (125, 'Raimundos'),
-    (126, 'Raul Seixas'),
-    (127, 'Red Hot Chili Peppers'),
-    (128, 'Rush'),
-    (129, 'Simply Red'),
-    (130, 'Skank'),
-    (131, 'Smashing Pumpkins'),
-    (132, 'Soundgarden'),
-    (133, 'Stevie Ray Vaughan '||chr(38)||' Double Trouble'),
-    (134, 'Stone Temple Pilots'),
-    (135, 'System Of A Down'),
-    (136, 'Terry Bozzio, Tony Levin '||chr(38)||' Steve Stevens'),
-    (137, 'The Black Crowes'),
-    (138, 'The Clash'),
-    (139, 'The Cult'),
-    (140, 'The Doors'),
-    (141, 'The Police'),
-    (142, 'The Rolling Stones'),
-    (143, 'The Tea Party'),
-    (144, 'The Who'),
-    (145, 'Tim Maia'),
-    (146, 'Titãs'),
-    (147, 'Battlestar Galactica'),
-    (148, 'Heroes'),
-    (149, 'Lost'),
-    (150, 'U2'),
-    (151, 'UB40'),
-    (152, 'Van Halen'),
-    (153, 'Velvet Revolver'),
-    (154, 'Whitesnake'),
-    (155, 'Zeca Pagodinho'),
-    (156, 'The Office'),
-    (157, 'Dread Zeppelin'),
-    (158, 'Battlestar Galactica (Classic)'),
-    (159, 'Aquaman'),
-    (160, 'Christina Aguilera featuring BigElf'),
-    (161, 'Aerosmith '||chr(38)||' Sierra Leone'||chr(39)||'s Refugee Allstars'),
-    (162, 'Los Lonely Boys'),
-    (163, 'Corinne Bailey Rae'),
-    (164, 'Dhani Harrison '||chr(38)||' Jakob Dylan'),
-    (165, 'Jackson Browne'),
-    (166, 'Avril Lavigne'),
-    (167, 'Big '||chr(38)||' Rich'),
-    (168, 'Youssou N'||chr(39)||'Dour'),
-    (169, 'Black Eyed Peas'),
-    (170, 'Jack Johnson'),
-    (171, 'Ben Harper'),
-    (172, 'Snow Patrol'),
-    (173, 'Matisyahu'),
-    (174, 'The Postal Service'),
-    (175, 'Jaguares'),
-    (176, 'The Flaming Lips'),
-    (177, 'Jack'||chr(39)||'s Mannequin '||chr(38)||' Mick Fleetwood'),
-    (178, 'Regina Spektor'),
-    (179, 'Scorpions'),
-    (180, 'House Of Pain'),
-    (181, 'Xis'),
-    (182, 'Nega Gizza'),
-    (183, 'Gustavo '||chr(38)||' Andres Veiga '||chr(38)||' Salazar'),
-    (184, 'Rodox'),
-    (185, 'Charlie Brown Jr.'),
-    (186, 'Pedro Luís E A Parede'),
-    (187, 'Los Hermanos'),
-    (188, 'Mundo Livre S/A'),
-    (189, 'Otto'),
-    (190, 'Instituto'),
-    (191, 'Nação Zumbi'),
-    (192, 'DJ Dolores '||chr(38)||' Orchestra Santa Massa'),
-    (193, 'Seu Jorge'),
-    (194, 'Sabotage E Instituto'),
-    (195, 'Stereo Maracana'),
-    (196, 'Cake'),
-    (197, 'Aisha Duo'),
-    (198, 'Habib Koité and Bamada'),
-    (199, 'Karsh Kale'),
-    (200, 'The Posies'),
-    (201, 'Luciana Souza/Romero Lubambo'),
-    (202, 'Aaron Goldberg'),
-    (203, 'Nicolaus Esterhazy Sinfonia'),
-    (204, 'Temple of the Dog'),
-    (205, 'Chris Cornell'),
-    (206, 'Alberto Turco '||chr(38)||' Nova Schola Gregoriana'),
-    (207, 'Richard Marlow '||chr(38)||' The Choir of Trinity College, Cambridge'),
-    (208, 'English Concert '||chr(38)||' Trevor Pinnock'),
-    (209, 'Anne-Sophie Mutter, Herbert Von Karajan '||chr(38)||' Wiener Philharmoniker'),
-    (210, 'Hilary Hahn, Jeffrey Kahane, Los Angeles Chamber Orchestra '||chr(38)||' Margaret Batjer'),
-    (211, 'Wilhelm Kempff'),
-    (212, 'Yo-Yo Ma'),
-    (213, 'Scholars Baroque Ensemble'),
-    (214, 'Academy of St. Martin in the Fields '||chr(38)||' Sir Neville Marriner'),
-    (215, 'Academy of St. Martin in the Fields Chamber Ensemble '||chr(38)||' Sir Neville Marriner'),
-    (216, 'Berliner Philharmoniker, Claudio Abbado '||chr(38)||' Sabine Meyer'),
-    (217, 'Royal Philharmonic Orchestra '||chr(38)||' Sir Thomas Beecham'),
-    (218, 'Orchestre Révolutionnaire et Romantique '||chr(38)||' John Eliot Gardiner'),
-    (219, 'Britten Sinfonia, Ivor Bolton '||chr(38)||' Lesley Garrett'),
-    (220, 'Chicago Symphony Chorus, Chicago Symphony Orchestra '||chr(38)||' Sir Georg Solti'),
-    (221, 'Sir Georg Solti '||chr(38)||' Wiener Philharmoniker'),
-    (222, 'Academy of St. Martin in the Fields, John Birch, Sir Neville Marriner '||chr(38)||' Sylvia McNair'),
-    (223, 'London Symphony Orchestra '||chr(38)||' Sir Charles Mackerras'),
-    (224, 'Barry Wordsworth '||chr(38)||' BBC Concert Orchestra'),
-    (225, 'Herbert Von Karajan, Mirella Freni '||chr(38)||' Wiener Philharmoniker'),
-    (226, 'Eugene Ormandy'),
-    (227, 'Luciano Pavarotti'),
-    (228, 'Leonard Bernstein '||chr(38)||' New York Philharmonic'),
-    (229, 'Boston Symphony Orchestra '||chr(38)||' Seiji Ozawa'),
-    (230, 'Aaron Copland '||chr(38)||' London Symphony Orchestra'),
-    (231, 'Ton Koopman'),
-    (232, 'Sergei Prokofiev '||chr(38)||' Yuri Temirkanov'),
-    (233, 'Chicago Symphony Orchestra '||chr(38)||' Fritz Reiner'),
-    (234, 'Orchestra of The Age of Enlightenment'),
-    (235, 'Emanuel Ax, Eugene Ormandy '||chr(38)||' Philadelphia Orchestra'),
-    (236, 'James Levine'),
-    (237, 'Berliner Philharmoniker '||chr(38)||' Hans Rosbaud'),
-    (238, 'Maurizio Pollini'),
-    (239, 'Academy of St. Martin in the Fields, Sir Neville Marriner '||chr(38)||' William Bennett'),
-    (240, 'Gustav Mahler'),
-    (241, 'Felix Schmidt, London Symphony Orchestra '||chr(38)||' Rafael Frühbeck de Burgos'),
-    (242, 'Edo de Waart '||chr(38)||' San Francisco Symphony'),
-    (243, 'Antal Doráti '||chr(38)||' London Symphony Orchestra'),
-    (244, 'Choir Of Westminster Abbey '||chr(38)||' Simon Preston'),
-    (245, 'Michael Tilson Thomas '||chr(38)||' San Francisco Symphony'),
-    (246, 'Chor der Wiener Staatsoper, Herbert Von Karajan '||chr(38)||' Wiener Philharmoniker'),
-    (247, 'The King'||chr(39)||'s Singers'),
-    (248, 'Berliner Philharmoniker '||chr(38)||' Herbert Von Karajan'),
-    (249, 'Sir Georg Solti, Sumi Jo '||chr(38)||' Wiener Philharmoniker'),
-    (250, 'Christopher O'||chr(39)||'Riley'),
-    (251, 'Fretwork'),
-    (252, 'Amy Winehouse'),
-    (253, 'Calexico'),
-    (254, 'Otto Klemperer '||chr(38)||' Philharmonia Orchestra'),
-    (255, 'Yehudi Menuhin'),
-    (256, 'Philharmonia Orchestra '||chr(38)||' Sir Neville Marriner'),
-    (257, 'Academy of St. Martin in the Fields, Sir Neville Marriner '||chr(38)||' Thurston Dart'),
-    (258, 'Les Arts Florissants '||chr(38)||' William Christie'),
-    (259, 'The 12 Cellists of The Berlin Philharmonic'),
-    (260, 'Adrian Leaper '||chr(38)||' Doreen de Feis'),
-    (261, 'Roger Norrington, London Classical Players'),
-    (262, 'Charles Dutoit '||chr(38)||' L'||chr(39)||'Orchestre Symphonique de Montréal'),
-    (263, 'Equale Brass Ensemble, John Eliot Gardiner '||chr(38)||' Munich Monteverdi Orchestra and Choir'),
-    (264, 'Kent Nagano and Orchestre de l'||chr(39)||'Opéra de Lyon'),
-    (265, 'Julian Bream'),
-    (266, 'Martin Roscoe'),
-    (267, 'Göteborgs Symfoniker '||chr(38)||' Neeme Järvi'),
-    (268, 'Itzhak Perlman'),
-    (269, 'Michele Campanella'),
-    (270, 'Gerald Moore'),
-    (271, 'Mela Tenenbaum, Pro Musica Prague '||chr(38)||' Richard Kapp'),
-    (272, 'Emerson String Quartet'),
-    (273, 'C. Monteverdi, Nigel Rogers - Chiaroscuro; London Baroque; London Cornett '||chr(38)||' Sackbu'),
-    (274, 'Nash Ensemble'),
-    (275, 'Philip Glass Ensemble');
+
+INSERT INTO Artist (ArtistId, Name) VALUES (1, 'AC/DC');
+INSERT INTO Artist (ArtistId, Name) VALUES (2, 'Accept');
+INSERT INTO Artist (ArtistId, Name) VALUES (3, 'Aerosmith');
+INSERT INTO Artist (ArtistId, Name) VALUES (4, 'Alanis Morissette');
+INSERT INTO Artist (ArtistId, Name) VALUES (5, 'Alice In Chains');
+INSERT INTO Artist (ArtistId, Name) VALUES (6, 'Antônio Carlos Jobim');
+INSERT INTO Artist (ArtistId, Name) VALUES (7, 'Apocalyptica');
+INSERT INTO Artist (ArtistId, Name) VALUES (8, 'Audioslave');
+INSERT INTO Artist (ArtistId, Name) VALUES (9, 'BackBeat');
+INSERT INTO Artist (ArtistId, Name) VALUES (10, 'Billy Cobham');
+INSERT INTO Artist (ArtistId, Name) VALUES (11, 'Black Label Society');
+INSERT INTO Artist (ArtistId, Name) VALUES (12, 'Black Sabbath');
+INSERT INTO Artist (ArtistId, Name) VALUES (13, 'Body Count');
+INSERT INTO Artist (ArtistId, Name) VALUES (14, 'Bruce Dickinson');
+INSERT INTO Artist (ArtistId, Name) VALUES (15, 'Buddy Guy');
+INSERT INTO Artist (ArtistId, Name) VALUES (16, 'Caetano Veloso');
+INSERT INTO Artist (ArtistId, Name) VALUES (17, 'Chico Buarque');
+INSERT INTO Artist (ArtistId, Name) VALUES (18, 'Chico Science '||chr(38)||' Nação Zumbi');
+INSERT INTO Artist (ArtistId, Name) VALUES (19, 'Cidade Negra');
+INSERT INTO Artist (ArtistId, Name) VALUES (20, 'Cláudio Zoli');
+INSERT INTO Artist (ArtistId, Name) VALUES (21, 'Various Artists');
+INSERT INTO Artist (ArtistId, Name) VALUES (22, 'Led Zeppelin');
+INSERT INTO Artist (ArtistId, Name) VALUES (23, 'Frank Zappa '||chr(38)||' Captain Beefheart');
+INSERT INTO Artist (ArtistId, Name) VALUES (24, 'Marcos Valle');
+INSERT INTO Artist (ArtistId, Name) VALUES (25, 'Milton Nascimento '||chr(38)||' Bebeto');
+INSERT INTO Artist (ArtistId, Name) VALUES (26, 'Azymuth');
+INSERT INTO Artist (ArtistId, Name) VALUES (27, 'Gilberto Gil');
+INSERT INTO Artist (ArtistId, Name) VALUES (28, 'João Gilberto');
+INSERT INTO Artist (ArtistId, Name) VALUES (29, 'Bebel Gilberto');
+INSERT INTO Artist (ArtistId, Name) VALUES (30, 'Jorge Vercilo');
+INSERT INTO Artist (ArtistId, Name) VALUES (31, 'Baby Consuelo');
+INSERT INTO Artist (ArtistId, Name) VALUES (32, 'Ney Matogrosso');
+INSERT INTO Artist (ArtistId, Name) VALUES (33, 'Luiz Melodia');
+INSERT INTO Artist (ArtistId, Name) VALUES (34, 'Nando Reis');
+INSERT INTO Artist (ArtistId, Name) VALUES (35, 'Pedro Luís '||chr(38)||' A Parede');
+INSERT INTO Artist (ArtistId, Name) VALUES (36, 'O Rappa');
+INSERT INTO Artist (ArtistId, Name) VALUES (37, 'Ed Motta');
+INSERT INTO Artist (ArtistId, Name) VALUES (38, 'Banda Black Rio');
+INSERT INTO Artist (ArtistId, Name) VALUES (39, 'Fernanda Porto');
+INSERT INTO Artist (ArtistId, Name) VALUES (40, 'Os Cariocas');
+INSERT INTO Artist (ArtistId, Name) VALUES (41, 'Elis Regina');
+INSERT INTO Artist (ArtistId, Name) VALUES (42, 'Milton Nascimento');
+INSERT INTO Artist (ArtistId, Name) VALUES (43, 'A Cor Do Som');
+INSERT INTO Artist (ArtistId, Name) VALUES (44, 'Kid Abelha');
+INSERT INTO Artist (ArtistId, Name) VALUES (45, 'Sandra De Sá');
+INSERT INTO Artist (ArtistId, Name) VALUES (46, 'Jorge Ben');
+INSERT INTO Artist (ArtistId, Name) VALUES (47, 'Hermeto Pascoal');
+INSERT INTO Artist (ArtistId, Name) VALUES (48, 'Barão Vermelho');
+INSERT INTO Artist (ArtistId, Name) VALUES (49, 'Edson, DJ Marky '||chr(38)||' DJ Patife Featuring Fernanda Porto');
+INSERT INTO Artist (ArtistId, Name) VALUES (50, 'Metallica');
+INSERT INTO Artist (ArtistId, Name) VALUES (51, 'Queen');
+INSERT INTO Artist (ArtistId, Name) VALUES (52, 'Kiss');
+INSERT INTO Artist (ArtistId, Name) VALUES (53, 'Spyro Gyra');
+INSERT INTO Artist (ArtistId, Name) VALUES (54, 'Green Day');
+INSERT INTO Artist (ArtistId, Name) VALUES (55, 'David Coverdale');
+INSERT INTO Artist (ArtistId, Name) VALUES (56, 'Gonzaguinha');
+INSERT INTO Artist (ArtistId, Name) VALUES (57, 'Os Mutantes');
+INSERT INTO Artist (ArtistId, Name) VALUES (58, 'Deep Purple');
+INSERT INTO Artist (ArtistId, Name) VALUES (59, 'Santana');
+INSERT INTO Artist (ArtistId, Name) VALUES (60, 'Santana Feat. Dave Matthews');
+INSERT INTO Artist (ArtistId, Name) VALUES (61, 'Santana Feat. Everlast');
+INSERT INTO Artist (ArtistId, Name) VALUES (62, 'Santana Feat. Rob Thomas');
+INSERT INTO Artist (ArtistId, Name) VALUES (63, 'Santana Feat. Lauryn Hill '||chr(38)||' Cee-Lo');
+INSERT INTO Artist (ArtistId, Name) VALUES (64, 'Santana Feat. The Project G'||chr(38)||'B');
+INSERT INTO Artist (ArtistId, Name) VALUES (65, 'Santana Feat. Maná');
+INSERT INTO Artist (ArtistId, Name) VALUES (66, 'Santana Feat. Eagle-Eye Cherry');
+INSERT INTO Artist (ArtistId, Name) VALUES (67, 'Santana Feat. Eric Clapton');
+INSERT INTO Artist (ArtistId, Name) VALUES (68, 'Miles Davis');
+INSERT INTO Artist (ArtistId, Name) VALUES (69, 'Gene Krupa');
+INSERT INTO Artist (ArtistId, Name) VALUES (70, 'Toquinho '||chr(38)||' Vinícius');
+INSERT INTO Artist (ArtistId, Name) VALUES (71, 'Vinícius De Moraes '||chr(38)||' Baden Powell');
+INSERT INTO Artist (ArtistId, Name) VALUES (72, 'Vinícius De Moraes');
+INSERT INTO Artist (ArtistId, Name) VALUES (73, 'Vinícius E Qurteto Em Cy');
+INSERT INTO Artist (ArtistId, Name) VALUES (74, 'Vinícius E Odette Lara');
+INSERT INTO Artist (ArtistId, Name) VALUES (75, 'Vinicius, Toquinho '||chr(38)||' Quarteto Em Cy');
+INSERT INTO Artist (ArtistId, Name) VALUES (76, 'Creedence Clearwater Revival');
+INSERT INTO Artist (ArtistId, Name) VALUES (77, 'Cássia Eller');
+INSERT INTO Artist (ArtistId, Name) VALUES (78, 'Def Leppard');
+INSERT INTO Artist (ArtistId, Name) VALUES (79, 'Dennis Chambers');
+INSERT INTO Artist (ArtistId, Name) VALUES (80, 'Djavan');
+INSERT INTO Artist (ArtistId, Name) VALUES (81, 'Eric Clapton');
+INSERT INTO Artist (ArtistId, Name) VALUES (82, 'Faith No More');
+INSERT INTO Artist (ArtistId, Name) VALUES (83, 'Falamansa');
+INSERT INTO Artist (ArtistId, Name) VALUES (84, 'Foo Fighters');
+INSERT INTO Artist (ArtistId, Name) VALUES (85, 'Frank Sinatra');
+INSERT INTO Artist (ArtistId, Name) VALUES (86, 'Funk Como Le Gusta');
+INSERT INTO Artist (ArtistId, Name) VALUES (87, 'Godsmack');
+INSERT INTO Artist (ArtistId, Name) VALUES (88, 'Guns N'||chr(39)||' Roses');
+INSERT INTO Artist (ArtistId, Name) VALUES (89, 'Incognito');
+INSERT INTO Artist (ArtistId, Name) VALUES (90, 'Iron Maiden');
+INSERT INTO Artist (ArtistId, Name) VALUES (91, 'James Brown');
+INSERT INTO Artist (ArtistId, Name) VALUES (92, 'Jamiroquai');
+INSERT INTO Artist (ArtistId, Name) VALUES (93, 'JET');
+INSERT INTO Artist (ArtistId, Name) VALUES (94, 'Jimi Hendrix');
+INSERT INTO Artist (ArtistId, Name) VALUES (95, 'Joe Satriani');
+INSERT INTO Artist (ArtistId, Name) VALUES (96, 'Jota Quest');
+INSERT INTO Artist (ArtistId, Name) VALUES (97, 'João Suplicy');
+INSERT INTO Artist (ArtistId, Name) VALUES (98, 'Judas Priest');
+INSERT INTO Artist (ArtistId, Name) VALUES (99, 'Legião Urbana');
+INSERT INTO Artist (ArtistId, Name) VALUES (100, 'Lenny Kravitz');
+INSERT INTO Artist (ArtistId, Name) VALUES (101, 'Lulu Santos');
+INSERT INTO Artist (ArtistId, Name) VALUES (102, 'Marillion');
+INSERT INTO Artist (ArtistId, Name) VALUES (103, 'Marisa Monte');
+INSERT INTO Artist (ArtistId, Name) VALUES (104, 'Marvin Gaye');
+INSERT INTO Artist (ArtistId, Name) VALUES (105, 'Men At Work');
+INSERT INTO Artist (ArtistId, Name) VALUES (106, 'Motörhead');
+INSERT INTO Artist (ArtistId, Name) VALUES (107, 'Motörhead '||chr(38)||' Girlschool');
+INSERT INTO Artist (ArtistId, Name) VALUES (108, 'Mônica Marianno');
+INSERT INTO Artist (ArtistId, Name) VALUES (109, 'Mötley Crüe');
+INSERT INTO Artist (ArtistId, Name) VALUES (110, 'Nirvana');
+INSERT INTO Artist (ArtistId, Name) VALUES (111, 'O Terço');
+INSERT INTO Artist (ArtistId, Name) VALUES (112, 'Olodum');
+INSERT INTO Artist (ArtistId, Name) VALUES (113, 'Os Paralamas Do Sucesso');
+INSERT INTO Artist (ArtistId, Name) VALUES (114, 'Ozzy Osbourne');
+INSERT INTO Artist (ArtistId, Name) VALUES (115, 'Page '||chr(38)||' Plant');
+INSERT INTO Artist (ArtistId, Name) VALUES (116, 'Passengers');
+INSERT INTO Artist (ArtistId, Name) VALUES (117, 'Paul D'||chr(39)||'Ianno');
+INSERT INTO Artist (ArtistId, Name) VALUES (118, 'Pearl Jam');
+INSERT INTO Artist (ArtistId, Name) VALUES (119, 'Peter Tosh');
+INSERT INTO Artist (ArtistId, Name) VALUES (120, 'Pink Floyd');
+INSERT INTO Artist (ArtistId, Name) VALUES (121, 'Planet Hemp');
+INSERT INTO Artist (ArtistId, Name) VALUES (122, 'R.E.M. Feat. Kate Pearson');
+INSERT INTO Artist (ArtistId, Name) VALUES (123, 'R.E.M. Feat. KRS-One');
+INSERT INTO Artist (ArtistId, Name) VALUES (124, 'R.E.M.');
+INSERT INTO Artist (ArtistId, Name) VALUES (125, 'Raimundos');
+INSERT INTO Artist (ArtistId, Name) VALUES (126, 'Raul Seixas');
+INSERT INTO Artist (ArtistId, Name) VALUES (127, 'Red Hot Chili Peppers');
+INSERT INTO Artist (ArtistId, Name) VALUES (128, 'Rush');
+INSERT INTO Artist (ArtistId, Name) VALUES (129, 'Simply Red');
+INSERT INTO Artist (ArtistId, Name) VALUES (130, 'Skank');
+INSERT INTO Artist (ArtistId, Name) VALUES (131, 'Smashing Pumpkins');
+INSERT INTO Artist (ArtistId, Name) VALUES (132, 'Soundgarden');
+INSERT INTO Artist (ArtistId, Name) VALUES (133, 'Stevie Ray Vaughan '||chr(38)||' Double Trouble');
+INSERT INTO Artist (ArtistId, Name) VALUES (134, 'Stone Temple Pilots');
+INSERT INTO Artist (ArtistId, Name) VALUES (135, 'System Of A Down');
+INSERT INTO Artist (ArtistId, Name) VALUES (136, 'Terry Bozzio, Tony Levin '||chr(38)||' Steve Stevens');
+INSERT INTO Artist (ArtistId, Name) VALUES (137, 'The Black Crowes');
+INSERT INTO Artist (ArtistId, Name) VALUES (138, 'The Clash');
+INSERT INTO Artist (ArtistId, Name) VALUES (139, 'The Cult');
+INSERT INTO Artist (ArtistId, Name) VALUES (140, 'The Doors');
+INSERT INTO Artist (ArtistId, Name) VALUES (141, 'The Police');
+INSERT INTO Artist (ArtistId, Name) VALUES (142, 'The Rolling Stones');
+INSERT INTO Artist (ArtistId, Name) VALUES (143, 'The Tea Party');
+INSERT INTO Artist (ArtistId, Name) VALUES (144, 'The Who');
+INSERT INTO Artist (ArtistId, Name) VALUES (145, 'Tim Maia');
+INSERT INTO Artist (ArtistId, Name) VALUES (146, 'Titãs');
+INSERT INTO Artist (ArtistId, Name) VALUES (147, 'Battlestar Galactica');
+INSERT INTO Artist (ArtistId, Name) VALUES (148, 'Heroes');
+INSERT INTO Artist (ArtistId, Name) VALUES (149, 'Lost');
+INSERT INTO Artist (ArtistId, Name) VALUES (150, 'U2');
+INSERT INTO Artist (ArtistId, Name) VALUES (151, 'UB40');
+INSERT INTO Artist (ArtistId, Name) VALUES (152, 'Van Halen');
+INSERT INTO Artist (ArtistId, Name) VALUES (153, 'Velvet Revolver');
+INSERT INTO Artist (ArtistId, Name) VALUES (154, 'Whitesnake');
+INSERT INTO Artist (ArtistId, Name) VALUES (155, 'Zeca Pagodinho');
+INSERT INTO Artist (ArtistId, Name) VALUES (156, 'The Office');
+INSERT INTO Artist (ArtistId, Name) VALUES (157, 'Dread Zeppelin');
+INSERT INTO Artist (ArtistId, Name) VALUES (158, 'Battlestar Galactica (Classic)');
+INSERT INTO Artist (ArtistId, Name) VALUES (159, 'Aquaman');
+INSERT INTO Artist (ArtistId, Name) VALUES (160, 'Christina Aguilera featuring BigElf');
+INSERT INTO Artist (ArtistId, Name) VALUES (161, 'Aerosmith '||chr(38)||' Sierra Leone'||chr(39)||'s Refugee Allstars');
+INSERT INTO Artist (ArtistId, Name) VALUES (162, 'Los Lonely Boys');
+INSERT INTO Artist (ArtistId, Name) VALUES (163, 'Corinne Bailey Rae');
+INSERT INTO Artist (ArtistId, Name) VALUES (164, 'Dhani Harrison '||chr(38)||' Jakob Dylan');
+INSERT INTO Artist (ArtistId, Name) VALUES (165, 'Jackson Browne');
+INSERT INTO Artist (ArtistId, Name) VALUES (166, 'Avril Lavigne');
+INSERT INTO Artist (ArtistId, Name) VALUES (167, 'Big '||chr(38)||' Rich');
+INSERT INTO Artist (ArtistId, Name) VALUES (168, 'Youssou N'||chr(39)||'Dour');
+INSERT INTO Artist (ArtistId, Name) VALUES (169, 'Black Eyed Peas');
+INSERT INTO Artist (ArtistId, Name) VALUES (170, 'Jack Johnson');
+INSERT INTO Artist (ArtistId, Name) VALUES (171, 'Ben Harper');
+INSERT INTO Artist (ArtistId, Name) VALUES (172, 'Snow Patrol');
+INSERT INTO Artist (ArtistId, Name) VALUES (173, 'Matisyahu');
+INSERT INTO Artist (ArtistId, Name) VALUES (174, 'The Postal Service');
+INSERT INTO Artist (ArtistId, Name) VALUES (175, 'Jaguares');
+INSERT INTO Artist (ArtistId, Name) VALUES (176, 'The Flaming Lips');
+INSERT INTO Artist (ArtistId, Name) VALUES (177, 'Jack'||chr(39)||'s Mannequin '||chr(38)||' Mick Fleetwood');
+INSERT INTO Artist (ArtistId, Name) VALUES (178, 'Regina Spektor');
+INSERT INTO Artist (ArtistId, Name) VALUES (179, 'Scorpions');
+INSERT INTO Artist (ArtistId, Name) VALUES (180, 'House Of Pain');
+INSERT INTO Artist (ArtistId, Name) VALUES (181, 'Xis');
+INSERT INTO Artist (ArtistId, Name) VALUES (182, 'Nega Gizza');
+INSERT INTO Artist (ArtistId, Name) VALUES (183, 'Gustavo '||chr(38)||' Andres Veiga '||chr(38)||' Salazar');
+INSERT INTO Artist (ArtistId, Name) VALUES (184, 'Rodox');
+INSERT INTO Artist (ArtistId, Name) VALUES (185, 'Charlie Brown Jr.');
+INSERT INTO Artist (ArtistId, Name) VALUES (186, 'Pedro Luís E A Parede');
+INSERT INTO Artist (ArtistId, Name) VALUES (187, 'Los Hermanos');
+INSERT INTO Artist (ArtistId, Name) VALUES (188, 'Mundo Livre S/A');
+INSERT INTO Artist (ArtistId, Name) VALUES (189, 'Otto');
+INSERT INTO Artist (ArtistId, Name) VALUES (190, 'Instituto');
+INSERT INTO Artist (ArtistId, Name) VALUES (191, 'Nação Zumbi');
+INSERT INTO Artist (ArtistId, Name) VALUES (192, 'DJ Dolores '||chr(38)||' Orchestra Santa Massa');
+INSERT INTO Artist (ArtistId, Name) VALUES (193, 'Seu Jorge');
+INSERT INTO Artist (ArtistId, Name) VALUES (194, 'Sabotage E Instituto');
+INSERT INTO Artist (ArtistId, Name) VALUES (195, 'Stereo Maracana');
+INSERT INTO Artist (ArtistId, Name) VALUES (196, 'Cake');
+INSERT INTO Artist (ArtistId, Name) VALUES (197, 'Aisha Duo');
+INSERT INTO Artist (ArtistId, Name) VALUES (198, 'Habib Koité and Bamada');
+INSERT INTO Artist (ArtistId, Name) VALUES (199, 'Karsh Kale');
+INSERT INTO Artist (ArtistId, Name) VALUES (200, 'The Posies');
+INSERT INTO Artist (ArtistId, Name) VALUES (201, 'Luciana Souza/Romero Lubambo');
+INSERT INTO Artist (ArtistId, Name) VALUES (202, 'Aaron Goldberg');
+INSERT INTO Artist (ArtistId, Name) VALUES (203, 'Nicolaus Esterhazy Sinfonia');
+INSERT INTO Artist (ArtistId, Name) VALUES (204, 'Temple of the Dog');
+INSERT INTO Artist (ArtistId, Name) VALUES (205, 'Chris Cornell');
+INSERT INTO Artist (ArtistId, Name) VALUES (206, 'Alberto Turco '||chr(38)||' Nova Schola Gregoriana');
+INSERT INTO Artist (ArtistId, Name) VALUES (207, 'Richard Marlow '||chr(38)||' The Choir of Trinity College, Cambridge');
+INSERT INTO Artist (ArtistId, Name) VALUES (208, 'English Concert '||chr(38)||' Trevor Pinnock');
+INSERT INTO Artist (ArtistId, Name) VALUES (209, 'Anne-Sophie Mutter, Herbert Von Karajan '||chr(38)||' Wiener Philharmoniker');
+INSERT INTO Artist (ArtistId, Name) VALUES (210, 'Hilary Hahn, Jeffrey Kahane, Los Angeles Chamber Orchestra '||chr(38)||' Margaret Batjer');
+INSERT INTO Artist (ArtistId, Name) VALUES (211, 'Wilhelm Kempff');
+INSERT INTO Artist (ArtistId, Name) VALUES (212, 'Yo-Yo Ma');
+INSERT INTO Artist (ArtistId, Name) VALUES (213, 'Scholars Baroque Ensemble');
+INSERT INTO Artist (ArtistId, Name) VALUES (214, 'Academy of St. Martin in the Fields '||chr(38)||' Sir Neville Marriner');
+INSERT INTO Artist (ArtistId, Name) VALUES (215, 'Academy of St. Martin in the Fields Chamber Ensemble '||chr(38)||' Sir Neville Marriner');
+INSERT INTO Artist (ArtistId, Name) VALUES (216, 'Berliner Philharmoniker, Claudio Abbado '||chr(38)||' Sabine Meyer');
+INSERT INTO Artist (ArtistId, Name) VALUES (217, 'Royal Philharmonic Orchestra '||chr(38)||' Sir Thomas Beecham');
+INSERT INTO Artist (ArtistId, Name) VALUES (218, 'Orchestre Révolutionnaire et Romantique '||chr(38)||' John Eliot Gardiner');
+INSERT INTO Artist (ArtistId, Name) VALUES (219, 'Britten Sinfonia, Ivor Bolton '||chr(38)||' Lesley Garrett');
+INSERT INTO Artist (ArtistId, Name) VALUES (220, 'Chicago Symphony Chorus, Chicago Symphony Orchestra '||chr(38)||' Sir Georg Solti');
+INSERT INTO Artist (ArtistId, Name) VALUES (221, 'Sir Georg Solti '||chr(38)||' Wiener Philharmoniker');
+INSERT INTO Artist (ArtistId, Name) VALUES (222, 'Academy of St. Martin in the Fields, John Birch, Sir Neville Marriner '||chr(38)||' Sylvia McNair');
+INSERT INTO Artist (ArtistId, Name) VALUES (223, 'London Symphony Orchestra '||chr(38)||' Sir Charles Mackerras');
+INSERT INTO Artist (ArtistId, Name) VALUES (224, 'Barry Wordsworth '||chr(38)||' BBC Concert Orchestra');
+INSERT INTO Artist (ArtistId, Name) VALUES (225, 'Herbert Von Karajan, Mirella Freni '||chr(38)||' Wiener Philharmoniker');
+INSERT INTO Artist (ArtistId, Name) VALUES (226, 'Eugene Ormandy');
+INSERT INTO Artist (ArtistId, Name) VALUES (227, 'Luciano Pavarotti');
+INSERT INTO Artist (ArtistId, Name) VALUES (228, 'Leonard Bernstein '||chr(38)||' New York Philharmonic');
+INSERT INTO Artist (ArtistId, Name) VALUES (229, 'Boston Symphony Orchestra '||chr(38)||' Seiji Ozawa');
+INSERT INTO Artist (ArtistId, Name) VALUES (230, 'Aaron Copland '||chr(38)||' London Symphony Orchestra');
+INSERT INTO Artist (ArtistId, Name) VALUES (231, 'Ton Koopman');
+INSERT INTO Artist (ArtistId, Name) VALUES (232, 'Sergei Prokofiev '||chr(38)||' Yuri Temirkanov');
+INSERT INTO Artist (ArtistId, Name) VALUES (233, 'Chicago Symphony Orchestra '||chr(38)||' Fritz Reiner');
+INSERT INTO Artist (ArtistId, Name) VALUES (234, 'Orchestra of The Age of Enlightenment');
+INSERT INTO Artist (ArtistId, Name) VALUES (235, 'Emanuel Ax, Eugene Ormandy '||chr(38)||' Philadelphia Orchestra');
+INSERT INTO Artist (ArtistId, Name) VALUES (236, 'James Levine');
+INSERT INTO Artist (ArtistId, Name) VALUES (237, 'Berliner Philharmoniker '||chr(38)||' Hans Rosbaud');
+INSERT INTO Artist (ArtistId, Name) VALUES (238, 'Maurizio Pollini');
+INSERT INTO Artist (ArtistId, Name) VALUES (239, 'Academy of St. Martin in the Fields, Sir Neville Marriner '||chr(38)||' William Bennett');
+INSERT INTO Artist (ArtistId, Name) VALUES (240, 'Gustav Mahler');
+INSERT INTO Artist (ArtistId, Name) VALUES (241, 'Felix Schmidt, London Symphony Orchestra '||chr(38)||' Rafael Frühbeck de Burgos');
+INSERT INTO Artist (ArtistId, Name) VALUES (242, 'Edo de Waart '||chr(38)||' San Francisco Symphony');
+INSERT INTO Artist (ArtistId, Name) VALUES (243, 'Antal Doráti '||chr(38)||' London Symphony Orchestra');
+INSERT INTO Artist (ArtistId, Name) VALUES (244, 'Choir Of Westminster Abbey '||chr(38)||' Simon Preston');
+INSERT INTO Artist (ArtistId, Name) VALUES (245, 'Michael Tilson Thomas '||chr(38)||' San Francisco Symphony');
+INSERT INTO Artist (ArtistId, Name) VALUES (246, 'Chor der Wiener Staatsoper, Herbert Von Karajan '||chr(38)||' Wiener Philharmoniker');
+INSERT INTO Artist (ArtistId, Name) VALUES (247, 'The King'||chr(39)||'s Singers');
+INSERT INTO Artist (ArtistId, Name) VALUES (248, 'Berliner Philharmoniker '||chr(38)||' Herbert Von Karajan');
+INSERT INTO Artist (ArtistId, Name) VALUES (249, 'Sir Georg Solti, Sumi Jo '||chr(38)||' Wiener Philharmoniker');
+INSERT INTO Artist (ArtistId, Name) VALUES (250, 'Christopher O'||chr(39)||'Riley');
+INSERT INTO Artist (ArtistId, Name) VALUES (251, 'Fretwork');
+INSERT INTO Artist (ArtistId, Name) VALUES (252, 'Amy Winehouse');
+INSERT INTO Artist (ArtistId, Name) VALUES (253, 'Calexico');
+INSERT INTO Artist (ArtistId, Name) VALUES (254, 'Otto Klemperer '||chr(38)||' Philharmonia Orchestra');
+INSERT INTO Artist (ArtistId, Name) VALUES (255, 'Yehudi Menuhin');
+INSERT INTO Artist (ArtistId, Name) VALUES (256, 'Philharmonia Orchestra '||chr(38)||' Sir Neville Marriner');
+INSERT INTO Artist (ArtistId, Name) VALUES (257, 'Academy of St. Martin in the Fields, Sir Neville Marriner '||chr(38)||' Thurston Dart');
+INSERT INTO Artist (ArtistId, Name) VALUES (258, 'Les Arts Florissants '||chr(38)||' William Christie');
+INSERT INTO Artist (ArtistId, Name) VALUES (259, 'The 12 Cellists of The Berlin Philharmonic');
+INSERT INTO Artist (ArtistId, Name) VALUES (260, 'Adrian Leaper '||chr(38)||' Doreen de Feis');
+INSERT INTO Artist (ArtistId, Name) VALUES (261, 'Roger Norrington, London Classical Players');
+INSERT INTO Artist (ArtistId, Name) VALUES (262, 'Charles Dutoit '||chr(38)||' L'||chr(39)||'Orchestre Symphonique de Montréal');
+INSERT INTO Artist (ArtistId, Name) VALUES (263, 'Equale Brass Ensemble, John Eliot Gardiner '||chr(38)||' Munich Monteverdi Orchestra and Choir');
+INSERT INTO Artist (ArtistId, Name) VALUES (264, 'Kent Nagano and Orchestre de l'||chr(39)||'Opéra de Lyon');
+INSERT INTO Artist (ArtistId, Name) VALUES (265, 'Julian Bream');
+INSERT INTO Artist (ArtistId, Name) VALUES (266, 'Martin Roscoe');
+INSERT INTO Artist (ArtistId, Name) VALUES (267, 'Göteborgs Symfoniker '||chr(38)||' Neeme Järvi');
+INSERT INTO Artist (ArtistId, Name) VALUES (268, 'Itzhak Perlman');
+INSERT INTO Artist (ArtistId, Name) VALUES (269, 'Michele Campanella');
+INSERT INTO Artist (ArtistId, Name) VALUES (270, 'Gerald Moore');
+INSERT INTO Artist (ArtistId, Name) VALUES (271, 'Mela Tenenbaum, Pro Musica Prague '||chr(38)||' Richard Kapp');
+INSERT INTO Artist (ArtistId, Name) VALUES (272, 'Emerson String Quartet');
+INSERT INTO Artist (ArtistId, Name) VALUES (273, 'C. Monteverdi, Nigel Rogers - Chiaroscuro; London Baroque; London Cornett '||chr(38)||' Sackbu');
+INSERT INTO Artist (ArtistId, Name) VALUES (274, 'Nash Ensemble');
+INSERT INTO Artist (ArtistId, Name) VALUES (275, 'Philip Glass Ensemble');
 
 INSERT INTO Album (AlbumId, Title, ArtistId) VALUES
     (1, 'For Those About To Rock We Salute You', 1),
