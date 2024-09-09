@@ -7,6 +7,11 @@ using System.Runtime.Remoting;
 using System.Data.Common;
 
 using Microsoft.Data.Sqlite;
+using Microsoft.Data.SqlClient;
+using Karkas.Core.DataUtil;
+using Karkas.Core.Data.Sqlite;
+using Karkas.Core.Data.SqlServer;
+
 
 namespace Karkas.CodeGeneration.Helpers
 {
@@ -24,7 +29,7 @@ namespace Karkas.CodeGeneration.Helpers
         }
 
 
-        public static SqliteConnection TestSqlite(string connectionString)
+        private static SqliteConnection testSqlite(string connectionString)
         {
             try
             {
@@ -38,6 +43,53 @@ namespace Karkas.CodeGeneration.Helpers
                 Console.WriteLine(ex.Message);
             }
             return null;
+        }
+
+        private static SqlConnection testSqlserver(string connectionString)
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(connectionString);
+                connection.Open();
+                connection.Close();
+                return connection;
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
+        }
+
+        public static IAdoTemplate<IParameterBuilder> TestConnection(string connectionDatabaseType,string connectionString)
+        {
+            DbConnection connection;
+            IAdoTemplate<IParameterBuilder> template;
+            switch (connectionDatabaseType)
+            {
+                case "sqlite":
+                    connection  = testSqlite(connectionString);
+                    DbProviderFactories.RegisterFactory("Microsoft.Data.Sqlite", SqliteFactory.Instance);
+                    template = new AdoTemplateSqlite();
+                    template.Connection = connection; 
+                    return template;                 
+                    break;
+                case "SqlServer":
+                    connection  = testSqlserver(connectionString);
+                    DbProviderFactories.RegisterFactory("Microsoft.Data.SqlClient", SqlClientFactory.Instance);
+                    template = new AdoTemplateSqlServer();
+                    template.Connection = connection; 
+                    return template;                 
+                    break;
+
+                default:
+                    Console.WriteLine($"NOT Supported yet in commandline {connectionDatabaseType}");
+                    return null;
+                    break;
+            }
+
+
+
         }
 
     }

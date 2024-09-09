@@ -6,8 +6,11 @@ using Karkas.CodeGeneration.Helpers;
 using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.CodeGeneration.Helpers.PersistenceService;
 using Karkas.CodeGeneration.Sqlite.Implementations;
+using Karkas.CodeGeneration.SqlServer.Implementations;
+
 using Karkas.Core.Data.Sqlite;
 using Karkas.Core.DataUtil;
+
 
 using Microsoft.Data.Sqlite;
 using CommandLine;
@@ -31,6 +34,7 @@ namespace Karkas.CodeGeneration.ConsoleApp
             Console.WriteLine($"arguments {options}");
 
             DatabaseEntry db = DatabaseService.GetByConnectionName(options.ConfigFileName, options.ConnectionName);
+            Console.WriteLine($"DatabaseEntry {db}");
 
             string homeDirectory = Environment.GetEnvironmentVariable("HOME")!;
 
@@ -48,8 +52,10 @@ namespace Karkas.CodeGeneration.ConsoleApp
             switch (db.ConnectionDatabaseType)
             {
                 case "sqlite":
-                    generateSqliteCode(db);
+                case "SqlServer":
+                    generateCode(db);
                     break;
+
                 default:
                     Console.WriteLine($"NOT Supported yet in commandline {db.ConnectionDatabaseType}");
                     break;
@@ -58,13 +64,13 @@ namespace Karkas.CodeGeneration.ConsoleApp
         }
 
 
-        private static void generateSqliteCode(DatabaseEntry db)
+        private static void generateCode(DatabaseEntry db)
         {
 
             Console.WriteLine($"trying connection string {db.ConnectionString}");
 
-            DbConnection connection = ConnectionHelper.TestSqlite(db.ConnectionString);
-            if (connection == null)
+            IAdoTemplate<IParameterBuilder> template =  ConnectionHelper.TestConnection(db.ConnectionDatabaseType, db.ConnectionString);
+            if (template == null)
             {
                 Console.WriteLine($"error in connecting sqlite using connection string {db.ConnectionString}");
                 return;
@@ -75,15 +81,21 @@ namespace Karkas.CodeGeneration.ConsoleApp
             }
 
 
-            DbProviderFactories.RegisterFactory("Microsoft.Data.Sqlite", SqliteFactory.Instance);
+            IDatabase databaseHelper;
+            switch (db.ConnectionDatabaseType)
+            {
+                case "sqlite":
+                    databaseHelper =  = DatabaseSqlite(template);
+                    break;
+                case "SqlServer":
+                    databaseHelper =  = DatabaseSql(template);
+                    break;
 
-
-            IAdoTemplate<IParameterBuilder> template = new AdoTemplateSqlite();
-            template.Connection = connection;
-
-
-
-            IDatabase databaseHelper = new DatabaseSqlite(template);
+                default:
+                    Console.WriteLine($"NOT Supported yet in commandline {db.ConnectionDatabaseType}");
+                    break;
+            }
+            
             db.setIDatabaseValues(databaseHelper);
 
 
@@ -91,6 +103,7 @@ namespace Karkas.CodeGeneration.ConsoleApp
             Console.WriteLine("Code generation finished");
 
         }
+
 
 
     }

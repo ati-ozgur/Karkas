@@ -16,6 +16,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Karkas.Core\Karkas.Core.DataUtil\Karkas.Core.DataUtil.csproj" />
+    <ProjectReference Include="..\..\Karkas.Core\Karkas.Core.Data.SqlServer\Karkas.Core.Data.SqlServer.csproj" />
+    <ProjectReference Include="..\..\Karkas.Core\Karkas.Core.Data.Sqlite\Karkas.Core.Data.Sqlite.csproj" />    
   </ItemGroup>
 
 </Project>
