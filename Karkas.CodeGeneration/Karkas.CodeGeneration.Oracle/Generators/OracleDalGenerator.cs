@@ -115,14 +115,29 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
                 string identityColumnName = utils.getIdentityColumnName(container);
                 string insertString = getInsertString(container);
-                string sentenceInner = $"{insertString}  returning {identityColumnName} into :{identityColumnName};";
-
-                string sentence = $"return @\" begin" + Environment.NewLine;
-                sentence = sentence +   $"INSERT INTO {schemaNameForQueries}{container.Name}" + Environment.NewLine;
-                sentence += sentenceInner + Environment.NewLine;
-                sentence = sentence + "end; ";
-                sentence +=  "\";";
-                output.autoTabLn(sentence);
+                if(string.IsNullOrEmpty(identityColumnName))
+                {
+                    string insert;
+                    if(CodeGenerationConfig.UseSchemaNameInSqlQueries)
+                    {
+                        insert = "return  @\"" + $"INSERT INTO {schemaNameForQueries}.{container.Name} {insertString}\";";
+                    } 
+                    else
+                    {
+                        insert = "return  @\"" + $"INSERT INTO {container.Name} {insertString}\";";
+                    }
+                    output.autoTabLn(insert);
+                }
+                else
+                {
+                    string sentenceInner = $"{insertString}  returning {identityColumnName} into :{identityColumnName};";
+                    string sentence = $"return @\" begin" + Environment.NewLine;
+                    sentence = sentence +   $"INSERT INTO {schemaNameForQueries}{container.Name}" + Environment.NewLine;
+                    sentence += sentenceInner + Environment.NewLine;
+                    sentence = sentence + "end; ";
+                    sentence +=  "\";";
+                    output.autoTabLn(sentence);
+                }
             }
             else
             {

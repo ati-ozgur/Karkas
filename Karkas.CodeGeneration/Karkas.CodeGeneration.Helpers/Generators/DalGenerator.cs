@@ -59,7 +59,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             bool semaIsminiSorgulardaKullan = CodeGenerationConfig.UseSchemaNameInSqlQueries;
 
             output.tabLevel = 0;
-            IDatabase database = container.Database;
             baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
 
