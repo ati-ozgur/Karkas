@@ -54,10 +54,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         public string Render(IOutput output
             , IContainer container)
         {
-            bool semaIsminiSorgulardaKullan = CodeGenerationConfig.
+            List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
+            bool semaIsminiDizinlerdeKullan = CodeGenerationConfig.UseSchemaNameInFolders;
+            bool semaIsminiSorgulardaKullan = CodeGenerationConfig.UseSchemaNameInSqlQueries;
+
             output.tabLevel = 0;
             IDatabase database = container.Database;
-            baseNameSpace = utils.GetProjectNamespaceWithSchema(database, container.Schema);
+            baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
 
             pkName = utils.FindPrimaryKeyColumnName(container);
@@ -95,8 +98,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             listType = "List<" + classNameTypeLibrary + ">";
 
-            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForDalGenerated(database, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
-            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(database, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
+            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForDalGenerated(CodeGenerationConfig, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
+            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(CodeGenerationConfig, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
 
             WriteUsings(output, schemaName, baseNameSpaceTypeLibrary);
 
@@ -173,7 +176,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
-            output.autoTabLn(string.Format("return \"{0}\";", container.Database.ConnectionDbProviderName));
+            output.autoTabLn(string.Format("return \"{0}\";",  CodeGenerationConfig.ConnectionDbProviderName));
             AtEndCurlyBraceletDescreaseTab(output);
             AtEndCurlyBraceletDescreaseTab(output);
         }
@@ -260,7 +263,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
-            output.autoTabLn(string.Format("return \"{0}\";", container.Database.ConnectionName));
+            output.autoTabLn(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionName));
             AtEndCurlyBraceletDescreaseTab(output);
             AtEndCurlyBraceletDescreaseTab(output);
         }

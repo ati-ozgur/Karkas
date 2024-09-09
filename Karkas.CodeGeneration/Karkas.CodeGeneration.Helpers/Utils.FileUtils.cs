@@ -58,11 +58,11 @@ namespace Karkas.CodeGeneration.Helpers
             {
                 if (semaIsminiDizinlerdeKullan)
                 {
-                    return Path.Combine(GetProjectMainDirectory(database) + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar  + schemaName, className + "Dal.generated.cs");
+                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar  + schemaName, className + "Dal.generated.cs");
                 }
                 else
                 {
-                    return Path.Combine(GetProjectMainDirectory(database) + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar , className + "Dal.generated.cs");
+                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar , className + "Dal.generated.cs");
                 }
             }
 
@@ -70,11 +70,11 @@ namespace Karkas.CodeGeneration.Helpers
             {
                 if (semaIsminiDizinlerdeKullan)
                 {
-                    return Path.Combine(GetProjectMainDirectory(database) + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar  + schemaName + "\\Sequences", sequenceName + "Dal.generated.cs");
+                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar  + schemaName + "\\Sequences", sequenceName + "Dal.generated.cs");
                 }
                 else
                 {
-                    return Path.Combine(GetProjectMainDirectory(database) + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".DalS + Path.DirectorySeparatorChar equences\\", sequenceName + "Dal.generated.cs");
+                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".DalS + Path.DirectorySeparatorChar equences\\", sequenceName + "Dal.generated.cs");
                 }
             }
 

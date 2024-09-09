@@ -23,13 +23,13 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		private string databaseNameLogical;
 		private string projectNameSpace;
 		private string codeGenerationDirectory;
-		private string tableCodeGenerate;
-		private string viewCodeGenerate;
-		private string storedProcedureCodeGenerate;
-		private string sequenceCodeGenerate;
-		private string useSchemaNameInSqlQueries;
-		private string useSchemaNameInFolders;
-		private string ignoreSystemTables;
+		private bool tableCodeGenerate;
+		private bool viewCodeGenerate;
+		private bool storedProcedureCodeGenerate;
+		private bool sequenceCodeGenerate;
+		private bool useSchemaNameInSqlQueries;
+		private bool useSchemaNameInFolders;
+		private bool ignoreSystemTables;
 		private string ignoredSchemaList;
 		private string schemaList;
 
@@ -186,7 +186,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 			}
 		}
 		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-		public string TableCodeGenerate
+		public bool TableCodeGenerate
 		{
 			[DebuggerStepThrough]
 			get
@@ -205,7 +205,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		}
 
 		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-		public string ViewCodeGenerate
+		public bool ViewCodeGenerate
 		{
 			[DebuggerStepThrough]
 			get
@@ -224,7 +224,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		}
 
 		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-		public string StoredProcedureCodeGenerate
+		public bool StoredProcedureCodeGenerate
 		{
 			[DebuggerStepThrough]
 			get
@@ -243,7 +243,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		}
 
 		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-		public string SequenceCodeGenerate
+		public bool SequenceCodeGenerate
 		{
 			[DebuggerStepThrough]
 			get
@@ -262,7 +262,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		}
 
 		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-		public string UseSchemaNameInSqlQueries
+		public bool UseSchemaNameInSqlQueries
 		{
 			[DebuggerStepThrough]
 			get
@@ -281,7 +281,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		}
 
 		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-		public string UseSchemaNameInFolders
+		public bool UseSchemaNameInFolders
 		{
 			[DebuggerStepThrough]
 			get
@@ -300,7 +300,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		}
 
 		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-		public string IgnoreSystemTables
+		public bool IgnoreSystemTables
 		{
 			[DebuggerStepThrough]
 			get

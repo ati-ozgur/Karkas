@@ -23,13 +23,17 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             , IContainer container)
         {
 
+            List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
+            bool semaIsminiDizinlerdeKullan = CodeGenerationConfig.UseSchemaNameInFolders;
+            bool semaIsminiSorgulardaKullan = CodeGenerationConfig.UseSchemaNameInSqlQueries;
+
+
             IDatabase database = container.Database;
             output.tabLevel = 0;
-
             string baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
             string baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
 
-            string className = utils.getClassNameForTypeLibrary(container.Name, CodeGenerationConfig. listDatabaseAbbreviations);
+            string className = utils.getClassNameForTypeLibrary(container.Name, listDatabaseAbbreviations);
             string schemaName = utils.GetPascalCase(container.Schema);
             string classNameSpace = baseNameSpaceTypeLibrary;
             if (!string.IsNullOrWhiteSpace(schemaName))
@@ -37,8 +41,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 classNameSpace = classNameSpace + "." + schemaName;
             }
             
-            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForTypeLibrary(database, schemaName, className,semaIsminiDizinlerdeKullan); 
-            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForTypeLibraryGenerated(database, schemaName,className, semaIsminiDizinlerdeKullan);
+            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForTypeLibrary(CodeGenerationConfig, schemaName, className,semaIsminiDizinlerdeKullan); 
+            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForTypeLibraryGenerated(CodeGenerationConfig, schemaName,className, semaIsminiDizinlerdeKullan);
             //output.setPreserveSource(outputFullFileNameGenerated, "//::", ":://");
 
 

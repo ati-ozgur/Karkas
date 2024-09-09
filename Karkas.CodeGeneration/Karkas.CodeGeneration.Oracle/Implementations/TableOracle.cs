@@ -104,11 +104,13 @@ OWNER = :schemaName
             }
         }
 
+
+        // TODO Fix it,
         public IDatabase Database
         {
             get 
             {
-                return database;
+                return null;
             
             }
         }

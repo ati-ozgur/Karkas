@@ -32,11 +32,12 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             get { throw new NotImplementedException(); }
         }
 
+        // TODO fix later
         public IDatabase Database
         {
             get 
             {
-                return database;
+                return null;
             }
         }
 

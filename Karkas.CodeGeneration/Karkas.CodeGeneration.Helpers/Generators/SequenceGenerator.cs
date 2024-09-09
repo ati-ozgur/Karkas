@@ -30,8 +30,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             , string schemaName
             , string sequenceName)
         {
+            
             output.tabLevel = 0;
-            baseNameSpace = utils.GetProjectNamespaceWithSchema(database, schemaName);
+            baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
+
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
 
             string schemaNamepascalCase = utils.GetPascalCase(schemaName);
@@ -41,7 +43,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             string sequenceDalName = sequenceNamePascalCase + "Dal";
 
-            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForSequenceDalGenerated(database, schemaNamepascalCase, sequenceNamePascalCase, database.UseSchemaNameInFolders);
+            string outputFullFileNameGenerated = "TODO-SEQUENCE.txt";//utils.FileUtilsHelper.getBaseNameForSequenceDalGenerated(this.DatabaseHelper, schemaNamepascalCase, sequenceNamePascalCase, CodeGenerationConfig.UseSchemaNameInFolders);
 
             writeUsings(output,baseNameSpaceSequencesDal);
             writeClass(output, sequenceDalName);
@@ -50,7 +52,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-            writeSelectSequenceStrings(output, database, schemaName, sequenceName);
+            writeSelectSequenceStrings(output, this.DatabaseHelper, schemaName, sequenceName);
             writeGetNextSequenceValue(output);
             writeGetCurrentSequenceValue(output);
             AtEndCurlyBraceletDescreaseTab(output);

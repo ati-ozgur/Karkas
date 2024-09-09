@@ -3,16 +3,22 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
+
 using Karkas.CodeGeneration.Helpers;
-using Karkas.CodeGeneration.Helpers.Generators;
+using Karkas.CodeGeneration.Helpers.BaseClasses;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
 using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.Generators;
+
 
 namespace Karkas.CodeGeneration.SqlServer.Generators
 {
     public class SqlServerDalGenerator : DalGenerator
     {
-        public SqlServerDalGenerator(IDatabase databaseHelper)
-            : base(databaseHelper)
+
+
+        public SqlServerDalGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig) 
+            : base(pDatabaseHelper,pCodeGenerationConfig)
         {
         }
 

@@ -60,11 +60,12 @@ OWNER = :schemaName
             }
         }
 
+        // TODO Fix it later
         public IDatabase Database
         {
             get
             {
-                return database;
+                return null;
             }
         }
 

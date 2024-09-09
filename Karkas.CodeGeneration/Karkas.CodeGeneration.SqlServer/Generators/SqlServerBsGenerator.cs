@@ -1,16 +1,24 @@
-﻿using Karkas.CodeGeneration.Helpers.Generators;
-using Karkas.CodeGeneration.Helpers.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+using Karkas.CodeGeneration.Helpers;
+using Karkas.CodeGeneration.Helpers.BaseClasses;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
+using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.Generators;
+
+
+
 namespace Karkas.CodeGeneration.SqlServer.Generators
 {
     public class SqlServerBsGenerator : BsGenerator
     {
-        public SqlServerBsGenerator(IDatabase databaseHelper) : base(databaseHelper)
+        public SqlServerBsGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig) 
+            : base(pDatabaseHelper,pCodeGenerationConfig)
         {
         }
 

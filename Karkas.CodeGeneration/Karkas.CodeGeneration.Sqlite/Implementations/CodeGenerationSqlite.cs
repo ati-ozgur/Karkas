@@ -1,14 +1,18 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.Core.DataUtil;
-using System.Data;
-using Karkas.CodeGeneration.Helpers.Generators;
-using Karkas.CodeGeneration.Sqlite.Generators;
-using Karkas.CodeGeneration.Helpers;
+
+
 using Karkas.CodeGeneration.Helpers.BaseClasses;
+using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.Generators;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
+
+using Karkas.CodeGeneration.Sqlite.Generators;
+
 
 namespace Karkas.CodeGeneration.Sqlite.Implementations
 {
@@ -16,37 +20,8 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
     {
 
 
-        public CodeGenerationSqlite(IAdoTemplate<IParameterBuilder> template) : base(template)
+        public CodeGenerationSqlite(IAdoTemplate<IParameterBuilder> template,IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(template,pDatabaseHelper,pCodeGenerationConfig) 
         {
-
-        }
-        public CodeGenerationSqlite(IAdoTemplate<IParameterBuilder> template
-            , String connectionString
-            , string connectionName
-            , string projectNameSpace
-            , string codeGenerationDirectory
-            , string dbProviderName
-            , bool semaIsminiSorgulardaKullan
-            , bool semaIsminiDizinlerdeKullan
-            , bool ignoreSystemTables
-            , List<DatabaseAbbreviations> listDatabaseAbbreviations
-
-            ) : base(template)
-
-        {
- 
-            this.ConnectionString = connectionString;
-
-            this.ProjectNameSpace = projectNameSpace;
-            this.CodeGenerationDirectory = codeGenerationDirectory;
-            this.ConnectionName = connectionName;
-
-            this.ConnectionDbProviderName = dbProviderName;
-            this.UseSchemaNameInSqlQueries = semaIsminiSorgulardaKullan;
-            this.UseSchemaNameInFolders = semaIsminiDizinlerdeKullan;
-            this.ListDatabaseAbbreviations = listDatabaseAbbreviations;
-
-            this.IgnoreSystemTables = ignoreSystemTables;
 
         }
 
@@ -80,7 +55,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                     foreach (var rowTable in dtTables)
                     {
                         string tableName = rowTable["TABLE_NAME"].ToString();
-                        TableSqlite table = new TableSqlite(this, Template, tableName, this.ConnectionName);
+                        TableSqlite table = new TableSqlite(this, Template, tableName, this.CodeGenerationConfig.ConnectionName);
                         _tableList.Add(table);
                     }
                 }
@@ -130,7 +105,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         public override string ToString()
         {
-            return string.Format("SqliteDatabase : {0}, ConnectionString: {1}", ConnectionName, ConnectionString);
+            return string.Format("SqliteDatabase : {0}, ConnectionString: {1}", this.CodeGenerationConfig.ConnectionName, this.CodeGenerationConfig.ConnectionString);
         }
 
 
@@ -210,17 +185,17 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         public override DalGenerator DalGenerator
         {
-            get { return new SqliteDalGenerator(this); }
+            get { return new SqliteDalGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
         }
 
         public override TypeLibraryGenerator TypeLibraryGenerator
         {
-            get { return new TypeLibraryGenerator(this); }
+            get { return new TypeLibraryGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
         }
 
         public override BsGenerator BsGenerator
         {
-            get { return new SqliteBsGenerator(this); }
+            get { return new SqliteBsGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
         }
 
     }

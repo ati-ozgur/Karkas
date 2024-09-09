@@ -41,7 +41,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             , IContainer container)
         {
            
+            List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
             bool semaIsminiDizinlerdeKullan = CodeGenerationConfig.UseSchemaNameInFolders;
+            bool semaIsminiSorgulardaKullan = CodeGenerationConfig.UseSchemaNameInSqlQueries;
+
+
             output.tabLevel = 0;
             IDatabase database = container.Database;
             baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
@@ -77,8 +81,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDescreaseTab(output);
             AtEndCurlyBraceletDescreaseTab(output);
 
-            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForBsGenerated(database, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
-            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForBs(database, schemaName, classNameTypeLibrary, semaIsminiDizinlerdeKullan); 
+            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForBsGenerated(CodeGenerationConfig, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
+            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForBs(CodeGenerationConfig, schemaName, classNameTypeLibrary, semaIsminiDizinlerdeKullan); 
             output.saveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.clear();
 
@@ -101,7 +105,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
-            output.autoTabLn(string.Format("return \"{0}\";", container.Database.ConnectionName));
+            output.autoTabLn(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionName));
             AtEndCurlyBraceletDescreaseTab(output);
             AtEndCurlyBraceletDescreaseTab(output);
         }

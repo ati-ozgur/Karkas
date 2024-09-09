@@ -2,55 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.CodeGeneration.Helpers.Interfaces;
-using Karkas.CodeGeneration.Helpers;
 using System.Data.SqlClient;
-using Karkas.CodeGeneration.Helpers.Generators;
 using Karkas.Core.DataUtil;
 using System.Data;
-using Karkas.CodeGeneration.SqlServer.Generators;
-using Karkas.CodeGeneration.Helpers.BaseClasses;
 
+using Karkas.CodeGeneration.Helpers;
+using Karkas.CodeGeneration.Helpers.BaseClasses;
+using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.Generators;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
+
+using Karkas.CodeGeneration.SqlServer.Generators;
 
 namespace Karkas.CodeGeneration.SqlServer.Implementations
 {
     public class CodeGenerationSqlServer : BaseCodeGenerationDatabase
     {
 
-        public CodeGenerationSqlServer(IAdoTemplate<IParameterBuilder> template) : base(template)
+        public CodeGenerationSqlServer(IAdoTemplate<IParameterBuilder> pTemplate,IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig)
+        : base(pTemplate,pDatabaseHelper,pCodeGenerationConfig)        
         {
 
         }
-        public CodeGenerationSqlServer(
-             IAdoTemplate<IParameterBuilder> template
-            , String pConnectionString
-            , string pDatabaseName
-            , string pProjectNameSpace
-            , string codeGenerationDirectory
-            , string dbProviderName
-            , bool semaIsminiSorgulardaKullan
-            , bool semaIsminiDizinlerdeKullan
-            , bool sysTablolariniAtla
-            , List<DatabaseAbbreviations> listDatabaseAbbreviations
-
-            ) : base(template)
-        {
-
-            this.ConnectionString = ConnectionHelper.RemoveProviderFromConnectionString(pConnectionString);
-            this.ProjectNameSpace = pProjectNameSpace;
-            this.CodeGenerationDirectory = codeGenerationDirectory;
-
-
-            this.ConnectionDbProviderName = dbProviderName;
-            this.UseSchemaNameInSqlQueries = semaIsminiSorgulardaKullan;
-            this.UseSchemaNameInFolders = semaIsminiDizinlerdeKullan;
-            this.ListDatabaseAbbreviations = listDatabaseAbbreviations;
-            this.IgnoreSystemTables = sysTablolariniAtla;
-
-        }
-
-
-
 
         List<ITable> _tableList;
 
@@ -70,7 +43,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
                     {
                         string schemaName = row[SCHEMA_NAME_IN_TABLE_SQL_QUERIES].ToString();
                         string tableName = row[TABLE_NAME_IN_TABLE_SQL_QUERIES].ToString();
-                        ITable t = new TableSqlServer(this, Template, tableName, schemaName);
+                        ITable t = new TableSqlServer(this.DatabaseHelper, Template, tableName, schemaName);
                         _tableList.Add(t);
                     }
 
@@ -93,7 +66,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
                     List<Dictionary<string,object>>  dtViews = getViewListFromSchema(null);
                     foreach (var row in dtViews)
                     {
-                        IView t = new ViewSqlServer(this, Template, row["TABLE_NAME"].ToString(), row["TABLE_SCHEMA"].ToString());
+                        IView t = new ViewSqlServer(this.DatabaseHelper, Template, row["TABLE_NAME"].ToString(), row["TABLE_SCHEMA"].ToString());
                         _viewList.Add(t);
                     }
                 }
@@ -105,13 +78,13 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 
         public override string ToString()
         {
-            return ConnectionName;
+            return this.CodeGenerationConfig.ConnectionName;
         }
 
 
         public override ITable getTable(string pTableName, string pSchemaName)
         {
-            ITable t = new TableSqlServer(this, Template, pTableName, pSchemaName);
+            ITable t = new TableSqlServer(this.DatabaseHelper, Template, pTableName, pSchemaName);
             return t;
         }
 
@@ -142,24 +115,6 @@ ORDER BY FULL_TABLE_NAME
 SELECT DISTINCT TABLE_CATALOG FROM INFORMATION_SCHEMA.TABLES
 ";
 
-        private string databaseNamePhysical;
-
-        public override string DatabaseNamePhysical
-        {
-            get
-            {
-                if (String.IsNullOrEmpty(databaseNamePhysical))
-                {
-                    databaseNamePhysical = (string)Template.BringOneValue(SQL_FOR_DATABASE_NAME);
-                }
-                return databaseNamePhysical;
-            }
-            set
-            {
-                databaseNamePhysical = value;
-            }
-
-        }
 
         public override List<Dictionary<string,object>>  getTableListFromSchema(string schemaName)
         {
@@ -320,23 +275,23 @@ ORDER BY SEQUENCE_NAME
 
         public override IView GetView(string pViewName, string pSchemaName)
         {
-            return new ViewSqlServer(this, Template, pViewName, pSchemaName);
+            return new ViewSqlServer(this.DatabaseHelper, Template, pViewName, pSchemaName);
         }
 
 
         public override DalGenerator DalGenerator
         {
-            get { return new Generators.SqlServerDalGenerator(this); }
+            get { return new SqlServerDalGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
         }
 
         public override TypeLibraryGenerator TypeLibraryGenerator
         {
-            get { return new SqlServerTypeLibraryGenerator(this); }
+            get { return new SqlServerTypeLibraryGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
         }
 
         public override BsGenerator BsGenerator
         {
-            get { return new SqlServerBsGenerator(this); }
+            get { return new SqlServerBsGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
         }
 
 
@@ -348,7 +303,7 @@ ORDER BY SEQUENCE_NAME
 
         public override bool CheckIfCodeShouldBeGenerated(string pTableName, string pSchemaName)
         {
-            if (IgnoreSystemTables)
+            if (CodeGenerationConfig.IgnoreSystemTables)
             {
                 if (sqlserverSystemTableList.Contains(pTableName))
                 {

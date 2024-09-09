@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
+
 using Karkas.CodeGeneration.Helpers;
-using Karkas.CodeGeneration.Helpers.Generators;
+using Karkas.CodeGeneration.Helpers.BaseClasses;
 using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.Generators;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
+
 
 namespace Karkas.CodeGeneration.Sqlite.Generators
 {
     public class SqliteDalGenerator : DalGenerator
     {
-        public SqliteDalGenerator(IDatabase databaseHelper)
-            : base(databaseHelper)
+        public SqliteDalGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig)
+            : base(pDatabaseHelper,pCodeGenerationConfig)
         {
         }
 

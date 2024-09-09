@@ -2,9 +2,13 @@
 using System.Data;
 using System.Data.Common;
 using System.Drawing.Text;
+
+
 using Karkas.CodeGeneration.Helpers;
+using Karkas.CodeGeneration.Helpers.BaseClasses;
 using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.CodeGeneration.Helpers.PersistenceService;
+
 using Karkas.CodeGeneration.Sqlite.Implementations;
 using Karkas.CodeGeneration.SqlServer.Implementations;
 
@@ -81,14 +85,14 @@ namespace Karkas.CodeGeneration.ConsoleApp
             }
 
 
-            IDatabase databaseHelper = null;
+            BaseCodeGenerationDatabase generator = null;
             switch (db.ConnectionDatabaseType)
             {
                 case "sqlite":
-                    databaseHelper = new CodeGenerationSqlite(template);
+                    generator = new CodeGenerationSqlite(template,null,db);
                     break;
                 case "SqlServer":
-                    databaseHelper = new CodeGenerationSqlServer(template);
+                    generator = new CodeGenerationSqlServer(template,null,db);
                     break;
 
                 default:
@@ -97,7 +101,7 @@ namespace Karkas.CodeGeneration.ConsoleApp
             }
             
 
-            string result = databaseHelper.CodeGenerateAllTables();
+            string result = generator.CodeGenerateAllTables();
             Console.WriteLine("Code generation finished");
             Console.WriteLine("Errors: ");
             Console.WriteLine(result);

@@ -2,56 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.Core.DataUtil;
 using System.Data;
-using Karkas.CodeGeneration.Helpers.Generators;
 using Karkas.CodeGeneration.Helpers;
-using Karkas.CodeGeneration.Oracle.Generators;
+
 using Karkas.CodeGeneration.Helpers.BaseClasses;
+using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.Generators;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
+
+using Karkas.CodeGeneration.Oracle.Generators;
+
 
 namespace Karkas.CodeGeneration.Oracle.Implementations
 {
     public class CodeGenerationOracle : BaseCodeGenerationDatabase
     {
 
-        public CodeGenerationOracle(IAdoTemplate<IParameterBuilder> template) : base(template)
+        public CodeGenerationOracle(IAdoTemplate<IParameterBuilder> template,IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(template,pDatabaseHelper,pCodeGenerationConfig)        
         {
 
         }
 
 
-        public CodeGenerationOracle(IAdoTemplate<IParameterBuilder> template
-            ,string connectionString
-            , string pDatabaseName
-            , string pProjectNameSpace
-            , string pProjectFolder
-            , string dbProviderName
-            , bool semaIsminiSorgulardaKullan
-            , bool semaIsminiDizinlerdeKullan
-            , bool sysTablolariniAtla
-            , List<DatabaseAbbreviations> listDatabaseAbbreviations
-
-            ) : base(template)
-        {
 
 
-            this.ConnectionString = connectionString;
-
-            this.ProjectNameSpace = pProjectNameSpace;
-            this.CodeGenerationDirectory = pProjectFolder;
-            this.LogicalDatabaseName = pDatabaseName;
-            this.ConnectionDbProviderName = dbProviderName;
-
-            this.UseSchemaNameInSqlQueries = semaIsminiSorgulardaKullan;
-            this.UseSchemaNameInFolders = semaIsminiDizinlerdeKullan;
-            this.ListDatabaseAbbreviations = listDatabaseAbbreviations;
-            this.IgnoreSystemTables = sysTablolariniAtla;
-
-        }
-
-
-        public string LogicalDatabaseName { get; set; }
 
         List<ITable> _tables;
         public override List<ITable> Tables
@@ -61,7 +36,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
                 if (_tables == null)
                 {
                     _tables = new List<ITable>();
-                    string userName = getUserNameFromConnection(ConnectionString);
+                    string userName = getUserNameFromConnection(CodeGenerationConfig.ConnectionString);
 
                     IParameterBuilder builder = Template.getParameterBuilder();
                     builder.AddParameter("TABLE_SCHEMA", DbType.String, userName);
@@ -130,7 +105,7 @@ ORDER BY FULL_TABLE_NAME
 
         private string databaseNamePhysical;
 
-        public override string DatabaseNamePhysical
+        public string DatabaseNamePhysical
         {
             get
             {
@@ -259,17 +234,17 @@ ORDER BY SEQUENCE_NAME
 
         public override DalGenerator DalGenerator
         {
-            get { return new OracleDalGenerator(this); }
+            get { return new OracleDalGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
         }
 
         public override TypeLibraryGenerator TypeLibraryGenerator
         {
-            get { return new TypeLibraryGenerator(this); }
+            get { return new TypeLibraryGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
         }
 
         public override BsGenerator BsGenerator
         {
-            get { return new OracleBsGenerator(this); }
+            get { return new OracleBsGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
         }
 
 
@@ -279,7 +254,7 @@ ORDER BY SEQUENCE_NAME
         {
             if (string.IsNullOrEmpty(defaultSchema))
             {
-                defaultSchema = getUserNameFromConnection(ConnectionString);
+                defaultSchema = getUserNameFromConnection(CodeGenerationConfig.ConnectionString);
             }
             return defaultSchema;
 
@@ -289,7 +264,7 @@ ORDER BY SEQUENCE_NAME
 
         public override bool CheckIfCodeShouldBeGenerated(string pTableName, string pSchemaName)
         {
-            if(IgnoreSystemTables)
+            if(CodeGenerationConfig.IgnoreSystemTables)
             {
                 if(oracleSystemSchemaList.Contains(pSchemaName.ToUpper()))
                 {
