@@ -60,7 +60,7 @@
     "ConnectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xe)));User Id=chinook;Password=chinook;",
     "DatabaseNamePhysical": null,
     "DatabaseNameLogical": null,
-    "ProjectNameSpace": "Karkas.Example",
+    "ProjectNameSpace": "Karkas.Examples.Chinook",
     "CodeGenerationDirectory": "./Karkas.Examples/GeneratedProjects/ChinookOracle",
     "UseSchemaNameInNamespaces": false,
     "UseSchemaNameInSqlQueries": false,

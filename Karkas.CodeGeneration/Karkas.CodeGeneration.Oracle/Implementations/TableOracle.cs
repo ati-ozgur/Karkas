@@ -87,15 +87,15 @@ OWNER = :schemaName
             {
                 if (columns == null)
                 {
+                    columns = new List<IColumn>();
                     IParameterBuilder builder = template.getParameterBuilder();
                     builder.AddParameter("tableName", DbType.String, Name);
                     builder.AddParameter("schemaName",DbType.String,Schema);
 
                     var dtColumnList = template.GetListOfDictionary(SQL_FOR_COLUMN_LIST, builder.GetParameterArray());
-                    columns = new List<IColumn>();
                     foreach (var row in dtColumnList)
                     {
-                        string columnName = row["column_name"].ToString();
+                        string columnName = row["COLUMN_NAME"].ToString();
                         IColumn column = new ColumnOracle(template,this,columnName);
                         columns.Add(column);
                     }

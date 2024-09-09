@@ -48,6 +48,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
                         string tableSchema = row["TABLE_SCHEMA"].ToString();
 
                         ITable table = new TableOracle(this, Template, tableName, tableSchema);
+                        _tables.Add(table);
                     }
 
 
