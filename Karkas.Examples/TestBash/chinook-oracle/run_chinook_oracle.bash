@@ -53,7 +53,7 @@ rm -rf Karkas.Examples/GeneratedProjects/ChinookOracle
 dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname ChinookOracle
 cd Karkas.Examples/GeneratedProjects/ChinookOracle
 dotnet new console
-dotnet add package Microsoft.Data.SqlClient
+dotnet add package Oracle.ManagedDataAccess.Core
 dotnet add reference "../../../Karkas.Core/Karkas.Core.DataUtil/Karkas.Core.DataUtil.csproj"
 dotnet add reference "../../../Karkas.Core/Karkas.Core.Data.Oracle/Karkas.Core.Data.Oracle.csproj"
 cp ../../TestCSharp/ProgramChinook.cs Program.cs
