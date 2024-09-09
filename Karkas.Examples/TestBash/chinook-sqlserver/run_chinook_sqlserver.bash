@@ -17,9 +17,8 @@ IMAGE_NAME="chinook-sqlserver-image1"
 WORKING_DIR=$PWD
 echo $PWD
 
-cp Karkas.Examples/Chinook/DatabaseScripts/Chinook_SqlServer_AutoIncrementPKs.sql Tests/chinook-sqlserver/
 
-cd Tests/chinook-sqlserver/
+cd ./Karkas.Examples/TestBash/chinook-sqlserver
 
 docker build -t $IMAGE_NAME .
 
