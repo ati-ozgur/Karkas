@@ -2,7 +2,6 @@
 
 using System;
 using System.Data.Common;
-using Microsoft.Data.Sqlite;
 
 using Karkas.Core.DataUtil;
 
