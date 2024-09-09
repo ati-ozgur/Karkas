@@ -1,242 +1,46 @@
 
-/*******************************************************************************
-   Chinook Database - Version 1.4.5
-   Script: Chinook_Oracle.sql
-   Description: Creates and populates the Chinook database.
-   DB Server: Oracle
-   Author: Luis Rocha
-   License: https://github.com/lerocha/chinook-database/blob/master/LICENSE.md
-********************************************************************************/
-
-
-/*******************************************************************************
-   Drop database if it exists
-********************************************************************************/
-DROP USER chinook CASCADE;
-
-
-/*******************************************************************************
-   Create database
-********************************************************************************/
-CREATE USER chinook
-IDENTIFIED BY chinook
-DEFAULT TABLESPACE users
-TEMPORARY TABLESPACE temp
-QUOTA 10M ON users;
-
-GRANT connect to chinook;
-GRANT resource to chinook;
-GRANT create session TO chinook;
-GRANT create table TO chinook;
-GRANT create view TO chinook;
-
 
 
 conn chinook/chinook
 
 
-/*******************************************************************************
-   Create Tables
-********************************************************************************/
-CREATE TABLE Album
-(
-    AlbumId NUMBER NOT NULL,
-    Title VARCHAR2(160) NOT NULL,
-    ArtistId NUMBER NOT NULL,
-    CONSTRAINT PK_Album PRIMARY KEY  (AlbumId)
-);
-
-CREATE TABLE Artist
-(
-    ArtistId NUMBER NOT NULL,
-    Name VARCHAR2(120),
-    CONSTRAINT PK_Artist PRIMARY KEY  (ArtistId)
-);
-
-CREATE TABLE Customer
-(
-    CustomerId NUMBER NOT NULL,
-    FirstName VARCHAR2(40) NOT NULL,
-    LastName VARCHAR2(20) NOT NULL,
-    Company VARCHAR2(80),
-    Address VARCHAR2(70),
-    City VARCHAR2(40),
-    State VARCHAR2(40),
-    Country VARCHAR2(40),
-    PostalCode VARCHAR2(10),
-    Phone VARCHAR2(24),
-    Fax VARCHAR2(24),
-    Email VARCHAR2(60) NOT NULL,
-    SupportRepId NUMBER,
-    CONSTRAINT PK_Customer PRIMARY KEY  (CustomerId)
-);
-
-CREATE TABLE Employee
-(
-    EmployeeId NUMBER NOT NULL,
-    LastName VARCHAR2(20) NOT NULL,
-    FirstName VARCHAR2(20) NOT NULL,
-    Title VARCHAR2(30),
-    ReportsTo NUMBER,
-    BirthDate DATE,
-    HireDate DATE,
-    Address VARCHAR2(70),
-    City VARCHAR2(40),
-    State VARCHAR2(40),
-    Country VARCHAR2(40),
-    PostalCode VARCHAR2(10),
-    Phone VARCHAR2(24),
-    Fax VARCHAR2(24),
-    Email VARCHAR2(60),
-    CONSTRAINT PK_Employee PRIMARY KEY  (EmployeeId)
-);
-
-CREATE TABLE Genre
-(
-    GenreId NUMBER NOT NULL,
-    Name VARCHAR2(120),
-    CONSTRAINT PK_Genre PRIMARY KEY  (GenreId)
-);
-
-CREATE TABLE Invoice
-(
-    InvoiceId NUMBER NOT NULL,
-    CustomerId NUMBER NOT NULL,
-    InvoiceDate DATE NOT NULL,
-    BillingAddress VARCHAR2(70),
-    BillingCity VARCHAR2(40),
-    BillingState VARCHAR2(40),
-    BillingCountry VARCHAR2(40),
-    BillingPostalCode VARCHAR2(10),
-    Total NUMBER(10,2) NOT NULL,
-    CONSTRAINT PK_Invoice PRIMARY KEY  (InvoiceId)
-);
-
-CREATE TABLE InvoiceLine
-(
-    InvoiceLineId NUMBER NOT NULL,
-    InvoiceId NUMBER NOT NULL,
-    TrackId NUMBER NOT NULL,
-    UnitPrice NUMBER(10,2) NOT NULL,
-    Quantity NUMBER NOT NULL,
-    CONSTRAINT PK_InvoiceLine PRIMARY KEY  (InvoiceLineId)
-);
-
-CREATE TABLE MediaType
-(
-    MediaTypeId NUMBER NOT NULL,
-    Name VARCHAR2(120),
-    CONSTRAINT PK_MediaType PRIMARY KEY  (MediaTypeId)
-);
-
-CREATE TABLE Playlist
-(
-    PlaylistId NUMBER NOT NULL,
-    Name VARCHAR2(120),
-    CONSTRAINT PK_Playlist PRIMARY KEY  (PlaylistId)
-);
-
-CREATE TABLE PlaylistTrack
-(
-    PlaylistId NUMBER NOT NULL,
-    TrackId NUMBER NOT NULL,
-    CONSTRAINT PK_PlaylistTrack PRIMARY KEY  (PlaylistId, TrackId)
-);
-
-CREATE TABLE Track
-(
-    TrackId NUMBER NOT NULL,
-    Name VARCHAR2(200) NOT NULL,
-    AlbumId NUMBER,
-    MediaTypeId NUMBER NOT NULL,
-    GenreId NUMBER,
-    Composer VARCHAR2(220),
-    Milliseconds NUMBER NOT NULL,
-    Bytes NUMBER,
-    UnitPrice NUMBER(10,2) NOT NULL,
-    CONSTRAINT PK_Track PRIMARY KEY  (TrackId)
-);
-
-
-
-/*******************************************************************************
-   Create Primary Key Unique Indexes
-********************************************************************************/
-
-/*******************************************************************************
-   Create Foreign Keys
-********************************************************************************/
-ALTER TABLE Album ADD CONSTRAINT FK_AlbumArtistId
-    FOREIGN KEY (ArtistId) REFERENCES Artist (ArtistId)  ;
-
-ALTER TABLE Customer ADD CONSTRAINT FK_CustomerSupportRepId
-    FOREIGN KEY (SupportRepId) REFERENCES Employee (EmployeeId)  ;
-
-ALTER TABLE Employee ADD CONSTRAINT FK_EmployeeReportsTo
-    FOREIGN KEY (ReportsTo) REFERENCES Employee (EmployeeId)  ;
-
-ALTER TABLE Invoice ADD CONSTRAINT FK_InvoiceCustomerId
-    FOREIGN KEY (CustomerId) REFERENCES Customer (CustomerId)  ;
-
-ALTER TABLE InvoiceLine ADD CONSTRAINT FK_InvoiceLineInvoiceId
-    FOREIGN KEY (InvoiceId) REFERENCES Invoice (InvoiceId)  ;
-
-ALTER TABLE InvoiceLine ADD CONSTRAINT FK_InvoiceLineTrackId
-    FOREIGN KEY (TrackId) REFERENCES Track (TrackId)  ;
-
-ALTER TABLE PlaylistTrack ADD CONSTRAINT FK_PlaylistTrackPlaylistId
-    FOREIGN KEY (PlaylistId) REFERENCES Playlist (PlaylistId)  ;
-
-ALTER TABLE PlaylistTrack ADD CONSTRAINT FK_PlaylistTrackTrackId
-    FOREIGN KEY (TrackId) REFERENCES Track (TrackId)  ;
-
-ALTER TABLE Track ADD CONSTRAINT FK_TrackAlbumId
-    FOREIGN KEY (AlbumId) REFERENCES Album (AlbumId)  ;
-
-ALTER TABLE Track ADD CONSTRAINT FK_TrackGenreId
-    FOREIGN KEY (GenreId) REFERENCES Genre (GenreId)  ;
-
-ALTER TABLE Track ADD CONSTRAINT FK_TrackMediaTypeId
-    FOREIGN KEY (MediaTypeId) REFERENCES MediaType (MediaTypeId)  ;
 
 
 /*******************************************************************************
    Populate Tables
 ********************************************************************************/
 
-INSERT INTO Genre (GenreId, Name) VALUES
-    (1, 'Rock'),
-    (2, 'Jazz'),
-    (3, 'Metal'),
-    (4, 'Alternative '||chr(38)||' Punk'),
-    (5, 'Rock And Roll'),
-    (6, 'Blues'),
-    (7, 'Latin'),
-    (8, 'Reggae'),
-    (9, 'Pop'),
-    (10, 'Soundtrack'),
-    (11, 'Bossa Nova'),
-    (12, 'Easy Listening'),
-    (13, 'Heavy Metal'),
-    (14, 'R'||chr(38)||'B/Soul'),
-    (15, 'Electronica/Dance'),
-    (16, 'World'),
-    (17, 'Hip Hop/Rap'),
-    (18, 'Science Fiction'),
-    (19, 'TV Shows'),
-    (20, 'Sci Fi '||chr(38)||' Fantasy'),
-    (21, 'Drama'),
-    (22, 'Comedy'),
-    (23, 'Alternative'),
-    (24, 'Classical'),
-    (25, 'Opera');
+INSERT INTO Genre (GenreId, Name) VALUES (1, 'Rock');
+INSERT INTO Genre (GenreId, Name) VALUES  (2, 'Jazz');
+INSERT INTO Genre (GenreId, Name) VALUES  (3, 'Metal');
+INSERT INTO Genre (GenreId, Name) VALUES  (4, 'Alternative '||chr(38)||' Punk');
+INSERT INTO Genre (GenreId, Name) VALUES  (5, 'Rock And Roll');
+INSERT INTO Genre (GenreId, Name) VALUES  (6, 'Blues');
+INSERT INTO Genre (GenreId, Name) VALUES  (7, 'Latin');
+INSERT INTO Genre (GenreId, Name) VALUES  (8, 'Reggae');
+INSERT INTO Genre (GenreId, Name) VALUES  (9, 'Pop');
+INSERT INTO Genre (GenreId, Name) VALUES  (10, 'Soundtrack');
+INSERT INTO Genre (GenreId, Name) VALUES  (11, 'Bossa Nova');
+INSERT INTO Genre (GenreId, Name) VALUES  (12, 'Easy Listening');
+INSERT INTO Genre (GenreId, Name) VALUES  (13, 'Heavy Metal');
+INSERT INTO Genre (GenreId, Name) VALUES  (14, 'R'||chr(38)||'B/Soul');
+INSERT INTO Genre (GenreId, Name) VALUES  (15, 'Electronica/Dance');
+INSERT INTO Genre (GenreId, Name) VALUES  (16, 'World');
+INSERT INTO Genre (GenreId, Name) VALUES  (17, 'Hip Hop/Rap');
+INSERT INTO Genre (GenreId, Name) VALUES  (18, 'Science Fiction');
+INSERT INTO Genre (GenreId, Name) VALUES  (19, 'TV Shows');
+INSERT INTO Genre (GenreId, Name) VALUES  (20, 'Sci Fi '||chr(38)||' Fantasy');
+INSERT INTO Genre (GenreId, Name) VALUES  (21, 'Drama');
+INSERT INTO Genre (GenreId, Name) VALUES  (22, 'Comedy');
+INSERT INTO Genre (GenreId, Name) VALUES  (23, 'Alternative');
+INSERT INTO Genre (GenreId, Name) VALUES  (24, 'Classical');
+INSERT INTO Genre (GenreId, Name) VALUES  (25, 'Opera');
 
-INSERT INTO MediaType (MediaTypeId, Name) VALUES
-    (1, 'MPEG audio file'),
-    (2, 'Protected AAC audio file'),
-    (3, 'Protected MPEG-4 video file'),
-    (4, 'Purchased AAC audio file'),
-    (5, 'AAC audio file');
+INSERT INTO MediaType (MediaTypeId, Name) VALUES (1, 'MPEG audio file');
+INSERT INTO MediaType (MediaTypeId, Name) VALUES (2, 'Protected AAC audio file');
+INSERT INTO MediaType (MediaTypeId, Name) VALUES (3, 'Protected MPEG-4 video file');
+INSERT INTO MediaType (MediaTypeId, Name) VALUES (4, 'Purchased AAC audio file');
+INSERT INTO MediaType (MediaTypeId, Name) VALUES (5, 'AAC audio file');
 
 INSERT INTO Artist (ArtistId, Name) VALUES
     (1, 'AC/DC'),
