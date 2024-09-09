@@ -36,7 +36,7 @@ namespace Karkas.Core.Data.SqlServer
         {
             get
             {
-                return ":";
+                return "@";
             }
         }
 
