@@ -38,6 +38,8 @@ echo "starting docker container $CONTAINER_NAME with image $IMAGE_NAME"
 
 docker run --detach -p 1433:1433 --name $CONTAINER_NAME  --hostname $CONTAINER_NAME  $IMAGE_NAME
 
+sleep 10s
+
 echo "go to ${WORKING_DIR}"
 cd $WORKING_DIR
 
@@ -49,18 +51,17 @@ docker exec $CONTAINER_ID bash /home/create_chinook_sqlserver_autoincrementpks.b
 
 
 
-rm -rf Karkas.Examples/GeneratedProjects/ChinookSqlServer
+rm -rf Karkas.Examples/GeneratedProjects/ChinookSqlServerAutoIncrement
 
-dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname ChinookSqlServer
-# cd Karkas.Examples/GeneratedProjects/ChinookSqlite
-# dotnet new console
-# dotnet add package Microsoft.Data.Sqlite
-# dotnet add reference "../../../Karkas.Core/Karkas.Core.DataUtil/Karkas.Core.DataUtil.csproj"
-# dotnet add reference "../../../Karkas.Core/Karkas.Core.Data.Sqlite/Karkas.Core.Data.Sqlite.csproj"
-# cp ../../TestCSharp/SqliteProgramChinook.cs Program.cs
-# cp --recursive ../../TestCSharp/Helpers/ .
-# cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqlite.cs ConnectionHelper.cs
-# cp ../../Chinook/Chinook.db Chinook.db
-# dotnet build
-# dotnet run
+dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname ChinookSqlServerAutoIncrement
+cd Karkas.Examples/GeneratedProjects/ChinookSqlServerAutoIncrement
+dotnet new console
+dotnet add package Microsoft.Data.SqlClient
+dotnet add reference "../../../Karkas.Core/Karkas.Core.DataUtil/Karkas.Core.DataUtil.csproj"
+dotnet add reference "../../../Karkas.Core/Karkas.Core.Data.SqlServer/Karkas.Core.Data.SqlServer.csproj"
+cp ../../TestCSharp/ProgramChinook.cs Program.cs
+cp --recursive ../../TestCSharp/Helpers/ .
+cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqlite.cs ConnectionHelper.cs
+dotnet build
+dotnet run
 
