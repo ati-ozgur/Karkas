@@ -13,7 +13,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 {
 	[Serializable]
 	[DebuggerDisplay("ConnectionName = {ConnectionName}")]
-	public partial class 	DatabaseEntry: BaseTypeLibrary
+	public partial class 	CodeGenerationConfig: BaseTypeLibrary
 	{
 		private string connectionName;
 		private string connectionDatabaseType;
@@ -38,21 +38,17 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		private string lastAccessTime;
 		private string lastWriteTime;
 
-		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+
 		public string ConnectionName
 		{
-			[DebuggerStepThrough]
+
 			get
 			{
 				return connectionName;
 			}
-			[DebuggerStepThrough]
+
 			set
 			{
-				if ((this.RowState == DataRowState.Unchanged) && (connectionName!= value))
-				{
-					this.RowState = DataRowState.Modified;
-				}
 				connectionName = value;
 			}
 		}
@@ -436,9 +432,9 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 			}
 		}
 
-		public DatabaseEntry ShallowCopy()
+		public CodeGenerationConfig ShallowCopy()
 		{
-			DatabaseEntry obj = new DatabaseEntry();
+			CodeGenerationConfig obj = new CodeGenerationConfig();
 			obj.connectionName = connectionName;
 			obj.connectionDatabaseType = connectionDatabaseType;
 			obj.connectionDbProviderName = connectionDbProviderName;

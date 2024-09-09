@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.Core.DataUtil;
 using System.Data;
+using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.CodeGeneration.Helpers.Generators;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 namespace Karkas.CodeGeneration.Helpers.BaseClasses
 {
-    public abstract class BaseCodeGenerationDatabase : IDatabase
+    public abstract class BaseCodeGenerationDatabase : BaseGenerator
     {
         IAdoTemplate<IParameterBuilder> template;
-        public BaseCodeGenerationDatabase(IAdoTemplate<IParameterBuilder> pTemplate)
+
+
+        public BaseCodeGenerationDatabase(IAdoTemplate<IParameterBuilder> pTemplate,IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
         {
             this.template = pTemplate;
         }
@@ -31,178 +34,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
 
 
 
-        bool ignoreSystemTables;
 
-        public bool IgnoreSystemTables
-        {
-            get { return ignoreSystemTables; }
-            set { ignoreSystemTables = value; }
-        }
-
-        string connectionDatabaseType;
-
-        public string ConnectionDatabaseType
-        {
-            get
-            {
-                return connectionDatabaseType;
-            }
-            set
-            {
-                connectionDatabaseType = value;
-            }
-        }
-
-        string dbProviderName;
-
-        public string ConnectionDbProviderName
-        {
-            get { return dbProviderName; }
-            set { dbProviderName = value; }
-        }
-
-
-        bool useSchemaNameInQueries;
-
-        public bool UseSchemaNameInSqlQueries
-        {
-            get { return useSchemaNameInQueries; }
-            set { useSchemaNameInQueries = value; }
-        }
-        bool useSchemaNameInFolders;
-
-        public bool UseSchemaNameInFolders
-        {
-            get { return useSchemaNameInFolders; }
-            set { useSchemaNameInFolders = value; }
-        }
-        List<DatabaseAbbreviations> listDatabaseAbbreviations;
-
-        public List<DatabaseAbbreviations> ListDatabaseAbbreviations
-        {
-            get { return listDatabaseAbbreviations; }
-            set { listDatabaseAbbreviations = value; }
-        }
-
-
-
-        string projectNameSpace;
-        string codeGenerationDirectory;
-        string connectionName;
-
-
-        string connectionString;
-
-        public string ConnectionString
-        {
-            get { return connectionString; }
-            set { connectionString = value; }
-        }
-
-
-        public string ConnectionName
-        {
-            get
-            {
-                return connectionName;
-            }
-            set
-            {
-                connectionName = value;
-            }
-        }
-
-        public string ProjectNameSpace
-        {
-            get { return projectNameSpace; }
-            set { projectNameSpace = value; }
-
-        }
-
-        public string CodeGenerationDirectory
-        {
-            get { return codeGenerationDirectory; }
-            set { codeGenerationDirectory = value; }
-        }
-
-
-        bool tableCodeGenerate;
-
-        public bool TableCodeGenerate
-        {
-            get { return tableCodeGenerate; }
-            set { tableCodeGenerate = value; }
-        }
-
-        bool viewCodeGenerate;
-
-        public bool ViewCodeGenerate
-        {
-            get { return viewCodeGenerate; }
-            set { viewCodeGenerate = value; }
-        }
-        bool storedProcedureCodeGenerateEtsinMi;
-
-        public bool StoredProcedureCodeGenerate
-        {
-            get { return storedProcedureCodeGenerateEtsinMi; }
-            set { storedProcedureCodeGenerateEtsinMi = value; }
-        }
-        bool sequenceCodeGenerate;
-        public bool SequenceCodeGenerate
-        {
-            get { return sequenceCodeGenerate; }
-            set { sequenceCodeGenerate = value; }
-        }
-
-
-        string ignoredSchemaList;
-
-        public string IgnoredSchemaList
-        {
-            get { return ignoredSchemaList; }
-            set { ignoredSchemaList = value; }
-        }
-
-
-
-        string databaseAbbreviations;
-
-        public string DatabaseAbbreviations
-        {
-            get { return databaseAbbreviations; }
-            set { databaseAbbreviations = value; }
-        }
-
-
-        string databaseName;
-
-        public virtual string DatabaseNameLogical
-        {
-            get { return databaseName; }
-            set { databaseName = value; }
-        }
-
-
-
-        private string databaseNamePhysical;
-
-        public virtual string DatabaseNamePhysical
-        {
-            get
-            {
-                if (String.IsNullOrEmpty(databaseNamePhysical))
-                {
-                    databaseNamePhysical = Template.Connection.Database; ;
-                }
-                return databaseNamePhysical;
-            }
-            set
-            {
-                databaseNamePhysical = value;
-            }
-
-        }
 
         public abstract List<ITable> Tables { get; }
         public abstract List<IView> Views { get; }
@@ -235,7 +67,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         public string CodeGenerateAllTablesInSchema(string pSchemaName)
         {
             StringBuilder exceptionMessages = new StringBuilder();
-            if (ignoredSchemaList.Contains(pSchemaName))
+            if (CodeGenerationConfig.IgnoredSchemaList.Contains(pSchemaName))
             {
                 exceptionMessages.Append("Your choosen schema is in ignore list");
 
@@ -317,9 +149,9 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
                 ITable table = this.getTable(pTableName, pSchemaName);
 
 
-                typeGen.Render(Output, table, UseSchemaNameInSqlQueries, UseSchemaNameInFolders, ListDatabaseAbbreviations);
-                dalGen.Render(Output, table, UseSchemaNameInSqlQueries, UseSchemaNameInFolders, ListDatabaseAbbreviations);
-                bsGen.Render(Output, table, UseSchemaNameInSqlQueries, UseSchemaNameInFolders, ListDatabaseAbbreviations);
+                typeGen.Render(Output, table);
+                dalGen.Render(Output, table);
+                bsGen.Render(Output, table);
 
             }
 
@@ -329,22 +161,22 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
 
         public void CodeGenerateOneView(string pViewName, string pSchemaName)
         {
-            TypeLibraryGenerator typeGen = new TypeLibraryGenerator(this);
+            TypeLibraryGenerator typeGen = this.TypeLibraryGenerator;
             DalGenerator dalGen = this.DalGenerator;
             BsGenerator bsGen = this.BsGenerator;
 
             IView view = GetView( pViewName, pSchemaName);
 
 
-            typeGen.Render(Output, view, UseSchemaNameInSqlQueries, UseSchemaNameInFolders, ListDatabaseAbbreviations);
-            dalGen.Render(Output, view, UseSchemaNameInSqlQueries, UseSchemaNameInFolders, ListDatabaseAbbreviations);
-            bsGen.Render(Output, view, UseSchemaNameInSqlQueries, UseSchemaNameInFolders, ListDatabaseAbbreviations);
+            typeGen.Render(Output, view);
+            dalGen.Render(Output, view);
+            bsGen.Render(Output, view);
         }
 
 
         public virtual void CodeGenerateOneSequence(string schemaName, string sequenceName)
         {
-            SequenceGenerator seqGen = new SequenceGenerator(this);
+            SequenceGenerator seqGen = new SequenceGenerator(this.DatabaseHelper,this.CodeGenerationConfig);
             seqGen.Render(Output, schemaName, sequenceName);
         }
         public string CodeGenerateAllSequencesInSchema(string schemaName)

@@ -7,32 +7,29 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.CodeGeneration.Helpers.BaseClasses;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 namespace Karkas.CodeGeneration.Helpers.Generators
 {
     public class TypeLibraryGenerator : BaseGenerator
     {
-        public TypeLibraryGenerator(IDatabase databaseHelper)
+        public TypeLibraryGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
         {
-            utils = new Utils(databaseHelper);
-
+            utils = new Utils(pDatabaseHelper);
         }
         Utils utils = null;
 
         public void Render(IOutput output
-            , IContainer container
-            , bool semaIsminiSorgulardaKullan
-            , bool semaIsminiDizinlerdeKullan
-            , List<DatabaseAbbreviations> listDatabaseAbbreviations)
+            , IContainer container)
         {
 
             IDatabase database = container.Database;
             output.tabLevel = 0;
 
-            string baseNameSpace = database.ProjectNameSpace;
+            string baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
             string baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
 
-            string className = utils.getClassNameForTypeLibrary(container.Name,listDatabaseAbbreviations);
+            string className = utils.getClassNameForTypeLibrary(container.Name, CodeGenerationConfig. listDatabaseAbbreviations);
             string schemaName = utils.GetPascalCase(container.Schema);
             string classNameSpace = baseNameSpaceTypeLibrary;
             if (!string.IsNullOrWhiteSpace(schemaName))
@@ -71,7 +68,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-            if (!File.Exists(outputFullFileName) || database.CreateMainClassAgain  )
+            if (!File.Exists(outputFullFileName) || CodeGenerationConfig.CreateMainClassAgain  )
             {
                 generateMainClassFile(output,  database, className, classNameSpace, outputFullFileName);
             }
@@ -87,7 +84,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             writeMainClass(output, className, classNameValidation);
             writeValidationClass(output, database, className, classNameValidation);
             AtEndCurlyBraceletDescreaseTab(output);
-            output.save(outputFullFileName, database.CreateMainClassAgain);
+            output.save(outputFullFileName, CodeGenerationConfig.CreateMainClassAgain);
             output.clear();
         }
 
@@ -109,7 +106,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             string mainArticleUrl  = "http://weblogs.asp.net/scottgu/archive/2010/01/15/asp-net-mvc-2-model-validation.aspx";
             string msDataAnnotationsHelpUrl = "http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx";
 
-            if (database.CreateMainClassValidationExamples)
+            if (CodeGenerationConfig.CreateMainClassValidationExamples)
             {
                 output.autoTabLn("// Onaylama kodlarının kullanımı için aşağıdaki makaleye bakabilirsiniz");
                 output.autoTabLn("// " + mainArticleUrl);

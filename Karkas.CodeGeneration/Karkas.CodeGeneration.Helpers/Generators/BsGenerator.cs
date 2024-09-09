@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections;
-using Karkas.CodeGeneration.Helpers;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Globalization;
-using Karkas.CodeGeneration.Helpers.Interfaces;
 using System.Collections.Generic;
+
+using Karkas.CodeGeneration.Helpers;
+using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.CodeGeneration.Helpers.BaseClasses;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
+
 
 namespace Karkas.CodeGeneration.Helpers.Generators
 {
@@ -26,24 +29,22 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         string baseNameSpace = "";
         string baseNameSpaceTypeLibrary = "";
 
-        public BsGenerator(IDatabase databaseHelper)
+        public BsGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
         {
-            utils = new Utils(databaseHelper);
+            utils = new Utils(pDatabaseHelper);
 
         }
         Utils utils = null;
 
 
         public void Render(IOutput output
-            , IContainer container
-            , bool semaIsminiSorgulardaKullan
-            , bool semaIsminiDizinlerdeKullan
-            , List<DatabaseAbbreviations> listDatabaseAbbreviations)
+            , IContainer container)
         {
            
+            bool semaIsminiDizinlerdeKullan = CodeGenerationConfig.UseSchemaNameInFolders;
             output.tabLevel = 0;
             IDatabase database = container.Database;
-            baseNameSpace = utils.GetProjectNamespaceWithSchema(database, container.Schema);
+            baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
 
             classNameTypeLibrary = utils.getClassNameForTypeLibrary(container.Name, listDatabaseAbbreviations);

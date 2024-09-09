@@ -33,7 +33,7 @@ namespace Karkas.CodeGeneration.ConsoleApp
 
             Console.WriteLine($"arguments {options}");
 
-            DatabaseEntry db = DatabaseService.GetByConnectionName(options.ConfigFileName, options.ConnectionName);
+            CodeGenerationConfig db = DatabaseService.GetByConnectionName(options.ConfigFileName, options.ConnectionName);
             Console.WriteLine($"DatabaseEntry {db}");
 
             string homeDirectory = Environment.GetEnvironmentVariable("HOME")!;
@@ -64,7 +64,7 @@ namespace Karkas.CodeGeneration.ConsoleApp
         }
 
 
-        private static void generateCode(DatabaseEntry db)
+        private static void generateCode(CodeGenerationConfig db)
         {
 
             Console.WriteLine($"trying connection string {db.ConnectionString}");
@@ -96,8 +96,6 @@ namespace Karkas.CodeGeneration.ConsoleApp
                     break;
             }
             
-            db.setIDatabaseValues(databaseHelper);
-
 
             string result = databaseHelper.CodeGenerateAllTables();
             Console.WriteLine("Code generation finished");

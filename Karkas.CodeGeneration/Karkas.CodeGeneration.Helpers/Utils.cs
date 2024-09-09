@@ -27,24 +27,7 @@ namespace Karkas.CodeGeneration.Helpers
 
 
 
-        #region "Parser Helper Fonksiyonlari"
-
-        public string GetProjeNamespaceName(IDatabase database)
-        {
-            return database.ProjectNameSpace;
-        }
-
-        // TODO, Why this is the same as other one?
-        internal string GetProjectNamespaceWithSchema(IDatabase database, string pSchema)
-        {
-            return GetProjeNamespaceName(database);
-        }
-
-
-
-
-        #endregion
-
+  
 
 
         public string FindPrimaryKeyColumnName(IContainer container)
@@ -369,6 +352,7 @@ namespace Karkas.CodeGeneration.Helpers
         }
 
 
+        // TODO Look at later
         public string getClassNameForTypeLibrary(string tableName, List<DatabaseAbbreviations> listDatabaseAbbreviations)
         {
             if (listDatabaseAbbreviations != null)

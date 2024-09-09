@@ -8,7 +8,7 @@ using Karkas.CodeGeneration.Helpers.Generators;
 
 namespace Karkas.CodeGeneration.Helpers.Interfaces
 {
-    public interface IDatabase : ICodeGenerationPersistanceValues
+    public interface IDatabase 
     {
 
 

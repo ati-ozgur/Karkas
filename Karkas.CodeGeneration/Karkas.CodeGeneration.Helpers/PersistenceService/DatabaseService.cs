@@ -15,7 +15,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
 
 
-        public static List<DatabaseEntry> getAllDatabaseEntries(string configFileName)
+        public static List<CodeGenerationConfig> getAllDatabaseEntries(string configFileName)
         {
             string json_filename;
             if(Path.IsPathRooted(configFileName))
@@ -27,7 +27,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
                 json_filename = $"{AppDomain.CurrentDomain.BaseDirectory}{configFileName}";
             }
             string jsonString = File.ReadAllText(json_filename);
-            List<DatabaseEntry> entries = new List<DatabaseEntry>();
+            List<CodeGenerationConfig> entries = new List<CodeGenerationConfig>();
             if (string.IsNullOrWhiteSpace(jsonString))
             {
                 var example = getExampleDatabaseEntry();
@@ -35,14 +35,14 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
             }
             else
             {
-                entries = JsonSerializer.Deserialize<List<DatabaseEntry>>(jsonString);
+                entries = JsonSerializer.Deserialize<List<CodeGenerationConfig>>(jsonString);
 
             }
 
             return entries;
         }
 
-        public static void SaveDatabaseEntries(string configFileName,List<DatabaseEntry> entries)
+        public static void SaveDatabaseEntries(string configFileName,List<CodeGenerationConfig> entries)
         {
             var options = new JsonSerializerOptions { WriteIndented = true };
             string jsonString = JsonSerializer.Serialize(entries, options);
@@ -51,7 +51,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
         }
 
 
-        public static DatabaseEntry GetByConnectionName(string configFileName,string connectionName)
+        public static CodeGenerationConfig GetByConnectionName(string configFileName,string connectionName)
         {
             var liste = getAllDatabaseEntries(configFileName);            
             foreach (var e in liste)
@@ -67,9 +67,9 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
 
 
-        private static DatabaseEntry getExampleDatabaseEntry()
+        private static CodeGenerationConfig getExampleDatabaseEntry()
         {
-            DatabaseEntry de = new DatabaseEntry();
+            CodeGenerationConfig de = new CodeGenerationConfig();
             de.CodeGenerationDirectory = "$HOME\\Projects\\my-projects\\KarkasExampleSqlServer";
             de.ProjectNameSpace = "Karkas.Example";
             de.ConnectionDatabaseType = DatabaseType.SqlServer;
@@ -83,7 +83,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
 
 
-        internal static void deleteDatabase(string configFileName,DatabaseEntry databaseEntry)
+        internal static void deleteDatabase(string configFileName,CodeGenerationConfig databaseEntry)
         {
 
             var entries = getAllDatabaseEntries(configFileName);
@@ -94,7 +94,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
 
 
-        internal static void InsertOrUpdate(string configFileName,DatabaseEntry databaseEntry)
+        internal static void InsertOrUpdate(string configFileName,CodeGenerationConfig databaseEntry)
         {
             var entries = getAllDatabaseEntries(configFileName);
             entries.Remove(databaseEntry);

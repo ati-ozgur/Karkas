@@ -5,9 +5,10 @@ using Karkas.CodeGeneration.Helpers;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Globalization;
-using Karkas.CodeGeneration.Helpers.Interfaces;
 using System.Collections.Generic;
 using Karkas.CodeGeneration.Helpers.BaseClasses;
+using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 namespace Karkas.CodeGeneration.Helpers.Generators
 {
@@ -17,14 +18,12 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         string baseNameSpace = "";
         string baseNameSpaceTypeLibrary = "";
 
-        public SequenceGenerator(IDatabase databaseHelper)
+        public SequenceGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
         {
-            utils = new Utils(databaseHelper);
-            this.database = databaseHelper;
+            utils = new Utils(pDatabaseHelper);
 
         }
         Utils utils = null;
-        IDatabase database;
 
 
         public string Render(IOutput output
@@ -85,7 +84,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             string selectNextSequenceString = "";
             string selectCurrentSequenceString = $"private const string selectCurrentSequenceString = \"SELECT last_number FROM all_sequences WHERE sequence_owner = '{schemaName}' AND sequence_name = '{sequenceName}'\";";
-            if (database.UseSchemaNameInSqlQueries)
+            if (CodeGenerationConfig.UseSchemaNameInSqlQueries)
             {
                 selectNextSequenceString = $"private const string selectNextSequenceString = \"SELECT {schemaName}.{sequenceName}.NEXTVAL FROM DUAL\";";
             }
@@ -131,7 +130,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
-            output.autoTabLn(string.Format("return \"{0}\";", database.ConnectionDbProviderName));
+            output.autoTabLn(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionDbProviderName));
             AtEndCurlyBraceletDescreaseTab(output);
             AtEndCurlyBraceletDescreaseTab(output);
         }

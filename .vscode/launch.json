@@ -12,7 +12,8 @@
             "request": "launch",
             "preLaunchTask": "build",            
             "program": "${workspaceFolder}/Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp/bin/Debug/net6.0/Karkas.CodeGeneration.ConsoleApp.dll",
-            "args": ["--connectionname", "ChinookSqlServerAutoIncrement"],
+            "args": ["--connectionname", "ChinookSqlite"],
+            //"args": ["--connectionname", "ChinookSqlServerAutoIncrement"],
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,
             "externalConsole": false

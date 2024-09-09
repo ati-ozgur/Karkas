@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections;
 using System.Text;
-using Karkas.CodeGeneration.Helpers;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Globalization;
+
+using Karkas.CodeGeneration.Helpers;
 using Karkas.CodeGeneration.Helpers.Interfaces;
-using System.Collections.Generic;
 using Karkas.CodeGeneration.Helpers.BaseClasses;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 namespace Karkas.CodeGeneration.Helpers.Generators
 {
@@ -40,9 +42,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
         string listType = "";
 
-        public DalGenerator(IDatabase databaseHelper)
+        public DalGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
         {
-            utils = new Utils(databaseHelper);
+            utils = new Utils(pDatabaseHelper);
 
         }
         protected Utils utils;
@@ -50,11 +52,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
         public string Render(IOutput output
-            , IContainer container
-            ,bool semaIsminiSorgulardaKullan
-            , bool semaIsminiDizinlerdeKullan
-            , List<DatabaseAbbreviations> listDatabaseAbbreviations)
+            , IContainer container)
         {
+            bool semaIsminiSorgulardaKullan = CodeGenerationConfig.
             output.tabLevel = 0;
             IDatabase database = container.Database;
             baseNameSpace = utils.GetProjectNamespaceWithSchema(database, container.Schema);

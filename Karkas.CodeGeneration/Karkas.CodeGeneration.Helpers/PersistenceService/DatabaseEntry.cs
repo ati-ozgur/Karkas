@@ -10,19 +10,15 @@ using Karkas.CodeGeneration.Helpers.Interfaces;
 
 namespace Karkas.CodeGeneration.Helpers.PersistenceService
 {
-    public partial class DatabaseEntry 
+    public partial class CodeGenerationConfig 
     {
 
-        public DatabaseEntry()
+        public CodeGenerationConfig()
         {
             this.CreationTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
             setTimeValues();
         }
 
-        public override string ToString()
-        {
-            return $"{this.ConnectionName}, {this.ConnectionDatabaseType}, {this.ConnectionString}, {this.CodeGenerationDirectory} ";
-        }
 
 
         public void setTimeValues()
@@ -37,29 +33,6 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
             return this.SchemaList.Split(",");
         }
 
-
-        public void setIDatabaseValues(IDatabase database)
-        {
-            database.CodeGenerationDirectory = this.CodeGenerationDirectory;
-            database.ConnectionDatabaseType = this.ConnectionDatabaseType;
-            database.ConnectionName = this.ConnectionName;
-            database.ConnectionString = this.ConnectionString;
-            database.DatabaseNameLogical = this.databaseNameLogical;
-            database.DatabaseNamePhysical = this.DatabaseNamePhysical;
-            database.ConnectionDbProviderName = this.ConnectionDbProviderName;
-            database.IgnoredSchemaList = this.IgnoredSchemaList;
-            database.IgnoreSystemTables = Convert.ToBoolean(this.IgnoreSystemTables);
-            database.ProjectNameSpace = this.ProjectNameSpace;
-            database.StoredProcedureCodeGenerate = Convert.ToBoolean(this.StoredProcedureCodeGenerate);
-            database.UseSchemaNameInFolders = Convert.ToBoolean(this.UseSchemaNameInFolders);
-            database.UseSchemaNameInSqlQueries = Convert.ToBoolean(this.useSchemaNameInSqlQueries);
-            database.TableCodeGenerate = Convert.ToBoolean(this.TableCodeGenerate);
-            database.ViewCodeGenerate = Convert.ToBoolean(this.ViewCodeGenerate);
-            database.SequenceCodeGenerate = Convert.ToBoolean(this.SequenceCodeGenerate);
-            database.CreateMainClassAgain = this.CreateMainClassAgain;
-            database.CreateMainClassValidationExamples = this.CreateMainClassValidationExamples;
-
-        }
 
         private bool createMainClassValidationExamples = false;
 
@@ -83,6 +56,14 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
         }
 
+        public override int GetHashCode()
+        {
+            return ConnectionName.GetHashCode();
+        }
+
+        string DatabaseAbbreviations { get; set; }
+
+
         public override bool Equals(object obj)
         {
             // If the passed object is null
@@ -90,15 +71,20 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
             {
                 return false;
             }
-            if (!(obj is DatabaseEntry))
+            if (!(obj is CodeGenerationConfig))
             {
                 return false;
             }
-            return (this.ConnectionName == ((DatabaseEntry)obj).ConnectionName);
+            return (this.ConnectionName == ((CodeGenerationConfig)obj).ConnectionName);
         }
-        public override int GetHashCode()
+
+
+        public override string ToString()
         {
-            return ConnectionName.GetHashCode();
+            return $"{this.ConnectionName}, {this.ConnectionDatabaseType}, {this.ConnectionString}, {this.CodeGenerationDirectory} ";
         }
+
+
+
     }
 }
