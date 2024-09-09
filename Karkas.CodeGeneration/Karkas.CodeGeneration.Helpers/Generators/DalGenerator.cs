@@ -78,7 +78,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             schemaName = utils.GetPascalCase(container.Schema);
 
             string classNameSpace = baseNameSpaceTypeLibrary;
-            if (!string.IsNullOrWhiteSpace(schemaName))
+            if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
             {
                 classNameSpace = classNameSpace + "." + schemaName;
             }
@@ -87,7 +87,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             string pkcumlesi = "";
 
             string baseNameSpaceDal = baseNameSpace + ".Dal";
-            if (!string.IsNullOrWhiteSpace(schemaName))
+            if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
             {
                 baseNameSpaceDal = baseNameSpaceDal   + "." +schemaName;
             }
@@ -288,7 +288,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTab("using ");
             output.autoTab(baseNameSpaceTypeLibrary);
             output.autoTabLn(";");
-            if (!string.IsNullOrWhiteSpace(schemaName))
+            if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
             {
                 output.autoTab("using ");
                 output.autoTab(baseNameSpaceTypeLibrary);

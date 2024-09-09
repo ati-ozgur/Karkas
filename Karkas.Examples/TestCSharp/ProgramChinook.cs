@@ -8,8 +8,8 @@ using Karkas.Core.DataUtil;
 
 using Karkas.Examples;
 
-using Karkas.Examples.Chinook.Dal.ChinookSqlite;
-using Karkas.Examples.Chinook.TypeLibrary.ChinookSqlite;
+using Karkas.Examples.Chinook.Dal;
+using Karkas.Examples.Chinook.TypeLibrary;
 
 ConnectionHelper.SetupDatabaseConnection();
 

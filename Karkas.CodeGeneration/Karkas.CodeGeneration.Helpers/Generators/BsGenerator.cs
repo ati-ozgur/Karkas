@@ -57,8 +57,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             schemaName = utils.GetPascalCase(container.Schema);
 
-            string baseNameSpaceBsWithSchema = baseNameSpace + ".Bs." + schemaName;
-            string baseNameSpaceDalWithSchema = baseNameSpace + ".Dal." + schemaName;
+            string baseNameSpaceBsWithSchema = baseNameSpace + ".Bs";
+            string baseNameSpaceDalWithSchema = baseNameSpace + ".Dal";
+
+            if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
+            {
+                 baseNameSpaceBsWithSchema = baseNameSpace + ".Bs." + schemaName;
+                 baseNameSpaceDalWithSchema = baseNameSpace + ".Dal." + schemaName;
+            }
 
             pkType = utils.FindPrimaryKeyType(container);
             pkName = utils.FindPrimaryKeyColumnName(container);
@@ -170,7 +176,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTab("using ");
             output.autoTab(baseNameSpaceTypeLibrary);
             output.autoTabLn(";");
-            if (!string.IsNullOrWhiteSpace(schemaName))
+            if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
             {
                 output.autoTab("using ");
                 output.autoTab(baseNameSpaceTypeLibrary);
