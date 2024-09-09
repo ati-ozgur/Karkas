@@ -11,7 +11,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
     public class TableSqlite : ITable
     {
 
-        public TableSqlite(DatabaseSqlite pDatabase, IAdoTemplate<IParameterBuilder> template, String pTableName, String pSchemaName)
+        public TableSqlite(CodeGenerationSqlite pDatabase, IAdoTemplate<IParameterBuilder> template, String pTableName, String pSchemaName)
         {
             this.database = pDatabase;
             this.template = template;
@@ -19,7 +19,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             this.schemaName = pSchemaName;
         }
 
-        DatabaseSqlite database;
+        CodeGenerationSqlite database;
 
         IAdoTemplate<IParameterBuilder> template;
         String tableName;

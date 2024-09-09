@@ -81,14 +81,14 @@ namespace Karkas.CodeGeneration.ConsoleApp
             }
 
 
-            IDatabase databaseHelper;
+            IDatabase databaseHelper = null;
             switch (db.ConnectionDatabaseType)
             {
                 case "sqlite":
-                    databaseHelper =  = DatabaseSqlite(template);
+                    databaseHelper = new CodeGenerationSqlite(template);
                     break;
                 case "SqlServer":
-                    databaseHelper =  = DatabaseSql(template);
+                    //databaseHelper = CodeGenerationSqlServer(template);
                     break;
 
                 default:

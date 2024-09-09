@@ -9,14 +9,14 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 {
     public class ViewSqlite : IView
     {
-        public ViewSqlite(DatabaseSqlite database, IAdoTemplate<IParameterBuilder> template, string viewName, string schemaName)
+        public ViewSqlite(CodeGenerationSqlite database, IAdoTemplate<IParameterBuilder> template, string viewName, string schemaName)
         {
             this.database = database;
             this.template = template;
             this.viewName = viewName;
             this.schemaName = schemaName;
         }
-        DatabaseSqlite database;
+        CodeGenerationSqlite database;
         IAdoTemplate<IParameterBuilder> template;
         string viewName;
         string schemaName;

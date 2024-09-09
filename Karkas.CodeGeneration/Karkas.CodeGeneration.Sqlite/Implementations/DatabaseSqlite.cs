@@ -12,15 +12,15 @@ using Karkas.CodeGeneration.Helpers.BaseClasses;
 
 namespace Karkas.CodeGeneration.Sqlite.Implementations
 {
-    public class DatabaseSqlite : BaseCodeGenerationDatabase
+    public class CodeGenerationSqlite : BaseCodeGenerationDatabase
     {
 
 
-        public DatabaseSqlite(IAdoTemplate<IParameterBuilder> template) : base(template)
+        public CodeGenerationSqlite(IAdoTemplate<IParameterBuilder> template) : base(template)
         {
 
         }
-        public DatabaseSqlite(IAdoTemplate<IParameterBuilder> template
+        public CodeGenerationSqlite(IAdoTemplate<IParameterBuilder> template
             , String connectionString
             , string connectionName
             , string projectNameSpace
