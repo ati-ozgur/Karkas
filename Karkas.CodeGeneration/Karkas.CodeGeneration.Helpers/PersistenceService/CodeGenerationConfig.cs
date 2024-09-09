@@ -68,6 +68,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		private bool viewCodeGenerate;
 		private bool storedProcedureCodeGenerate;
 		private bool sequenceCodeGenerate;
+		private bool useSchemaNameInNamespaces;
 		private bool useSchemaNameInSqlQueries;
 		private bool useSchemaNameInFolders;
 		private bool ignoreSystemTables;
@@ -258,6 +259,22 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		}
 
 		
+
+        public bool UseSchemaNameInNamespaces
+		{
+			
+			get
+			{
+				return useSchemaNameInNamespaces;
+			}
+			
+			set
+			{
+				
+				useSchemaNameInNamespaces = value;
+			}
+		}
+        
 		public bool UseSchemaNameInSqlQueries
 		{
 			
