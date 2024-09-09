@@ -10,14 +10,14 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
     public class ViewSqlServer : IView
     {
 
-        public ViewSqlServer(SqlServerDalGenerator database, IAdoTemplate<IParameterBuilder> template, string viewName, string schemaName)
+        public ViewSqlServer(IDatabase database, IAdoTemplate<IParameterBuilder> template, string viewName, string schemaName)
         {
             this.database = database;
             this.template = template;
             this.viewName = viewName;
             this.schemaName = schemaName;
         }
-        SqlServerDalGenerator database;
+        IDatabase database;
         IAdoTemplate<IParameterBuilder> template;
         string viewName;
         string schemaName;

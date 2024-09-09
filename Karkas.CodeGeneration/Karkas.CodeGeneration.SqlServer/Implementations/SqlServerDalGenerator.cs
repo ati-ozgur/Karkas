@@ -14,14 +14,14 @@ using Karkas.CodeGeneration.Helpers.BaseClasses;
 
 namespace Karkas.CodeGeneration.SqlServer.Implementations
 {
-    public class SqlServerDalGenerator : BaseCodeGenerationDatabase
+    public class CodeGenerationSqlServer : BaseCodeGenerationDatabase
     {
 
-        public SqlServerDalGenerator(IAdoTemplate<IParameterBuilder> template) : base(template)
+        public CodeGenerationSqlServer(IAdoTemplate<IParameterBuilder> template) : base(template)
         {
 
         }
-        public SqlServerDalGenerator(
+        public CodeGenerationSqlServer(
              IAdoTemplate<IParameterBuilder> template
             , String pConnectionString
             , string pDatabaseName

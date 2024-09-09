@@ -88,7 +88,7 @@ namespace Karkas.CodeGeneration.ConsoleApp
                     databaseHelper = new CodeGenerationSqlite(template);
                     break;
                 case "SqlServer":
-                    //databaseHelper = CodeGenerationSqlServer(template);
+                    databaseHelper = new CodeGenerationSqlServer(template);
                     break;
 
                 default:
