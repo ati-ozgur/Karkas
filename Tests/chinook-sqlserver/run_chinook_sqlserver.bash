@@ -52,9 +52,9 @@ cd $WORKING_DIR
 # dotnet add package Microsoft.Data.Sqlite
 # dotnet add reference "../../../Karkas.Core/Karkas.Core.DataUtil/Karkas.Core.DataUtil.csproj"
 # dotnet add reference "../../../Karkas.Core/Karkas.Core.Data.Sqlite/Karkas.Core.Data.Sqlite.csproj"
-# cp ../../TestCodes/SqliteProgramChinook.cs Program.cs
-# cp --recursive ../../TestCodes/Helpers/ .
-# cp ../../TestCodes/HelpersConnection/ConnectionHelperSqlite.cs ConnectionHelper.cs
+# cp ../../TestCodesCSharp/SqliteProgramChinook.cs Program.cs
+# cp --recursive ../../TestCodesCSharp/Helpers/ .
+# cp ../../TestCodesCSharp/HelpersConnection/ConnectionHelperSqlite.cs ConnectionHelper.cs
 # cp ../../Chinook/Chinook.db Chinook.db
 # dotnet build
 # dotnet run
