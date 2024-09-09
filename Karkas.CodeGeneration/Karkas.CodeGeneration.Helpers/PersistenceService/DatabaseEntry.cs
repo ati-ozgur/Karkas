@@ -21,7 +21,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
         public override string ToString()
         {
-            return this.ConnectionName + "," + this.ProjectNameSpace;
+            return $"{this.ConnectionName}, {this.ConnectionDatabaseType}, {this.ConnectionString}, {this.CodeGenerationDirectory} ";
         }
 
 
