@@ -7,6 +7,10 @@ namespace Karkas.CodeGeneration.Helpers.Interfaces
 {
     public interface ICodeGenerationPersistanceValues
     {
+
+        bool CreateMainClassAgain { get; set; }
+        bool CreateMainClassValidationExamples { get; set; }
+
         string ConnectionName { get; set; }
         string ConnectionDatabaseType { get; set; }
         string ConnectionDbProviderName { get; set; }

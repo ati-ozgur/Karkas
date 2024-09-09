@@ -10,7 +10,7 @@ using Karkas.CodeGeneration.Helpers.Interfaces;
 
 namespace Karkas.CodeGeneration.Helpers.PersistenceService
 {
-    public partial class DatabaseEntry :   ICodeGenerationNotPersistedValues
+    public partial class DatabaseEntry 
     {
 
         public DatabaseEntry()
