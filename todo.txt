@@ -2,10 +2,16 @@ todo.txt
 
 1. CommandLineParser is good one.
 https://github.com/commandlineparser/commandline
+https://github.com/commandlineparser/commandline/wiki/Getting-Started
 https://medium.com/@eduardosilva_94960/mastering-command-line-parsing-in-net-core-with-commandlineparser-c20721100359
 
 
 2. Write oracle, chinook test for auto increment and normal
+
+fork and give a pull request, need to sign my commits. Do it later
+https://github.com/gvenzl/oci-oracle-xe/blob/main/examples/dkr-create-oracle-xe-server
+
+
 3. Update GetListOfDictionary as deprecated
 
 GetRows
