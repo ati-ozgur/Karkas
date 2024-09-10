@@ -4,6 +4,17 @@ todo.txt
 https://github.com/commandlineparser/commandline
 https://medium.com/@eduardosilva_94960/mastering-command-line-parsing-in-net-core-with-commandlineparser-c20721100359
 
+
+2. Write oracle, chinook test for auto increment and normal
+3. Update GetListOfDictionary as deprecated
+
+GetRows
+GetOneRow --> (firtst or default)
+GetOneValue
+
+4. Use quotes in queries as configuration.
+
+
 ## TODO
 
 - Refactoring methods to English Only Names
