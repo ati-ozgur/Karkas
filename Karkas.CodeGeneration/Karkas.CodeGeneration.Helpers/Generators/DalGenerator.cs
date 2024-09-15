@@ -127,7 +127,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             QueryByPkWrite(output, container, classNameTypeLibrary,pkName, pkNamePascalCase, pkType);
 
-            IdentityVarMiWrite(output, FindIfIdentityExists(utils, container));
+            Write_IdentityExists(output, FindIfIdentityExists(utils, container));
 
             PkGuidMiWrite(output, container);
 
@@ -619,10 +619,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 }
         }
 
-        private void IdentityVarMiWrite(IOutput output, bool identityVarmi)
+        private void Write_IdentityExists(IOutput output, bool identityExists)
         {
             string identityResult = "";
-            if (identityVarmi)
+            if (identityExists)
             {
                 identityResult = "true";
             }
