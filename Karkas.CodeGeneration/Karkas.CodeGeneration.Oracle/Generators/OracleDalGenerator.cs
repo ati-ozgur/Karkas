@@ -103,7 +103,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         }
 
 
-        protected override void InsertStringWrite(IOutput output, IContainer container, string schemaNameForQueries)
+        protected override void InsertStringWrite(IOutput output, IContainer container)
         {
 
             output.autoTabLn("protected override string InsertString");
@@ -112,6 +112,9 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             if (container is ITable)
             {
+
+                string schemaNameForQueries = getSchemaNameForQueries(container);
+
 
                 string identityColumnName = utils.GetIdentityColumnName(container);
                 string insertString = getInsertString(container);

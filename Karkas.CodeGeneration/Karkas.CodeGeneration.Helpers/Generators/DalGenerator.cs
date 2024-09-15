@@ -58,7 +58,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
             bool semaIsminiDizinlerdeKullan = CodeGenerationConfig.UseSchemaNameInFolders;
-            bool semaIsminiSorgulardaKullan = CodeGenerationConfig.UseSchemaNameInSqlQueries;
+            
 
             output.tabLevel = 0;
             baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
@@ -99,7 +99,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             listType = "List<" + classNameTypeLibrary + ">";
 
             string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForDalGenerated(CodeGenerationConfig, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
-            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(CodeGenerationConfig, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
+            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInSqlQueries);
 
             WriteUsings(output, schemaName, baseNameSpaceTypeLibrary);
 
@@ -112,18 +112,17 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             write_SetIdentityColumnValue(output, container);
 
-            string sorgulardaKullanilanSema = getSqlIcinSemaBilgisi(container, semaIsminiSorgulardaKullan);
 
-            SelectCountWrite(output, container, semaIsminiSorgulardaKullan);
+            SelectCountWrite(output, container);
 
-            SelectStringWrite(output, container, semaIsminiSorgulardaKullan);
+            SelectStringWrite(output, container);
 
-            DeleteStringWrite(output, container, semaIsminiSorgulardaKullan);
+            DeleteStringWrite(output, container);
 
-            WriteUpdateString(output, container, semaIsminiSorgulardaKullan, ref pkcumlesi);
+            WriteUpdateString(output, container, ref pkcumlesi);
 
 
-            InsertStringWrite(output, container, sorgulardaKullanilanSema);
+            InsertStringWrite(output, container);
 
 
             QueryByPkWrite(output, container, classNameTypeLibrary,pkName, pkNamePascalCase, pkType);
@@ -322,24 +321,24 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private string getSqlIcinSemaBilgisi(IContainer container, bool semaIsminiSorgulardaKullan)
+        protected string getSchemaNameForQueries(IContainer container)
         {
             string result = "";
-            if (semaIsminiSorgulardaKullan)
+            if (CodeGenerationConfig.UseSchemaNameInSqlQueries)
             {
                 result = container.Schema + ".";
             }
             return result;
         }
 
-        private void SelectCountWrite(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan)
+        private void SelectCountWrite(IOutput output, IContainer container)
         {
             output.autoTabLn("protected override string SelectCountString");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
             string cumle = "return @\"SELECT COUNT(*) FROM " 
-                            + getSqlIcinSemaBilgisi(container, semaIsminiSorgulardaKullan) 
+                            + getSchemaNameForQueries(container) 
                             + container.Name + "\";";
             output.autoTabLn(cumle);
             AtEndCurlyBraceletDecreaseTab(output);
@@ -347,7 +346,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void SelectStringWrite(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan)
+        private void SelectStringWrite(IOutput output, IContainer container)
         {
             output.autoTabLn("protected override string SelectString");
             AtStartCurlyBraceletIncreaseTab(output);
@@ -360,13 +359,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
             cumle = cumle.Remove(cumle.Length - 1);
             cumle += " FROM ";
-            cumle +=  getSqlIcinSemaBilgisi(container, semaIsminiSorgulardaKullan)  + container.Name + "\";";
+            cumle +=  getSchemaNameForQueries(container)  + container.Name + "\";";
             output.autoTabLn(cumle);
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
         }
 
-        private void DeleteStringWrite(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan)
+        private void DeleteStringWrite(IOutput output, IContainer container)
         {
             if (container is IView)
             {
@@ -400,7 +399,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 }
                 whereClause = whereClause.Remove(whereClause.Length - 4) + "\"";
                 cumle += "  FROM " 
-                        + getSqlIcinSemaBilgisi(container, semaIsminiSorgulardaKullan) 
+                        + getSchemaNameForQueries(container) 
                         + container.Name + " WHERE ";
             }
             else
@@ -426,7 +425,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void WriteUpdateString(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan, ref string pkcumlesi)
+        private void WriteUpdateString(IOutput output, IContainer container, ref string pkcumlesi)
         {
             if (container is IView)
             {
@@ -448,7 +447,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             if (container is ITable)
             {
-                output.autoTabLn("return @\"UPDATE " + getSqlIcinSemaBilgisi(container, semaIsminiSorgulardaKullan) + container.Name);
+                output.autoTabLn("return @\"UPDATE " + getSchemaNameForQueries(container) + container.Name);
                 output.autoTabLn(" SET ");
 
                 foreach (IColumn column in container.Columns)
@@ -506,8 +505,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        protected virtual void InsertStringWrite(IOutput output, IContainer container, string schemaNameForQueries)
+        protected virtual void InsertStringWrite(IOutput output, IContainer container)
         {
+
+            string schemaNameForQueries = getSchemaNameForQueries(container);
 
             output.autoTabLn("protected override string InsertString");
             AtStartCurlyBraceletIncreaseTab(output);
