@@ -99,7 +99,7 @@ namespace Karkas.CodeGeneration.ConsoleApp
                     break;
 
                 default:
-                    Console.WriteLine($"NOT Supported yet in commandline {db.ConnectionDatabaseType}");
+                    Console.WriteLine($"NOT Supported yet in command line {db.ConnectionDatabaseType}");
                     break;
             }
             
