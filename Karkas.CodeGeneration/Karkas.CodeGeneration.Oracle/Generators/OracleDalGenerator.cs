@@ -91,7 +91,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         protected override void write_SetIdentityColumnValue(IOutput output, IContainer container)
         {
             base.write_SetIdentityColumnValue(output, container);
-            bool identityExists = getIdentityVarmi(utils, container);
+            bool identityExists = FindIfIdentityExists(utils, container);
             if(identityExists)
             {
                 string identityColumnName = getIdentityColumnName(utils, container);
