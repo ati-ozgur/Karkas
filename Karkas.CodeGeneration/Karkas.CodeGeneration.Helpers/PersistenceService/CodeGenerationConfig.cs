@@ -75,7 +75,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		private string ignoredSchemaList;
 		private string schemaList;
 
-		private string abbrevationsAsString;
+		private string abbreviationsAsString;
 		private string creationTime;
 		private string lastAccessTime;
 		private string lastWriteTime;
@@ -355,18 +355,18 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		}
 
 		
-		public string AbbrevationsAsString
+		public string AbbreviationsAsString
 		{
 			
 			get
 			{
-				return abbrevationsAsString;
+				return abbreviationsAsString;
 			}
 			
 			set
 			{
 				
-				abbrevationsAsString = value;
+				abbreviationsAsString = value;
 			}
 		}
 
