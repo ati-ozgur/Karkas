@@ -24,6 +24,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         string pkNamePascalCase = "";
         string pkType = "";
 
+        public DalGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
+        {
+            utils = new Utils(pDatabaseHelper);
+
+        }
+        protected Utils utils;
+
+
         public string GetIdentityType(Utils utils, IContainer container)
         {
             return utils.GetIdentityType(container);
@@ -42,12 +50,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
         string listType = "";
 
-        public DalGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
-        {
-            utils = new Utils(pDatabaseHelper);
-
-        }
-        protected Utils utils;
 
 
 
@@ -82,7 +84,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 classNameSpace = classNameSpace + "." + schemaName;
             }
       
-            bool pkGuidMi = utils.IsPkGuid(container);
             string pkcumlesi = "";
 
             string baseNameSpaceDal = baseNameSpace + ".Dal";
@@ -119,7 +120,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             DeleteStringWrite(output, container, semaIsminiSorgulardaKullan);
 
-            UpdateStringWrite(output, container, semaIsminiSorgulardaKullan, ref pkcumlesi);
+            WriteUpdateString(output, container, semaIsminiSorgulardaKullan, ref pkcumlesi);
 
 
             InsertStringWrite(output, container, sorgulardaKullanilanSema);
@@ -425,7 +426,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void UpdateStringWrite(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan, ref string pkcumlesi)
+        private void WriteUpdateString(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan, ref string pkcumlesi)
         {
             if (container is IView)
             {
