@@ -24,9 +24,9 @@ namespace Karkas.CodeGeneration.Helpers
         {
             if (connectionString.Contains("Provider"))
             {
-                int providerBaslangic = connectionString.IndexOf("Provider");
-                int providerBitis = connectionString.IndexOf(';', providerBaslangic + 1);
-                connectionString = connectionString.Remove(providerBaslangic, providerBitis + 1);
+                int start = connectionString.IndexOf("Provider");
+                int finish = connectionString.IndexOf(';', start + 1);
+                connectionString = connectionString.Remove(start, finish + 1);
             }
             return connectionString;
         }
