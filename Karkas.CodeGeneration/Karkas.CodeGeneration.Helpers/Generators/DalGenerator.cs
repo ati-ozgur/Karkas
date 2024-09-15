@@ -30,9 +30,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        public string getIdentityColumnName(Utils utils, IContainer container)
+        public string GetIdentityColumnName(Utils utils, IContainer container)
         {
-            return utils.getIdentityColumnName(container);
+            return utils.GetIdentityColumnName(container);
         }
 
 

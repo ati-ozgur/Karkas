@@ -94,7 +94,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             bool identityExists = FindIfIdentityExists(utils, container);
             if(identityExists)
             {
-                string identityColumnName = getIdentityColumnName(utils, container);
+                string identityColumnName = GetIdentityColumnName(utils, container);
                 string value = $"public override string IdentityParameterName {{ get {{return \":{identityColumnName}\"; }} }}";
                 output.autoTabLn(value);
             }
@@ -113,7 +113,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             if (container is ITable)
             {
 
-                string identityColumnName = utils.getIdentityColumnName(container);
+                string identityColumnName = utils.GetIdentityColumnName(container);
                 string insertString = getInsertString(container);
                 if(string.IsNullOrEmpty(identityColumnName))
                 {

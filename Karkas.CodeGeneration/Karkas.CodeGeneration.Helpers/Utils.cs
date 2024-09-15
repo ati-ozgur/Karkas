@@ -472,7 +472,7 @@ namespace Karkas.CodeGeneration.Helpers
 
 
 
-        public string getIdentityColumnName(IContainer container)
+        public string GetIdentityColumnName(IContainer container)
         {
             string name = "";
             foreach (IColumn column in container.Columns)
@@ -487,7 +487,7 @@ namespace Karkas.CodeGeneration.Helpers
 
         public string getIdentityColumnNameAsPascalCase(IContainer container)
         {
-            string name = GetPascalCase(getIdentityColumnName(container));
+            string name = GetPascalCase(GetIdentityColumnName(container));
            return name;
         }
 
