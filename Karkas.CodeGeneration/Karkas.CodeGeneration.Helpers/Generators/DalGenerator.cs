@@ -129,7 +129,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             Write_IdentityExists(output, FindIfIdentityExists(utils, container));
 
-            PkGuidMiWrite(output, container);
+            Write_IfPkGuid(output, container);
 
             PrimaryKeyWrite(output, container);
 
@@ -640,16 +640,16 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
         }
-        private void PkGuidMiWrite(IOutput output, IContainer container)
+        private void Write_IfPkGuid(IOutput output, IContainer container)
         {
-            string pkGuidMiResult = "";
+            string IsPkGuidResult = "";
             if (utils.IsPkGuid(container))
             {
-                pkGuidMiResult = "true";
+                IsPkGuidResult = "true";
             }
             else
             {
-                pkGuidMiResult = "false";
+                IsPkGuidResult = "false";
             }
 
 
@@ -658,7 +658,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
-            output.autoTabLn("return " + pkGuidMiResult + ";");
+            output.autoTabLn("return " + IsPkGuidResult + ";");
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
             output.autoTabLn("");
