@@ -113,7 +113,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             write_SetIdentityColumnValue(output, container);
 
 
-            SelectCountWrite(output, container);
+            WriteSelectCount(output, container);
 
             SelectStringWrite(output, container);
 
@@ -321,7 +321,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        protected string getSchemaNameForQueries(IContainer container)
+        protected string GetSchemaNameForQueries(IContainer container)
         {
             string result = "";
             if (CodeGenerationConfig.UseSchemaNameInSqlQueries)
@@ -331,14 +331,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             return result;
         }
 
-        private void SelectCountWrite(IOutput output, IContainer container)
+        private void WriteSelectCount(IOutput output, IContainer container)
         {
             output.autoTabLn("protected override string SelectCountString");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
             string cumle = "return @\"SELECT COUNT(*) FROM " 
-                            + getSchemaNameForQueries(container) 
+                            + GetSchemaNameForQueries(container) 
                             + container.Name + "\";";
             output.autoTabLn(cumle);
             AtEndCurlyBraceletDecreaseTab(output);
@@ -359,7 +359,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
             cumle = cumle.Remove(cumle.Length - 1);
             cumle += " FROM ";
-            cumle +=  getSchemaNameForQueries(container)  + container.Name + "\";";
+            cumle +=  GetSchemaNameForQueries(container)  + container.Name + "\";";
             output.autoTabLn(cumle);
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
@@ -399,7 +399,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 }
                 whereClause = whereClause.Remove(whereClause.Length - 4) + "\"";
                 cumle += "  FROM " 
-                        + getSchemaNameForQueries(container) 
+                        + GetSchemaNameForQueries(container) 
                         + container.Name + " WHERE ";
             }
             else
@@ -447,7 +447,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             if (container is ITable)
             {
-                output.autoTabLn("return @\"UPDATE " + getSchemaNameForQueries(container) + container.Name);
+                output.autoTabLn("return @\"UPDATE " + GetSchemaNameForQueries(container) + container.Name);
                 output.autoTabLn(" SET ");
 
                 foreach (IColumn column in container.Columns)
@@ -508,7 +508,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         protected virtual void InsertStringWrite(IOutput output, IContainer container)
         {
 
-            string schemaNameForQueries = getSchemaNameForQueries(container);
+            string schemaNameForQueries = GetSchemaNameForQueries(container);
 
             output.autoTabLn("protected override string InsertString");
             AtStartCurlyBraceletIncreaseTab(output);

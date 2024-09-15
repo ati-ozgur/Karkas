@@ -113,7 +113,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             if (container is ITable)
             {
 
-                string schemaNameForQueries = getSchemaNameForQueries(container);
+                string schemaNameForQueries = GetSchemaNameForQueries(container);
 
 
                 string identityColumnName = utils.GetIdentityColumnName(container);
