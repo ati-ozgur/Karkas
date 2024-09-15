@@ -7,10 +7,10 @@ namespace Karkas.CodeGeneration.Helpers.Interfaces
 {
     public interface ITable : IContainer
     {
-        int findIndexFromName(string name);
+        int FindIndexFromName(string name);
         int PrimaryKeyColumnCount { get; }
         bool HasPrimaryKey { get; }
-        bool IdentityVarmi { get; }
+        bool IdentityExists { get; }
 
     }
 }

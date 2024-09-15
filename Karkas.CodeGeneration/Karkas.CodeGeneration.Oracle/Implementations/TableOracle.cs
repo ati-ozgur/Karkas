@@ -25,7 +25,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
         String tableName;
         String schemaName;
 
-        public int findIndexFromName(string name)
+        public int FindIndexFromName(string name)
         {
             throw new NotImplementedException();
         }
@@ -164,7 +164,7 @@ AND
 
 
         private bool? identityValue;
-        public bool IdentityVarmi
+        public bool IdentityExists
         {
             get
             {

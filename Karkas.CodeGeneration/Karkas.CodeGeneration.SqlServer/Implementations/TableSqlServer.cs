@@ -33,7 +33,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
             set { template = value; }
         }
 
-        public int findIndexFromName(string name)
+        public int FindIndexFromName(string name)
         {
             throw new NotImplementedException();
         }
@@ -197,7 +197,7 @@ TABLE_NAME = @TABLE_NAME
 
         bool? identityVarmi;
 
-        public bool IdentityVarmi
+        public bool IdentityExists
         {
             get 
             {

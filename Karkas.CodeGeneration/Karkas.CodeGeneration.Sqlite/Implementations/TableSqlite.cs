@@ -25,7 +25,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         String tableName;
         String schemaName;
 
-        public int findIndexFromName(string name)
+        public int FindIndexFromName(string name)
         {
             throw new NotImplementedException();
         }
@@ -149,7 +149,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         bool? identityVarmi;
 
-        public bool IdentityVarmi
+        public bool IdentityExists
         {
             get
             {
