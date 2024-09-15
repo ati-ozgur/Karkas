@@ -493,7 +493,7 @@ namespace Karkas.CodeGeneration.Helpers
 
 
 
-        public string getIdentityType(IContainer container)
+        public string GetIdentityType(IContainer container)
         {
             string typeToReturn = "";
             foreach (IColumn column in container.Columns)

@@ -24,9 +24,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         string pkNamePascalCase = "";
         string pkType = "";
 
-        public string getIdentityType(Utils utils, IContainer container)
+        public string GetIdentityType(Utils utils, IContainer container)
         {
-            return utils.getIdentityType(container);
+            return utils.GetIdentityType(container);
         }
 
 
@@ -104,7 +104,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             WriteNamespaceStart(output, baseNameSpaceDal);
 
-            ClassWrite(output, classNameTypeLibrary, FindIfIdentityExists(utils, container), getIdentityType(utils, container));
+            ClassWrite(output, classNameTypeLibrary, FindIfIdentityExists(utils, container), GetIdentityType(utils, container));
             output.autoTabLn("");
 
             OverrideDatabaseNameWrite(output, container);
@@ -237,7 +237,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             bool identityExists = FindIfIdentityExists(utils, container);
             if(identityExists)
             {
-                string identityType = getIdentityType(utils, container);
+                string identityType = GetIdentityType(utils, container);
 
                 string methodSignature = $"protected override void setIdentityColumnValue({classNameTypeLibrary} pTypeLibrary,{identityType} pIdentityColumnValue)";
                 output.autoTabLn(methodSignature);
