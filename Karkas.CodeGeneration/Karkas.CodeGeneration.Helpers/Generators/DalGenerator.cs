@@ -147,8 +147,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
 
-            output.saveEncoding(outputFullFileNameGenerated, "o", "utf8");
-            output.clear();
+            output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
+            output.Clear();
             if (!File.Exists(outputFullFileName))
             {
                 WriteUsings(output, schemaName, baseNameSpaceTypeLibrary);
@@ -158,8 +158,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 AtStartCurlyBraceletIncreaseTab(output);
                 AtEndCurlyBraceletDecreaseTab(output);
                 AtEndCurlyBraceletDecreaseTab(output);
-                output.saveEncoding(outputFullFileName, "o", "utf8");
-                output.clear();
+                output.SaveEncoding(outputFullFileName, "o", "utf8");
+                output.Clear();
 
             }
             return "";

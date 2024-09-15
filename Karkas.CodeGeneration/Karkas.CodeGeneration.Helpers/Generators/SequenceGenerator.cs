@@ -58,8 +58,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
 
-            output.saveEncoding(outputFullFileNameGenerated, "o", "utf8");
-            output.clear();
+            output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
+            output.Clear();
             return "";
 
 

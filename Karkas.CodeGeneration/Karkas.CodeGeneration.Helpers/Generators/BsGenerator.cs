@@ -89,8 +89,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForBsGenerated(CodeGenerationConfig, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
             string outputFullFileName = utils.FileUtilsHelper.getBaseNameForBs(CodeGenerationConfig, schemaName, classNameTypeLibrary, semaIsminiDizinlerdeKullan); 
-            output.saveEncoding(outputFullFileNameGenerated, "o", "utf8");
-            output.clear();
+            output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
+            output.Clear();
 
             if (!File.Exists(outputFullFileName))
             {
@@ -100,8 +100,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 AtStartCurlyBraceletIncreaseTab(output);
                 AtEndCurlyBraceletDecreaseTab(output);
                 AtEndCurlyBraceletDecreaseTab(output);
-                output.saveEncoding(outputFullFileName, "o", "utf8");
-                output.clear();
+                output.SaveEncoding(outputFullFileName, "o", "utf8");
+                output.Clear();
             }
         }
 

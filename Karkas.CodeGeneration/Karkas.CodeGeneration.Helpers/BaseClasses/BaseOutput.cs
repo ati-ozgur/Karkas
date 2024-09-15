@@ -72,7 +72,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
             return new FileInfo(pFileName).Directory.FullName;
         }
 
-        public void save(string pFileName, bool pIfExistsOverride)
+        public void Save(string pFileName, bool pIfExistsOverride)
         {
             string directoryName = findDirectoryNameFromFileName(pFileName);
             if (!Directory.Exists(directoryName))
@@ -93,19 +93,19 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
             }
         }
 
-        public void saveEncoding(string outputFullFileNameGenerated, string pOption, string pEncoding)
+        public void SaveEncoding(string outputFullFileNameGenerated, string pOption, string pEncoding)
         {
             if (pOption == "o")
             {
-                save(outputFullFileNameGenerated, true);
+                Save(outputFullFileNameGenerated, true);
             }
             else
             {
-                save(outputFullFileNameGenerated, false);
+                Save(outputFullFileNameGenerated, false);
             }
         }
 
-        public void clear()
+        public void Clear()
         {
             buffer = new StringBuilder(1000);
         }

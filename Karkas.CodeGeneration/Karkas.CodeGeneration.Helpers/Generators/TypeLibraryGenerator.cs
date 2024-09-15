@@ -64,8 +64,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
 
-            output.saveEncoding(outputFullFileNameGenerated, "o", "utf8");
-            output.clear();
+            output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
+            output.Clear();
 
 
 
@@ -86,8 +86,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             writeMainClass(output, className, classNameValidation);
             writeValidationClass(output, database, className, classNameValidation);
             AtEndCurlyBraceletDecreaseTab(output);
-            output.save(outputFullFileName, CodeGenerationConfig.CreateMainClassAgain);
-            output.clear();
+            output.Save(outputFullFileName, CodeGenerationConfig.CreateMainClassAgain);
+            output.Clear();
         }
 
         private void writeMainClass(IOutput output, string className, string classNameValidation)

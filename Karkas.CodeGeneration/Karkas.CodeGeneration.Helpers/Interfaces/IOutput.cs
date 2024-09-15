@@ -21,12 +21,12 @@ namespace Karkas.CodeGeneration.Helpers.Interfaces
 
         void writeLine(string p);
 
-        void save(string p, bool p_2);
+        void Save(string p, bool p_2);
 
-        void clear();
+        void Clear();
 
 
-        void saveEncoding(string outputFullFileNameGenerated, string p, string p_2);
+        void SaveEncoding(string outputFullFileNameGenerated, string p, string p_2);
 
 
         void write(string p);
