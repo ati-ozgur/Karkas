@@ -143,8 +143,8 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             {
                 output.autoTabLn("throw new NotSupportedException(\" Insert/Update/Delete is not supported for VIEWs \");");
             }
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
         public override void InsertCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
@@ -168,7 +168,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                 }
             }
 
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
         public override void builderParameterAdd(IOutput output, IColumn column)
         {
@@ -235,7 +235,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                 }
             }
 
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
         public override void UpdateCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
@@ -258,7 +258,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                     builderParameterAdd(output, column);
                 }
             }
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
         private static string[] reservedKeyWordsArray = {  "ACCESS", "ADD", "ALL", "ALTER", "AND", 

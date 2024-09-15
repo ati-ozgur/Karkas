@@ -144,8 +144,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             OverrideDbProviderNameWrite(output, container);
 
 
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
 
             output.saveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.clear();
@@ -156,8 +156,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.autoTab("public partial class ");
                 output.writeLine(classNameTypeLibrary + "Dal");
                 AtStartCurlyBraceletIncreaseTab(output);
-                AtEndCurlyBraceletDescreaseTab(output);
-                AtEndCurlyBraceletDescreaseTab(output);
+                AtEndCurlyBraceletDecreaseTab(output);
+                AtEndCurlyBraceletDecreaseTab(output);
                 output.saveEncoding(outputFullFileName, "o", "utf8");
                 output.clear();
 
@@ -176,8 +176,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn(string.Format("return \"{0}\";",  CodeGenerationConfig.ConnectionDbProviderName));
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
 
@@ -189,8 +189,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn(string.Format("return \"{0}\";", pkName));
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
             output.autoTabLn("");
 
         }
@@ -224,7 +224,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                     output.autoTabLn(string.Format("{0} row = new {0}();", classNameTypeLibrary));
                     output.autoTabLn(string.Format("row.{0} = {0};", pkPropertyName));
                     output.autoTabLn("base.Delete(row);");
-                    AtEndCurlyBraceletDescreaseTab(output);
+                    AtEndCurlyBraceletDecreaseTab(output);
                 }
             }
         }
@@ -248,7 +248,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                     string propertySetSignature = $"pTypeLibrary.{identityColumnName} = ({identityType} )pIdentityColumnValue;";
                     output.autoTabLn(propertySetSignature);
                 }
-                AtEndCurlyBraceletDescreaseTab(output);
+                AtEndCurlyBraceletDecreaseTab(output);
 
             }
 
@@ -263,8 +263,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionName));
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
         protected abstract void WriteUsingDatabaseClient(IOutput output);
@@ -341,8 +341,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                             + getSqlIcinSemaBilgisi(container, semaIsminiSorgulardaKullan) 
                             + container.Name + "\";";
             output.autoTabLn(cumle);
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
 
@@ -361,8 +361,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             cumle += " FROM ";
             cumle +=  getSqlIcinSemaBilgisi(container, semaIsminiSorgulardaKullan)  + container.Name + "\";";
             output.autoTabLn(cumle);
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
         private void DeleteStringWrite(IOutput output, IContainer container, bool semaIsminiSorgulardaKullan)
@@ -374,8 +374,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.autoTabLn("get ");
                 AtStartCurlyBraceletIncreaseTab(output);
                 output.autoTabLn("return null;");
-                AtEndCurlyBraceletDescreaseTab(output);
-                AtEndCurlyBraceletDescreaseTab(output);
+                AtEndCurlyBraceletDecreaseTab(output);
+                AtEndCurlyBraceletDecreaseTab(output);
                 
                 return;
             }
@@ -409,8 +409,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
 
             output.autoTabLn(cumle + whereClause + ";");
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
         public bool updateWhereSatirindaOlmaliMi(IColumn column)
@@ -434,8 +434,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.autoTabLn("get ");
                 AtStartCurlyBraceletIncreaseTab(output);
                 output.autoTabLn("return null;");
-                AtEndCurlyBraceletDescreaseTab(output);
-                AtEndCurlyBraceletDescreaseTab(output);
+                AtEndCurlyBraceletDecreaseTab(output);
+                AtEndCurlyBraceletDecreaseTab(output);
 
                 return;
             }
@@ -483,8 +483,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             {
                 output.autoTabLn("throw new NotSupportedException(\"VIEW ustunden Insert/Update/Delete desteklenmemektedir\");");
             }
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
         private string getColumnName(IColumn column)
@@ -523,8 +523,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             {
                 output.autoTabLn("throw new NotSupportedException(\" Insert/Update/Delete is not supported for VIEWs \");");
             }
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
 
@@ -615,7 +615,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.autoTabLn("{");
                 output.autoTabLn("\treturn null;");
                 output.autoTabLn("}");
-                AtEndCurlyBraceletDescreaseTab(output);
+                AtEndCurlyBraceletDecreaseTab(output);
                 }
         }
 
@@ -637,8 +637,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("return " + identityResult + ";");
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
         private void PkGuidMiWrite(IOutput output, IContainer container)
         {
@@ -659,8 +659,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("return " + pkGuidMiResult + ";");
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
             output.autoTabLn("");
         }
 
@@ -683,14 +683,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                     output.autoTabLn("if (!dr.IsDBNull(" + i + "))");
                     AtStartCurlyBraceletIncreaseTab(output);
                     output.autoTabLn(yazi);
-                    AtEndCurlyBraceletDescreaseTab(output);
+                    AtEndCurlyBraceletDecreaseTab(output);
                 }
                 else
                 {
                     output.autoTabLn(yazi);
                 }
             }
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
         public abstract void InsertCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary);

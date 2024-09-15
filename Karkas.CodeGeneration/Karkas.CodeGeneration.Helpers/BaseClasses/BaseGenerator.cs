@@ -31,7 +31,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
             output.autoTabLn("{");
             output.increaseTab();
         }
-        protected void AtEndCurlyBraceletDescreaseTab(IOutput output)
+        protected void AtEndCurlyBraceletDecreaseTab(IOutput output)
         {
             output.decreaseTab();
             output.autoTabLn("}");

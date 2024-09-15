@@ -96,7 +96,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
                 }
             }
 
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
         public override void DeleteCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
         {
@@ -115,7 +115,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
                 }
             }
 
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
         public override void UpdateCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
@@ -138,7 +138,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
                     builderParameterAdd(output, column);
                 }
             }
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
         private static string[] reservedKeyWordsArray = { "ADD", "EXTERNAL", "PROCEDURE", "ALL",

@@ -55,8 +55,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             writeSelectSequenceStrings(output, this.DatabaseHelper, schemaName, sequenceName);
             writeGetNextSequenceValue(output);
             writeGetCurrentSequenceValue(output);
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
 
             output.saveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.clear();
@@ -71,7 +71,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("public decimal GetNextSequenceValue()");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("return (decimal) Template.BringOneValue(selectNextSequenceString);");
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
         private void writeGetCurrentSequenceValue(IOutput output)
         {
@@ -79,7 +79,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("public decimal GetCurrentSequenceValue()");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("return (decimal) Template.BringOneValue(selectCurrentSequenceString);");
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
         private void writeSelectSequenceStrings(IOutput output, IDatabase database, string schemaName, string sequenceName)
@@ -133,8 +133,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionDbProviderName));
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
     }

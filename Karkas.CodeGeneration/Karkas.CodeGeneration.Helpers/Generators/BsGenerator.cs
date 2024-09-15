@@ -84,8 +84,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
                 QueryByPkNameWrite(output, container, classNameTypeLibrary, pkType, pkNamePascalCase);
             }
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
 
             string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForBsGenerated(CodeGenerationConfig, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
             string outputFullFileName = utils.FileUtilsHelper.getBaseNameForBs(CodeGenerationConfig, schemaName, classNameTypeLibrary, semaIsminiDizinlerdeKullan); 
@@ -98,8 +98,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 AtStartCurlyBraceletIncreaseTab(output);
                 classWrite(output, classNameBs, classNameDal, classNameTypeLibrary);
                 AtStartCurlyBraceletIncreaseTab(output);
-                AtEndCurlyBraceletDescreaseTab(output);
-                AtEndCurlyBraceletDescreaseTab(output);
+                AtEndCurlyBraceletDecreaseTab(output);
+                AtEndCurlyBraceletDecreaseTab(output);
                 output.saveEncoding(outputFullFileName, "o", "utf8");
                 output.clear();
             }
@@ -112,8 +112,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionName));
-            AtEndCurlyBraceletDescreaseTab(output);
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
 
@@ -153,7 +153,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                     // output.autoTabLn(string.Format("{0} row = new {0}();", classNameTypeLibrary));
 
                     output.autoTabLn(string.Format("dal.Delete( p{0});",pkPropertyName));
-                    AtEndCurlyBraceletDescreaseTab(output);
+                    AtEndCurlyBraceletDecreaseTab(output);
                 }
             }
 

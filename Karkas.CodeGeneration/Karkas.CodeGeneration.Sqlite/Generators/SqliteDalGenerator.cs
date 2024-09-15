@@ -96,7 +96,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
                 }
             }
 
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
         public override void DeleteCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
@@ -116,7 +116,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
                 }
             }
 
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
         protected override void write_SetIdentityColumnValue(IOutput output, IContainer container)
@@ -154,7 +154,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
                     builderParameterAdd(output, column);
                 }
             }
-            AtEndCurlyBraceletDescreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
 
