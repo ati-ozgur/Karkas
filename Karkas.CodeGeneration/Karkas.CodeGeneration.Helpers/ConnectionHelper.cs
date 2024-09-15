@@ -92,7 +92,6 @@ namespace Karkas.CodeGeneration.Helpers
                     DbProviderFactories.RegisterFactory("Microsoft.Data.Sqlite", SqliteFactory.Instance);
                     template = new AdoTemplateSqlite();
                     template.Connection = connection; 
-                    return template;                 
                     break;
                 case "SqlServer":
                     connection  = testSqlserver(connectionString);
@@ -100,7 +99,6 @@ namespace Karkas.CodeGeneration.Helpers
                     DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
                     template = new AdoTemplateSqlServer();
                     template.Connection = connection; 
-                    return template;                 
                     break;
                 case "Oracle":
                     connection  = testOracle(connectionString);
@@ -108,15 +106,16 @@ namespace Karkas.CodeGeneration.Helpers
                     //DbProviderFactories.RegisterFactory("System.Data.Oracle", OracleClientFactory.Instance);
                     template = new AdoTemplateOracle();
                     template.Connection = connection; 
-                    return template;                 
                     break;
 
                 default:
                     Console.WriteLine($"NOT Supported yet in commandline {connectionDatabaseType}");
-                    return null;
+                    template = null;
                     break;
+
             }
 
+            return template;
 
 
         }
