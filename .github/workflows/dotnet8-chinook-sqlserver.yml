@@ -16,5 +16,5 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    - name: code generate for chinook_sqlite database and run simple tests
+    - name: code generate for chinook SQL Server database and run simple tests
       run: ./Karkas.Examples/TestBash/chinook-sqlserver/run_chinook_sqlserver.bash
