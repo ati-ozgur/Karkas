@@ -56,7 +56,7 @@ dotnet new console
 dotnet add package Oracle.ManagedDataAccess.Core
 dotnet add reference "../../../Karkas.Core/Karkas.Core.DataUtil/Karkas.Core.DataUtil.csproj"
 dotnet add reference "../../../Karkas.Core/Karkas.Core.Data.Oracle/Karkas.Core.Data.Oracle.csproj"
-cp ../../TestCSharp/ProgramChinook.cs Program.cs
+cp ../../TestCSharp/ProgramChinookAutoIncrement.cs Program.cs
 cp --recursive ../../TestCSharp/Helpers/ .
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperOracle.cs ConnectionHelper.cs
 dotnet build

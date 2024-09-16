@@ -66,7 +66,7 @@ dotnet new console
 dotnet add package Microsoft.Data.SqlClient
 dotnet add reference "../../../Karkas.Core/Karkas.Core.DataUtil/Karkas.Core.DataUtil.csproj"
 dotnet add reference "../../../Karkas.Core/Karkas.Core.Data.SqlServer/Karkas.Core.Data.SqlServer.csproj"
-cp ../../TestCSharp/ProgramChinook.cs Program.cs
+cp ../../TestCSharp/ProgramChinookAutoIncrement.cs Program.cs
 cp --recursive ../../TestCSharp/Helpers/ .
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqlServer.cs ConnectionHelper.cs
 dotnet build
