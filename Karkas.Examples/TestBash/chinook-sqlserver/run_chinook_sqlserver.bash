@@ -40,7 +40,12 @@ docker run --detach -p 1433:1433 --name $CONTAINER_NAME  --hostname $CONTAINER_N
 
 
 
-docker wait $CONTAINER_NAME
+CONTAINER_ID=$(docker inspect --format="{{.Id}}" "$CONTAINER_NAME")
+echo "CONTAINER_ID $CONTAINER_ID"
+
+
+timeout 60s grep -q 'Recovery is complete' <(docker logs -f $CONTAINER_ID) || exit 1
+
 
 echo "go to ${WORKING_DIR}"
 cd $WORKING_DIR
