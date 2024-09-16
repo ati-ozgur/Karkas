@@ -48,7 +48,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.write("using Karkas.Core.Data.Oracle;");
         }
 
-        protected override void ClassWrite(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
+        protected override void WriteClass(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
         {
             if(identityVarmi)
             {
@@ -88,9 +88,9 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
         }
 
-        protected override void write_SetIdentityColumnValue(IOutput output, IContainer container)
+        protected override void WriteSetIdentityColumnValue(IOutput output, IContainer container)
         {
-            base.write_SetIdentityColumnValue(output, container);
+            base.WriteSetIdentityColumnValue(output, container);
             bool identityExists = FindIfIdentityExists(utils, container);
             if(identityExists)
             {
@@ -103,7 +103,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         }
 
 
-        protected override void InsertStringWrite(IOutput output, IContainer container)
+        protected override void WriteInsertString(IOutput output, IContainer container)
         {
 
             output.autoTabLn("protected override string InsertString");
@@ -150,7 +150,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             AtEndCurlyBraceletDecreaseTab(output);
         }
 
-        public override void InsertCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void WriteInsertCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
@@ -221,7 +221,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.autoTabLn(s);
         }
 
-        public override void DeleteCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void WriteDeleteCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
@@ -241,7 +241,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             AtEndCurlyBraceletDecreaseTab(output);
         }
 
-        public override void UpdateCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void WriteUpdateCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);

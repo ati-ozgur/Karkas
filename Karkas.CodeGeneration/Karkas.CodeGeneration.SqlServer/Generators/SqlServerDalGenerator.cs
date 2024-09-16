@@ -57,7 +57,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         }
 
 
-        protected override void ClassWrite(IOutput output, string classNameTypeLibrary, bool identityExists, string identityType)
+        protected override void WriteClass(IOutput output, string classNameTypeLibrary, bool identityExists, string identityType)
         {
             output.autoTab("public partial class ");
             output.write(classNameTypeLibrary);
@@ -79,7 +79,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             AtStartCurlyBraceletIncreaseTab(output);
         }
 
-        public override void InsertCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void WriteInsertCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
@@ -98,7 +98,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
 
             AtEndCurlyBraceletDecreaseTab(output);
         }
-        public override void DeleteCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void WriteDeleteCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
@@ -118,7 +118,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             AtEndCurlyBraceletDecreaseTab(output);
         }
 
-        public override void UpdateCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void WriteUpdateCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);

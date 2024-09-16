@@ -105,43 +105,43 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             WriteNamespaceStart(output, baseNameSpaceDal);
 
-            ClassWrite(output, classNameTypeLibrary, FindIfIdentityExists(utils, container), GetIdentityType(utils, container));
+            WriteClass(output, classNameTypeLibrary, FindIfIdentityExists(utils, container), GetIdentityType(utils, container));
             output.autoTabLn("");
 
-            OverrideDatabaseNameWrite(output, container);
+            WriteOverrideDatabaseName(output, container);
 
-            write_SetIdentityColumnValue(output, container);
+            WriteSetIdentityColumnValue(output, container);
 
 
             WriteSelectCount(output, container);
 
-            SelectStringWrite(output, container);
+            WriteSelectString(output, container);
 
-            DeleteStringWrite(output, container);
+            WriteDeleteString(output, container);
 
             WriteUpdateString(output, container, ref pkcumlesi);
 
 
-            InsertStringWrite(output, container);
+            WriteInsertString(output, container);
 
 
-            QueryByPkWrite(output, container, classNameTypeLibrary,pkName, pkNamePascalCase, pkType);
+            WriteQueryByPk(output, container, classNameTypeLibrary,pkName, pkNamePascalCase, pkType);
 
-            Write_IdentityExists(output, FindIfIdentityExists(utils, container));
+            WriteIdentityExists(output, FindIfIdentityExists(utils, container));
 
-            Write_IfPkGuid(output, container);
+            WriteIfPkGuid(output, container);
 
-            PrimaryKeyWrite(output, container);
+            WritePrimaryKey(output, container);
 
-            SilKomutuWritePkIle(output, classNameTypeLibrary, container);
+            WriteDeleteByPK(output, classNameTypeLibrary, container);
 
-            ProcessRowWrite(output, container, classNameTypeLibrary);
+            WriteProcessRow(output, container, classNameTypeLibrary);
 
-            InsertCommandParametersAddWrite(output, container, classNameTypeLibrary);
-            UpdateCommandParametersAddWrite(output, container, classNameTypeLibrary);
-            DeleteCommandParametersAddWrite(output, container, classNameTypeLibrary);
+            WriteInsertCommandParametersAdd(output, container, classNameTypeLibrary);
+            WriteUpdateCommandParametersAdd(output, container, classNameTypeLibrary);
+            WriteDeleteCommandParametersAdd(output, container, classNameTypeLibrary);
 
-            OverrideDbProviderNameWrite(output, container);
+            WriteOverrideDbProviderName(output, container);
 
 
             AtEndCurlyBraceletDecreaseTab(output);
@@ -169,7 +169,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        private void OverrideDbProviderNameWrite(IOutput output, IContainer container)
+        private void WriteOverrideDbProviderName(IOutput output, IContainer container)
         {
             output.autoTabLn("public override string DbProviderName");
             AtStartCurlyBraceletIncreaseTab(output);
@@ -181,7 +181,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void PrimaryKeyWrite(IOutput output, IContainer container)
+        private void WritePrimaryKey(IOutput output, IContainer container)
         {
             output.autoTabLn("");
             output.autoTabLn("public override string PrimaryKey");
@@ -196,7 +196,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        protected IColumn getAutoNumberColumn(IContainer container)
+        protected IColumn GetAutoNumberColumn(IContainer container)
         {
             IColumn result = null;
             foreach (IColumn column in container.Columns)
@@ -210,7 +210,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             return result;
         }
 
-        private void SilKomutuWritePkIle(IOutput output, string classNameTypeLibrary, IContainer container)
+        private void WriteDeleteByPK(IOutput output, string classNameTypeLibrary, IContainer container)
         {
             ITable table = container as ITable;
             if (table != null )
@@ -232,7 +232,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        protected virtual void write_SetIdentityColumnValue(IOutput output, IContainer container)
+        protected virtual void WriteSetIdentityColumnValue(IOutput output, IContainer container)
         {
             bool identityExists = FindIfIdentityExists(utils, container);
             if(identityExists)
@@ -256,7 +256,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void OverrideDatabaseNameWrite(IOutput output, IContainer container)
+        private void WriteOverrideDatabaseName(IOutput output, IContainer container)
         {
             output.autoTabLn("public override string DatabaseName");
             AtStartCurlyBraceletIncreaseTab(output);
@@ -310,7 +310,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        protected virtual void ClassWrite(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
+        protected virtual void WriteClass(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
         {
             output.autoTab("public partial class ");
             output.write(classNameTypeLibrary);
@@ -346,7 +346,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void SelectStringWrite(IOutput output, IContainer container)
+        private void WriteSelectString(IOutput output, IContainer container)
         {
             output.autoTabLn("protected override string SelectString");
             AtStartCurlyBraceletIncreaseTab(output);
@@ -365,7 +365,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab(output);
         }
 
-        private void DeleteStringWrite(IOutput output, IContainer container)
+        private void WriteDeleteString(IOutput output, IContainer container)
         {
             if (container is IView)
             {
@@ -505,7 +505,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        protected virtual void InsertStringWrite(IOutput output, IContainer container)
+        protected virtual void WriteInsertString(IOutput output, IContainer container)
         {
 
             string schemaNameForQueries = GetSchemaNameForQueries(container);
@@ -592,7 +592,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn(listType + " liste = new " + listType + "();");
         }
 
-        private void QueryByPkWrite(IOutput output, IContainer container, string classNameTypeLibrary,  string pkName, string pkNamePascalCase, string pkType)
+        private void WriteQueryByPk(IOutput output, IContainer container, string classNameTypeLibrary,  string pkName, string pkNamePascalCase, string pkType)
         {
             if (container is IView)
             {
@@ -621,7 +621,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 }
         }
 
-        private void Write_IdentityExists(IOutput output, bool identityExists)
+        private void WriteIdentityExists(IOutput output, bool identityExists)
         {
             string identityResult = "";
             if (identityExists)
@@ -642,7 +642,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
         }
-        private void Write_IfPkGuid(IOutput output, IContainer container)
+        private void WriteIfPkGuid(IOutput output, IContainer container)
         {
             string IsPkGuidResult = "";
             if (utils.IsPkGuid(container))
@@ -666,7 +666,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("");
         }
 
-        private void ProcessRowWrite(IOutput output, IContainer container, string classNameTypeLibrary)
+        private void WriteProcessRow(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             string propertyVariableName = "";
             output.autoTab("protected override void ProcessRow(IDataReader dr, ");
@@ -695,7 +695,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab(output);
         }
 
-        public abstract void InsertCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary);
+        public abstract void WriteInsertCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary);
 
 
         public bool shouldAddcolumnToParameters(IColumn column)
@@ -748,8 +748,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                         + ");";
             output.autoTabLn(s);
         }
-        public abstract void UpdateCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary);
-        public abstract void DeleteCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary);
+        public abstract void WriteUpdateCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary);
+        public abstract void WriteDeleteCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary);
 
 
 

@@ -22,7 +22,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
 
 
 
-        protected override void ClassWrite(IOutput output, string classNameTypeLibrary, bool isIdentity, string identityType)
+        protected override void WriteClass(IOutput output, string classNameTypeLibrary, bool isIdentity, string identityType)
         {
             if(isIdentity)
             {
@@ -79,7 +79,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         }
 
 
-        public override void InsertCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void WriteInsertCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
@@ -99,7 +99,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             AtEndCurlyBraceletDecreaseTab(output);
         }
 
-        public override void DeleteCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void WriteDeleteCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
@@ -119,9 +119,9 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             AtEndCurlyBraceletDecreaseTab(output);
         }
 
-        protected override void write_SetIdentityColumnValue(IOutput output, IContainer container)
+        protected override void WriteSetIdentityColumnValue(IOutput output, IContainer container)
         {
-            base.write_SetIdentityColumnValue(output, container);
+            base.WriteSetIdentityColumnValue(output, container);
             bool identityExists = FindIfIdentityExists(utils, container);
             if(identityExists)
             {
@@ -134,7 +134,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         }
 
 
-        public override void UpdateCommandParametersAddWrite(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void WriteUpdateCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
