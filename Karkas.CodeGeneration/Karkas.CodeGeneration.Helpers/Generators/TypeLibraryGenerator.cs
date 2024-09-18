@@ -44,19 +44,19 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             //output.setPreserveSource(outputFullFileNameGenerated, "//::", ":://");
 
 
-            usingNamespaceleriWrite(output, classNameSpace);
+            Write_UsingNamespaces(output, classNameSpace);
 
             ClassIsmiWrite(output, className, container);
 
             output.autoTabLn("{");
 
-            MemberVariablesWrite(output, container);
+            Write_MemberVariables(output, container);
 
-            PropertiesWrite(output, container);
+            Write_Properties(output, container);
 
-            ShallowCopyWrite(output, container, className);
+            Write_ShallowCopy(output, container, className);
 
-            PropertyIsimleriWrite(output, container, className);
+            Write_ColumnNames(output, container, className);
 
 
             output.writeLine("");
@@ -80,7 +80,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void generateMainClassFile(IOutput output, IDatabase database,string className, string classNameSpace, string outputFullFileName)
         {
-            usingNamespaceleriWrite(output, classNameSpace);
+            Write_UsingNamespaces(output, classNameSpace);
             //output.increaseTab();
             string classNameValidation = className + "Validation";
             writeMainClass(output, className, classNameValidation);
@@ -131,7 +131,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        protected virtual void usingNamespaceleriWrite(IOutput output, string classNameSpace)
+        protected virtual void Write_UsingNamespaces(IOutput output, string classNameSpace)
         {
             output.autoTabLn("using System;");
             output.autoTabLn("using System.Data;");
@@ -182,7 +182,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        private void PropertyIsimleriWrite(IOutput output, IContainer container, string className)
+        private void Write_ColumnNames(IOutput output, IContainer container, string className)
         {
             output.autoTabLn("public class PropertyIsimleri");
             AtStartCurlyBraceletIncreaseTab(output);
@@ -197,7 +197,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void PropertiesWrite(IOutput output, IContainer container)
+        private void Write_Properties(IOutput output, IContainer container)
         {
             output.increaseTab();
             foreach (IColumn column in container.Columns)
@@ -311,7 +311,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        private void ShallowCopyWrite(IOutput output, IContainer container, string pTypeName)
+        private void Write_ShallowCopy(IOutput output, IContainer container, string pTypeName)
         {
             output.increaseTab();
             output.autoTabLn(string.Format("public {0} ShallowCopy()", pTypeName));
@@ -330,7 +330,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void MemberVariablesWrite(IOutput output, IContainer container)
+        private void Write_MemberVariables(IOutput output, IContainer container)
         {
             output.increaseTab();
             foreach (IColumn column in container.Columns)

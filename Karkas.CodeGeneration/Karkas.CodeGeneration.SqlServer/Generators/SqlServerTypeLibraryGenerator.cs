@@ -21,7 +21,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         {
         }
 
-        protected override void usingNamespaceleriWrite(IOutput output, string classNameSpace)
+        protected override void Write_UsingNamespaces(IOutput output, string classNameSpace)
         {
             output.autoTabLn("using System;");
             output.autoTabLn("using System.Data;");
