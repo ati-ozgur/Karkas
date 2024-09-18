@@ -17,4 +17,4 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: code generate for chinook SQL Server database and run simple tests
-      run: ./Karkas.Examples/TestBash/chinook-sqlserver/run_chinook_sqlserver.bash
+      run: ./Karkas.Examples/TestBash/chinook-sqlserver/run_chinook_sqlserver_auto_increment.bash
