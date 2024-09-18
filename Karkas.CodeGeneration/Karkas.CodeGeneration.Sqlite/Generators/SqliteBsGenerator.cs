@@ -32,7 +32,6 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         {
             output.autoTab("public partial class ");
             output.write(classNameBs);
-            output.write(" : BaseBs");
         }
 
         protected override void Write_UsingsDatabaseSpecific(IOutput output)

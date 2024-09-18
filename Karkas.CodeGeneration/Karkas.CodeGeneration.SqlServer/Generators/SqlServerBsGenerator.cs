@@ -26,8 +26,8 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         {
             output.autoTab("public partial class ");
             output.write(classNameBs);
-            output.write(" : BaseBs");
         }
+
 
         protected override void Write_ClassGenerated(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary)
         {
