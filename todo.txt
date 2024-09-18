@@ -1,10 +1,5 @@
 todo.txt
 
-1. Use main connection or use multiple database should be config.
-If it is multiple databases, then I should use database name.
-Lets fix it first.
-
-public override string DatabaseName
 
 
 1. CommandLineParser is good one.
