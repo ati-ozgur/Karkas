@@ -1,4 +1,3 @@
-
 using System;
 using System.Data.Common;
 using Microsoft.Data.Sqlite;
@@ -14,11 +13,7 @@ namespace Karkas.Examples
         {
             string dbConnectionString = "Data Source=Chinook.db;Mode=ReadWrite;";
             string dbProviderName = "Microsoft.Data.Sqlite";
-            string dbName = "ChinookSqlite";
-
             DbProviderFactories.RegisterFactory(dbProviderName, Microsoft.Data.Sqlite.SqliteFactory.Instance);
-
-            ConnectionSingleton.Instance.AddConnection(dbName, dbProviderName, dbConnectionString);
             ConnectionSingleton.Instance.AddConnection("Main", dbProviderName, dbConnectionString);
 
         }
