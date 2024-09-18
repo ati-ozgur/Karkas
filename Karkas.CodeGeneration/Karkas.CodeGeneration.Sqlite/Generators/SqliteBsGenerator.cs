@@ -20,7 +20,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         {
         }
 
-        protected override void classWrite(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary)
+        protected override void Write_Class(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary)
         {
             output.autoTab("public partial class ");
             output.write(classNameBs);
@@ -29,7 +29,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             output.writeLine(">");
         }
 
-        protected override void WriteUsingsDatabaseSpecific(IOutput output)
+        protected override void Write_UsingsDatabaseSpecific(IOutput output)
         {
             output.autoTabLn("using Microsoft.Data.Sqlite;");
             output.autoTabLn("using Karkas.Core.Data.Sqlite;");

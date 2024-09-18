@@ -71,18 +71,18 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             pkNamePascalCase = utils.GetPascalCase(pkName);
 
 
-            WriteUsings(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
+            Write_Usings(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
             output.increaseTab();
             AtStartCurlyBraceletIncreaseTab(output);
-            classWrite(output, classNameBs, classNameDal, classNameTypeLibrary);
+            Write_Class(output, classNameBs, classNameDal, classNameTypeLibrary);
             AtStartCurlyBracelet(output);
-            OverrideDatabaseNameWrite(output, container);
+            Write_OverrideDatabaseName(output, container);
 
             if (container is ITable && (!string.IsNullOrEmpty(pkName)))
             {
-                Write_DeleteCommmandWithPK(output, container);
+                Write_DeleteCommandWithPK(output, container);
 
-                QueryByPkNameWrite(output, container, classNameTypeLibrary, pkType, pkNamePascalCase);
+                Write_QueryByPkName(output, container, classNameTypeLibrary, pkType, pkNamePascalCase);
             }
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
@@ -94,9 +94,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             if (!File.Exists(outputFullFileName))
             {
-                WriteUsings(output, schemaName,baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
+                Write_Usings(output, schemaName,baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
                 AtStartCurlyBraceletIncreaseTab(output);
-                classWrite(output, classNameBs, classNameDal, classNameTypeLibrary);
+                Write_Class(output, classNameBs, classNameDal, classNameTypeLibrary);
                 AtStartCurlyBraceletIncreaseTab(output);
                 AtEndCurlyBraceletDecreaseTab(output);
                 AtEndCurlyBraceletDecreaseTab(output);
@@ -105,7 +105,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
-        private void OverrideDatabaseNameWrite(IOutput output, IContainer container)
+        private void Write_OverrideDatabaseName(IOutput output, IContainer container)
         {
             if(CodeGenerationConfig.UseMultipleDatabaseNames)
             {
@@ -120,7 +120,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private static void QueryByPkNameWrite(IOutput output, IContainer container, string classNameTypeLibrary, string pkType, string pkName)
+        private static void Write_QueryByPkName(IOutput output, IContainer container, string classNameTypeLibrary, string pkType, string pkName)
         {
             ITable table = container as ITable;
             string variableName = "p" + pkName;
@@ -142,7 +142,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
-        private void Write_DeleteCommmandWithPK(IOutput output, IContainer container)
+        private void Write_DeleteCommandWithPK(IOutput output, IContainer container)
         {
             ITable table = container as ITable;
             if (table != null)
@@ -162,17 +162,17 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        protected abstract void classWrite(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary);
+        protected abstract void Write_Class(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary);
 
-        protected abstract void WriteUsingsDatabaseSpecific(IOutput output);
+        protected abstract void Write_UsingsDatabaseSpecific(IOutput output);
 
-        public void WriteUsings(IOutput output, string schemaName, string baseNameSpace, string baseNameSpaceTypeLibrary, string baseNameSpaceBsWithSchema, string baseNameSpaceDalWithSchema)
+        public void Write_Usings(IOutput output, string schemaName, string baseNameSpace, string baseNameSpaceTypeLibrary, string baseNameSpaceBsWithSchema, string baseNameSpaceDalWithSchema)
         {
             output.autoTabLn("");
             output.autoTabLn("using System;");
             output.autoTabLn("using System.Collections.Generic;");
             output.autoTabLn("using System.Data;");
-            WriteUsingsDatabaseSpecific(output);
+            Write_UsingsDatabaseSpecific(output);
             output.autoTabLn("using System.Text;");
             output.autoTabLn("using Karkas.Core.DataUtil;");
             output.autoTabLn("using Karkas.Core.DataUtil.BaseClasses;");
