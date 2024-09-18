@@ -33,13 +33,6 @@ namespace Karkas.Core.DataUtil.BaseClasses
 
 
 
-        private bool isInTransaction = false;
-
-        public bool IsInTransaction
-        {
-            get { return isInTransaction; }
-            set { isInTransaction = value; }
-        }
 
         public DIGER_DAL_TIPI GetDalInstance<DIGER_DAL_TIPI, DIGER_TYPE_LIBRARY_TIPI, DIGER_PARAMETER_BUILDER>()
             where DIGER_TYPE_LIBRARY_TIPI : BaseTypeLibrary, new()

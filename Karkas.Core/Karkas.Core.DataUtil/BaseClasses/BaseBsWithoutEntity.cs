@@ -47,6 +47,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
                 transaction = connection.BeginTransaction();
             }
             IsInTransaction = true;
+            this.Dal.IsInTransaction = true;
         }
         public void CommitTransaction()
         {

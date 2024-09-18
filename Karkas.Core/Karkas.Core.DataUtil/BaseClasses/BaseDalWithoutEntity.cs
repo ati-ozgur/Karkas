@@ -154,5 +154,14 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             return new PARAMETER_BUILDER();
         }
+
+
+        private bool isInTransaction = false;
+
+        public bool IsInTransaction
+        {
+            get { return isInTransaction; }
+            set { isInTransaction = value; }
+        }
     }
 }
