@@ -184,14 +184,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void Write_ColumnNames(IOutput output, IContainer container, string className)
         {
-            output.autoTabLn("public class PropertyIsimleri");
+            output.autoTabLn("public class ColumnNames");
             AtStartCurlyBraceletIncreaseTab(output);
-            string propertyName = "";
+            string columnName = "";
             foreach (IColumn column in container.Columns)
             {
-                propertyName = utils.getPropertyVariableName(column);
-                string yazi = string.Format("public const string {0} = \"{1}\";", propertyName, column.Name);
-                output.autoTabLn(yazi);
+                columnName = utils.getPropertyVariableName(column);
+                string sentence = string.Format("public const string {0} = \"{1}\";", columnName, column.Name);
+                output.autoTabLn(sentence);
             }
             AtEndCurlyBraceletDecreaseTab(output);
 

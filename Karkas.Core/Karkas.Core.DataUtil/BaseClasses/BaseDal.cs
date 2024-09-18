@@ -119,12 +119,12 @@ namespace Karkas.Core.DataUtil.BaseClasses
         /// <summary>
         /// Veritabanındaki tablo üzerinde kolon ismi ile filtreleme
         /// yapararak arama yapar. Ornegin KISI tablosunda
-        /// List&gtKisi&lt kisiListesi = QueryUsingColumnName(Kisi.PropertyIsimleri.Cinsiyeti,"e");
+        /// List&gtKisi&lt kisiListesi = QueryUsingColumnName(Kisi.ColumnNames.Cinsiyeti,"e");
         /// Cinsiyeti e olan kisileri getirir. Cogunlukla master detay tablolarında 
         /// Foreign key ile sorgulama için kullanılır.
         /// </summary>
         /// <param name="filtre">filtre yapılacak olan kolonun ismi, 
-        ///  TypeLibraryName.PropertyIsimleri.PropertyName kullanmanız tavsiye edilir.</param>
+        ///  TypeLibraryName.ColumnNames.PropertyName kullanmanız tavsiye edilir.</param>
         /// <param name="oDegeri"> aranacak kolonun filtre değeri</param>
         /// <returns></returns>
         public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string filtre, object oDegeri)

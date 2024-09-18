@@ -24,7 +24,7 @@ a.ArtistId = 2;
 
 long albumId = albumBs.Insert(a);
 
-var albumList = albumBs.QueryUsingColumnName(Album.PropertyIsimleri.Title,albumTitle);
+var albumList = albumBs.QueryUsingColumnName(Album.ColumnNames.Title,albumTitle);
 
 Album b = albumList[albumList.Count-1];
 if(
