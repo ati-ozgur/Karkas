@@ -19,7 +19,7 @@ dotnet add reference "../../../Karkas.Core/Karkas.Core.Data.Sqlite/Karkas.Core.D
 cp ../../TestCSharp/ProgramChinookAutoIncrement.cs Program.cs
 cp --recursive ../../TestCSharp/Helpers/ .
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqlite.cs ConnectionHelper.cs
-cp ../../Chinook/Chinook.db Chinook.db
+cp ../../Chinook/Chinook-auto-increment.db Chinook.db
 dotnet build
 dotnet run
 
