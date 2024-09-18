@@ -248,19 +248,27 @@ namespace Karkas.Core.DataUtil
                 }
             }
         }
-        /// <summary>
-        /// Wrapper for ADO.NET ExecuteScalar
-        /// If you expect only one result from your query, you could use this command.
-        /// example SELECT COUNT(*) FROM COMMON.USERS
-        /// return type of ExecuteScalar is object therefore you need to cast it, for example (int) for above query.
-        /// </summary>
-        /// <example>
+
+        [Obsolete("BringOneValue is deprecated, please use GetOneValue instead.")]
         /// 
-        /// 
-        /// </example>
-        /// <param name="cmd"></param>
-        /// <returns></returns>
         public object BringOneValue(DbCommand cmd)
+        {
+            return GetOneValue(cmd);
+        }
+            /// <summary>
+            /// Wrapper for ADO.NET ExecuteScalar
+            /// If you expect only one result from your query, you could use this command.
+            /// example SELECT COUNT(*) FROM COMMON.USERS
+            /// return type of ExecuteScalar is object therefore you need to cast it, for example (int) for above query.
+            /// </summary>
+            /// <example>
+            /// 
+            /// 
+            /// </example>
+            /// <param name="cmd"></param>
+            /// <returns></returns>
+            /// 
+        public object GetOneValue(DbCommand cmd)
         {
             cmd.Connection = Connection;
             object result = 0;
@@ -270,7 +278,12 @@ namespace Karkas.Core.DataUtil
 
 
 
+        [Obsolete("BringOneValue is deprecated, please use GetOneValue instead.")]
         public Object BringOneValue(string cmdText)
+        {
+            return GetOneValue(cmdText);
+        }
+        public Object GetOneValue(string cmdText)
         {
             DbCommand cmd = getDatabaseCommand(cmdText, Connection);
             object result;
@@ -278,7 +291,13 @@ namespace Karkas.Core.DataUtil
             return result;
         }
 
+
+        [Obsolete("BringOneValue is deprecated, please use GetOneValue instead.")]
         public Object BringOneValue(string cmdText, CommandType cmdType, DbParameter[] parameters)
+        {
+            return GetOneValue(cmdText,cmdType,parameters);
+        }
+        public Object GetOneValue(string cmdText, CommandType cmdType, DbParameter[] parameters)
         {
             DbCommand cmd = getDatabaseCommand(cmdText, Connection);
             cmd.CommandType = cmdType;
@@ -292,7 +311,13 @@ namespace Karkas.Core.DataUtil
         }
 
 
+        [Obsolete("BringOneValue is deprecated, please use GetOneValue instead.")]
         public Object BringOneValue(string cmdText, DbParameter[] parameters)
+        {
+            return GetOneValue(cmdText, parameters);
+        }
+
+        public Object GetOneValue(string cmdText, DbParameter[] parameters)
         {
             DbCommand cmd = getDatabaseCommand(cmdText, Connection);
             foreach (DbParameter p in parameters)
@@ -369,7 +394,7 @@ namespace Karkas.Core.DataUtil
                                         else
                                         SELECT cast( 0 as bit)
                                         ", pSql);
-            return (bool)this.BringOneValue(sqlToExecute);
+            return (bool)this.GetOneValue(sqlToExecute);
         }
 
         //public PARAMETER_BUILDER getParameterBuilder()
