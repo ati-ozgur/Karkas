@@ -1,23 +1,19 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using System;
+﻿using System;
 using System.Data.Common;
 
 using Karkas.Core.DataUtil;
 
 
 using Karkas.Examples;
-
+using Karkas.Examples.Chinook.Bs;
 using Karkas.Examples.Chinook.Dal;
 using Karkas.Examples.Chinook.TypeLibrary;
 
 ConnectionHelper.SetupDatabaseConnection();
 
 
+AlbumBs albumBs = new AlbumBs();
 
-
-
-AlbumDal dal = new AlbumDal();
 
 
 string albumTitle = "Deneme";
@@ -26,9 +22,9 @@ Album a = new Album();
 a.Title = albumTitle;
 a.ArtistId = 2;
 
-long albumId = dal.Insert(a);
+long albumId = albumBs.Insert(a);
 
-var albumList = dal.QueryUsingColumnName(Album.PropertyIsimleri.Title,albumTitle);
+var albumList = albumBs.QueryUsingColumnName(Album.PropertyIsimleri.Title,albumTitle);
 
 Album b = albumList[albumList.Count-1];
 if(
@@ -43,6 +39,5 @@ albumId == a.AlbumId
 }
 
 
-
-
-
+albumBs.InsertNewArtistAndAlbum("Atilla", "Atilla's new Title");
+Console.WriteLine("Simple Transaction works");
