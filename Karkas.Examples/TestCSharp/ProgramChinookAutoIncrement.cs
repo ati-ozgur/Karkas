@@ -37,6 +37,10 @@ albumId == a.AlbumId
 {
     Console.WriteLine("Insert for Identity works");
 }
+else
+{
+    throw new Exception("Insert for Identity does NOT work");
+}
 
 
 albumBs.InsertNewArtistAndAlbum("Atilla", "Atilla's new Title");
