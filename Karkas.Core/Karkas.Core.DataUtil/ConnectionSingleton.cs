@@ -90,6 +90,10 @@ namespace Karkas.Core.DataUtil
 
         public DbConnection getConnection(string DatabaseName)
         {
+            if(string.IsNullOrEmpty(DatabaseName))
+            {
+                DatabaseName = MainDBName;
+            }
             string providerName = getProviderName(DatabaseName);
             string connectionString = getConnectionString(DatabaseName);
 
