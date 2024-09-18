@@ -384,7 +384,14 @@ namespace Karkas.Core.DataUtil
 
         #region "List of Dictionaries Creation"
 
+
+        [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
         public List<Dictionary<String, Object>> GetListOfDictionary(DbCommand cmd)
+        {
+            return GetRows(cmd);
+        }
+
+        public List<Dictionary<String, Object>> GetRows(DbCommand cmd)
         {
             List<Dictionary<string, Object>> liste = new List<Dictionary<string, object>>();
             DbDataReader reader = null;
@@ -437,22 +444,36 @@ namespace Karkas.Core.DataUtil
                 row.Add(columnName, reader.GetValue(i));
             }
         }
-
+        [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
         public List<Dictionary<String, Object>> GetListOfDictionary(string sql)
+        {
+            return GetRows(sql);
+        }
+        public List<Dictionary<String, Object>> GetRows(string sql)
         {
             DbCommand cmd = getDatabaseCommand(sql, Connection);
             return GetListOfDictionary(cmd);
         }
 
-
+        [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
         public List<Dictionary<String, Object>> GetListOfDictionary(string sql, CommandType commandType)
+        {
+            return GetRows(sql,commandType);
+        }
+
+        public List<Dictionary<String, Object>> GetRows(string sql, CommandType commandType)
         {
             DbCommand cmd = getDatabaseCommand(sql, Connection);
             cmd.CommandType = commandType;
             return GetListOfDictionary(cmd);
         }
 
+        [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
         public List<Dictionary<String, Object>> GetListOfDictionary(string sql, CommandType commandType, DbParameter[] parameters)
+        {
+            return GetRows(sql,commandType,parameters);
+        }
+        public List<Dictionary<String, Object>> GetRows(string sql, CommandType commandType, DbParameter[] parameters)
         {
             DbCommand cmd = getDatabaseCommand(sql, Connection);
             cmd.CommandType = commandType;
@@ -462,7 +483,13 @@ namespace Karkas.Core.DataUtil
             }
             return GetListOfDictionary(cmd);
         }
+
+        [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
         public List<Dictionary<String, Object>> GetListOfDictionary(string sql, DbParameter[] parameters)
+        {
+            return GetRows(sql,parameters);
+        }
+        public List<Dictionary<String, Object>> GetRows(string sql, DbParameter[] parameters)
         {
             DbCommand cmd = getDatabaseCommand(sql, Connection);
             foreach (var param in parameters)
