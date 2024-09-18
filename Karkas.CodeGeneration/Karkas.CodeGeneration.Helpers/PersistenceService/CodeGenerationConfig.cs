@@ -426,25 +426,26 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
         string DatabaseAbbreviations { get; set; }
 
-		private bool useMultipleDatabaseNames;
+		private bool useMultipleDatabaseNames = false;
 
 		public bool UseMultipleDatabaseNames
-		get
 		{
-			return useMultipleDatabaseNames;
+			get
+			{
+				return useMultipleDatabaseNames;
+			}
+
+			set
+			{
+
+				useMultipleDatabaseNames = value;
+			}
 		}
 
-		set
-		{
-			
-			useMultipleDatabaseNames = value;
-		}
 
 
-		
-		
 
-        public override bool Equals(object obj)
+		public override bool Equals(object obj)
         {
             // If the passed object is null
             if (obj == null)

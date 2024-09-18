@@ -8,6 +8,7 @@
     "ConnectionString": "Data Source=./Karkas.Examples/Chinook/Chinook-auto-increment.db;Mode=ReadWrite;",
     "DatabaseNamePhysical": "main",
     "DatabaseNameLogical": "Chinook",
+    "UseMultipleDatabaseNames": false,
     "ProjectNameSpace": "Karkas.Examples.Chinook",
     "CodeGenerationDirectory": "./Karkas.Examples/GeneratedProjects/ChinookSqlite",
     "UseSchemaNameInNamespaces": false,
