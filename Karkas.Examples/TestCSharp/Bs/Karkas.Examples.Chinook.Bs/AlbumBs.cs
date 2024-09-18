@@ -13,7 +13,7 @@ using Karkas.Examples.Chinook.Dal;
 
 namespace Karkas.Examples.Chinook.Bs
 {
-    public partial class AlbumBs : BaseBs<Album, AlbumDal, AdoTemplateSqlite, ParameterBuilderSqlite>
+    public partial class AlbumBs
     {
 
         public void InsertNewArtistAndAlbum(string artistName, string albumTitle)
