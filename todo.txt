@@ -1,4 +1,27 @@
-todo.txt
+## todo
+
+1. Write better tests
+
+CRUD with identity v0
+    Identity Insert,
+    Normal Insert
+    Read
+    Update
+    Delete
+
+CRUD tests v0
+    Normal Insert
+    Read
+    Update
+    Delete
+
+Transaction normal
+Transaction with Error, to see it is rolled back
+
+Paging tests
+
+
+
 
 1. Karkas.Core.Data vs Karkas.Core.DataUtil ???
 Should I fix the namespace?
@@ -18,8 +41,11 @@ https://github.com/gvenzl/oci-oracle-xe/blob/main/examples/dkr-create-oracle-xe-
 3. Update GetListOfDictionary as deprecated
 
 GetRows
-GetOneRow --> (firtst or default)
 GetOneValue
+GetOneRow --> (first or default)
+
+For GetOneRow, need to add top, limit statements to the query.
+Not added yet.
 
 4. Use quotes in queries as configuration.
 
