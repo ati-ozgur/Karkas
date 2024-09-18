@@ -140,7 +140,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("using System.Diagnostics;");
             output.autoTabLn("using System.Xml.Serialization;");
             output.autoTabLn("using System.Collections.Generic;");
-            output.autoTabLn("using Karkas.Core.TypeLibrary;");
+            output.autoTabLn("using Karkas.Core.DataUtil.BaseClasses;");
             output.autoTabLn("using System.ComponentModel.DataAnnotations;");
             output.autoTabLn("");
             output.autoTab("namespace ");

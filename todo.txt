@@ -1,6 +1,7 @@
 todo.txt
 
-
+1. Karkas.Core.Data vs Karkas.Core.DataUtil ???
+Should I fix the namespace?
 
 1. CommandLineParser is good one.
 https://github.com/commandlineparser/commandline
