@@ -2,10 +2,10 @@
   {
     "CreateMainClassValidationExamples": false,
     "CreateMainClassAgain": false,
-    "ConnectionName": "ChinookSqlite",
+    "ConnectionName": "ChinookSqliteAutoIncrement",
     "ConnectionDatabaseType": "sqlite",
     "ConnectionDbProviderName": "Microsoft.Data.Sqlite",
-    "ConnectionString": "Data Source=./Karkas.Examples/Chinook/Chinook.db;Mode=ReadWrite;",
+    "ConnectionString": "Data Source=./Karkas.Examples/Chinook/Chinook-auto-increment.db;Mode=ReadWrite;",
     "DatabaseNamePhysical": "main",
     "DatabaseNameLogical": "Chinook",
     "ProjectNameSpace": "Karkas.Examples.Chinook",
