@@ -107,13 +107,16 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void OverrideDatabaseNameWrite(IOutput output, IContainer container)
         {
-            output.autoTabLn("public override string DatabaseName");
-            AtStartCurlyBraceletIncreaseTab(output);
-            output.autoTabLn("get");
-            AtStartCurlyBraceletIncreaseTab(output);
-            output.autoTabLn(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionName));
-            AtEndCurlyBraceletDecreaseTab(output);
-            AtEndCurlyBraceletDecreaseTab(output);
+            if(CodeGenerationConfig.UseMultipleDatabaseNames)
+            {
+                output.autoTabLn("public override string DatabaseName");
+                AtStartCurlyBraceletIncreaseTab(output);
+                output.autoTabLn("get");
+                AtStartCurlyBraceletIncreaseTab(output);
+                output.autoTabLn(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionName));
+                AtEndCurlyBraceletDecreaseTab(output);
+                AtEndCurlyBraceletDecreaseTab(output);
+            }
         }
 
 
