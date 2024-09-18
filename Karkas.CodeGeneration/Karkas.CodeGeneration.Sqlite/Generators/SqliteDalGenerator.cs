@@ -22,7 +22,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
 
 
 
-        protected override void WriteClass(IOutput output, string classNameTypeLibrary, bool isIdentity, string identityType)
+        protected override void Write_ClassGenerated(IOutput output, string classNameTypeLibrary, bool isIdentity, string identityType)
         {
             if(isIdentity)
             {

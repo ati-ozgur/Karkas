@@ -105,7 +105,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             WriteNamespaceStart(output, baseNameSpaceDal);
 
-            WriteClass(output, classNameTypeLibrary, FindIfIdentityExists(utils, container), GetIdentityType(utils, container));
+            Write_ClassGenerated(output, classNameTypeLibrary, FindIfIdentityExists(utils, container), GetIdentityType(utils, container));
             output.autoTabLn("");
 
             WriteOverrideDatabaseName(output, container);
@@ -153,8 +153,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             {
                 WriteUsings(output, schemaName, baseNameSpaceTypeLibrary);
                 WriteNamespaceStart(output, baseNameSpaceDal);
-                output.autoTab("public partial class ");
-                output.writeLine(classNameTypeLibrary + "Dal");
+                Write_ClassNormal(output, classNameTypeLibrary);
                 AtStartCurlyBraceletIncreaseTab(output);
                 AtEndCurlyBraceletDecreaseTab(output);
                 AtEndCurlyBraceletDecreaseTab(output);
@@ -312,8 +311,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-
-        protected virtual void WriteClass(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
+        protected virtual void Write_ClassGenerated(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
         {
             output.autoTab("public partial class ");
             output.write(classNameTypeLibrary);
@@ -321,6 +319,12 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.write(classNameTypeLibrary);
             output.writeLine(">");
             AtStartCurlyBraceletIncreaseTab(output);
+        }
+
+        protected virtual void Write_ClassNormal(IOutput output, string classNameTypeLibrary)
+        {
+            output.autoTab("public partial class ");
+            output.write(classNameTypeLibrary + "Dal");
         }
 
 
