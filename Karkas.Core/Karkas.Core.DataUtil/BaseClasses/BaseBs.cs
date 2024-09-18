@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Karkas.Core.TypeLibrary;
 using System.Data;
 
 namespace Karkas.Core.DataUtil.BaseClasses

@@ -1,6 +1,5 @@
 ﻿using Karkas.Core.DataUtil;
 using Karkas.Core.DataUtil.BaseClasses;
-using Karkas.Core.TypeLibrary;
 using System;
 using System.Collections.Generic;
 using System.Data;

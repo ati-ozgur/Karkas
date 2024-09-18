@@ -1,6 +1,5 @@
 ﻿using Karkas.Core.DataUtil;
 using Karkas.Core.DataUtil.BaseClasses;
-using Karkas.Core.TypeLibrary;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Data.Common;

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
-using Karkas.Core.TypeLibrary;
 using Karkas.Core.DataUtil.Exceptions;
 using System.Reflection;
 using System.Runtime.Remoting;

@@ -5,7 +5,6 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Xml.Serialization;
 using System.Collections.Generic;
-using Karkas.Core.TypeLibrary;
 using Karkas.CodeGeneration.Helpers.Interfaces;
 
 namespace Karkas.CodeGeneration.Helpers.PersistenceService

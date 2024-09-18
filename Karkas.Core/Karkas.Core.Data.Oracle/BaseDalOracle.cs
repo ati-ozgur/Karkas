@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using Karkas.Core.DataUtil;
 using Karkas.Core.DataUtil.BaseClasses;
-using Karkas.Core.TypeLibrary;
 
 namespace Karkas.Core.Data.Oracle
 {
