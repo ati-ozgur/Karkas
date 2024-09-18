@@ -452,7 +452,7 @@ namespace Karkas.Core.DataUtil
         public List<Dictionary<String, Object>> GetRows(string sql)
         {
             DbCommand cmd = getDatabaseCommand(sql, Connection);
-            return GetListOfDictionary(cmd);
+            return GetRows(cmd);
         }
 
         [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
@@ -465,7 +465,7 @@ namespace Karkas.Core.DataUtil
         {
             DbCommand cmd = getDatabaseCommand(sql, Connection);
             cmd.CommandType = commandType;
-            return GetListOfDictionary(cmd);
+            return GetRows(cmd);
         }
 
         [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
@@ -481,7 +481,7 @@ namespace Karkas.Core.DataUtil
             {
                 cmd.Parameters.Add(param);
             }
-            return GetListOfDictionary(cmd);
+            return GetRows(cmd);
         }
 
         [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
@@ -496,7 +496,7 @@ namespace Karkas.Core.DataUtil
             {
                 cmd.Parameters.Add(param);
             }
-            return GetListOfDictionary(cmd);
+            return GetRows(cmd);
         }
 
 
