@@ -193,7 +193,7 @@ namespace Karkas.Core.DataUtil
 
         private object ExecuteNonQueryCommandBringResultInternal(DbCommand cmd)
         {
-            object son = 0;
+            object result = 0;
             try
             {
                 new LoggingInfo(cmd).LogInfo(this.GetType());
@@ -205,7 +205,7 @@ namespace Karkas.Core.DataUtil
                 {
                     cmd.Transaction = currentTransaction;
                 }
-                son = cmd.ExecuteScalar();
+                result = cmd.ExecuteScalar();
             }
             catch (DbException ex)
             {
@@ -218,7 +218,7 @@ namespace Karkas.Core.DataUtil
                     Connection.Close();
                 }
             }
-            return son;
+            return result;
         }
         private void ExecuteNonQueryCommandInternal(DbCommand cmd)
         {
