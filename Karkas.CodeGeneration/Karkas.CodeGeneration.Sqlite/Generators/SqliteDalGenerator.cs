@@ -125,7 +125,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             bool identityExists = FindIfIdentityExists(utils, container);
             if(identityExists)
             {
-                string identityColumnName = GetIdentityColumnName(utils, container);
+                string identityColumnName = GetIdentityColumnName(container);
                 string value = $"public override string IdentityParameterName {{ get {{return \"{identityColumnName}\"; }} }}";
                 output.autoTabLn(value);
             }

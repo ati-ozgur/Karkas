@@ -9,5 +9,8 @@ public abstract class BaseBsForIdentity<TYPE_LIBRARY_TYPE, DAL_TYPE, ADOTEMPLATE
     where PARAMETER_BUILDER : IParameterBuilder, new()
     where PRIMARY_KEY : struct
 {
-
+    public new PRIMARY_KEY Insert(TYPE_LIBRARY_TYPE k)
+    {
+        return dal.Insert(k);
+    }
 }

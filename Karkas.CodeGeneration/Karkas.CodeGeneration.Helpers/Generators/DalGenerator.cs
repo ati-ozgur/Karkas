@@ -32,13 +32,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         protected Utils utils;
 
 
-        public string GetIdentityType(Utils utils, IContainer container)
+        public string GetIdentityType(IContainer container)
         {
             return utils.GetIdentityType(container);
         }
 
 
-        public string GetIdentityColumnName(Utils utils, IContainer container)
+        public string GetIdentityColumnName(IContainer container)
         {
             return utils.GetIdentityColumnName(container);
         }
@@ -105,7 +105,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             WriteNamespaceStart(output, baseNameSpaceDal);
 
-            Write_ClassGenerated(output, classNameTypeLibrary, FindIfIdentityExists(utils, container), GetIdentityType(utils, container));
+            Write_ClassGenerated(output, classNameTypeLibrary, FindIfIdentityExists(utils, container), GetIdentityType(container));
             output.autoTabLn("");
 
             WriteOverrideDatabaseName(output, container);
@@ -236,7 +236,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             bool identityExists = FindIfIdentityExists(utils, container);
             if(identityExists)
             {
-                string identityType = GetIdentityType(utils, container);
+                string identityType = GetIdentityType(container);
 
                 string methodSignature = $"protected override void setIdentityColumnValue({classNameTypeLibrary} pTypeLibrary,{identityType} pIdentityColumnValue)";
                 output.autoTabLn(methodSignature);

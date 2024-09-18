@@ -74,7 +74,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             Write_Usings(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
             output.increaseTab();
             AtStartCurlyBraceletIncreaseTab(output);
-            Write_ClassGenerated(output, classNameBs, classNameDal, classNameTypeLibrary);
+            bool identityExists = utils.IdentityExists(container);
+            string identityType = utils.GetIdentityType(container);
+
+            Write_ClassGenerated(output, classNameBs, classNameDal, classNameTypeLibrary,identityExists,identityType);
             AtStartCurlyBracelet(output);
             Write_OverrideDatabaseName(output, container);
 
@@ -163,7 +166,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
         protected abstract void Write_ClassNormal(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary);
-        protected abstract void Write_ClassGenerated(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary);
+        protected abstract void Write_ClassGenerated(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary, bool identityExists, string identityType);
 
         protected abstract void Write_UsingsDatabaseSpecific(IOutput output);
 

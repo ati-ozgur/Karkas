@@ -29,12 +29,21 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         }
 
 
-        protected override void Write_ClassGenerated(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary)
+        protected override void Write_ClassGenerated(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary, bool identityExists, string identityType)
         {
             output.autoTab("public partial class ");
             output.write(classNameBs);
-            output.write(" : BaseBs<" + classNameTypeLibrary + ", ");
-            output.write(classNameDal + ", AdoTemplateOracle,ParameterBuilderOracle");
+            if (identityExists)
+            {
+                output.write(" : BaseBsForIdentity<" + classNameTypeLibrary + ", ");
+                output.write(classNameDal + ", AdoTemplateOracle,ParameterBuilderOracle," + identityType );
+
+            }
+            else
+            {
+                output.write(" : BaseBs<" + classNameTypeLibrary + ", ");
+                output.write(classNameDal + ", AdoTemplateOracle,ParameterBuilderOracle");
+            }
             output.writeLine(">");
         }
 

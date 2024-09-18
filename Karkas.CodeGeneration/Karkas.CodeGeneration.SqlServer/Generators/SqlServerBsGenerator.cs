@@ -29,14 +29,25 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         }
 
 
-        protected override void Write_ClassGenerated(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary)
+        protected override void Write_ClassGenerated(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary, bool identityExists, string identityType)
         {
             output.autoTab("public partial class ");
             output.write(classNameBs);
-            output.write(" : BaseBs<" + classNameTypeLibrary + ", ");
-            output.write(classNameDal + ",  AdoTemplateSqlServer,ParameterBuilderSqlServer");
+            if (identityExists)
+            {
+                output.write(" : BaseBsForIdentity<" + classNameTypeLibrary + ", ");
+                output.write(classNameDal + ", AdoTemplateSqlServer,ParameterBuilderSqlServer," + identityType);
+
+            }
+            else
+            {
+                output.write(" : BaseBs<" + classNameTypeLibrary + ", ");
+                output.write(classNameDal + ", AdoTemplateSqlServer,ParameterBuilderSqlServer");
+            }
             output.writeLine(">");
         }
+
+
 
         protected override void Write_UsingsDatabaseSpecific(IOutput output)
         {
