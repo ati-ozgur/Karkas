@@ -21,7 +21,7 @@ namespace Karkas.Examples.Chinook.Bs
             var artistDal = GetDalInstance<ArtistDal,Artist>();
             Artist newArtist = new Artist();
             newArtist.Name = artistName;
-            int newArtistId = artistDal.Insert(newArtist);
+            var newArtistId = artistDal.Insert(newArtist);
 
 
 
