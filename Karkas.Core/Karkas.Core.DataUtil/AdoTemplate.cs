@@ -56,6 +56,8 @@ namespace Karkas.Core.DataUtil
             return command;
         }
 
+
+        // TODO look if I could move this one to OracleAdoTemplate
         private static void setBindByNameForOracle(DbCommand command)
         {
             if (command.GetType().GetProperty("BindByName") != null)
