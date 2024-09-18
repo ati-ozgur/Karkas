@@ -80,7 +80,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             if (container is ITable && (!string.IsNullOrEmpty(pkName)))
             {
-                SilKomutuWritePkIle(output, container);
+                Write_DeleteCommmandWithPK(output, container);
 
                 QueryByPkNameWrite(output, container, classNameTypeLibrary, pkType, pkNamePascalCase);
             }
@@ -142,7 +142,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
-        private void SilKomutuWritePkIle(IOutput output, IContainer container)
+        private void Write_DeleteCommmandWithPK(IOutput output, IContainer container)
         {
             ITable table = container as ITable;
             if (table != null)
