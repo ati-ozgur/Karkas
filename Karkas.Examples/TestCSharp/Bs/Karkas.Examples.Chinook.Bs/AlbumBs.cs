@@ -18,10 +18,10 @@ namespace Karkas.Examples.Chinook.Bs
         {
             this.BeginTransaction();
 
-            var artistDal = dal.GetDalInstance<ArtistDal,Artist, ParameterBuilderSqlite>();
+            var artistDal = GetDalInstance<ArtistDal,Artist>();
             Artist newArtist = new Artist();
             newArtist.Name = artistName;
-            long newArtistId = artistDal.Insert(newArtist);
+            int newArtistId = artistDal.Insert(newArtist);
 
 
 
