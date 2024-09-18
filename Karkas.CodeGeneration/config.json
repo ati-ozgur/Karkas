@@ -10,7 +10,7 @@
     "DatabaseNameLogical": "Chinook",
     "UseMultipleDatabaseNames": false,
     "ProjectNameSpace": "Karkas.Examples.Chinook",
-    "CodeGenerationDirectory": "./Karkas.Examples/GeneratedProjects/ChinookSqlite",
+    "CodeGenerationDirectory": "./Karkas.Examples/GeneratedProjects/ChinookSqliteAutoIncrement",
     "UseSchemaNameInNamespaces": false,
     "UseSchemaNameInSqlQueries": false,
     "UseSchemaNameInFolders": false,

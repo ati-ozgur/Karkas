@@ -9,9 +9,9 @@
 
 set -euxo pipefail
 
-rm -rf Karkas.Examples/GeneratedProjects/ChinookSqlite
+rm -rf Karkas.Examples/GeneratedProjects/ChinookSqliteAutoIncrement
 dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname ChinookSqliteAutoIncrement
-cd Karkas.Examples/GeneratedProjects/ChinookSqlite
+cd Karkas.Examples/GeneratedProjects/ChinookSqliteAutoIncrement
 dotnet new console
 dotnet add package Microsoft.Data.Sqlite
 dotnet add reference "../../../Karkas.Core/Karkas.Core.DataUtil/Karkas.Core.DataUtil.csproj"
