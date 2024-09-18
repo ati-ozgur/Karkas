@@ -84,7 +84,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 classNameSpace = classNameSpace + "." + schemaName;
             }
       
-            string pkcumlesi = "";
+            string pkSentence = "";
 
             string baseNameSpaceDal = baseNameSpace + ".Dal";
             if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
@@ -119,7 +119,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             WriteDeleteString(output, container);
 
-            WriteUpdateString(output, container, ref pkcumlesi);
+            WriteUpdateString(output, container, ref pkSentence);
 
 
             WriteInsertString(output, container);
