@@ -1,8 +1,11 @@
+global using System;
+global using System.Data.Common;
+global using Oracle.ManagedDataAccess.Client;
 
-using System;
-using System.Data.Common;
+global using Karkas.Core.DataUtil;
+global using Karkas.Core.Data.Oracle;
 
-using Karkas.Core.DataUtil;
+
 
 namespace Karkas.Examples
 {

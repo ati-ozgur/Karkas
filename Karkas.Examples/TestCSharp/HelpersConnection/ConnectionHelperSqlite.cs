@@ -1,8 +1,10 @@
-using System;
-using System.Data.Common;
-using Microsoft.Data.Sqlite;
 
-using Karkas.Core.DataUtil;
+global using System;
+global using System.Data.Common;
+global using Microsoft.Data.Sqlite;
+
+global using Karkas.Core.DataUtil;
+global using Karkas.Core.Data.Sqlite;
 
 namespace Karkas.Examples
 {

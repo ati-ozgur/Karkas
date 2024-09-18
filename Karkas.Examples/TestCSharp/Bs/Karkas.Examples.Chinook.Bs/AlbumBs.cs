@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using Microsoft.Data.Sqlite;
-using Karkas.Core.Data.Sqlite;
 using System.Text;
 using Karkas.Core.DataUtil;
 using Karkas.Core.DataUtil.BaseClasses;
