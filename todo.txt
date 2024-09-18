@@ -1,44 +1,60 @@
-## todo
+# todo
 
-1. Write better tests
+## Tests
 
-CRUD with identity v0
+1. Fix namespace issue with global usings.
+
+
+1. CRUD with identity tables v0
     Identity Insert,
     Normal Insert
     Read
     Update
     Delete
 
-CRUD tests v0
+2. CRUD tests Normal tables v0
     Normal Insert
     Read
     Update
     Delete
 
-Transaction normal
-Transaction with Error, to see it is rolled back
+3. Transaction normal
+4. Transaction with Error, to see it is rolled back
 
-Paging tests
+5. Paging tests
 
+6. Write oracle, chinook test for auto increment and normal
 
+    fork and give a pull request, need to sign my commits. Do it later
+    https://github.com/gvenzl/oci-oracle-xe/blob/main/examples/dkr-create-oracle-xe-server
 
-
-1. Karkas.Core.Data vs Karkas.Core.DataUtil ???
-Should I fix the namespace?
-
-1. CommandLineParser is good one.
-https://github.com/commandlineparser/commandline
-https://github.com/commandlineparser/commandline/wiki/Getting-Started
-https://medium.com/@eduardosilva_94960/mastering-command-line-parsing-in-net-core-with-commandlineparser-c20721100359
+7. column --> expected .net type
+Need to create my own example database for these examples.
 
 
-2. Write oracle, chinook test for auto increment and normal
+## Bugs
 
-fork and give a pull request, need to sign my commits. Do it later
-https://github.com/gvenzl/oci-oracle-xe/blob/main/examples/dkr-create-oracle-xe-server
+## Improvements and Nice to Have
+
+1. Use quotes in queries as configuration.
+This may be necessary for Oracle
+
+2. add [JsonPropertyName("XXX")] to code generation
+
+JsonNamingPolicy includes new naming policies for snake_case (with an underscore) 
+
+3. add foreign key code generations
+According to foreign keys, detail tables method will be added
+config.json property will manage it.
 
 
-3. Update GetListOfDictionary as deprecated
+4. Add config.json following code generation options
+- add global usings to interface
+- add new namespace syntax to interface
+
+
+
+5. 
 
 GetRows
 GetOneValue
@@ -47,81 +63,54 @@ GetOneRow --> (first or default)
 For GetOneRow, need to add top, limit statements to the query.
 Not added yet.
 
-4. Use quotes in queries as configuration.
+6. Refactoring methods to English Only Names
 
+7. Add configuration method which initializes from configuration files (app.config ...)
 
-## TODO
+8. Read logging and fix it
 
-- Refactoring methods to English Only Names
-- give examples for dependency injection
-- Add configuration method which initializes from configuration files (app.config ...)
-- Read logging and fix it
-
-
-1. Later check multiple .net SDK versions
+9. Later check multiple .net SDK versions
 For now, we work with .net6
     <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
 https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file
 
 
-2. Nullable compile warnings
+10. https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file
+think about multiple version support
+
+11. change logging
+https://learn.microsoft.com/en-us/dotnet/core/extensions/logger-message-generator
+https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-7.0
+
+## Documentation and Examples
+
+1. give examples for dependency injection
+
+2. use mermaid as markdown to create some diagrams
+I have started doing it.
+I need to improve documentation.
+https://mermaid-js.github.io/mermaid/
+
+
+## Code Review
+
+1. Nullable compile warnings
     <Nullable>enable</Nullable>
     <Nullable>disable</Nullable>
 https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/nullable-warnings
 
 
-1. Check why we have references to following dlls
+2. Karkas.Core.Data vs Karkas.Core.DataUtil ???
+Should I fix the namespace?
+
+3. Check why we have references to following dlls
 
 - Microsoft.Identity.Client.*
 
-
-
-1. column --> expected .net type
-
-start TDD for creation of code generation
-
-
-- add global usings to interface
-- add new namespace syntax to interface
-
-
-## unit testing database
-
-- https://github.com/gvenzl/oci-oracle-free
-- https://github.com/marketplace/actions/setup-oracle-db-free
-
-- record pattern
-- Dependency injection of Asp.Net 
-builder.Services.AddSingleton
-
-
-- https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file
-think about multiple version support
-
-
-2. change logging
-https://learn.microsoft.com/en-us/dotnet/core/extensions/logger-message-generator
-https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-7.0
-
-
-- fix sqlite keywords issue. DONE
-https://www.sqlite.org/lang_keywords.html
-
-- add [JsonPropertyName("XXX")] to code generation
-
-JsonNamingPolicy includes new naming policies for snake_case (with an underscore) 
-
-- add foreign key code generations
-
-
-
-- use mermaid as markdown to create some diagrams
-
-https://mermaid-js.github.io/mermaid/
-
-- github actions and database containers for automated testing?
-- https://github.com/gvenzl/oci-oracle-free
-
+4. CommandLineParser is good one.
+https://github.com/commandlineparser/commandline
+https://github.com/commandlineparser/commandline/wiki/Getting-Started
+https://medium.com/@eduardosilva_94960/mastering-command-line-parsing-in-net-core-with-commandlineparser-c20721100359
 
 
 ## sample databases
