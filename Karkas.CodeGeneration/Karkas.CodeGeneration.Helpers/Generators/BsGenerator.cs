@@ -74,7 +74,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             Write_Usings(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
             output.increaseTab();
             AtStartCurlyBraceletIncreaseTab(output);
-            Write_Class(output, classNameBs, classNameDal, classNameTypeLibrary);
+            Write_ClassGenerated(output, classNameBs, classNameDal, classNameTypeLibrary);
             AtStartCurlyBracelet(output);
             Write_OverrideDatabaseName(output, container);
 
@@ -96,7 +96,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             {
                 Write_Usings(output, schemaName,baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
                 AtStartCurlyBraceletIncreaseTab(output);
-                Write_Class(output, classNameBs, classNameDal, classNameTypeLibrary);
+                Write_ClassNormal(output, classNameBs, classNameDal, classNameTypeLibrary);
                 AtStartCurlyBraceletIncreaseTab(output);
                 AtEndCurlyBraceletDecreaseTab(output);
                 AtEndCurlyBraceletDecreaseTab(output);
@@ -162,7 +162,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        protected abstract void Write_Class(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary);
+        protected abstract void Write_ClassNormal(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary);
+        protected abstract void Write_ClassGenerated(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary);
 
         protected abstract void Write_UsingsDatabaseSpecific(IOutput output);
 
