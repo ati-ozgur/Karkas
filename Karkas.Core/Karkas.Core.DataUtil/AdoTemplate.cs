@@ -249,6 +249,8 @@ namespace Karkas.Core.DataUtil
             }
         }
 
+
+
         [Obsolete("BringOneValue is deprecated, please use GetOneValue instead.")]
         /// 
         public object BringOneValue(DbCommand cmd)
@@ -375,7 +377,7 @@ namespace Karkas.Core.DataUtil
                                         else
                                         SELECT cast( 0 as bit)
                                         ", pSql);
-            return (bool)this.BringOneValue(sqlToExecute, pParamListesi);
+            return (bool)this.GetOneValue(sqlToExecute, pParamListesi);
         }
         /// <summary>
         /// Execute given sql statement inside IF EXISTS
@@ -532,8 +534,8 @@ namespace Karkas.Core.DataUtil
 
 
 
-        #region "DataTable Olusturma Methods"
-        public DataTable DataTableOlustur(DbCommand cmd)
+        #region "CreateDataTable Methods"
+        public DataTable CreateDataTable(DbCommand cmd)
         {
             DataTable dataTable = CreateDataTable();
             cmd.Connection = Connection;
@@ -547,29 +549,29 @@ namespace Karkas.Core.DataUtil
 
 
 
-        public DataTable DataTableOlustur(string sql, CommandType commandType)
+        public DataTable CreateDataTable(string sql, CommandType commandType)
         {
             DataTable dataTable = CreateDataTable();
-            DataTableDoldur(dataTable, sql, commandType);
+            FillDataTable(dataTable, sql, commandType);
             return dataTable;
         }
-        public DataTable DataTableOlustur(string sql)
+        public DataTable CreateDataTable(string sql)
         {
             DataTable dataTable = CreateDataTable();
-            DataTableDoldur(dataTable, sql, CommandType.Text);
+            FillDataTable(dataTable, sql, CommandType.Text);
             return dataTable;
         }
 
-        public DataTable DataTableOlustur(string sql, CommandType commandType, DbParameter[] parameters)
+        public DataTable CreateDataTable(string sql, CommandType commandType, DbParameter[] parameters)
         {
             DataTable dataTable = CreateDataTable();
-            DataTableDoldur(dataTable, sql, commandType, parameters);
+            FillDataTable(dataTable, sql, commandType, parameters);
             return dataTable;
         }
-        public DataTable DataTableOlustur(string sql, DbParameter[] parameters)
+        public DataTable CreateDataTable(string sql, DbParameter[] parameters)
         {
             DataTable dataTable = CreateDataTable();
-            DataTableDoldur(dataTable, sql, CommandType.Text, parameters);
+            FillDataTable(dataTable, sql, CommandType.Text, parameters);
             return dataTable;
         }
 
@@ -579,24 +581,24 @@ namespace Karkas.Core.DataUtil
 
         #endregion
 
-        #region "DataTable Doldurma Methodlari"
-        public void DataTableDoldur(DataTable dataTable, string sql, CommandType commandType)
+        #region "DataTable Fill Methods"
+        public void FillDataTable(DataTable dataTable, string sql, CommandType commandType)
         {
             helper.ValidateFillArguments(dataTable, sql);
             helper.ExecuteQuery(dataTable, sql, commandType);
         }
-        public void DataTableDoldur(DataTable dataTable, string sql)
+        public void FillDataTable(DataTable dataTable, string sql)
         {
             helper.ValidateFillArguments(dataTable, sql);
             helper.ExecuteQuery(dataTable, sql, CommandType.Text);
         }
-        public void DataTableDoldur(DataTable dataTable, string sql, CommandType commandType
+        public void FillDataTable(DataTable dataTable, string sql, CommandType commandType
                 , DbParameter[] parameters)
         {
             helper.ValidateFillArguments(dataTable, sql);
             helper.ExecuteQuery(dataTable, sql, commandType, parameters);
         }
-        public void DataTableDoldur(DataTable dataTable, string sql
+        public void FillDataTable(DataTable dataTable, string sql
                 , DbParameter[] parameters)
         {
             helper.ValidateFillArguments(dataTable, sql);
@@ -605,19 +607,19 @@ namespace Karkas.Core.DataUtil
 
         #endregion
 
-        #region "DataTable Olustur Sayfalama Yap"
+        #region "CreateDataTableWithPaging"
 
-        public DataTable DataTableOlusturSayfalamaYap(string sql
+        public DataTable CreateDataTableWithPaging(string sql
 , int pPageSize, int pStartRowIndex, string pOrderBy, DbParameter[] parameters)
         {
             return pagingHelper.DataTableOlusturSayfalamaYap(sql, pPageSize, pStartRowIndex, pOrderBy, parameters);
         }
 
 
-        public DataTable DataTableOlusturSayfalamaYap(string sql
+        public DataTable CreateDataTableWithPaging(string sql
 , int pPageSize, int pStartRowIndex, string pOrderBy)
         {
-            return pagingHelper.DataTableOlusturSayfalamaYap(sql, pPageSize, pStartRowIndex, pOrderBy);
+            return pagingHelper.CreateDataTableWithPaging(sql, pPageSize, pStartRowIndex, pOrderBy);
         }
 
 
@@ -625,16 +627,16 @@ namespace Karkas.Core.DataUtil
 
         #endregion
 
-        #region "DataTable Doldur Sayfalama Yap"
+        #region "FillDataTableWithPaging"
 
-        public void DataTableDoldurSayfalamaYap(DataTable dataTable, string sql
+        public void FillDataTableWithPaging(DataTable dataTable, string sql
         , int pPageSize, int pStartRowIndex, string pOrderBy, DbParameter[] parameters)
         {
             pagingHelper.DataTableDoldurSayfalamaYap(dataTable, sql, pPageSize, pStartRowIndex, pOrderBy, parameters);
         }
 
 
-        public void DataTableDoldurSayfalamaYap(DataTable dataTable, string sql
+        public void FillDataTableWithPaging(DataTable dataTable, string sql
                 , int pPageSize, int pStartRowIndex, string pOrderBy)
         {
             pagingHelper.DataTableDoldurSayfalamaYap(dataTable, sql, pPageSize, pStartRowIndex, pOrderBy);

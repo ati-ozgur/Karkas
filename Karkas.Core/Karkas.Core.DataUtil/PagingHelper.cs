@@ -84,7 +84,7 @@ namespace Karkas.Core.DataUtil
 
         #region "DataTable Olustur"
 
-        internal DataTable DataTableOlusturSayfalamaYap(string sql
+        internal DataTable CreateDataTableWithPaging(string sql
         , int pPageSize, int pStartRowIndex, string pOrderBy)
         {
             DataTable dataTable = new DataTable();

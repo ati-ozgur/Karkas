@@ -60,7 +60,7 @@ namespace Karkas.Core.DataUtil
         {
             if (parameters == null)
             {
-                return pHelper.DataTableOlusturSayfalamaYap(selectSql, pPageSize, pStartRowIndex, pOrderBy);
+                return pHelper.CreateDataTableWithPaging(selectSql, pPageSize, pStartRowIndex, pOrderBy);
             }
             else
             {

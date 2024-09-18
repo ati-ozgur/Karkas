@@ -47,7 +47,7 @@ OWNER = :schemaName
                     builder.AddParameter("tableName", DbType.String, Name);
                     builder.AddParameter("schemaName", DbType.String, Schema);
 
-                    DataTable dtColumnList = template.DataTableOlustur(SQL_FOR_COLUMN_LIST, builder.GetParameterArray());
+                    DataTable dtColumnList = template.CreateDataTable(SQL_FOR_COLUMN_LIST, builder.GetParameterArray());
                     columns = new List<IColumn>();
                     foreach (DataRow row in dtColumnList.Rows)
                     {
