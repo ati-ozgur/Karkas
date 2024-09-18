@@ -42,7 +42,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
            
             List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
-            bool semaIsminiDizinlerdeKullan = CodeGenerationConfig.UseSchemaNameInFolders;
+
             bool semaIsminiSorgulardaKullan = CodeGenerationConfig.UseSchemaNameInSqlQueries;
 
 
@@ -87,8 +87,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
 
-            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForBsGenerated(CodeGenerationConfig, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
-            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForBs(CodeGenerationConfig, schemaName, classNameTypeLibrary, semaIsminiDizinlerdeKullan); 
+            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForBsGenerated(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
+            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForBs(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders); 
             output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.Clear();
 
