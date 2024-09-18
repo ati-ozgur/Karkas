@@ -69,7 +69,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             get
             {
-                return "";
+                return "Main";
             }
         }
         private DbConnection connection = null;
