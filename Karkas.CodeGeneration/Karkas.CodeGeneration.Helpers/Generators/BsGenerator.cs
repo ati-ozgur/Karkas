@@ -43,7 +43,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
            
             List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
 
-            bool semaIsminiSorgulardaKullan = CodeGenerationConfig.UseSchemaNameInSqlQueries;
+            
 
 
             output.tabLevel = 0;
