@@ -19,7 +19,7 @@ namespace Karkas.Core.DataUtil
         private static void DegistirPrivate(DbException ex, string pMesaj = "NO SQL QUERY")
         {
             Exception exceptionToThrow = null;
-            // TODO burayı oracle ve diğer veritabanları için yazmak gerekiyor.
+            // TODO Need to change this for oracle and other databases
             switch (ex.ErrorCode)
             {
                 default:

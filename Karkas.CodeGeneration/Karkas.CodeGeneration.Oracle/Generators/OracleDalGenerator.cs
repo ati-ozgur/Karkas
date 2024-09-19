@@ -84,7 +84,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             AtStartCurlyBraceletIncreaseTab(output);
         }
 
-        protected override void WriteUsingDatabaseClient(IOutput output)
+        protected override void Write_UsingDatabaseClient(IOutput output)
         {
             output.autoTabLn("using Oracle.ManagedDataAccess;");
 

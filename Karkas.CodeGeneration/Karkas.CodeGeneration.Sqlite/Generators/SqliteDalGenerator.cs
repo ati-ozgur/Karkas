@@ -75,7 +75,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         {
             return ";select last_insert_rowid();";
         }
-        protected override void WriteUsingDatabaseClient(IOutput output)
+        protected override void Write_UsingDatabaseClient(IOutput output)
         {
             output.autoTabLn("using Microsoft.Data.Sqlite;");
             output.autoTabLn("using Karkas.Core.Data.Sqlite;");

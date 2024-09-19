@@ -263,7 +263,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
-        protected abstract void WriteUsingDatabaseClient(IOutput output);
+        protected abstract void Write_UsingDatabaseClient(IOutput output);
         protected virtual void WriteUsingsAdditional(IOutput output)
         {
 
@@ -276,7 +276,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("using System.Collections.Generic;");
             output.autoTabLn("using System.Data;");
             output.autoTabLn("using System.Data.Common;");
-            WriteUsingDatabaseClient(output);
+            Write_UsingDatabaseClient(output);
             output.autoTabLn("using System.Text;");
             output.autoTabLn("using Karkas.Core.DataUtil;");
             output.autoTabLn("using Karkas.Core.DataUtil.BaseClasses;");
@@ -334,15 +334,26 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             return result;
         }
 
+        protected string getTableName(IContainer container)
+        {
+            string tableName = container.Name;
+            if (CodeGenerationConfig.UseQuotesInQueries)
+            {
+                tableName = "\"\"" + tableName + "\"\"";
+            }
+            return tableName;
+        }
+
         private void Write_SelectCount(IOutput output, IContainer container)
         {
+
             output.autoTabLn("protected override string SelectCountString");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
             string sentence = "return @\"SELECT COUNT(*) FROM " 
                             + GetSchemaNameForQueries(container) 
-                            + container.Name + "\";";
+                            + getTableName(container) + "\";";
             output.autoTabLn(sentence);
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
@@ -362,7 +373,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
             sentence = sentence.Remove(sentence.Length - 1);
             sentence += " FROM ";
-            sentence +=  GetSchemaNameForQueries(container)  + container.Name + "\";";
+            sentence +=  GetSchemaNameForQueries(container)  + getTableName(container) + "\";";
             output.autoTabLn(sentence);
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
@@ -403,7 +414,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 whereClause = whereClause.Remove(whereClause.Length - 4) + "\"";
                 sentence += "  FROM " 
                         + GetSchemaNameForQueries(container) 
-                        + container.Name + " WHERE ";
+                        + getTableName(container) + " WHERE ";
             }
             else
             {
@@ -450,7 +461,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             if (container is ITable)
             {
-                output.autoTabLn("return @\"UPDATE " + GetSchemaNameForQueries(container) + container.Name);
+                string firstLine = "return @\"UPDATE " 
+                    + GetSchemaNameForQueries(container) 
+                    + getTableName(container);
+                output.autoTabLn(firstLine);
                 output.autoTabLn(" SET ");
 
                 foreach (IColumn column in container.Columns)
@@ -513,14 +527,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
 
             string schemaNameForQueries = GetSchemaNameForQueries(container);
-
+            string tableName = getTableName(container);
             output.autoTabLn("protected override string InsertString");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get ");
             AtStartCurlyBraceletIncreaseTab(output);
             if (container is ITable)
             {
-                string sentence = $"return @\"INSERT INTO {schemaNameForQueries}{container.Name}\n";
+                string sentence = $"return @\"INSERT INTO {schemaNameForQueries}{tableName}\n";
                 sentence += getInsertString( container);
                 sentence += "\";";
                 output.autoTabLn(sentence);

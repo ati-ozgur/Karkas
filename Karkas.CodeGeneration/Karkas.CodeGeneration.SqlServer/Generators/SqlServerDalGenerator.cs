@@ -43,7 +43,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             }
         }
 
-        protected override void WriteUsingDatabaseClient(IOutput output)
+        protected override void Write_UsingDatabaseClient(IOutput output)
         {
             output.autoTabLn("using System.Data.SqlClient;");
             output.autoTabLn("using Karkas.Core.Data.SqlServer;");
