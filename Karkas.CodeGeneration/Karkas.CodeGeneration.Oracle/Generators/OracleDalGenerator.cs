@@ -256,7 +256,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                 {
                     builderParameterAdd(output, column);
                 }
-                if (columnVersiyonZamaniMi(column))
+                if (isColumnVersionTime(column))
                 {
                     builderParameterAdd(output, column);
                 }

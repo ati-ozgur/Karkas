@@ -419,7 +419,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         public bool shouldBeInUpdateWhereSentence(IColumn column)
         {
-            return ((column.IsInPrimaryKey) || columnVersiyonZamaniMi(column));
+            return ((column.IsInPrimaryKey) || isColumnVersionTime(column));
         }
 
 
@@ -429,7 +429,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void WriteUpdateString(IOutput output, IContainer container, ref string pkcumlesi)
+        private void WriteUpdateString(IOutput output, IContainer container, ref string pkLine)
         {
             if (container is IView)
             {
@@ -444,7 +444,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 return;
             }
 
-            string cumle = "";
+            string line = "";
             output.autoTabLn("protected override string UpdateString");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get ");
@@ -458,34 +458,34 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 {
                     if (shouldBeInUpdateWhereSentence(column))
                     {
-                        pkcumlesi += " " + getColumnName(column) + " = " + parameterSymbol + column.Name + Environment.NewLine + " AND"  ;
+                        pkLine += " " + getColumnName(column) + " = " + parameterSymbol + column.Name + Environment.NewLine + " AND"  ;
                     }
                     if (!shouldAddColumnToParameters(column))
                     {
                         if (!shouldBeInUpdateWhereSentence(column))
                         {
-                            cumle += getColumnName(column) + " = " + parameterSymbol + column.Name +  Environment.NewLine + "," ;
+                            line += getColumnName(column) + " = " + parameterSymbol + column.Name +  Environment.NewLine + "," ;
                         }
                     }
                 }
-                if (cumle.Length > 0)
+                if (line.Length > 0)
                 {
-                    cumle = cumle.Remove(cumle.Length - 1);
+                    line = line.Remove(line.Length - 1);
                 }
-                if (pkcumlesi.Length > 0)
+                if (pkLine.Length > 0)
                 {
-                    pkcumlesi = pkcumlesi.Remove(pkcumlesi.Length - 3);
+                    pkLine = pkLine.Remove(pkLine.Length - 3);
                 }
 
 
-                output.autoTab(cumle);
+                output.autoTab(line);
                 output.autoTabLn("");
                 output.autoTabLn("WHERE ");
-                output.autoTabLn(pkcumlesi + "\";");
+                output.autoTabLn(pkLine + "\";");
             }
             else
             {
-                output.autoTabLn("throw new NotSupportedException(\"VIEW ustunden Insert/Update/Delete desteklenmemektedir\");");
+                output.autoTabLn("throw new NotSupportedException(\"Insert/Update/Delete on VIEWs are not supported.\");");
             }
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
@@ -591,9 +591,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         protected abstract string getAutoIncrementKeySql(IContainer container);
 
-        private void listeTanimla(IOutput output)
+        private void defineList(IOutput output)
         {
-            output.autoTabLn(listType + " liste = new " + listType + "();");
+            output.autoTabLn(listType + " list = new " + listType + "();");
         }
 
         private void WriteQueryByPk(IOutput output, IContainer container, string classNameTypeLibrary,  string pkName, string pkNamePascalCase, string pkType)
@@ -610,12 +610,12 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                                 + " " + variableName +" )";
                 output.autoTabLn(methodLine);
                 AtStartCurlyBraceletIncreaseTab(output);
-                listeTanimla(output);
-                output.autoTab("ExecuteQuery(liste,String.Format(\" " + pkName + " = '{0}'\"," +variableName+ "));");
+                defineList(output);
+                output.autoTab("ExecuteQuery(list,String.Format(\" " + pkName + " = '{0}'\"," +variableName+ "));");
                 output.autoTabLn("");
-                output.autoTabLn("if (liste.Count > 0)");
+                output.autoTabLn("if (list.Count > 0)");
                 output.autoTabLn("{");
-                output.autoTabLn("\treturn liste[0];");
+                output.autoTabLn("\treturn list[0];");
                 output.autoTabLn("}");
                 output.autoTabLn("else");
                 output.autoTabLn("{");
@@ -681,19 +681,19 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             {
                 IColumn column = container.Columns[i];
                 propertyVariableName = utils.getPropertyVariableName(column);
-                string yazi = "row." + propertyVariableName + " = " +
+                string line = "row." + propertyVariableName + " = " +
                                 utils.GetDataReaderSyntax(column)
                                 + "(" + i + ");";
                 if (column.IsNullable)
                 {
                     output.autoTabLn("if (!dr.IsDBNull(" + i + "))");
                     AtStartCurlyBraceletIncreaseTab(output);
-                    output.autoTabLn(yazi);
+                    output.autoTabLn(line);
                     AtEndCurlyBraceletDecreaseTab(output);
                 }
                 else
                 {
-                    output.autoTabLn(yazi);
+                    output.autoTabLn(line);
                 }
             }
             AtEndCurlyBraceletDecreaseTab(output);
@@ -707,9 +707,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             return ((column.IsAutoKey) || (column.IsComputed));
         }
 
-        public bool columnVersiyonZamaniMi(IColumn column)
+        public bool isColumnVersionTime(IColumn column)
         {
-            return (column.Name == "VersiyonZamani");
+            return (column.Name == "VersionTime");
         }
 
         public virtual void builderParameterAdd(IOutput output, IColumn column)

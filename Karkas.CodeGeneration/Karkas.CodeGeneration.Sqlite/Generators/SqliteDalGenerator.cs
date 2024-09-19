@@ -149,7 +149,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
                 {
                     builderParameterAdd(output, column);
                 }
-                if (columnVersiyonZamaniMi(column))
+                if (isColumnVersionTime(column))
                 {
                     builderParameterAdd(output, column);
                 }
