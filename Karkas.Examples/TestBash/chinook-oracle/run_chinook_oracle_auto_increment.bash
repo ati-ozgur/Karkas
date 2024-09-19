@@ -48,7 +48,7 @@ timeout 60s grep -q 'DATABASE IS READY TO USE!' <(docker logs -f $CONTAINER_ID) 
 echo "go to ${WORKING_DIR}"
 cd $WORKING_DIR
 
-rm -rf Karkas.Examples/GeneratedProjects/ChinookOracle
+rm -rf Karkas.Examples/GeneratedProjects/ChinookOracleAutoIncrement
 
 dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname ChinookOracleAutoIncrement
 cd Karkas.Examples/GeneratedProjects/ChinookOracleAutoIncrement
