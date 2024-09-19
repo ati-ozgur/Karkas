@@ -122,7 +122,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         protected override void WriteSetIdentityColumnValue(IOutput output, IContainer container)
         {
             base.WriteSetIdentityColumnValue(output, container);
-            bool identityExists = FindIfIdentityExists(utils, container);
+            bool identityExists = utils.IdentityExists(container);
             if(identityExists)
             {
                 string identityColumnName = GetIdentityColumnName(container);

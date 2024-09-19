@@ -91,8 +91,8 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         protected override void WriteSetIdentityColumnValue(IOutput output, IContainer container)
         {
             base.WriteSetIdentityColumnValue(output, container);
-            bool identityExists = FindIfIdentityExists(utils, container);
-            if(identityExists)
+            bool identityExists = utils.IdentityExists(container);
+            if (identityExists)
             {
                 string identityColumnName = GetIdentityColumnName(container);
                 string value = $"public override string IdentityParameterName {{ get {{return \":{identityColumnName}\"; }} }}";
