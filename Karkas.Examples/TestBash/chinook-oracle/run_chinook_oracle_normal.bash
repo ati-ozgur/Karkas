@@ -21,7 +21,7 @@ echo $PWD
 
 cd ./Karkas.Examples/TestBash/chinook-oracle
 
-docker build -t $IMAGE_NAME .
+docker build -f DockerfileNormal -t $IMAGE_NAME .
 
 echo "docker build finished"
 
