@@ -110,19 +110,19 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             if (CodeGenerationConfig.CreateMainClassValidationExamples)
             {
-                output.autoTabLn("// Onaylama kodlarının kullanımı için aşağıdaki makaleye bakabilirsiniz");
+                output.autoTabLn("// For Usage of Validation codes, see the following links: ");
                 output.autoTabLn("// " + mainArticleUrl);
                 output.autoTabLn("// " + mainArticleHelpImage);
                 output.autoTabLn("// " + msDataAnnotationsHelpUrl);
-                output.autoTabLn("// Örnekler)");
+                output.autoTabLn("// Examples)");
                 output.autoTabLn("// [DataType(DataType.EmailAddress)]");
-                output.autoTabLn("// public string eposta  { get; set; }");
+                output.autoTabLn("// public string email  { get; set; }");
                 output.autoTabLn("");
                 output.autoTabLn("// [DataType(DataType.Url)]");
                 output.autoTabLn("// public string homePageUrl  { get; set; }");
                 output.autoTabLn("");
-                output.autoTabLn("// [Range(18,65,ErrorMessage=\"18 ve 65 yas aralığındakiler başvurabilir\")");
-                output.autoTabLn("// public int Yasi { get; set; }");
+                output.autoTabLn("// [Range(18,65,ErrorMessage=\"Only ages between 18 and 65 could apply\")");
+                output.autoTabLn("// public int Age { get; set; }");
                 output.autoTabLn("");
             }
             AtEndCurlyBraceletDecreaseTab(output);
