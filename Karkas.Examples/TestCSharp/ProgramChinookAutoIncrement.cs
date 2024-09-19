@@ -20,7 +20,7 @@ Album a = new Album();
 a.Title = albumTitle;
 a.ArtistId = 2;
 
-long albumId = albumBs.Insert(a);
+var albumId = albumBs.Insert(a);
 
 var albumList = albumBs.QueryUsingColumnName(Album.ColumnNames.Title,albumTitle);
 
