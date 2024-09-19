@@ -36,7 +36,7 @@ namespace Karkas.Core.Data.Oracle
 
         public abstract string IdentityParameterName { get;  }
 
-        public new PRIMARY_KEY Insert(TYPE_LIBRARY_TYPE row)
+        public override PRIMARY_KEY Insert(TYPE_LIBRARY_TYPE row)
         {
             PRIMARY_KEY result = default(PRIMARY_KEY);
             DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);

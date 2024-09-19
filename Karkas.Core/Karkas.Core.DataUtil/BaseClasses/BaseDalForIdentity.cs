@@ -34,7 +34,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         protected abstract void setIdentityColumnValue(TYPE_LIBRARY_TYPE pTypeLibrary, PRIMARY_KEY pIdentityColumnValue);
 
 
-        public new PRIMARY_KEY Insert(TYPE_LIBRARY_TYPE row)
+        public new virtual PRIMARY_KEY Insert(TYPE_LIBRARY_TYPE row)
         {
             PRIMARY_KEY result = default(PRIMARY_KEY);
             DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);

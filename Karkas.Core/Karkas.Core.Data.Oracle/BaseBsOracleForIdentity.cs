@@ -18,7 +18,21 @@ namespace Karkas.Core.Data.Oracle
     {
 
 
-        
+        protected new BaseDalForIdentityOracle<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> Dal
+        {
+            get
+            {
+                return base.dal;
+            }
+        }
+
+
+        public new PRIMARY_KEY Insert(TYPE_LIBRARY_TYPE k)
+        {
+            return dal.Insert(k);
+        }
+
+
 
         public new DIGER_DAL_TIPI GetDalInstance<DIGER_DAL_TIPI, DIGER_TYPE_LIBRARY_TIPI>()
             where DIGER_TYPE_LIBRARY_TIPI : BaseTypeLibrary, new()
