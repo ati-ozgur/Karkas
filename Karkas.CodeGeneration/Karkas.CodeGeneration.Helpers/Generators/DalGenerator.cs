@@ -496,7 +496,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             string upperName = column.Name.ToUpperInvariant();
 
             if(GetReservedKeywords().Contains(lowerName) 
-                || GetReservedKeywords().Contains(upperName))
+                || GetReservedKeywords().Contains(upperName)
+                || CodeGenerationConfig.UseQuotesInQueries)
             {
                 return StringEscapeCharacterStart 
                     + column.Name
@@ -758,8 +759,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         public abstract List<string> GetReservedKeywords();
 
-        public abstract string StringEscapeCharacterStart { get; }
-        public abstract string StringEscapeCharacterEnd { get; }
+        public virtual string StringEscapeCharacterStart => "\"\"";
+        public virtual string StringEscapeCharacterEnd => "\"\"";
 
 
 

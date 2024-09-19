@@ -300,8 +300,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             return reservedKeyWordsList;
         }
 
-        public override string StringEscapeCharacterStart => "{";
-        public override string StringEscapeCharacterEnd => "}";
+
     }
 
 }

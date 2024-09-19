@@ -204,8 +204,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         {
             return reservedKeyWordsList;
         }
-        public override string StringEscapeCharacterStart => "\"\"";
-        public override string StringEscapeCharacterEnd => "\"\"";
+
 
     }
 }
