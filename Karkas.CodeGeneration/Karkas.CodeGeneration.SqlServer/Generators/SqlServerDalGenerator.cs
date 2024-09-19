@@ -81,7 +81,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             AtStartCurlyBraceletIncreaseTab(output);
         }
 
-        public override void WriteInsertCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void Write_InsertCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
@@ -100,7 +100,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
 
             AtEndCurlyBraceletDecreaseTab(output);
         }
-        public override void WriteDeleteCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void Write_DeleteCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
@@ -120,7 +120,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             AtEndCurlyBraceletDecreaseTab(output);
         }
 
-        public override void WriteUpdateCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void Write_UpdateCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);

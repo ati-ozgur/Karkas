@@ -90,9 +90,9 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
         }
 
-        protected override void WriteSetIdentityColumnValue(IOutput output, IContainer container)
+        protected override void Write_SetIdentityColumnValue(IOutput output, IContainer container)
         {
-            base.WriteSetIdentityColumnValue(output, container);
+            base.Write_SetIdentityColumnValue(output, container);
             bool identityExists = utils.IdentityExists(container);
             if (identityExists)
             {
@@ -105,7 +105,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         }
 
 
-        protected override void WriteInsertString(IOutput output, IContainer container)
+        protected override void Write_InsertString(IOutput output, IContainer container)
         {
 
             output.autoTabLn("protected override string InsertString");
@@ -152,7 +152,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             AtEndCurlyBraceletDecreaseTab(output);
         }
 
-        public override void WriteInsertCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void Write_InsertCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
@@ -223,7 +223,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.autoTabLn(s);
         }
 
-        public override void WriteDeleteCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void Write_DeleteCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
@@ -243,7 +243,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             AtEndCurlyBraceletDecreaseTab(output);
         }
 
-        public override void WriteUpdateCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void Write_UpdateCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
