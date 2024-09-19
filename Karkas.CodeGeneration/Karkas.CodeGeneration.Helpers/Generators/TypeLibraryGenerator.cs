@@ -46,7 +46,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             Write_UsingNamespaces(output, classNameSpace);
 
-            ClassIsmiWrite(output, className, container);
+            Write_ClassName(output, className, container);
 
             output.autoTabLn("{");
 
@@ -149,7 +149,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab(output);
         }
 
-        private void ClassIsmiWrite(IOutput output, string className, IContainer container)
+        private void Write_ClassName(IOutput output, string className, IContainer container)
         {
             output.increaseTab();
             output.autoTabLn("[Serializable]");
