@@ -57,8 +57,10 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         }
 
 
-        protected override void Write_ClassGenerated(IOutput output, string classNameTypeLibrary, bool identityExists, string identityType)
+        protected override void Write_ClassGenerated(IOutput output, string classNameTypeLibrary, IContainer container)
         {
+            bool identityExists = utils.IdentityExists(container);
+            string identityType = utils.GetIdentityType(container);
             output.autoTab("public partial class ");
             output.write(classNameTypeLibrary);
             output.write("Dal : ");

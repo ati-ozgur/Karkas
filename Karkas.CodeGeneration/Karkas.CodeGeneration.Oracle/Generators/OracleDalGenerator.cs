@@ -48,9 +48,11 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.write("using Karkas.Core.Data.Oracle;");
         }
 
-        protected override void Write_ClassGenerated(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
+        protected override void Write_ClassGenerated(IOutput output, string classNameTypeLibrary, IContainer container)
         {
-            if(identityVarmi)
+            bool identityExists = utils.IdentityExists(container);
+            string identityType = utils.GetIdentityType(container);
+            if (identityExists)
             {
                 ClassWriteIdentity(output, classNameTypeLibrary, identityType);
             }

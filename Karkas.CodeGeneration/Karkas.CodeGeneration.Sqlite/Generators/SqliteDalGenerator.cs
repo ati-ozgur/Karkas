@@ -22,9 +22,13 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
 
 
 
-        protected override void Write_ClassGenerated(IOutput output, string classNameTypeLibrary, bool isIdentity, string identityType)
+        protected override void Write_ClassGenerated(IOutput output, string classNameTypeLibrary,IContainer container)
         {
-            if(isIdentity)
+
+            bool identityExists = utils.IdentityExists(container);
+            string identityType = utils.GetIdentityType(container);
+
+            if (identityExists)
             {
                 output.autoTab("public partial class ");
                 output.write(classNameTypeLibrary);

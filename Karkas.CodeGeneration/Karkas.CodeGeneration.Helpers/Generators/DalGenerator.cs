@@ -32,10 +32,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         protected Utils utils;
 
 
-        public string GetIdentityType(IContainer container)
-        {
-            return utils.GetIdentityType(container);
-        }
+
 
 
         public string GetIdentityColumnName(IContainer container)
@@ -102,7 +99,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             WriteNamespaceStart(output, baseNameSpaceDal);
 
-            Write_ClassGenerated(output, classNameTypeLibrary, utils.IdentityExists(container), GetIdentityType(container));
+            Write_ClassGenerated(output, classNameTypeLibrary,container);
             output.autoTabLn("");
 
             WriteOverrideDatabaseName(output, container);
@@ -233,7 +230,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             bool identityExists = utils.IdentityExists(container);
             if(identityExists)
             {
-                string identityType = GetIdentityType(container);
+                string identityType = utils.GetIdentityType(container);
 
                 string methodSignature = $"protected override void setIdentityColumnValue({classNameTypeLibrary} pTypeLibrary,{identityType} pIdentityColumnValue)";
                 output.autoTabLn(methodSignature);
@@ -308,8 +305,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        protected virtual void Write_ClassGenerated(IOutput output, string classNameTypeLibrary, bool identityExists, string identityType)
+        protected virtual void Write_ClassGenerated(IOutput output, string classNameTypeLibrary, IContainer container)
         {
+            bool identityExists = utils.IdentityExists(container);
+            string identityType = utils.GetIdentityType(container);
             output.autoTab("public partial class ");
             output.write(classNameTypeLibrary);
             output.write("Dal : BaseDal<");
