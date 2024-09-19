@@ -108,6 +108,10 @@ namespace Karkas.CodeGeneration.ConsoleApp
             Console.WriteLine("Code generation finished");
             Console.WriteLine("Errors: ");
             Console.WriteLine(result);
+            if (!string.IsNullOrEmpty(result))
+            {
+                throw new Exception("There are errors in the code generation");
+            }
 
         }
 
