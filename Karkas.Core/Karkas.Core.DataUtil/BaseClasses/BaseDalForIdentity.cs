@@ -73,6 +73,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
             catch (Exception ex)
             {
                 new LoggingInfo(cmd).LogInfo(this.GetType(),ex);
+                throw;
             }
 
             finally
