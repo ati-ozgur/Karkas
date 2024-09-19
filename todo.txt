@@ -2,15 +2,19 @@
 
 ## Tests
 
+somewhat done.
 1. Fix namespace issue with global usings.
 
 
 1. CRUD with identity tables v0
+
     Identity Insert,
     Normal Insert
     Read
     Update
     Delete
+
+Chinook Customer ok
 
 2. CRUD tests Normal tables v0
     Normal Insert
