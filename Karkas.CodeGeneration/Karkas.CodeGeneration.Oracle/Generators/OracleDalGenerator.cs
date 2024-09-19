@@ -135,7 +135,8 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                 }
                 else
                 {
-                    string sentenceInner = $"{insertString}  returning {identityColumnName} into :{identityColumnName};";
+                    string returnIdVariable = identityColumnName.ToLowerInvariant();
+                    string sentenceInner = $"{insertString}  returning {identityColumnName} into :{returnIdVariable};";
                     string sentence = $"return @\" begin" + Environment.NewLine;
                     sentence = sentence +   $"INSERT INTO {schemaNameForQueries}{tableName}" + Environment.NewLine;
                     sentence += sentenceInner + Environment.NewLine;
@@ -169,7 +170,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                 }
                 else if (column.IsIdentity)
                 {
-                    builderParameterAddOutput(output, column);
+                    builderParameterAddOutputForIdentity(output, column);
                 }
             }
 
@@ -201,6 +202,17 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.autoTabLn(s);
         }
 
+        private void builderParameterAddOutputForIdentity(IOutput output, IColumn column)
+        {
+            string variableName = column.Name.ToLowerInvariant();
+
+            string s = "builder.AddParameterOutput(\"" + parameterSymbol
+                        + variableName
+                        + "\","
+                        + getDbTargetType(column)
+                        + ");";
+            output.autoTabLn(s);
+        }
 
         private void builderParameterAddOutput(IOutput output, IColumn column)
         {
