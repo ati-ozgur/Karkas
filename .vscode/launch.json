@@ -1,18 +1,19 @@
 {
     "configurations": [
+
         {
-            "name": "C#: Karkas.CodeGeneration.ConsoleApp Debug 1",
+            "name": "C#: ConsoleApp Debug Default",
             "type": "dotnet",
             "request": "launch",
             "projectPath": "${workspaceFolder}/Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp/Karkas.CodeGeneration.ConsoleApp.csproj",
         },
         {
-            "name": "C#: Karkas.CodeGeneration.ConsoleApp Debug 2",
+            "name": "C#: ConsoleApp ChinookOracleAutoIncrement",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",            
             "program": "${workspaceFolder}/Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp/bin/Debug/net6.0/Karkas.CodeGeneration.ConsoleApp.dll",
-            "args": ["--connectionname", "ChinookOracle"],
+            "args": ["--connectionname", "ChinookOracleAutoIncrement"],
             //"args": ["--connectionname", "ChinookSqlite"],
             //"args": ["--connectionname", "ChinookSqlServerAutoIncrement"],
             "cwd": "${workspaceRoot}",
