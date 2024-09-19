@@ -1,3 +1,12 @@
 {
-	"ignoreWords": ["Karkas","Browsable","ISNULL","REINDEX","SAVEPOINT","autoincrement","rowid"]	
+	"ignoreWords": [
+		"Karkas"
+		,"autoincrement"
+		,"Browsable"
+		,"datetime"
+		,"ISNULL"
+		,"REINDEX"
+		,"rowid"
+		,"SAVEPOINT"
+	]	
 }

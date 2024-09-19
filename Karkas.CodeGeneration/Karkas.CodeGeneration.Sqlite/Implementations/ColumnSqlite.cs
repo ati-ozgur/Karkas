@@ -41,7 +41,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         {
             get 
             {
-                // TODO Bunua daha sonra yap
+                // TODO fix this one later
                 return isAutoKey;
             }
         }
@@ -171,8 +171,8 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             }
         }
 
-
-        private int? characterMaxLenth = null;
+        // TODO Fix this one later
+        private int? characterMaxLength;
         private string defaultValue;
         private bool isInPrimaryKey;
         public int CharacterMaxLength
@@ -314,7 +314,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                 {
                     return (IView)tableOrView;
                 }
-                throw new NotSupportedException("Bu column bir tabloya ait.");
+                throw new NotSupportedException("This column belongs to a Table.");
             }
         }
 
