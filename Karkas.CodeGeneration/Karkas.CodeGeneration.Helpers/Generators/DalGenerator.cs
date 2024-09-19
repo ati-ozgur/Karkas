@@ -625,6 +625,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.autoTabLn(methodLine);
                 AtStartCurlyBraceletIncreaseTab(output);
                 defineList(output);
+                if(CodeGenerationConfig.UseQuotesInQueries)
+                {
+                    pkName = "\\\"" + pkName + "\\\"";                    
+                }
                 output.autoTab("ExecuteQuery(list,String.Format(\" " + pkName + " = '{0}'\"," +variableName+ "));");
                 output.autoTabLn("");
                 output.autoTabLn("if (list.Count > 0)");
