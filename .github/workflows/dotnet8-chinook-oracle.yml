@@ -1,4 +1,4 @@
-name: dotnet8-chinook-sqlserver
+name: dotnet8-chinook-oracle
 
 on:
   workflow_dispatch:
