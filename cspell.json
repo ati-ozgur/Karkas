@@ -9,5 +9,6 @@
 		,"rowid"
 		,"SAVEPOINT"
 		,"sqlserver"
-	]	
+	],
+	"ignoreRegExpList": ["[A-Z]+(_[A-Z]+)*"]
 }
