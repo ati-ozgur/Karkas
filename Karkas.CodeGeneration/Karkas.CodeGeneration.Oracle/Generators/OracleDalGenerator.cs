@@ -119,6 +119,11 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                 string tableName = getTableName(container);
 
                 string identityColumnName = utils.GetIdentityColumnName(container);
+                string identityReturnVariableName = identityColumnName.ToLowerInvariant();
+                if(CodeGenerationConfig.UseQuotesInQueries)
+                {
+                    identityColumnName = "\"\"" + identityColumnName + "\"\"";
+                }
                 string insertString = getInsertString(container);
                 if(string.IsNullOrEmpty(identityColumnName))
                 {
@@ -135,8 +140,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                 }
                 else
                 {
-                    string returnIdVariable = identityColumnName.ToLowerInvariant();
-                    string sentenceInner = $"{insertString}  returning {identityColumnName} into :{returnIdVariable};";
+                    string sentenceInner = $"{insertString}  returning {identityColumnName} into :{identityReturnVariableName};";
                     string sentence = $"return @\" begin" + Environment.NewLine;
                     sentence = sentence +   $"INSERT INTO {schemaNameForQueries}{tableName}" + Environment.NewLine;
                     sentence += sentenceInner + Environment.NewLine;
