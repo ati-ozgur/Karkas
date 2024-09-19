@@ -1,4 +1,5 @@
 FROM gvenzl/oracle-xe
 COPY 0Chinook_Oracle_DDL_AUTOINCREMENT.sql /container-entrypoint-initdb.d
 COPY 1Chinook_Oracle_Data.sql /container-entrypoint-initdb.d
+COPY 2Chinook_Oracle_Fix_Identity.sql /container-entrypoint-initdb.d
 ENV ORACLE_PASSWORD=Karkas@Passw0rd
