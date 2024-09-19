@@ -63,8 +63,6 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
             entry.ConnectionString = textBoxConnectionString.Text;
 
-            entry.DatabaseNamePhysical = textBoxDatabaseNamePhysical.Text;
-            entry.DatabaseNameLogical = textBoxDatabaseNameLogical.Text;
 
             entry.ProjectNameSpace = textBoxProjectNamespace.Text;
             entry.CodeGenerationDirectory = getCodeGenerationDirectory();
@@ -124,8 +122,6 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
                 textBoxConnectionString.Text = entry.ConnectionString;
             }
 
-            textBoxDatabaseNameLogical.Text = entry.DatabaseNameLogical;
-            textBoxDatabaseNamePhysical.Text = entry.DatabaseNamePhysical;
             if (!string.IsNullOrWhiteSpace(entry.ProjectNameSpace))
             {
                 textBoxProjectNamespace.Text = entry.ProjectNameSpace;
@@ -167,11 +163,6 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             textBoxAbbrevationsAsString.Text = entry.AbbrevationsAsString;
 
 
-        }
-
-        public void databaseNameLabelDoldur(IDatabase databaseHelper)
-        {
-           textBoxDatabaseNamePhysical.Text = databaseHelper.DatabaseNamePhysical;
         }
 
         public void ClearInputControlValues()

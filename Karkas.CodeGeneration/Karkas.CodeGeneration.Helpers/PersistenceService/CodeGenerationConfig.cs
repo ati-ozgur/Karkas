@@ -59,8 +59,6 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		private string connectionDatabaseType;
 		private string connectionDbProviderName;
 		private string connectionString;
-		private string databaseNamePhysical;
-		private string databaseNameLogical;
 		private string projectNameSpace;
 		private string codeGenerationDirectory;
 		private bool tableCodeGenerate;
@@ -131,36 +129,8 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		}
 
 		
-		public string DatabaseNamePhysical
-		{
-			
-			get
-			{
-				return databaseNamePhysical;
-			}
-			
-			set
-			{
-				
-				databaseNamePhysical = value;
-			}
-		}
 
 		
-		public string DatabaseNameLogical
-		{
-			
-			get
-			{
-				return databaseNameLogical;
-			}
-			
-			set
-			{
-				
-				databaseNameLogical = value;
-			}
-		}
 
 		
 		public string ProjectNameSpace

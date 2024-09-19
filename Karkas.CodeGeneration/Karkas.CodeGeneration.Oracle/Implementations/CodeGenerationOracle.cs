@@ -104,24 +104,6 @@ WHERE
 ORDER BY FULL_TABLE_NAME
 ";
 
-        private string databaseNamePhysical;
-
-        public string DatabaseNamePhysical
-        {
-            get
-            {
-                if (String.IsNullOrEmpty(databaseNamePhysical))
-                {
-                    databaseNamePhysical = (string)Template.BringOneValue(SQL_FOR_DATABASE_NAME);
-                }
-                return databaseNamePhysical;
-            }
-            set
-            {
-                databaseNamePhysical = value;
-            }
-        }
-
 
 
         public override List<Dictionary<string,object>>  getTableListFromSchema(string schemaName)

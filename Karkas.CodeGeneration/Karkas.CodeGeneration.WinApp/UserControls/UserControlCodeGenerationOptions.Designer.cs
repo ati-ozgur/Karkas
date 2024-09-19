@@ -37,10 +37,6 @@
             checkBoxCreateMainClassAgain = new CheckBox();
             textBoxDbProviderName = new TextBox();
             labelDbProviderName = new Label();
-            textBoxDatabaseNamePhysical = new TextBox();
-            labelDatabaseNamePhysical = new Label();
-            textBoxDatabaseNameLogical = new TextBox();
-            labelDatabaseNameLogical = new Label();
             labelDatabaseType = new Label();
             comboBoxDatabaseType = new ComboBox();
             textBoxConnectionName = new TextBox();
@@ -156,42 +152,6 @@
             labelDbProviderName.Size = new Size(98, 15);
             labelDbProviderName.TabIndex = 49;
             labelDbProviderName.Text = "DbProviderName";
-            // 
-            // textBoxDatabaseNamePhysical
-            // 
-            textBoxDatabaseNamePhysical.Enabled = false;
-            textBoxDatabaseNamePhysical.Location = new Point(257, 159);
-            textBoxDatabaseNamePhysical.Margin = new Padding(4);
-            textBoxDatabaseNamePhysical.Name = "textBoxDatabaseNamePhysical";
-            textBoxDatabaseNamePhysical.Size = new Size(148, 23);
-            textBoxDatabaseNamePhysical.TabIndex = 48;
-            // 
-            // labelDatabaseNamePhysical
-            // 
-            labelDatabaseNamePhysical.AutoSize = true;
-            labelDatabaseNamePhysical.Location = new Point(3, 155);
-            labelDatabaseNamePhysical.Name = "labelDatabaseNamePhysical";
-            labelDatabaseNamePhysical.Size = new Size(136, 15);
-            labelDatabaseNamePhysical.TabIndex = 47;
-            labelDatabaseNamePhysical.Text = "Database Name Physical";
-            // 
-            // textBoxDatabaseNameLogical
-            // 
-            textBoxDatabaseNameLogical.Location = new Point(257, 128);
-            textBoxDatabaseNameLogical.Margin = new Padding(4);
-            textBoxDatabaseNameLogical.Name = "textBoxDatabaseNameLogical";
-            textBoxDatabaseNameLogical.Size = new Size(148, 23);
-            textBoxDatabaseNameLogical.TabIndex = 46;
-            toolTipCodeGenerationOptions.SetToolTip(textBoxDatabaseNameLogical, "Veritabanı ismi olarak fiziksel isim yerine\r\nmantıksal bir isim vermek için kullanılır.\r\nBu mantıksal isim app.config/web.config\r\niçinde bağlantı çekmek için kullanılır.\r\n");
-            // 
-            // labelDatabaseNameLogical
-            // 
-            labelDatabaseNameLogical.AutoSize = true;
-            labelDatabaseNameLogical.Location = new Point(3, 124);
-            labelDatabaseNameLogical.Name = "labelDatabaseNameLogical";
-            labelDatabaseNameLogical.Size = new Size(131, 15);
-            labelDatabaseNameLogical.TabIndex = 45;
-            labelDatabaseNameLogical.Text = "Database Name Logical";
             // 
             // labelDatabaseType
             // 
@@ -383,13 +343,9 @@
             tableLayoutPanel1.Controls.Add(labelIgnoredSchemaList, 0, 8);
             tableLayoutPanel1.Controls.Add(textBoxProjectNamespace, 1, 6);
             tableLayoutPanel1.Controls.Add(buttonFolderDialog, 2, 7);
-            tableLayoutPanel1.Controls.Add(textBoxDatabaseNamePhysical, 1, 5);
             tableLayoutPanel1.Controls.Add(textBoxCodeGenerationFolder, 1, 7);
             tableLayoutPanel1.Controls.Add(labelProjectNamespace, 0, 6);
             tableLayoutPanel1.Controls.Add(labelCodeGenerationFolder, 0, 7);
-            tableLayoutPanel1.Controls.Add(labelDatabaseNameLogical, 0, 4);
-            tableLayoutPanel1.Controls.Add(textBoxDatabaseNameLogical, 1, 4);
-            tableLayoutPanel1.Controls.Add(labelDatabaseNamePhysical, 0, 5);
             tableLayoutPanel1.Controls.Add(checkBoxCreateMainClassAgain, 1, 14);
             tableLayoutPanel1.Controls.Add(labelConnectionName, 0, 0);
             tableLayoutPanel1.Controls.Add(labelDbProviderName, 0, 2);
@@ -459,10 +415,6 @@
         private System.Windows.Forms.CheckBox checkBoxCreateMainClassAgain;
         private System.Windows.Forms.TextBox textBoxDbProviderName;
         private System.Windows.Forms.Label labelDbProviderName;
-        private System.Windows.Forms.TextBox textBoxDatabaseNamePhysical;
-        private System.Windows.Forms.Label labelDatabaseNamePhysical;
-        private System.Windows.Forms.TextBox textBoxDatabaseNameLogical;
-        private System.Windows.Forms.Label labelDatabaseNameLogical;
         private System.Windows.Forms.Label labelDatabaseType;
         private System.Windows.Forms.ComboBox comboBoxDatabaseType;
         private System.Windows.Forms.TextBox textBoxConnectionName;
