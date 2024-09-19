@@ -277,14 +277,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.autoTabLn("[DebuggerStepThrough]");
                 output.autoTabLn("get");
                 output.autoTabLn("{");
-                ToStringDegeriDondur(column, output, memberVariableName);
+                Write_ReturnToStringValue(column, output, memberVariableName);
                 output.autoTabLn("}");
                 output.autoTabLn("[DebuggerStepThrough]");
                 output.autoTabLn("set");
                 output.autoTabLn("{");
                 output.increaseTab();
-                string[] yaziListesi = utils.GetConvertToSyntax(column, propertyVariableName);
-                foreach (string str in yaziListesi)
+                string[] sentenceList = utils.GetConvertToSyntax(column, propertyVariableName);
+                foreach (string str in sentenceList)
                 {
                     output.autoTabLn(str);
                 }
@@ -297,7 +297,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.decreaseTab();
         }
 
-        private void ToStringDegeriDondur(IColumn column, IOutput output, string memberVariableName)
+        private void Write_ReturnToStringValue(IColumn column, IOutput output, string memberVariableName)
         {
             if (utils.IsColumnNullable(column))
             {
