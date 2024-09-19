@@ -35,13 +35,13 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.write(classNameBs);
             if (identityExists)
             {
-                output.write(" : BaseBsForIdentity<" + classNameTypeLibrary + ", ");
+                output.write(" : BaseBsOracleForIdentity<" + classNameTypeLibrary + ", ");
                 output.write(classNameDal + ", AdoTemplateOracle,ParameterBuilderOracle," + identityType );
 
             }
             else
             {
-                output.write(" : BaseBs<" + classNameTypeLibrary + ", ");
+                output.write(" : BaseBsOracle<" + classNameTypeLibrary + ", ");
                 output.write(classNameDal + ", AdoTemplateOracle,ParameterBuilderOracle");
             }
             output.writeLine(">");
