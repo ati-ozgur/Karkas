@@ -408,7 +408,12 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 {
                     if (column.IsInPrimaryKey)
                     {
-                        whereClause += column.Name + " = " + parameterSymbol + column.Name + " AND ";
+                        string deleteColumnName = column.Name;
+                        if(CodeGenerationConfig.UseQuotesInQueries)
+                        {
+                            deleteColumnName = "\"\"" + deleteColumnName + "\"\"";
+                        }
+                        whereClause += deleteColumnName + " = " + parameterSymbol + column.Name + " AND ";
                     }
                 }
                 whereClause = whereClause.Remove(whereClause.Length - 4) + "\"";
