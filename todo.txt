@@ -37,7 +37,7 @@ Chinook Customer ok
 7. column --> expected .net type
 Need to create my own example database for these examples.
 
-
+8. create dotnet/nuget packages
 
 ## Bugs
 
