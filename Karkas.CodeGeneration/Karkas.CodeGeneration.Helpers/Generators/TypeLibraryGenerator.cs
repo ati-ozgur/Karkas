@@ -342,36 +342,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void EtiketIsimleriWrite(IOutput output, IContainer pTable, string pNamespace)
-        {
-            output.autoTabLn("public static class EtiketIsimleri");
-            AtStartCurlyBraceletIncreaseTab(output);
-
-            output.autoTabLn(string.Format("const string namespaceVeClass = \"{0}\";", pNamespace));
-            foreach (IColumn column in pTable.Columns)
-            {
-                string memberVariableName = utils.GetCamelCase(column.Name);
-                string propertyVariableName = utils.GetPascalCase(column.Name);
-                output.autoTabLn("public static string " + propertyVariableName);
-                AtStartCurlyBraceletIncreaseTab(output);
-                output.autoTabLn("get");
-                AtStartCurlyBraceletIncreaseTab(output);
-                output.autoTabLn(string.Format("string s = ConfigurationManager.AppSettings[namespaceVeClass + \".{0}\"];", propertyVariableName));
-                output.autoTabLn("if (s != null)");
-                AtStartCurlyBraceletIncreaseTab(output);
-                output.autoTabLn("return s;");
-                AtEndCurlyBraceletDecreaseTab(output);
-                output.autoTabLn("else");
-                AtStartCurlyBraceletIncreaseTab(output);
-                output.autoTabLn(string.Format("return \"{0}\";", propertyVariableName));
-                AtEndCurlyBraceletDecreaseTab(output);
-                AtEndCurlyBraceletDecreaseTab(output);
-                AtEndCurlyBraceletDecreaseTab(output);
-            }
-            AtEndCurlyBraceletDecreaseTab(output);
-        }
-
-
 
 
     }
