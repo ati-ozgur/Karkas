@@ -116,7 +116,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             {
 
                 string schemaNameForQueries = GetSchemaNameForQueries(container);
-
+                string tableName = getTableName(container);
 
                 string identityColumnName = utils.GetIdentityColumnName(container);
                 string insertString = getInsertString(container);
@@ -125,11 +125,11 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                     string insert;
                     if(CodeGenerationConfig.UseSchemaNameInSqlQueries)
                     {
-                        insert = "return  @\"" + $"INSERT INTO {schemaNameForQueries}.{container.Name} {insertString}\";";
+                        insert = "return  @\"" + $"INSERT INTO {schemaNameForQueries}.{tableName} {insertString}\";";
                     } 
                     else
                     {
-                        insert = "return  @\"" + $"INSERT INTO {container.Name} {insertString}\";";
+                        insert = "return  @\"" + $"INSERT INTO {tableName} {insertString}\";";
                     }
                     output.autoTabLn(insert);
                 }
@@ -137,7 +137,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                 {
                     string sentenceInner = $"{insertString}  returning {identityColumnName} into :{identityColumnName};";
                     string sentence = $"return @\" begin" + Environment.NewLine;
-                    sentence = sentence +   $"INSERT INTO {schemaNameForQueries}{container.Name}" + Environment.NewLine;
+                    sentence = sentence +   $"INSERT INTO {schemaNameForQueries}{tableName}" + Environment.NewLine;
                     sentence += sentenceInner + Environment.NewLine;
                     sentence = sentence + "end; ";
                     sentence +=  "\";";
