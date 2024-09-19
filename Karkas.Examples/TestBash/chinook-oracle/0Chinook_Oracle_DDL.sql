@@ -38,7 +38,7 @@ conn chinook/chinook
 /*******************************************************************************
    Create Tables
 ********************************************************************************/
-CREATE TABLE Album
+CREATE TABLE "Album"
 (
     "AlbumId" NUMBER NOT NULL,
     Title VARCHAR2(160) NOT NULL,
@@ -46,14 +46,14 @@ CREATE TABLE Album
     CONSTRAINT PK_Album PRIMARY KEY  ("AlbumId")
 );
 
-CREATE TABLE Artist
+CREATE TABLE "Artist"
 (
     "ArtistId" NUMBER NOT NULL,
     Name VARCHAR2(120),
     CONSTRAINT PK_Artist PRIMARY KEY  ("ArtistId")
 );
 
-CREATE TABLE Customer
+CREATE TABLE "Customer"
 (
     "CustomerId" NUMBER NOT NULL,
     "FirstName" VARCHAR2(40) NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE Customer
     CONSTRAINT PK_Customer PRIMARY KEY  ("CustomerId")
 );
 
-CREATE TABLE Employee
+CREATE TABLE "Employee"
 (
     "EmployeeId" NUMBER NOT NULL,
     "LastName" VARCHAR2(20) NOT NULL,
@@ -91,14 +91,14 @@ CREATE TABLE Employee
     CONSTRAINT PK_Employee PRIMARY KEY  ("EmployeeId")
 );
 
-CREATE TABLE Genre
+CREATE TABLE "Genre"
 (
     "GenreId" NUMBER NOT NULL,
     Name VARCHAR2(120),
     CONSTRAINT PK_Genre PRIMARY KEY  ("GenreId")
 );
 
-CREATE TABLE Invoice
+CREATE TABLE "Invoice"
 (
     "InvoiceId" NUMBER NOT NULL,
     "CustomerId" NUMBER NOT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE Invoice
     CONSTRAINT PK_Invoice PRIMARY KEY  ("InvoiceId")
 );
 
-CREATE TABLE InvoiceLine
+CREATE TABLE "InvoiceLine"
 (
     "InvoiceLineId" NUMBER NOT NULL,
     "InvoiceId" NUMBER NOT NULL,
@@ -122,28 +122,28 @@ CREATE TABLE InvoiceLine
     CONSTRAINT PK_InvoiceLine PRIMARY KEY  ("InvoiceLineId")
 );
 
-CREATE TABLE MediaType
+CREATE TABLE "MediaType"
 (
     "MediaTypeId" NUMBER NOT NULL,
     Name VARCHAR2(120),
     CONSTRAINT PK_MediaType PRIMARY KEY  ("MediaTypeId")
 );
 
-CREATE TABLE Playlist
+CREATE TABLE "Playlist"
 (
     "PlaylistId" NUMBER NOT NULL,
     Name VARCHAR2(120),
     CONSTRAINT PK_Playlist PRIMARY KEY  ("PlaylistId")
 );
 
-CREATE TABLE PlaylistTrack
+CREATE TABLE "PlaylistTrack"
 (
     "PlaylistId" NUMBER NOT NULL,
     "TrackId" NUMBER NOT NULL,
     CONSTRAINT PK_PlaylistTrack PRIMARY KEY  ("PlaylistId", "TrackId")
 );
 
-CREATE TABLE Track
+CREATE TABLE "Track"
 (
     "TrackId" NUMBER NOT NULL,
     Name VARCHAR2(200) NOT NULL,
