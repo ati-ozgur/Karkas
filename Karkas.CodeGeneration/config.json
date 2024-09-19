@@ -60,6 +60,7 @@
     "UseSchemaNameInNamespaces": false,
     "UseSchemaNameInSqlQueries": false,
     "UseSchemaNameInFolders": false,
+    "UseQuotesInQueries": true,
     "TableCodeGenerate": true,
     "ViewCodeGenerate": false,
     "StoredProcedureCodeGenerate": false,

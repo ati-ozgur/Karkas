@@ -72,6 +72,9 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		private string ignoredSchemaList;
 		private string schemaList;
 
+		private bool useQuotesInQueries = false;
+
+
 		private string abbreviationsAsString;
 		private string creationTime;
 		private string lastAccessTime;
@@ -411,10 +414,9 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 			}
 		}
 
+        public bool UseQuotesInQueries { get => useQuotesInQueries; set => useQuotesInQueries = value; }
 
-
-
-		public override bool Equals(object obj)
+        public override bool Equals(object obj)
         {
             // If the passed object is null
             if (obj == null)
