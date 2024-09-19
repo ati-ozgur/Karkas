@@ -161,7 +161,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
             foreach (IColumn column in container.Columns)
             {
-                if (!shouldAddcolumnToParameters(column))
+                if (!shouldAddColumnToParameters(column))
                 {
                     builderParameterAdd(output, column);
                 }
@@ -252,7 +252,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
             foreach (IColumn column in container.Columns)
             {
-                if (column.IsInPrimaryKey || !shouldAddcolumnToParameters(column))
+                if (column.IsInPrimaryKey || !shouldAddColumnToParameters(column))
                 {
                     builderParameterAdd(output, column);
                 }

@@ -417,7 +417,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab(output);
         }
 
-        public bool updateWhereSatirindaOlmaliMi(IColumn column)
+        public bool shouldBeInUpdateWhereSentence(IColumn column)
         {
             return ((column.IsInPrimaryKey) || columnVersiyonZamaniMi(column));
         }
@@ -456,13 +456,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
                 foreach (IColumn column in container.Columns)
                 {
-                    if (updateWhereSatirindaOlmaliMi(column))
+                    if (shouldBeInUpdateWhereSentence(column))
                     {
                         pkcumlesi += " " + getColumnName(column) + " = " + parameterSymbol + column.Name + Environment.NewLine + " AND"  ;
                     }
-                    if (!shouldAddcolumnToParameters(column))
+                    if (!shouldAddColumnToParameters(column))
                     {
-                        if (!updateWhereSatirindaOlmaliMi(column))
+                        if (!shouldBeInUpdateWhereSentence(column))
                         {
                             cumle += getColumnName(column) + " = " + parameterSymbol + column.Name +  Environment.NewLine + "," ;
                         }
@@ -702,7 +702,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         public abstract void WriteInsertCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary);
 
 
-        public bool shouldAddcolumnToParameters(IColumn column)
+        public bool shouldAddColumnToParameters(IColumn column)
         {
             return ((column.IsAutoKey) || (column.IsComputed));
         }
