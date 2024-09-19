@@ -43,8 +43,7 @@ Need to create my own example database for these examples.
 
 ## Improvements and Nice to Have
 
-1. Use quotes in queries as configuration.
-This may be necessary for Oracle
+
 
 2. add [JsonPropertyName("XXX")] to code generation
 
