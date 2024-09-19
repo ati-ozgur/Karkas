@@ -8,5 +8,6 @@
 		,"REINDEX"
 		,"rowid"
 		,"SAVEPOINT"
+		,"sqlserver"
 	]	
 }
