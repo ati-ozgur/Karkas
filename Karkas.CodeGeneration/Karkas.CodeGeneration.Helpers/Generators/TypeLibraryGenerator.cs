@@ -256,6 +256,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
+        // TODO Do I need it? Think. If not remove it. Was is for i18n?
         private void PropertiesAsStringWrite(IOutput output, IContainer container)
         {
             output.increaseTab();
