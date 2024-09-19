@@ -54,7 +54,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             , IContainer container)
         {
             List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
-            bool semaIsminiDizinlerdeKullan = CodeGenerationConfig.UseSchemaNameInFolders;
+            
             
 
             output.tabLevel = 0;
@@ -95,7 +95,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             listType = "List<" + classNameTypeLibrary + ">";
 
-            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForDalGenerated(CodeGenerationConfig, schemaName, classNameTypeLibrary,semaIsminiDizinlerdeKullan);
+            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForDalGenerated(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
             string outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInSqlQueries);
 
             WriteUsings(output, schemaName, baseNameSpaceTypeLibrary);
