@@ -44,10 +44,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        public bool FindIfIdentityExists(Utils utils,IContainer container)
-        {
-             return utils.IdentityExists(container);
-        }
+
         string listType = "";
 
 
@@ -105,7 +102,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             WriteNamespaceStart(output, baseNameSpaceDal);
 
-            Write_ClassGenerated(output, classNameTypeLibrary, FindIfIdentityExists(utils, container), GetIdentityType(container));
+            Write_ClassGenerated(output, classNameTypeLibrary, utils.IdentityExists(container), GetIdentityType(container));
             output.autoTabLn("");
 
             WriteOverrideDatabaseName(output, container);
@@ -127,7 +124,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             WriteQueryByPk(output, container, classNameTypeLibrary,pkName, pkNamePascalCase, pkType);
 
-            WriteIdentityExists(output, FindIfIdentityExists(utils, container));
+            WriteIdentityExists(output, utils.IdentityExists(container));
 
             WriteIfPkGuid(output, container);
 
@@ -233,7 +230,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         protected virtual void WriteSetIdentityColumnValue(IOutput output, IContainer container)
         {
-            bool identityExists = FindIfIdentityExists(utils, container);
+            bool identityExists = utils.IdentityExists(container);
             if(identityExists)
             {
                 string identityType = GetIdentityType(container);
@@ -241,7 +238,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 string methodSignature = $"protected override void setIdentityColumnValue({classNameTypeLibrary} pTypeLibrary,{identityType} pIdentityColumnValue)";
                 output.autoTabLn(methodSignature);
                 AtStartCurlyBraceletIncreaseTab(output);
-                if (FindIfIdentityExists(utils, container))
+                if (utils.IdentityExists(container))
                 {
                     string identityColumnName = utils.getIdentityColumnNameAsPascalCase(container);
                     string propertySetSignature = $"pTypeLibrary.{identityColumnName} = ({identityType} )pIdentityColumnValue;";
@@ -584,7 +581,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             insertSentence += "VALUES \n";
             insertSentence += getColumnNamesForInsertStringAsParams(container);
 
-            if (FindIfIdentityExists(utils, container))
+            if (utils.IdentityExists(container))
             {
                 insertSentence += getAutoIncrementKeySql(container);
             }
