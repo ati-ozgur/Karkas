@@ -308,7 +308,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        protected virtual void Write_ClassGenerated(IOutput output, string classNameTypeLibrary, bool identityVarmi, string identityType)
+        protected virtual void Write_ClassGenerated(IOutput output, string classNameTypeLibrary, bool identityExists, string identityType)
         {
             output.autoTab("public partial class ");
             output.write(classNameTypeLibrary);
@@ -341,10 +341,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get");
             AtStartCurlyBraceletIncreaseTab(output);
-            string cumle = "return @\"SELECT COUNT(*) FROM " 
+            string sentence = "return @\"SELECT COUNT(*) FROM " 
                             + GetSchemaNameForQueries(container) 
                             + container.Name + "\";";
-            output.autoTabLn(cumle);
+            output.autoTabLn(sentence);
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
         }
@@ -356,15 +356,15 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get ");
             AtStartCurlyBraceletIncreaseTab(output);
-            string cumle = "return @\"SELECT ";
+            string sentence = "return @\"SELECT ";
             foreach (IColumn column in container.Columns)
             {
-                cumle += getColumnName(column) + ",";
+                sentence += getColumnName(column) + ",";
             }
-            cumle = cumle.Remove(cumle.Length - 1);
-            cumle += " FROM ";
-            cumle +=  GetSchemaNameForQueries(container)  + container.Name + "\";";
-            output.autoTabLn(cumle);
+            sentence = sentence.Remove(sentence.Length - 1);
+            sentence += " FROM ";
+            sentence +=  GetSchemaNameForQueries(container)  + container.Name + "\";";
+            output.autoTabLn(sentence);
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
         }
@@ -383,12 +383,12 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 
                 return;
             }
-            string cumle = "";
+            string sentence = "";
             output.autoTabLn("protected override string DeleteString");
             AtStartCurlyBraceletIncreaseTab(output);
             output.autoTabLn("get ");
             AtStartCurlyBraceletIncreaseTab(output);
-            cumle += "return @\"DELETE ";
+            sentence += "return @\"DELETE ";
 
             string whereClause = "";
 
@@ -402,17 +402,17 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                     }
                 }
                 whereClause = whereClause.Remove(whereClause.Length - 4) + "\"";
-                cumle += "  FROM " 
+                sentence += "  FROM " 
                         + GetSchemaNameForQueries(container) 
                         + container.Name + " WHERE ";
             }
             else
             {
 
-                cumle = "throw new NotSupportedException(\"VIEW ustunden Insert/Update/Delete desteklenmemektedir\")";
+                sentence = "throw new NotSupportedException(\"Insert/Update/Delete on VIEWs are not supported.\")";
             }
 
-            output.autoTabLn(cumle + whereClause + ";");
+            output.autoTabLn(sentence + whereClause + ";");
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
         }

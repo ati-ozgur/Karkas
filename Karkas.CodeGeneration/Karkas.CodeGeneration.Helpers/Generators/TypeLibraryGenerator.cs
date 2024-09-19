@@ -165,16 +165,16 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             if (container is ITable)
             {
-                string yazi = "";
+                string sentence = "";
                 foreach (IColumn column in container.Columns)
                 {
                     if (column.IsInPrimaryKey || column.IsAutoKey || column.IsInForeignKey)
                     {
-                        yazi += utils.getPropertyVariableName(column) + " = {" + utils.getPropertyVariableName(column) + "}";
+                        sentence += utils.getPropertyVariableName(column) + " = {" + utils.getPropertyVariableName(column) + "}";
                     }
 
                 }
-                output.autoTabLn(string.Format("[DebuggerDisplay(\"{0}\")]", yazi));
+                output.autoTabLn(string.Format("[DebuggerDisplay(\"{0}\")]", sentence));
             }
 
         }
@@ -205,7 +205,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 string memberVariableName = utils.GetCamelCase(column.Name);
                 string propertyVariableName = utils.getPropertyVariableName(column);
 
-                DataAnnotationEkle(output, column);
+                AddDataAnnotations(output, column);
                 output.autoTabLn("[DebuggerBrowsable(DebuggerBrowsableState.Never)]");
                 output.autoTabLn(string.Format("public {0} {1}", utils.GetLanguageType(column), propertyVariableName));
                 output.autoTabLn("{");
@@ -234,7 +234,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
         private const int CHARACTER_MAX_LENGTH_IN_DATABASE = 8000;
-        private static void DataAnnotationEkle(IOutput output, IColumn column)
+        private static void AddDataAnnotations(IOutput output, IColumn column)
         {
             if (column.IsInPrimaryKey)
             {
