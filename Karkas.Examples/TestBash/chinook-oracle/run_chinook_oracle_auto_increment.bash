@@ -50,8 +50,8 @@ cd $WORKING_DIR
 
 rm -rf Karkas.Examples/GeneratedProjects/ChinookOracle
 
-dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname ChinookOracle
-cd Karkas.Examples/GeneratedProjects/ChinookOracle
+dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname ChinookOracleAutoIncrement
+cd Karkas.Examples/GeneratedProjects/ChinookOracleAutoIncrement
 dotnet new console
 dotnet add package Oracle.ManagedDataAccess.Core
 dotnet add reference "../../../Karkas.Core/Karkas.Core.DataUtil/Karkas.Core.DataUtil.csproj"
