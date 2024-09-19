@@ -2,6 +2,8 @@
 
 ## Tests
 
+1. add intellisense comments
+
 somewhat done.
 1. Fix namespace issue with global usings.
 
@@ -34,6 +36,7 @@ Chinook Customer ok
 
 7. column --> expected .net type
 Need to create my own example database for these examples.
+
 
 
 ## Bugs
