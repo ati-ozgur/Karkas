@@ -60,7 +60,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             Write_ClassGenerated(output, container);
 
-            Write_ClassMain(output, outputFullFileName);
+            Write_ClassNormal(output, outputFullFileName);
         }
 
         private void Write_ClassGenerated(IOutput output, IContainer container)
@@ -117,7 +117,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void Write_ClassMain(IOutput output, string outputFullFileName)
+        private void Write_ClassNormal(IOutput output, string outputFullFileName)
         {
             if (!File.Exists(outputFullFileName))
             {
@@ -130,10 +130,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
-        private void Write_NamespaceEndCurlyBracelet(IOutput output)
-        {
-            AtEndCurlyBraceletDecreaseTab(output);
-        }
+
 
         private void Write_OverrideDatabaseName(IOutput output, IContainer container)
         {
@@ -197,8 +194,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTab("public partial class ");
             output.writeLine(classNameBs);
             output.autoTabLn("{");
-            output.autoTabLn("}");
+            Write_EndOfClassCurlyBracelet(output);
         }
+
 
         protected abstract void Write_ClassGeneratedDatabaseSpecific(IOutput output);
 
@@ -254,6 +252,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
             output.autoTabLn("");
             AtStartCurlyBraceletIncreaseTab(output);
+            output.increaseTab();
         }
     }
 

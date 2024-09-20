@@ -79,11 +79,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void Write_NamespaceEndCurlyBracelet(IOutput output)
-        {
-            AtEndCurlyBraceletDecreaseTab(output);
-        }
-
         private void generateMainClassFile(IOutput output, IDatabase database,string className, string classNameSpace, string outputFullFileName)
         {
             Write_UsingNamespaces(output, classNameSpace);
@@ -92,7 +87,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             string classNameValidation = className + "Validation";
             writeMainClass(output, className, classNameValidation);
             writeValidationClass(output, database, className, classNameValidation);
-            Write_NamespaceEndCurlyBracelet(output);
+            AtEndCurlyBraceletDecreaseTab(output);
             output.Save(outputFullFileName, CodeGenerationConfig.CreateMainClassAgain);
             output.Clear();
         }

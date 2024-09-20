@@ -165,10 +165,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
-        private void Write_NamespaceEndCurlyBracelet(IOutput output)
-        {
-            AtEndCurlyBraceletDecreaseTab(output);
-        }
+
 
         private void Write_OverrideDbProviderName(IOutput output, IContainer container)
         {
