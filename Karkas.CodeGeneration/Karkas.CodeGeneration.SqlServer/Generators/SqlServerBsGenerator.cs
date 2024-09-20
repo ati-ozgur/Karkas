@@ -22,14 +22,9 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         {
         }
 
-        protected override void Write_ClassNormalDatabaseSpecific(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary)
-        {
-            output.autoTab("public partial class ");
-            output.write(classNameBs);
-        }
 
 
-        protected override void Write_ClassGeneratedDatabaseSpecific(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary, bool identityExists, string identityType)
+        protected override void Write_ClassGeneratedDatabaseSpecific(IOutput output)
         {
             output.autoTab("public partial class ");
             output.write(classNameBs);

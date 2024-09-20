@@ -21,7 +21,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         }
 
 
-        protected override void Write_ClassGeneratedDatabaseSpecific(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary, bool identityExists, string identityType)
+        protected override void Write_ClassGeneratedDatabaseSpecific(IOutput output)
         {
             output.autoTab("public partial class ");
             output.write(classNameBs);
@@ -38,11 +38,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             }
             output.writeLine(">");
         }
-        protected override void Write_ClassNormalDatabaseSpecific(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary)
-        {
-            output.autoTab("public partial class ");
-            output.write(classNameBs);
-        }
+
 
         protected override void Write_UsingsDatabaseSpecific(IOutput output)
         {
