@@ -15,12 +15,10 @@ namespace Karkas.CodeGeneration.Helpers
 {
     public partial class Utils
     {
-        private IDatabase databaseHelper;
         private CodeGenerationConfig codeGenerationConfig;
 
-        public Utils(IDatabase pDatabaseHelper, CodeGenerationConfig pCodeGenerationConfig)
+        public Utils(CodeGenerationConfig pCodeGenerationConfig)
         {
-            databaseHelper = pDatabaseHelper;
             codeGenerationConfig = pCodeGenerationConfig;
         }
 

@@ -20,7 +20,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         public SequenceGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
         {
-            utils = new Utils(pDatabaseHelper, pCodeGenerationConfig);
+            utils = new Utils(pCodeGenerationConfig);
         }
         Utils utils = null;
 

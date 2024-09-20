@@ -14,7 +14,7 @@ namespace Karkas.CodeGeneration.Helpers
         public EnumHelper(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig)
         {
 
-            utils = new Utils(pDatabaseHelper,pCodeGenerationConfig);
+            utils = new Utils(pCodeGenerationConfig);
         }
         Utils utils = null;
 

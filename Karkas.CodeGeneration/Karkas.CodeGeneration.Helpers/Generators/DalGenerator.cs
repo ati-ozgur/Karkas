@@ -26,7 +26,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         public DalGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
         {
-            utils = new Utils(pDatabaseHelper, pCodeGenerationConfig);
+            utils = new Utils(pCodeGenerationConfig);
         }
         protected Utils utils;
 
