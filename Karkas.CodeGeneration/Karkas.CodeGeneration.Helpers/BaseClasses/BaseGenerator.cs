@@ -44,10 +44,19 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         {
             output.autoTabLn("}");
         }
-        protected void Write_EndOfClassCurlyBracelet(IOutput output)
+
+        protected void Write_ClassStartCurlyBracelet(IOutput output)
         {
-            output.autoTabLn("}");
-            output.decreaseTab();
+            AtStartCurlyBraceletIncreaseTab(output);
+        }
+
+        protected void Write_ClassEndCurlyBracelet(IOutput output)
+        {
+            AtEndCurlyBraceletDecreaseTab(output);
+        }
+        protected void Write_NamespaceStartCurlyBracelet(IOutput output)
+        {
+            AtStartCurlyBraceletIncreaseTab(output);
         }
         protected void Write_NamespaceEndCurlyBracelet(IOutput output)
         {

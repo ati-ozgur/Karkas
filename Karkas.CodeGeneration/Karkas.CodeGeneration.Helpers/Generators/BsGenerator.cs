@@ -192,8 +192,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             output.autoTab("public partial class ");
             output.writeLine(classNameBs);
-            output.autoTabLn("{");
-            Write_EndOfClassCurlyBracelet(output);
+            Write_ClassStartCurlyBracelet(output);
+            Write_ClassEndCurlyBracelet(output);
         }
 
 
