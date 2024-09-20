@@ -68,6 +68,7 @@ dotnet add reference "../../../Karkas.Core/Karkas.Core.DataUtil/Karkas.Core.Data
 dotnet add reference "../../../Karkas.Core/Karkas.Core.Data.SqlServer/Karkas.Core.Data.SqlServer.csproj"
 
 cp ../../TestCSharp/ProgramChinookAutoIncrement.cs Program.cs
+cp ../../TestCSharp/GlobalUsings.cs GlobalUsings.cs
 cp --recursive ../../TestCSharp/Helpers/ .
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqlServer.cs ConnectionHelper.cs
 cp --recursive ../../TestCSharp/Bs/ .

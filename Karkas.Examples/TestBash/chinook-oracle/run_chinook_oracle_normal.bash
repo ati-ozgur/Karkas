@@ -59,6 +59,7 @@ dotnet add reference "../../../Karkas.Core/Karkas.Core.Data.Oracle/Karkas.Core.D
 
 
 cp ../../TestCSharp/ProgramChinookNormal.cs Program.cs
+cp ../../TestCSharp/GlobalUsings.cs GlobalUsings.cs
 cp --recursive ../../TestCSharp/Helpers/ .
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperOracle.cs ConnectionHelper.cs
 cp --recursive ../../TestCSharp/Bs/ .

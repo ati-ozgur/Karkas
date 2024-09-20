@@ -60,7 +60,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             if (!File.Exists(outputFullFileName) || CodeGenerationConfig.GenerateNormalClassAgain)
             {
-                generateMainClassFile(output, className, classNameSpace, outputFullFileName);
+                GenerateNormalClassFile(output, className, classNameSpace, outputFullFileName);
             }
 
 
@@ -83,7 +83,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForTypeLibraryGenerated(CodeGenerationConfig, schemaName, className, CodeGenerationConfig.UseSchemaNameInFolders);
         }
 
-        private void generateMainClassFile(IOutput output, string className, string classNameSpace, string outputFullFileName)
+        private void GenerateNormalClassFile(IOutput output, string className, string classNameSpace, string outputFullFileName)
         {
             Write_UsingNamespaces(output, classNameSpace);
             Write_Namespacestart(output, classNameSpace);
