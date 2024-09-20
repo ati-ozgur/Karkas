@@ -337,7 +337,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 string propertyName = utils.GetCamelCase(column.Name);
                 string line1 = $"sb.Append(\"{propertyName} : \"+ ";
                 string line2 = $"{propertyName} ";
-                string lineTotal = line1 + line2 + ");";
+                string lineEnd = " + Environment.NewLine);";
+                string lineTotal = line1 + line2 + lineEnd;
+
                 output.AutoTabLine(lineTotal);
             }
             output.AutoTabLine("return sb.ToString();");
