@@ -16,13 +16,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 {
     public abstract class BsGenerator : BaseGenerator
     {
-        string classNameTypeLibrary = "";
-        string classNameDal = "";
-        string classNameBs = "";
-        string schemaName = "";
-        string pkName = "";
-        string pkNamePascalCase = "";
-        string pkType = "";
+        protected string classNameTypeLibrary = "";
+        protected string classNameDal = "";
+        protected string classNameBs = "";
+        protected string schemaName = "";
+        protected string pkName = "";
+        protected string pkNamePascalCase = "";
+        protected string pkType = "";
         protected string baseNameSpace = "";
         protected string baseNameSpaceTypeLibrary = "";
 
@@ -50,23 +50,26 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
 
+
+
+
             output.tabLevel = 0;
             IDatabase database = container.Database;
 
             SetFields(container, listDatabaseAbbreviations);
 
-            Write_GeneratedClass(output, container);
+            Write_ClassGenerated(output, container);
 
-            Write_MainClass(output);
+            Write_ClassMain(output, outputFullFileName);
         }
 
-        private void Write_GeneratedClass(IOutput output, IContainer container)
+        private void Write_ClassGenerated(IOutput output, IContainer container)
         {
             Write_Usings(output);
             Write_NamespaceStart(output);
             AtStartCurlyBraceletIncreaseTab(output);
 
-            Write_ClassGenerated(output, classNameBs, classNameDal, classNameTypeLibrary, identityExists, identityType);
+            Write_ClassGeneratedDatabaseSpecific(output);
             AtStartCurlyBracelet(output);
             Write_OverrideDatabaseName(output, container);
 
@@ -114,16 +117,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void Write_MainClass(IOutput output)
+        private void Write_ClassMain(IOutput output, string outputFullFileName)
         {
             if (!File.Exists(outputFullFileName))
             {
                 Write_Usings(output);
                 Write_NamespaceStart(output);
                 AtStartCurlyBraceletIncreaseTab(output);
-                Write_ClassNormal(output, classNameBs, classNameDal, classNameTypeLibrary);
-                AtStartCurlyBraceletIncreaseTab(output);
-                AtEndCurlyBraceletDecreaseTab(output);
+                Write_ClassNormalDatabaseSpecific(output);
                 Write_NamespaceEndCurlyBracelet(output);
                 output.SaveEncoding(outputFullFileName, "o", "utf8");
                 output.Clear();
@@ -192,8 +193,15 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        protected abstract void Write_ClassNormal(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary);
-        protected abstract void Write_ClassGenerated(IOutput output, string classNameBs, string classNameDal, string classNameTypeLibrary, bool identityExists, string identityType);
+        protected virtual void Write_ClassNormalDatabaseSpecific(IOutput output)
+        {
+            output.autoTab("public partial class ");
+            output.writeLine(classNameBs);
+            output.autoTabLn("{");
+            output.autoTabLn("}");
+        }
+
+        protected abstract void Write_ClassGeneratedDatabaseSpecific(IOutput output);
 
         protected abstract void Write_UsingsDatabaseSpecific(IOutput output);
 
