@@ -2,6 +2,8 @@
 
 ## Tests
 
+1. record struct?
+
 1. add intellisense comments
 
 somewhat done.
