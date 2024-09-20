@@ -1,6 +1,7 @@
 {
     "configurations": [
 
+
         {
             "name": "C#: ConsoleApp Debug Default",
             "type": "dotnet",
@@ -19,7 +20,21 @@
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,
             "externalConsole": false
+        },
+        {
+            "name": "C#: ConsoleApp ChinookSqliteAutoIncrement",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",            
+            "program": "${workspaceFolder}/Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp/bin/Debug/net6.0/Karkas.CodeGeneration.ConsoleApp.dll",
+            "args": ["--connectionname", "ChinookSqliteAutoIncrement"],
+            //"args": ["--connectionname", "ChinookSqlite"],
+            //"args": ["--connectionname", "ChinookSqlServerAutoIncrement"],
+            "cwd": "${workspaceRoot}",
+            "stopAtEntry": false,
+            "externalConsole": false
         }
+
 
     ]
 }
