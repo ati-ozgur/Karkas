@@ -16,8 +16,8 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
 
 
 
-        public SqlServerTypeLibraryGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig) 
-            : base(pDatabaseHelper,pCodeGenerationConfig)
+        public SqlServerTypeLibraryGenerator(CodeGenerationConfig pCodeGenerationConfig) 
+            : base(pCodeGenerationConfig)
         {
         }
 

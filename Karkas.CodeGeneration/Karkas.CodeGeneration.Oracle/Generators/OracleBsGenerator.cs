@@ -17,7 +17,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
      
    public class OracleBsGenerator : BsGenerator
     {
-        public OracleBsGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)        
+        public OracleBsGenerator(CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)        
         {
 
         }

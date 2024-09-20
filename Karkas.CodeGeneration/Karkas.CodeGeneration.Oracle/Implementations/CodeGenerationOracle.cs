@@ -19,7 +19,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
     public class CodeGenerationOracle : BaseCodeGenerationDatabase
     {
 
-        public CodeGenerationOracle(IAdoTemplate<IParameterBuilder> template,IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(template,pDatabaseHelper,pCodeGenerationConfig)        
+        public CodeGenerationOracle(IAdoTemplate<IParameterBuilder> template, CodeGenerationConfig pCodeGenerationConfig): base(template,pCodeGenerationConfig)        
         {
 
         }
@@ -217,17 +217,17 @@ ORDER BY SEQUENCE_NAME
 
         public override DalGenerator DalGenerator
         {
-            get { return new OracleDalGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
+            get { return new OracleDalGenerator(this.CodeGenerationConfig); }
         }
 
         public override TypeLibraryGenerator TypeLibraryGenerator
         {
-            get { return new TypeLibraryGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
+            get { return new TypeLibraryGenerator(this.CodeGenerationConfig); }
         }
 
         public override BsGenerator BsGenerator
         {
-            get { return new OracleBsGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
+            get { return new OracleBsGenerator(this.CodeGenerationConfig); }
         }
 
 

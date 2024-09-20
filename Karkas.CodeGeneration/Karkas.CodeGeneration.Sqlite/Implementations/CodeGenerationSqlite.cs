@@ -20,7 +20,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
     {
 
 
-        public CodeGenerationSqlite(IAdoTemplate<IParameterBuilder> template,IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(template,pDatabaseHelper,pCodeGenerationConfig) 
+        public CodeGenerationSqlite(IAdoTemplate<IParameterBuilder> template,CodeGenerationConfig pCodeGenerationConfig): base(template,pCodeGenerationConfig) 
         {
 
         }
@@ -185,17 +185,17 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         public override DalGenerator DalGenerator
         {
-            get { return new SqliteDalGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
+            get { return new SqliteDalGenerator(this.CodeGenerationConfig); }
         }
 
         public override TypeLibraryGenerator TypeLibraryGenerator
         {
-            get { return new TypeLibraryGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
+            get { return new TypeLibraryGenerator(this.CodeGenerationConfig); }
         }
 
         public override BsGenerator BsGenerator
         {
-            get { return new SqliteBsGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
+            get { return new SqliteBsGenerator(this.CodeGenerationConfig); }
         }
 
     }

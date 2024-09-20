@@ -10,16 +10,13 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 {
     public class TableSqlServer : ITable
     {
-        private IDatabase database;
-
         private string tableName;
         private string schemaName;
 
 
 
-        public TableSqlServer(IDatabase pDatabase, IAdoTemplate<IParameterBuilder> template,  string pTableName,string pSchemaName)
+        public TableSqlServer(IAdoTemplate<IParameterBuilder> template,  string pTableName,string pSchemaName)
         {
-            this.database = pDatabase;
             this.template = template;
             this.tableName = pTableName;
             this.schemaName = pSchemaName;
@@ -40,9 +37,10 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 
         public IDatabase Database
         {
+            // TODO will look if it is needed.
             get
             {
-                return database;
+                return null;
             }
         }
 

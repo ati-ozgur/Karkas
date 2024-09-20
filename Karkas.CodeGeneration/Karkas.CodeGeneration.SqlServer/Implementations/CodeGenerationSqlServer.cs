@@ -19,8 +19,8 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
     public class CodeGenerationSqlServer : BaseCodeGenerationDatabase
     {
 
-        public CodeGenerationSqlServer(IAdoTemplate<IParameterBuilder> pTemplate,IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig)
-        : base(pTemplate,pDatabaseHelper,pCodeGenerationConfig)        
+        public CodeGenerationSqlServer(IAdoTemplate<IParameterBuilder> pTemplate,CodeGenerationConfig pCodeGenerationConfig)
+        : base(pTemplate,pCodeGenerationConfig)        
         {
 
         }
@@ -43,7 +43,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
                     {
                         string schemaName = row[SCHEMA_NAME_IN_TABLE_SQL_QUERIES].ToString();
                         string tableName = row[TABLE_NAME_IN_TABLE_SQL_QUERIES].ToString();
-                        ITable t = new TableSqlServer(this.DatabaseHelper, Template, tableName, schemaName);
+                        ITable t = new TableSqlServer(Template, tableName, schemaName);
                         _tableList.Add(t);
                     }
 
@@ -66,7 +66,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
                     List<Dictionary<string,object>>  dtViews = getViewListFromSchema(null);
                     foreach (var row in dtViews)
                     {
-                        IView t = new ViewSqlServer(this.DatabaseHelper, Template, row["TABLE_NAME"].ToString(), row["TABLE_SCHEMA"].ToString());
+                        IView t = new ViewSqlServer(Template, row["TABLE_NAME"].ToString(), row["TABLE_SCHEMA"].ToString());
                         _viewList.Add(t);
                     }
                 }
@@ -84,7 +84,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 
         public override ITable getTable(string pTableName, string pSchemaName)
         {
-            ITable t = new TableSqlServer(this.DatabaseHelper, Template, pTableName, pSchemaName);
+            ITable t = new TableSqlServer(Template, pTableName, pSchemaName);
             return t;
         }
 
@@ -275,23 +275,23 @@ ORDER BY SEQUENCE_NAME
 
         public override IView GetView(string pViewName, string pSchemaName)
         {
-            return new ViewSqlServer(this.DatabaseHelper, Template, pViewName, pSchemaName);
+            return new ViewSqlServer( Template, pViewName, pSchemaName);
         }
 
 
         public override DalGenerator DalGenerator
         {
-            get { return new SqlServerDalGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
+            get { return new SqlServerDalGenerator(this.CodeGenerationConfig); }
         }
 
         public override TypeLibraryGenerator TypeLibraryGenerator
         {
-            get { return new SqlServerTypeLibraryGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
+            get { return new SqlServerTypeLibraryGenerator(this.CodeGenerationConfig); }
         }
 
         public override BsGenerator BsGenerator
         {
-            get { return new SqlServerBsGenerator(this.DatabaseHelper,this.CodeGenerationConfig); }
+            get { return new SqlServerBsGenerator(this.CodeGenerationConfig); }
         }
 
 

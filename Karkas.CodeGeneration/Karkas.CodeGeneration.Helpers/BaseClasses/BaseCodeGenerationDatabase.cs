@@ -15,7 +15,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         IAdoTemplate<IParameterBuilder> template;
 
 
-        public BaseCodeGenerationDatabase(IAdoTemplate<IParameterBuilder> pTemplate,IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
+        public BaseCodeGenerationDatabase(IAdoTemplate<IParameterBuilder> pTemplate, CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)
         {
             this.template = pTemplate;
         }
@@ -176,7 +176,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
 
         public virtual void CodeGenerateOneSequence(string schemaName, string sequenceName)
         {
-            SequenceGenerator seqGen = new SequenceGenerator(this.DatabaseHelper,this.CodeGenerationConfig);
+            SequenceGenerator seqGen = new SequenceGenerator(this.CodeGenerationConfig);
             seqGen.Render(Output, schemaName, sequenceName);
         }
         public string CodeGenerateAllSequencesInSchema(string schemaName)

@@ -16,7 +16,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
 
     public class SqliteBsGenerator : BsGenerator
     {
-        public SqliteBsGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)        
+        public SqliteBsGenerator(CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)        
         {
         }
 

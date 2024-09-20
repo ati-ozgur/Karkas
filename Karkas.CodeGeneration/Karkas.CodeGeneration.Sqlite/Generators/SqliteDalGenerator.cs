@@ -15,8 +15,8 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
 {
     public class SqliteDalGenerator : DalGenerator
     {
-        public SqliteDalGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig)
-            : base(pDatabaseHelper,pCodeGenerationConfig)
+        public SqliteDalGenerator(CodeGenerationConfig pCodeGenerationConfig)
+            : base(pCodeGenerationConfig)
         {
         }
 

@@ -38,7 +38,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         protected List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
 
-        public BsGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
+        public BsGenerator(CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)
         {
             utils = new Utils(pCodeGenerationConfig);
         }

@@ -10,15 +10,13 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
     public abstract class BaseGenerator
     {
 
-        IDatabase databaseHelper;
         CodeGenerationConfig codeGenerationConfig;
 
-        public IDatabase DatabaseHelper { get => databaseHelper; set => databaseHelper = value; }
         public CodeGenerationConfig CodeGenerationConfig { get => codeGenerationConfig; set => codeGenerationConfig = value; }
 
-        public BaseGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig)
+        public BaseGenerator(CodeGenerationConfig pCodeGenerationConfig)
         {
-            this.DatabaseHelper = pDatabaseHelper;
+
             this.CodeGenerationConfig = pCodeGenerationConfig;
 
         }

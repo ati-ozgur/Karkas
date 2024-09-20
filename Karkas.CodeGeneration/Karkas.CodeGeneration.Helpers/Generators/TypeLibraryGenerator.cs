@@ -13,7 +13,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 {
     public class TypeLibraryGenerator : BaseGenerator
     {
-        public TypeLibraryGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
+        public TypeLibraryGenerator(CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)
         {
             utils = new Utils(pCodeGenerationConfig);
         }

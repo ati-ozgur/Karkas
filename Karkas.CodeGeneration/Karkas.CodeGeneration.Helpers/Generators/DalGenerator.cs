@@ -24,7 +24,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         string pkNamePascalCase = "";
         string pkType = "";
 
-        public DalGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
+        public DalGenerator(CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)
         {
             utils = new Utils(pCodeGenerationConfig);
         }

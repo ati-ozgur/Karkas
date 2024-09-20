@@ -68,38 +68,38 @@ namespace Karkas.CodeGeneration.ConsoleApp
         }
 
 
-        private static void generateCode(CodeGenerationConfig db)
+        private static void generateCode(CodeGenerationConfig codeGenerationConfig)
         {
 
-            Console.WriteLine($"trying connection string {db.ConnectionString}");
+            Console.WriteLine($"trying connection string {codeGenerationConfig.ConnectionString}");
 
-            IAdoTemplate<IParameterBuilder> template =  ConnectionHelper.TestConnection(db.ConnectionDatabaseType, db.ConnectionString);
+            IAdoTemplate<IParameterBuilder> template =  ConnectionHelper.TestConnection(codeGenerationConfig.ConnectionDatabaseType, codeGenerationConfig.ConnectionString);
             if (template == null)
             {
-                Console.WriteLine($"error in connecting sqlite using connection string {db.ConnectionString}");
+                Console.WriteLine($"error in connecting sqlite using connection string {codeGenerationConfig.ConnectionString}");
                 return;
             }
             else
             {
-                Console.WriteLine($"Successfully connected. Starting code generation in folder {db.CodeGenerationDirectory}");
+                Console.WriteLine($"Successfully connected. Starting code generation in folder {codeGenerationConfig.CodeGenerationDirectory}");
             }
 
 
             BaseCodeGenerationDatabase generator = null;
-            switch (db.ConnectionDatabaseType)
+            switch (codeGenerationConfig.ConnectionDatabaseType)
             {
                 case "sqlite":
-                    generator = new CodeGenerationSqlite(template,null,db);
+                    generator = new CodeGenerationSqlite(template,codeGenerationConfig);
                     break;
                 case "SqlServer":
-                    generator = new CodeGenerationSqlServer(template,null,db);
+                    generator = new CodeGenerationSqlServer(template,codeGenerationConfig);
                     break;
                 case "Oracle":
-                    generator = new CodeGenerationOracle(template,null,db);
+                    generator = new CodeGenerationOracle(template,codeGenerationConfig);
                     break;
 
                 default:
-                    Console.WriteLine($"NOT Supported yet in command line {db.ConnectionDatabaseType}");
+                    Console.WriteLine($"NOT Supported yet in command line {codeGenerationConfig.ConnectionDatabaseType}");
                     break;
             }
             

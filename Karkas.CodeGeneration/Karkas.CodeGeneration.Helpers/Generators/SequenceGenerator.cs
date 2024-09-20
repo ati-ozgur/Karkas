@@ -18,7 +18,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         string baseNameSpace = "";
         string baseNameSpaceTypeLibrary = "";
 
-        public SequenceGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
+        public SequenceGenerator(CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)
         {
             utils = new Utils(pCodeGenerationConfig);
         }
@@ -51,7 +51,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-            Write_SelectSequenceStrings(output, this.DatabaseHelper, schemaName, sequenceName);
+            Write_SelectSequenceStrings(output,  schemaName, sequenceName);
             Write_GetNextSequenceValue(output);
             Write_GetCurrentSequenceValue(output);
             AtEndCurlyBraceletDecreaseTab(output);
@@ -81,7 +81,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab(output);
         }
 
-        private void Write_SelectSequenceStrings(IOutput output, IDatabase database, string schemaName, string sequenceName)
+        private void Write_SelectSequenceStrings(IOutput output, string schemaName, string sequenceName)
         {
             string selectNextSequenceString = "";
             string selectCurrentSequenceString = $"private const string selectCurrentSequenceString = \"SELECT last_number FROM all_sequences WHERE sequence_owner = '{schemaName}' AND sequence_name = '{sequenceName}'\";";

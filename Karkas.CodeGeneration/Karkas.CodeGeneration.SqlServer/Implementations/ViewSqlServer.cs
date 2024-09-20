@@ -10,14 +10,14 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
     public class ViewSqlServer : IView
     {
 
-        public ViewSqlServer(IDatabase database, IAdoTemplate<IParameterBuilder> template, string viewName, string schemaName)
+        public ViewSqlServer(IAdoTemplate<IParameterBuilder> template, string viewName, string schemaName)
         {
-            this.database = database;
+
             this.template = template;
             this.viewName = viewName;
             this.schemaName = schemaName;
         }
-        IDatabase database;
+
         IAdoTemplate<IParameterBuilder> template;
         string viewName;
         string schemaName;
@@ -35,9 +35,10 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 
         public IDatabase Database
         {
+            // TODO will look if it is needed
             get 
             {
-                return database;
+                throw new NotImplementedException("IDatabase");
             }
         }
 
