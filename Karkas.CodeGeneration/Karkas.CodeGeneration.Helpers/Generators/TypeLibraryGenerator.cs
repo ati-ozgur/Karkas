@@ -29,13 +29,25 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.tabLevel = 0;
             SetFields(container);
 
+            Create_GeneratedClassFile(container);
+
+            if (!File.Exists(outputFullFileName) || CodeGenerationConfig.GenerateNormalClassAgain)
+            {
+                GenerateNormalClassFile();
+            }
+
+
+        }
+
+        private void Create_GeneratedClassFile(IContainer container)
+        {
             Write_UsingNamespaces();
 
             Write_Namespacestart();
 
             Write_ClassName(container);
 
-            output.autoTabLn("{");
+
 
             Write_MemberVariables(container);
 
@@ -53,16 +65,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.Clear();
-
-
-
-
-            if (!File.Exists(outputFullFileName) || CodeGenerationConfig.GenerateNormalClassAgain)
-            {
-                GenerateNormalClassFile();
-            }
-
-
         }
 
         private void SetFields(IContainer container)
@@ -88,14 +90,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             Write_Namespacestart();
             //output.increaseTab();
             string classNameValidation = className + "Validation";
-            Write_NormalClass(output, className, classNameValidation);
+            Write_NormalClassLines(className, classNameValidation);
             Write_ValidationClass(classNameValidation);
             AtEndCurlyBraceletDecreaseTab();
             output.Save(outputFullFileName, CodeGenerationConfig.GenerateNormalClassAgain);
             output.Clear();
         }
 
-        protected void Write_NormalClass(IOutput output, string className, string classNameValidation)
+        protected void Write_NormalClassLines(string className, string classNameValidation)
         {
             string metadataAttribute = string.Format("[MetadataType(typeof({0}))]",classNameValidation);
             output.autoTabLn(metadataAttribute);
@@ -170,7 +172,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTab("public partial class ");
             output.autoTab(className + ": BaseTypeLibrary");
             output.writeLine("");
-
+            AtStartCurlyBraceletIncreaseTab();
 
         }
 
@@ -212,7 +214,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void Write_Properties(IContainer container)
         {
-            output.increaseTab();
             foreach (IColumn column in container.Columns)
             {
                 string memberVariableName = utils.GetCamelCase(column.Name);
@@ -243,7 +244,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.autoTabLn("}");
                 output.writeLine("");
             }
-            output.decreaseTab();
         }
 
         private const int CHARACTER_MAX_LENGTH_IN_DATABASE = 8000;
@@ -272,7 +272,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         // TODO Do I need it? Think. If not remove it. Was is for i18n?
         private void PropertiesAsStringWrite(IOutput output, IContainer container)
         {
-            output.increaseTab();
             foreach (IColumn column in container.Columns)
             {
                 string tipi = utils.GetLanguageType(column);
@@ -308,7 +307,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.autoTabLn("}");
                 output.writeLine("");
             }
-            output.decreaseTab();
         }
 
         private void Write_ReturnToStringValue(IColumn column, IOutput output, string memberVariableName)
@@ -327,7 +325,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void Write_ShallowCopy(IContainer container)
         {
-            output.increaseTab();
             output.autoTabLn(string.Format("public {0} ShallowCopy()", className));
             output.autoTabLn("{");
             output.increaseTab();
@@ -337,7 +334,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.autoTabLn(string.Format("obj.{0} = {0};", utils.GetCamelCase(column.Name)));
             }
             output.autoTabLn("return obj;");
-            output.decreaseTab();
             output.autoTabLn("}");
             output.autoTabLn("");
 
@@ -346,12 +342,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void Write_MemberVariables(IContainer container)
         {
-            output.increaseTab();
             foreach (IColumn column in container.Columns)
             {
                 output.autoTabLn(String.Format("private {0} {1};", utils.GetLanguageType(column), utils.GetCamelCase(column.Name)));
             }
-            output.decreaseTab();
             output.writeLine("");
         }
 
