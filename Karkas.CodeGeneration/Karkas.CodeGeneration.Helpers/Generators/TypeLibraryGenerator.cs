@@ -33,7 +33,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             if (!File.Exists(outputFullFileName) || CodeGenerationConfig.GenerateNormalClassAgain)
             {
-                GenerateNormalClassFile();
+                Create_NormalClassFile();
             }
 
 
@@ -60,7 +60,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             output.writeLine("");
 
-            AtEndCurlyBraceletDecreaseTab();
+
+            Write_ClassEndCurlyBracelet();
             Write_NamespaceEndCurlyBracelet();
 
             output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
@@ -84,8 +85,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForTypeLibraryGenerated(CodeGenerationConfig, schemaName, className, CodeGenerationConfig.UseSchemaNameInFolders);
         }
 
-        private void GenerateNormalClassFile()
+        private void Create_NormalClassFile()
         {
+            output.Clear();
+            output.tabLevel = 0;
             Write_UsingNamespaces();
             Write_Namespacestart();
             //output.increaseTab();
