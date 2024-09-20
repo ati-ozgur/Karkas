@@ -51,45 +51,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             output.Clear();
             output.tabLevel = 0;
-            baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
-            baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
-
-            pkName = utils.FindPrimaryKeyColumnName(container);
-            pkNamePascalCase = utils.GetPascalCase(pkName);
-
-            if (container is ITable && (!((ITable)container).HasPrimaryKey))
-            {
-                string warningMessage =
-                 "Chosen Table " + container.Name + " has NO Primary Key. Code Generation (DAL) only works with tables who has primaryKey.";
-                throw new Exception(warningMessage);
-            }
-
-
-            classNameTypeLibrary = utils.getClassNameForTypeLibrary(container.Name, listDatabaseAbbreviations);
-            schemaName = utils.GetPascalCase(container.Schema);
-
-            classNameSpace = baseNameSpaceTypeLibrary;
-            if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
-            {
-                classNameSpace = classNameSpace + "." + schemaName;
-            }
-
-            pkSentence = "";
-
-            baseNameSpaceDal = baseNameSpace + ".Dal";
-            if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
-            {
-                baseNameSpaceDal = baseNameSpaceDal + "." + schemaName;
-            }
-
-
-
-            pkType = utils.FindPrimaryKeyType(container);
-
-            listType = "List<" + classNameTypeLibrary + ">";
-
-            outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForDalGenerated(schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
-            outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInSqlQueries);
+            SetFields(container, listDatabaseAbbreviations);
 
             Write_Usings();
 
@@ -143,6 +105,49 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             return "";
 
 
+        }
+
+        private void SetFields(IContainer container, List<DatabaseAbbreviations> listDatabaseAbbreviations)
+        {
+            baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
+            baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
+
+            pkName = utils.FindPrimaryKeyColumnName(container);
+            pkNamePascalCase = utils.GetPascalCase(pkName);
+
+            if (container is ITable && (!((ITable)container).HasPrimaryKey))
+            {
+                string warningMessage =
+                 "Chosen Table " + container.Name + " has NO Primary Key. Code Generation (DAL) only works with tables who has primaryKey.";
+                throw new Exception(warningMessage);
+            }
+
+
+            classNameTypeLibrary = utils.getClassNameForTypeLibrary(container.Name, listDatabaseAbbreviations);
+            schemaName = utils.GetPascalCase(container.Schema);
+
+            classNameSpace = baseNameSpaceTypeLibrary;
+            if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
+            {
+                classNameSpace = classNameSpace + "." + schemaName;
+            }
+
+            pkSentence = "";
+
+            baseNameSpaceDal = baseNameSpace + ".Dal";
+            if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
+            {
+                baseNameSpaceDal = baseNameSpaceDal + "." + schemaName;
+            }
+
+
+
+            pkType = utils.FindPrimaryKeyType(container);
+
+            listType = "List<" + classNameTypeLibrary + ">";
+
+            outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForDalGenerated(schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
+            outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInSqlQueries);
         }
 
         private void Write_MainClass()

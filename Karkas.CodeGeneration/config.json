@@ -12,7 +12,7 @@
     "UseSchemaNameInNamespaces": false,
     "UseSchemaNameInSqlQueries": false,
     "UseSchemaNameInFolders": false,    
-    "UseQuotesInQueries": true,
+    "UseQuotesInQueries": false,
     "UseGlobalUsings": true,
     "TableCodeGenerate": true,
     "ViewCodeGenerate": false,
