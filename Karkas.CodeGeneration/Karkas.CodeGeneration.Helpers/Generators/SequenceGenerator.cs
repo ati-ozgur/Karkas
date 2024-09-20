@@ -53,8 +53,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             Write_SelectSequenceStrings(output,  schemaName, sequenceName);
             Write_GetNextSequenceValue(output);
             Write_GetCurrentSequenceValue(output);
-            AtEndCurlyBraceletDecreaseTab(output);
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
+            AtEndCurlyBraceletDecreaseTab();
 
             output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.Clear();
@@ -67,17 +67,17 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             output.autoTabLn("");
             output.autoTabLn("public decimal GetNextSequenceValue()");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             output.autoTabLn("return (decimal) Template.BringOneValue(selectNextSequenceString);");
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
         }
         private void Write_GetCurrentSequenceValue(IOutput output)
         {
             output.autoTabLn("");
             output.autoTabLn("public decimal GetCurrentSequenceValue()");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             output.autoTabLn("return (decimal) Template.BringOneValue(selectCurrentSequenceString);");
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
         }
 
         private void Write_SelectSequenceStrings(IOutput output, string schemaName, string sequenceName)
@@ -113,7 +113,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTab("namespace ");
             output.autoTab(baseNameSpaceSequencesDal);
             output.autoTabLn("");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
         }
 
 
@@ -121,18 +121,18 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             output.increaseTab();
             output.autoTab($"public partial class {className} : BaseDalWithoutEntityOracle");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
         }
 
         private void Write_OverrideDbProviderName(IOutput output)
         {
             output.autoTabLn("public override string DbProviderName");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             output.autoTabLn("get");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             output.autoTabLn(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionDbProviderName));
-            AtEndCurlyBraceletDecreaseTab(output);
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
+            AtEndCurlyBraceletDecreaseTab();
         }
 
     }

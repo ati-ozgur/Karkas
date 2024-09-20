@@ -149,9 +149,9 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
                 ITable table = this.getTable(pTableName, pSchemaName);
 
 
-                typeGen.Render(Output, table);
-                dalGen.Render(Output, table);
-                bsGen.Render(Output, table);
+                typeGen.Render(table);
+                dalGen.Render(table);
+                bsGen.Render(table);
 
             }
 
@@ -168,16 +168,16 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
             IView view = GetView( pViewName, pSchemaName);
 
 
-            typeGen.Render(Output, view);
-            dalGen.Render(Output, view);
-            bsGen.Render(Output, view);
+            typeGen.Render(view);
+            dalGen.Render(view);
+            bsGen.Render(view);
         }
 
 
         public virtual void CodeGenerateOneSequence(string schemaName, string sequenceName)
         {
             SequenceGenerator seqGen = new SequenceGenerator(this.CodeGenerationConfig);
-            seqGen.Render(Output, schemaName, sequenceName);
+            seqGen.Render(output, schemaName, sequenceName);
         }
         public string CodeGenerateAllSequencesInSchema(string schemaName)
         {

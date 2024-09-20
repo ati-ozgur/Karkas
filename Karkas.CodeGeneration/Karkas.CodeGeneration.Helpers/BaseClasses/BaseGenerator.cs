@@ -27,15 +27,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         public CodeGenerationConfig CodeGenerationConfig { get => codeGenerationConfig; set => codeGenerationConfig = value; }
 
 
-        BaseOutput output;
-        public BaseOutput Output 
-        { 
-            get
-            {
-                return output;
-            }
-        
-        }
+        protected BaseOutput output;
 
         public BaseGenerator(CodeGenerationConfig pCodeGenerationConfig)
         {
@@ -48,41 +40,41 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
 
         
 
-        protected void AtStartCurlyBraceletIncreaseTab(IOutput output)
+        protected void AtStartCurlyBraceletIncreaseTab()
         {
             output.autoTabLn("{");
             output.increaseTab();
         }
-        protected void AtEndCurlyBraceletDecreaseTab(IOutput output)
+        protected void AtEndCurlyBraceletDecreaseTab()
         {
             output.decreaseTab();
             output.autoTabLn("}");
         }
-        protected void AtStartCurlyBracelet(IOutput output)
+        protected void AtStartCurlyBracelet()
         {
             output.autoTabLn("{");            
         }
-        protected void AtEndCurlyBracelet(IOutput output)
+        protected void AtEndCurlyBracelet()
         {
             output.autoTabLn("}");
         }
 
-        protected void Write_ClassStartCurlyBracelet(IOutput output)
+        protected void Write_ClassStartCurlyBracelet()
         {
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
         }
 
-        protected void Write_ClassEndCurlyBracelet(IOutput output)
+        protected void Write_ClassEndCurlyBracelet()
         {
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
         }
-        protected void Write_NamespaceStartCurlyBracelet(IOutput output)
+        protected void Write_NamespaceStartCurlyBracelet()
         {
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
         }
-        protected void Write_NamespaceEndCurlyBracelet(IOutput output)
+        protected void Write_NamespaceEndCurlyBracelet()
         {
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
         }
     }
 }

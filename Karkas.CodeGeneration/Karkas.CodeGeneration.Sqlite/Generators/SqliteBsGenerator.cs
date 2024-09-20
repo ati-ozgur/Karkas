@@ -21,7 +21,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         }
 
 
-        protected override void Write_ClassGeneratedDatabaseSpecific(IOutput output)
+        protected override void Write_ClassGeneratedDatabaseSpecific()
         {
             output.autoTab("public partial class ");
             output.write(classNameBs);
@@ -40,7 +40,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         }
 
 
-        protected override void Write_UsingsDatabaseSpecific(IOutput output)
+        protected override void Write_UsingsDatabaseSpecific()
         {
             output.autoTabLn("using Microsoft.Data.Sqlite;");
             output.autoTabLn("using Karkas.Core.Data.Sqlite;");

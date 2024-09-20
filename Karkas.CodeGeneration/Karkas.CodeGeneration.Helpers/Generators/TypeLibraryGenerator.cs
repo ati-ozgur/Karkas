@@ -21,8 +21,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         protected string baseNameSpaceTypeLibrary;
 
-        public void Render(IOutput output
-            , IContainer container)
+        public void Render(IContainer container)
         {
 
 
@@ -30,27 +29,27 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.tabLevel = 0;
             SetFields(container);
 
-            Write_UsingNamespaces(output, classNameSpace);
+            Write_UsingNamespaces();
 
-            Write_Namespacestart(output, classNameSpace);
+            Write_Namespacestart();
 
-            Write_ClassName(output, className, container);
+            Write_ClassName(container);
 
             output.autoTabLn("{");
 
-            Write_MemberVariables(output, container);
+            Write_MemberVariables(container);
 
-            Write_Properties(output, container);
+            Write_Properties(container);
 
-            Write_ShallowCopy(output, container, className);
+            Write_ShallowCopy(container);
 
-            Write_ColumnNames(output, container, className);
+            Write_ColumnNames(container);
 
 
             output.writeLine("");
 
-            AtEndCurlyBraceletDecreaseTab(output);
-            Write_NamespaceEndCurlyBracelet(output);
+            AtEndCurlyBraceletDecreaseTab();
+            Write_NamespaceEndCurlyBracelet();
 
             output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.Clear();
@@ -60,7 +59,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             if (!File.Exists(outputFullFileName) || CodeGenerationConfig.GenerateNormalClassAgain)
             {
-                GenerateNormalClassFile(output, className, classNameSpace, outputFullFileName);
+                GenerateNormalClassFile();
             }
 
 
@@ -83,15 +82,15 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForTypeLibraryGenerated(CodeGenerationConfig, schemaName, className, CodeGenerationConfig.UseSchemaNameInFolders);
         }
 
-        private void GenerateNormalClassFile(IOutput output, string className, string classNameSpace, string outputFullFileName)
+        private void GenerateNormalClassFile()
         {
-            Write_UsingNamespaces(output, classNameSpace);
-            Write_Namespacestart(output, classNameSpace);
+            Write_UsingNamespaces();
+            Write_Namespacestart();
             //output.increaseTab();
             string classNameValidation = className + "Validation";
             Write_NormalClass(output, className, classNameValidation);
-            Write_ValidationClass(output,  className, classNameValidation);
-            AtEndCurlyBraceletDecreaseTab(output);
+            Write_ValidationClass(classNameValidation);
+            AtEndCurlyBraceletDecreaseTab();
             output.Save(outputFullFileName, CodeGenerationConfig.GenerateNormalClassAgain);
             output.Clear();
         }
@@ -102,14 +101,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn(metadataAttribute);
             output.autoTab("public partial class ");
             output.autoTabLn(className);
-            AtStartCurlyBraceletIncreaseTab(output);
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
+            AtEndCurlyBraceletDecreaseTab();
         }
-        protected void Write_ValidationClass(IOutput output,  string className, string classNameValidation)
+        protected void Write_ValidationClass(string classNameValidation)
         {
             output.autoTab("public class ");
             output.autoTabLn(classNameValidation);
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             string mainArticleHelpImage = "http://weblogs.asp.net/blogs/scottgu/image_5F336E46.png";
             string mainArticleUrl  = "http://weblogs.asp.net/scottgu/archive/2010/01/15/asp-net-mvc-2-model-validation.aspx";
             string msDataAnnotationsHelpUrl = "http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx";
@@ -131,13 +130,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.autoTabLn("// public int Age { get; set; }");
                 output.autoTabLn("");
             }
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
         }
 
 
 
 
-        protected virtual void Write_UsingNamespaces(IOutput output, string classNameSpace)
+        protected virtual void Write_UsingNamespaces()
         {
             if (!CodeGenerationConfig.UseGlobalUsings)
             {
@@ -154,16 +153,16 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
-        private void Write_Namespacestart(IOutput output, string classNameSpace)
+        private void Write_Namespacestart()
         {
 
             output.autoTab("namespace ");
             output.autoTabLn(classNameSpace);
             output.write("");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
         }
 
-        private void Write_ClassName(IOutput output, string className, IContainer container)
+        private void Write_ClassName(IContainer container)
         {
             output.increaseTab();
             output.autoTabLn("[Serializable]");
@@ -196,10 +195,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        private void Write_ColumnNames(IOutput output, IContainer container, string className)
+        private void Write_ColumnNames(IContainer container)
         {
             output.autoTabLn("public class ColumnNames");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             string columnName = "";
             foreach (IColumn column in container.Columns)
             {
@@ -207,11 +206,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 string sentence = string.Format("public const string {0} = \"{1}\";", columnName, column.Name);
                 output.autoTabLn(sentence);
             }
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
 
         }
 
-        private void Write_Properties(IOutput output, IContainer container)
+        private void Write_Properties(IContainer container)
         {
             output.increaseTab();
             foreach (IColumn column in container.Columns)
@@ -326,13 +325,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        private void Write_ShallowCopy(IOutput output, IContainer container, string pTypeName)
+        private void Write_ShallowCopy(IContainer container)
         {
             output.increaseTab();
-            output.autoTabLn(string.Format("public {0} ShallowCopy()", pTypeName));
+            output.autoTabLn(string.Format("public {0} ShallowCopy()", className));
             output.autoTabLn("{");
             output.increaseTab();
-            output.autoTabLn(string.Format("{0} obj = new {0}();", pTypeName));
+            output.autoTabLn(string.Format("{0} obj = new {0}();", className));
             foreach (IColumn column in container.Columns)
             {
                 output.autoTabLn(string.Format("obj.{0} = {0};", utils.GetCamelCase(column.Name)));
@@ -345,7 +344,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void Write_MemberVariables(IOutput output, IContainer container)
+        private void Write_MemberVariables(IContainer container)
         {
             output.increaseTab();
             foreach (IColumn column in container.Columns)

@@ -43,26 +43,26 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             return "";
         }
 
-        protected override void Write_UsingsAdditional(IOutput output)
+        protected override void Write_UsingsAdditional()
         {
             output.write("using Karkas.Core.Data.Oracle;");
         }
 
-        protected override void Write_ClassGenerated(IOutput output, string classNameTypeLibrary, IContainer container)
+        protected override void Write_ClassGenerated(string classNameTypeLibrary, IContainer container)
         {
             bool identityExists = utils.IdentityExists(container);
             string identityType = utils.GetIdentityType(container);
             if (identityExists)
             {
-                ClassWriteIdentity(output, classNameTypeLibrary, identityType);
+                ClassWriteIdentity( classNameTypeLibrary, identityType);
             }
             else
             {
-                ClassWriteNormal(output, classNameTypeLibrary);
+                ClassWriteNormal( classNameTypeLibrary);
             }
         }
 
-        protected void ClassWriteNormal(IOutput output, string classNameTypeLibrary)
+        protected void ClassWriteNormal(string classNameTypeLibrary)
         {
             output.autoTab("public partial class ");
             output.write(classNameTypeLibrary);
@@ -70,9 +70,9 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.write(classNameTypeLibrary);
             output.write(", AdoTemplateOracle, ParameterBuilderOracle");
             output.writeLine(">");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
         }
-        protected void ClassWriteIdentity(IOutput output, string classNameTypeLibrary, string identityType)
+        protected void ClassWriteIdentity(string classNameTypeLibrary, string identityType)
         {
             output.autoTab("public partial class ");
             output.write(classNameTypeLibrary);
@@ -81,18 +81,18 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.write(identityType);
             output.write(", AdoTemplateOracle, ParameterBuilderOracle");
             output.writeLine(">");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
         }
 
-        protected override void Write_UsingDatabaseClient(IOutput output)
+        protected override void Write_UsingDatabaseClient()
         {
             output.autoTabLn("using Oracle.ManagedDataAccess;");
 
         }
 
-        protected override void Write_SetIdentityColumnValue(IOutput output, IContainer container)
+        protected override void Write_SetIdentityColumnValue(IContainer container)
         {
-            base.Write_SetIdentityColumnValue(output, container);
+            base.Write_SetIdentityColumnValue( container);
             bool identityExists = utils.IdentityExists(container);
             if (identityExists)
             {
@@ -105,13 +105,13 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         }
 
 
-        protected override void Write_InsertString(IOutput output, IContainer container)
+        protected override void Write_InsertString(IContainer container)
         {
 
             output.autoTabLn("protected override string InsertString");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             output.autoTabLn("get ");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             if (container is ITable)
             {
 
@@ -153,16 +153,16 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             {
                 output.autoTabLn("throw new NotSupportedException(\" Insert/Update/Delete is not supported for VIEWs \");");
             }
-            AtEndCurlyBraceletDecreaseTab(output);
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
+            AtEndCurlyBraceletDecreaseTab();
         }
 
-        public override void Write_InsertCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void Write_InsertCommandParametersAdd(IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
             output.writeLine(" row)");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             output.autoTabLn("ParameterBuilderOracle builder = (ParameterBuilderOracle)Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
 
@@ -170,29 +170,29 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             {
                 if (!shouldAddColumnToParameters(column))
                 {
-                    builderParameterAdd(output, column);
+                    builderParameterAdd( column);
                 }
                 else if (column.IsIdentity)
                 {
-                    builderParameterAddOutputForIdentity(output, column);
+                    builderParameterAddOutputForIdentity( column);
                 }
             }
 
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
         }
-        public override void builderParameterAdd(IOutput output, IColumn column)
+        public override void builderParameterAdd(IColumn column)
         {
             if (!column.isStringTypeWithoutLength && column.isStringType)
             {
-                builderParameterAddStringDbType(output, column);
+                builderParameterAddStringDbType( column);
             }
             else
             {
-                builderParameterAddNormal(output, column);
+                builderParameterAddNormal( column);
             }
         }
 
-        private void builderParameterAddStringDbType(IOutput output, IColumn column)
+        private void builderParameterAddStringDbType(IColumn column)
         {
             string s = "builder.AddParameter(\"" + parameterSymbol
                         + column.Name
@@ -206,7 +206,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.autoTabLn(s);
         }
 
-        private void builderParameterAddOutputForIdentity(IOutput output, IColumn column)
+        private void builderParameterAddOutputForIdentity(IColumn column)
         {
             string variableName = column.Name.ToLowerInvariant();
 
@@ -218,7 +218,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.autoTabLn(s);
         }
 
-        private void builderParameterAddOutput(IOutput output, IColumn column)
+        private void builderParameterAddOutput(IColumn column)
         {
             string s = "builder.AddParameterOutput(\"" + parameterSymbol
                         + column.Name
@@ -227,7 +227,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                         + ");";
             output.autoTabLn(s);
         }
-        private void builderParameterAddNormal(IOutput output, IColumn column)
+        private void builderParameterAddNormal(IColumn column)
         {
             string s = "builder.AddParameter(\"" + parameterSymbol
                         + column.Name
@@ -239,12 +239,12 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.autoTabLn(s);
         }
 
-        public override void Write_DeleteCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void Write_DeleteCommandParametersAdd(IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
             output.autoTabLn(" row)");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             output.autoTabLn("ParameterBuilderOracle builder = (ParameterBuilderOracle)Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
 
@@ -252,19 +252,19 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             {
                 if (column.IsInPrimaryKey)
                 {
-                    builderParameterAdd(output, column);
+                    builderParameterAdd( column);
                 }
             }
 
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
         }
 
-        public override void Write_UpdateCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void Write_UpdateCommandParametersAdd(IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
             output.autoTabLn(" row)");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             output.autoTabLn("ParameterBuilderOracle builder = (ParameterBuilderOracle)Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
 
@@ -272,14 +272,14 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             {
                 if (column.IsInPrimaryKey || !shouldAddColumnToParameters(column))
                 {
-                    builderParameterAdd(output, column);
+                    builderParameterAdd( column);
                 }
                 if (isColumnVersionTime(column))
                 {
-                    builderParameterAdd(output, column);
+                    builderParameterAdd( column);
                 }
             }
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
         }
 
         private static string[] reservedKeyWordsArray = {  "ACCESS", "ADD", "ALL", "ALTER", "AND", 

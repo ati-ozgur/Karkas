@@ -43,7 +43,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             }
         }
 
-        protected override void Write_UsingDatabaseClient(IOutput output)
+        protected override void Write_UsingDatabaseClient()
         {
             output.autoTabLn("using System.Data.SqlClient;");
             output.autoTabLn("using Karkas.Core.Data.SqlServer;");
@@ -57,7 +57,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         }
 
 
-        protected override void Write_ClassGenerated(IOutput output, string classNameTypeLibrary, IContainer container)
+        protected override void Write_ClassGenerated( string classNameTypeLibrary, IContainer container)
         {
             bool identityExists = utils.IdentityExists(container);
             string identityType = utils.GetIdentityType(container);
@@ -78,15 +78,15 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             
             output.write(", AdoTemplateSqlServer, ParameterBuilderSqlServer");
             output.writeLine(">");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
         }
 
-        public override void Write_InsertCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void Write_InsertCommandParametersAdd( IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
             output.writeLine(" row)");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             output.autoTabLn("ParameterBuilderSqlServer builder = (ParameterBuilderSqlServer)Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
 
@@ -94,18 +94,18 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             {
                 if (!shouldAddColumnToParameters(column))
                 {
-                    builderParameterAdd(output, column);
+                    builderParameterAdd(column);
                 }
             }
 
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
         }
-        public override void Write_DeleteCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void Write_DeleteCommandParametersAdd( IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
             output.autoTabLn(" row)");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             output.autoTabLn("ParameterBuilderSqlServer builder = (ParameterBuilderSqlServer)Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
 
@@ -113,19 +113,19 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             {
                 if (column.IsInPrimaryKey)
                 {
-                    builderParameterAdd(output, column);
+                    builderParameterAdd(column);
                 }
             }
 
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
         }
 
-        public override void Write_UpdateCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void Write_UpdateCommandParametersAdd( IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
             output.autoTabLn(" row)");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             output.autoTabLn("ParameterBuilderSqlServer builder = (ParameterBuilderSqlServer)Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
 
@@ -133,14 +133,14 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             {
                 if (column.IsInPrimaryKey || !shouldAddColumnToParameters(column))
                 {
-                    builderParameterAdd(output, column);
+                    builderParameterAdd(column);
                 }
                 if (isColumnVersionTime(column))
                 {
-                    builderParameterAdd(output, column);
+                    builderParameterAdd(column);
                 }
             }
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
         }
 
         private static string[] reservedKeyWordsArray = { "ADD", "EXTERNAL", "PROCEDURE", "ALL",

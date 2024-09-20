@@ -24,7 +24,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
 
 
-        protected override void Write_ClassGeneratedDatabaseSpecific(IOutput output)
+        protected override void Write_ClassGeneratedDatabaseSpecific()
         {
             output.autoTab("public partial class ");
             output.write(classNameBs);
@@ -42,7 +42,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.writeLine(">");
         }
 
-        protected override void Write_UsingsDatabaseSpecific(IOutput output)
+        protected override void Write_UsingsDatabaseSpecific()
         {
             output.autoTabLn("using Karkas.Core.Data.Oracle;");
             output.autoTabLn("using Oracle.ManagedDataAccess.Client;");

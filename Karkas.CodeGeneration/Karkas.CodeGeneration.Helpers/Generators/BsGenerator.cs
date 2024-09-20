@@ -40,8 +40,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         Utils utils = null;
 
 
-        public void Render(IOutput output
-            , IContainer container)
+        public void Render(IContainer container)
         {
 
 
@@ -51,29 +50,29 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             SetFields(container);
 
-            Write_ClassGenerated(output, container);
+            Write_ClassGenerated(container);
 
-            Write_ClassNormal(output);
+            Write_ClassNormal();
         }
 
-        private void Write_ClassGenerated(IOutput output, IContainer container)
+        private void Write_ClassGenerated( IContainer container)
         {
-            Write_Usings(output);
-            Write_NamespaceStart(output);
+            Write_Usings();
+            Write_NamespaceStart();
 
-            Write_ClassGeneratedDatabaseSpecific(output);
+            Write_ClassGeneratedDatabaseSpecific();
 
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             
-            Write_OverrideDatabaseName(output, container);
+            Write_OverrideDatabaseName(container);
             if (container is ITable && (!string.IsNullOrEmpty(pkName)))
             {
-                Write_DeleteCommandWithPK(output, container);
+                Write_DeleteCommandWithPK(container);
 
-                Write_QueryByPkName(output, container, classNameTypeLibrary, pkType, pkNamePascalCase);
+                Write_QueryByPkName(container, classNameTypeLibrary, pkType, pkNamePascalCase);
             }
-            AtEndCurlyBraceletDecreaseTab(output);
-            Write_NamespaceEndCurlyBracelet(output);
+            AtEndCurlyBraceletDecreaseTab();
+            Write_NamespaceEndCurlyBracelet();
 
             output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.Clear();
@@ -110,14 +109,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void Write_ClassNormal(IOutput output)
+        private void Write_ClassNormal()
         {
             if (!File.Exists(outputFullFileName) || CodeGenerationConfig.GenerateNormalClassAgain)
             {
-                Write_Usings(output);
-                Write_NamespaceStart(output);
-                Write_ClassNormalDatabaseSpecific(output);
-                Write_NamespaceEndCurlyBracelet(output);
+                Write_Usings();
+                Write_NamespaceStart();
+                Write_ClassNormalDatabaseSpecific();
+                Write_NamespaceEndCurlyBracelet();
                 output.SaveEncoding(outputFullFileName, "o", "utf8");
                 output.Clear();
             }
@@ -125,22 +124,22 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        private void Write_OverrideDatabaseName(IOutput output, IContainer container)
+        private void Write_OverrideDatabaseName( IContainer container)
         {
             if(CodeGenerationConfig.UseMultipleDatabaseNames)
             {
                 output.autoTabLn("public override string DatabaseName");
-                AtStartCurlyBraceletIncreaseTab(output);
+                AtStartCurlyBraceletIncreaseTab();
                 output.autoTabLn("get");
-                AtStartCurlyBraceletIncreaseTab(output);
+                AtStartCurlyBraceletIncreaseTab();
                 output.autoTabLn(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionName));
-                AtEndCurlyBraceletDecreaseTab(output);
-                AtEndCurlyBraceletDecreaseTab(output);
+                AtEndCurlyBraceletDecreaseTab();
+                AtEndCurlyBraceletDecreaseTab();
             }
         }
 
 
-        private static void Write_QueryByPkName(IOutput output, IContainer container, string classNameTypeLibrary, string pkType, string pkName)
+        private void Write_QueryByPkName( IContainer container, string classNameTypeLibrary, string pkType, string pkName)
         {
             ITable table = container as ITable;
             string variableName = "p" + pkName;
@@ -162,7 +161,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
-        private void Write_DeleteCommandWithPK(IOutput output, IContainer container)
+        private void Write_DeleteCommandWithPK( IContainer container)
         {
             ITable table = container as ITable;
             if (table != null)
@@ -172,30 +171,30 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                     IColumn pkColumn = utils.FindPrimaryKeyColumnNameIfOneColumn(container);
                     string pkPropertyName = utils.getPropertyVariableName(pkColumn);
                     output.autoTabLn(string.Format("public void Delete({0} p{1})", pkType, pkPropertyName));
-                    AtStartCurlyBraceletIncreaseTab(output);
+                    AtStartCurlyBraceletIncreaseTab();
                     // output.autoTabLn(string.Format("{0} row = new {0}();", classNameTypeLibrary));
 
                     output.autoTabLn(string.Format("dal.Delete( p{0});",pkPropertyName));
-                    AtEndCurlyBraceletDecreaseTab(output);
+                    AtEndCurlyBraceletDecreaseTab();
                 }
             }
 
         }
 
-        protected virtual void Write_ClassNormalDatabaseSpecific(IOutput output)
+        protected virtual void Write_ClassNormalDatabaseSpecific()
         {
             output.autoTab("public partial class ");
             output.writeLine(classNameBs);
-            Write_ClassStartCurlyBracelet(output);
-            Write_ClassEndCurlyBracelet(output);
+            Write_ClassStartCurlyBracelet();
+            Write_ClassEndCurlyBracelet();
         }
 
 
-        protected abstract void Write_ClassGeneratedDatabaseSpecific(IOutput output);
+        protected abstract void Write_ClassGeneratedDatabaseSpecific();
 
-        protected abstract void Write_UsingsDatabaseSpecific(IOutput output);
+        protected abstract void Write_UsingsDatabaseSpecific();
 
-        public void Write_Usings(IOutput output)
+        public void Write_Usings()
         {
             if (!CodeGenerationConfig.UseGlobalUsings)
             {
@@ -203,7 +202,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.autoTabLn("using System;");
                 output.autoTabLn("using System.Collections.Generic;");
                 output.autoTabLn("using System.Data;");
-                Write_UsingsDatabaseSpecific(output);
+                Write_UsingsDatabaseSpecific();
                 output.autoTabLn("using System.Text;");
                 output.autoTabLn("using Karkas.Core.DataUtil;");
                 output.autoTabLn("using Karkas.Core.DataUtil.BaseClasses;");
@@ -232,7 +231,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("");
         }
 
-        private void Write_NamespaceStart(IOutput output)
+        private void Write_NamespaceStart()
         {
             output.autoTab("namespace ");
             if (!string.IsNullOrWhiteSpace(schemaName))
@@ -244,7 +243,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.autoTab(baseNameSpace + ".Bs");
             }
             output.autoTabLn("");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
         }
     }
 

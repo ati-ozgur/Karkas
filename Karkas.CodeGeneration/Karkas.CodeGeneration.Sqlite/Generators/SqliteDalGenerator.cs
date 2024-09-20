@@ -22,7 +22,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
 
 
 
-        protected override void Write_ClassGenerated(IOutput output, string classNameTypeLibrary,IContainer container)
+        protected override void Write_ClassGenerated(string classNameTypeLibrary,IContainer container)
         {
 
             bool identityExists = utils.IdentityExists(container);
@@ -38,7 +38,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
                 output.write(identityType);
                 output.write(", AdoTemplateSqlite, ParameterBuilderSqlite");
                 output.writeLine(">");
-                AtStartCurlyBraceletIncreaseTab(output);
+                AtStartCurlyBraceletIncreaseTab();
             }
             else
             {
@@ -48,7 +48,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
                 output.write(classNameTypeLibrary);
                 output.write(", AdoTemplateSqlite, ParameterBuilderSqlite");
                 output.writeLine(">");
-                AtStartCurlyBraceletIncreaseTab(output);
+                AtStartCurlyBraceletIncreaseTab();
 
             }
         }
@@ -75,7 +75,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         {
             return ";select last_insert_rowid();";
         }
-        protected override void Write_UsingDatabaseClient(IOutput output)
+        protected override void Write_UsingDatabaseClient()
         {
             output.autoTabLn("using Microsoft.Data.Sqlite;");
             output.autoTabLn("using Karkas.Core.Data.Sqlite;");
@@ -83,12 +83,12 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         }
 
 
-        public override void Write_InsertCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void Write_InsertCommandParametersAdd(IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
             output.writeLine(" row)");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             output.autoTabLn("ParameterBuilderSqlite builder = (ParameterBuilderSqlite)Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
 
@@ -96,19 +96,19 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             {
                 if (!shouldAddColumnToParameters(column))
                 {
-                    builderParameterAdd(output, column);
+                    builderParameterAdd(column);
                 }
             }
 
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
         }
 
-        public override void Write_DeleteCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void Write_DeleteCommandParametersAdd(IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
             output.autoTabLn(" row)");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             output.autoTabLn("ParameterBuilderSqlite builder = (ParameterBuilderSqlite)Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
 
@@ -116,16 +116,16 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             {
                 if (column.IsInPrimaryKey)
                 {
-                    builderParameterAdd(output, column);
+                    builderParameterAdd(column);
                 }
             }
 
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
         }
 
-        protected override void Write_SetIdentityColumnValue(IOutput output, IContainer container)
+        protected override void Write_SetIdentityColumnValue(IContainer container)
         {
-            base.Write_SetIdentityColumnValue(output, container);
+            base.Write_SetIdentityColumnValue(container);
             bool identityExists = utils.IdentityExists(container);
             if(identityExists)
             {
@@ -138,12 +138,12 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         }
 
 
-        public override void Write_UpdateCommandParametersAdd(IOutput output, IContainer container, string classNameTypeLibrary)
+        public override void Write_UpdateCommandParametersAdd(IContainer container, string classNameTypeLibrary)
         {
             output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
             output.autoTabLn(" row)");
-            AtStartCurlyBraceletIncreaseTab(output);
+            AtStartCurlyBraceletIncreaseTab();
             output.autoTabLn("ParameterBuilderSqlite builder = (ParameterBuilderSqlite)Template.getParameterBuilder();");
             output.autoTabLn("builder.Command = cmd;");
 
@@ -151,14 +151,14 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             {
                 if (column.IsInPrimaryKey || !shouldAddColumnToParameters(column))
                 {
-                    builderParameterAdd(output, column);
+                    builderParameterAdd(column);
                 }
                 if (isColumnVersionTime(column))
                 {
-                    builderParameterAdd(output, column);
+                    builderParameterAdd(column);
                 }
             }
-            AtEndCurlyBraceletDecreaseTab(output);
+            AtEndCurlyBraceletDecreaseTab();
         }
 
 
