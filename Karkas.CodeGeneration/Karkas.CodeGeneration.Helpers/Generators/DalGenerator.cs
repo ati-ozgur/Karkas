@@ -91,8 +91,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             listType = "List<" + classNameTypeLibrary + ">";
 
-            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForDalGenerated(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
-            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInSqlQueries);
+            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForDalGenerated(schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
+            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInSqlQueries);
 
             Write_Usings(output, schemaName, baseNameSpaceTypeLibrary);
 

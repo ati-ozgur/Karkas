@@ -15,14 +15,20 @@ namespace Karkas.CodeGeneration.Helpers
         {
             get
             {
-                return new FileUtils();
+                return new FileUtils(codeGenerationConfig);
             }
         }
 
 
         public class FileUtils
         {
-            public string GetProjectMainDirectory(CodeGenerationConfig codeGenerationConfig)
+            CodeGenerationConfig codeGenerationConfig;
+            public FileUtils(CodeGenerationConfig pCodeGenerationConfig)
+            {
+                codeGenerationConfig = pCodeGenerationConfig;
+            }
+
+            public string GetProjectMainDirectory()
             {
                 return codeGenerationConfig.CodeGenerationDirectory;
             }
@@ -31,22 +37,22 @@ namespace Karkas.CodeGeneration.Helpers
             {
                 if (semaIsminiDizinlerdeKullan)
                 {
-                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + Path.DirectorySeparatorChar  + "Bs" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Bs" + Path.DirectorySeparatorChar  + schemaName, className + "Bs.generated.cs");
+                    return Path.Combine(GetProjectMainDirectory() + Path.DirectorySeparatorChar  + "Bs" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Bs" + Path.DirectorySeparatorChar  + schemaName, className + "Bs.generated.cs");
                 }
                 else
                 {
-                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + Path.DirectorySeparatorChar  + "Bs" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Bs" + Path.DirectorySeparatorChar , className + "Bs.generated.cs");
+                    return Path.Combine(GetProjectMainDirectory() + Path.DirectorySeparatorChar  + "Bs" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Bs" + Path.DirectorySeparatorChar , className + "Bs.generated.cs");
                 }
             }
             public string getBaseNameForBs(CodeGenerationConfig codeGenerationConfig, string schemaName, string className, bool semaIsminiDizinlerdeKullan)
             {
                 if (semaIsminiDizinlerdeKullan)
                 {
-                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + Path.DirectorySeparatorChar  + "Bs" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Bs" + Path.DirectorySeparatorChar  + schemaName, className + "Bs.cs");
+                    return Path.Combine(GetProjectMainDirectory() + Path.DirectorySeparatorChar  + "Bs" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Bs" + Path.DirectorySeparatorChar  + schemaName, className + "Bs.cs");
                 }
                 else
                 {
-                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + Path.DirectorySeparatorChar  + "Bs" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Bs" + Path.DirectorySeparatorChar , className + "Bs.cs");
+                    return Path.Combine(GetProjectMainDirectory() + Path.DirectorySeparatorChar  + "Bs" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Bs" + Path.DirectorySeparatorChar , className + "Bs.cs");
                 }
             }
 
@@ -54,15 +60,15 @@ namespace Karkas.CodeGeneration.Helpers
 
 
 
-            public string getBaseNameForDalGenerated(CodeGenerationConfig codeGenerationConfig, string schemaName, string className, bool semaIsminiDizinlerdeKullan)
+            public string getBaseNameForDalGenerated(string schemaName, string className, bool semaIsminiDizinlerdeKullan)
             {
                 if (semaIsminiDizinlerdeKullan)
                 {
-                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar  + schemaName, className + "Dal.generated.cs");
+                    return Path.Combine(GetProjectMainDirectory() + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar  + schemaName, className + "Dal.generated.cs");
                 }
                 else
                 {
-                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar , className + "Dal.generated.cs");
+                    return Path.Combine(GetProjectMainDirectory() + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar , className + "Dal.generated.cs");
                 }
             }
 
@@ -70,24 +76,24 @@ namespace Karkas.CodeGeneration.Helpers
             {
                 if (semaIsminiDizinlerdeKullan)
                 {
-                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar  + schemaName + "\\Sequences", sequenceName + "Dal.generated.cs");
+                    return Path.Combine(GetProjectMainDirectory() + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar  + schemaName + "\\Sequences", sequenceName + "Dal.generated.cs");
                 }
                 else
                 {
-                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".DalS + Path.DirectorySeparatorChar equences\\", sequenceName + "Dal.generated.cs");
+                    return Path.Combine(GetProjectMainDirectory() + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".DalS + Path.DirectorySeparatorChar equences\\", sequenceName + "Dal.generated.cs");
                 }
             }
 
 
-            public string getBaseNameForDal(CodeGenerationConfig codeGenerationConfig, string schemaName, string className, bool semaIsminiDizinlerdeKullan)
+            public string getBaseNameForDal(string schemaName, string className, bool semaIsminiDizinlerdeKullan)
             {
                 if (semaIsminiDizinlerdeKullan)
                 {
-                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar  + schemaName, className + "Dal.cs");
+                    return Path.Combine(GetProjectMainDirectory() + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar  + schemaName, className + "Dal.cs");
                 }
                 else
                 {
-                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar , className + "Dal.cs");
+                    return Path.Combine(GetProjectMainDirectory() + Path.DirectorySeparatorChar  + "Dal" + Path.DirectorySeparatorChar  + codeGenerationConfig.ProjectNameSpace + ".Dal" + Path.DirectorySeparatorChar , className + "Dal.cs");
                 }
             }
 
@@ -97,13 +103,13 @@ namespace Karkas.CodeGeneration.Helpers
                 // TODO refactor for $ usage later
                 if (semaIsminiDizinlerdeKullan)
                 {
-                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + 
+                    return Path.Combine(GetProjectMainDirectory() + 
                     Path.DirectorySeparatorChar + "TypeLibrary"  + codeGenerationConfig.ProjectNameSpace 
                     + ".TypeLibrary" + Path.DirectorySeparatorChar + schemaName, className + ".generated.cs");
                 }
                 else
                 {
-                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) + 
+                    return Path.Combine(GetProjectMainDirectory() + 
                     Path.DirectorySeparatorChar +  "TypeLibrary" + Path.DirectorySeparatorChar + 
                     codeGenerationConfig.ProjectNameSpace + ".TypeLibrary" + Path.DirectorySeparatorChar , className + ".generated.cs");
                 }
@@ -112,7 +118,7 @@ namespace Karkas.CodeGeneration.Helpers
             {
                 if (semaIsminiDizinlerdeKullan)
                 {
-                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) 
+                    return Path.Combine(GetProjectMainDirectory() 
                     + Path.DirectorySeparatorChar + 
                     "TypeLibrary" + Path.DirectorySeparatorChar + codeGenerationConfig.ProjectNameSpace + ".TypeLibrary" 
                     + Path.DirectorySeparatorChar + schemaName, 
@@ -120,7 +126,7 @@ namespace Karkas.CodeGeneration.Helpers
                 }
                 else
                 {
-                    return Path.Combine(GetProjectMainDirectory(codeGenerationConfig) 
+                    return Path.Combine(GetProjectMainDirectory() 
                     + Path.DirectorySeparatorChar + "TypeLibrary" + Path.DirectorySeparatorChar + 
                     codeGenerationConfig.ProjectNameSpace + ".TypeLibrary" + Path.DirectorySeparatorChar , className + ".cs");
                 }
