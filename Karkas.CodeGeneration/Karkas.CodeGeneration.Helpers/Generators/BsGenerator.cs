@@ -36,6 +36,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         protected string outputFullFileNameGenerated;
         protected string outputFullFileName;
 
+        protected List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
 
         public BsGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
         {
@@ -48,19 +49,17 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             , IContainer container)
         {
 
-            List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
-
 
 
 
             output.tabLevel = 0;
             IDatabase database = container.Database;
 
-            SetFields(container, listDatabaseAbbreviations);
+            SetFields(container);
 
             Write_ClassGenerated(output, container);
 
-            Write_ClassNormal(output, outputFullFileName);
+            Write_ClassNormal(output);
         }
 
         private void Write_ClassGenerated(IOutput output, IContainer container)
@@ -86,7 +85,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.Clear();
         }
 
-        private void SetFields(IContainer container, List<DatabaseAbbreviations> listDatabaseAbbreviations)
+        private void SetFields(IContainer container)
         {
             baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
@@ -117,7 +116,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void Write_ClassNormal(IOutput output, string outputFullFileName)
+        private void Write_ClassNormal(IOutput output)
         {
             if (!File.Exists(outputFullFileName))
             {
@@ -252,7 +251,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
             output.autoTabLn("");
             AtStartCurlyBraceletIncreaseTab(output);
-            output.increaseTab();
         }
     }
 
