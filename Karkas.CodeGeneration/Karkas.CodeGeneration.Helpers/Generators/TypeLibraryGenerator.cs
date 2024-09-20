@@ -25,7 +25,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
 
 
-
+            output.Clear();
             output.tabLevel = 0;
             SetFields(container);
 
