@@ -1,12 +1,23 @@
 # todo
 
+## First to look
 
-3. add foreign key code generations
+1. add foreign key code generations
 According to foreign keys, detail tables method will be added
 config.json property will manage it.
 
 
 ## Tests
+
+1. Create looping script which will check following configurations
+
+- UseSchemaNameInNamespaces
+- UseSchemaNameInSqlQueries
+- UseSchemaNameInFolders    
+- UseQuotesInQueries
+- UseGlobalUsings
+- UseFileScopedNamespace
+
 
 1. record struct?
 
