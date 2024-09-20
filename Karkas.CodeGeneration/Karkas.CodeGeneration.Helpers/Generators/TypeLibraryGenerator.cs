@@ -91,7 +91,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.tabLevel = 0;
             Write_UsingNamespaces();
             Write_Namespacestart();
-            //output.increaseTab();
+            output.increaseTab();
             string classNameValidation = className + "Validation";
             Write_NormalClassLines(className, classNameValidation);
             Write_ValidationClass(classNameValidation);
@@ -337,6 +337,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.autoTabLn(string.Format("obj.{0} = {0};", utils.GetCamelCase(column.Name)));
             }
             output.autoTabLn("return obj;");
+            output.decreaseTab();
             output.autoTabLn("}");
             output.autoTabLn("");
 
