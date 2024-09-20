@@ -33,24 +33,24 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
         }
 
 
-        private bool createMainClassValidationExamples = false;
+        private bool generateNormalClassValidationExamples = false;
 
-        public bool CreateMainClassValidationExamples
+        public bool GenerateNormalClassValidationExamples
         {
-            get { return createMainClassValidationExamples; }
-            set { createMainClassValidationExamples = value; }
+            get { return generateNormalClassValidationExamples; }
+            set { generateNormalClassValidationExamples = value; }
         }
 
-        private bool createMainClassAgain = false;
-        public bool CreateMainClassAgain
+        private bool generateNormalClassAgain = false;
+        public bool GenerateNormalClassAgain
         {
             get
             {
-                return createMainClassAgain;
+                return generateNormalClassAgain;
             }
             set
             {
-                createMainClassAgain = value;
+                generateNormalClassAgain = value;
             }
 
         }

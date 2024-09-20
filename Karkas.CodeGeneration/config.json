@@ -1,7 +1,7 @@
 ﻿[  
   {
-    "CreateMainClassValidationExamples": false,
-    "CreateMainClassAgain": false,
+    "GenerateNormalClassValidationExamples": false,
+    "GenerateNormalClassAgain": false,
     "ConnectionName": "ChinookSqliteAutoIncrement",
     "ConnectionDatabaseType": "sqlite",
     "ConnectionDbProviderName": "Microsoft.Data.Sqlite",
@@ -27,8 +27,8 @@
     "RowState": 4
   },
   {
-    "CreateMainClassValidationExamples": false,
-    "CreateMainClassAgain": false,
+    "GenerateNormalClassValidationExamples": false,
+    "GenerateNormalClassAgain": false,
     "ConnectionName": "ChinookSqlServerAutoIncrement",
     "ConnectionDatabaseType": "SqlServer",
     "ConnectionDbProviderName": "System.Data.SqlClient",
@@ -53,8 +53,8 @@
     "RowState": 4
   },
   {
-    "CreateMainClassValidationExamples": false,
-    "CreateMainClassAgain": false,
+    "GenerateNormalClassValidationExamples": false,
+    "GenerateNormalClassAgain": false,
     "ConnectionName": "ChinookOracleNormal",
     "ConnectionDatabaseType": "Oracle",
     "ConnectionDbProviderName": "Oracle.ManagedDataAccess.Client",
@@ -80,8 +80,8 @@
   }
 ,
   {
-    "CreateMainClassValidationExamples": false,
-    "CreateMainClassAgain": false,
+    "GenerateNormalClassValidationExamples": false,
+    "GenerateNormalClassAgain": false,
     "ConnectionName": "ChinookOracleAutoIncrement",
     "ConnectionDatabaseType": "Oracle",
     "ConnectionDbProviderName": "Oracle.ManagedDataAccess.Client",

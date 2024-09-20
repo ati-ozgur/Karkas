@@ -71,7 +71,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-            if (!File.Exists(outputFullFileName) || CodeGenerationConfig.CreateMainClassAgain)
+            if (!File.Exists(outputFullFileName) || CodeGenerationConfig.GenerateNormalClassAgain)
             {
                 generateMainClassFile(output, database, className, classNameSpace, outputFullFileName);
             }
@@ -88,7 +88,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             writeMainClass(output, className, classNameValidation);
             writeValidationClass(output, database, className, classNameValidation);
             AtEndCurlyBraceletDecreaseTab(output);
-            output.Save(outputFullFileName, CodeGenerationConfig.CreateMainClassAgain);
+            output.Save(outputFullFileName, CodeGenerationConfig.GenerateNormalClassAgain);
             output.Clear();
         }
 
@@ -110,7 +110,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             string mainArticleUrl  = "http://weblogs.asp.net/scottgu/archive/2010/01/15/asp-net-mvc-2-model-validation.aspx";
             string msDataAnnotationsHelpUrl = "http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx";
 
-            if (CodeGenerationConfig.CreateMainClassValidationExamples)
+            if (CodeGenerationConfig.GenerateNormalClassValidationExamples)
             {
                 output.autoTabLn("// For Usage of Validation codes, see the following links: ");
                 output.autoTabLn("// " + mainArticleUrl);

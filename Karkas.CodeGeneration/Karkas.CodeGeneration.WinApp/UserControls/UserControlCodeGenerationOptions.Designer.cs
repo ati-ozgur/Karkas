@@ -34,7 +34,7 @@
             checkBoxViewCodeGenerate = new CheckBox();
             checkBoxUseSchemaNameInFolders = new CheckBox();
             checkBoxUseSchemaNameInSql = new CheckBox();
-            checkBoxCreateMainClassAgain = new CheckBox();
+            checkBoxGenerateNormalClassAgain = new CheckBox();
             textBoxDbProviderName = new TextBox();
             labelDbProviderName = new Label();
             labelDatabaseType = new Label();
@@ -52,7 +52,7 @@
             labelAbbrevationsAsString = new Label();
             textBoxIgnoredSchemaList = new TextBox();
             labelIgnoredSchemaList = new Label();
-            checkBoxCreateMainClassValidationExamples = new CheckBox();
+            checkBoxGenerateNormalClassValidationExamples = new CheckBox();
             checkBoxSequenceCodeGenerate = new CheckBox();
             toolTipCodeGenerationOptions = new ToolTip(components);
             buttonKisaltmalar = new Button();
@@ -124,16 +124,16 @@
             checkBoxUseSchemaNameInSql.Text = "Use Schema Name in Queries (ignored for sqlite)";
             checkBoxUseSchemaNameInSql.UseVisualStyleBackColor = true;
             // 
-            // checkBoxCreateMainClassAgain
+            // checkBoxGenerateNormalClassAgain
             // 
-            checkBoxCreateMainClassAgain.AutoSize = true;
-            checkBoxCreateMainClassAgain.Location = new Point(256, 436);
-            checkBoxCreateMainClassAgain.Margin = new Padding(3, 2, 3, 2);
-            checkBoxCreateMainClassAgain.Name = "checkBoxCreateMainClassAgain";
-            checkBoxCreateMainClassAgain.Size = new Size(154, 19);
-            checkBoxCreateMainClassAgain.TabIndex = 32;
-            checkBoxCreateMainClassAgain.Text = "Create Main Class Again";
-            checkBoxCreateMainClassAgain.UseVisualStyleBackColor = true;
+            checkBoxGenerateNormalClassAgain.AutoSize = true;
+            checkBoxGenerateNormalClassAgain.Location = new Point(256, 436);
+            checkBoxGenerateNormalClassAgain.Margin = new Padding(3, 2, 3, 2);
+            checkBoxGenerateNormalClassAgain.Name = "checkBoxGenerateNormalClassAgain";
+            checkBoxGenerateNormalClassAgain.Size = new Size(154, 19);
+            checkBoxGenerateNormalClassAgain.TabIndex = 32;
+            checkBoxGenerateNormalClassAgain.Text = "Create Main Class Again";
+            checkBoxGenerateNormalClassAgain.UseVisualStyleBackColor = true;
             // 
             // textBoxDbProviderName
             // 
@@ -285,16 +285,16 @@
             labelIgnoredSchemaList.TabIndex = 51;
             labelIgnoredSchemaList.Text = "Ignored Schema List (,)";
             // 
-            // checkBoxCreateMainClassValidationExamples
+            // checkBoxGenerateNormalClassValidationExamples
             // 
-            checkBoxCreateMainClassValidationExamples.AutoSize = true;
-            checkBoxCreateMainClassValidationExamples.Location = new Point(762, 436);
-            checkBoxCreateMainClassValidationExamples.Margin = new Padding(3, 2, 3, 2);
-            checkBoxCreateMainClassValidationExamples.Name = "checkBoxCreateMainClassValidationExamples";
-            checkBoxCreateMainClassValidationExamples.Size = new Size(79, 19);
-            checkBoxCreateMainClassValidationExamples.TabIndex = 33;
-            checkBoxCreateMainClassValidationExamples.Text = "Create Main Validation Class";
-            checkBoxCreateMainClassValidationExamples.UseVisualStyleBackColor = true;
+            checkBoxGenerateNormalClassValidationExamples.AutoSize = true;
+            checkBoxGenerateNormalClassValidationExamples.Location = new Point(762, 436);
+            checkBoxGenerateNormalClassValidationExamples.Margin = new Padding(3, 2, 3, 2);
+            checkBoxGenerateNormalClassValidationExamples.Name = "checkBoxGenerateNormalClassValidationExamples";
+            checkBoxGenerateNormalClassValidationExamples.Size = new Size(79, 19);
+            checkBoxGenerateNormalClassValidationExamples.TabIndex = 33;
+            checkBoxGenerateNormalClassValidationExamples.Text = "Create Main Validation Class";
+            checkBoxGenerateNormalClassValidationExamples.UseVisualStyleBackColor = true;
             // 
             // checkBoxSequenceCodeGenerate
             // 
@@ -346,10 +346,10 @@
             tableLayoutPanel1.Controls.Add(textBoxCodeGenerationFolder, 1, 7);
             tableLayoutPanel1.Controls.Add(labelProjectNamespace, 0, 6);
             tableLayoutPanel1.Controls.Add(labelCodeGenerationFolder, 0, 7);
-            tableLayoutPanel1.Controls.Add(checkBoxCreateMainClassAgain, 1, 14);
+            tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassAgain, 1, 14);
             tableLayoutPanel1.Controls.Add(labelConnectionName, 0, 0);
             tableLayoutPanel1.Controls.Add(labelDbProviderName, 0, 2);
-            tableLayoutPanel1.Controls.Add(checkBoxCreateMainClassValidationExamples, 2, 14);
+            tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassValidationExamples, 2, 14);
             tableLayoutPanel1.Controls.Add(labelAdditionalSchemaList, 0, 9);
             tableLayoutPanel1.Controls.Add(textBoxSchemaList, 1, 9);
             tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -412,7 +412,7 @@
         private System.Windows.Forms.CheckBox checkBoxViewCodeGenerate;
         private System.Windows.Forms.CheckBox checkBoxUseSchemaNameInFolders;
         private System.Windows.Forms.CheckBox checkBoxUseSchemaNameInSql;
-        private System.Windows.Forms.CheckBox checkBoxCreateMainClassAgain;
+        private System.Windows.Forms.CheckBox checkBoxGenerateNormalClassAgain;
         private System.Windows.Forms.TextBox textBoxDbProviderName;
         private System.Windows.Forms.Label labelDbProviderName;
         private System.Windows.Forms.Label labelDatabaseType;
@@ -434,7 +434,7 @@
 
 
 
-        private System.Windows.Forms.CheckBox checkBoxCreateMainClassValidationExamples;
+        private System.Windows.Forms.CheckBox checkBoxGenerateNormalClassValidationExamples;
         private System.Windows.Forms.CheckBox checkBoxSequenceCodeGenerate;
         private System.Windows.Forms.ToolTip toolTipCodeGenerationOptions;
         private System.Windows.Forms.Button buttonKisaltmalar;

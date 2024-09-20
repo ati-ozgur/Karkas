@@ -86,8 +86,8 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             }
 
 
-            entry.CreateMainClassAgain = checkBoxCreateMainClassAgain.Checked;
-            entry.CreateMainClassValidationExamples = checkBoxCreateMainClassValidationExamples.Checked;
+            entry.GenerateNormalClassAgain = checkBoxGenerateNormalClassAgain.Checked;
+            entry.GenerateNormalClassValidationExamples = checkBoxGenerateNormalClassValidationExamples.Checked;
             entry.setTimeValues();
             return entry;
 

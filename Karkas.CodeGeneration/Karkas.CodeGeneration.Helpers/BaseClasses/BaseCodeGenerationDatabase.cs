@@ -243,11 +243,5 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
 
 
 
-        #region "Not Persisted Values"
-        public bool CreateMainClassAgain { get; set; }
-        public bool CreateMainClassValidationExamples { get; set; }
-
-        #endregion
-
     }
 }
