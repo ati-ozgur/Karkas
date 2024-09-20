@@ -26,5 +26,15 @@ namespace Karkas.Core.Data.Sqlite
             throw new NotImplementedException("Microsoft.Data.Sqlite does not implement DataAdapters.");
         }
 
+        public override bool ExecuteAsIfExists(string pSql)
+        {
+            string sqlToExecute = string.Format(@"select exists
+                                        (  
+                                        {0}
+                                        );", pSql);
+            object val = this.GetOneValue(sqlToExecute);
+            int value = Convert.ToInt32(val);
+            return value > 0;
+        }
     }
 }
