@@ -409,12 +409,15 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
 			set
 			{
-
 				useMultipleDatabaseNames = value;
 			}
 		}
 
         public bool UseQuotesInQueries { get => useQuotesInQueries; set => useQuotesInQueries = value; }
+
+		private bool useGlobalUsings;
+		
+		public bool UseGlobalUsings { get => useGlobalUsings; set => useGlobalUsings = value; }
 
         public override bool Equals(object obj)
         {
@@ -431,7 +434,9 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
         }
 
 
-        public override string ToString()
+
+
+		public override string ToString()
         {
             return $"{this.ConnectionName}, {this.ConnectionDatabaseType}, {this.ConnectionString}, {this.CodeGenerationDirectory} ";
         }
