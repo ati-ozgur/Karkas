@@ -9,7 +9,6 @@ namespace Karkas.CodeGeneration.Helpers
     {
         string Alias { get;  }
         List<IColumn> Columns { get; }
-        IDatabase Database { get; }
         DateTime DateCreated { get; }
         DateTime DateModified { get; }
         string Description { get; }

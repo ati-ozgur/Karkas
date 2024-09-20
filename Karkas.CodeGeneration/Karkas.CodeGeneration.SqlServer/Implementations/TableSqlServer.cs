@@ -35,14 +35,6 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
             throw new NotImplementedException();
         }
 
-        public IDatabase Database
-        {
-            // TODO will look if it is needed.
-            get
-            {
-                return null;
-            }
-        }
 
         public string Schema
         {

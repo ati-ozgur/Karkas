@@ -53,7 +53,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
             output.tabLevel = 0;
-            IDatabase database = container.Database;
 
             SetFields(container);
 

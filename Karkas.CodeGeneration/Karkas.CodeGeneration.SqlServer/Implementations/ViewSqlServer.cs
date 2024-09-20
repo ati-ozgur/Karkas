@@ -33,14 +33,6 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
             get { throw new NotImplementedException(); }
         }
 
-        public IDatabase Database
-        {
-            // TODO will look if it is needed
-            get 
-            {
-                throw new NotImplementedException("IDatabase");
-            }
-        }
 
         public DateTime DateCreated
         {

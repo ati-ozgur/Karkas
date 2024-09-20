@@ -105,15 +105,6 @@ OWNER = :schemaName
         }
 
 
-        // TODO Fix it,
-        public IDatabase Database
-        {
-            get 
-            {
-                return null;
-            
-            }
-        }
 
         public DateTime DateCreated
         {

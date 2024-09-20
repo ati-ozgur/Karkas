@@ -12,7 +12,6 @@ namespace Karkas.CodeGeneration.Helpers.Interfaces
         string Name { get; set; }
 
         string Schema { get; set; }
-        IDatabase Database { get; set; }
 
         
 

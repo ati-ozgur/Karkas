@@ -107,15 +107,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             }
         }
 
-        // TODO Fix later
-        public IDatabase Database
-        {
-            get 
-            {
-                return null;
-            
-            }
-        }
+
 
         public DateTime DateCreated
         {

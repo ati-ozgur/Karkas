@@ -19,29 +19,27 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
         Utils utils = null;
 
+        protected List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
+        protected string baseNameSpace;
+        protected string baseNameSpaceTypeLibrary;
+
+        protected string className;
+
+        protected string schemaName;
+
+        protected string classNameSpace;
+
+        string outputFullFileName;
+
+        string outputFullFileNameGenerated;
         public void Render(IOutput output
             , IContainer container)
         {
 
-            List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
 
 
-            IDatabase database = container.Database;
             output.tabLevel = 0;
-            string baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
-            string baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
-
-            string className = utils.getClassNameForTypeLibrary(container.Name, listDatabaseAbbreviations);
-            string schemaName = utils.GetPascalCase(container.Schema);
-            string classNameSpace = baseNameSpaceTypeLibrary;
-            if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
-            {
-                classNameSpace = classNameSpace + "." + schemaName;
-            }
-
-            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForTypeLibrary(CodeGenerationConfig, schemaName, className, CodeGenerationConfig.UseSchemaNameInFolders);
-            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForTypeLibraryGenerated(CodeGenerationConfig, schemaName, className, CodeGenerationConfig.UseSchemaNameInFolders);
-
+            SetFields(container);
 
             Write_UsingNamespaces(output, classNameSpace);
 
@@ -73,26 +71,43 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             if (!File.Exists(outputFullFileName) || CodeGenerationConfig.GenerateNormalClassAgain)
             {
-                generateMainClassFile(output, database, className, classNameSpace, outputFullFileName);
+                generateMainClassFile(output, className, classNameSpace, outputFullFileName);
             }
 
 
         }
 
-        private void generateMainClassFile(IOutput output, IDatabase database,string className, string classNameSpace, string outputFullFileName)
+        private void SetFields(IContainer container)
+        {
+            baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
+            baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
+
+            className = utils.getClassNameForTypeLibrary(container.Name, listDatabaseAbbreviations);
+            schemaName = utils.GetPascalCase(container.Schema);
+            classNameSpace = baseNameSpaceTypeLibrary;
+            if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
+            {
+                classNameSpace = classNameSpace + "." + schemaName;
+            }
+
+            outputFullFileName = utils.FileUtilsHelper.getBaseNameForTypeLibrary(CodeGenerationConfig, schemaName, className, CodeGenerationConfig.UseSchemaNameInFolders);
+            outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForTypeLibraryGenerated(CodeGenerationConfig, schemaName, className, CodeGenerationConfig.UseSchemaNameInFolders);
+        }
+
+        private void generateMainClassFile(IOutput output, string className, string classNameSpace, string outputFullFileName)
         {
             Write_UsingNamespaces(output, classNameSpace);
             Write_Namespacestart(output, classNameSpace);
             //output.increaseTab();
             string classNameValidation = className + "Validation";
-            writeMainClass(output, className, classNameValidation);
-            writeValidationClass(output, database, className, classNameValidation);
+            Write_NormalClass(output, className, classNameValidation);
+            Write_ValidationClass(output,  className, classNameValidation);
             AtEndCurlyBraceletDecreaseTab(output);
             output.Save(outputFullFileName, CodeGenerationConfig.GenerateNormalClassAgain);
             output.Clear();
         }
 
-        private void writeMainClass(IOutput output, string className, string classNameValidation)
+        protected void Write_NormalClass(IOutput output, string className, string classNameValidation)
         {
             string metadataAttribute = string.Format("[MetadataType(typeof({0}))]",classNameValidation);
             output.autoTabLn(metadataAttribute);
@@ -101,7 +116,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
         }
-        private void writeValidationClass(IOutput output, IDatabase database, string className, string classNameValidation)
+        protected void Write_ValidationClass(IOutput output,  string className, string classNameValidation)
         {
             output.autoTab("public class ");
             output.autoTabLn(classNameValidation);
