@@ -21,34 +21,5 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         {
         }
 
-        protected override void Write_UsingNamespaces(IOutput output, string classNameSpace)
-        {
-            output.autoTabLn("using System;");
-            output.autoTabLn("using System.Data;");
-            output.autoTabLn("using System.Text;");
-            output.autoTabLn("using System.Configuration;");
-            output.autoTabLn("using System.Diagnostics;");
-            output.autoTabLn("using System.Xml.Serialization;");
-            output.autoTabLn("using System.Collections.Generic;");
-            output.autoTabLn("using Karkas.Core.DataUtil.BaseClasses;");
-            output.autoTabLn("using System.ComponentModel.DataAnnotations;");
-
-            generateClrTypesUsings();            
-
-
-            output.autoTabLn("");
-            output.autoTab("namespace ");
-            output.autoTabLn(classNameSpace);
-            output.write("");
-            AtStartCurlyBraceletIncreaseTab(output);
-        }
-
-        private void generateClrTypesUsings()
-        {
-            // TODO buraya bir sekilde 
-            // using Microsoft.SqlServer.Types
-            // eklenecek
-        }
-
     }
 }
