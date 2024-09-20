@@ -50,8 +50,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             , IContainer container)
         {
             List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
-            
-            
+
+
 
             output.tabLevel = 0;
             baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
@@ -59,11 +59,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             pkName = utils.FindPrimaryKeyColumnName(container);
             pkNamePascalCase = utils.GetPascalCase(pkName);
-            
-            if (container is ITable && (!((ITable) container).HasPrimaryKey ))
+
+            if (container is ITable && (!((ITable)container).HasPrimaryKey))
             {
-                string warningMessage = 
-                 "Chosen Table " + container.Name  + " has NO Primary Key. Code Generation (DAL) only works with tables who has primaryKey.";
+                string warningMessage =
+                 "Chosen Table " + container.Name + " has NO Primary Key. Code Generation (DAL) only works with tables who has primaryKey.";
                 throw new Exception(warningMessage);
             }
 
@@ -76,16 +76,16 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             {
                 classNameSpace = classNameSpace + "." + schemaName;
             }
-      
+
             string pkSentence = "";
 
             string baseNameSpaceDal = baseNameSpace + ".Dal";
             if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
             {
-                baseNameSpaceDal = baseNameSpaceDal   + "." +schemaName;
+                baseNameSpaceDal = baseNameSpaceDal + "." + schemaName;
             }
-            
-            
+
+
 
             pkType = utils.FindPrimaryKeyType(container);
 
@@ -98,7 +98,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             Write_NamespaceStart(output, baseNameSpaceDal);
 
-            Write_ClassGenerated(output, classNameTypeLibrary,container);
+            Write_ClassGenerated(output, classNameTypeLibrary, container);
             output.autoTabLn("");
 
             Write_OverrideDatabaseName(output, container);
@@ -118,7 +118,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             Write_InsertString(output, container);
 
 
-            Write_QueryByPk(output, container, classNameTypeLibrary,pkName, pkNamePascalCase, pkType);
+            Write_QueryByPk(output, container, classNameTypeLibrary, pkName, pkNamePascalCase, pkType);
 
             Write_IdentityExists(output, utils.IdentityExists(container));
 
@@ -138,10 +138,18 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
             AtEndCurlyBraceletDecreaseTab(output);
-            AtEndCurlyBraceletDecreaseTab(output);
+            Write_NamespaceEndCurlyBracelet(output);
 
             output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.Clear();
+            Write_MainClass(output, baseNameSpaceDal, outputFullFileName);
+            return "";
+
+
+        }
+
+        private void Write_MainClass(IOutput output, string baseNameSpaceDal, string outputFullFileName)
+        {
             if (!File.Exists(outputFullFileName))
             {
                 Write_Usings(output, schemaName, baseNameSpaceTypeLibrary);
@@ -152,14 +160,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 AtEndCurlyBraceletDecreaseTab(output);
                 output.SaveEncoding(outputFullFileName, "o", "utf8");
                 output.Clear();
-
             }
-            return "";
-
-
         }
 
-
+        private void Write_NamespaceEndCurlyBracelet(IOutput output)
+        {
+            AtEndCurlyBraceletDecreaseTab(output);
+        }
 
         private void Write_OverrideDbProviderName(IOutput output, IContainer container)
         {
