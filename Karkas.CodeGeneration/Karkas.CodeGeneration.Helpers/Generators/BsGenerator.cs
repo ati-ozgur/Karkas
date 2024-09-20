@@ -50,14 +50,18 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
 
-
-
-
             output.tabLevel = 0;
             IDatabase database = container.Database;
 
             SetFields(container, listDatabaseAbbreviations);
 
+            Write_GeneratedClass(output, container);
+
+            Write_MainClass(output);
+        }
+
+        private void Write_GeneratedClass(IOutput output, IContainer container)
+        {
             Write_Usings(output);
             Write_NamespaceStart(output);
             AtStartCurlyBraceletIncreaseTab(output);
@@ -77,8 +81,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.Clear();
-
-            Write_MainClass(output, outputFullFileName);
         }
 
         private void SetFields(IContainer container, List<DatabaseAbbreviations> listDatabaseAbbreviations)
@@ -112,7 +114,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void Write_MainClass(IOutput output, string outputFullFileName)
+        private void Write_MainClass(IOutput output)
         {
             if (!File.Exists(outputFullFileName))
             {
