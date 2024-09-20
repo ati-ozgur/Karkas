@@ -24,17 +24,17 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         protected override void Write_ClassGeneratedDatabaseSpecific()
         {
             output.AutoTab("public partial class ");
-            output.write(classNameBs);
+            output.Write(classNameBs);
             if (identityExists)
             {
-                output.write(" : BaseBsForIdentity<" + classNameTypeLibrary + ", ");
-                output.write(classNameDal + ", AdoTemplateSqlite,ParameterBuilderSqlite," + identityType);
+                output.Write(" : BaseBsForIdentity<" + classNameTypeLibrary + ", ");
+                output.Write(classNameDal + ", AdoTemplateSqlite,ParameterBuilderSqlite," + identityType);
 
             }
             else
             {
-                output.write(" : BaseBs<" + classNameTypeLibrary + ", ");
-                output.write(classNameDal + ", AdoTemplateSqlite,ParameterBuilderSqlite");
+                output.Write(" : BaseBs<" + classNameTypeLibrary + ", ");
+                output.Write(classNameDal + ", AdoTemplateSqlite,ParameterBuilderSqlite");
             }
             output.writeLine(">");
         }

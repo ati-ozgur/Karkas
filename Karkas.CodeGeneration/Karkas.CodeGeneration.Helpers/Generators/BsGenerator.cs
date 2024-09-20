@@ -58,7 +58,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         private void Write_ClassGenerated( IContainer container)
         {
             Write_Usings();
-            Write_NamespaceStart();
+            Write_NamespaceStart("Bs");
 
             Write_ClassGeneratedDatabaseSpecific();
 
@@ -114,7 +114,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             if (!File.Exists(outputFullFileName) || CodeGenerationConfig.GenerateNormalClassAgain)
             {
                 Write_Usings();
-                Write_NamespaceStart();
+                Write_NamespaceStart("Bs");
                 Write_ClassNormalDatabaseSpecific();
                 Write_NamespaceEndCurlyBracelet();
                 output.SaveEncoding(outputFullFileName, "o", "utf8");
@@ -231,20 +231,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.AutoTabLine("");
         }
 
-        private void Write_NamespaceStart()
-        {
-            output.AutoTab("namespace ");
-            if (!string.IsNullOrWhiteSpace(schemaName))
-            {
-                output.AutoTab(baseNameSpaceBsWithSchema);
-            }
-            else
-            {
-                output.AutoTab(baseNameSpace + ".Bs");
-            }
-            output.AutoTabLine("");
-            AtStartCurlyBraceletIncreaseTab();
-        }
     }
 
 

@@ -67,7 +67,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             Write_Usings();
 
-            Write_NamespaceStart();
+            Write_NamespaceStart("Dal");
 
             Write_ClassGenerated();
             output.AutoTabLine("");
@@ -163,7 +163,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             if (!File.Exists(outputFullFileName) || CodeGenerationConfig.GenerateNormalClassAgain)
             {
                 Write_Usings();
-                Write_NamespaceStart();
+                Write_NamespaceStart("Dal");
                 Write_ClassNormal();
 
                 Write_NamespaceEndCurlyBracelet();
@@ -281,7 +281,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void Write_Usings()
+        protected void Write_Usings()
         {
             if (!CodeGenerationConfig.UseGlobalUsings)
             {
@@ -294,31 +294,18 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.AutoTabLine("using System.Text;");
                 output.AutoTabLine("using Karkas.Core.DataUtil;");
                 output.AutoTabLine("using Karkas.Core.DataUtil.BaseClasses;");
-                output.AutoTab("using ");
-                output.AutoTab(baseNameSpaceTypeLibrary);
-                output.AutoTabLine(";");
-                if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
-                {
-                    output.AutoTab("using ");
-                    output.AutoTab(baseNameSpaceTypeLibrary);
-                    output.AutoTab(".");
-                    output.AutoTab(schemaName);
-                    output.AutoTabLine(";");
-                }
                 Write_UsingsAdditional();
                 output.AutoTabLine("");
                 output.AutoTabLine("");
-
+                output.AutoTabLine($"using {baseNameSpaceTypeLibrary};");
+            }
+            if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
+            {
+                output.AutoTab($"using {baseNameSpaceTypeLibrary}.{schemaName};");
             }
 
-
         }
-        private void Write_NamespaceStart()
-        { 
-            output.AutoTabLine($"namespace {baseNameSpaceDal}");
-            AtStartCurlyBraceletIncreaseTab();
 
-        }
 
 
         protected virtual void Write_ClassGenerated()
@@ -326,9 +313,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             bool identityExists = utils.IdentityExists(container);
             string identityType = utils.GetIdentityType(container);
             output.AutoTab("public partial class ");
-            output.write(classNameTypeLibrary);
-            output.write("Dal : BaseDal<");
-            output.write(classNameTypeLibrary);
+            output.Write(classNameTypeLibrary);
+            output.Write("Dal : BaseDal<");
+            output.Write(classNameTypeLibrary);
             output.writeLine(">");
             AtStartCurlyBraceletIncreaseTab();
         }
@@ -715,7 +702,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             string propertyVariableName = "";
             output.AutoTab("protected override void ProcessRow(IDataReader dr, ");
-            output.write(classNameTypeLibrary);
+            output.Write(classNameTypeLibrary);
             output.writeLine(" row)");
             AtStartCurlyBraceletIncreaseTab();
             for (int i = 0; i < container.Columns.Count; i++)

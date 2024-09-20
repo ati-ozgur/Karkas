@@ -29,6 +29,6 @@ namespace Karkas.CodeGeneration.Helpers.Interfaces
         void SaveEncoding(string outputFullFileNameGenerated, string p, string p_2);
 
 
-        void write(string p);
+        void Write(string p);
     }
 }

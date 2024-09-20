@@ -45,7 +45,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
         protected override void Write_UsingsAdditional()
         {
-            output.write("using Karkas.Core.Data.Oracle;");
+            output.Write("using Karkas.Core.Data.Oracle;");
         }
 
         protected override void Write_ClassGenerated()
@@ -65,21 +65,21 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         protected void ClassWriteNormal()
         {
             output.AutoTab("public partial class ");
-            output.write(classNameTypeLibrary);
-            output.write("Dal : BaseDalOracle<");
-            output.write(classNameTypeLibrary);
-            output.write(", AdoTemplateOracle, ParameterBuilderOracle");
+            output.Write(classNameTypeLibrary);
+            output.Write("Dal : BaseDalOracle<");
+            output.Write(classNameTypeLibrary);
+            output.Write(", AdoTemplateOracle, ParameterBuilderOracle");
             output.writeLine(">");
             AtStartCurlyBraceletIncreaseTab();
         }
         protected void ClassWriteIdentity(string identityType)
         {
             output.AutoTab("public partial class ");
-            output.write(classNameTypeLibrary);
-            output.write("Dal : BaseDalForIdentityOracle<");
-            output.write(classNameTypeLibrary + ", ");
-            output.write(identityType);
-            output.write(", AdoTemplateOracle, ParameterBuilderOracle");
+            output.Write(classNameTypeLibrary);
+            output.Write("Dal : BaseDalForIdentityOracle<");
+            output.Write(classNameTypeLibrary + ", ");
+            output.Write(identityType);
+            output.Write(", AdoTemplateOracle, ParameterBuilderOracle");
             output.writeLine(">");
             AtStartCurlyBraceletIncreaseTab();
         }
@@ -160,7 +160,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         public override void Write_InsertCommandParametersAdd()
         {
             output.AutoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
-            output.write(classNameTypeLibrary);
+            output.Write(classNameTypeLibrary);
             output.writeLine(" row)");
             AtStartCurlyBraceletIncreaseTab();
             output.AutoTabLine("ParameterBuilderOracle builder = (ParameterBuilderOracle)Template.getParameterBuilder();");

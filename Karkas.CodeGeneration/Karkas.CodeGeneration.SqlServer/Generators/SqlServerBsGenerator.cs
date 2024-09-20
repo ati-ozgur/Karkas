@@ -27,17 +27,17 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         protected override void Write_ClassGeneratedDatabaseSpecific()
         {
             output.AutoTab("public partial class ");
-            output.write(classNameBs);
+            output.Write(classNameBs);
             if (identityExists)
             {
-                output.write(" : BaseBsForIdentity<" + classNameTypeLibrary + ", ");
-                output.write(classNameDal + ", AdoTemplateSqlServer,ParameterBuilderSqlServer," + identityType);
+                output.Write(" : BaseBsForIdentity<" + classNameTypeLibrary + ", ");
+                output.Write(classNameDal + ", AdoTemplateSqlServer,ParameterBuilderSqlServer," + identityType);
 
             }
             else
             {
-                output.write(" : BaseBs<" + classNameTypeLibrary + ", ");
-                output.write(classNameDal + ", AdoTemplateSqlServer,ParameterBuilderSqlServer");
+                output.Write(" : BaseBs<" + classNameTypeLibrary + ", ");
+                output.Write(classNameDal + ", AdoTemplateSqlServer,ParameterBuilderSqlServer");
             }
             output.writeLine(">");
         }

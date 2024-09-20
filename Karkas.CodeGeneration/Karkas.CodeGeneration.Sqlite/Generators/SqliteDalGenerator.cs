@@ -31,22 +31,22 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             if (identityExists)
             {
                 output.AutoTab("public partial class ");
-                output.write(classNameTypeLibrary);
-                output.write("Dal : BaseDalForIdentitySqlite<");
-                output.write(classNameTypeLibrary);
-                output.write(",");
-                output.write(identityType);
-                output.write(", AdoTemplateSqlite, ParameterBuilderSqlite");
+                output.Write(classNameTypeLibrary);
+                output.Write("Dal : BaseDalForIdentitySqlite<");
+                output.Write(classNameTypeLibrary);
+                output.Write(",");
+                output.Write(identityType);
+                output.Write(", AdoTemplateSqlite, ParameterBuilderSqlite");
                 output.writeLine(">");
                 AtStartCurlyBraceletIncreaseTab();
             }
             else
             {
                 output.AutoTab("public partial class ");
-                output.write(classNameTypeLibrary);
-                output.write("Dal : BaseDalSqlite<");
-                output.write(classNameTypeLibrary);
-                output.write(", AdoTemplateSqlite, ParameterBuilderSqlite");
+                output.Write(classNameTypeLibrary);
+                output.Write("Dal : BaseDalSqlite<");
+                output.Write(classNameTypeLibrary);
+                output.Write(", AdoTemplateSqlite, ParameterBuilderSqlite");
                 output.writeLine(">");
                 AtStartCurlyBraceletIncreaseTab();
 
@@ -86,7 +86,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         public override void Write_InsertCommandParametersAdd()
         {
             output.AutoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
-            output.write(classNameTypeLibrary);
+            output.Write(classNameTypeLibrary);
             output.writeLine(" row)");
             AtStartCurlyBraceletIncreaseTab();
             output.AutoTabLine("ParameterBuilderSqlite builder = (ParameterBuilderSqlite)Template.getParameterBuilder();");

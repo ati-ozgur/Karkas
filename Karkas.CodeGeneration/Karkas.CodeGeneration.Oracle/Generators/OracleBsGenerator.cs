@@ -27,17 +27,17 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         protected override void Write_ClassGeneratedDatabaseSpecific()
         {
             output.AutoTab("public partial class ");
-            output.write(classNameBs);
+            output.Write(classNameBs);
             if (identityExists)
             {
-                output.write(" : BaseBsOracleForIdentity<" + classNameTypeLibrary + ", ");
-                output.write(classNameDal + ", AdoTemplateOracle,ParameterBuilderOracle," + identityType );
+                output.Write(" : BaseBsOracleForIdentity<" + classNameTypeLibrary + ", ");
+                output.Write(classNameDal + ", AdoTemplateOracle,ParameterBuilderOracle," + identityType );
 
             }
             else
             {
-                output.write(" : BaseBsOracle<" + classNameTypeLibrary + ", ");
-                output.write(classNameDal + ", AdoTemplateOracle,ParameterBuilderOracle");
+                output.Write(" : BaseBsOracle<" + classNameTypeLibrary + ", ");
+                output.Write(classNameDal + ", AdoTemplateOracle,ParameterBuilderOracle");
             }
             output.writeLine(">");
         }

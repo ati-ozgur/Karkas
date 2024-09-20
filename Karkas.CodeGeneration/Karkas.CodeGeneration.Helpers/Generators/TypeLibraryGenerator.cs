@@ -48,7 +48,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             Write_UsingNamespaces();
 
-            Write_Namespacestart();
+            Write_NamespaceStart("TypeLibrary");
 
             Write_ClassName();
 
@@ -95,11 +95,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.Clear();
             output.TabLevel = 0;
             Write_UsingNamespaces();
-            Write_Namespacestart();
+            Write_NamespaceStart("TypeLibrary");
             string classNameValidation = className + "Validation";
             Write_NormalClassLines(className, classNameValidation);
             Write_ValidationClass(classNameValidation);
-            AtEndCurlyBraceletDecreaseTab();
+            Write_NamespaceEndCurlyBracelet();
             output.Save(outputFullFileName, CodeGenerationConfig.GenerateNormalClassAgain);
             output.Clear();
         }
@@ -162,14 +162,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
-        private void Write_Namespacestart()
-        {
 
-            output.AutoTab("namespace ");
-            output.AutoTabLine(classNameSpace);
-            output.write("");
-            AtStartCurlyBraceletIncreaseTab();
-        }
 
         private void Write_ClassName()
         {

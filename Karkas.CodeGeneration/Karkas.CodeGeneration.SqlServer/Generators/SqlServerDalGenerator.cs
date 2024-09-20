@@ -62,21 +62,21 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             bool identityExists = utils.IdentityExists(container);
             string identityType = utils.GetIdentityType(container);
             output.AutoTab("public partial class ");
-            output.write(classNameTypeLibrary);
-            output.write("Dal : ");
+            output.Write(classNameTypeLibrary);
+            output.Write("Dal : ");
             if(identityExists)
             {
-                output.write("BaseDalForIdentitySqlServer<");
-                output.write(classNameTypeLibrary);
-                output.write( ","+ identityType);
+                output.Write("BaseDalForIdentitySqlServer<");
+                output.Write(classNameTypeLibrary);
+                output.Write( ","+ identityType);
             }
             else
             {
-                output.write("BaseDalSqlServer<");
-                output.write(classNameTypeLibrary);
+                output.Write("BaseDalSqlServer<");
+                output.Write(classNameTypeLibrary);
             }
             
-            output.write(", AdoTemplateSqlServer, ParameterBuilderSqlServer");
+            output.Write(", AdoTemplateSqlServer, ParameterBuilderSqlServer");
             output.writeLine(">");
             AtStartCurlyBraceletIncreaseTab();
         }
@@ -84,7 +84,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         public override void Write_InsertCommandParametersAdd()
         {
             output.AutoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
-            output.write(classNameTypeLibrary);
+            output.Write(classNameTypeLibrary);
             output.writeLine(" row)");
             AtStartCurlyBraceletIncreaseTab();
             output.AutoTabLine("ParameterBuilderSqlServer builder = (ParameterBuilderSqlServer)Template.getParameterBuilder();");

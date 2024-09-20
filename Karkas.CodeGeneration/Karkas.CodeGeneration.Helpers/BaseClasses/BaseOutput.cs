@@ -59,11 +59,11 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
 
         public void writeLine(string pLine)
         {
-            write(pLine);
+            Write(pLine);
             writeNewLine();
         }
 
-        public void write(string pLine)
+        public void Write(string pLine)
         {
             buffer.Append(pLine);
         }

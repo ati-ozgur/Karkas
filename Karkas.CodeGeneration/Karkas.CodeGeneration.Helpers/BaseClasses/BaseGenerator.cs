@@ -74,7 +74,32 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         }
         protected void Write_NamespaceEndCurlyBracelet()
         {
-            AtEndCurlyBraceletDecreaseTab();
+
+            if (!CodeGenerationConfig.UseFileScopedNamespace)
+            {
+                AtEndCurlyBraceletDecreaseTab();
+            }
+        }
+
+        protected void Write_NamespaceStart(string type)
+        {
+            string nameSpaceToWrite = $"{baseNameSpace}.{type}";
+
+            if(CodeGenerationConfig.UseSchemaNameInNamespaces)
+            {
+                nameSpaceToWrite += $".{schemaName}";
+            }
+
+            output.AutoTab("namespace ");
+            output.AutoTab(nameSpaceToWrite);
+            if (CodeGenerationConfig.UseFileScopedNamespace)
+            {
+                output.writeLine(";");
+            }
+            else
+            {
+                AtStartCurlyBraceletIncreaseTab();
+            }
         }
     }
 }

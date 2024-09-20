@@ -418,8 +418,13 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		private bool useGlobalUsings;
 		
 		public bool UseGlobalUsings { get => useGlobalUsings; set => useGlobalUsings = value; }
+		private bool useFileScopedNamespace;
+		
+		public bool UseFileScopedNamespace { get => useFileScopedNamespace; set => useFileScopedNamespace = value; }
 
-        public override bool Equals(object obj)
+
+
+		public override bool Equals(object obj)
         {
             // If the passed object is null
             if (obj == null)
