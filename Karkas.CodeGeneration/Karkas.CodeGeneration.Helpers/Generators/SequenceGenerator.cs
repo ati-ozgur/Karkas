@@ -24,8 +24,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         Utils utils = null;
 
 
-        public string Render(IOutput output
-            , string schemaName
+        public string Render(string schemaName
             , string sequenceName)
         {
             
@@ -43,16 +42,16 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             string outputFullFileNameGenerated = "TODO-SEQUENCE.txt";//utils.FileUtilsHelper.getBaseNameForSequenceDalGenerated(this.DatabaseHelper, schemaNamepascalCase, sequenceNamePascalCase, CodeGenerationConfig.UseSchemaNameInFolders);
 
-            Write_Usings(output,baseNameSpaceSequencesDal);
-            Write_Class(output, sequenceDalName);
+            Write_Usings(baseNameSpaceSequencesDal);
+            Write_Class(sequenceDalName);
 
-            Write_OverrideDbProviderName(output);
+            Write_OverrideDbProviderName();
 
 
 
-            Write_SelectSequenceStrings(output,  schemaName, sequenceName);
-            Write_GetNextSequenceValue(output);
-            Write_GetCurrentSequenceValue(output);
+            Write_SelectSequenceStrings(schemaName, sequenceName);
+            Write_GetNextSequenceValue();
+            Write_GetCurrentSequenceValue();
             AtEndCurlyBraceletDecreaseTab();
             AtEndCurlyBraceletDecreaseTab();
 
@@ -63,7 +62,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void Write_GetNextSequenceValue(IOutput output)
+        private void Write_GetNextSequenceValue()
         {
             output.AutoTabLine("");
             output.AutoTabLine("public decimal GetNextSequenceValue()");
@@ -71,7 +70,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.AutoTabLine("return (decimal) Template.BringOneValue(selectNextSequenceString);");
             AtEndCurlyBraceletDecreaseTab();
         }
-        private void Write_GetCurrentSequenceValue(IOutput output)
+        private void Write_GetCurrentSequenceValue()
         {
             output.AutoTabLine("");
             output.AutoTabLine("public decimal GetCurrentSequenceValue()");
@@ -80,7 +79,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab();
         }
 
-        private void Write_SelectSequenceStrings(IOutput output, string schemaName, string sequenceName)
+        private void Write_SelectSequenceStrings(string schemaName, string sequenceName)
         {
             string selectNextSequenceString = "";
             string selectCurrentSequenceString = $"private const string selectCurrentSequenceString = \"SELECT last_number FROM all_sequences WHERE sequence_owner = '{schemaName}' AND sequence_name = '{sequenceName}'\";";
@@ -98,7 +97,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void Write_Usings(IOutput output, string baseNameSpaceSequencesDal)
+        private void Write_Usings(string baseNameSpaceSequencesDal)
         {
             output.AutoTabLine("");
             output.AutoTabLine("using System;");
@@ -117,14 +116,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void Write_Class(IOutput output, string className)
+        private void Write_Class(string className)
         {
             output.IncreaseTab();
             output.AutoTab($"public partial class {className} : BaseDalWithoutEntityOracle");
             AtStartCurlyBraceletIncreaseTab();
         }
 
-        private void Write_OverrideDbProviderName(IOutput output)
+        private void Write_OverrideDbProviderName()
         {
             output.AutoTabLine("public override string DbProviderName");
             AtStartCurlyBraceletIncreaseTab();

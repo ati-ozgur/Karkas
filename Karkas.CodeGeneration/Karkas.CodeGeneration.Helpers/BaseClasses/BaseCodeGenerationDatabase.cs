@@ -177,7 +177,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         public virtual void CodeGenerateOneSequence(string schemaName, string sequenceName)
         {
             SequenceGenerator seqGen = new SequenceGenerator(this.CodeGenerationConfig);
-            seqGen.Render(output, schemaName, sequenceName);
+            seqGen.Render(schemaName, sequenceName);
         }
         public string CodeGenerateAllSequencesInSchema(string schemaName)
         {
