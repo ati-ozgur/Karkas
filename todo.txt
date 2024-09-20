@@ -2,12 +2,16 @@
 
 ## Tests
 
+1. Fix namespace issue with global usings.
+
+2. File scoped namespace
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/namespace
+
 1. record struct?
 
 1. add intellisense comments
 
 somewhat done.
-1. Fix namespace issue with global usings.
 
 
 1. CRUD with identity tables v0
