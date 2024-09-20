@@ -67,15 +67,18 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             }
         }
 
-        // TODO Fix this one later
-        private bool? isInForeignKey;
+        string SQL_FOREIGN_KEY_CHECK = @"SELECT * FROM pragma_foreign_key_list('{0}')
+                WHERE ""from"" = '{1}';";
+        private bool? isInForeignKey = null;
         public bool IsInForeignKey
         {
             get
             {
                 if (!isInForeignKey.HasValue)
                 {
-                    return false;
+                    string sql = string.Format(SQL_FOREIGN_KEY_CHECK, this.Table.Name, this.Name);
+                    bool result = template.ExecuteAsIfExists(sql);
+                    isInForeignKey = result;
                 }
                 return isInForeignKey.Value;
 
