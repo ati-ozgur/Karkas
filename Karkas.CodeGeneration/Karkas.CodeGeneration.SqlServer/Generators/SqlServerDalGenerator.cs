@@ -57,7 +57,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         }
 
 
-        protected override void Write_ClassGenerated( string classNameTypeLibrary, IContainer container)
+        protected override void Write_ClassGenerated(IContainer container)
         {
             bool identityExists = utils.IdentityExists(container);
             string identityType = utils.GetIdentityType(container);
@@ -81,7 +81,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             AtStartCurlyBraceletIncreaseTab();
         }
 
-        public override void Write_InsertCommandParametersAdd( IContainer container, string classNameTypeLibrary)
+        public override void Write_InsertCommandParametersAdd(IContainer container)
         {
             output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
@@ -100,7 +100,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
 
             AtEndCurlyBraceletDecreaseTab();
         }
-        public override void Write_DeleteCommandParametersAdd( IContainer container, string classNameTypeLibrary)
+        public override void Write_DeleteCommandParametersAdd(IContainer container)
         {
             output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
@@ -120,7 +120,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
             AtEndCurlyBraceletDecreaseTab();
         }
 
-        public override void Write_UpdateCommandParametersAdd( IContainer container, string classNameTypeLibrary)
+        public override void Write_UpdateCommandParametersAdd(IContainer container)
         {
             output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);

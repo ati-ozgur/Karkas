@@ -16,11 +16,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
     public abstract class DalGenerator : BaseGenerator
     {
 
-        string classNameTypeLibrary = "";
-        string baseNameSpaceTypeLibrary = "";
-        string pkName = "";
-        string pkNamePascalCase = "";
-        string pkType = "";
+        protected string classNameTypeLibrary = "";
+        protected string baseNameSpaceTypeLibrary = "";
+        protected string pkName = "";
+        protected string pkNamePascalCase = "";
+        protected string pkType = "";
 
         public DalGenerator(CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)
         {
@@ -39,17 +39,17 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        string listType = "";
+        protected string listType = "";
 
+        protected string pkSentence = "";
 
-
-
+        protected string baseNameSpaceDal;
         public string Render(IContainer container)
         {
             List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
 
 
-
+            output.Clear();
             output.tabLevel = 0;
             baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
@@ -68,15 +68,15 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             classNameTypeLibrary = utils.getClassNameForTypeLibrary(container.Name, listDatabaseAbbreviations);
             schemaName = utils.GetPascalCase(container.Schema);
 
-            string classNameSpace = baseNameSpaceTypeLibrary;
+            classNameSpace = baseNameSpaceTypeLibrary;
             if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
             {
                 classNameSpace = classNameSpace + "." + schemaName;
             }
 
-            string pkSentence = "";
+            pkSentence = "";
 
-            string baseNameSpaceDal = baseNameSpace + ".Dal";
+            baseNameSpaceDal = baseNameSpace + ".Dal";
             if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
             {
                 baseNameSpaceDal = baseNameSpaceDal + "." + schemaName;
@@ -88,14 +88,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             listType = "List<" + classNameTypeLibrary + ">";
 
-            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForDalGenerated(schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
-            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInSqlQueries);
+            outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForDalGenerated(schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
+            outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInSqlQueries);
 
-            Write_Usings(schemaName, baseNameSpaceTypeLibrary);
+            Write_Usings();
 
-            Write_NamespaceStart(baseNameSpaceDal);
+            Write_NamespaceStart();
 
-            Write_ClassGenerated(classNameTypeLibrary, container);
+            Write_ClassGenerated(container);
             output.autoTabLn("");
 
             Write_OverrideDatabaseName(container);
@@ -123,13 +123,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             Write_PrimaryKey(container);
 
-            Write_DeleteByPK(classNameTypeLibrary, container);
+            Write_DeleteByPK(container);
 
-            Write_ProcessRow(container, classNameTypeLibrary);
+            Write_ProcessRow(container);
 
-            Write_InsertCommandParametersAdd(container, classNameTypeLibrary);
-            Write_UpdateCommandParametersAdd(container, classNameTypeLibrary);
-            Write_DeleteCommandParametersAdd(container, classNameTypeLibrary);
+            Write_InsertCommandParametersAdd(container);
+            Write_UpdateCommandParametersAdd(container);
+            Write_DeleteCommandParametersAdd(container);
 
             Write_OverrideDbProviderName(container);
 
@@ -139,20 +139,20 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.Clear();
-            Write_MainClass( baseNameSpaceDal, outputFullFileName);
+            Write_MainClass();
             return "";
 
 
         }
 
-        private void Write_MainClass( string baseNameSpaceDal, string outputFullFileName)
+        private void Write_MainClass()
         {
             if (!File.Exists(outputFullFileName))
             {
-                Write_Usings(schemaName, baseNameSpaceTypeLibrary);
+                Write_Usings();
 
-                Write_NamespaceStart(baseNameSpaceDal);
-                Write_ClassNormal(classNameTypeLibrary);
+                Write_NamespaceStart();
+                Write_ClassNormal();
                 AtStartCurlyBraceletIncreaseTab();
                 AtEndCurlyBraceletDecreaseTab();
 
@@ -164,7 +164,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        private void Write_OverrideDbProviderName( IContainer container)
+        private void Write_OverrideDbProviderName(IContainer container)
         {
             output.autoTabLn("public override string DbProviderName");
             AtStartCurlyBraceletIncreaseTab();
@@ -176,7 +176,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void Write_PrimaryKey( IContainer container)
+        private void Write_PrimaryKey(IContainer container)
         {
             output.autoTabLn("");
             output.autoTabLn("public override string PrimaryKey");
@@ -205,7 +205,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             return result;
         }
 
-        private void Write_DeleteByPK( string classNameTypeLibrary, IContainer container)
+        private void Write_DeleteByPK(IContainer container)
         {
             ITable table = container as ITable;
             if (table != null )
@@ -227,7 +227,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        protected virtual void Write_SetIdentityColumnValue( IContainer container)
+        protected virtual void Write_SetIdentityColumnValue(IContainer container)
         {
             bool identityExists = utils.IdentityExists(container);
             if(identityExists)
@@ -251,7 +251,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void Write_OverrideDatabaseName( IContainer container)
+        private void Write_OverrideDatabaseName(IContainer container)
         {
             if (CodeGenerationConfig.UseMultipleDatabaseNames)
             {
@@ -271,7 +271,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void Write_Usings(string schemaName, string baseNameSpaceTypeLibrary)
+        private void Write_Usings()
         {
             if (!CodeGenerationConfig.UseGlobalUsings)
             {
@@ -300,7 +300,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
         }
-        private void Write_NamespaceStart( string baseNameSpaceDal)
+        private void Write_NamespaceStart()
         { 
             output.autoTabLn("");
             output.autoTabLn("");
@@ -312,7 +312,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        protected virtual void Write_ClassGenerated( string classNameTypeLibrary, IContainer container)
+        protected virtual void Write_ClassGenerated(IContainer container)
         {
             bool identityExists = utils.IdentityExists(container);
             string identityType = utils.GetIdentityType(container);
@@ -324,7 +324,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab();
         }
 
-        protected virtual void Write_ClassNormal( string classNameTypeLibrary)
+        protected virtual void Write_ClassNormal()
         {
             output.autoTab("public partial class ");
             output.write(classNameTypeLibrary + "Dal");
@@ -700,7 +700,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("");
         }
 
-        private void Write_ProcessRow( IContainer container, string classNameTypeLibrary)
+        private void Write_ProcessRow(IContainer container)
         {
             string propertyVariableName = "";
             output.autoTab("protected override void ProcessRow(IDataReader dr, ");
@@ -729,7 +729,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab();
         }
 
-        public abstract void Write_InsertCommandParametersAdd( IContainer container, string classNameTypeLibrary);
+        public abstract void Write_InsertCommandParametersAdd(IContainer container);
 
 
         public bool shouldAddColumnToParameters(IColumn column)
@@ -742,7 +742,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             return (column.Name == "VersionTime");
         }
 
-        public virtual void builderParameterAdd( IColumn column)
+        public virtual void builderParameterAdd(IColumn column)
         {
             if (!column.isStringTypeWithoutLength && column.isStringType)
             {
@@ -754,7 +754,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
-        private void builderParameterAddStringDbType( IColumn column)
+        private void builderParameterAddStringDbType(IColumn column)
         {
             string s = "builder.AddParameter(\"" + parameterSymbol
                         + column.Name
@@ -771,7 +771,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         
 
 
-        private void builderParameterAddNormal( IColumn column)
+        private void builderParameterAddNormal(IColumn column)
         {
             string s = "builder.AddParameter(\"" + parameterSymbol
                         + column.Name
@@ -782,8 +782,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                         + ");";
             output.autoTabLn(s);
         }
-        public abstract void Write_UpdateCommandParametersAdd( IContainer container, string classNameTypeLibrary);
-        public abstract void Write_DeleteCommandParametersAdd( IContainer container, string classNameTypeLibrary);
+        public abstract void Write_UpdateCommandParametersAdd(IContainer container);
+        public abstract void Write_DeleteCommandParametersAdd(IContainer container);
 
 
 

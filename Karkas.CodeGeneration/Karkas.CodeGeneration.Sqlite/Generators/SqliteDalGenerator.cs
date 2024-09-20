@@ -22,7 +22,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
 
 
 
-        protected override void Write_ClassGenerated(string classNameTypeLibrary,IContainer container)
+        protected override void Write_ClassGenerated(IContainer container)
         {
 
             bool identityExists = utils.IdentityExists(container);
@@ -83,7 +83,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         }
 
 
-        public override void Write_InsertCommandParametersAdd(IContainer container, string classNameTypeLibrary)
+        public override void Write_InsertCommandParametersAdd(IContainer container)
         {
             output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
@@ -103,7 +103,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             AtEndCurlyBraceletDecreaseTab();
         }
 
-        public override void Write_DeleteCommandParametersAdd(IContainer container, string classNameTypeLibrary)
+        public override void Write_DeleteCommandParametersAdd(IContainer container)
         {
             output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
@@ -138,7 +138,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         }
 
 
-        public override void Write_UpdateCommandParametersAdd(IContainer container, string classNameTypeLibrary)
+        public override void Write_UpdateCommandParametersAdd(IContainer container)
         {
             output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.autoTab(classNameTypeLibrary);
