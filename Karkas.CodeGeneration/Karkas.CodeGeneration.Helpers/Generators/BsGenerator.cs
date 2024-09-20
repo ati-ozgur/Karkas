@@ -33,7 +33,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         protected string identityType;
 
-
+        protected string outputFullFileNameGenerated;
+        protected string outputFullFileName;
 
 
         public BsGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
@@ -57,8 +58,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             SetFields(container, listDatabaseAbbreviations);
 
-            Write_Usings(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
-            Write_NamespaceStart(output, schemaName, baseNameSpace, baseNameSpaceBsWithSchema);
+            Write_Usings(output);
+            Write_NamespaceStart(output);
             AtStartCurlyBraceletIncreaseTab(output);
 
             Write_ClassGenerated(output, classNameBs, classNameDal, classNameTypeLibrary, identityExists, identityType);
@@ -74,12 +75,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab(output);
             Write_NamespaceEndCurlyBracelet(output);
 
-            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForBsGenerated(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
-            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForBs(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
             output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.Clear();
 
-            Write_MainClass(output, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema, outputFullFileName);
+            Write_MainClass(output, outputFullFileName);
         }
 
         private void SetFields(IContainer container, List<DatabaseAbbreviations> listDatabaseAbbreviations)
@@ -108,14 +107,17 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             identityExists = utils.IdentityExists(container);
             identityType = utils.GetIdentityType(container);
+            outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForBsGenerated(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
+            outputFullFileName = utils.FileUtilsHelper.getBaseNameForBs(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
+
         }
 
-        private void Write_MainClass(IOutput output, string baseNameSpaceBsWithSchema, string baseNameSpaceDalWithSchema, string outputFullFileName)
+        private void Write_MainClass(IOutput output, string outputFullFileName)
         {
             if (!File.Exists(outputFullFileName))
             {
-                Write_Usings(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
-                Write_NamespaceStart(output, schemaName, baseNameSpace, baseNameSpaceBsWithSchema);
+                Write_Usings(output);
+                Write_NamespaceStart(output);
                 AtStartCurlyBraceletIncreaseTab(output);
                 Write_ClassNormal(output, classNameBs, classNameDal, classNameTypeLibrary);
                 AtStartCurlyBraceletIncreaseTab(output);
@@ -193,7 +195,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         protected abstract void Write_UsingsDatabaseSpecific(IOutput output);
 
-        public void Write_Usings(IOutput output, string schemaName, string baseNameSpace, string baseNameSpaceTypeLibrary, string baseNameSpaceBsWithSchema, string baseNameSpaceDalWithSchema)
+        public void Write_Usings(IOutput output)
         {
             if (!CodeGenerationConfig.UseGlobalUsings)
             {
@@ -230,7 +232,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("");
         }
 
-        private static void Write_NamespaceStart(IOutput output, string schemaName, string baseNameSpace, string baseNameSpaceBsWithSchema)
+        private void Write_NamespaceStart(IOutput output)
         {
             output.autoTab("namespace ");
             if (!string.IsNullOrWhiteSpace(schemaName))
