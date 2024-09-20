@@ -67,12 +67,12 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             Write_Usings(output);
             Write_NamespaceStart(output);
-            AtStartCurlyBraceletIncreaseTab(output);
 
             Write_ClassGeneratedDatabaseSpecific(output);
-            AtStartCurlyBracelet(output);
-            Write_OverrideDatabaseName(output, container);
 
+            AtStartCurlyBraceletIncreaseTab(output);
+            
+            Write_OverrideDatabaseName(output, container);
             if (container is ITable && (!string.IsNullOrEmpty(pkName)))
             {
                 Write_DeleteCommandWithPK(output, container);
@@ -123,7 +123,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             {
                 Write_Usings(output);
                 Write_NamespaceStart(output);
-                AtStartCurlyBraceletIncreaseTab(output);
                 Write_ClassNormalDatabaseSpecific(output);
                 Write_NamespaceEndCurlyBracelet(output);
                 output.SaveEncoding(outputFullFileName, "o", "utf8");
@@ -254,7 +253,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.autoTab(baseNameSpace + ".Bs");
             }
             output.autoTabLn("");
-            output.increaseTab();
+            AtStartCurlyBraceletIncreaseTab(output);
         }
     }
 

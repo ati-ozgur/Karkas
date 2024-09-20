@@ -38,7 +38,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         }
         protected void AtStartCurlyBracelet(IOutput output)
         {
-            output.autoTabLn("{");
+            output.autoTabLn("{");            
         }
         protected void AtEndCurlyBracelet(IOutput output)
         {
