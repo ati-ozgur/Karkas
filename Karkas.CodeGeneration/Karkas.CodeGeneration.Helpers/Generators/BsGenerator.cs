@@ -23,11 +23,18 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         string pkName = "";
         string pkNamePascalCase = "";
         string pkType = "";
+        protected string baseNameSpace = "";
+        protected string baseNameSpaceTypeLibrary = "";
+
+        protected string baseNameSpaceBsWithSchema;
+        protected string baseNameSpaceDalWithSchema;
+
+        protected bool identityExists;
+
+        protected string identityType;
 
 
 
-        string baseNameSpace = "";
-        string baseNameSpaceTypeLibrary = "";
 
         public BsGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
         {
@@ -47,6 +54,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             output.tabLevel = 0;
             IDatabase database = container.Database;
+
             baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
 
@@ -56,8 +64,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             schemaName = utils.GetPascalCase(container.Schema);
 
-            string baseNameSpaceBsWithSchema = baseNameSpace + ".Bs";
-            string baseNameSpaceDalWithSchema = baseNameSpace + ".Dal";
+            baseNameSpaceBsWithSchema = baseNameSpace + ".Bs";
+            baseNameSpaceDalWithSchema = baseNameSpace + ".Dal";
 
             if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
             {
@@ -69,12 +77,12 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             pkName = utils.FindPrimaryKeyColumnName(container);
             pkNamePascalCase = utils.GetPascalCase(pkName);
 
+            identityExists = utils.IdentityExists(container);
+            identityType = utils.GetIdentityType(container);
 
             Write_Usings(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
             Write_NamespaceStart(output, schemaName, baseNameSpace, baseNameSpaceBsWithSchema);
             AtStartCurlyBraceletIncreaseTab(output);
-            bool identityExists = utils.IdentityExists(container);
-            string identityType = utils.GetIdentityType(container);
 
             Write_ClassGenerated(output, classNameBs, classNameDal, classNameTypeLibrary, identityExists, identityType);
             AtStartCurlyBracelet(output);
