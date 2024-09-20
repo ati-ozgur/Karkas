@@ -45,8 +45,8 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
 
         protected override void Write_UsingDatabaseClient()
         {
-            output.autoTabLn("using System.Data.SqlClient;");
-            output.autoTabLn("using Karkas.Core.Data.SqlServer;");
+            output.AutoTabLine("using System.Data.SqlClient;");
+            output.AutoTabLine("using Karkas.Core.Data.SqlServer;");
             
         }
 
@@ -61,7 +61,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         {
             bool identityExists = utils.IdentityExists(container);
             string identityType = utils.GetIdentityType(container);
-            output.autoTab("public partial class ");
+            output.AutoTab("public partial class ");
             output.write(classNameTypeLibrary);
             output.write("Dal : ");
             if(identityExists)
@@ -83,12 +83,12 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
 
         public override void Write_InsertCommandParametersAdd(IContainer container)
         {
-            output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
+            output.AutoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
             output.writeLine(" row)");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("ParameterBuilderSqlServer builder = (ParameterBuilderSqlServer)Template.getParameterBuilder();");
-            output.autoTabLn("builder.Command = cmd;");
+            output.AutoTabLine("ParameterBuilderSqlServer builder = (ParameterBuilderSqlServer)Template.getParameterBuilder();");
+            output.AutoTabLine("builder.Command = cmd;");
 
             foreach (IColumn column in container.Columns)
             {
@@ -102,12 +102,12 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         }
         public override void Write_DeleteCommandParametersAdd(IContainer container)
         {
-            output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
-            output.autoTab(classNameTypeLibrary);
-            output.autoTabLn(" row)");
+            output.AutoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
+            output.AutoTab(classNameTypeLibrary);
+            output.AutoTabLine(" row)");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("ParameterBuilderSqlServer builder = (ParameterBuilderSqlServer)Template.getParameterBuilder();");
-            output.autoTabLn("builder.Command = cmd;");
+            output.AutoTabLine("ParameterBuilderSqlServer builder = (ParameterBuilderSqlServer)Template.getParameterBuilder();");
+            output.AutoTabLine("builder.Command = cmd;");
 
             foreach (IColumn column in container.Columns)
             {
@@ -122,12 +122,12 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
 
         public override void Write_UpdateCommandParametersAdd(IContainer container)
         {
-            output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
-            output.autoTab(classNameTypeLibrary);
-            output.autoTabLn(" row)");
+            output.AutoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
+            output.AutoTab(classNameTypeLibrary);
+            output.AutoTabLine(" row)");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("ParameterBuilderSqlServer builder = (ParameterBuilderSqlServer)Template.getParameterBuilder();");
-            output.autoTabLn("builder.Command = cmd;");
+            output.AutoTabLine("ParameterBuilderSqlServer builder = (ParameterBuilderSqlServer)Template.getParameterBuilder();");
+            output.AutoTabLine("builder.Command = cmd;");
 
             foreach (IColumn column in container.Columns)
             {

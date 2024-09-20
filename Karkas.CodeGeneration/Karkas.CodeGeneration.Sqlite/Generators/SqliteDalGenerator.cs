@@ -30,7 +30,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
 
             if (identityExists)
             {
-                output.autoTab("public partial class ");
+                output.AutoTab("public partial class ");
                 output.write(classNameTypeLibrary);
                 output.write("Dal : BaseDalForIdentitySqlite<");
                 output.write(classNameTypeLibrary);
@@ -42,7 +42,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             }
             else
             {
-                output.autoTab("public partial class ");
+                output.AutoTab("public partial class ");
                 output.write(classNameTypeLibrary);
                 output.write("Dal : BaseDalSqlite<");
                 output.write(classNameTypeLibrary);
@@ -77,20 +77,20 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         }
         protected override void Write_UsingDatabaseClient()
         {
-            output.autoTabLn("using Microsoft.Data.Sqlite;");
-            output.autoTabLn("using Karkas.Core.Data.Sqlite;");
+            output.AutoTabLine("using Microsoft.Data.Sqlite;");
+            output.AutoTabLine("using Karkas.Core.Data.Sqlite;");
 
         }
 
 
         public override void Write_InsertCommandParametersAdd(IContainer container)
         {
-            output.autoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
+            output.AutoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
             output.writeLine(" row)");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("ParameterBuilderSqlite builder = (ParameterBuilderSqlite)Template.getParameterBuilder();");
-            output.autoTabLn("builder.Command = cmd;");
+            output.AutoTabLine("ParameterBuilderSqlite builder = (ParameterBuilderSqlite)Template.getParameterBuilder();");
+            output.AutoTabLine("builder.Command = cmd;");
 
             foreach (IColumn column in container.Columns)
             {
@@ -105,12 +105,12 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
 
         public override void Write_DeleteCommandParametersAdd(IContainer container)
         {
-            output.autoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
-            output.autoTab(classNameTypeLibrary);
-            output.autoTabLn(" row)");
+            output.AutoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
+            output.AutoTab(classNameTypeLibrary);
+            output.AutoTabLine(" row)");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("ParameterBuilderSqlite builder = (ParameterBuilderSqlite)Template.getParameterBuilder();");
-            output.autoTabLn("builder.Command = cmd;");
+            output.AutoTabLine("ParameterBuilderSqlite builder = (ParameterBuilderSqlite)Template.getParameterBuilder();");
+            output.AutoTabLine("builder.Command = cmd;");
 
             foreach (IColumn column in container.Columns)
             {
@@ -131,7 +131,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             {
                 string identityColumnName = GetIdentityColumnName(container);
                 string value = $"public override string IdentityParameterName {{ get {{return \"{identityColumnName}\"; }} }}";
-                output.autoTabLn(value);
+                output.AutoTabLine(value);
             }
 
 
@@ -140,12 +140,12 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
 
         public override void Write_UpdateCommandParametersAdd(IContainer container)
         {
-            output.autoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
-            output.autoTab(classNameTypeLibrary);
-            output.autoTabLn(" row)");
+            output.AutoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
+            output.AutoTab(classNameTypeLibrary);
+            output.AutoTabLine(" row)");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("ParameterBuilderSqlite builder = (ParameterBuilderSqlite)Template.getParameterBuilder();");
-            output.autoTabLn("builder.Command = cmd;");
+            output.AutoTabLine("ParameterBuilderSqlite builder = (ParameterBuilderSqlite)Template.getParameterBuilder();");
+            output.AutoTabLine("builder.Command = cmd;");
 
             foreach (IColumn column in container.Columns)
             {

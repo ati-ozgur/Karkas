@@ -46,7 +46,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-            output.tabLevel = 0;
+            output.TabLevel = 0;
 
             SetFields(container);
 
@@ -128,11 +128,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             if(CodeGenerationConfig.UseMultipleDatabaseNames)
             {
-                output.autoTabLn("public override string DatabaseName");
+                output.AutoTabLine("public override string DatabaseName");
                 AtStartCurlyBraceletIncreaseTab();
-                output.autoTabLn("get");
+                output.AutoTabLine("get");
                 AtStartCurlyBraceletIncreaseTab();
-                output.autoTabLn(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionName));
+                output.AutoTabLine(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionName));
                 AtEndCurlyBraceletDecreaseTab();
                 AtEndCurlyBraceletDecreaseTab();
             }
@@ -151,12 +151,12 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                     string classLine = "public " + classNameTypeLibrary + " QueryBy"
                                     + pkName + "(" + pkType
                                     + " " + variableName +  ")";
-                    output.autoTabLn(classLine);
-                    output.autoTabLn("{");
-                    output.increaseTab();
-                    output.autoTabLn("return dal.QueryBy" + pkName + "("+ variableName + ");");
-                    output.decreaseTab();
-                    output.autoTabLn("}");
+                    output.AutoTabLine(classLine);
+                    output.AutoTabLine("{");
+                    output.IncreaseTab();
+                    output.AutoTabLine("return dal.QueryBy" + pkName + "("+ variableName + ");");
+                    output.DecreaseTab();
+                    output.AutoTabLine("}");
                 }
             }
         }
@@ -170,11 +170,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 {
                     IColumn pkColumn = utils.FindPrimaryKeyColumnNameIfOneColumn(container);
                     string pkPropertyName = utils.getPropertyVariableName(pkColumn);
-                    output.autoTabLn(string.Format("public void Delete({0} p{1})", pkType, pkPropertyName));
+                    output.AutoTabLine(string.Format("public void Delete({0} p{1})", pkType, pkPropertyName));
                     AtStartCurlyBraceletIncreaseTab();
                     // output.autoTabLn(string.Format("{0} row = new {0}();", classNameTypeLibrary));
 
-                    output.autoTabLn(string.Format("dal.Delete( p{0});",pkPropertyName));
+                    output.AutoTabLine(string.Format("dal.Delete( p{0});",pkPropertyName));
                     AtEndCurlyBraceletDecreaseTab();
                 }
             }
@@ -183,7 +183,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         protected virtual void Write_ClassNormalDatabaseSpecific()
         {
-            output.autoTab("public partial class ");
+            output.AutoTab("public partial class ");
             output.writeLine(classNameBs);
             Write_ClassStartCurlyBracelet();
             Write_ClassEndCurlyBracelet();
@@ -198,51 +198,51 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             if (!CodeGenerationConfig.UseGlobalUsings)
             {
-                output.autoTabLn("");
-                output.autoTabLn("using System;");
-                output.autoTabLn("using System.Collections.Generic;");
-                output.autoTabLn("using System.Data;");
+                output.AutoTabLine("");
+                output.AutoTabLine("using System;");
+                output.AutoTabLine("using System.Collections.Generic;");
+                output.AutoTabLine("using System.Data;");
                 Write_UsingsDatabaseSpecific();
-                output.autoTabLn("using System.Text;");
-                output.autoTabLn("using Karkas.Core.DataUtil;");
-                output.autoTabLn("using Karkas.Core.DataUtil.BaseClasses;");
-                output.autoTab("using ");
-                output.autoTab(baseNameSpaceTypeLibrary);
-                output.autoTabLn(";");
+                output.AutoTabLine("using System.Text;");
+                output.AutoTabLine("using Karkas.Core.DataUtil;");
+                output.AutoTabLine("using Karkas.Core.DataUtil.BaseClasses;");
+                output.AutoTab("using ");
+                output.AutoTab(baseNameSpaceTypeLibrary);
+                output.AutoTabLine(";");
             }
             if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
             {
-                output.autoTab("using ");
-                output.autoTab(baseNameSpaceTypeLibrary);
-                output.autoTab(".");
-                output.autoTab(schemaName);
-                output.autoTabLn(";");
-                output.autoTab("using ");
-                output.autoTab(baseNameSpaceDalWithSchema);
-                output.autoTabLn(";");
+                output.AutoTab("using ");
+                output.AutoTab(baseNameSpaceTypeLibrary);
+                output.AutoTab(".");
+                output.AutoTab(schemaName);
+                output.AutoTabLine(";");
+                output.AutoTab("using ");
+                output.AutoTab(baseNameSpaceDalWithSchema);
+                output.AutoTabLine(";");
             }
             else
             {
-                output.autoTab("using ");
-                output.autoTab(baseNameSpace + ".Dal");
-                output.autoTabLn(";");
+                output.AutoTab("using ");
+                output.AutoTab(baseNameSpace + ".Dal");
+                output.AutoTabLine(";");
             }
-            output.autoTabLn("");
-            output.autoTabLn("");
+            output.AutoTabLine("");
+            output.AutoTabLine("");
         }
 
         private void Write_NamespaceStart()
         {
-            output.autoTab("namespace ");
+            output.AutoTab("namespace ");
             if (!string.IsNullOrWhiteSpace(schemaName))
             {
-                output.autoTab(baseNameSpaceBsWithSchema);
+                output.AutoTab(baseNameSpaceBsWithSchema);
             }
             else
             {
-                output.autoTab(baseNameSpace + ".Bs");
+                output.AutoTab(baseNameSpace + ".Bs");
             }
-            output.autoTabLn("");
+            output.AutoTabLine("");
             AtStartCurlyBraceletIncreaseTab();
         }
     }

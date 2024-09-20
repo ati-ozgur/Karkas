@@ -29,7 +29,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             , string sequenceName)
         {
             
-            output.tabLevel = 0;
+            output.TabLevel = 0;
             baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
 
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
@@ -65,18 +65,18 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void Write_GetNextSequenceValue(IOutput output)
         {
-            output.autoTabLn("");
-            output.autoTabLn("public decimal GetNextSequenceValue()");
+            output.AutoTabLine("");
+            output.AutoTabLine("public decimal GetNextSequenceValue()");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("return (decimal) Template.BringOneValue(selectNextSequenceString);");
+            output.AutoTabLine("return (decimal) Template.BringOneValue(selectNextSequenceString);");
             AtEndCurlyBraceletDecreaseTab();
         }
         private void Write_GetCurrentSequenceValue(IOutput output)
         {
-            output.autoTabLn("");
-            output.autoTabLn("public decimal GetCurrentSequenceValue()");
+            output.AutoTabLine("");
+            output.AutoTabLine("public decimal GetCurrentSequenceValue()");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("return (decimal) Template.BringOneValue(selectCurrentSequenceString);");
+            output.AutoTabLine("return (decimal) Template.BringOneValue(selectCurrentSequenceString);");
             AtEndCurlyBraceletDecreaseTab();
         }
 
@@ -92,45 +92,45 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             {
                 selectNextSequenceString = $"private const string selectNextSequenceString = \"SELECT {sequenceName}.NEXTVAL FROM DUAL\";";
             }
-            output.autoTabLn(selectNextSequenceString);
-            output.autoTabLn(selectCurrentSequenceString);
+            output.AutoTabLine(selectNextSequenceString);
+            output.AutoTabLine(selectCurrentSequenceString);
 
 
         }
 
         private void Write_Usings(IOutput output, string baseNameSpaceSequencesDal)
         {
-            output.autoTabLn("");
-            output.autoTabLn("using System;");
-            output.autoTabLn("using System.Collections.Generic;");
-            output.autoTabLn("using System.Data;");
-            output.autoTabLn("using System.Data.Common;");
-            output.autoTabLn("using System.Data.SqlClient;");
-            output.autoTabLn("using System.Text;");
-            output.autoTabLn("using Karkas.Core.DataUtil;");
-            output.autoTabLn("using Karkas.Core.Data.Oracle;");
-            output.autoTabLn("");
-            output.autoTab("namespace ");
-            output.autoTab(baseNameSpaceSequencesDal);
-            output.autoTabLn("");
+            output.AutoTabLine("");
+            output.AutoTabLine("using System;");
+            output.AutoTabLine("using System.Collections.Generic;");
+            output.AutoTabLine("using System.Data;");
+            output.AutoTabLine("using System.Data.Common;");
+            output.AutoTabLine("using System.Data.SqlClient;");
+            output.AutoTabLine("using System.Text;");
+            output.AutoTabLine("using Karkas.Core.DataUtil;");
+            output.AutoTabLine("using Karkas.Core.Data.Oracle;");
+            output.AutoTabLine("");
+            output.AutoTab("namespace ");
+            output.AutoTab(baseNameSpaceSequencesDal);
+            output.AutoTabLine("");
             AtStartCurlyBraceletIncreaseTab();
         }
 
 
         private void Write_Class(IOutput output, string className)
         {
-            output.increaseTab();
-            output.autoTab($"public partial class {className} : BaseDalWithoutEntityOracle");
+            output.IncreaseTab();
+            output.AutoTab($"public partial class {className} : BaseDalWithoutEntityOracle");
             AtStartCurlyBraceletIncreaseTab();
         }
 
         private void Write_OverrideDbProviderName(IOutput output)
         {
-            output.autoTabLn("public override string DbProviderName");
+            output.AutoTabLine("public override string DbProviderName");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("get");
+            output.AutoTabLine("get");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionDbProviderName));
+            output.AutoTabLine(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionDbProviderName));
             AtEndCurlyBraceletDecreaseTab();
             AtEndCurlyBraceletDecreaseTab();
         }

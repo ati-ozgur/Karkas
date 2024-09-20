@@ -9,15 +9,15 @@ namespace Karkas.CodeGeneration.Helpers.Interfaces
     {
 
 
-        int tabLevel { get; set; }
+        int TabLevel { get; set; }
 
-        void autoTabLn(string p);
+        void AutoTabLine(string p);
 
-        void autoTab(string p);
+        void AutoTab(string p);
 
-        void increaseTab();
+        void IncreaseTab();
 
-        void decreaseTab();
+        void DecreaseTab();
 
         void writeLine(string p);
 

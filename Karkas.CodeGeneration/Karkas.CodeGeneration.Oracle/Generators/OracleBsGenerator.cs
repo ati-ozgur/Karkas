@@ -26,7 +26,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
         protected override void Write_ClassGeneratedDatabaseSpecific()
         {
-            output.autoTab("public partial class ");
+            output.AutoTab("public partial class ");
             output.write(classNameBs);
             if (identityExists)
             {
@@ -44,8 +44,8 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
         protected override void Write_UsingsDatabaseSpecific()
         {
-            output.autoTabLn("using Karkas.Core.Data.Oracle;");
-            output.autoTabLn("using Oracle.ManagedDataAccess.Client;");
+            output.AutoTabLine("using Karkas.Core.Data.Oracle;");
+            output.AutoTabLine("using Oracle.ManagedDataAccess.Client;");
         }
     }
 }

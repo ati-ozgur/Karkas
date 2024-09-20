@@ -50,13 +50,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
             output.Clear();
-            output.tabLevel = 0;
+            output.TabLevel = 0;
             SetFields(container, listDatabaseAbbreviations);
 
             Create_GeneratedClass(container);
 
             Create_NormalClass();
-            
+
             return "";
 
 
@@ -69,7 +69,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             Write_NamespaceStart();
 
             Write_ClassGenerated(container);
-            output.autoTabLn("");
+            output.AutoTabLine("");
 
             Write_OverrideDatabaseName(container);
 
@@ -175,11 +175,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void Write_OverrideDbProviderName(IContainer container)
         {
-            output.autoTabLn("public override string DbProviderName");
+            output.AutoTabLine("public override string DbProviderName");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("get");
+            output.AutoTabLine("get");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn(string.Format("return \"{0}\";",  CodeGenerationConfig.ConnectionDbProviderName));
+            output.AutoTabLine(string.Format("return \"{0}\";",  CodeGenerationConfig.ConnectionDbProviderName));
             AtEndCurlyBraceletDecreaseTab();
             AtEndCurlyBraceletDecreaseTab();
         }
@@ -187,15 +187,15 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void Write_PrimaryKey(IContainer container)
         {
-            output.autoTabLn("");
-            output.autoTabLn("public override string PrimaryKey");
+            output.AutoTabLine("");
+            output.AutoTabLine("public override string PrimaryKey");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("get");
+            output.AutoTabLine("get");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn(string.Format("return \"{0}\";", pkName));
+            output.AutoTabLine(string.Format("return \"{0}\";", pkName));
             AtEndCurlyBraceletDecreaseTab();
             AtEndCurlyBraceletDecreaseTab();
-            output.autoTabLn("");
+            output.AutoTabLine("");
 
         }
 
@@ -223,11 +223,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 {
                     IColumn pkColumn = utils.FindPrimaryKeyColumnNameIfOneColumn(container);
                     string pkPropertyName = utils.getPropertyVariableName(pkColumn);
-                    output.autoTabLn(string.Format("public virtual void Delete({0} {1})", pkType, pkPropertyName));
+                    output.AutoTabLine(string.Format("public virtual void Delete({0} {1})", pkType, pkPropertyName));
                     AtStartCurlyBraceletIncreaseTab();
-                    output.autoTabLn(string.Format("{0} row = new {0}();", classNameTypeLibrary));
-                    output.autoTabLn(string.Format("row.{0} = {0};", pkPropertyName));
-                    output.autoTabLn("base.Delete(row);");
+                    output.AutoTabLine(string.Format("{0} row = new {0}();", classNameTypeLibrary));
+                    output.AutoTabLine(string.Format("row.{0} = {0};", pkPropertyName));
+                    output.AutoTabLine("base.Delete(row);");
                     AtEndCurlyBraceletDecreaseTab();
                 }
             }
@@ -244,13 +244,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 string identityType = utils.GetIdentityType(container);
 
                 string methodSignature = $"protected override void setIdentityColumnValue({classNameTypeLibrary} pTypeLibrary,{identityType} pIdentityColumnValue)";
-                output.autoTabLn(methodSignature);
+                output.AutoTabLine(methodSignature);
                 AtStartCurlyBraceletIncreaseTab();
                 if (utils.IdentityExists(container))
                 {
                     string identityColumnName = utils.getIdentityColumnNameAsPascalCase(container);
                     string propertySetSignature = $"pTypeLibrary.{identityColumnName} = ({identityType} )pIdentityColumnValue;";
-                    output.autoTabLn(propertySetSignature);
+                    output.AutoTabLine(propertySetSignature);
                 }
                 AtEndCurlyBraceletDecreaseTab();
 
@@ -264,11 +264,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             if (CodeGenerationConfig.UseMultipleDatabaseNames)
             {
-                output.autoTabLn("public override string DatabaseName");
+                output.AutoTabLine("public override string DatabaseName");
                 AtStartCurlyBraceletIncreaseTab();
-                output.autoTabLn("get");
+                output.AutoTabLine("get");
                 AtStartCurlyBraceletIncreaseTab();
-                output.autoTabLn(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionName));
+                output.AutoTabLine(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionName));
                 AtEndCurlyBraceletDecreaseTab();
                 AtEndCurlyBraceletDecreaseTab();
             }
@@ -284,25 +284,25 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             if (!CodeGenerationConfig.UseGlobalUsings)
             {
-                output.autoTabLn("");
-                output.autoTabLn("using System;");
-                output.autoTabLn("using System.Collections.Generic;");
-                output.autoTabLn("using System.Data;");
-                output.autoTabLn("using System.Data.Common;");
+                output.AutoTabLine("");
+                output.AutoTabLine("using System;");
+                output.AutoTabLine("using System.Collections.Generic;");
+                output.AutoTabLine("using System.Data;");
+                output.AutoTabLine("using System.Data.Common;");
                 Write_UsingDatabaseClient();
-                output.autoTabLn("using System.Text;");
-                output.autoTabLn("using Karkas.Core.DataUtil;");
-                output.autoTabLn("using Karkas.Core.DataUtil.BaseClasses;");
-                output.autoTab("using ");
-                output.autoTab(baseNameSpaceTypeLibrary);
-                output.autoTabLn(";");
+                output.AutoTabLine("using System.Text;");
+                output.AutoTabLine("using Karkas.Core.DataUtil;");
+                output.AutoTabLine("using Karkas.Core.DataUtil.BaseClasses;");
+                output.AutoTab("using ");
+                output.AutoTab(baseNameSpaceTypeLibrary);
+                output.AutoTabLine(";");
                 if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
                 {
-                    output.autoTab("using ");
-                    output.autoTab(baseNameSpaceTypeLibrary);
-                    output.autoTab(".");
-                    output.autoTab(schemaName);
-                    output.autoTabLn(";");
+                    output.AutoTab("using ");
+                    output.AutoTab(baseNameSpaceTypeLibrary);
+                    output.AutoTab(".");
+                    output.AutoTab(schemaName);
+                    output.AutoTabLine(";");
                 }
                 Write_UsingsAdditional();
             }
@@ -311,11 +311,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
         private void Write_NamespaceStart()
         { 
-            output.autoTabLn("");
-            output.autoTabLn("");
-            output.autoTab("namespace ");
-            output.autoTab(baseNameSpaceDal);
-            output.autoTabLn("");
+            output.AutoTabLine("");
+            output.AutoTabLine("");
+            output.AutoTab("namespace ");
+            output.AutoTab(baseNameSpaceDal);
+            output.AutoTabLine("");
             AtStartCurlyBraceletIncreaseTab();
 
         }
@@ -325,7 +325,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             bool identityExists = utils.IdentityExists(container);
             string identityType = utils.GetIdentityType(container);
-            output.autoTab("public partial class ");
+            output.AutoTab("public partial class ");
             output.write(classNameTypeLibrary);
             output.write("Dal : BaseDal<");
             output.write(classNameTypeLibrary);
@@ -335,7 +335,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         protected virtual void Write_ClassNormal()
         {
-            output.autoTab("public partial class ");
+            output.AutoTab("public partial class ");
             output.writeLine(classNameTypeLibrary + "Dal");
             AtStartCurlyBraceletIncreaseTab();
             AtEndCurlyBraceletDecreaseTab();
@@ -366,14 +366,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         private void Write_SelectCount( IContainer container)
         {
 
-            output.autoTabLn("protected override string SelectCountString");
+            output.AutoTabLine("protected override string SelectCountString");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("get");
+            output.AutoTabLine("get");
             AtStartCurlyBraceletIncreaseTab();
             string sentence = "return @\"SELECT COUNT(*) FROM " 
                             + GetSchemaNameForQueries(container) 
                             + getTableName(container) + "\";";
-            output.autoTabLn(sentence);
+            output.AutoTabLine(sentence);
             AtEndCurlyBraceletDecreaseTab();
             AtEndCurlyBraceletDecreaseTab();
         }
@@ -381,9 +381,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void Write_SelectString( IContainer container)
         {
-            output.autoTabLn("protected override string SelectString");
+            output.AutoTabLine("protected override string SelectString");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("get ");
+            output.AutoTabLine("get ");
             AtStartCurlyBraceletIncreaseTab();
             string sentence = "return @\"SELECT ";
             foreach (IColumn column in container.Columns)
@@ -393,7 +393,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             sentence = sentence.Remove(sentence.Length - 1);
             sentence += " FROM ";
             sentence +=  GetSchemaNameForQueries(container)  + getTableName(container) + "\";";
-            output.autoTabLn(sentence);
+            output.AutoTabLine(sentence);
             AtEndCurlyBraceletDecreaseTab();
             AtEndCurlyBraceletDecreaseTab();
         }
@@ -402,20 +402,20 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             if (container is IView)
             {
-                output.autoTabLn("protected override string DeleteString");
+                output.AutoTabLine("protected override string DeleteString");
                 AtStartCurlyBraceletIncreaseTab();
-                output.autoTabLn("get ");
+                output.AutoTabLine("get ");
                 AtStartCurlyBraceletIncreaseTab();
-                output.autoTabLn("return null;");
+                output.AutoTabLine("return null;");
                 AtEndCurlyBraceletDecreaseTab();
                 AtEndCurlyBraceletDecreaseTab();
                 
                 return;
             }
             string sentence = "";
-            output.autoTabLn("protected override string DeleteString");
+            output.AutoTabLine("protected override string DeleteString");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("get ");
+            output.AutoTabLine("get ");
             AtStartCurlyBraceletIncreaseTab();
             sentence += "return @\"DELETE ";
 
@@ -446,7 +446,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 sentence = "throw new NotSupportedException(\"Insert/Update/Delete on VIEWs are not supported.\")";
             }
 
-            output.autoTabLn(sentence + whereClause + ";");
+            output.AutoTabLine(sentence + whereClause + ";");
             AtEndCurlyBraceletDecreaseTab();
             AtEndCurlyBraceletDecreaseTab();
         }
@@ -467,11 +467,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             if (container is IView)
             {
-                output.autoTabLn("protected override string UpdateString");
+                output.AutoTabLine("protected override string UpdateString");
                 AtStartCurlyBraceletIncreaseTab();
-                output.autoTabLn("get ");
+                output.AutoTabLine("get ");
                 AtStartCurlyBraceletIncreaseTab();
-                output.autoTabLn("return null;");
+                output.AutoTabLine("return null;");
                 AtEndCurlyBraceletDecreaseTab();
                 AtEndCurlyBraceletDecreaseTab();
 
@@ -479,17 +479,17 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
 
             string line = "";
-            output.autoTabLn("protected override string UpdateString");
+            output.AutoTabLine("protected override string UpdateString");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("get ");
+            output.AutoTabLine("get ");
             AtStartCurlyBraceletIncreaseTab();
             if (container is ITable)
             {
                 string firstLine = "return @\"UPDATE " 
                     + GetSchemaNameForQueries(container) 
                     + getTableName(container);
-                output.autoTabLn(firstLine);
-                output.autoTabLn(" SET ");
+                output.AutoTabLine(firstLine);
+                output.AutoTabLine(" SET ");
 
                 foreach (IColumn column in container.Columns)
                 {
@@ -515,14 +515,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 }
 
 
-                output.autoTab(line);
-                output.autoTabLn("");
-                output.autoTabLn("WHERE ");
-                output.autoTabLn(pkLine + "\";");
+                output.AutoTab(line);
+                output.AutoTabLine("");
+                output.AutoTabLine("WHERE ");
+                output.AutoTabLine(pkLine + "\";");
             }
             else
             {
-                output.autoTabLn("throw new NotSupportedException(\"Insert/Update/Delete on VIEWs are not supported.\");");
+                output.AutoTabLine("throw new NotSupportedException(\"Insert/Update/Delete on VIEWs are not supported.\");");
             }
             AtEndCurlyBraceletDecreaseTab();
             AtEndCurlyBraceletDecreaseTab();
@@ -552,20 +552,20 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             string schemaNameForQueries = GetSchemaNameForQueries(container);
             string tableName = getTableName(container);
-            output.autoTabLn("protected override string InsertString");
+            output.AutoTabLine("protected override string InsertString");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("get ");
+            output.AutoTabLine("get ");
             AtStartCurlyBraceletIncreaseTab();
             if (container is ITable)
             {
                 string sentence = $"return @\"INSERT INTO {schemaNameForQueries}{tableName}\n";
                 sentence += getInsertString( container);
                 sentence += "\";";
-                output.autoTabLn(sentence);
+                output.AutoTabLine(sentence);
             }
             else
             {
-                output.autoTabLn("throw new NotSupportedException(\" Insert/Update/Delete is not supported for VIEWs \");");
+                output.AutoTabLine("throw new NotSupportedException(\" Insert/Update/Delete is not supported for VIEWs \");");
             }
             AtEndCurlyBraceletDecreaseTab();
             AtEndCurlyBraceletDecreaseTab();
@@ -631,7 +631,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void defineList(IOutput output)
         {
-            output.autoTabLn(listType + " list = new " + listType + "();");
+            output.AutoTabLine(listType + " list = new " + listType + "();");
         }
 
         private void Write_QueryByPk( IContainer container, string classNameTypeLibrary,  string pkName, string pkNamePascalCase, string pkType)
@@ -646,23 +646,23 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 string methodLine = "public " + classNameTypeLibrary + " QueryBy"
                             + pkNamePascalCase + "(" + pkType
                                 + " " + variableName +" )";
-                output.autoTabLn(methodLine);
+                output.AutoTabLine(methodLine);
                 AtStartCurlyBraceletIncreaseTab();
                 defineList(output);
                 if(CodeGenerationConfig.UseQuotesInQueries)
                 {
                     pkName = "\\\"" + pkName + "\\\"";                    
                 }
-                output.autoTab("ExecuteQuery(list,String.Format(\" " + pkName + " = '{0}'\"," +variableName+ "));");
-                output.autoTabLn("");
-                output.autoTabLn("if (list.Count > 0)");
-                output.autoTabLn("{");
-                output.autoTabLn("\treturn list[0];");
-                output.autoTabLn("}");
-                output.autoTabLn("else");
-                output.autoTabLn("{");
-                output.autoTabLn("\treturn null;");
-                output.autoTabLn("}");
+                output.AutoTab("ExecuteQuery(list,String.Format(\" " + pkName + " = '{0}'\"," +variableName+ "));");
+                output.AutoTabLine("");
+                output.AutoTabLine("if (list.Count > 0)");
+                output.AutoTabLine("{");
+                output.AutoTabLine("\treturn list[0];");
+                output.AutoTabLine("}");
+                output.AutoTabLine("else");
+                output.AutoTabLine("{");
+                output.AutoTabLine("\treturn null;");
+                output.AutoTabLine("}");
                 AtEndCurlyBraceletDecreaseTab();
                 }
         }
@@ -679,12 +679,12 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 identityResult = "false";
             }
 
-            output.autoTabLn("");
-            output.autoTabLn("protected override bool IdentityExists");
+            output.AutoTabLine("");
+            output.AutoTabLine("protected override bool IdentityExists");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("get");
+            output.AutoTabLine("get");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("return " + identityResult + ";");
+            output.AutoTabLine("return " + identityResult + ";");
             AtEndCurlyBraceletDecreaseTab();
             AtEndCurlyBraceletDecreaseTab();
         }
@@ -701,21 +701,21 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
 
 
-            output.autoTabLn("");
-            output.autoTabLn("protected override bool IsPkGuid");
+            output.AutoTabLine("");
+            output.AutoTabLine("protected override bool IsPkGuid");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("get");
+            output.AutoTabLine("get");
             AtStartCurlyBraceletIncreaseTab();
-            output.autoTabLn("return " + IsPkGuidResult + ";");
+            output.AutoTabLine("return " + IsPkGuidResult + ";");
             AtEndCurlyBraceletDecreaseTab();
             AtEndCurlyBraceletDecreaseTab();
-            output.autoTabLn("");
+            output.AutoTabLine("");
         }
 
         private void Write_ProcessRow(IContainer container)
         {
             string propertyVariableName = "";
-            output.autoTab("protected override void ProcessRow(IDataReader dr, ");
+            output.AutoTab("protected override void ProcessRow(IDataReader dr, ");
             output.write(classNameTypeLibrary);
             output.writeLine(" row)");
             AtStartCurlyBraceletIncreaseTab();
@@ -728,14 +728,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                                 + "(" + i + ");";
                 if (column.IsNullable)
                 {
-                    output.autoTabLn("if (!dr.IsDBNull(" + i + "))");
+                    output.AutoTabLine("if (!dr.IsDBNull(" + i + "))");
                     AtStartCurlyBraceletIncreaseTab();
-                    output.autoTabLn(line);
+                    output.AutoTabLine(line);
                     AtEndCurlyBraceletDecreaseTab();
                 }
                 else
                 {
-                    output.autoTabLn(line);
+                    output.AutoTabLine(line);
                 }
             }
             AtEndCurlyBraceletDecreaseTab();
@@ -777,7 +777,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                         + ","
                         + Convert.ToString(column.CharacterMaxLength)
                         + ");";
-            output.autoTabLn(s);
+            output.AutoTabLine(s);
         }
         protected abstract string getDbTargetType(IColumn column);
         
@@ -792,7 +792,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                         + ", row."
                         + utils.getPropertyVariableName(column)
                         + ");";
-            output.autoTabLn(s);
+            output.AutoTabLine(s);
         }
         public abstract void Write_UpdateCommandParametersAdd(IContainer container);
         public abstract void Write_DeleteCommandParametersAdd(IContainer container);

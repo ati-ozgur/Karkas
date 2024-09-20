@@ -13,7 +13,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         StringBuilder buffer = new StringBuilder(1000);
         private int _tabLevel = 0;
 
-        public int tabLevel
+        public int TabLevel
         {
             get
             {
@@ -30,14 +30,14 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
             buffer.Append(Environment.NewLine);
         }
 
-        public void autoTabLn(string pLine)
+        public void AutoTabLine(string pLine)
         {
-            autoTab(pLine);
+            AutoTab(pLine);
             writeNewLine();
             
         }
 
-        public void autoTab(string pLine)
+        public void AutoTab(string pLine)
         {
             for (int i = 1; i < _tabLevel; i++)
             {
@@ -46,12 +46,12 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
             buffer.Append(pLine);
         }
 
-        public void increaseTab()
+        public void IncreaseTab()
         {
             _tabLevel++;
         }
 
-        public void decreaseTab()
+        public void DecreaseTab()
         {
             _tabLevel--;
         }

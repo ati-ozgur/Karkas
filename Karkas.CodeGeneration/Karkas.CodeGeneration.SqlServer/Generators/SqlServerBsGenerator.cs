@@ -26,7 +26,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
 
         protected override void Write_ClassGeneratedDatabaseSpecific()
         {
-            output.autoTab("public partial class ");
+            output.AutoTab("public partial class ");
             output.write(classNameBs);
             if (identityExists)
             {
@@ -46,8 +46,8 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
 
         protected override void Write_UsingsDatabaseSpecific()
         {
-            output.autoTabLn("using Karkas.Core.Data.SqlServer;");
-            output.autoTabLn("using System.Data.SqlClient;");
+            output.AutoTabLine("using Karkas.Core.Data.SqlServer;");
+            output.AutoTabLine("using System.Data.SqlClient;");
 
 
         }

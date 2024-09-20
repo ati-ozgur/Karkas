@@ -42,21 +42,21 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
 
         protected void AtStartCurlyBraceletIncreaseTab()
         {
-            output.autoTabLn("{");
-            output.increaseTab();
+            output.AutoTabLine("{");
+            output.IncreaseTab();
         }
         protected void AtEndCurlyBraceletDecreaseTab()
         {
-            output.decreaseTab();
-            output.autoTabLn("}");
+            output.DecreaseTab();
+            output.AutoTabLine("}");
         }
         protected void AtStartCurlyBracelet()
         {
-            output.autoTabLn("{");            
+            output.AutoTabLine("{");            
         }
         protected void AtEndCurlyBracelet()
         {
-            output.autoTabLn("}");
+            output.AutoTabLine("}");
         }
 
         protected void Write_ClassStartCurlyBracelet()
