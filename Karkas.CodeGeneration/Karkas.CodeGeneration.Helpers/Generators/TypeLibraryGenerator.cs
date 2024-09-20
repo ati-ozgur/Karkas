@@ -25,8 +25,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
 
 
-            output.Clear();
-            output.TabLevel = 0;
             SetFields(container);
 
             Create_GeneratedClassFile(container);
@@ -41,6 +39,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void Create_GeneratedClassFile(IContainer container)
         {
+
+            output.Clear();
+            output.TabLevel = 0;
+
             Write_UsingNamespaces();
 
             Write_Namespacestart();
@@ -91,7 +93,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.TabLevel = 0;
             Write_UsingNamespaces();
             Write_Namespacestart();
-            output.IncreaseTab();
             string classNameValidation = className + "Validation";
             Write_NormalClassLines(className, classNameValidation);
             Write_ValidationClass(classNameValidation);
@@ -169,7 +170,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void Write_ClassName(IContainer container)
         {
-            output.IncreaseTab();
             output.AutoTabLine("[Serializable]");
             DebuggerDisplayWrite(output, container);
             output.AutoTab("public partial class ");

@@ -65,7 +65,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             output.Clear();
             output.TabLevel = 0;
-            
+
             Write_Usings();
 
             Write_NamespaceStart();
@@ -307,17 +307,16 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                     output.AutoTabLine(";");
                 }
                 Write_UsingsAdditional();
+                output.AutoTabLine("");
+                output.AutoTabLine("");
+
             }
 
 
         }
         private void Write_NamespaceStart()
         { 
-            output.AutoTabLine("");
-            output.AutoTabLine("");
-            output.AutoTab("namespace ");
-            output.AutoTab(baseNameSpaceDal);
-            output.AutoTabLine("");
+            output.AutoTabLine($"namespace {baseNameSpaceDal}");
             AtStartCurlyBraceletIncreaseTab();
 
         }

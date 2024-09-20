@@ -39,7 +39,8 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
 
         public void AutoTab(string pLine)
         {
-            for (int i = 1; i < _tabLevel; i++)
+
+            for (int i = 0; i < _tabLevel; i++)
             {
                 buffer.Append("\t");
             }
