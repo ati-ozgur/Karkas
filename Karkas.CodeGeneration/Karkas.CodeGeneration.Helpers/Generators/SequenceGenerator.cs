@@ -45,16 +45,16 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             string outputFullFileNameGenerated = "TODO-SEQUENCE.txt";//utils.FileUtilsHelper.getBaseNameForSequenceDalGenerated(this.DatabaseHelper, schemaNamepascalCase, sequenceNamePascalCase, CodeGenerationConfig.UseSchemaNameInFolders);
 
-            writeUsings(output,baseNameSpaceSequencesDal);
-            writeClass(output, sequenceDalName);
+            Write_Usings(output,baseNameSpaceSequencesDal);
+            Write_Class(output, sequenceDalName);
 
-            writeOverrideDbProviderName(output);
+            Write_OverrideDbProviderName(output);
 
 
 
-            writeSelectSequenceStrings(output, this.DatabaseHelper, schemaName, sequenceName);
-            writeGetNextSequenceValue(output);
-            writeGetCurrentSequenceValue(output);
+            Write_SelectSequenceStrings(output, this.DatabaseHelper, schemaName, sequenceName);
+            Write_GetNextSequenceValue(output);
+            Write_GetCurrentSequenceValue(output);
             AtEndCurlyBraceletDecreaseTab(output);
             AtEndCurlyBraceletDecreaseTab(output);
 
@@ -65,7 +65,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void writeGetNextSequenceValue(IOutput output)
+        private void Write_GetNextSequenceValue(IOutput output)
         {
             output.autoTabLn("");
             output.autoTabLn("public decimal GetNextSequenceValue()");
@@ -73,7 +73,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.autoTabLn("return (decimal) Template.BringOneValue(selectNextSequenceString);");
             AtEndCurlyBraceletDecreaseTab(output);
         }
-        private void writeGetCurrentSequenceValue(IOutput output)
+        private void Write_GetCurrentSequenceValue(IOutput output)
         {
             output.autoTabLn("");
             output.autoTabLn("public decimal GetCurrentSequenceValue()");
@@ -82,7 +82,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab(output);
         }
 
-        private void writeSelectSequenceStrings(IOutput output, IDatabase database, string schemaName, string sequenceName)
+        private void Write_SelectSequenceStrings(IOutput output, IDatabase database, string schemaName, string sequenceName)
         {
             string selectNextSequenceString = "";
             string selectCurrentSequenceString = $"private const string selectCurrentSequenceString = \"SELECT last_number FROM all_sequences WHERE sequence_owner = '{schemaName}' AND sequence_name = '{sequenceName}'\";";
@@ -100,7 +100,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void writeUsings(IOutput output, string baseNameSpaceSequencesDal)
+        private void Write_Usings(IOutput output, string baseNameSpaceSequencesDal)
         {
             output.autoTabLn("");
             output.autoTabLn("using System;");
@@ -119,14 +119,14 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void writeClass(IOutput output, string className)
+        private void Write_Class(IOutput output, string className)
         {
             output.increaseTab();
             output.autoTab($"public partial class {className} : BaseDalWithoutEntityOracle");
             AtStartCurlyBraceletIncreaseTab(output);
         }
 
-        private void writeOverrideDbProviderName(IOutput output)
+        private void Write_OverrideDbProviderName(IOutput output)
         {
             output.autoTabLn("public override string DbProviderName");
             AtStartCurlyBraceletIncreaseTab(output);
