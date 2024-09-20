@@ -24,7 +24,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
 
             List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
-            
+
 
             IDatabase database = container.Database;
             output.tabLevel = 0;
@@ -38,9 +38,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             {
                 classNameSpace = classNameSpace + "." + schemaName;
             }
-            
-            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForTypeLibrary(CodeGenerationConfig, schemaName, className,CodeGenerationConfig.UseSchemaNameInFolders); 
-            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForTypeLibraryGenerated(CodeGenerationConfig, schemaName,className, CodeGenerationConfig.UseSchemaNameInFolders);
+
+            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForTypeLibrary(CodeGenerationConfig, schemaName, className, CodeGenerationConfig.UseSchemaNameInFolders);
+            string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForTypeLibraryGenerated(CodeGenerationConfig, schemaName, className, CodeGenerationConfig.UseSchemaNameInFolders);
 
 
             Write_UsingNamespaces(output, classNameSpace);
@@ -63,7 +63,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.writeLine("");
 
             AtEndCurlyBraceletDecreaseTab(output);
-            AtEndCurlyBraceletDecreaseTab(output);
+            Write_NamespaceEndCurlyBracelet(output);
 
             output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.Clear();
@@ -71,22 +71,28 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-            if (!File.Exists(outputFullFileName) || CodeGenerationConfig.CreateMainClassAgain  )
+            if (!File.Exists(outputFullFileName) || CodeGenerationConfig.CreateMainClassAgain)
             {
-                generateMainClassFile(output,  database, className, classNameSpace, outputFullFileName);
+                generateMainClassFile(output, database, className, classNameSpace, outputFullFileName);
             }
 
 
         }
 
+        private void Write_NamespaceEndCurlyBracelet(IOutput output)
+        {
+            AtEndCurlyBraceletDecreaseTab(output);
+        }
+
         private void generateMainClassFile(IOutput output, IDatabase database,string className, string classNameSpace, string outputFullFileName)
         {
             Write_UsingNamespaces(output, classNameSpace);
+            Write_Namespacestart(output, classNameSpace);
             //output.increaseTab();
             string classNameValidation = className + "Validation";
             writeMainClass(output, className, classNameValidation);
             writeValidationClass(output, database, className, classNameValidation);
-            AtEndCurlyBraceletDecreaseTab(output);
+            Write_NamespaceEndCurlyBracelet(output);
             output.Save(outputFullFileName, CodeGenerationConfig.CreateMainClassAgain);
             output.Clear();
         }
