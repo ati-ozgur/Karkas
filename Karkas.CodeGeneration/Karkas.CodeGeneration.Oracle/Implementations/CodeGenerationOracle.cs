@@ -199,15 +199,6 @@ ORDER BY SEQUENCE_NAME
 
 
 
-        IOutput output = new OracleOutput();
-
-        public override IOutput Output
-        {
-            get 
-            {
-                return output;
-            }
-        }
 
         public override IView GetView(string pViewName, string pSchemaName)
         {

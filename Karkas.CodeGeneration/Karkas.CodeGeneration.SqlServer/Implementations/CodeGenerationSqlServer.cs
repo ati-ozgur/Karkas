@@ -264,14 +264,6 @@ ORDER BY SEQUENCE_NAME
         }
 
 
-        IOutput output = new SqlServerOutput();
-        public override IOutput Output
-        {
-            get
-            {
-                return output;
-            }
-        }
 
         public override IView GetView(string pViewName, string pSchemaName)
         {

@@ -27,10 +27,21 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         public CodeGenerationConfig CodeGenerationConfig { get => codeGenerationConfig; set => codeGenerationConfig = value; }
 
 
+        BaseOutput output;
+        public BaseOutput Output 
+        { 
+            get
+            {
+                return output;
+            }
+        
+        }
+
         public BaseGenerator(CodeGenerationConfig pCodeGenerationConfig)
         {
 
-            this.CodeGenerationConfig = pCodeGenerationConfig;
+            codeGenerationConfig = pCodeGenerationConfig;
+            output = new BaseOutput();
 
         }
 

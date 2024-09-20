@@ -130,7 +130,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         }
 
 
-        public abstract IOutput Output { get; }
+
         public abstract IView GetView(string pViewName, string pSchemaName);
 
         public abstract bool CheckIfCodeShouldBeGenerated(string pTableName, string pSchemaName);
