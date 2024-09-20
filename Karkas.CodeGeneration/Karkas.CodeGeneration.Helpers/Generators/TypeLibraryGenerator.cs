@@ -21,13 +21,16 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         protected string baseNameSpaceTypeLibrary;
 
-        public void Render(IContainer container)
+        protected IContainer container;
+
+        public void Render(IContainer pContainer)
         {
+            container = pContainer;
 
 
-            SetFields(container);
+            SetFields();
 
-            Create_GeneratedClassFile(container);
+            Create_GeneratedClassFile();
 
             if (!File.Exists(outputFullFileName) || CodeGenerationConfig.GenerateNormalClassAgain)
             {
@@ -37,7 +40,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void Create_GeneratedClassFile(IContainer container)
+        private void Create_GeneratedClassFile()
         {
 
             output.Clear();
@@ -47,17 +50,17 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             Write_Namespacestart();
 
-            Write_ClassName(container);
+            Write_ClassName();
 
 
 
-            Write_MemberVariables(container);
+            Write_MemberVariables();
 
-            Write_Properties(container);
+            Write_Properties();
 
-            Write_ShallowCopy(container);
+            Write_ShallowCopy();
 
-            Write_ColumnNames(container);
+            Write_ColumnNames();
 
 
             output.writeLine("");
@@ -70,7 +73,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.Clear();
         }
 
-        private void SetFields(IContainer container)
+        private void SetFields()
         {
             baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
@@ -168,10 +171,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab();
         }
 
-        private void Write_ClassName(IContainer container)
+        private void Write_ClassName()
         {
             output.AutoTabLine("[Serializable]");
-            DebuggerDisplayWrite(output, container);
+            DebuggerDisplayWrite();
             output.AutoTab("public partial class ");
             output.AutoTab(className + ": BaseTypeLibrary");
             output.writeLine("");
@@ -179,7 +182,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void DebuggerDisplayWrite(IOutput output, IContainer container)
+        private void DebuggerDisplayWrite()
         {
             if (container is ITable)
             {
@@ -200,7 +203,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        private void Write_ColumnNames(IContainer container)
+        private void Write_ColumnNames()
         {
             output.AutoTabLine("public class ColumnNames");
             AtStartCurlyBraceletIncreaseTab();
@@ -215,7 +218,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void Write_Properties(IContainer container)
+        private void Write_Properties()
         {
             foreach (IColumn column in container.Columns)
             {
@@ -273,7 +276,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
         // TODO Do I need it? Think. If not remove it. Was is for i18n?
-        private void PropertiesAsStringWrite(IOutput output, IContainer container)
+        private void PropertiesAsStringWrite()
         {
             foreach (IColumn column in container.Columns)
             {
@@ -326,7 +329,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        private void Write_ShallowCopy(IContainer container)
+        private void Write_ShallowCopy()
         {
             output.AutoTabLine(string.Format("public {0} ShallowCopy()", className));
             output.AutoTabLine("{");
@@ -344,7 +347,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void Write_MemberVariables(IContainer container)
+        private void Write_MemberVariables()
         {
             foreach (IColumn column in container.Columns)
             {

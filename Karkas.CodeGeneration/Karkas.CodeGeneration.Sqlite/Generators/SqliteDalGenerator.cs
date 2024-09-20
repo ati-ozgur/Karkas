@@ -22,7 +22,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
 
 
 
-        protected override void Write_ClassGenerated(IContainer container)
+        protected override void Write_ClassGenerated()
         {
 
             bool identityExists = utils.IdentityExists(container);
@@ -71,7 +71,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             }
         }
 
-        protected override string getAutoIncrementKeySql(IContainer container)
+        protected override string getAutoIncrementKeySql()
         {
             return ";select last_insert_rowid();";
         }
@@ -83,7 +83,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         }
 
 
-        public override void Write_InsertCommandParametersAdd(IContainer container)
+        public override void Write_InsertCommandParametersAdd()
         {
             output.AutoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
@@ -103,7 +103,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             AtEndCurlyBraceletDecreaseTab();
         }
 
-        public override void Write_DeleteCommandParametersAdd(IContainer container)
+        public override void Write_DeleteCommandParametersAdd()
         {
             output.AutoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.AutoTab(classNameTypeLibrary);
@@ -123,13 +123,13 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
             AtEndCurlyBraceletDecreaseTab();
         }
 
-        protected override void Write_SetIdentityColumnValue(IContainer container)
+        protected override void Write_SetIdentityColumnValue()
         {
-            base.Write_SetIdentityColumnValue(container);
+            base.Write_SetIdentityColumnValue();
             bool identityExists = utils.IdentityExists(container);
             if(identityExists)
             {
-                string identityColumnName = GetIdentityColumnName(container);
+                string identityColumnName = GetIdentityColumnName();
                 string value = $"public override string IdentityParameterName {{ get {{return \"{identityColumnName}\"; }} }}";
                 output.AutoTabLine(value);
             }
@@ -138,7 +138,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         }
 
 
-        public override void Write_UpdateCommandParametersAdd(IContainer container)
+        public override void Write_UpdateCommandParametersAdd()
         {
             output.AutoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.AutoTab(classNameTypeLibrary);

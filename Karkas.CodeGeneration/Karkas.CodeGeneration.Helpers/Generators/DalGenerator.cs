@@ -16,23 +16,20 @@ namespace Karkas.CodeGeneration.Helpers.Generators
     public abstract class DalGenerator : BaseGenerator
     {
 
-        protected string classNameTypeLibrary = "";
-        protected string baseNameSpaceTypeLibrary = "";
-        protected string pkName = "";
-        protected string pkNamePascalCase = "";
-        protected string pkType = "";
-
-        public DalGenerator(CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)
+        public DalGenerator(CodeGenerationConfig pCodeGenerationConfig) : base(pCodeGenerationConfig)
         {
             utils = new Utils(pCodeGenerationConfig);
         }
         protected Utils utils;
 
 
+        protected string classNameTypeLibrary = "";
+        protected string baseNameSpaceTypeLibrary = "";
+        protected string pkName = "";
+        protected string pkNamePascalCase = "";
+        protected string pkType = "";
 
-
-
-        public string GetIdentityColumnName(IContainer container)
+        public string GetIdentityColumnName()
         {
             return utils.GetIdentityColumnName(container);
         }
@@ -44,14 +41,16 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         protected string pkSentence = "";
 
         protected string baseNameSpaceDal;
-        List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
-        public string Render(IContainer container)
+
+        protected IContainer container;
+        public string Render(IContainer pContainer)
         {
 
+            container = pContainer;
 
-            SetFields(container, listDatabaseAbbreviations);
+            SetFields();
 
-            Create_GeneratedClass(container);
+            Create_GeneratedClass();
 
             Create_NormalClass();
 
@@ -60,7 +59,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        private void Create_GeneratedClass(IContainer container)
+        private void Create_GeneratedClass()
         {
 
             output.Clear();
@@ -70,43 +69,43 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             Write_NamespaceStart();
 
-            Write_ClassGenerated(container);
+            Write_ClassGenerated();
             output.AutoTabLine("");
 
-            Write_OverrideDatabaseName(container);
+            Write_OverrideDatabaseName();
 
-            Write_SetIdentityColumnValue(container);
-
-
-            Write_SelectCount(container);
-
-            Write_SelectString(container);
-
-            Write_DeleteString(container);
-
-            Write_UpdateString(container, ref pkSentence);
+            Write_SetIdentityColumnValue();
 
 
-            Write_InsertString(container);
+            Write_SelectCount();
+
+            Write_SelectString();
+
+            Write_DeleteString();
+
+            Write_UpdateString();
 
 
-            Write_QueryByPk(container, classNameTypeLibrary, pkName, pkNamePascalCase, pkType);
+            Write_InsertString();
 
-            Write_IdentityExists(utils.IdentityExists(container));
 
-            Write_IfPkGuid(container);
+            Write_QueryByPk();
 
-            Write_PrimaryKey(container);
+            Write_IdentityExists();
 
-            Write_DeleteByPK(container);
+            Write_IfPkGuid();
 
-            Write_ProcessRow(container);
+            Write_PrimaryKey();
 
-            Write_InsertCommandParametersAdd(container);
-            Write_UpdateCommandParametersAdd(container);
-            Write_DeleteCommandParametersAdd(container);
+            Write_DeleteByPK();
 
-            Write_OverrideDbProviderName(container);
+            Write_ProcessRow();
+
+            Write_InsertCommandParametersAdd();
+            Write_UpdateCommandParametersAdd();
+            Write_DeleteCommandParametersAdd();
+
+            Write_OverrideDbProviderName();
 
 
             AtEndCurlyBraceletDecreaseTab();
@@ -116,7 +115,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.Clear();
         }
 
-        private void SetFields(IContainer container, List<DatabaseAbbreviations> listDatabaseAbbreviations)
+        private void SetFields()
         {
             baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
@@ -175,7 +174,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        private void Write_OverrideDbProviderName(IContainer container)
+        private void Write_OverrideDbProviderName()
         {
             output.AutoTabLine("public override string DbProviderName");
             AtStartCurlyBraceletIncreaseTab();
@@ -187,7 +186,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void Write_PrimaryKey(IContainer container)
+        private void Write_PrimaryKey()
         {
             output.AutoTabLine("");
             output.AutoTabLine("public override string PrimaryKey");
@@ -202,7 +201,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        protected IColumn GetAutoNumberColumn(IContainer container)
+        protected IColumn GetAutoNumberColumn()
         {
             IColumn result = null;
             foreach (IColumn column in container.Columns)
@@ -216,7 +215,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             return result;
         }
 
-        private void Write_DeleteByPK(IContainer container)
+        private void Write_DeleteByPK()
         {
             ITable table = container as ITable;
             if (table != null )
@@ -238,7 +237,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        protected virtual void Write_SetIdentityColumnValue(IContainer container)
+        protected virtual void Write_SetIdentityColumnValue()
         {
             bool identityExists = utils.IdentityExists(container);
             if(identityExists)
@@ -262,7 +261,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void Write_OverrideDatabaseName(IContainer container)
+        private void Write_OverrideDatabaseName()
         {
             if (CodeGenerationConfig.UseMultipleDatabaseNames)
             {
@@ -322,7 +321,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        protected virtual void Write_ClassGenerated(IContainer container)
+        protected virtual void Write_ClassGenerated()
         {
             bool identityExists = utils.IdentityExists(container);
             string identityType = utils.GetIdentityType(container);
@@ -342,7 +341,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        protected string GetSchemaNameForQueries(IContainer container)
+        protected string GetSchemaNameForQueries()
         {
             string result = "";
             if (CodeGenerationConfig.UseSchemaNameInSqlQueries)
@@ -352,7 +351,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             return result;
         }
 
-        protected string getTableName(IContainer container)
+        protected string getTableName()
         {
             string tableName = container.Name;
             if (CodeGenerationConfig.UseQuotesInQueries)
@@ -362,7 +361,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             return tableName;
         }
 
-        private void Write_SelectCount( IContainer container)
+        private void Write_SelectCount()
         {
 
             output.AutoTabLine("protected override string SelectCountString");
@@ -370,15 +369,15 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.AutoTabLine("get");
             AtStartCurlyBraceletIncreaseTab();
             string sentence = "return @\"SELECT COUNT(*) FROM " 
-                            + GetSchemaNameForQueries(container) 
-                            + getTableName(container) + "\";";
+                            + GetSchemaNameForQueries() 
+                            + getTableName() + "\";";
             output.AutoTabLine(sentence);
             AtEndCurlyBraceletDecreaseTab();
             AtEndCurlyBraceletDecreaseTab();
         }
 
 
-        private void Write_SelectString( IContainer container)
+        private void Write_SelectString()
         {
             output.AutoTabLine("protected override string SelectString");
             AtStartCurlyBraceletIncreaseTab();
@@ -391,13 +390,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
             sentence = sentence.Remove(sentence.Length - 1);
             sentence += " FROM ";
-            sentence +=  GetSchemaNameForQueries(container)  + getTableName(container) + "\";";
+            sentence +=  GetSchemaNameForQueries()  + getTableName() + "\";";
             output.AutoTabLine(sentence);
             AtEndCurlyBraceletDecreaseTab();
             AtEndCurlyBraceletDecreaseTab();
         }
 
-        private void Write_DeleteString( IContainer container)
+        private void Write_DeleteString()
         {
             if (container is IView)
             {
@@ -436,8 +435,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 }
                 whereClause = whereClause.Remove(whereClause.Length - 4) + "\"";
                 sentence += "  FROM " 
-                        + GetSchemaNameForQueries(container) 
-                        + getTableName(container) + " WHERE ";
+                        + GetSchemaNameForQueries() 
+                        + getTableName() + " WHERE ";
             }
             else
             {
@@ -462,7 +461,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void Write_UpdateString( IContainer container, ref string pkLine)
+        private void Write_UpdateString()
         {
             if (container is IView)
             {
@@ -476,7 +475,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
                 return;
             }
-
+            string pkLine = "";
             string line = "";
             output.AutoTabLine("protected override string UpdateString");
             AtStartCurlyBraceletIncreaseTab();
@@ -485,8 +484,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             if (container is ITable)
             {
                 string firstLine = "return @\"UPDATE " 
-                    + GetSchemaNameForQueries(container) 
-                    + getTableName(container);
+                    + GetSchemaNameForQueries() 
+                    + getTableName();
                 output.AutoTabLine(firstLine);
                 output.AutoTabLine(" SET ");
 
@@ -546,11 +545,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        protected virtual void Write_InsertString( IContainer container)
+        protected virtual void Write_InsertString()
         {
 
-            string schemaNameForQueries = GetSchemaNameForQueries(container);
-            string tableName = getTableName(container);
+            string schemaNameForQueries = GetSchemaNameForQueries();
+            string tableName = getTableName();
             output.AutoTabLine("protected override string InsertString");
             AtStartCurlyBraceletIncreaseTab();
             output.AutoTabLine("get ");
@@ -558,7 +557,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             if (container is ITable)
             {
                 string sentence = $"return @\"INSERT INTO {schemaNameForQueries}{tableName}\n";
-                sentence += getInsertString( container);
+                sentence += getInsertString();
                 sentence += "\";";
                 output.AutoTabLine(sentence);
             }
@@ -571,7 +570,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private string getColumnNamesForInsertString(IContainer container)
+        private string getColumnNamesForInsertString()
         {
             string sentence = " (";
             foreach (IColumn column in container.Columns)
@@ -592,7 +591,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             return sentence;
         }
 
-        private string getColumnNamesForInsertStringAsParams(IContainer container)
+        private string getColumnNamesForInsertStringAsParams()
         {
             string sentence = "(";
             foreach (IColumn column in container.Columns)
@@ -612,28 +611,28 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
-        protected virtual string getInsertString(IContainer container)
+        protected virtual string getInsertString()
         {
-            string insertSentence = getColumnNamesForInsertString(container);
+            string insertSentence = getColumnNamesForInsertString();
             insertSentence += "VALUES \n";
-            insertSentence += getColumnNamesForInsertStringAsParams(container);
+            insertSentence += getColumnNamesForInsertStringAsParams();
 
             if (utils.IdentityExists(container))
             {
-                insertSentence += getAutoIncrementKeySql(container);
+                insertSentence += getAutoIncrementKeySql();
             }
 
             return insertSentence;
         }
 
-        protected abstract string getAutoIncrementKeySql(IContainer container);
+        protected abstract string getAutoIncrementKeySql();
 
         private void defineList(IOutput output)
         {
             output.AutoTabLine(listType + " list = new " + listType + "();");
         }
 
-        private void Write_QueryByPk( IContainer container, string classNameTypeLibrary,  string pkName, string pkNamePascalCase, string pkType)
+        private void Write_QueryByPk()
         {
             if (container is IView)
             {
@@ -666,8 +665,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 }
         }
 
-        private void Write_IdentityExists( bool identityExists)
+        private void Write_IdentityExists( )
         {
+            bool identityExists = utils.IdentityExists(container);
             string identityResult = "";
             if (identityExists)
             {
@@ -687,7 +687,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab();
             AtEndCurlyBraceletDecreaseTab();
         }
-        private void Write_IfPkGuid( IContainer container)
+        private void Write_IfPkGuid()
         {
             string IsPkGuidResult = "";
             if (utils.IsPkGuid(container))
@@ -711,7 +711,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.AutoTabLine("");
         }
 
-        private void Write_ProcessRow(IContainer container)
+        private void Write_ProcessRow()
         {
             string propertyVariableName = "";
             output.AutoTab("protected override void ProcessRow(IDataReader dr, ");
@@ -740,7 +740,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtEndCurlyBraceletDecreaseTab();
         }
 
-        public abstract void Write_InsertCommandParametersAdd(IContainer container);
+        public abstract void Write_InsertCommandParametersAdd();
 
 
         public bool shouldAddColumnToParameters(IColumn column)
@@ -793,8 +793,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                         + ");";
             output.AutoTabLine(s);
         }
-        public abstract void Write_UpdateCommandParametersAdd(IContainer container);
-        public abstract void Write_DeleteCommandParametersAdd(IContainer container);
+        public abstract void Write_UpdateCommandParametersAdd();
+        public abstract void Write_DeleteCommandParametersAdd();
 
 
 

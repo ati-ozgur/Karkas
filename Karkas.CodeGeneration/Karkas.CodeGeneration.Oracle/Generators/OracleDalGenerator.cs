@@ -38,7 +38,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             }
         }
 
-        protected override string getAutoIncrementKeySql(IContainer container)
+        protected override string getAutoIncrementKeySql()
         {
             return "";
         }
@@ -48,7 +48,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.write("using Karkas.Core.Data.Oracle;");
         }
 
-        protected override void Write_ClassGenerated(IContainer container)
+        protected override void Write_ClassGenerated()
         {
             bool identityExists = utils.IdentityExists(container);
             string identityType = utils.GetIdentityType(container);
@@ -90,13 +90,13 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
         }
 
-        protected override void Write_SetIdentityColumnValue(IContainer container)
+        protected override void Write_SetIdentityColumnValue()
         {
-            base.Write_SetIdentityColumnValue( container);
+            base.Write_SetIdentityColumnValue();
             bool identityExists = utils.IdentityExists(container);
             if (identityExists)
             {
-                string identityColumnName = GetIdentityColumnName(container);
+                string identityColumnName = GetIdentityColumnName();
                 string value = $"public override string IdentityParameterName {{ get {{return \":{identityColumnName}\"; }} }}";
                 output.AutoTabLine(value);
             }
@@ -105,7 +105,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         }
 
 
-        protected override void Write_InsertString(IContainer container)
+        protected override void Write_InsertString()
         {
 
             output.AutoTabLine("protected override string InsertString");
@@ -115,8 +115,8 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             if (container is ITable)
             {
 
-                string schemaNameForQueries = GetSchemaNameForQueries(container);
-                string tableName = getTableName(container);
+                string schemaNameForQueries = GetSchemaNameForQueries();
+                string tableName = getTableName();
 
                 string identityColumnName = utils.GetIdentityColumnName(container);
                 string identityReturnVariableName = identityColumnName.ToLowerInvariant();
@@ -124,7 +124,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                 {
                     identityColumnName = "\"\"" + identityColumnName + "\"\"";
                 }
-                string insertString = getInsertString(container);
+                string insertString = getInsertString();
                 if(string.IsNullOrEmpty(identityColumnName))
                 {
                     string insert;
@@ -157,7 +157,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             AtEndCurlyBraceletDecreaseTab();
         }
 
-        public override void Write_InsertCommandParametersAdd(IContainer container)
+        public override void Write_InsertCommandParametersAdd()
         {
             output.AutoTab("protected override void InsertCommandParametersAdd(DbCommand cmd, ");
             output.write(classNameTypeLibrary);
@@ -239,7 +239,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             output.AutoTabLine(s);
         }
 
-        public override void Write_DeleteCommandParametersAdd(IContainer container)
+        public override void Write_DeleteCommandParametersAdd()
         {
             output.AutoTab("protected override void DeleteCommandParametersAdd(DbCommand cmd, ");
             output.AutoTab(classNameTypeLibrary);
@@ -259,7 +259,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             AtEndCurlyBraceletDecreaseTab();
         }
 
-        public override void Write_UpdateCommandParametersAdd(IContainer container)
+        public override void Write_UpdateCommandParametersAdd()
         {
             output.AutoTab("protected override void UpdateCommandParametersAdd(DbCommand cmd, ");
             output.AutoTab(classNameTypeLibrary);
