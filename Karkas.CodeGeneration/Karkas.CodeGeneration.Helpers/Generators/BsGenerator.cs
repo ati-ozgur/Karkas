@@ -118,7 +118,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void Write_ClassNormal(IOutput output)
         {
-            if (!File.Exists(outputFullFileName))
+            if (!File.Exists(outputFullFileName) || CodeGenerationConfig.GenerateNormalClassAgain)
             {
                 Write_Usings(output);
                 Write_NamespaceStart(output);
