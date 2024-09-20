@@ -17,6 +17,7 @@ dotnet add package Microsoft.Data.Sqlite
 dotnet add reference "../../../Karkas.Core/Karkas.Core.DataUtil/Karkas.Core.DataUtil.csproj"
 dotnet add reference "../../../Karkas.Core/Karkas.Core.Data.Sqlite/Karkas.Core.Data.Sqlite.csproj"
 cp ../../TestCSharp/ProgramChinookAutoIncrement.cs Program.cs
+cp ../../TestCSharp/GlobalUsings.cs GlobalUsings.cs
 cp --recursive ../../TestCSharp/Helpers/ .
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqlite.cs ConnectionHelper.cs
 cp --recursive ../../TestCSharp/Bs/ .
