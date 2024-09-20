@@ -44,13 +44,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         protected string pkSentence = "";
 
         protected string baseNameSpaceDal;
+        List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
         public string Render(IContainer container)
         {
-            List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
 
 
-            output.Clear();
-            output.TabLevel = 0;
             SetFields(container, listDatabaseAbbreviations);
 
             Create_GeneratedClass(container);
@@ -64,6 +62,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void Create_GeneratedClass(IContainer container)
         {
+
+            output.Clear();
+            output.TabLevel = 0;
+            
             Write_Usings();
 
             Write_NamespaceStart();
@@ -335,11 +337,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         protected virtual void Write_ClassNormal()
         {
-            output.AutoTab("public partial class ");
-            output.writeLine(classNameTypeLibrary + "Dal");
+            output.AutoTabLine($"public partial class {classNameTypeLibrary}Dal");
             AtStartCurlyBraceletIncreaseTab();
             AtEndCurlyBraceletDecreaseTab();
-
         }
 
 
