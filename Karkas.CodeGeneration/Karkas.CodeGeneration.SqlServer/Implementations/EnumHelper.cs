@@ -4,16 +4,17 @@ using System.Text;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 namespace Karkas.CodeGeneration.Helpers
 {
     public class EnumHelper
     {
         TurkishHelper tHelper = new TurkishHelper();
-        public EnumHelper(IDatabase databaseHelper)
+        public EnumHelper(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig)
         {
 
-            utils = new Utils(databaseHelper);
+            utils = new Utils(pDatabaseHelper,pCodeGenerationConfig);
         }
         Utils utils = null;
 

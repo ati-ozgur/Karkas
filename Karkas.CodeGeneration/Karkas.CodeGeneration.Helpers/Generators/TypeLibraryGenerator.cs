@@ -15,7 +15,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
     {
         public TypeLibraryGenerator(IDatabase pDatabaseHelper,CodeGenerationConfig pCodeGenerationConfig): base(pDatabaseHelper,pCodeGenerationConfig)
         {
-            utils = new Utils(pDatabaseHelper);
+            utils = new Utils(pDatabaseHelper, pCodeGenerationConfig);
         }
         Utils utils = null;
 

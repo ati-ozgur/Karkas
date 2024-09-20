@@ -9,19 +9,22 @@ using Karkas.CodeGeneration.Helpers.Generators;
 using System.IO;
 using System.Globalization;
 using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 namespace Karkas.CodeGeneration.Helpers
 {
     public partial class Utils
     {
+        private IDatabase databaseHelper;
+        private CodeGenerationConfig codeGenerationConfig;
 
-        public Utils(IDatabase pHelper)
+        public Utils(IDatabase pDatabaseHelper, CodeGenerationConfig pCodeGenerationConfig)
         {
-            helper = pHelper;
+            databaseHelper = pDatabaseHelper;
+            codeGenerationConfig = pCodeGenerationConfig;
         }
 
 
-        private IDatabase helper;
 
 
 
