@@ -153,11 +153,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             if (!File.Exists(outputFullFileName))
             {
                 Write_Usings(output, schemaName, baseNameSpaceTypeLibrary);
+
                 Write_NamespaceStart(output, baseNameSpaceDal);
                 Write_ClassNormal(output, classNameTypeLibrary);
                 AtStartCurlyBraceletIncreaseTab(output);
                 AtEndCurlyBraceletDecreaseTab(output);
-                AtEndCurlyBraceletDecreaseTab(output);
+
+                Write_NamespaceEndCurlyBracelet(output);
                 output.SaveEncoding(outputFullFileName, "o", "utf8");
                 output.Clear();
             }
