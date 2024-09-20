@@ -19,19 +19,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
         Utils utils = null;
 
-        protected List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
-        protected string baseNameSpace;
         protected string baseNameSpaceTypeLibrary;
 
-        protected string className;
-
-        protected string schemaName;
-
-        protected string classNameSpace;
-
-        string outputFullFileName;
-
-        string outputFullFileNameGenerated;
         public void Render(IOutput output
             , IContainer container)
         {

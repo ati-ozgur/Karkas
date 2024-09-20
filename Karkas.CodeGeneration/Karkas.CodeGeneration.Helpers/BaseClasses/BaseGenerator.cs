@@ -10,9 +10,22 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
     public abstract class BaseGenerator
     {
 
+        protected string baseNameSpace;
+        protected string classNameSpace;
+        protected string className;
+
+        protected string schemaName;
+
+
+        protected string outputFullFileName;
+
+        protected string outputFullFileNameGenerated;
+        protected List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
+
         CodeGenerationConfig codeGenerationConfig;
 
         public CodeGenerationConfig CodeGenerationConfig { get => codeGenerationConfig; set => codeGenerationConfig = value; }
+
 
         public BaseGenerator(CodeGenerationConfig pCodeGenerationConfig)
         {

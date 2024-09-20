@@ -17,8 +17,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
     {
 
         string classNameTypeLibrary = "";
-        string schemaName = "";
-        string baseNameSpace = "";
         string baseNameSpaceTypeLibrary = "";
         string pkName = "";
         string pkNamePascalCase = "";

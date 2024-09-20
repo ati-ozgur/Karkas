@@ -19,11 +19,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         protected string classNameTypeLibrary = "";
         protected string classNameDal = "";
         protected string classNameBs = "";
-        protected string schemaName = "";
         protected string pkName = "";
         protected string pkNamePascalCase = "";
         protected string pkType = "";
-        protected string baseNameSpace = "";
         protected string baseNameSpaceTypeLibrary = "";
 
         protected string baseNameSpaceBsWithSchema;
@@ -33,10 +31,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         protected string identityType;
 
-        protected string outputFullFileNameGenerated;
-        protected string outputFullFileName;
 
-        protected List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
 
         public BsGenerator(CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)
         {

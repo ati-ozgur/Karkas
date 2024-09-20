@@ -15,7 +15,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
     public class SequenceGenerator : BaseGenerator
     {
 
-        string baseNameSpace = "";
         string baseNameSpaceTypeLibrary = "";
 
         public SequenceGenerator(CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)
