@@ -55,30 +55,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.tabLevel = 0;
             IDatabase database = container.Database;
 
-            baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
-            baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
-
-            classNameTypeLibrary = utils.getClassNameForTypeLibrary(container.Name, listDatabaseAbbreviations);
-            classNameDal = classNameTypeLibrary + "Dal";
-            classNameBs = classNameTypeLibrary + "Bs";
-
-            schemaName = utils.GetPascalCase(container.Schema);
-
-            baseNameSpaceBsWithSchema = baseNameSpace + ".Bs";
-            baseNameSpaceDalWithSchema = baseNameSpace + ".Dal";
-
-            if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
-            {
-                baseNameSpaceBsWithSchema = baseNameSpace + ".Bs." + schemaName;
-                baseNameSpaceDalWithSchema = baseNameSpace + ".Dal." + schemaName;
-            }
-
-            pkType = utils.FindPrimaryKeyType(container);
-            pkName = utils.FindPrimaryKeyColumnName(container);
-            pkNamePascalCase = utils.GetPascalCase(pkName);
-
-            identityExists = utils.IdentityExists(container);
-            identityType = utils.GetIdentityType(container);
+            SetFields(container, listDatabaseAbbreviations);
 
             Write_Usings(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
             Write_NamespaceStart(output, schemaName, baseNameSpace, baseNameSpaceBsWithSchema);
@@ -103,6 +80,34 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.Clear();
 
             Write_MainClass(output, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema, outputFullFileName);
+        }
+
+        private void SetFields(IContainer container, List<DatabaseAbbreviations> listDatabaseAbbreviations)
+        {
+            baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
+            baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
+
+            classNameTypeLibrary = utils.getClassNameForTypeLibrary(container.Name, listDatabaseAbbreviations);
+            classNameDal = classNameTypeLibrary + "Dal";
+            classNameBs = classNameTypeLibrary + "Bs";
+
+            schemaName = utils.GetPascalCase(container.Schema);
+
+            baseNameSpaceBsWithSchema = baseNameSpace + ".Bs";
+            baseNameSpaceDalWithSchema = baseNameSpace + ".Dal";
+
+            if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
+            {
+                baseNameSpaceBsWithSchema = baseNameSpace + ".Bs." + schemaName;
+                baseNameSpaceDalWithSchema = baseNameSpace + ".Dal." + schemaName;
+            }
+
+            pkType = utils.FindPrimaryKeyType(container);
+            pkName = utils.FindPrimaryKeyColumnName(container);
+            pkNamePascalCase = utils.GetPascalCase(pkName);
+
+            identityExists = utils.IdentityExists(container);
+            identityType = utils.GetIdentityType(container);
         }
 
         private void Write_MainClass(IOutput output, string baseNameSpaceBsWithSchema, string baseNameSpaceDalWithSchema, string outputFullFileName)
