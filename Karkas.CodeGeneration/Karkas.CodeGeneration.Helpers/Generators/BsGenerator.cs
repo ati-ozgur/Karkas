@@ -39,10 +39,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         public void Render(IOutput output
             , IContainer container)
         {
-           
+
             List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
 
-            
+
 
 
             output.tabLevel = 0;
@@ -61,8 +61,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
             {
-                 baseNameSpaceBsWithSchema = baseNameSpace + ".Bs." + schemaName;
-                 baseNameSpaceDalWithSchema = baseNameSpace + ".Dal." + schemaName;
+                baseNameSpaceBsWithSchema = baseNameSpace + ".Bs." + schemaName;
+                baseNameSpaceDalWithSchema = baseNameSpace + ".Dal." + schemaName;
             }
 
             pkType = utils.FindPrimaryKeyType(container);
@@ -71,12 +71,12 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
             Write_Usings(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
-            output.increaseTab();
+            Write_NamespaceStart(output, schemaName, baseNameSpace, baseNameSpaceBsWithSchema);
             AtStartCurlyBraceletIncreaseTab(output);
             bool identityExists = utils.IdentityExists(container);
             string identityType = utils.GetIdentityType(container);
 
-            Write_ClassGenerated(output, classNameBs, classNameDal, classNameTypeLibrary,identityExists,identityType);
+            Write_ClassGenerated(output, classNameBs, classNameDal, classNameTypeLibrary, identityExists, identityType);
             AtStartCurlyBracelet(output);
             Write_OverrideDatabaseName(output, container);
 
@@ -87,24 +87,35 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 Write_QueryByPkName(output, container, classNameTypeLibrary, pkType, pkNamePascalCase);
             }
             AtEndCurlyBraceletDecreaseTab(output);
-            AtEndCurlyBraceletDecreaseTab(output);
+            Write_NamespaceEndCurlyBracelet(output);
 
             string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForBsGenerated(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
-            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForBs(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders); 
+            string outputFullFileName = utils.FileUtilsHelper.getBaseNameForBs(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
             output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.Clear();
 
+            Write_MainClass(output, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema, outputFullFileName);
+        }
+
+        private void Write_MainClass(IOutput output, string baseNameSpaceBsWithSchema, string baseNameSpaceDalWithSchema, string outputFullFileName)
+        {
             if (!File.Exists(outputFullFileName))
             {
-                Write_Usings(output, schemaName,baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
+                Write_Usings(output, schemaName, baseNameSpace, baseNameSpaceTypeLibrary, baseNameSpaceBsWithSchema, baseNameSpaceDalWithSchema);
+                Write_NamespaceStart(output, schemaName, baseNameSpace, baseNameSpaceBsWithSchema);
                 AtStartCurlyBraceletIncreaseTab(output);
                 Write_ClassNormal(output, classNameBs, classNameDal, classNameTypeLibrary);
                 AtStartCurlyBraceletIncreaseTab(output);
                 AtEndCurlyBraceletDecreaseTab(output);
-                AtEndCurlyBraceletDecreaseTab(output);
+                Write_NamespaceEndCurlyBracelet(output);
                 output.SaveEncoding(outputFullFileName, "o", "utf8");
                 output.Clear();
             }
+        }
+
+        private void Write_NamespaceEndCurlyBracelet(IOutput output)
+        {
+            AtEndCurlyBraceletDecreaseTab(output);
         }
 
         private void Write_OverrideDatabaseName(IOutput output, IContainer container)
@@ -204,6 +215,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
             output.autoTabLn("");
             output.autoTabLn("");
+        }
+
+        private static void Write_NamespaceStart(IOutput output, string schemaName, string baseNameSpace, string baseNameSpaceBsWithSchema)
+        {
             output.autoTab("namespace ");
             if (!string.IsNullOrWhiteSpace(schemaName))
             {
@@ -214,11 +229,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.autoTab(baseNameSpace + ".Bs");
             }
             output.autoTabLn("");
+            output.increaseTab();
         }
-
-
-
-
     }
 
 
