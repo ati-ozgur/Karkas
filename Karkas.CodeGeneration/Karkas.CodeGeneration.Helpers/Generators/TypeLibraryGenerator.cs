@@ -60,6 +60,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             Write_ShallowCopy();
 
+            Write_ToString();
+
             Write_ColumnNames();
 
 
@@ -321,7 +323,29 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
+        
 
+
+        private void Write_ToString()
+        {
+            output.AutoTabLine("public override string ToString()");
+            output.AutoTabLine("{");
+            output.IncreaseTab();
+            output.AutoTabLine("StringBuilder sb = new StringBuilder();");
+            foreach (IColumn column in container.Columns)
+            {
+                string propertyName = utils.GetCamelCase(column.Name);
+                string line1 = $"sb.Append(\"{propertyName} : \"+ ";
+                string line2 = $"{propertyName} ";
+                string lineTotal = line1 + line2 + ");";
+                output.AutoTabLine(lineTotal);
+            }
+            output.AutoTabLine("return sb.ToString();");
+            output.DecreaseTab();
+            output.AutoTabLine("}");
+            output.AutoTabLine("");
+
+        }
         private void Write_ShallowCopy()
         {
             output.AutoTabLine(string.Format("public {0} ShallowCopy()", className));
