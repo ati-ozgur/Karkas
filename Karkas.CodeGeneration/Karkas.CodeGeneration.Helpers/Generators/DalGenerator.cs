@@ -53,6 +53,17 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.tabLevel = 0;
             SetFields(container, listDatabaseAbbreviations);
 
+            Create_GeneratedClass(container);
+
+            Create_NormalClass();
+            
+            return "";
+
+
+        }
+
+        private void Create_GeneratedClass(IContainer container)
+        {
             Write_Usings();
 
             Write_NamespaceStart();
@@ -101,10 +112,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
             output.Clear();
-            Write_MainClass();
-            return "";
-
-
         }
 
         private void SetFields(IContainer container, List<DatabaseAbbreviations> listDatabaseAbbreviations)
@@ -150,16 +157,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInSqlQueries);
         }
 
-        private void Write_MainClass()
+        private void Create_NormalClass()
         {
-            if (!File.Exists(outputFullFileName))
+            if (!File.Exists(outputFullFileName) || CodeGenerationConfig.GenerateNormalClassAgain)
             {
                 Write_Usings();
-
                 Write_NamespaceStart();
                 Write_ClassNormal();
-                AtStartCurlyBraceletIncreaseTab();
-                AtEndCurlyBraceletDecreaseTab();
 
                 Write_NamespaceEndCurlyBracelet();
                 output.SaveEncoding(outputFullFileName, "o", "utf8");
@@ -332,7 +336,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         protected virtual void Write_ClassNormal()
         {
             output.autoTab("public partial class ");
-            output.write(classNameTypeLibrary + "Dal");
+            output.writeLine(classNameTypeLibrary + "Dal");
+            AtStartCurlyBraceletIncreaseTab();
+            AtEndCurlyBraceletDecreaseTab();
+
         }
 
 
