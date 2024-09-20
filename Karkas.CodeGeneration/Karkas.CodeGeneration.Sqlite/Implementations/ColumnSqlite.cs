@@ -68,7 +68,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         }
 
         string SQL_FOREIGN_KEY_CHECK = @"SELECT * FROM pragma_foreign_key_list('{0}')
-                WHERE ""from"" = '{1}';";
+                WHERE ""from"" = '{1}'";
         private bool? isInForeignKey = null;
         public bool IsInForeignKey
         {

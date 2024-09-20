@@ -107,6 +107,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             Write_OverrideDbProviderName();
 
+            Write_ForeignKeyQueries();
+
 
             AtEndCurlyBraceletDecreaseTab();
             Write_NamespaceEndCurlyBracelet();
@@ -172,6 +174,19 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
+        public void Write_ForeignKeyQueries()
+        {
+            if(CodeGenerationConfig.GenerateForeignKeyQueries)
+            {
+                foreach (IColumn column in container.Columns)
+                {
+                    if (column.IsInForeignKey)
+                    {
+                       System.Console.WriteLine(column.Name); 
+                    }
+                }
+            }
+        }
 
 
         private void Write_OverrideDbProviderName()
