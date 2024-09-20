@@ -421,9 +421,11 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		private bool useFileScopedNamespace;
 		
 		public bool UseFileScopedNamespace { get => useFileScopedNamespace; set => useFileScopedNamespace = value; }
+		private bool generateForeignKeyQueries = false;
+		
+		public bool GenerateForeignKeyQueries { get => generateForeignKeyQueries; set => generateForeignKeyQueries = value; }
 
-
-
+		
 		public override bool Equals(object obj)
         {
             // If the passed object is null

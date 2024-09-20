@@ -15,6 +15,7 @@
     "UseQuotesInQueries": false,
     "UseGlobalUsings": true,
     "UseFileScopedNamespace": true,
+    "GenerateForeignKeyQueries": true,
     "TableCodeGenerate": true,
     "ViewCodeGenerate": false,
     "StoredProcedureCodeGenerate": false,
