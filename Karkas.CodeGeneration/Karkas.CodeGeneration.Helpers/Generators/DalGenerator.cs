@@ -264,34 +264,39 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
         protected abstract void Write_UsingDatabaseClient(IOutput output);
-        protected virtual void WriteUsingsAdditional(IOutput output)
+        protected virtual void Write_UsingsAdditional(IOutput output)
         {
 
         }
 
         private void Write_Usings(IOutput output, string schemaName, string baseNameSpaceTypeLibrary)
         {
-            output.autoTabLn("");
-            output.autoTabLn("using System;");
-            output.autoTabLn("using System.Collections.Generic;");
-            output.autoTabLn("using System.Data;");
-            output.autoTabLn("using System.Data.Common;");
-            Write_UsingDatabaseClient(output);
-            output.autoTabLn("using System.Text;");
-            output.autoTabLn("using Karkas.Core.DataUtil;");
-            output.autoTabLn("using Karkas.Core.DataUtil.BaseClasses;");
-            output.autoTab("using ");
-            output.autoTab(baseNameSpaceTypeLibrary);
-            output.autoTabLn(";");
-            if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
+            if (!CodeGenerationConfig.UseGlobalUsings)
             {
+                output.autoTabLn("");
+                output.autoTabLn("using System;");
+                output.autoTabLn("using System.Collections.Generic;");
+                output.autoTabLn("using System.Data;");
+                output.autoTabLn("using System.Data.Common;");
+                Write_UsingDatabaseClient(output);
+                output.autoTabLn("using System.Text;");
+                output.autoTabLn("using Karkas.Core.DataUtil;");
+                output.autoTabLn("using Karkas.Core.DataUtil.BaseClasses;");
                 output.autoTab("using ");
                 output.autoTab(baseNameSpaceTypeLibrary);
-                output.autoTab(".");
-                output.autoTab(schemaName);
                 output.autoTabLn(";");
+                if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
+                {
+                    output.autoTab("using ");
+                    output.autoTab(baseNameSpaceTypeLibrary);
+                    output.autoTab(".");
+                    output.autoTab(schemaName);
+                    output.autoTabLn(";");
+                }
+                Write_UsingsAdditional(output);
             }
-            WriteUsingsAdditional(output);
+
+
         }
         private void Write_NamespaceStart(IOutput output, string baseNameSpaceDal)
         { 

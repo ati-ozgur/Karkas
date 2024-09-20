@@ -41,10 +41,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             
             string outputFullFileName = utils.FileUtilsHelper.getBaseNameForTypeLibrary(CodeGenerationConfig, schemaName, className,CodeGenerationConfig.UseSchemaNameInFolders); 
             string outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForTypeLibraryGenerated(CodeGenerationConfig, schemaName,className, CodeGenerationConfig.UseSchemaNameInFolders);
-            //output.setPreserveSource(outputFullFileNameGenerated, "//::", ":://");
 
 
             Write_UsingNamespaces(output, classNameSpace);
+
+            Write_Namespacestart(output, classNameSpace);
 
             Write_ClassName(output, className, container);
 
@@ -133,16 +134,24 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         protected virtual void Write_UsingNamespaces(IOutput output, string classNameSpace)
         {
-            output.autoTabLn("using System;");
-            output.autoTabLn("using System.Data;");
-            output.autoTabLn("using System.Text;");
-            output.autoTabLn("using System.Configuration;");
-            output.autoTabLn("using System.Diagnostics;");
-            output.autoTabLn("using System.Xml.Serialization;");
-            output.autoTabLn("using System.Collections.Generic;");
-            output.autoTabLn("using Karkas.Core.DataUtil.BaseClasses;");
-            output.autoTabLn("using System.ComponentModel.DataAnnotations;");
-            output.autoTabLn("");
+            if (!CodeGenerationConfig.UseGlobalUsings)
+            {
+                output.autoTabLn("using System;");
+                output.autoTabLn("using System.Data;");
+                output.autoTabLn("using System.Text;");
+                output.autoTabLn("using System.Configuration;");
+                output.autoTabLn("using System.Diagnostics;");
+                output.autoTabLn("using System.Xml.Serialization;");
+                output.autoTabLn("using System.Collections.Generic;");
+                output.autoTabLn("using Karkas.Core.DataUtil.BaseClasses;");
+                output.autoTabLn("using System.ComponentModel.DataAnnotations;");
+                output.autoTabLn("");
+            }
+        }
+
+        private void Write_Namespacestart(IOutput output, string classNameSpace)
+        {
+
             output.autoTab("namespace ");
             output.autoTabLn(classNameSpace);
             output.write("");

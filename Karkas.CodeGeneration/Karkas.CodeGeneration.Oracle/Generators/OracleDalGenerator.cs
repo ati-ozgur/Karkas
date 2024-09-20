@@ -43,7 +43,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             return "";
         }
 
-        protected override void WriteUsingsAdditional(IOutput output)
+        protected override void Write_UsingsAdditional(IOutput output)
         {
             output.write("using Karkas.Core.Data.Oracle;");
         }

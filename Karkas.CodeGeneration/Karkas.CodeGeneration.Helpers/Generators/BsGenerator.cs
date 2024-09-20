@@ -172,17 +172,20 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         public void Write_Usings(IOutput output, string schemaName, string baseNameSpace, string baseNameSpaceTypeLibrary, string baseNameSpaceBsWithSchema, string baseNameSpaceDalWithSchema)
         {
-            output.autoTabLn("");
-            output.autoTabLn("using System;");
-            output.autoTabLn("using System.Collections.Generic;");
-            output.autoTabLn("using System.Data;");
-            Write_UsingsDatabaseSpecific(output);
-            output.autoTabLn("using System.Text;");
-            output.autoTabLn("using Karkas.Core.DataUtil;");
-            output.autoTabLn("using Karkas.Core.DataUtil.BaseClasses;");
-            output.autoTab("using ");
-            output.autoTab(baseNameSpaceTypeLibrary);
-            output.autoTabLn(";");
+            if (!CodeGenerationConfig.UseGlobalUsings)
+            {
+                output.autoTabLn("");
+                output.autoTabLn("using System;");
+                output.autoTabLn("using System.Collections.Generic;");
+                output.autoTabLn("using System.Data;");
+                Write_UsingsDatabaseSpecific(output);
+                output.autoTabLn("using System.Text;");
+                output.autoTabLn("using Karkas.Core.DataUtil;");
+                output.autoTabLn("using Karkas.Core.DataUtil.BaseClasses;");
+                output.autoTab("using ");
+                output.autoTab(baseNameSpaceTypeLibrary);
+                output.autoTabLn(";");
+            }
             if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
             {
                 output.autoTab("using ");
