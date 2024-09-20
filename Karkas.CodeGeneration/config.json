@@ -1,7 +1,7 @@
 ﻿[  
   {
-    "GenerateNormalClassValidationExamples": false,
-    "GenerateNormalClassAgain": false,
+    "GenerateNormalClassValidationExamples": true,
+    "GenerateNormalClassAgain": true,
     "ConnectionName": "ChinookSqliteAutoIncrement",
     "ConnectionDatabaseType": "sqlite",
     "ConnectionDbProviderName": "Microsoft.Data.Sqlite",
