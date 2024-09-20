@@ -1,5 +1,11 @@
 # todo
 
+
+3. add foreign key code generations
+According to foreign keys, detail tables method will be added
+config.json property will manage it.
+
+
 ## Tests
 
 1. record struct?
@@ -50,9 +56,6 @@ Need to create my own example database for these examples.
 
 JsonNamingPolicy includes new naming policies for snake_case (with an underscore) 
 
-3. add foreign key code generations
-According to foreign keys, detail tables method will be added
-config.json property will manage it.
 
 
 
@@ -108,9 +111,6 @@ https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-mess
 2. Karkas.Core.Data vs Karkas.Core.DataUtil ???
 Should I fix the namespace?
 
-3. Check why we have references to following dlls
-
-- Microsoft.Identity.Client.*
 
 4. CommandLineParser is good one.
 https://github.com/commandlineparser/commandline
