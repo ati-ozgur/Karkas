@@ -28,8 +28,8 @@ namespace Karkas.Core.DataUtil
         DataTable CreateDataTable(string sql, DbParameter[] parameters);
         DataTable CreateDataTableWithPaging(string sql, int pPageSize, int pStartRowIndex, string pOrderBy);
         DataTable CreateDataTableWithPaging(string sql, int pPageSize, int pStartRowIndex, string pOrderBy, DbParameter[] parameters);
-        bool ExecuteAsIfExists(string pSql);
-        bool ExecuteAsIfExists(string pSql, DbParameter[] pParamListesi);
+        bool ExecuteAsExists(string pSql);
+        bool ExecuteAsExists(string pSql, DbParameter[] pParamListesi);
         void ExecuteNonQueryCommand(DbCommand cmd);
         void ExecuteNonQueryCommand(string cmdText);
         void ExecuteNonQueryCommand(string sql, DbParameter[] prmListesi);

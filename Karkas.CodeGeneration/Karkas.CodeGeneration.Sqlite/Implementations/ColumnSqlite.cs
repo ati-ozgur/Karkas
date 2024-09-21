@@ -77,7 +77,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                 if (!isInForeignKey.HasValue)
                 {
                     string sql = string.Format(SQL_FOREIGN_KEY_CHECK, this.Table.Name, this.Name);
-                    bool result = template.ExecuteAsIfExists(sql);
+                    bool result = template.ExecuteAsExists(sql);
                     isInForeignKey = result;
                 }
                 return isInForeignKey.Value;
