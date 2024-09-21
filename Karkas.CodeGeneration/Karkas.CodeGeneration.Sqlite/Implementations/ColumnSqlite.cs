@@ -67,8 +67,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             }
         }
 
-        string SQL_FOREIGN_KEY_CHECK = @"SELECT * FROM pragma_foreign_key_list('{0}')
-                WHERE ""from"" = '{1}'";
+        string SQL_FOREIGN_KEY_CHECK = @"";
         private bool? isInForeignKey = null;
         public bool IsInForeignKey
         {
@@ -76,8 +75,11 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             {
                 if (!isInForeignKey.HasValue)
                 {
-                    string sql = string.Format(SQL_FOREIGN_KEY_CHECK, this.Table.Name, this.Name);
-                    bool result = template.ExecuteAsExists(sql);
+                    string sql = @"SELECT * FROM pragma_foreign_key_list(@tableName) WHERE ""from"" = @columnName";
+                    var builder = template.getParameterBuilder();
+                    builder.AddParameter("@tableName", Table.Name);
+                    builder.AddParameter("@columnName",Name);
+                    bool result = template.ExecuteAsExists(sql,builder.GetParameterArray());
                     isInForeignKey = result;
                 }
                 return isInForeignKey.Value;
@@ -88,11 +90,17 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         {
             get
             {
-                string sql = string.Format(SQL_FOREIGN_KEY_CHECK, this.Table.Name, this.Name);
-                var result = template.GetRows(sql);
-                
-
-                throw new NotImplementedException();
+                string sql = @"SELECT * FROM pragma_foreign_key_list(@tableName) WHERE ""from"" = @columnName";
+                var builder = template.getParameterBuilder();
+                builder.AddParameter("@tableName", Table.Name);
+                builder.AddParameter("@columnName", Name);
+                var result = template.GetOneRow(sql, builder.GetParameterArray());
+                ForeignKeyInformation f = new ForeignKeyInformation();
+                f.SourceColumn = result["from"].ToString();
+                f.TargetColumn = result["to"].ToString();
+                f.SourceTable = Table.Name;
+                f.TargetTable = result["table"].ToString();
+                return f;
             }
         }
 

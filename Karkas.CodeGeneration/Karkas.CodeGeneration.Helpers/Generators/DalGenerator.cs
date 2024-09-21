@@ -182,7 +182,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 {
                     if (column.IsInForeignKey)
                     {
-                       System.Console.WriteLine(column.Name); 
+                        // TODO write code here.
+                        ForeignKeyInformation f = column.ForeignKeyInformation;
+                        //Console.WriteLine(column.Name);
+                        Console.WriteLine(f);
                     }
                 }
             }

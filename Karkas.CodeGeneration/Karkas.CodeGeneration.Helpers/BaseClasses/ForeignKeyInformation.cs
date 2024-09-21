@@ -13,4 +13,10 @@ public class ForeignKeyInformation
     public string SourceColumn { get => sourceColumn; set => sourceColumn = value; }
     public string TargetColumn { get => targetColumn; set => targetColumn = value; }
     public string TargetTable { get => targetTable; set => targetTable = value; }
+
+
+    public override string ToString()
+    {
+        return $"{SourceTable} {SourceColumn} {TargetTable} {TargetColumn} ";
+    }
 }
