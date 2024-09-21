@@ -72,6 +72,8 @@ cp ../../TestCSharp/GlobalUsings.cs GlobalUsings.cs
 cp --recursive ../../TestCSharp/Helpers/ .
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqlServer.cs ConnectionHelper.cs
 cp --recursive ../../TestCSharp/Bs/ .
+cp --recursive ../../TestCSharp/Dal/ .
+
 
 dotnet build
 dotnet run

@@ -19,6 +19,29 @@ namespace Karkas.Core.Data.Sqlite
 
         }
 
+        public override bool ExecuteAsExists(String pSql, DbParameter[] pParamList)
+        {
+            string sqlToExecute = string.Format(@"select exists
+                                        (  
+                                        {0}
+                                        );", pSql);
+            object val = this.GetOneValue(sqlToExecute,pParamList);
+            int value = Convert.ToInt32(val);
+            return value > 0;
+        }
+
+        public override bool ExecuteAsExists(string pSql)
+        {
+            string sqlToExecute = string.Format(@"select exists
+                                        (  
+                                        {0}
+                                        );", pSql);
+            object val = this.GetOneValue(sqlToExecute);
+            int value = Convert.ToInt32(val);
+            return value > 0;
+        }
+
+
         public override DbDataAdapter getDatabaseAdapter(DbCommand cmd)
         {
             // TODO

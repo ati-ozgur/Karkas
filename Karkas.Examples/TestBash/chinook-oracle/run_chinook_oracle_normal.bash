@@ -63,6 +63,7 @@ cp ../../TestCSharp/GlobalUsings.cs GlobalUsings.cs
 cp --recursive ../../TestCSharp/Helpers/ .
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperOracle.cs ConnectionHelper.cs
 cp --recursive ../../TestCSharp/Bs/ .
+cp --recursive ../../TestCSharp/Dal/ .
 
 
 dotnet build

@@ -367,36 +367,17 @@ namespace Karkas.Core.DataUtil
         /// <param name="sql"></param>
         /// <param name="prmListesi"></param>
         /// <returns></returns>
-        public virtual bool ExecuteAsExists(String pSql, DbParameter[] pParamListesi)
-        {
-            string sqlToExecute = string.Format(@"IF EXISTS
-                                        (  
-                                        {0}
-                                        )
-                                        SELECT cast( 1 as bit)
-                                        else
-                                        SELECT cast( 0 as bit)
-                                        ", pSql);
-            return (bool)this.GetOneValue(sqlToExecute, pParamListesi);
-        }
-        /// <summary>
-        /// Execute given sql statement inside IF EXISTS
-        /// If we have value, it return true otherwise false
-        /// </summary>
-        /// <param name="sql"></param>
-        /// <param name="prmListesi"></param>
-        /// <returns></returns>
         /// 
+        public virtual bool ExecuteAsExists(String pSql, DbParameter[] pParamList)
+        {
+            throw new NotImplementedException("Has to be overrided");
+        }
+
         public virtual bool ExecuteAsExists(string pSql)
         {
-            string sqlToExecute = string.Format(@"select exists
-                                        (  
-                                        {0}
-                                        );", pSql);
-            object val = this.GetOneValue(sqlToExecute);
-            int value = Convert.ToInt32(val);
-            return value > 0;
+            throw new NotImplementedException("Has to be overrided");
         }
+
 
         //public PARAMETER_BUILDER getParameterBuilder()
         //{
