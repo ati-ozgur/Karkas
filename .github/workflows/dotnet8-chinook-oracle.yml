@@ -2,8 +2,8 @@ name: dotnet8-chinook-oracle
 
 on:
   workflow_dispatch:
-#  push:
-#    branches: [ "master" ]
+  push:
+    branches: [ "master" ]
 
 jobs:
   build:
