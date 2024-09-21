@@ -52,7 +52,16 @@ namespace Karkas.Core.Data.Sqlite
         }
 
 
-
+        protected override string getSqlForTopRows(string pSql, int count)
+        {
+            string sqlToExecute = string.Format(@"
+                WITH TOPROWS AS
+                ( 
+                {0}
+                )
+                SELECT * FROM TOPROWS LIMIT {1}", pSql, count);
+            return sqlToExecute;
+        }
 
     }
 }

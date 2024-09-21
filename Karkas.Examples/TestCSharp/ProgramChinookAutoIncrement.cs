@@ -14,7 +14,7 @@ AlbumBs albumBs = new AlbumBs();
 
 
 
-string albumTitle = "Deneme";
+string albumTitle = Guid.NewGuid().ToString();
 
 Album a = new Album();
 a.Title = albumTitle;
@@ -147,7 +147,7 @@ var template = ConnectionHelper.GetAdoTemplate();
 
 int count = 5;
 
-List<Dictionary<string,object>> lAlbums = template.GetTopRows("SELECT * FROM ALBUM",count);
+List<Dictionary<string,object>> lAlbums = template.GetTopRows("SELECT * FROM Album",count);
 
 if(lAlbums.Count == count)
 {

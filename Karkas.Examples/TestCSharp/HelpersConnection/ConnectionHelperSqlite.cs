@@ -12,6 +12,10 @@ namespace Karkas.Examples
 {
     public class ConnectionHelper
     {
+        public static AdoTemplateSqlite GetAdoTemplate()
+        {
+            return new AdoTemplateSqlite();
+        }        
 
         public static void SetupDatabaseConnection()
         {

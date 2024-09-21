@@ -380,9 +380,9 @@ namespace Karkas.Core.DataUtil
         #region "List of Dictionaries Creation"
 
 
-        protected string getSqlForTopRows(string pSql, int count)
+        protected virtual string getSqlForTopRows(string pSql, int count)
         {
-            string sqlToExecute = string.Format(@"SELECT 
+            string sqlToExecute = string.Format(@"SELECT * FROM
                                         (  
                                         {0}
                                         )
@@ -600,15 +600,13 @@ namespace Karkas.Core.DataUtil
 
         #region "CreateDataTableWithPaging"
 
-        public DataTable CreateDataTableWithPaging(string sql
-, int pPageSize, int pStartRowIndex, string pOrderBy, DbParameter[] parameters)
+        public DataTable CreateDataTableWithPaging(string sql, int pPageSize, int pStartRowIndex, string pOrderBy, DbParameter[] parameters)
         {
             return pagingHelper.DataTableOlusturSayfalamaYap(sql, pPageSize, pStartRowIndex, pOrderBy, parameters);
         }
 
 
-        public DataTable CreateDataTableWithPaging(string sql
-, int pPageSize, int pStartRowIndex, string pOrderBy)
+        public DataTable CreateDataTableWithPaging(string sql, int pPageSize, int pStartRowIndex, string pOrderBy)
         {
             return pagingHelper.CreateDataTableWithPaging(sql, pPageSize, pStartRowIndex, pOrderBy);
         }

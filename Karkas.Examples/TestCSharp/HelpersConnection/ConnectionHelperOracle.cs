@@ -12,7 +12,10 @@ namespace Karkas.Examples
     public class ConnectionHelper
     {
 
-        public static 
+        public static AdoTemplateOracle GetAdoTemplate()
+        {
+            return new AdoTemplateOracle();
+        }
 
         public static void SetupDatabaseConnection()
         {
