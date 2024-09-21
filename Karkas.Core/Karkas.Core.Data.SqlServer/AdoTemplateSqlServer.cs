@@ -44,27 +44,7 @@ namespace Karkas.Core.Data.SqlServer
         }
 
 
-        private string getSqlForTopRows(string pSql)
-        {
-            string sqlToExecute = string.Format(@"SELECT 
-                                        (  
-                                        {0}
-                                        )
-                                        SELECT cast( 1 as bit)
-                                        else
-                                        SELECT cast( 0 as bit)
-                                        ", pSql);
-            return sqlToExecute;
-        }
-        public override List<Dictionary<string, object>> GetTopRows(string sql, int count)
-        {
-            throw new NotImplementedException();
-        }
 
-        public override List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters, int count)
-        {
-            throw new NotImplementedException();
-        }
 
     }
 }

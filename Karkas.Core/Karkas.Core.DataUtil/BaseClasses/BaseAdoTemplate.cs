@@ -380,8 +380,27 @@ namespace Karkas.Core.DataUtil
         #region "List of Dictionaries Creation"
 
 
-        public abstract List<Dictionary<string, object>> GetTopRows(string sql, int count);
-        public abstract List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters, int count);
+        protected string getSqlForTopRows(string pSql, int count)
+        {
+            string sqlToExecute = string.Format(@"SELECT 
+                                        (  
+                                        {0}
+                                        )
+                                        FETCH FIRST {1} ROWS ONLY", pSql,count);
+            return sqlToExecute;
+        }
+
+
+        public virtual List<Dictionary<string, object>> GetTopRows(string sql, int count)
+        {
+            string sqlToExecute = getSqlForTopRows(sql,count);
+            return GetRows(sqlToExecute);
+        }
+        public virtual List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters, int count)
+        {
+            string sqlToExecute = getSqlForTopRows(sql, count);
+            return GetRows(sqlToExecute,parameters);
+        }
 
 
         [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]

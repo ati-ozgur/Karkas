@@ -53,17 +53,6 @@ namespace Karkas.Core.Data.Sqlite
 
 
 
-        public override List<Dictionary<string, object>> GetTopRows(string sql, int count)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public override List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters, int count)
-        {
-            throw new NotImplementedException();
-        }
-
 
     }
 }
