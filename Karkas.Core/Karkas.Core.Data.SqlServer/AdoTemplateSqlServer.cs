@@ -43,14 +43,14 @@ namespace Karkas.Core.Data.SqlServer
             return (bool)this.GetOneValue(getSqlForExecuteAsExists(pSql));
         }
 
-
         protected override string getSqlForTopRows(string pSql, int count)
         {
-            string sqlToExecute = string.Format(@"SELECT TOP {1}
-                                        (  
-                                        {0}
-                                        )
-                                        ", pSql, count);
+            string sqlToExecute = string.Format(@"
+                WITH TOPROWS AS
+                ( 
+                {0}
+                )
+                SELECT TOP {1} * FROM TOPROWS", pSql, count);
             return sqlToExecute;
         }
 

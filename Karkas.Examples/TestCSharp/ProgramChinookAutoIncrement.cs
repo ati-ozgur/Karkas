@@ -146,8 +146,8 @@ if(exists)
 var template = ConnectionHelper.GetAdoTemplate();
 
 int count = 5;
-
-List<Dictionary<string,object>> lAlbums = template.GetTopRows("SELECT * FROM Album",count);
+string testSqlForTop = "SELECT * FROM \"Album\"";
+List<Dictionary<string,object>> lAlbums = template.GetTopRows(testSqlForTop,count);
 
 if(lAlbums.Count == count)
 {
