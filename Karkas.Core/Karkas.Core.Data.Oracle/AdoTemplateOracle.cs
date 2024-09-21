@@ -66,24 +66,14 @@ namespace Karkas.Core.Data.Oracle
         }
 
 
-        public override List<Dictionary<string, object>> GetTopRows(DbCommand cmd)
-        {
-            throw new NotImplementedException();
-        }
-        public override List<Dictionary<string, object>> GetTopRows(string sql)
+        public override List<Dictionary<string, object>> GetTopRows(string sql, int count)
         {
             throw new NotImplementedException();
         }
 
-        public override List<Dictionary<string, object>> GetTopRows(string sql, CommandType commandType)
-        {
-            throw new NotImplementedException();
-        }
-        public override List<Dictionary<string, object>> GetTopRows(string sql, CommandType commandType, DbParameter[] parameters)
-        {
-            throw new NotImplementedException();
-        }
-        public override List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters)
+
+
+        public override List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters, int count)
         {
             throw new NotImplementedException();
         }
