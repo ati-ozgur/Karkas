@@ -11,10 +11,10 @@ namespace Karkas.Core.DataUtil
         DbTransaction CurrentTransaction { get; set; }
         string DbProviderName { get; set; }
 
-        object BringOneValue(DbCommand cmd);
-        object BringOneValue(string cmdText);
-        object BringOneValue(string cmdText, CommandType cmdType, DbParameter[] parameters);
-        object BringOneValue(string cmdText, DbParameter[] parameters);
+        object GetOneValue(DbCommand cmd);
+        object GetOneValue(string cmdText);
+        object GetOneValue(string cmdText, CommandType cmdType, DbParameter[] parameters);
+        object GetOneValue(string cmdText, DbParameter[] parameters);
         void FillDataTable(DataTable dataTable, string sql);
         void FillDataTable(DataTable dataTable, string sql, CommandType commandType);
         void FillDataTable(DataTable dataTable, string sql, CommandType commandType, DbParameter[] parameters);
@@ -36,11 +36,11 @@ namespace Karkas.Core.DataUtil
         DbDataAdapter getDatabaseAdapter(DbCommand cmd);
         DbCommand getDatabaseCommand(DbConnection conn);
         DbCommand getDatabaseCommand(string sql, DbConnection conn);
-        List<Dictionary<string, object>> GetListOfDictionary(DbCommand cmd);
-        List<Dictionary<string, object>> GetListOfDictionary(string sql);
-        List<Dictionary<string, object>> GetListOfDictionary(string sql, CommandType commandType);
-        List<Dictionary<string, object>> GetListOfDictionary(string sql, CommandType commandType, DbParameter[] parameters);
-        List<Dictionary<string, object>> GetListOfDictionary(string sql, DbParameter[] parameters);
+        List<Dictionary<string, object>> GetRows(DbCommand cmd);
+        List<Dictionary<string, object>> GetRows(string sql);
+        List<Dictionary<string, object>> GetRows(string sql, CommandType commandType);
+        List<Dictionary<string, object>> GetRows(string sql, CommandType commandType, DbParameter[] parameters);
+        List<Dictionary<string, object>> GetRows(string sql, DbParameter[] parameters);
         IParameterBuilder getParameterBuilder();
     }
 }
