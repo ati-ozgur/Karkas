@@ -1,5 +1,7 @@
 # todo
 
+
+
 ## First to look
 
 1. Read records
@@ -155,6 +157,13 @@ Should I fix the namespace?
 https://github.com/commandlineparser/commandline
 https://github.com/commandlineparser/commandline/wiki/Getting-Started
 https://medium.com/@eduardosilva_94960/mastering-command-line-parsing-in-net-core-with-commandlineparser-c20721100359
+
+## Decisions
+
+1. Due to Oracle, I updated QueryHelper
+It generates quoted string now.
+Should I make this one customizable so that it could be turned off and on.
+
 
 
 ## sample databases
