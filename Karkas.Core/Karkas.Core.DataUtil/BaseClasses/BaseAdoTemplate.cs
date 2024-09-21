@@ -7,7 +7,7 @@ using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
-    public abstract class AdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParameterBuilder>
+    public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParameterBuilder>
         where PARAMETER_BUILDER : IParameterBuilder, new()
     {
         private string dbProviderName;
@@ -15,15 +15,15 @@ namespace Karkas.Core.DataUtil
         private bool useConnectionSingleton = true;
 
 
-        public AdoTemplate()
+        public BaseAdoTemplate()
         {
 
         }
-        public AdoTemplate(string dbProviderName)
+        public BaseAdoTemplate(string dbProviderName)
         {
             this.dbProviderName = dbProviderName;
         }
-        public AdoTemplate(string connectionString, string dbProviderName)
+        public BaseAdoTemplate(string connectionString, string dbProviderName)
         {
             this.connectionString = connectionString;
             this.dbProviderName = dbProviderName;

@@ -8,7 +8,7 @@ using System.Data.Common;
 
 namespace Karkas.Core.Data.SqlServer
 {
-    public class AdoTemplateSqlServer : AdoTemplate<ParameterBuilderSqlServer>
+    public class AdoTemplateSqlServer : BaseAdoTemplate<ParameterBuilderSqlServer>
     {
 
         private string getSqlForExecuteAsExists(string pSql)

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Karkas.Core.Data.Sqlite
 {
-    public class AdoTemplateSqlite : AdoTemplate<ParameterBuilderSqlite>
+    public class AdoTemplateSqlite : BaseAdoTemplate<ParameterBuilderSqlite>
     {
         public AdoTemplateSqlite()
         {

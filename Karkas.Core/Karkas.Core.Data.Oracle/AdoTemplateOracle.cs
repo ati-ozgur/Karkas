@@ -9,7 +9,7 @@ using System.Data.Common;
 
 namespace Karkas.Core.Data.Oracle
 {
-    public class AdoTemplateOracle : AdoTemplate<ParameterBuilderOracle>
+    public class AdoTemplateOracle : BaseAdoTemplate<ParameterBuilderOracle>
     {
         public AdoTemplateOracle()
         {
