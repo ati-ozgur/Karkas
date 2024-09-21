@@ -9,5 +9,11 @@ namespace Karkas.Core.Data.Oracle
 {
     public abstract class BaseDalWithoutEntityOracle : BaseDalWithoutEntity<AdoTemplateOracle, ParameterBuilderOracle>
     {
+
+        public override string ParameterSymbol
+        {
+            get { return ":"; }
+        }
+
     }
 }

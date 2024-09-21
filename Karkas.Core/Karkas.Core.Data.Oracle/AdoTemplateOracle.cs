@@ -66,7 +66,10 @@ namespace Karkas.Core.Data.Oracle
         }
 
 
-
+        public override string ParameterSymbol
+        {
+            get { return ":"; }
+        }
 
 
     }

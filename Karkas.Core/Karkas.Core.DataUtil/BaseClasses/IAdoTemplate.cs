@@ -52,5 +52,11 @@ namespace Karkas.Core.DataUtil
 
         
         IParameterBuilder getParameterBuilder();
+
+
+        string ParameterSymbol
+        {
+            get;
+        }
     }
 }

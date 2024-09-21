@@ -681,6 +681,11 @@ namespace Karkas.Core.DataUtil
 
         #endregion
 
+        public virtual string ParameterSymbol
+        {
+            get { return "@"; }
+        }
+
     }
 }
 

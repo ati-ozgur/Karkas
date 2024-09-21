@@ -163,5 +163,10 @@ namespace Karkas.Core.DataUtil.BaseClasses
             get { return isInTransaction; }
             set { isInTransaction = value; }
         }
+
+        public virtual string ParameterSymbol
+        {
+            get { return "@"; }
+        }
     }
 }
