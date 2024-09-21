@@ -52,6 +52,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         public void CommitTransaction()
         {
             transaction.Commit();
+            ClearTransactionInformation();
         }
         public void ClearTransactionInformation()
         {
