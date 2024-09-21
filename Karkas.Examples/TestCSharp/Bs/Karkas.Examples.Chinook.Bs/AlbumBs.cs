@@ -16,7 +16,7 @@ namespace Karkas.Examples.Chinook.Bs
 
         public bool IsTitleExists(string title)
         {
-            return Dal.IsTitleExists(title);
+            return dal.IsTitleExists(title);
         } 
 
         public void InsertNewArtistAndAlbum(string artistName, string albumTitle)

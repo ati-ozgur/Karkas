@@ -367,7 +367,7 @@ namespace Karkas.Core.DataUtil
         /// <param name="sql"></param>
         /// <param name="prmListesi"></param>
         /// <returns></returns>
-        public bool ExecuteAsExists(String pSql, DbParameter[] pParamListesi)
+        public virtual bool ExecuteAsExists(String pSql, DbParameter[] pParamListesi)
         {
             string sqlToExecute = string.Format(@"IF EXISTS
                                         (  

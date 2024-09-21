@@ -136,3 +136,9 @@ else
 
 albumBs.InsertNewArtistAndAlbum("Atilla", "Atilla's new Title");
 Console.WriteLine("Simple Transaction works");
+
+bool exists = albumBs.IsTitleExists("Fireball");
+if(exists)
+{
+    Console.WriteLine("exists usage works");    
+}
