@@ -84,6 +84,14 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
             }
         }
+        public ForeignKeyInformation ForeignKeyInformation
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
 
         private bool? isNullable = null;
         public bool IsNullable

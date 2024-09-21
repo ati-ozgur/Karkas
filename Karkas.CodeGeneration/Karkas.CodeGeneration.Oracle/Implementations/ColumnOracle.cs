@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.BaseClasses;
 using Karkas.Core.DataUtil;
 using System.Data;
 using Karkas.CodeGeneration.Helpers;
@@ -160,6 +161,14 @@ ON
                 }
                 return isInForeignKey.Value;
 
+            }
+        }
+
+        public ForeignKeyInformation ForeignKeyInformation
+        {
+            get
+            {
+                throw new NotImplementedException();
             }
         }
 

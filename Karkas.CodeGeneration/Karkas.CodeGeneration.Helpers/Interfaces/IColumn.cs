@@ -17,6 +17,9 @@ namespace Karkas.CodeGeneration.Helpers.Interfaces
 
         bool IsInForeignKey { get;  }
 
+        ForeignKeyInformation ForeignKeyInformation { get; }
+
+
         bool IsNullable { get;  }
 
         bool IsRequired { get;  }

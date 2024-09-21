@@ -172,6 +172,13 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
                 }
             }
         }
+        public ForeignKeyInformation ForeignKeyInformation
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
 
         private bool? isNullable;
 
