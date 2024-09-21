@@ -100,15 +100,6 @@ JsonNamingPolicy includes new naming policies for snake_case (with an underscore
 
 
 
-5. 
-
-GetRows
-GetOneValue
-GetOneRow --> (first or default)
-GetTopRows
-
-For GetOneRow, need to add top, limit statements to the query.
-Not added yet.
 
 6. Refactoring methods to English Only Names
 

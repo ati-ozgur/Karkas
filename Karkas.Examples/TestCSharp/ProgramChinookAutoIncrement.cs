@@ -153,3 +153,15 @@ if(lAlbums.Count == count)
 {
     System.Console.WriteLine("GetTopRows works");
 }
+
+var d1 = template.GetOneRow(testSqlForTop);
+foreach(string key in d1.Keys)
+{
+    object value = d1[key];
+    Console.WriteLine($"{key} {value}");
+}
+
+if(d1 != null)
+{
+    Console.WriteLine("GetOneRow works");
+}

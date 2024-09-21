@@ -40,6 +40,9 @@ namespace Karkas.Core.DataUtil
         List<Dictionary<string, object>> GetTopRows(string sql, int count);
         List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters, int count);
 
+        Dictionary<string, object> GetOneRow(string sql);
+        Dictionary<string, object> GetOneRow(string sql, DbParameter[] parameters);
+        
 
         List<Dictionary<string, object>> GetRows(DbCommand cmd);
         List<Dictionary<string, object>> GetRows(string sql);

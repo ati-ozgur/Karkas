@@ -403,6 +403,28 @@ namespace Karkas.Core.DataUtil
         }
 
 
+        public Dictionary<string, object> GetOneRow(string sql)
+        {
+            Dictionary<string, object> d = null;
+            List<Dictionary<string, object>> l1 = GetTopRows(sql,1);
+            if(l1.Count == 1)
+            {
+                d = l1[0];
+            }
+            return d;
+        }
+        public Dictionary<string, object> GetOneRow(string sql, DbParameter[] parameters)
+        {
+            Dictionary<string, object> d = null;
+            List<Dictionary<string, object>> l1 = GetTopRows(sql,parameters, 1);
+            if (l1.Count == 1)
+            {
+                d = l1[0];
+            }
+            return d;
+        }
+
+
         [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
         public List<Dictionary<String, Object>> GetListOfDictionary(DbCommand cmd)
         {
