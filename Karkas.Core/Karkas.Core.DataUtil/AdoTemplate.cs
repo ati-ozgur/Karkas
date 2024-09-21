@@ -386,17 +386,16 @@ namespace Karkas.Core.DataUtil
         /// <param name="sql"></param>
         /// <param name="prmListesi"></param>
         /// <returns></returns>
-        public virtual bool ExecuteAsIfExists(String pSql)
+        /// 
+        public virtual bool ExecuteAsIfExists(string pSql)
         {
-            string sqlToExecute = string.Format(@"IF EXISTS
+            string sqlToExecute = string.Format(@"select exists
                                         (  
                                         {0}
-                                        )
-                                        SELECT cast( 1 as bit)
-                                        else
-                                        SELECT cast( 0 as bit)
-                                        ", pSql);
-            return (bool)this.GetOneValue(sqlToExecute);
+                                        );", pSql);
+            object val = this.GetOneValue(sqlToExecute);
+            int value = Convert.ToInt32(val);
+            return value > 0;
         }
 
         //public PARAMETER_BUILDER getParameterBuilder()
