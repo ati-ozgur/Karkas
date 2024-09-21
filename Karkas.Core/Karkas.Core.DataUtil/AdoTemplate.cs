@@ -7,7 +7,7 @@ using System.Data.Common;
 
 namespace Karkas.Core.DataUtil
 {
-    public class AdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParameterBuilder>
+    public abstract class AdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParameterBuilder>
         where PARAMETER_BUILDER : IParameterBuilder, new()
     {
         private string dbProviderName;
@@ -257,19 +257,21 @@ namespace Karkas.Core.DataUtil
         {
             return GetOneValue(cmd);
         }
-            /// <summary>
-            /// Wrapper for ADO.NET ExecuteScalar
-            /// If you expect only one result from your query, you could use this command.
-            /// example SELECT COUNT(*) FROM COMMON.USERS
-            /// return type of ExecuteScalar is object therefore you need to cast it, for example (int) for above query.
-            /// </summary>
-            /// <example>
-            /// 
-            /// 
-            /// </example>
-            /// <param name="cmd"></param>
-            /// <returns></returns>
-            /// 
+
+        /// <summary>
+        /// Wrapper for ADO.NET ExecuteScalar
+        /// If you expect only one result from your query, you could use this command.
+        /// example SELECT COUNT(*) FROM COMMON.USERS
+        /// return type of ExecuteScalar is object therefore you need to cast it, 
+        /// for example (int) for above query.
+        /// </summary>
+        /// <example>
+        /// 
+        /// 
+        /// </example>
+        /// <param name="cmd"></param>
+        /// <returns></returns>
+        /// 
         public object GetOneValue(DbCommand cmd)
         {
             cmd.Connection = Connection;
@@ -368,15 +370,9 @@ namespace Karkas.Core.DataUtil
         /// <param name="prmListesi"></param>
         /// <returns></returns>
         /// 
-        public virtual bool ExecuteAsExists(String pSql, DbParameter[] pParamList)
-        {
-            throw new NotImplementedException("Has to be overrided");
-        }
+        public abstract bool ExecuteAsExists(String pSql, DbParameter[] pParamList);
 
-        public virtual bool ExecuteAsExists(string pSql)
-        {
-            throw new NotImplementedException("Has to be overrided");
-        }
+        public abstract bool ExecuteAsExists(string pSql);
 
 
         //public PARAMETER_BUILDER getParameterBuilder()
