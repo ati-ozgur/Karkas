@@ -4,6 +4,12 @@
 
 1. Read records
 
+2. to dict, from dict
+
+3. validate method
+
+4. pydantic methods look.
+
 1. add foreign key code generations
 According to foreign keys, detail tables method will be added
 config.json property will manage it.
