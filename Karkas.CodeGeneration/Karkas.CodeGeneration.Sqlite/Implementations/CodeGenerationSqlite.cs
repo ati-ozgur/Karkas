@@ -88,12 +88,12 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         public List<Dictionary<string,object>> getTableList()
         {
-            var dtTables = Template.GetListOfDictionary(TABLE_LIST_SQL);
+            var dtTables = Template.GetRows(TABLE_LIST_SQL);
             return dtTables;
         }
         public List<Dictionary<string,object>> getViewList()
         {
-            var dtTables = Template.GetListOfDictionary(TABLE_LIST_SQL);
+            var dtTables = Template.GetRows(TABLE_LIST_SQL);
             return dtTables;
         }
 
@@ -122,7 +122,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         public override List<Dictionary<string,object>>  getViewListFromSchema(string schemaName)
         {
-            List<Dictionary<string,object>>  dtView = Template.GetListOfDictionary(TABLE_LIST_SQL);
+            List<Dictionary<string,object>>  dtView = Template.GetRows(TABLE_LIST_SQL);
             return dtView;
 
         }

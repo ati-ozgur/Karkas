@@ -81,7 +81,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                     columns = new List<IColumn>();
                     string columnSql = string.Format(COLUMN_SQL, tableName);
 
-                    List<Dictionary<string,object>>  dtColumns = template.GetListOfDictionary(columnSql);
+                    List<Dictionary<string,object>>  dtColumns = template.GetRows(columnSql);
 
                     IColumn column;
                     foreach (var rowColumn in dtColumns)

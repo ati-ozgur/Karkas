@@ -54,7 +54,7 @@ namespace Karkas.Core.DataUtil.BaseClasses
         {
             get
             {
-                object o = getNewAdoTemplate().BringOneValue(SelectCountString);
+                object o = getNewAdoTemplate().GetOneValue(SelectCountString);
                 return Convert.ToInt32(o);
             }
         }

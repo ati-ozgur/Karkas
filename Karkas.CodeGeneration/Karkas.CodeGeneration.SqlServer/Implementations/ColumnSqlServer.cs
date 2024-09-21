@@ -32,7 +32,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 
             IParameterBuilder defaultParameterBuilder = getBuilderWithDefaultValues();
 
-            var dt = template.GetListOfDictionary(SQL_COLUMN_VALUES_FROM_SYS, defaultParameterBuilder.GetParameterArray());
+            var dt = template.GetRows(SQL_COLUMN_VALUES_FROM_SYS, defaultParameterBuilder.GetParameterArray());
             columnValuesFromSysViews = dt[0];
 
 
@@ -147,7 +147,7 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
                 }
                 else
                 {
-                    int result = (int)template.BringOneValue(SQL_PRIMARY_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
+                    int result = (int)template.GetOneValue(SQL_PRIMARY_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
                     isInPrimaryKey = result > 0;
                     return isInPrimaryKey.Value;
                 }
@@ -166,7 +166,7 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
                 }
                 else
                 {
-                    int result = (int)template.BringOneValue(SQL_FOREIGN_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
+                    int result = (int)template.GetOneValue(SQL_FOREIGN_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
                     isInForeignKey = result > 0;
                     return isInForeignKey.Value;
                 }
@@ -300,7 +300,7 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
 
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@UserDefinedTypeName", DbType.String, pUserDefinedTypeName);
-            underlyingType = (string)template.BringOneValue(sql, builder.GetParameterArray());
+            underlyingType = (string)template.GetOneValue(sql, builder.GetParameterArray());
 
             return underlyingType;
 

@@ -78,11 +78,11 @@ namespace Karkas.Core.DataUtil
 
             if (parameters == null)
             {
-                return (int) template.BringOneValue(countSql);
+                return (int) template.GetOneValue(countSql);
             }
             else
             {
-                return (int) template.BringOneValue(countSql, parameters);
+                return (int) template.GetOneValue(countSql, parameters);
             }
         }
 

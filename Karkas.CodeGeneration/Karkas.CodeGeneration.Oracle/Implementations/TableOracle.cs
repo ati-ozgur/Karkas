@@ -52,7 +52,7 @@ AND cons.owner = cols.owner
                     IParameterBuilder builder = template.getParameterBuilder();
                     builder.AddParameter("tableName", DbType.String, Name);
                     builder.AddParameter("schemaName", DbType.String, Schema);
-                    Object objResult = template.BringOneValue(SQL_PRIMARY_KEY, builder.GetParameterArray());
+                    Object objResult = template.GetOneValue(SQL_PRIMARY_KEY, builder.GetParameterArray());
                      primaryKeyColumnCount = (Decimal)objResult;
 
                 }
@@ -92,7 +92,7 @@ OWNER = :schemaName
                     builder.AddParameter("tableName", DbType.String, Name);
                     builder.AddParameter("schemaName",DbType.String,Schema);
 
-                    var dtColumnList = template.GetListOfDictionary(SQL_FOR_COLUMN_LIST, builder.GetParameterArray());
+                    var dtColumnList = template.GetRows(SQL_FOR_COLUMN_LIST, builder.GetParameterArray());
                     foreach (var row in dtColumnList)
                     {
                         string columnName = row["COLUMN_NAME"].ToString();
@@ -148,7 +148,7 @@ AND
             builder.AddParameter("tableName", DbType.String, Name);
             builder.AddParameter("schemaName", DbType.String, Schema);
 
-            int count = (int) template.BringOneValue(SQL_FOR_IDENTITY, builder.GetParameterArray());
+            int count = (int) template.GetOneValue(SQL_FOR_IDENTITY, builder.GetParameterArray());
             return count;
 
         }

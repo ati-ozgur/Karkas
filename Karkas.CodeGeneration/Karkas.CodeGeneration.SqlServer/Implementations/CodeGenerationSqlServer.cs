@@ -37,7 +37,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
                     _tableList = new List<ITable>();
                     IParameterBuilder builder = Template.getParameterBuilder();
                     builder.AddParameter("@TABLE_SCHEMA", DbType.AnsiString, "__TUM_SCHEMALAR__");
-                    var dtTableList = Template.GetListOfDictionary(SQL_FOR_TABLE_LIST,builder.GetParameterArray());
+                    var dtTableList = Template.GetRows(SQL_FOR_TABLE_LIST,builder.GetParameterArray());
 
                     foreach (var row in dtTableList)
                     {
@@ -120,7 +120,7 @@ SELECT DISTINCT TABLE_CATALOG FROM INFORMATION_SCHEMA.TABLES
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@TABLE_SCHEMA", DbType.String, schemaName);
-            var dtTableList = Template.GetListOfDictionary(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
+            var dtTableList = Template.GetRows(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
             return dtTableList;
         }
 
@@ -137,7 +137,7 @@ ORDER BY FULL_VIEW_NAME
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@TABLE_SCHEMA", DbType.String, schemaName);
-            var dtTableList = Template.GetListOfDictionary(SQL_FOR_VIEW_LIST, builder.GetParameterArray());
+            var dtTableList = Template.GetRows(SQL_FOR_VIEW_LIST, builder.GetParameterArray());
             return dtTableList;
         }
 
@@ -159,7 +159,7 @@ ORDER BY STORED_PROCEDURE_NAME
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@SP_SCHEMA_NAME", DbType.String, schemaName);
-            var dtStoredProcedures = Template.GetListOfDictionary(SQL_FOR_STORED_PROCEDURE_LIST, builder.GetParameterArray());
+            var dtStoredProcedures = Template.GetRows(SQL_FOR_STORED_PROCEDURE_LIST, builder.GetParameterArray());
             return dtStoredProcedures;
         }
 
@@ -215,7 +215,7 @@ ORDER BY SEQUENCE_NAME
             {
                 if (sqlServerVersion == null)
                 {
-                    sqlServerVersion = (string)Template.BringOneValue(SQL_SERVER_VERSION);
+                    sqlServerVersion = (string)Template.GetOneValue(SQL_SERVER_VERSION);
                 }
 
                 return sqlServerVersion;
@@ -231,7 +231,7 @@ ORDER BY SEQUENCE_NAME
             {
                 IParameterBuilder builder = Template.getParameterBuilder();
                 builder.AddParameter("@SEQ_SCHEMA_NAME", DbType.String, schemaName);
-                List<Dictionary<string,object>> dt = Template.GetListOfDictionary(SQL_FOR_SEQUENCES_LIST, builder.GetParameterArray());
+                List<Dictionary<string,object>> dt = Template.GetRows(SQL_FOR_SEQUENCES_LIST, builder.GetParameterArray());
                 return dt;
             }
             else
@@ -245,7 +245,7 @@ ORDER BY SEQUENCE_NAME
 
         public override string[] getSchemaList()
         {
-            List<Dictionary<string,object>>  dt = Template.GetListOfDictionary(SQL_FOR_SCHEMA_LIST);
+            List<Dictionary<string,object>>  dt = Template.GetRows(SQL_FOR_SCHEMA_LIST);
             string[] schemaList = new string[dt.Count];
             for (int i = 0; i < dt.Count; i++)
             {

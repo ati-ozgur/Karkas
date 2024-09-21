@@ -88,6 +88,10 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         {
             get
             {
+                string sql = string.Format(SQL_FOREIGN_KEY_CHECK, this.Table.Name, this.Name);
+                var result = template.GetRows(sql);
+                
+
                 throw new NotImplementedException();
             }
         }

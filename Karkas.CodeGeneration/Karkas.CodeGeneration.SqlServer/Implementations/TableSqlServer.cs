@@ -79,7 +79,7 @@ TABLE_NAME = @TABLE_NAME
 
 
 
-                var dtColumns = Template.GetListOfDictionary(SQL_COLUMN_LIST, builder.GetParameterArray());
+                var dtColumns = Template.GetRows(SQL_COLUMN_LIST, builder.GetParameterArray());
 
 
                 foreach (var row in dtColumns)

@@ -67,7 +67,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.AutoTabLine("");
             output.AutoTabLine("public decimal GetNextSequenceValue()");
             AtStartCurlyBraceletIncreaseTab();
-            output.AutoTabLine("return (decimal) Template.BringOneValue(selectNextSequenceString);");
+            output.AutoTabLine("return (decimal) Template.GetOneValue(selectNextSequenceString);");
             AtEndCurlyBraceletDecreaseTab();
         }
         private void Write_GetCurrentSequenceValue()
@@ -75,7 +75,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.AutoTabLine("");
             output.AutoTabLine("public decimal GetCurrentSequenceValue()");
             AtStartCurlyBraceletIncreaseTab();
-            output.AutoTabLine("return (decimal) Template.BringOneValue(selectCurrentSequenceString);");
+            output.AutoTabLine("return (decimal) Template.GetOneValue(selectCurrentSequenceString);");
             AtEndCurlyBraceletDecreaseTab();
         }
 

@@ -41,6 +41,8 @@ namespace Karkas.Core.DataUtil
         List<Dictionary<string, object>> GetRows(string sql, CommandType commandType);
         List<Dictionary<string, object>> GetRows(string sql, CommandType commandType, DbParameter[] parameters);
         List<Dictionary<string, object>> GetRows(string sql, DbParameter[] parameters);
+
+        
         IParameterBuilder getParameterBuilder();
     }
 }

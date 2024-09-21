@@ -41,7 +41,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
                     IParameterBuilder builder = Template.getParameterBuilder();
                     builder.AddParameter("TABLE_SCHEMA", DbType.String, userName);
 
-                    var dtTables = Template.GetListOfDictionary(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
+                    var dtTables = Template.GetRows(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
                     foreach (var row in dtTables)
                     {
                         string tableName = row["TABLE_NAME"].ToString();
@@ -110,7 +110,7 @@ ORDER BY FULL_TABLE_NAME
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":TABLE_SCHEMA", DbType.String, schemaName);
-            var dtTableList = Template.GetListOfDictionary(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
+            var dtTableList = Template.GetRows(SQL_FOR_TABLE_LIST, builder.GetParameterArray());
             return dtTableList;
         }
 
@@ -125,7 +125,7 @@ ORDER BY FULL_VIEW_NAME
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":TABLE_SCHEMA", DbType.String, schemaName);
-            var dtTableList = Template.GetListOfDictionary(SQL_FOR_VIEW_LIST, builder.GetParameterArray());
+            var dtTableList = Template.GetRows(SQL_FOR_VIEW_LIST, builder.GetParameterArray());
             return dtTableList;
         }
 
@@ -141,7 +141,7 @@ ORDER BY STORED_PROCEDURE_NAME
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":SP_SCHEMA_NAME", DbType.String, schemaName);
-            var dtTableList = Template.GetListOfDictionary(SQL_FOR_STORED_PROCEDURE_LIST, builder.GetParameterArray());
+            var dtTableList = Template.GetRows(SQL_FOR_STORED_PROCEDURE_LIST, builder.GetParameterArray());
             return dtTableList;
         }
 
@@ -158,7 +158,7 @@ ORDER BY SEQUENCE_NAME
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":SEQ_SCHEMA_NAME", DbType.String, schemaName);
-            var dtTableList = Template.GetListOfDictionary(SQL_FOR_SEQUENCES_LIST, builder.GetParameterArray());
+            var dtTableList = Template.GetRows(SQL_FOR_SEQUENCES_LIST, builder.GetParameterArray());
             return dtTableList;
         }
 
@@ -166,7 +166,7 @@ ORDER BY SEQUENCE_NAME
 
         public override string[] getSchemaList()
         {
-            var dt = Template.GetListOfDictionary(SQL_FOR_SCHEMA_LIST);
+            var dt = Template.GetRows(SQL_FOR_SCHEMA_LIST);
             var schemaList = new List<string>();
             foreach (var item in dt)
             {

@@ -40,7 +40,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
                     {
                         IParameterBuilder builder = template.getParameterBuilder();
                         builder.AddParameter("tableName", DbType.String, Table.Name);
-                        Object objResult = template.BringOneValue(SQL_SEQUENCE_EXISTS, builder.GetParameterArray());
+                        Object objResult = template.GetOneValue(SQL_SEQUENCE_EXISTS, builder.GetParameterArray());
                         Decimal result = (Decimal)objResult;
                         if (result > 0)
                         {
@@ -106,7 +106,7 @@ AND cons.owner = cols.owner
                     builder.AddParameter("tableName", DbType.String, tableOrView.Name);
                     builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
                     builder.AddParameter("columnName", DbType.String, Name);
-                    Object objResult = template.BringOneValue(SQL_PRIMARY_KEY, builder.GetParameterArray());
+                    Object objResult = template.GetOneValue(SQL_PRIMARY_KEY, builder.GetParameterArray());
                     Decimal result = (Decimal)objResult;
                     if (result > 0)
                     {
@@ -147,7 +147,7 @@ ON
                     builder.AddParameter("tableName", DbType.String, tableOrView.Name);
                     builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
                     builder.AddParameter("columnName", DbType.String, Name);
-                    Object objResult = template.BringOneValue(SQL_FOREIGN_KEY, builder.GetParameterArray());
+                    Object objResult = template.GetOneValue(SQL_FOREIGN_KEY, builder.GetParameterArray());
                     Decimal result = (Decimal)objResult;
                     if (result > 0)
                     {
@@ -258,7 +258,7 @@ AND
                     builder.AddParameter("tableName", DbType.String, tableOrView.Name);
                     builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
                     builder.AddParameter("columnName", DbType.String, Name);
-                    var liste = template.GetListOfDictionary(SQL_COLUMN_VALUES, builder.GetParameterArray());
+                    var liste = template.GetRows(SQL_COLUMN_VALUES, builder.GetParameterArray());
 
                     if (liste.Count > 0)
                     {
