@@ -187,7 +187,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         }
 
         // TODO Fix this one later
-        private int? characterMaxLength;
+        //private int? characterMaxLength;
         private string defaultValue;
         private bool isInPrimaryKey;
         public int CharacterMaxLength
