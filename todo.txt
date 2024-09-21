@@ -91,7 +91,7 @@ Need to create my own example database for these examples.
 
 ## Improvements and Nice to Have
 
-
+1. Help documentation generation from /// comments
 
 2. add [JsonPropertyName("XXX")] to code generation
 
