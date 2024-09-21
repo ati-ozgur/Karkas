@@ -36,6 +36,14 @@ namespace Karkas.Core.DataUtil
         DbDataAdapter getDatabaseAdapter(DbCommand cmd);
         DbCommand getDatabaseCommand(DbConnection conn);
         DbCommand getDatabaseCommand(string sql, DbConnection conn);
+
+        List<Dictionary<string, object>> GetTopRows(DbCommand cmd);
+        List<Dictionary<string, object>> GetTopRows(string sql);
+        List<Dictionary<string, object>> GetTopRows(string sql, CommandType commandType);
+        List<Dictionary<string, object>> GetTopRows(string sql, CommandType commandType, DbParameter[] parameters);
+        List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters);
+
+
         List<Dictionary<string, object>> GetRows(DbCommand cmd);
         List<Dictionary<string, object>> GetRows(string sql);
         List<Dictionary<string, object>> GetRows(string sql, CommandType commandType);

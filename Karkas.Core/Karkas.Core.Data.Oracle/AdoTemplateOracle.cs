@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Data.Common;
+using System.Data;
 
 namespace Karkas.Core.Data.Oracle
 {
@@ -63,6 +64,30 @@ namespace Karkas.Core.Data.Oracle
                 command.GetType().GetProperty("BindByName").SetValue(command, true, null);
             }
         }
+
+
+        public override List<Dictionary<string, object>> GetTopRows(DbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+        public override List<Dictionary<string, object>> GetTopRows(string sql)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<Dictionary<string, object>> GetTopRows(string sql, CommandType commandType)
+        {
+            throw new NotImplementedException();
+        }
+        public override List<Dictionary<string, object>> GetTopRows(string sql, CommandType commandType, DbParameter[] parameters)
+        {
+            throw new NotImplementedException();
+        }
+        public override List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters)
+        {
+            throw new NotImplementedException();
+        }
+
 
     }
 }

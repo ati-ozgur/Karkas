@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Common;
+using System.Data;
+
 
 namespace Karkas.Core.Data.SqlServer
 {
@@ -39,6 +41,27 @@ namespace Karkas.Core.Data.SqlServer
         public override bool ExecuteAsExists(String pSql)
         {
             return (bool)this.GetOneValue(getSqlForExecuteAsExists(pSql));
+        }
+        public override List<Dictionary<string, object>> GetTopRows(DbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+        public override List<Dictionary<string, object>> GetTopRows(string sql)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<Dictionary<string, object>> GetTopRows(string sql, CommandType commandType)
+        {
+            throw new NotImplementedException();
+        }
+        public override List<Dictionary<string, object>> GetTopRows(string sql, CommandType commandType, DbParameter[] parameters)
+        {
+            throw new NotImplementedException();
+        }
+        public override List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters)
+        {
+            throw new NotImplementedException();
         }
 
     }

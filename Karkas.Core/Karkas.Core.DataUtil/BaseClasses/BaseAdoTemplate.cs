@@ -375,7 +375,16 @@ namespace Karkas.Core.DataUtil
             return new PARAMETER_BUILDER();
         }
 
+
+
         #region "List of Dictionaries Creation"
+
+
+        public abstract List<Dictionary<string, object>> GetTopRows(DbCommand cmd);
+        public abstract List<Dictionary<string, object>> GetTopRows(string sql);
+        public abstract List<Dictionary<string, object>> GetTopRows(string sql, CommandType commandType);
+        public abstract List<Dictionary<string, object>> GetTopRows(string sql, CommandType commandType, DbParameter[] parameters);
+        public abstract List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters);
 
 
         [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]

@@ -4,6 +4,8 @@ using Karkas.Core.DataUtil;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Data;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +49,29 @@ namespace Karkas.Core.Data.Sqlite
             // TODO
             //return null;
             throw new NotImplementedException("Microsoft.Data.Sqlite does not implement DataAdapters.");
+        }
+
+        
+        public override List<Dictionary<string, object>> GetTopRows(DbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+        public override List<Dictionary<string, object>> GetTopRows(string sql)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<Dictionary<string, object>> GetTopRows(string sql, CommandType commandType)
+        {
+            throw new NotImplementedException();
+        }
+        public override List<Dictionary<string, object>> GetTopRows(string sql, CommandType commandType, DbParameter[] parameters)
+        {
+            throw new NotImplementedException();
+        }
+        public override List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters)
+        {
+            throw new NotImplementedException();
         }
 
 
