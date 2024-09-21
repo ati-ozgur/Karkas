@@ -12,6 +12,8 @@
 
 4. pydantic methods look.
 
+5. Entity Framework methods
+
 1. add foreign key code generations
 According to foreign keys, detail tables method will be added
 config.json property will manage it.
