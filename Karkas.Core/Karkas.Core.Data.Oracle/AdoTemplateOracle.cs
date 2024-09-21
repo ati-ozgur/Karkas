@@ -48,6 +48,21 @@ namespace Karkas.Core.Data.Oracle
             return value > 0;
         }
 
+        public override DbCommand getDatabaseCommand(DbConnection conn)
+        {
+            DbCommand command = conn.CreateCommand();
+            setBindByName(command);
+            return command;
+        }
+
+        // TODO look if I could move this one to OracleAdoTemplate
+        private void setBindByName(DbCommand command)
+        {
+            if (command.GetType().GetProperty("BindByName") != null)
+            {
+                command.GetType().GetProperty("BindByName").SetValue(command, true, null);
+            }
+        }
 
     }
 }

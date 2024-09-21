@@ -40,32 +40,22 @@ namespace Karkas.Core.DataUtil
             return adapter;
         }
 
-        public DbCommand getDatabaseCommand(DbConnection conn)
-        {
-            DbCommand command = conn.CreateCommand();
-            setBindByNameForOracle(command);
-            return command;
-        }
+
 
 
         public DbCommand getDatabaseCommand(string sql, DbConnection conn)
         {
-            DbCommand command = conn.CreateCommand();
-            setBindByNameForOracle(command);
+            DbCommand command = getDatabaseCommand(conn);
             command.CommandText = sql;
             return command;
         }
 
 
-        // TODO look if I could move this one to OracleAdoTemplate
-        private static void setBindByNameForOracle(DbCommand command)
+        public virtual DbCommand getDatabaseCommand(DbConnection conn)
         {
-            if (command.GetType().GetProperty("BindByName") != null)
-            {
-                command.GetType().GetProperty("BindByName").SetValue(command, true, null);
-            }
+            DbCommand command = conn.CreateCommand();
+            return command;
         }
-
 
 
 
