@@ -27,10 +27,10 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
         {
             get
             {
-                string s = GetWhereOperatorValue();
+                string op = GetWhereOperatorValue();
                 if (WhereOperator != WhereOperatorEnum.Like)
                 {
-                    return string.Format("{0} {1} {2}", columnName, s, parameterName);
+                    return string.Format(@"""{0}"" {1} {2}", columnName, op, parameterName);
                 }
                 else
                 {
@@ -38,16 +38,16 @@ namespace Karkas.Core.DataUtil.QueryHelperClasses
                     switch (likePlacement)
                     {
                         case LikePlacementEnum.None:
-                            son = string.Format("{0} {1} {2}", columnName, s, parameterName);
+                            son = string.Format(@"""{0}"" {1} {2}", columnName, op, parameterName);
                             break;
                         case LikePlacementEnum.Start:
-                            son = string.Format("{0} {1} {2} + '%'", columnName, s, parameterName);
+                            son = string.Format(@"""{0}"" {1} {2} + '%'", columnName, op, parameterName);
                             break;
                         case LikePlacementEnum.Last:
-                            son = string.Format("{0} {1} '%' + {2}", columnName, s, parameterName);
+                            son = string.Format(@"""{0}"" {1} '%' + {2}", columnName, op, parameterName);
                             break;
                         case LikePlacementEnum.Between:
-                            son = string.Format("{0} {1} '%' + {2} + '%'", columnName, s, parameterName);
+                            son = string.Format(@"""{0}"" {1} '%' + {2} + '%'", columnName, op, parameterName);
                             break;
                     }
                     return son;
