@@ -6,6 +6,8 @@ global using Microsoft.Data.Sqlite;
 global using Karkas.Core.DataUtil;
 global using Karkas.Core.Data.Sqlite;
 
+using Karkas.Core.Data.Sqlite;
+
 namespace Karkas.Examples
 {
     public class ConnectionHelper

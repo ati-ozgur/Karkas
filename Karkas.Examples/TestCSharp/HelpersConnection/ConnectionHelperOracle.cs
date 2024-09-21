@@ -12,6 +12,8 @@ namespace Karkas.Examples
     public class ConnectionHelper
     {
 
+        public static 
+
         public static void SetupDatabaseConnection()
         {
             string dbConnectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xe)));User Id=chinook;Password=chinook;";

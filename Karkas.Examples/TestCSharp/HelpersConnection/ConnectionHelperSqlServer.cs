@@ -5,11 +5,16 @@ global using System.Data.SqlClient;
 global using Karkas.Core.DataUtil;
 global using Karkas.Core.Data.SqlServer;
 
+using Karkas.Core.Data.SqlServer;
 
 namespace Karkas.Examples
 {
     public class ConnectionHelper
     {
+        public static AdoTemplateSqlite GetAdoTemplate()
+        {
+            return new AdoTemplateSqlite();
+        }
 
         public static void SetupDatabaseConnection()
         {

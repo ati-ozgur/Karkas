@@ -142,3 +142,14 @@ if(exists)
 {
     Console.WriteLine("exists usage works");    
 }
+
+var template = ConnectionHelper.GetAdoTemplate();
+
+int count = 5;
+
+List<Dictionary<string,object>> lAlbums = template.GetTopRows("SELECT * FROM ALBUM",count);
+
+if(lAlbums.Count == count)
+{
+    System.Console.WriteLine("GetTopRows works");
+}
