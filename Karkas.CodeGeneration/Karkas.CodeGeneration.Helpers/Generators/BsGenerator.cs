@@ -39,23 +39,24 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
         Utils utils = null;
 
+        IContainer container;
 
-        public void Render(IContainer container)
+        public void Render(IContainer pContainer)
         {
-
+            container = pContainer;
 
 
 
             output.TabLevel = 0;
 
-            SetFields(container);
+            SetFields();
 
-            Write_ClassGenerated(container);
+            Write_ClassGenerated();
 
             Write_ClassNormal();
         }
 
-        private void Write_ClassGenerated( IContainer container)
+        private void Write_ClassGenerated()
         {
             Write_Usings();
             Write_NamespaceStart("Bs");
@@ -64,13 +65,15 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             AtStartCurlyBraceletIncreaseTab();
             
-            Write_OverrideDatabaseName(container);
+            Write_OverrideDatabaseName();
             if (container is ITable && (!string.IsNullOrEmpty(pkName)))
             {
-                Write_DeleteCommandWithPK(container);
+                Write_DeleteCommandWithPK();
 
-                Write_QueryByPkName(container, classNameTypeLibrary, pkType, pkNamePascalCase);
+                Write_QueryByPkName(classNameTypeLibrary, pkType, pkNamePascalCase);
             }
+
+            
             AtEndCurlyBraceletDecreaseTab();
             Write_NamespaceEndCurlyBracelet();
 
@@ -78,7 +81,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.Clear();
         }
 
-        private void SetFields(IContainer container)
+        private void SetFields()
         {
             baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
@@ -124,7 +127,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 
 
-        private void Write_OverrideDatabaseName( IContainer container)
+        private void Write_OverrideDatabaseName()
         {
             if(CodeGenerationConfig.UseMultipleDatabaseNames)
             {
@@ -139,7 +142,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void Write_QueryByPkName( IContainer container, string classNameTypeLibrary, string pkType, string pkName)
+        private void Write_QueryByPkName(string classNameTypeLibrary, string pkType, string pkName)
         {
             ITable table = container as ITable;
             string variableName = "p" + pkName;
@@ -161,7 +164,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
-        private void Write_DeleteCommandWithPK( IContainer container)
+        private void Write_DeleteCommandWithPK()
         {
             ITable table = container as ITable;
             if (table != null)
