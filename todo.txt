@@ -4,7 +4,10 @@
 
 ## First to look
 
-1. add intellisense comments
+1. Refactoring methods to English Only Names
+
+
+2. add intellisense comments
 docfx is decided and v0 is added.
 
 - need to improve comments
@@ -12,18 +15,18 @@ docfx is decided and v0 is added.
 - ???need to filter protected, abstract classes
 
 
-1. Master Detail Queries
+3. Master Detail Queries
 
 
-1. Read records for generating record struct?
+4. Read records for generating record struct?
 
-2. to dict, from dict
+5. to dict, from dict
 
-3. validate method
+6. validate method
 
-4. pydantic methods look.
+7. pydantic methods look.
 
-5. Entity Framework methods
+8. Entity Framework methods
 
 
 
@@ -42,10 +45,10 @@ docfx is decided and v0 is added.
 2. Paging tests
 
 
-7. column --> expected .net type
+3. column --> expected .net type
 Need to create my own example database for these examples.
 
-8. create dotnet/nuget packages
+4. create dotnet/nuget packages
 https://learn.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli
 
 github secrets and other should be looked.
@@ -64,36 +67,30 @@ PackageId and version how to automate??
 
 ## Improvements and Nice to Have
 
-1. Help documentation generation from /// comments
 
-2. add [JsonPropertyName("XXX")] to code generation
+1. add [JsonPropertyName("XXX")] to code generation
 
 JsonNamingPolicy includes new naming policies for snake_case (with an underscore) 
 
 
+2. Add configuration method which initializes from configuration files (app.config ...)
 
+3. Read logging and fix it
 
-
-6. Refactoring methods to English Only Names
-
-7. Add configuration method which initializes from configuration files (app.config ...)
-
-8. Read logging and fix it
-
-9. Later check multiple .net SDK versions
+4. Later check multiple .net SDK versions
 For now, we work with .net6
     <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
 https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file
 
 
-10. https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file
+5. https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file
 think about multiple version support
 
-11. change logging
+6. change logging
 https://learn.microsoft.com/en-us/dotnet/core/extensions/logger-message-generator
 https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-7.0
 
-12. For oracle, force decimal to int,long
+7. For oracle, force decimal to int,long
 
 
 ## Documentation and Examples
