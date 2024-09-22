@@ -54,8 +54,8 @@ Chinook Customer ok
     Update
     Delete
 
-3. Transaction normal
-4. Transaction with Error, to see it is rolled back
+DONE 3. Transaction normal 
+DONE 4. Transaction with Error, to see it is rolled back
 
 5. Paging tests
 
