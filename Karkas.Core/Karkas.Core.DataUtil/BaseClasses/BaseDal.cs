@@ -119,9 +119,9 @@ namespace Karkas.Core.DataUtil.BaseClasses
         /// <summary>
         /// Query using Column Name.
         /// Example: Given Customer table
-        /// CustomerDal and Customer are generated.
-        /// List<Customer> l1 = QueryUsingColumnName(Kisi.ColumnNames.Email,"example@example.com")
-        /// This will bring Customers with a given email.
+        /// CustomerDal and Customer are generated. &#60;br /&#62;
+        /// List&#60;Customer&#62; l1 = QueryUsingColumnName(Kisi.ColumnNames.Email,"example@example.com")
+        /// &#60;br /&#62;This will bring Customers with a given email.
         /// </summary>
         /// <param name="pFilter">ColumnName to filter.
         /// Instead of writing the column name as string like "Email", please use
