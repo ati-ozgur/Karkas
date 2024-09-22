@@ -11,6 +11,9 @@ ConnectionHelper.SetupDatabaseConnection();
 
 
 AlbumBs albumBs = new AlbumBs();
+ArtistBs artistBs = new ArtistBs();
+
+
 
 var listAlbums1 = albumBs.QueryByArtistId(2);
 if(listAlbums1.Count > 0)
@@ -139,17 +142,18 @@ else
     throw new Exception("delete to customer DOES NOT works");
 }
 
-string artistName = "Atilla";
+string artistName = "Atilla" + Guid.NewGuid().ToString(); ;
 string titleToInsert = $"{artistName}'s new Title" + Guid.NewGuid().ToString();
 
 albumBs.InsertNewArtistAndAlbum(artistName, titleToInsert);
+
 
 var result = albumBs.QueryUsingColumnName(Album.ColumnNames.Title,titleToInsert);
 
 if(result !=null && result.Count == 1 && result[0].Title == titleToInsert)
 {
     var artistId = result[0].ArtistId;
-    var artist = new ArtistBs().QueryByArtistId(artistId);
+    var artist = artistBs.QueryByArtistId(artistId);
     if(artist.Name == artistName)
     {
         Console.WriteLine("Simple Transaction works");
@@ -157,6 +161,22 @@ if(result !=null && result.Count == 1 && result[0].Title == titleToInsert)
 }
 
 
+artistName = "Atilla" + Guid.NewGuid().ToString(); ;
+titleToInsert = $"{artistName}'s new Title" + Guid.NewGuid().ToString();
+
+try
+{
+    albumBs.InsertNewArtistAndAlbumError(artistName, titleToInsert);
+}
+catch (System.Exception)
+{
+    var artistResult = artistBs.QueryUsingColumnName(Artist.ColumnNames.Name,artistName);
+    if(artistResult.Count == 0)
+    {
+        Console.WriteLine("Transaction Rollback works");
+    }
+
+}
 
 
 
