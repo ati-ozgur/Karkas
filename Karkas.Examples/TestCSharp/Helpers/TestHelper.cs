@@ -1,7 +1,3 @@
-
-
-
-
 namespace Karkas.Examples;
 
 public class TestHelper
@@ -245,6 +241,14 @@ public class TestHelper
     }
     public static void TestCrudNormalAlbum()
     {
+
+        var template = ConnectionHelper.GetAdoTemplate();
+        string sqlMaxAlbumId = @"SELECT MAX(""AlbumId"") FROM ""Album""";
+
+        var maxAlbumId =  template.GetOneValue(sqlMaxAlbumId);
+        int newAlbumId = Convert.ToInt32(maxAlbumId) + 1;
+
+
         AlbumBs albumBs = new AlbumBs();
 
 
@@ -252,18 +256,18 @@ public class TestHelper
         string albumTitle = Guid.NewGuid().ToString();
 
         Album a = new Album();
-        a.AlbumId = 400;
+        a.AlbumId = newAlbumId;
         a.Title = albumTitle;
         a.ArtistId = 2;
 
-        long albumId = albumBs.Insert(a);
+        albumBs.Insert(a);
 
         var albumList = albumBs.QueryUsingColumnName(Album.ColumnNames.Title, albumTitle);
 
         Album b = albumList[albumList.Count - 1];
         if (
-        albumId == a.AlbumId
-        && albumId == b.AlbumId
+        newAlbumId == a.AlbumId
+        && newAlbumId == b.AlbumId
         && a.AlbumId == b.AlbumId
         && a.Title == b.Title
         && a.ArtistId == b.ArtistId
@@ -273,7 +277,48 @@ public class TestHelper
         }
         else
         {
-            throw new Exception("Insert  to Album for Normal does NOT work");
+            throw new Exception("Insert to Album for Normal does NOT work");
+        }
+
+        Album c = albumBs.QueryByAlbumId(newAlbumId);
+        if (
+        newAlbumId == c.AlbumId
+        && a.AlbumId == c.AlbumId
+        && a.Title == c.Title
+        && a.ArtistId == c.ArtistId
+        )
+        {
+            Console.WriteLine("Read QuerybyPK from Album Normal works");
+        }
+        else
+        {
+            throw new Exception("Read QuerybyPK from Album Normal does NOT work");
+        }
+
+
+        c.Title = Guid.NewGuid().ToString();
+        albumBs.Update(c);
+
+        var albumListOldTitle = albumBs.QueryUsingColumnName(Album.ColumnNames.Title, albumTitle);
+        var albumListNewTitle = albumBs.QueryUsingColumnName(Album.ColumnNames.Title, c.Title);
+        if (albumListOldTitle.Count == 0 && albumListNewTitle.Count == 1)
+        {
+            Console.WriteLine("Update to Album for Normal works");
+        }
+        else
+        {
+            throw new Exception("Update to Album for Normal does NOT work");
+        }
+
+        albumBs.Delete(newAlbumId);
+        Album d = albumBs.QueryByAlbumId(newAlbumId);
+        if(d == null)
+        {
+            Console.WriteLine("Delete from Album for Normal works");
+        }
+        else
+        {
+            throw new Exception("Delete from Album for Normal does NOT work");
         }
 
     }
