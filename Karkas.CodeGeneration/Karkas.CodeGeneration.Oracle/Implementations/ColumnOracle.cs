@@ -185,8 +185,8 @@ WHERE c.constraint_type = 'R'
                 ForeignKeyInformation fk = new ForeignKeyInformation();
                 fk.SourceColumn = this.Name;
                 fk.SourceTable = this.Table.Name;
-                fk.TargetColumn = result["PK_COLUMN"];
-                fk.TargetTable = result["PK_TABLE"];
+                fk.TargetColumn = result["PK_COLUMN"].ToString();
+                fk.TargetTable = result["PK_TABLE"].ToString();
                 return fk;
             }
         }
