@@ -312,7 +312,7 @@ AND
                 {
                     return (ITable)tableOrView;
                 }
-                throw new NotSupportedException("Bu column bir view'a ait.");
+                throw new NotSupportedException("This column belongs to a View.");
             }
         }
 
@@ -324,7 +324,7 @@ AND
                 {
                     return (IView)tableOrView;
                 }
-                throw new NotSupportedException("Bu column bir tabloya ait.");
+                throw new NotSupportedException("This column belongs to a Table.");
             }
         }
 
