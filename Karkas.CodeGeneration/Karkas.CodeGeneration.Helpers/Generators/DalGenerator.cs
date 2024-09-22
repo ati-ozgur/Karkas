@@ -136,10 +136,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             classNameTypeLibrary = utils.getClassNameForTypeLibrary(container.Name, listDatabaseAbbreviations);
             schemaName = utils.GetPascalCase(container.Schema);
 
-            classNameSpace = baseNameSpaceTypeLibrary;
+            classNameTypeLibraryNameSpace = baseNameSpaceTypeLibrary;
             if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
             {
-                classNameSpace = classNameSpace + "." + schemaName;
+                classNameTypeLibraryNameSpace = classNameTypeLibraryNameSpace + "." + schemaName;
             }
 
             pkSentence = "";

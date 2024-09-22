@@ -11,8 +11,8 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
     {
 
         protected string baseNameSpace;
-        protected string classNameSpace;
-        protected string className;
+        protected string classNameTypeLibraryNameSpace;
+        protected string classNameTypeLibrary;
 
         protected string schemaName;
 

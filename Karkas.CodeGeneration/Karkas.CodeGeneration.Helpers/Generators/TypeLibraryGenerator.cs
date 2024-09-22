@@ -62,6 +62,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             Write_ToString();
 
+            Write_ToDict();
+
             Write_ColumnNames();
 
 
@@ -80,16 +82,16 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
             baseNameSpaceTypeLibrary = baseNameSpace + ".TypeLibrary";
 
-            className = utils.getClassNameForTypeLibrary(container.Name, listDatabaseAbbreviations);
+            classNameTypeLibrary = utils.getClassNameForTypeLibrary(container.Name, listDatabaseAbbreviations);
             schemaName = utils.GetPascalCase(container.Schema);
-            classNameSpace = baseNameSpaceTypeLibrary;
+            classNameTypeLibraryNameSpace = baseNameSpaceTypeLibrary;
             if (!string.IsNullOrWhiteSpace(schemaName) && CodeGenerationConfig.UseSchemaNameInNamespaces)
             {
-                classNameSpace = classNameSpace + "." + schemaName;
+                classNameTypeLibraryNameSpace = classNameTypeLibraryNameSpace + "." + schemaName;
             }
 
-            outputFullFileName = utils.FileUtilsHelper.getBaseNameForTypeLibrary(CodeGenerationConfig, schemaName, className, CodeGenerationConfig.UseSchemaNameInFolders);
-            outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForTypeLibraryGenerated(CodeGenerationConfig, schemaName, className, CodeGenerationConfig.UseSchemaNameInFolders);
+            outputFullFileName = utils.FileUtilsHelper.getBaseNameForTypeLibrary(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
+            outputFullFileNameGenerated = utils.FileUtilsHelper.getBaseNameForTypeLibraryGenerated(CodeGenerationConfig, schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInFolders);
         }
 
         private void Create_NormalClassFile()
@@ -98,8 +100,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.TabLevel = 0;
             Write_UsingNamespaces();
             Write_NamespaceStart("TypeLibrary");
-            string classNameValidation = className + "Validation";
-            Write_NormalClassLines(className, classNameValidation);
+            string classNameValidation = classNameTypeLibrary + "Validation";
+            Write_NormalClassLines(classNameTypeLibrary, classNameValidation);
             Write_ValidationClass(classNameValidation);
             Write_NamespaceEndCurlyBracelet();
             output.Save(outputFullFileName, CodeGenerationConfig.GenerateNormalClassAgain);
@@ -171,7 +173,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.AutoTabLine("[Serializable]");
             DebuggerDisplayWrite();
             output.AutoTab("public partial class ");
-            output.AutoTab(className + ": BaseTypeLibrary");
+            output.AutoTab(classNameTypeLibrary + ": BaseTypeLibrary");
             output.writeLine("");
             AtStartCurlyBraceletIncreaseTab();
 
@@ -196,7 +198,22 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
+        private void Write_ToDict()
+        {
+            output.AutoTabLine("public Dictionary<string,object> ToDict()");
+            AtStartCurlyBraceletIncreaseTab();
+            output.AutoTabLine("Dictionary<string, object> d = new Dictionary<string, object>();");
+            string columnName = "";
+            foreach (IColumn column in container.Columns)
+            {
+                columnName = utils.getPropertyVariableName(column);
+                string line = $"d[{classNameTypeLibrary}.ColumnNames.{columnName}] = {columnName};";
+                output.AutoTabLine(line);
+            }
+            output.AutoTabLine("return d;");
+            AtEndCurlyBraceletDecreaseTab();
 
+        }
 
         private void Write_ColumnNames()
         {
@@ -350,10 +367,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
         private void Write_ShallowCopy()
         {
-            output.AutoTabLine(string.Format("public {0} ShallowCopy()", className));
+            output.AutoTabLine(string.Format("public {0} ShallowCopy()", classNameTypeLibrary));
             output.AutoTabLine("{");
             output.IncreaseTab();
-            output.AutoTabLine(string.Format("{0} obj = new {0}();", className));
+            output.AutoTabLine(string.Format("{0} obj = new {0}();", classNameTypeLibrary));
             foreach (IColumn column in container.Columns)
             {
                 output.AutoTabLine(string.Format("obj.{0} = {0};", utils.GetCamelCase(column.Name)));
