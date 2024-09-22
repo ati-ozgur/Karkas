@@ -105,7 +105,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             Write_UpdateCommandParametersAdd();
             Write_DeleteCommandParametersAdd();
 
-            Write_OverrideDbProviderName();
+            //Write_OverrideDbProviderName();
 
             Write_ForeignKeyQueries();
 
