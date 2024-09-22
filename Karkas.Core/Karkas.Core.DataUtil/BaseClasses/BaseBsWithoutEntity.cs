@@ -62,6 +62,8 @@ namespace Karkas.Core.DataUtil.BaseClasses
             }
             IsInTransaction = false;
             this.Dal.AutomaticConnectionManagement = true;
+            this.Dal.CurrentTransaction = null;
+            transaction = null;
         }
 
         public virtual string DatabaseName
