@@ -1,0 +1,28 @@
+conn chinook/chinook
+
+
+ALTER TABLE "Album" MODIFY "AlbumId" DROP IDENTITY;
+
+ALTER TABLE "Artist" MODIFY "ArtistId" DROP IDENTITY;
+
+ALTER TABLE "Customer" MODIFY "CustomerId" DROP IDENTITY;
+
+ALTER TABLE "Employee" MODIFY "EmployeeId" DROP IDENTITY;
+
+ALTER TABLE "Genre" MODIFY "GenreId" DROP IDENTITY;
+
+ALTER TABLE "Invoice" MODIFY "InvoiceId" DROP IDENTITY;
+
+ALTER TABLE "InvoiceLine" MODIFY "InvoiceLineId" DROP IDENTITY;
+
+ALTER TABLE "MediaType" MODIFY "MediaTypeId" DROP IDENTITY;
+
+ALTER TABLE "Playlist" MODIFY "PlaylistId" DROP IDENTITY;
+
+ALTER TABLE "Track" MODIFY "TrackId" DROP IDENTITY;
+
+
+
+
+commit;
+exit;
