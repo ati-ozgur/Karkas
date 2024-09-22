@@ -4,6 +4,10 @@
 
 ## First to look
 
+1. to dict, from dict
+- Nullable
+- Put to config?
+
 1. For oracle, force decimal to int,long
 oracle code generation number to long
 
@@ -24,7 +28,7 @@ docfx is decided and v0 is added.
 
 4. Read records for generating record struct?
 
-5. to dict, from dict
+
 
 6. validate method
 
