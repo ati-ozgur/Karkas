@@ -122,7 +122,7 @@ AND cons.owner = cols.owner
 
             }
         }
-        private const string SQL_FOREIGN_KEY = @" SELECT
+        private const string SQL_FOREIGN_KEY_EXISTS = @" SELECT
   COUNT(*)
     FROM all_constraints cons
     INNER JOIN 
@@ -147,7 +147,7 @@ ON
                     builder.AddParameter("tableName", DbType.String, tableOrView.Name);
                     builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
                     builder.AddParameter("columnName", DbType.String, Name);
-                    Object objResult = template.GetOneValue(SQL_FOREIGN_KEY, builder.GetParameterArray());
+                    Object objResult = template.GetOneValue(SQL_FOREIGN_KEY_EXISTS, builder.GetParameterArray());
                     Decimal result = (Decimal)objResult;
                     if (result > 0)
                     {
