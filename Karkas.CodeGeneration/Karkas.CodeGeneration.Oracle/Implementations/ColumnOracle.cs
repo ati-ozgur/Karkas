@@ -130,11 +130,9 @@ JOIN ALL_CONSTRAINTS c ON a.owner = c.owner
 JOIN ALL_CONSTRAINTS c_pk ON c.r_owner = c_pk.owner
                          AND c.r_constraint_name = c_pk.constraint_name
 WHERE c.constraint_type = 'R'   
-   
-   a.table_name = :tableName
-         AND a.OWNER = :schemaName
-         AND a.COLUMN_NAME =  :columnName
-         AND cons.constraint_type = 'R'
+AND a.table_name = :tableName
+AND a.OWNER = :schemaName
+AND a.COLUMN_NAME =  :columnName
 ";
         private const string SQL_FOREIGN_KEY_EXISTS = " SELECT COUNT(*) " + SQL_FOREIGN_KEY_FROM;
         private const string SQL_FOREIGN_KEY_INFO = @"SELECT a.table_name, 
@@ -181,7 +179,7 @@ WHERE c.constraint_type = 'R'
                 builder.AddParameter("tableName", DbType.String, tableOrView.Name);
                 builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
                 builder.AddParameter("columnName", DbType.String, Name);
-                var result = template.GetOneRow(SQL_FOREIGN_KEY_EXISTS, builder.GetParameterArray());
+                var result = template.GetOneRow(SQL_FOREIGN_KEY_INFO, builder.GetParameterArray());
                 ForeignKeyInformation fk = new ForeignKeyInformation();
                 fk.SourceColumn = this.Name;
                 fk.SourceTable = this.Table.Name;
