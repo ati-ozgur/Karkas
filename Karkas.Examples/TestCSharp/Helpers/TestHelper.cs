@@ -269,15 +269,15 @@ public class TestHelper
         && a.ArtistId == b.ArtistId
         )
         {
-            Console.WriteLine("Insert for Identity works");
+            Console.WriteLine("Insert to Album for Normal works");
         }
         else
         {
-            throw new Exception("Insert for Identity does NOT work");
+            throw new Exception("Insert  to Album for Normal does NOT work");
         }
 
     }
-    
+
 
 }
 
