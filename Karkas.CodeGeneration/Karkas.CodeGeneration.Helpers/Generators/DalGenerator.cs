@@ -174,10 +174,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
-        private void write_selectByForeignKey(ForeignKeyInformation info)
+        private void write_selectByForeignKey(string columnName)
         {
-            string columnName = info.TargetColumn;
-            string toWrite1 = $"public List<{classNameTypeLibrary}> SelectByArtistId(int p{columnName})";
+            string toWrite1 = $"public List<{classNameTypeLibrary}> SelectBy{columnName}(int p{columnName})";
             string toWrite2 = $"\treturn this.QueryUsingColumnName({classNameTypeLibrary}.ColumnNames.{columnName},p{columnName});";
             output.AutoTabLine(toWrite1);
             output.AutoTabLine("{");
@@ -196,7 +195,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                         // TODO write code here.
                         ForeignKeyInformation info = column.ForeignKeyInformation;
                         //Console.WriteLine(column.Name);
-                        write_selectByForeignKey(info);
+                        write_selectByForeignKey(info.SourceColumn);
                     }
                 }
             }
