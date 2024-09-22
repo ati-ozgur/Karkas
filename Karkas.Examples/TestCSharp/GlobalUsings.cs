@@ -8,7 +8,7 @@ global using System.Collections.Generic;
 global using Karkas.Core.DataUtil.BaseClasses;
 global using System.ComponentModel.DataAnnotations;
 
-
+global using Karkas.Examples;
 
 global using Karkas.Examples.Chinook.TypeLibrary;
 global using Karkas.Examples.Chinook.Dal;
