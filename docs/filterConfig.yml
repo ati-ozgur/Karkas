@@ -1,0 +1,8 @@
+### YamlMime:ManagedReference
+
+apiRules:
+  - exclude:
+      uidRegex: .*
+      type: Member
+      modifiers:
+        - protected
