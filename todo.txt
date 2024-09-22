@@ -4,6 +4,9 @@
 
 ## First to look
 
+1. Master Detail Queries
+
+
 1. Read records
 
 2. to dict, from dict
@@ -13,29 +16,6 @@
 4. pydantic methods look.
 
 5. Entity Framework methods
-
-1. add foreign key code generations
-According to foreign keys, detail tables method will be added
-config.json property will manage it.
-
-
-
-    public List<Customer> GetRowsBySupportRepId(int pSupportRepId)
-    {
-        var list = this.Dal.QueryUsingColumnName(Customer.ColumnNames.SupportRepId, pSupportRepId);
-        return list;
-    }
-
-        protected override CustomerDal Dal
-    {
-        get
-        {
-            CustomerDal d = new CustomerDal();
-            d.Connection = this.Connection;
-            d.IsInTransaction = this.IsInTransaction;
-            return d;
-        }
-    } 
 
 
 
