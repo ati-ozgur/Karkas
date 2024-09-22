@@ -112,7 +112,7 @@ AND schema_id =
             }
         }
 
-        private const string SQL_PRIMARY_KEY_INFO = @"SELECT COUNT(*)
+        private const string SQL_PRIMARY_KEY_EXISTS = @"SELECT COUNT(*)
 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS C
 JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE AS K
 ON C.TABLE_NAME = K.TABLE_NAME
@@ -123,7 +123,7 @@ WHERE C.CONSTRAINT_TYPE = 'PRIMARY KEY'
 AND K.COLUMN_NAME = @COLUMN_NAME
 AND K.TABLE_NAME = @TABLE_NAME
 AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
-        private const string SQL_FOREIGN_KEY_INFO = @"SELECT COUNT(*)
+        private const string SQL_FOREIGN_KEY_EXISTS = @"SELECT COUNT(*)
 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS C
 JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE AS K
 ON C.TABLE_NAME = K.TABLE_NAME
@@ -147,7 +147,7 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
                 }
                 else
                 {
-                    int result = (int)template.GetOneValue(SQL_PRIMARY_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
+                    int result = (int)template.GetOneValue(SQL_PRIMARY_KEY_EXISTS, getBuilderWithDefaultValues().GetParameterArray());
                     isInPrimaryKey = result > 0;
                     return isInPrimaryKey.Value;
                 }
@@ -166,7 +166,7 @@ AND K.TABLE_SCHEMA = @TABLE_SCHEMA";
                 }
                 else
                 {
-                    int result = (int)template.GetOneValue(SQL_FOREIGN_KEY_INFO, getBuilderWithDefaultValues().GetParameterArray());
+                    int result = (int)template.GetOneValue(SQL_FOREIGN_KEY_EXISTS, getBuilderWithDefaultValues().GetParameterArray());
                     isInForeignKey = result > 0;
                     return isInForeignKey.Value;
                 }
