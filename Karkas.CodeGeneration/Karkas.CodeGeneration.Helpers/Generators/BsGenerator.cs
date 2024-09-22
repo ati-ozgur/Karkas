@@ -73,7 +73,8 @@ public abstract class BsGenerator : BaseGenerator
             Write_QueryByPkName();
         }
 
-        
+        Write_ForeignKeyQueries();
+
         AtEndCurlyBraceletDecreaseTab();
         Write_NamespaceEndCurlyBracelet();
 
@@ -232,6 +233,34 @@ public abstract class BsGenerator : BaseGenerator
         }
         output.AutoTabLine("");
         output.AutoTabLine("");
+    }
+
+    private void write_selectByForeignKey(string columnName)
+    {
+        string methodName = $"SelectBy{columnName}";
+        string toWrite1 = $"public List<{classNameTypeLibrary}> {methodName}(int p{columnName})";
+        string toWrite2 = $"\treturn dal.{methodName}(p{columnName});";
+        output.AutoTabLine(toWrite1);
+        output.AutoTabLine("{");
+        output.AutoTabLine(toWrite2);
+        output.AutoTabLine("}");
+
+    }
+    public void Write_ForeignKeyQueries()
+    {
+        if (CodeGenerationConfig.GenerateForeignKeyQueries)
+        {
+            foreach (IColumn column in container.Columns)
+            {
+                if (column.IsInForeignKey)
+                {
+                    // TODO write code here.
+                    ForeignKeyInformation info = column.ForeignKeyInformation;
+                    //Console.WriteLine(column.Name);
+                    write_selectByForeignKey(info.SourceColumn);
+                }
+            }
+        }
     }
 
 }
