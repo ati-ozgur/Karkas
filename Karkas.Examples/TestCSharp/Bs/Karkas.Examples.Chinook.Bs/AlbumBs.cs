@@ -39,14 +39,21 @@ namespace Karkas.Examples.Chinook.Bs
 
         public void InsertNewArtistAndAlbumError(string artistName, string albumTitle)
         {
-            this.BeginTransaction();
+            try
+            {
+                this.BeginTransaction();
 
-            var artistDal = GetDalInstance<ArtistDal, Artist>();
-            Artist newArtist = new Artist();
-            newArtist.Name = artistName;
-            var newArtistId = artistDal.Insert(newArtist);
+                var artistDal = GetDalInstance<ArtistDal, Artist>();
+                Artist newArtist = new Artist();
+                newArtist.Name = artistName;
+                var newArtistId = artistDal.Insert(newArtist);
 
-            throw new Exception("Simulate roll back"); 
+                throw new Exception("Simulate roll back");
+            }
+            finally
+            {
+                this.ClearTransactionInformation();
+            }
 
         }
 
