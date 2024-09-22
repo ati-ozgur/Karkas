@@ -67,7 +67,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             }
         }
 
-        string SQL_FOREIGN_KEY_CHECK = @"";
+
         private bool? isInForeignKey = null;
         public bool IsInForeignKey
         {
@@ -96,7 +96,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                 builder.AddParameter("@columnName", Name);
                 var result = template.GetOneRow(sql, builder.GetParameterArray());
                 ForeignKeyInformation f = new ForeignKeyInformation();
-                f.SourceColumn = result["from"].ToString();
+                f.SourceColumn = Name;
                 f.TargetColumn = result["to"].ToString();
                 f.SourceTable = Table.Name;
                 f.TargetTable = result["table"].ToString();
