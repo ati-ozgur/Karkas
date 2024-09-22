@@ -174,6 +174,17 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
+        private void write_selectByForeignKey(ForeignKeyInformation info)
+        {
+            string columnName = info.TargetColumn;
+            string toWrite1 = $"public List<{classNameTypeLibrary}> SelectByArtistId(int p{columnName})";
+            string toWrite2 = $"\treturn this.QueryUsingColumnName({classNameTypeLibrary}.ColumnNames.{columnName},p{columnName});";
+            output.AutoTabLine(toWrite1);
+            output.AutoTabLine("{");
+            output.AutoTabLine(toWrite2);
+            output.AutoTabLine("}");
+
+        }
         public void Write_ForeignKeyQueries()
         {
             if(CodeGenerationConfig.GenerateForeignKeyQueries)
@@ -183,9 +194,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                     if (column.IsInForeignKey)
                     {
                         // TODO write code here.
-                        ForeignKeyInformation f = column.ForeignKeyInformation;
+                        ForeignKeyInformation info = column.ForeignKeyInformation;
                         //Console.WriteLine(column.Name);
-                        Console.WriteLine(f);
+                        write_selectByForeignKey(info);
                     }
                 }
             }
