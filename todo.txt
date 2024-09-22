@@ -5,8 +5,11 @@
 ## First to look
 
 1. add intellisense comments
+docfx is decided and v0 is added.
 
-somewhat done.
+- need to improve comments
+- need to add github pages
+- ???need to filter protected, abstract classes
 
 
 1. Master Detail Queries
