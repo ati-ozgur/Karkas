@@ -224,7 +224,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             foreach (IColumn column in container.Columns)
             {
                 columnName = utils.getPropertyVariableName(column);
-                string line = $"{columnName} = d[{classNameTypeLibrary}.ColumnNames.{columnName}];";
+                string dictLine = $"d[{classNameTypeLibrary}.ColumnNames.{columnName}]";
+                string convertTo = utils.GetConvertToSyntax(column.LanguageType, dictLine);
+                string line = $"{columnName} = {convertTo};";
                 output.AutoTabLine(line);
             }
             output.AutoTabLine("return obj;");

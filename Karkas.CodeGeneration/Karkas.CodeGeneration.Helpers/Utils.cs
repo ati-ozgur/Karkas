@@ -178,23 +178,33 @@ namespace Karkas.CodeGeneration.Helpers
             return IsArgumentValueType(column.LanguageType);
         }
 
-        public string GetConvertToSyntax(string tipi, string degiskenDegeri)
+        public string GetConvertToSyntax(string pType, string pValue)
         {
-            string result = string.Format("({0}) {1}", tipi, degiskenDegeri);
-            switch (tipi)
+            string result = null;
+            switch (pType)
             {
+                case "string":
+                    result = $"{pValue}.ToString();";
+                    break;
                 case "byte":
-                    result = string.Format("Convert.ToByte({0});", degiskenDegeri);
+                    result = $"Convert.ToByte({pValue});";
                     break;
                 case "int":
-                    result = string.Format("Convert.ToInt32({0});", degiskenDegeri);
+                    result = $"Convert.ToInt32({pValue});";
                     break;
                 case "long":
-                    result = string.Format("Convert.ToInt64({0});", degiskenDegeri);
+                    result = $"Convert.ToInt64({pValue});";
                     break;
                 case "decimal":
-                    result = string.Format("Convert.ToDecimal({0});", degiskenDegeri);
+                    result = $"Convert.ToDecimal({pValue});";
                     break;
+                case "DateTime":
+                    result = $"Convert.ToDateTime({pValue});";
+                    break;
+
+                default:
+                    throw new Exception($"Not Supported type: {pType} in GetConvertToSyntax value: {pValue}");
+
             }
             return result;
         }
