@@ -12,6 +12,12 @@ ConnectionHelper.SetupDatabaseConnection();
 
 AlbumBs albumBs = new AlbumBs();
 
+var listAlbums1 = albumBs.SelectByArtistId(2);
+if(listAlbums1.Count > 0)
+{
+    Console.WriteLine("Select by ForeignKey works");
+}
+
 
 
 string albumTitle = Guid.NewGuid().ToString();
@@ -133,9 +139,26 @@ else
     throw new Exception("delete to customer DOES NOT works");
 }
 
+string artistName = "Atilla";
+string titleToInsert = $"{artistName}'s new Title" + Guid.NewGuid().ToString();
 
-albumBs.InsertNewArtistAndAlbum("Atilla", "Atilla's new Title");
-Console.WriteLine("Simple Transaction works");
+albumBs.InsertNewArtistAndAlbum(artistName, titleToInsert);
+
+var result = albumBs.QueryUsingColumnName(Album.ColumnNames.Title,titleToInsert);
+
+if(result !=null && result.Count == 1 && result[0].Title == titleToInsert)
+{
+    var artistId = result[0].ArtistId;
+    var artist = new ArtistBs().QueryByArtistId(artistId);
+    if(artist.Name == artistName)
+    {
+        Console.WriteLine("Simple Transaction works");
+    }
+}
+
+
+
+
 
 bool exists = albumBs.IsTitleExists("Fireball");
 if(exists)
