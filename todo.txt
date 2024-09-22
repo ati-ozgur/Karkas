@@ -43,6 +43,19 @@ somewhat done.
 Need to create my own example database for these examples.
 
 8. create dotnet/nuget packages
+https://learn.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli
+
+github secrets and other should be looked.
+PackageId and version how to automate??
+
+  <PropertyGroup>
+    <PackageId>Karkas.Core.DataUtil.2024.09.22</PackageId>
+    <Version>2024.09.22</Version>
+    <Authors>Atilla Özgür</Authors>
+    <Company>Karkas</Company>
+  </PropertyGroup>
+
+
 
 ## Bugs
 
