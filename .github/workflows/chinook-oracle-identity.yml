@@ -1,9 +1,12 @@
-name: dotnet8-chinook-oracle-identity
+name: chinook-oracle-identity
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ "master" ]
+  workflow_run:
+    workflows: ["chinook-sqlserver"]
+    branches: [master]
+    types: 
+      - completed
 
 jobs:
   build:

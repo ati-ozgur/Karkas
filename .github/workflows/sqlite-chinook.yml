@@ -2,8 +2,11 @@ name: chinook-sqlite
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ "master" ]
+  workflow_run:
+    workflows: ["chinook-sqlserver"]
+    branches: [master]
+    types: 
+      - completed
 
 jobs:
   build:
