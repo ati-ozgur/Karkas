@@ -121,20 +121,29 @@ AND cons.owner = cols.owner
                 return isInPrimaryKey.Value;
 
             }
+
         }
-        private const string SQL_FOREIGN_KEY_EXISTS = @" SELECT
-  COUNT(*)
-    FROM all_constraints cons
-    INNER JOIN 
-    all_cons_columns cols
-ON
-   cons.constraint_name = cols.constraint_name
- AND cons.owner = cols.owner
-   WHERE     cols.table_name = :tableName
-         AND COLS.OWNER = :schemaName
-         AND COLS.COLUMN_NAME =  :columnName
+        private const string SQL_FOREIGN_KEY_FROM = @" 
+FROM ALL_CONS_COLUMNS a
+JOIN ALL_CONSTRAINTS c ON a.owner = c.owner 
+                      AND a.constraint_name = c.constraint_name
+JOIN ALL_CONSTRAINTS c_pk ON c.r_owner = c_pk.owner
+                         AND c.r_constraint_name = c_pk.constraint_name
+WHERE c.constraint_type = 'R'   
+   
+   a.table_name = :tableName
+         AND a.OWNER = :schemaName
+         AND a.COLUMN_NAME =  :columnName
          AND cons.constraint_type = 'R'
-        ";
+";
+        private const string SQL_FOREIGN_KEY_EXISTS = " SELECT COUNT(*) " + SQL_FOREIGN_KEY_FROM;
+        private const string SQL_FOREIGN_KEY_INFO = @"SELECT a.table_name, 
+       a.column_name,
+       a.constraint_name,
+       c.owner,
+       c.r_owner,
+       c_pk.table_name PK_TABLE,
+       c_pk.constraint_name PK_COLUMN"  + SQL_FOREIGN_KEY_FROM;
 
         private bool? isInForeignKey;
         public bool IsInForeignKey
@@ -168,7 +177,17 @@ ON
         {
             get
             {
-                throw new NotImplementedException();
+                IParameterBuilder builder = template.getParameterBuilder();
+                builder.AddParameter("tableName", DbType.String, tableOrView.Name);
+                builder.AddParameter("schemaName", DbType.String, tableOrView.Schema);
+                builder.AddParameter("columnName", DbType.String, Name);
+                var result = template.GetOneRow(SQL_FOREIGN_KEY_EXISTS, builder.GetParameterArray());
+                ForeignKeyInformation fk = new ForeignKeyInformation();
+                fk.SourceColumn = this.Name;
+                fk.SourceTable = this.Table.Name;
+                fk.TargetColumn = result["PK_COLUMN"];
+                fk.TargetTable = result["PK_TABLE"];
+                return fk;
             }
         }
 
