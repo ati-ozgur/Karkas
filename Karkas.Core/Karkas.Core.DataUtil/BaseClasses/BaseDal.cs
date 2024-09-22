@@ -117,23 +117,24 @@ namespace Karkas.Core.DataUtil.BaseClasses
         }
 
         /// <summary>
-        /// Veritabanındaki tablo üzerinde kolon ismi ile filtreleme
-        /// yapararak arama yapar. Ornegin KISI tablosunda
-        /// List&gtKisi&lt kisiListesi = QueryUsingColumnName(Kisi.ColumnNames.Cinsiyeti,"e");
-        /// Cinsiyeti e olan kisileri getirir. Cogunlukla master detay tablolarında 
-        /// Foreign key ile sorgulama için kullanılır.
+        /// Query using Column Name.
+        /// Example: Given Customer table
+        /// CustomerDal and Customer are generated.
+        /// List<Customer> l1 = QueryUsingColumnName(Kisi.ColumnNames.Email,"example@example.com")
+        /// This will bring Customers with a given email.
         /// </summary>
-        /// <param name="filtre">filtre yapılacak olan kolonun ismi, 
-        ///  TypeLibraryName.ColumnNames.PropertyName kullanmanız tavsiye edilir.</param>
-        /// <param name="oDegeri"> aranacak kolonun filtre değeri</param>
+        /// <param name="pFilter">ColumnName to filter.
+        /// Instead of writing the column name as string like "Email", please use
+        /// TypeLibraryName.ColumnNames.PropertyName </param>
+        /// <param name="pValue"> value of the filter</param>
         /// <returns></returns>
-        public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string filtre, object oDegeri)
+        public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string pFilter, object pValue)
         {
-            return QueryUsingColumnName(new String[] { filtre }, new Object[] { oDegeri });
+            return QueryUsingColumnName(new String[] { pFilter }, new Object[] { pValue });
         }
-        public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(List<string> filtreListesi, List<object> degerListesi)
+        public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(List<string> pFilterList, List<object> degerListesi)
         {
-            return QueryUsingColumnName(filtreListesi.ToArray(), degerListesi.ToArray());
+            return QueryUsingColumnName(pFilterList.ToArray(), degerListesi.ToArray());
         }
         public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string[] pListFilterColumnNames, object[] pListValues)
         {
