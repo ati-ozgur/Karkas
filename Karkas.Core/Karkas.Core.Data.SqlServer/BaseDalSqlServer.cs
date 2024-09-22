@@ -71,6 +71,16 @@ namespace Karkas.Core.Data.SqlServer
             }
         }
 
+        public override string DbProviderName 
+        {
+            get
+            {
+                return "System.Data.SqlClient";
+            }
+        }
+        
+        
+
 
     }
 }
