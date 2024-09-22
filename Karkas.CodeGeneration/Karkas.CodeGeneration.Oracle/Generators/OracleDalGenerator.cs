@@ -120,7 +120,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
                 string identityColumnName = utils.GetIdentityColumnName(container);
                 string identityReturnVariableName = identityColumnName.ToLowerInvariant();
-                if(CodeGenerationConfig.UseQuotesInQueries)
+                if(!string.IsNullOrEmpty(identityColumnName) && CodeGenerationConfig.UseQuotesInQueries)
                 {
                     identityColumnName = "\"\"" + identityColumnName + "\"\"";
                 }
