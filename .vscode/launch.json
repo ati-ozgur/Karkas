@@ -1,8 +1,5 @@
 {
     "configurations": [
-
-
-
         {
             "name": "C#: ConsoleApp Debug Default",
             "type": "dotnet",
@@ -20,6 +17,18 @@
             "stopAtEntry": false,
             "externalConsole": false
         },
+        {
+            "name": "C#: ConsoleApp ChinookOracleNormal",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",            
+            "program": "${workspaceFolder}/Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp/bin/Debug/net6.0/Karkas.CodeGeneration.ConsoleApp.dll",
+            "args": ["--connectionname", "ChinookOracleNormal"],
+            "cwd": "${workspaceRoot}",
+            "stopAtEntry": false,
+            "externalConsole": false
+        },
+
         {
             "name": "C#: ConsoleApp ChinookSqliteAutoIncrement",
             "type": "coreclr",
