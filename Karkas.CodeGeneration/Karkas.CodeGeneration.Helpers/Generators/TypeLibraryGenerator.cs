@@ -224,10 +224,15 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             foreach (IColumn column in container.Columns)
             {
                 columnName = utils.getPropertyVariableName(column);
-                string dictLine = $"d[{classNameTypeLibrary}.ColumnNames.{columnName}]";
-                string convertTo = utils.GetConvertToSyntax(column.LanguageType, dictLine);
+                string dictWord = $"d[{classNameTypeLibrary}.ColumnNames.{columnName}]";
+                string dictWordExists = $"d.ContainsKey({ classNameTypeLibrary}.ColumnNames.{columnName})";
+                string ifLine = $"if({dictWordExists} && ({dictWord} != null))";
+                output.AutoTabLine(ifLine);
+                AtStartCurlyBraceletIncreaseTab();
+                string convertTo = utils.GetConvertToSyntax(column.LanguageType, dictWord);
                 string line = $"{columnName} = {convertTo};";
                 output.AutoTabLine(line);
+                AtEndCurlyBraceletDecreaseTab();
             }
             output.AutoTabLine("return obj;");
             AtEndCurlyBraceletDecreaseTab();

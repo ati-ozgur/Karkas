@@ -184,22 +184,22 @@ namespace Karkas.CodeGeneration.Helpers
             switch (pType)
             {
                 case "string":
-                    result = $"{pValue}.ToString();";
+                    result = $"{pValue}.ToString()";
                     break;
                 case "byte":
-                    result = $"Convert.ToByte({pValue});";
+                    result = $"Convert.ToByte({pValue})";
                     break;
                 case "int":
-                    result = $"Convert.ToInt32({pValue});";
+                    result = $"Convert.ToInt32({pValue})";
                     break;
                 case "long":
-                    result = $"Convert.ToInt64({pValue});";
+                    result = $"Convert.ToInt64({pValue})";
                     break;
                 case "decimal":
-                    result = $"Convert.ToDecimal({pValue});";
+                    result = $"Convert.ToDecimal({pValue})";
                     break;
                 case "DateTime":
-                    result = $"Convert.ToDateTime({pValue});";
+                    result = $"Convert.ToDateTime({pValue})";
                     break;
 
                 default:
