@@ -5,14 +5,14 @@
 ## First to look
 
 1. to dict, from dict
-- Nullable
-- Put to config?
+- Nullable DONE
+- Put to config? think about it
 
-1. For oracle, force decimal to int,long
+2. For oracle, force decimal to int,long
 oracle code generation number to long
 
 
-1. Refactoring methods to English Only Names
+3. Refactoring methods to English Only Names
 
 
 2. add intellisense comments
