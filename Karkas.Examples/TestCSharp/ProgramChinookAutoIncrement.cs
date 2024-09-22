@@ -12,7 +12,7 @@ ConnectionHelper.SetupDatabaseConnection();
 
 AlbumBs albumBs = new AlbumBs();
 
-var listAlbums1 = albumBs.SelectByArtistId(2);
+var listAlbums1 = albumBs.QueryByArtistId(2);
 if(listAlbums1.Count > 0)
 {
     Console.WriteLine("Select by ForeignKey works");
