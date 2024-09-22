@@ -1,4 +1,4 @@
-name: dotnet8-chinook-oracle
+name: dotnet8-chinook-oracle-identity
 
 on:
   workflow_dispatch:
