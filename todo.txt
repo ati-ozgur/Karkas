@@ -4,6 +4,10 @@
 
 ## First to look
 
+1. For oracle, force decimal to int,long
+oracle code generation number to long
+
+
 1. Refactoring methods to English Only Names
 
 
@@ -90,7 +94,6 @@ think about multiple version support
 https://learn.microsoft.com/en-us/dotnet/core/extensions/logger-message-generator
 https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-7.0
 
-7. For oracle, force decimal to int,long
 
 
 ## Documentation and Examples
