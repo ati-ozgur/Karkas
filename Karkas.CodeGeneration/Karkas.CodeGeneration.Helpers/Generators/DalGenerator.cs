@@ -188,12 +188,18 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             if(CodeGenerationConfig.GenerateForeignKeyQueries)
             {
+                Dictionary<string,bool> generatedFKQueries = new Dictionary<string,bool>();
                 foreach (IColumn column in container.Columns)
                 {
                     if (column.IsInForeignKey)
                     {
-                        ForeignKeyInformation info = column.ForeignKeyInformation;
-                        write_QueryByForeignKey(info.SourceColumn);
+                        if(!generatedFKQueries.ContainsKey(column.Name))
+                        {
+                            ForeignKeyInformation info = column.ForeignKeyInformation;
+                            write_QueryByForeignKey(info.SourceColumn);
+                            generatedFKQueries[column.Name] = true;
+                        }
+
                     }
                 }
             }
