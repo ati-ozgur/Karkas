@@ -250,18 +250,23 @@ public abstract class BsGenerator : BaseGenerator
     {
         if (CodeGenerationConfig.GenerateForeignKeyQueries)
         {
+            Dictionary<string, bool> generatedFKQueries = new Dictionary<string, bool>();
             foreach (IColumn column in container.Columns)
             {
-                if (column.IsInForeignKey)
+                if (column.IsInForeignKey && !column.IsInPrimaryKey)
                 {
-                    // TODO write code here.
-                    ForeignKeyInformation info = column.ForeignKeyInformation;
-                    //Console.WriteLine(column.Name);
-                    write_QueryByForeignKey(info.SourceColumn);
+                    if (!generatedFKQueries.ContainsKey(column.Name))
+                    {
+                        ForeignKeyInformation info = column.ForeignKeyInformation;
+                        write_QueryByForeignKey(info.SourceColumn);
+                        generatedFKQueries[column.Name] = true;
+                    }
+
                 }
             }
         }
     }
+
 
 }
 
