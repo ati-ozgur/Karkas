@@ -70,7 +70,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             {
                 Write_DeleteCommandWithPK();
 
-                Write_QueryByPkName(classNameTypeLibrary, pkType, pkNamePascalCase);
+                Write_QueryByPkName();
             }
 
             
@@ -142,7 +142,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        private void Write_QueryByPkName(string classNameTypeLibrary, string pkType, string pkName)
+        private void Write_QueryByPkName()
         {
             ITable table = container as ITable;
             string variableName = "p" + pkName;
