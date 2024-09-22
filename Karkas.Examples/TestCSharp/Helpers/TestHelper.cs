@@ -1,4 +1,7 @@
 
+
+
+
 namespace Karkas.Examples;
 
 public class TestHelper
@@ -155,6 +158,7 @@ public class TestHelper
     public static void TestTransactionWorks()
     {
         AlbumBs albumBs = new AlbumBs();
+        ArtistBs artistBs = new ArtistBs();
         string artistName = "Atilla" + Guid.NewGuid().ToString(); ;
         string titleToInsert = $"{artistName}'s new Title" + Guid.NewGuid().ToString();
 
@@ -176,11 +180,11 @@ public class TestHelper
     }
     public static void TestTransactionRollback()
     {
-        ArtistBs artistB = new ArtistBs();
+        ArtistBs artistBs = new ArtistBs();
         AlbumBs albumBs = new AlbumBs();
 
-        artistName = "Atilla" + Guid.NewGuid().ToString(); ;
-        titleToInsert = $"{artistName}'s new Title" + Guid.NewGuid().ToString();
+        string artistName = "Atilla" + Guid.NewGuid().ToString(); ;
+        string titleToInsert = $"{artistName}'s new Title" + Guid.NewGuid().ToString();
 
         try
         {
@@ -224,6 +228,8 @@ public class TestHelper
 
     public static void TestTemplateOneRow()
     {
+        var template = ConnectionHelper.GetAdoTemplate();
+        string testSqlForTop = "SELECT * FROM \"Album\"";
         
         var d1 = template.GetOneRow(testSqlForTop);
         foreach(string key in d1.Keys)
