@@ -249,10 +249,10 @@ public class TestHelper
 
 
 
-        string albumTitle = "Deneme";
+        string albumTitle = Guid.NewGuid().ToString();
 
         Album a = new Album();
-        a.AlbumId = 350;
+        a.AlbumId = 400;
         a.Title = albumTitle;
         a.ArtistId = 2;
 
