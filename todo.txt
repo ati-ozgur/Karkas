@@ -4,10 +4,15 @@
 
 ## First to look
 
+1. add intellisense comments
+
+somewhat done.
+
+
 1. Master Detail Queries
 
 
-1. Read records
+1. Read records for generating record struct?
 
 2. to dict, from dict
 
@@ -31,38 +36,8 @@
 - UseFileScopedNamespace
 
 
-1. record struct?
+2. Paging tests
 
-1. add intellisense comments
-
-somewhat done.
-
-
-1. CRUD with identity tables v0
-
-    Identity Insert,
-    Normal Insert
-    Read
-    Update
-    Delete
-
-Chinook Customer ok
-
-2. CRUD tests Normal tables v0
-    Normal Insert
-    Read
-    Update
-    Delete
-
-DONE 3. Transaction normal 
-DONE 4. Transaction with Error, to see it is rolled back
-
-5. Paging tests
-
-6. Write oracle, chinook test for auto increment and normal
-
-    fork and give a pull request, need to sign my commits. Do it later
-    https://github.com/gvenzl/oci-oracle-xe/blob/main/examples/dkr-create-oracle-xe-server
 
 7. column --> expected .net type
 Need to create my own example database for these examples.
@@ -131,6 +106,15 @@ Should I fix the namespace?
 https://github.com/commandlineparser/commandline
 https://github.com/commandlineparser/commandline/wiki/Getting-Started
 https://medium.com/@eduardosilva_94960/mastering-command-line-parsing-in-net-core-with-commandlineparser-c20721100359
+
+## Later
+
+Dockerfile enhancements
+
+fork and give a pull request, need to sign my commits. Do it later
+https://github.com/gvenzl/oci-oracle-xe/blob/main/examples/dkr-create-oracle-xe-server
+
+
 
 ## Decisions
 
