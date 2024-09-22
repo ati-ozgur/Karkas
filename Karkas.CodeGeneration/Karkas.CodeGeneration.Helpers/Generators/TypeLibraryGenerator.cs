@@ -63,6 +63,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             Write_ToString();
 
             Write_ToDict();
+            Write_FromDict();
 
             Write_ColumnNames();
 
@@ -211,6 +212,22 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.AutoTabLine(line);
             }
             output.AutoTabLine("return d;");
+            AtEndCurlyBraceletDecreaseTab();
+
+        }
+        private void Write_FromDict()
+        {
+            output.AutoTabLine($"public {classNameTypeLibrary} FromDict(Dictionary<string,object> d)");
+            AtStartCurlyBraceletIncreaseTab();
+            output.AutoTabLine($"{classNameTypeLibrary} obj = new {classNameTypeLibrary}();");
+            string columnName = "";
+            foreach (IColumn column in container.Columns)
+            {
+                columnName = utils.getPropertyVariableName(column);
+                string line = $"{columnName} = d[{classNameTypeLibrary}.ColumnNames.{columnName}];";
+                output.AutoTabLine(line);
+            }
+            output.AutoTabLine("return obj;");
             AtEndCurlyBraceletDecreaseTab();
 
         }
