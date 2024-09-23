@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using Karkas.Data;
-using Karkas.Data.BaseClasses;
+using Karkas.Data.Base;
 using Karkas.Examples.Chinook.TypeLibrary;
 using Karkas.Examples.Chinook.Dal;
 

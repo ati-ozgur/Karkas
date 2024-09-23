@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 
-namespace Karkas.Data.BaseClasses
+namespace Karkas.Data.Base
 {
     public abstract class BaseBs<TYPE_LIBRARY_TYPE, DAL_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> : BaseBsWithoutEntity<ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>
         where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()

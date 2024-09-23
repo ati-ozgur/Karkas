@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 
 using Karkas.Data;
-using Karkas.Data.BaseClasses;
+using Karkas.Data.Base;
 using System.Data;
 using System.Data.Common;
 

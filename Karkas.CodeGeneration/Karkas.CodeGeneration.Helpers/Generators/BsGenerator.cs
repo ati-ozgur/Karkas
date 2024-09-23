@@ -209,7 +209,7 @@ public abstract class BsGenerator : BaseGenerator
             Write_UsingsDatabaseSpecific();
             output.AutoTabLine("using System.Text;");
             output.AutoTabLine("using Karkas.Data;");
-            output.AutoTabLine("using Karkas.Data.BaseClasses;");
+            output.AutoTabLine("using Karkas.Data.Base;");
             output.AutoTab("using ");
             output.AutoTab(baseNameSpaceTypeLibrary);
             output.AutoTabLine(";");

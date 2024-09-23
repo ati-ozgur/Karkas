@@ -8,7 +8,7 @@ using System.Runtime.Remoting;
 using System.Web;
 using System.Data.Common;
 
-namespace Karkas.Data.BaseClasses
+namespace Karkas.Data.Base
 {
     /// <summary>
     /// TYPE_LIBRARY_TYPE TypeLibrary Class
