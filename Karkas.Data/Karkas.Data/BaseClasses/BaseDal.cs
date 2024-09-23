@@ -291,11 +291,11 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         {
             if (otomatikWhereEkle)
             {
-                cmd.CommandText = String.Format("{0}  WHERE  {1}", SelectString, pFilterString);
+                cmd.CommandText = $"{SelectString}  WHERE  {pFilterString}";
             }
             else
             {
-                cmd.CommandText = String.Format("{0} {1}", SelectString, pFilterString);
+                cmd.CommandText = $"{SelectString} {pFilterString}";
             }
         }
     }
