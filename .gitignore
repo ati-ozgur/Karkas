@@ -151,6 +151,6 @@ $RECYCLE.BIN/
 .DS_Store
 
 temp
-Karkas.Core/nugetSpecs/**/lib/*
-Karkas.Core/nugetSpecs/*.nupkg
+/**/nugetSpecs/**/lib/*
+/**/nugetSpecs/*.nupkg
 Examples/Karkas.SqlServerExample/packages/NUnit.Runners.2.6.2/*

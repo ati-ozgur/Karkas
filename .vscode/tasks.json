@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "Karkas.Core.sln"
+                "Karkas.sln"
             ],
             "problemMatcher": "$msCompile"
         }

@@ -3,7 +3,7 @@
     {
       "src": [
         {
-          "src": "../Karkas.Core",
+          "src": "../Karkas.Data",
           "files": [
             "**/*.csproj"
           ]

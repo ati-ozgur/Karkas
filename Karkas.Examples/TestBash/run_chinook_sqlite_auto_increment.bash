@@ -14,8 +14,8 @@ dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- -
 cd Karkas.Examples/GeneratedProjects/ChinookSqliteAutoIncrement
 dotnet new console
 dotnet add package Microsoft.Data.Sqlite
-dotnet add reference "../../../Karkas.Core/Karkas.DataUtil/Karkas.DataUtil.csproj"
-dotnet add reference "../../../Karkas.Core/Karkas.Data.Sqlite/Karkas.Data.Sqlite.csproj"
+dotnet add reference "../../../Karkas.Data/Karkas.Data/Karkas.Data.csproj"
+dotnet add reference "../../../Karkas.Data/Karkas.Data.Sqlite/Karkas.Data.Sqlite.csproj"
 cp ../../TestCSharp/ProgramChinookAutoIncrement.cs Program.cs
 cp ../../TestCSharp/GlobalUsings.cs GlobalUsings.cs
 cp --recursive ../../TestCSharp/Helpers/ .

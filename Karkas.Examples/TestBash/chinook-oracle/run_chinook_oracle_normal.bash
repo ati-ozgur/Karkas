@@ -54,8 +54,8 @@ dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- -
 cd Karkas.Examples/GeneratedProjects/ChinookOracleNormal
 dotnet new console
 dotnet add package Oracle.ManagedDataAccess.Core
-dotnet add reference "../../../Karkas.Core/Karkas.DataUtil/Karkas.DataUtil.csproj"
-dotnet add reference "../../../Karkas.Core/Karkas.Data.Oracle/Karkas.Data.Oracle.csproj"
+dotnet add reference "../../../Karkas.Data/Karkas.Data/Karkas.Data.csproj"
+dotnet add reference "../../../Karkas.Data/Karkas.Data.Oracle/Karkas.Data.Oracle.csproj"
 
 
 cp ../../TestCSharp/ProgramChinookNormal.cs Program.cs
