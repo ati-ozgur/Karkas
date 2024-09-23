@@ -10,6 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+using Karkas.Data.Base;
+
 namespace Karkas.Data.Sqlite
 {
     public class AdoTemplateSqlite : BaseAdoTemplate<ParameterBuilderSqlite>

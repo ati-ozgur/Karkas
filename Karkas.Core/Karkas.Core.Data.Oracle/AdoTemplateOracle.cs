@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 using System.Data.Common;
 using System.Data;
 
+
+using Karkas.Data;
+using Karkas.Data.Base;
+
+
 namespace Karkas.Data.Oracle
 {
     public class AdoTemplateOracle : BaseAdoTemplate<ParameterBuilderOracle>
