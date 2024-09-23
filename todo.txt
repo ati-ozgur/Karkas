@@ -77,7 +77,7 @@ github secrets and other should be looked.
 PackageId and version how to automate??
 
   <PropertyGroup>
-    <PackageId>Karkas.Core.DataUtil.2024.09.22</PackageId>
+    <PackageId>Karkas.DataUtil.2024.09.22</PackageId>
     <Version>2024.09.22</Version>
     <Authors>Atilla Özgür</Authors>
     <Company>Karkas</Company>
@@ -132,7 +132,7 @@ https://mermaid-js.github.io/mermaid/
 https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/nullable-warnings
 
 
-2. Karkas.Core.Data vs Karkas.Core.DataUtil ???
+2. Karkas.Data vs Karkas.DataUtil ???
 Should I fix the namespace?
 
 

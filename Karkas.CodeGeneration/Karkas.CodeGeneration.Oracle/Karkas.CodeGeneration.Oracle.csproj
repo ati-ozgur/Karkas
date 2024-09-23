@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Karkas.Core\Karkas.Core.DataUtil\Karkas.Core.DataUtil.csproj" />
+    <ProjectReference Include="..\..\Karkas.Data\Karkas.Data\Karkas.Data.csproj" />
     <ProjectReference Include="..\Karkas.CodeGeneration.Helpers\Karkas.CodeGeneration.Helpers.csproj" />
   </ItemGroup>
 

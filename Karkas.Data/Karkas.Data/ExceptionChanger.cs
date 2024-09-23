@@ -66,7 +66,7 @@ namespace Karkas.Data
                     exceptionToThrow = new DatabaseConnectionException(String.Format("Cannot connect to database. Please verify connection string correctness and server is working. Connection String = {0}, Error Message = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message));
                     break;
             }
-            new LoggingInfo().LogInfo(Type.GetType("Karkas.Core.DataUtil.ExceptionChanger"), ex, pMesaj);
+            new LoggingInfo().LogInfo(Type.GetType("Karkas.DataUtil.ExceptionChanger"), ex, pMesaj);
             throw exceptionToThrow;
         }
 

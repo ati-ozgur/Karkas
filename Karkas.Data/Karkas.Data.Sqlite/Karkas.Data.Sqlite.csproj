@@ -13,7 +13,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\Karkas.Core.DataUtil\Karkas.Core.DataUtil.csproj" />
+    <ProjectReference Include="..\Karkas.Data\Karkas.Data.csproj" />
   </ItemGroup>
 
 </Project>

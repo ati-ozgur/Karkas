@@ -15,10 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Karkas.Core\Karkas.Core.Data.Oracle\Karkas.Core.Data.Oracle.csproj" />
-    <ProjectReference Include="..\..\Karkas.Core\Karkas.Core.Data.Sqlite\Karkas.Core.Data.Sqlite.csproj" />
-    <ProjectReference Include="..\..\Karkas.Core\Karkas.Core.Data.SqlServer\Karkas.Core.Data.SqlServer.csproj" />
-    <ProjectReference Include="..\..\Karkas.Core\Karkas.Core.DataUtil\Karkas.Core.DataUtil.csproj" />
+    <ProjectReference Include="..\..\Karkas.Data\Karkas.Data.Oracle\Karkas.Data.Oracle.csproj" />
+    <ProjectReference Include="..\..\Karkas.Data\Karkas.Data.Sqlite\Karkas.Data.Sqlite.csproj" />
+    <ProjectReference Include="..\..\Karkas.Data\Karkas.Data.SqlServer\Karkas.Data.SqlServer.csproj" />
+    <ProjectReference Include="..\..\Karkas.Data\Karkas.Data\Karkas.Data.csproj" />
     <ProjectReference Include="..\Karkas.CodeGeneration.Helpers\Karkas.CodeGeneration.Helpers.csproj" />
     <ProjectReference Include="..\Karkas.CodeGeneration.Oracle\Karkas.CodeGeneration.Oracle.csproj" />
     <ProjectReference Include="..\Karkas.CodeGeneration.Sqlite\Karkas.CodeGeneration.Sqlite.csproj" />

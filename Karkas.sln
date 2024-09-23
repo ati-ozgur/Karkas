@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32002.185
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.Core.DataUtil", "Karkas.Core\Karkas.Core.DataUtil\Karkas.Core.DataUtil.csproj", "{70BE1E58-2D5E-4A47-AF62-30E90E5C978A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.Data", "Karkas.Data\Karkas.Data\Karkas.Data.csproj", "{70BE1E58-2D5E-4A47-AF62-30E90E5C978A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.CodeGeneration.Helpers", "Karkas.CodeGeneration\Karkas.CodeGeneration.Helpers\Karkas.CodeGeneration.Helpers.csproj", "{650C3586-09DA-4E21-AD89-35A601C169CC}"
 EndProject
@@ -13,15 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.CodeGeneration.Sqlit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.CodeGeneration.SqlServer", "Karkas.CodeGeneration\Karkas.CodeGeneration.SqlServer\Karkas.CodeGeneration.SqlServer.csproj", "{F09A75E4-240F-4A17-961B-D6A4F3207989}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.Core.Data.SqlServer", "Karkas.Core\Karkas.Core.Data.SqlServer\Karkas.Core.Data.SqlServer.csproj", "{CA0B5150-0823-4069-940F-2FFD922AFCC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.Data.SqlServer", "Karkas.Data\Karkas.Data.SqlServer\Karkas.Data.SqlServer.csproj", "{CA0B5150-0823-4069-940F-2FFD922AFCC1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeGeneration", "CodeGeneration", "{08303D61-1889-4CDE-AFBE-3C647476EF95}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{17DC9C2A-7DBA-4318-896E-5968F01F918F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.Core.Data.Oracle", "Karkas.Core\Karkas.Core.Data.Oracle\Karkas.Core.Data.Oracle.csproj", "{010F43FF-0D74-4921-B932-A9C238F40298}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.Data.Oracle", "Karkas.Data\Karkas.Data.Oracle\Karkas.Data.Oracle.csproj", "{010F43FF-0D74-4921-B932-A9C238F40298}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.Core.Data.Sqlite", "Karkas.Core\Karkas.Core.Data.Sqlite\Karkas.Core.Data.Sqlite.csproj", "{F6BAC9F3-614D-489E-ABE1-EFC13E46C18E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.Data.Sqlite", "Karkas.Data\Karkas.Data.Sqlite\Karkas.Data.Sqlite.csproj", "{F6BAC9F3-614D-489E-ABE1-EFC13E46C18E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.CodeGeneration.ConsoleApp", "Karkas.CodeGeneration\Karkas.CodeGeneration.ConsoleApp\Karkas.CodeGeneration.ConsoleApp.csproj", "{5BF0804E-9341-4AF7-B09C-0C9DFAA2CA97}"
 EndProject
