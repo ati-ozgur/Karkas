@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.Data.SqlServer", "Ka
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeGeneration", "CodeGeneration", "{08303D61-1889-4CDE-AFBE-3C647476EF95}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{17DC9C2A-7DBA-4318-896E-5968F01F918F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{17DC9C2A-7DBA-4318-896E-5968F01F918F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karkas.Data.Oracle", "Karkas.Data\Karkas.Data.Oracle\Karkas.Data.Oracle.csproj", "{010F43FF-0D74-4921-B932-A9C238F40298}"
 EndProject
