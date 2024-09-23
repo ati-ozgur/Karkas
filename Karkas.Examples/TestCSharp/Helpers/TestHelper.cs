@@ -322,6 +322,15 @@ public class TestHelper
         }
 
     }
+    public static void TestQueryByColumnNameWhereOperators()
+    {
+        CustomerBs customerBs = new CustomerBs();
+
+        var cList1 = customerBs.QueryUsingColumnName(Customer.ColumnNames.CustomerId
+                ,10,WhereOperatorEnum.LesserAndEquals );
+        Console.WriteLine("WhereOperatorEnum.LesserAndEquals  works");
+
+    }    
 
 
 }

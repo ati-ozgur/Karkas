@@ -24,3 +24,5 @@ TestHelper.TestTransactionRollback();
 
 TestHelper.TestTemplateTopRows();
 TestHelper.TestTemplateOneRow();
+
+TestHelper.TestQueryByColumnNameWhereOperators();

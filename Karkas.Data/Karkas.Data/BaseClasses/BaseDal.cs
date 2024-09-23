@@ -5,9 +5,8 @@ using System.Data;
 using Karkas.Data.Exceptions;
 using System.Reflection;
 using System.Runtime.Remoting;
-using System.Web;
 using System.Data.Common;
-using Karkas.Data.QueryHelperClasses;
+using Karkas.Data;
 
 namespace Karkas.Data.Base;
 

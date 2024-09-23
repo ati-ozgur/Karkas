@@ -103,6 +103,10 @@ public abstract class BaseBs<TYPE_LIBRARY_TYPE, DAL_TYPE, ADOTEMPLATE_DB_TYPE, P
     {
         return dal.QueryUsingColumnName(filter, value);
     }
+    public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string filter, object value, WhereOperatorEnum whereOperator)
+    {
+        return dal.QueryUsingColumnName(filter, value,whereOperator);
+    }
 
     public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(List<string> filterList, List<object> valueList)
     {

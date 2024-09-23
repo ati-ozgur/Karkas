@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Karkas.Data.QueryHelperClasses
+namespace Karkas.Data
 {
     public enum LikePlacementEnum
     {
