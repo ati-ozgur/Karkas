@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
-using Karkas.Core.DataUtil;
+using Karkas.Data;
 using Karkas.CodeGeneration.SqlServer;
 using System.Reflection;
 using System.Data.Common;

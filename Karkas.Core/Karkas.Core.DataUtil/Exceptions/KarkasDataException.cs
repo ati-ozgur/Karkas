@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace Karkas.Core.DataUtil.Exceptions
+namespace Karkas.Data.Exceptions
 {
     [Serializable]
     public class KarkasDataException : Exception

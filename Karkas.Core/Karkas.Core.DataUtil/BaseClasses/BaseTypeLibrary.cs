@@ -4,7 +4,7 @@ using System.Text;
 using System.Data;
 using System.Xml.Serialization;
 
-namespace Karkas.Core.DataUtil.BaseClasses
+namespace Karkas.Data.BaseClasses
 {
     [Serializable]
     public abstract class BaseTypeLibrary

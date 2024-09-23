@@ -14,7 +14,7 @@ using Karkas.CodeGeneration.SqlServer.Implementations;
 using Karkas.CodeGeneration.Oracle.Implementations;
 
 
-using Karkas.Core.DataUtil;
+using Karkas.Data;
 
 
 using CommandLine;

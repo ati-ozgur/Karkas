@@ -1,4 +1,4 @@
-﻿using Karkas.Core.DataUtil.BaseClasses;
+﻿using Karkas.Data.BaseClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;

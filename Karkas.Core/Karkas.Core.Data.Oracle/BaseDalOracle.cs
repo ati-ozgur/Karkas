@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.Core.DataUtil;
-using Karkas.Core.DataUtil.BaseClasses;
+using Karkas.Data;
+using Karkas.Data.BaseClasses;
 
 namespace Karkas.Core.Data.Oracle
 {

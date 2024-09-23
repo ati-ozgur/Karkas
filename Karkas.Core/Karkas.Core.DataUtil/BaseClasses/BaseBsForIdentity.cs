@@ -1,6 +1,6 @@
 using System;
 
-namespace Karkas.Core.DataUtil.BaseClasses;
+namespace Karkas.Data.BaseClasses;
 
 public abstract class BaseBsForIdentity<TYPE_LIBRARY_TYPE, DAL_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER,PRIMARY_KEY> : BaseBs<TYPE_LIBRARY_TYPE,DAL_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>
     where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()

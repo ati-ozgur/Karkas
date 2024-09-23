@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Karkas.CodeGeneration.Helpers.Interfaces;
 using System.Data;
-using Karkas.Core.DataUtil;
+using Karkas.Data;
 
 namespace Karkas.CodeGeneration.SqlServer.Implementations
 {

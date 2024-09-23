@@ -5,7 +5,7 @@ global using System.Configuration;
 global using System.Diagnostics;
 global using System.Xml.Serialization;
 global using System.Collections.Generic;
-global using Karkas.Core.DataUtil.BaseClasses;
+global using Karkas.Data.BaseClasses;
 global using System.ComponentModel.DataAnnotations;
 
 global using Karkas.Examples;

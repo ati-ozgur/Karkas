@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Data.Common;
 
-namespace Karkas.Core.DataUtil
+namespace Karkas.Data
 {
     public interface IParameterBuilder
     {

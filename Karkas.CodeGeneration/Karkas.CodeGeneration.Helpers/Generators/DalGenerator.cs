@@ -324,8 +324,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.AutoTabLine("using System.Data.Common;");
                 Write_UsingDatabaseClient();
                 output.AutoTabLine("using System.Text;");
-                output.AutoTabLine("using Karkas.Core.DataUtil;");
-                output.AutoTabLine("using Karkas.Core.DataUtil.BaseClasses;");
+                output.AutoTabLine("using Karkas.Data;");
+                output.AutoTabLine("using Karkas.Data.BaseClasses;");
                 Write_UsingsAdditional();
                 output.AutoTabLine("");
                 output.AutoTabLine("");

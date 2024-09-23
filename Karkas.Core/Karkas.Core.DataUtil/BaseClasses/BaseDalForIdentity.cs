@@ -4,7 +4,7 @@ using System.Text;
 using System.Data;
 using System.Data.Common;
 
-namespace Karkas.Core.DataUtil.BaseClasses
+namespace Karkas.Data.BaseClasses
 {
 
 

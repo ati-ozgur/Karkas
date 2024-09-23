@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.Common;
 
-namespace Karkas.Core.DataUtil
+namespace Karkas.Data
 {
     public class DbProviderFactoryHelper
     {

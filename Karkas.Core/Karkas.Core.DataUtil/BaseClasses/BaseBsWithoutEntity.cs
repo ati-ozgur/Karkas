@@ -5,7 +5,7 @@ using System.Text;
 using System.Data;
 using System.Data.Common;
 
-namespace Karkas.Core.DataUtil.BaseClasses
+namespace Karkas.Data.BaseClasses
 {
     public abstract class BaseBsWithoutEntity<ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>
             where ADOTEMPLATE_DB_TYPE : IAdoTemplate<IParameterBuilder>, new()

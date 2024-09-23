@@ -3,7 +3,7 @@ global using System;
 global using System.Data.Common;
 global using Microsoft.Data.Sqlite;
 
-global using Karkas.Core.DataUtil;
+global using Karkas.Data;
 global using Karkas.Core.Data.Sqlite;
 
 using Karkas.Core.Data.Sqlite;

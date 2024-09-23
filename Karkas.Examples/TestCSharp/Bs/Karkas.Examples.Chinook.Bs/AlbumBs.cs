@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
-using Karkas.Core.DataUtil;
-using Karkas.Core.DataUtil.BaseClasses;
+using Karkas.Data;
+using Karkas.Data.BaseClasses;
 using Karkas.Examples.Chinook.TypeLibrary;
 using Karkas.Examples.Chinook.Dal;
 

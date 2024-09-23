@@ -4,7 +4,7 @@ using System.Text;
 using System.Data.Common;
 using Microsoft.Extensions.Logging;
 
-namespace Karkas.Core.DataUtil
+namespace Karkas.Data
 {
     [Serializable]
     public class LoggingInfo

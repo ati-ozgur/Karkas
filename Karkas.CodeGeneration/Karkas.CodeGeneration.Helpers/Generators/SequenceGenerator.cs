@@ -106,7 +106,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.AutoTabLine("using System.Data.Common;");
             output.AutoTabLine("using System.Data.SqlClient;");
             output.AutoTabLine("using System.Text;");
-            output.AutoTabLine("using Karkas.Core.DataUtil;");
+            output.AutoTabLine("using Karkas.Data;");
             output.AutoTabLine("using Karkas.Core.Data.Oracle;");
             output.AutoTabLine("");
             output.AutoTab("namespace ");

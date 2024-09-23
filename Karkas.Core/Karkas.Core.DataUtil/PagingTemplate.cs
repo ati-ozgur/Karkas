@@ -5,7 +5,7 @@ using System.Data;
 using System.Text.RegularExpressions;
 using System.Data.Common;
 
-namespace Karkas.Core.DataUtil
+namespace Karkas.Data
 {
     public class PagingTemplate
     {

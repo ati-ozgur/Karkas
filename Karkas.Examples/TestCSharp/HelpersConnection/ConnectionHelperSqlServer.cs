@@ -2,7 +2,7 @@ global using System;
 global using System.Data.Common;
 global using System.Data.SqlClient;
 
-global using Karkas.Core.DataUtil;
+global using Karkas.Data;
 global using Karkas.Core.Data.SqlServer;
 
 using Karkas.Core.Data.SqlServer;

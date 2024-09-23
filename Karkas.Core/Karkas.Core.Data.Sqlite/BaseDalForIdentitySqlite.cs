@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-using Karkas.Core.DataUtil;
-using Karkas.Core.DataUtil.BaseClasses;
+using Karkas.Data;
+using Karkas.Data.BaseClasses;
 using System.Data;
 using System.Data.Common;
 

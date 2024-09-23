@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.Core.DataUtil;
+using Karkas.Data;
 using System.Data;
 using Karkas.CodeGeneration.Helpers;
 

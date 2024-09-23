@@ -4,7 +4,7 @@ using System.Text;
 using System.Data.Common;
 using System.Data.SqlClient;
 
-namespace Karkas.Core.DataUtil
+namespace Karkas.Data
 {
         public class CommandFactory
         {

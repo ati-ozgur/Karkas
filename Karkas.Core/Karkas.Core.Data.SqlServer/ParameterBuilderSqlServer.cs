@@ -1,4 +1,4 @@
-﻿using Karkas.Core.DataUtil;
+﻿using Karkas.Data;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;

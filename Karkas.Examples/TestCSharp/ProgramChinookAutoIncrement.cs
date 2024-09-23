@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data.Common;
-using Karkas.Core.DataUtil;
+using Karkas.Data;
 
 using Karkas.Examples;
 using Karkas.Examples.Chinook.Bs;

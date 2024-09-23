@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Data;
 
 
-namespace Karkas.Core.DataUtil
+namespace Karkas.Data
 {
 }
 

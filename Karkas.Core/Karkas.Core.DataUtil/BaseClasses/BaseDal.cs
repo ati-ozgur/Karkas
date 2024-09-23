@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
-using Karkas.Core.DataUtil.Exceptions;
+using Karkas.Data.Exceptions;
 using System.Reflection;
 using System.Runtime.Remoting;
 using System.Web;
 using System.Data.Common;
 
-namespace Karkas.Core.DataUtil.BaseClasses
+namespace Karkas.Data.BaseClasses
 {
     /// <summary>
     /// TYPE_LIBRARY_TYPE TypeLibrary Class

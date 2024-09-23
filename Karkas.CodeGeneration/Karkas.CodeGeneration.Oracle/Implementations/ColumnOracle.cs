@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.CodeGeneration.Helpers.BaseClasses;
-using Karkas.Core.DataUtil;
+using Karkas.Data;
 using System.Data;
 using Karkas.CodeGeneration.Helpers;
 

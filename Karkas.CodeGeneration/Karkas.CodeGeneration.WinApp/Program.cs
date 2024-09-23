@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using System.Data.Common;
 
 using Microsoft.Data.Sqlite;
-using Karkas.Core.DataUtil;
+using Karkas.Data;
 
 namespace Karkas.CodeGeneration.WinApp
 {

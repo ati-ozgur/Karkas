@@ -5,7 +5,7 @@ using System.Data;
 using System.Globalization;
 using System.Data.Common;
 
-namespace Karkas.Core.DataUtil
+namespace Karkas.Data
 {
     public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParameterBuilder>
         where PARAMETER_BUILDER : IParameterBuilder, new()

@@ -1,4 +1,4 @@
-﻿using Karkas.Core.DataUtil;
+﻿using Karkas.Data;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;

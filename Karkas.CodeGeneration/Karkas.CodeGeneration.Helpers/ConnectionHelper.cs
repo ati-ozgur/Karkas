@@ -8,7 +8,7 @@ using System.Data.Common;
 
 using Microsoft.Data.Sqlite;
 using Microsoft.Data.SqlClient;
-using Karkas.Core.DataUtil;
+using Karkas.Data;
 using Karkas.Core.Data.Sqlite;
 using Karkas.Core.Data.SqlServer;
 using Karkas.Core.Data.Oracle;

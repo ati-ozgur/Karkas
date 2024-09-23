@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Karkas.Core.DataUtil.QueryHelperClasses;
+using Karkas.Data.QueryHelperClasses;
 
-namespace Karkas.Core.DataUtil
+namespace Karkas.Data
 {
     public class QueryHelper
     {

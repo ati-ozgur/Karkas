@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Data.Common;
 using Karkas.Extensions;
 
-namespace Karkas.Core.DataUtil
+namespace Karkas.Data
 {
     internal class PagingHelper
     {
