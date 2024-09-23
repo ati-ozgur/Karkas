@@ -348,7 +348,8 @@ public class TestHelper
             Console.WriteLine("WhereOperatorEnum.Like DOES NOT works");
 
         }
-   
+    }
+
 
 
 }
