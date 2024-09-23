@@ -4,7 +4,7 @@ using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Data.Common;
 
-namespace Karkas.Core.Data.SqlServer
+namespace Karkas.Data.SqlServer
 {
     public abstract class BaseDalSqlServer<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> : 
         BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>

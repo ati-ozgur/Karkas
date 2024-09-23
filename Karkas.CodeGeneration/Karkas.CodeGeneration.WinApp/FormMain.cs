@@ -19,9 +19,9 @@ using Karkas.CodeGeneration.WinApp.PersistenceService;
 using Karkas.CodeGeneration.Oracle.Implementations;
 using Karkas.CodeGeneration.Sqlite.Implementations;
 using Karkas.CodeGeneration.SqlServer.Implementations;
-using Karkas.Core.Data.Oracle;
-using Karkas.Core.Data.SqlServer;
-using Karkas.Core.Data.Sqlite;
+using Karkas.Data.Oracle;
+using Karkas.Data.SqlServer;
+using Karkas.Data.Sqlite;
 
 namespace Karkas.CodeGeneration.WinApp
 {

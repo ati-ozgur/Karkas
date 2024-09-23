@@ -4,7 +4,7 @@ using Karkas.Data.BaseClasses;
 
 
 
-namespace Karkas.Core.Data.Oracle
+namespace Karkas.Data.Oracle
 {
 
     public class BaseBsOracleForIdentity<TYPE_LIBRARY_TYPE, DAL_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER, PRIMARY_KEY>         

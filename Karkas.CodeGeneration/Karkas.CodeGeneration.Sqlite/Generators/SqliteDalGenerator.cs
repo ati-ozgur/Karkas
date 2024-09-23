@@ -78,7 +78,7 @@ namespace Karkas.CodeGeneration.Sqlite.Generators
         protected override void Write_UsingDatabaseClient()
         {
             output.AutoTabLine("using Microsoft.Data.Sqlite;");
-            output.AutoTabLine("using Karkas.Core.Data.Sqlite;");
+            output.AutoTabLine("using Karkas.Data.Sqlite;");
 
         }
 

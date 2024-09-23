@@ -5,7 +5,7 @@ using Karkas.Data.BaseClasses;
 
 
 
-namespace Karkas.Core.Data.Oracle
+namespace Karkas.Data.Oracle
 {
 
     public class BaseBsOracle<TYPE_LIBRARY_TYPE,DAL_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> : BaseBs<TYPE_LIBRARY_TYPE, DAL_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> 

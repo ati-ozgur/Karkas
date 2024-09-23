@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Karkas.Core.Data.Oracle
+namespace Karkas.Data.Oracle
 {
 
     public abstract class BaseDalForIdentityOracle<TYPE_LIBRARY_TYPE,PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> :

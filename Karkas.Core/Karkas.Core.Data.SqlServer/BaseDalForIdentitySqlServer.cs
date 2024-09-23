@@ -14,7 +14,7 @@ using System.Data.Common;
 using Microsoft.Data.SqlClient;
 
 
-namespace Karkas.Core.Data.SqlServer
+namespace Karkas.Data.SqlServer
 {
         public abstract class BaseDalForIdentitySqlServer<TYPE_LIBRARY_TYPE,PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> :
         BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>

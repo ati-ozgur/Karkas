@@ -8,7 +8,7 @@ using System.Data.Common;
 using System.Data;
 
 
-namespace Karkas.Core.Data.SqlServer
+namespace Karkas.Data.SqlServer
 {
     public class AdoTemplateSqlServer : BaseAdoTemplate<ParameterBuilderSqlServer>
     {

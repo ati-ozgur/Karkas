@@ -5,7 +5,7 @@ using System.Text;
 using Karkas.Data;
 using Karkas.Data.BaseClasses;
 
-namespace Karkas.Core.Data.Oracle
+namespace Karkas.Data.Oracle
 {
 
     public abstract class BaseDalOracle<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> :

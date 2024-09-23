@@ -5,7 +5,7 @@ using Karkas.Data.BaseClasses;
 using Microsoft.Data.Sqlite;
 
 
-namespace Karkas.Core.Data.Sqlite
+namespace Karkas.Data.Sqlite
 {
 
     public class BaseBsSqlite<TYPE_LIBRARY_TYPE,DAL_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> : BaseBs<TYPE_LIBRARY_TYPE, DAL_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Karkas.Core.Data.Oracle
+namespace Karkas.Data.Oracle
 {
     public abstract class BaseDalWithoutEntityOracle : BaseDalWithoutEntity<AdoTemplateOracle, ParameterBuilderOracle>
     {

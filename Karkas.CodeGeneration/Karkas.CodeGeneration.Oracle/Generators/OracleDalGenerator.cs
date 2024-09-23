@@ -45,7 +45,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
         protected override void Write_UsingsAdditional()
         {
-            output.Write("using Karkas.Core.Data.Oracle;");
+            output.Write("using Karkas.Data.Oracle;");
         }
 
         protected override void Write_ClassGenerated()

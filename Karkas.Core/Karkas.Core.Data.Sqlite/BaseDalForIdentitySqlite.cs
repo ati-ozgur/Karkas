@@ -14,7 +14,7 @@ using System.Data.Common;
 using Microsoft.Data.Sqlite;
 
 
-namespace Karkas.Core.Data.Sqlite
+namespace Karkas.Data.Sqlite
 {
         public abstract class BaseDalForIdentitySqlite<TYPE_LIBRARY_TYPE,PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> :
         BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>

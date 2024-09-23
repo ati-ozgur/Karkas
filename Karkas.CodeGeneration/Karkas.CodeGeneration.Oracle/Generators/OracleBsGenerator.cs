@@ -44,7 +44,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 
         protected override void Write_UsingsDatabaseSpecific()
         {
-            output.AutoTabLine("using Karkas.Core.Data.Oracle;");
+            output.AutoTabLine("using Karkas.Data.Oracle;");
             output.AutoTabLine("using Oracle.ManagedDataAccess.Client;");
         }
     }

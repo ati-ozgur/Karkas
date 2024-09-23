@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Karkas.Core.Data.Oracle
+namespace Karkas.Data.Oracle
 {
     public class ParameterBuilderOracle : ParameterBuilder
     {

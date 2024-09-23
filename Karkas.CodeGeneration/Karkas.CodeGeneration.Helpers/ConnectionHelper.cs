@@ -9,9 +9,9 @@ using System.Data.Common;
 using Microsoft.Data.Sqlite;
 using Microsoft.Data.SqlClient;
 using Karkas.Data;
-using Karkas.Core.Data.Sqlite;
-using Karkas.Core.Data.SqlServer;
-using Karkas.Core.Data.Oracle;
+using Karkas.Data.Sqlite;
+using Karkas.Data.SqlServer;
+using Karkas.Data.Oracle;
 
 using Oracle.ManagedDataAccess.Client;
 

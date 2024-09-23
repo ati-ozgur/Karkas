@@ -14,7 +14,7 @@ using System.Data.Common;
 using Microsoft.Data.Sqlite;
 
 
-namespace Karkas.Core.Data.Sqlite
+namespace Karkas.Data.Sqlite
 {
     public abstract class BaseDalSqlite<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> :
         BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>

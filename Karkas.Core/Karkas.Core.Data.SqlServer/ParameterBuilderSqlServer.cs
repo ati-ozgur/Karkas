@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Karkas.Core.Data.SqlServer
+namespace Karkas.Data.SqlServer
 {
     public class ParameterBuilderSqlServer : ParameterBuilder
     {
