@@ -326,11 +326,29 @@ public class TestHelper
     {
         CustomerBs customerBs = new CustomerBs();
 
-        var cList1 = customerBs.QueryUsingColumnName(Customer.ColumnNames.CustomerId
+        var customers1 = customerBs.QueryUsingColumnName(Customer.ColumnNames.CustomerId
                 ,10,WhereOperatorEnum.LesserAndEquals );
-        Console.WriteLine("WhereOperatorEnum.LesserAndEquals  works");
+        if(customers1.Count == 10)
+        {
+            Console.WriteLine("WhereOperatorEnum.LesserAndEquals works");
+        }
+        else
+        {
+            throw new Exception("WhereOperatorEnum.LesserAndEquals DOES NOT works");
+        }
 
-    }    
+        var customers2 = customerBs.QueryUsingColumnName(Customer.ColumnNames.FirstName
+                , "A%", WhereOperatorEnum.Like);
+        if (customers2.Count == 3)
+        {
+            Console.WriteLine("WhereOperatorEnum.Like works");
+        }
+        else
+        {
+            Console.WriteLine("WhereOperatorEnum.Like DOES NOT works");
+
+        }
+   
 
 
 }
