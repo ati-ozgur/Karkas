@@ -5,89 +5,89 @@ using System.Text;
 using System.Data;
 using System.Data.Common;
 
-namespace Karkas.Data.Base
+namespace Karkas.Data.Base;
+
+public abstract class BaseBsWithoutEntity<ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>
+        where ADOTEMPLATE_DB_TYPE : IAdoTemplate<IParameterBuilder>, new()
+        where PARAMETER_BUILDER : IParameterBuilder, new()
+
 {
-    public abstract class BaseBsWithoutEntity<ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>
-            where ADOTEMPLATE_DB_TYPE : IAdoTemplate<IParameterBuilder>, new()
-            where PARAMETER_BUILDER : IParameterBuilder, new()
 
+    private bool isInTransaction = false;
+    public bool IsInTransaction
     {
-
-        private bool isInTransaction = false;
-        public bool IsInTransaction
+        get
         {
-            get
-            {
-                return isInTransaction;
-            }
-            set
-            {
-                isInTransaction = value;
-                if (value)
-                {
-                    this.Dal.AutomaticConnectionManagement = false;
-                    Dal.CurrentTransaction = transaction;
-
-                }
-            }
+            return isInTransaction;
         }
-
-        protected abstract BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE,PARAMETER_BUILDER> Dal
+        set
         {
-            get;
-        }
-
-
-        protected DbTransaction transaction;
-        public void BeginTransaction()
-        {
-            if (connection.State != ConnectionState.Open)
+            isInTransaction = value;
+            if (value)
             {
-                connection.Open();
-                transaction = connection.BeginTransaction();
-            }
-            IsInTransaction = true;
-            this.Dal.IsInTransaction = true;
-        }
-        public void CommitTransaction()
-        {
-            transaction.Commit();
-            ClearTransactionInformation();
-        }
-        public void ClearTransactionInformation()
-        {
-            if (connection.State == ConnectionState.Open)
-            {
-                connection.Close();
-            }
-            IsInTransaction = false;
-            this.Dal.AutomaticConnectionManagement = true;
-            this.Dal.CurrentTransaction = null;
-            transaction = null;
-        }
+                this.Dal.AutomaticConnectionManagement = false;
+                Dal.CurrentTransaction = transaction;
 
-        public virtual string DatabaseName
-        {
-            get
-            {
-                return "";
             }
-        }
-
-
-        private DbConnection connection;
-        public DbConnection Connection
-        {
-            get
-            {
-                if (connection == null)
-                {
-
-                    connection = ConnectionSingleton.Instance.getConnection(DatabaseName);
-                }
-                return connection;
-            }
-            set { connection = value; }
         }
     }
+
+    protected abstract BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE,PARAMETER_BUILDER> Dal
+    {
+        get;
+    }
+
+
+    protected DbTransaction transaction;
+    public void BeginTransaction()
+    {
+        if (connection.State != ConnectionState.Open)
+        {
+            connection.Open();
+            transaction = connection.BeginTransaction();
+        }
+        IsInTransaction = true;
+        this.Dal.IsInTransaction = true;
+    }
+    public void CommitTransaction()
+    {
+        transaction.Commit();
+        ClearTransactionInformation();
+    }
+    public void ClearTransactionInformation()
+    {
+        if (connection.State == ConnectionState.Open)
+        {
+            connection.Close();
+        }
+        IsInTransaction = false;
+        this.Dal.AutomaticConnectionManagement = true;
+        this.Dal.CurrentTransaction = null;
+        transaction = null;
+    }
+
+    public virtual string DatabaseName
+    {
+        get
+        {
+            return "";
+        }
+    }
+
+
+    private DbConnection connection;
+    public DbConnection Connection
+    {
+        get
+        {
+            if (connection == null)
+            {
+
+                connection = ConnectionSingleton.Instance.getConnection(DatabaseName);
+            }
+            return connection;
+        }
+        set { connection = value; }
+    }
 }
+
