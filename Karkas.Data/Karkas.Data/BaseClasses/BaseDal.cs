@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Runtime.Remoting;
 using System.Web;
 using System.Data.Common;
+using Karkas.Data.QueryHelperClasses;
 
 namespace Karkas.Data.Base;
 
@@ -130,13 +131,29 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
     /// <returns></returns>
     public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string pFilter, object pValue)
     {
-        return QueryUsingColumnName(new String[] { pFilter }, new Object[] { pValue });
+        return QueryUsingColumnName(new String[] { pFilter }
+                , new Object[] { pValue }
+                , new WhereOperatorEnum[] { WhereOperatorEnum.Equals}
+                );
     }
+
+    public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string pFilter, object pValue, WhereOperatorEnum pWhereOperator)
+    {
+        return QueryUsingColumnName(new String[] { pFilter }
+            , new Object[] { pValue }
+            , new WhereOperatorEnum[] {pWhereOperator}
+            );
+    }
+
     public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(List<string> pFilterList, List<object> degerListesi)
     {
-        return QueryUsingColumnName(pFilterList.ToArray(), degerListesi.ToArray());
+        return QueryUsingColumnName(pFilterList.ToArray(), degerListesi.ToArray(), null);
     }
     public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string[] pListFilterColumnNames, object[] pListValues)
+    {
+        return QueryUsingColumnName(pListFilterColumnNames, pListValues);
+    }
+    public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string[] pListFilterColumnNames, object[] pListValues, WhereOperatorEnum[] pWhereOperators)
     {
         List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
         QueryHelper sy = QueryHelper;
@@ -144,9 +161,15 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         for (int i = 0; i < pListFilterColumnNames.Length; i++)
         {
 
-            string filtre = pListFilterColumnNames[i];
-            sy.AddWhereCriteria(filtre);
-            builder.AddParameter(ParameterCharacter + filtre, pListValues[i]);
+            string filtreColumnName = pListFilterColumnNames[i];
+            WhereOperatorEnum wOp = WhereOperatorEnum.Equals;
+            if(pWhereOperators != null)
+            {
+                wOp = pWhereOperators[i];
+            }
+            string pParameterName = ParameterCharacter + filtreColumnName;
+            sy.AddWhereCriteria(filtreColumnName,wOp,pParameterName);
+            builder.AddParameter(pParameterName, pListValues[i]);
         }
         ExecuteQuery(liste, sy.GetCriteriaResultsWithoutWhere(), builder.GetParameterArray());
         return liste;
