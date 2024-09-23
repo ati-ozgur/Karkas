@@ -23,7 +23,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         protected Utils utils;
 
 
-        protected string classNameTypeLibrary = "";
         protected string baseNameSpaceTypeLibrary = "";
         protected string pkName = "";
         protected string pkNamePascalCase = "";

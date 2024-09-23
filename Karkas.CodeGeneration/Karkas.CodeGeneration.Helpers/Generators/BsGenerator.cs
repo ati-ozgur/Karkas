@@ -16,7 +16,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators;
 
 public abstract class BsGenerator : BaseGenerator
 {
-    protected string classNameTypeLibrary = "";
     protected string classNameDal = "";
     protected string classNameBs = "";
     protected string pkName = "";
