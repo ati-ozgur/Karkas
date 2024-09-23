@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Karkas.Data.QueryHelperClasses
 {
-    internal class OrderBy
+    public class OrderBy
     {
 
         public OrderBy(string pColumnName) : this(pColumnName,"")

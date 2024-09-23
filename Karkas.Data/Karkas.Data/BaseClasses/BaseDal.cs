@@ -408,11 +408,7 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
     protected abstract void DeleteCommandParametersAdd(DbCommand Cmd, TYPE_LIBRARY_TYPE row);
 
 
-    public class OrderBy
-    {
-        public const string Ascending = "ASC";
-        public const string Descending = "DESC";
-    }
+
 
 
 
