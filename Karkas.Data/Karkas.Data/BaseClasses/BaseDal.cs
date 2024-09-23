@@ -217,7 +217,7 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
 
         if (updateResultuBasarisiz)
         {
-            throw new UniqueKeyConstraintException("Guncellemeye calıstıgınız kayıt daha önce başkası tarafından güncellenmiştir");
+            throw new UniqueKeyConstraintException("The row is updated by another user");
         }
     }
 
