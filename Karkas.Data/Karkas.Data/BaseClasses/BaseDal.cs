@@ -208,9 +208,9 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
     {
         DbCommand cmd = Template.getDatabaseCommand(cmdText, Connection);
         UpdateCommandParametersAdd(cmd, row);
-        int kayitSayisi = ExecuteNonQueryCommandInternal(cmd);
+        int rowCount = ExecuteNonQueryCommandInternal(cmd);
 
-        bool updateResultuBasarisiz = (kayitSayisi == 0);
+        bool updateResultuBasarisiz = (rowCount == 0);
 
         // This code will blow in BatchInsertUpdateDelete
         // Developers should write their own custom logic for this purpose
