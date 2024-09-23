@@ -4,12 +4,26 @@
 
 ## First to look
 
-1. to dict, from dict
+1. For oracle, force decimal to int,long
+oracle code generation number to long
+10,0
+38,0
+
+2. dal.QueryUsingColumnName(Album.ColumnNames.AlbumId,)
+
+Here, it should other where operators.
+
+
+2. CLOB,BLOB does not work
+
+3. 
+
+4. to dict, from dict
 - Nullable DONE
 - Put to config? think about it
 
-2. For oracle, force decimal to int,long
-oracle code generation number to long
+
+
 
 
 3. Refactoring methods to English Only Names
