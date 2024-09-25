@@ -70,7 +70,7 @@
     "UseQuotesInQueries": true,    
     "UseGlobalUsings": true,
     "GenerateForeignKeyQueries": true,
-    "OracleChangedNumericToIntOrLong": true,
+    "OracleChangeNumericToLong": true,
     "TableCodeGenerate": true,
     "ViewCodeGenerate": false,
     "StoredProcedureCodeGenerate": false,
@@ -109,6 +109,34 @@
     "LastAccessTime": "2022-03-25 18:43:05",
     "LastWriteTime": "2022-03-25 18:43:05",
     "RowState": 4
-  }
+  },
+  {
+    "GenerateNormalClassValidationExamples": false,
+    "GenerateNormalClassAgain": false,
+    "ConnectionName": "DataTypesOracle",
+    "ConnectionDatabaseType": "Oracle",
+    "ConnectionDbProviderName": "Oracle.ManagedDataAccess.Client",
+    "ConnectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xe)));User Id=datatypes;Password=datatypes;",
+    "ProjectNameSpace": "Karkas.Examples.DataTypes",
+    "CodeGenerationDirectory": "./Karkas.Examples/GeneratedProjects/DataTypesOracle",
+    "UseSchemaNameInNamespaces": false,
+    "UseSchemaNameInSqlQueries": false,
+    "UseSchemaNameInFolders": false,
+    "UseQuotesInQueries": true,    
+    "UseGlobalUsings": true,
+    "GenerateForeignKeyQueries": true,
+    "OracleChangeNumericToLong": true,
+    "TableCodeGenerate": true,
+    "ViewCodeGenerate": false,
+    "StoredProcedureCodeGenerate": false,
+    "SequenceCodeGenerate": false,
+    "IgnoreSystemTables": false,
+    "IgnoredSchemaList": "",
+    "AbbrevationsAsString": "",
+    "CreationTime": "2022-03-25 18:43:05",
+    "LastAccessTime": "2022-03-25 18:43:05",
+    "LastWriteTime": "2022-03-25 18:43:05",
+    "RowState": 4
+  }  
 
 ]

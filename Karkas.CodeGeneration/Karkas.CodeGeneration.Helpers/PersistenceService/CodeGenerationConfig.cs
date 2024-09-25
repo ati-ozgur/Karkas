@@ -425,9 +425,9 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		
 		public bool GenerateForeignKeyQueries { get => generateForeignKeyQueries; set => generateForeignKeyQueries = value; }
 
-		private bool oracleChangedNumericToIntOrLong;
+		private bool oracleChangeNumericToLong;
 		
-		public bool OracleChangedNumericToIntOrLong { get => oracleChangedNumericToIntOrLong; set => oracleChangedNumericToIntOrLong = value; }
+		public bool OracleChangeNumericToLong { get => oracleChangeNumericToLong; set => oracleChangeNumericToLong = value; }
 
 
 

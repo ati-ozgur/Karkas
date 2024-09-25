@@ -331,7 +331,7 @@ AND
                         dataScale = Convert.ToInt32(strDataScale);
                     }
                     languageType = sqlTypeToDotnetCSharpType(dataTypeInDatabase);
-                    if(codeGenerationConfig.OracleChangedNumericToIntOrLong
+                    if(codeGenerationConfig.OracleChangeNumericToLong
                     && languageType == "decimal" 
                     && dataTypeInDatabase == "NUMBER"
                     && dataScale == 0
