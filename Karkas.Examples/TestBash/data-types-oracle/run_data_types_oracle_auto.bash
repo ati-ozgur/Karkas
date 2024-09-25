@@ -18,7 +18,6 @@ DB_PASSWORD="Karkas@Passw0rd"
 WORKING_DIR=$PWD
 echo $PWD
 
-
 cd ./Karkas.Examples/TestBash/data-types-oracle
 
 docker build -f Dockerfile -t $IMAGE_NAME .
@@ -48,10 +47,12 @@ timeout 60s grep -q 'DATABASE IS READY TO USE!' <(docker logs -f $CONTAINER_ID) 
 echo "go to ${WORKING_DIR}"
 cd $WORKING_DIR
 
-rm -rf Karkas.Examples/GeneratedProjects/DatatypesOracle
+rm -rf Karkas.Examples/GeneratedProjects/DataTypesOracle
 
 dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname DataTypesOracle
-cd Karkas.Examples/GeneratedProjects/DatatypesOracle
+cd Karkas.Examples/GeneratedProjects/DataTypesOracle
+
+
 dotnet new console
 dotnet add package Oracle.ManagedDataAccess.Core
 dotnet add reference "../../../Karkas.Data/Karkas.Data/Karkas.Data.csproj"
