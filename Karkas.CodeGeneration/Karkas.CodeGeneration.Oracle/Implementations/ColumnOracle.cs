@@ -21,13 +21,16 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
             tableOrView = pTableOrView;
             this.columnName = pColumnName;
             
-            //codeGenerationConfig= this.tableOrView.database.CodeGenerationConfig;
+            codeGenerationConfig = this.tableOrView.CodeGenerationConfig;
         }
 
         private string columnName;
         private IAdoTemplate<IParameterBuilder> template;
 
         private IContainer tableOrView;
+
+
+
 
         private const string SQL_SEQUENCE_EXISTS = @" SELECT COUNT(*) FROM user_sequences
                                                 WHERE
@@ -321,7 +324,22 @@ AND
                 {
 
                     dataTypeInDatabase = ColumnValuesInDatabase["DATA_TYPE"].ToString();
+                    string strDataScale = ColumnValuesInDatabase["DATA_SCALE"].ToString();
+                    int dataScale = 0;
+                    if (!string.IsNullOrEmpty( strDataScale))
+                    {
+                        dataScale = Convert.ToInt32(strDataScale);
+                    }
                     languageType = sqlTypeToDotnetCSharpType(dataTypeInDatabase);
+                    if(codeGenerationConfig.OracleChangedNumericToIntOrLong
+                    && languageType == "decimal" 
+                    && dataTypeInDatabase == "NUMBER"
+                    && dataScale == 0
+                    )
+                    {
+                        languageType = "long";
+                    }
+
                 }
                 return languageType;
             }
