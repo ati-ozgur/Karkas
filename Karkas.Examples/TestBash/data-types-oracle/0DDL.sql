@@ -30,6 +30,16 @@ CREATE TABLE DENEME
     CONSTRAINT PK_Album PRIMARY KEY  ("PK_ID")
 );
 
+CREATE TABLE INT_TABLES
+(
+  COLUMN_INT       INTEGER                      NOT NULL,
+  COLUMN_INTEGER   INTEGER                      NOT NULL,
+  COLUMN_SMALLINT  INTEGER                      NOT NULL,
+  COLUMN_NUMBER    NUMBER                       NOT NULL,
+  COLUMN_DECIMAL   INTEGER                      NOT NULL
+)
+;
+
 
 commit;
 exit;
