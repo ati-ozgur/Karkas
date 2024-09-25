@@ -203,7 +203,7 @@ namespace Karkas.CodeGeneration.Helpers
             }
 
             public const char degisicekChar = '_';
-            private string kotuKarakterlerdenAyir(string pValue)
+            private string removedBadCharacters(string pValue)
             {
                 pValue = pValue.Replace('-', degisicekChar);
                 pValue = pValue.Replace('(', degisicekChar);
@@ -214,14 +214,14 @@ namespace Karkas.CodeGeneration.Helpers
 
             public string SetPascalCase(string pValue)
             {
-                pValue = kotuKarakterlerdenAyir(pValue);
-                List<string> kelimeler = kelimelereAyir(pValue);
+                pValue = removedBadCharacters(pValue);
+                List<string> words = splitToWords(pValue);
 
-                string sonKelime = "";
+                string lastWord = "";
 
-                foreach (var kelime in kelimeler)
+                foreach (var word in words)
                 {
-                    char[] cList = kelime.ToCharArray();
+                    char[] cList = word.ToCharArray();
                     for (int i = 0; i < cList.Length; i++)
                     {
                         cList[i] = char.ToLowerInvariant(cList[i]);
@@ -230,12 +230,12 @@ namespace Karkas.CodeGeneration.Helpers
                     {
                         cList[0] = char.ToUpperInvariant(cList[0]);
                     }
-                    sonKelime += new string(cList);
+                    lastWord += new string(cList);
                 }
-                return sonKelime;
+                return lastWord;
             }
 
-            private char? simdikiChariAl(string pValue, int i)
+            private char? getCurrentChar(string pValue, int i)
             {
                 if (i >= 0 && i < pValue.Length)
                 {
@@ -247,7 +247,7 @@ namespace Karkas.CodeGeneration.Helpers
                 }
             }
 
-            private List<string> kelimelereAyir(string pValue)
+            private List<string> splitToWords(string pValue)
             {
                 List<int> kelimelerinYerleri = new List<int>();
 
@@ -255,7 +255,7 @@ namespace Karkas.CodeGeneration.Helpers
                 for (int i = 0; i < pValue.Length; i++)
                 {
                     char? birOncekiChar = birOncekiChariAl(i, pValue);
-                    char? simdikiChar = simdikiChariAl(pValue, i);
+                    char? simdikiChar = getCurrentChar(pValue, i);
                     char? birSonrakiChar = GetBirSonrakiChariAl(i, pValue);
                     // UKullaniciKey gibi kelimeler icin kontrol
 
@@ -266,7 +266,7 @@ namespace Karkas.CodeGeneration.Helpers
                         && char.IsUpper(birSonrakiChar.Value)
                         )
                     {
-                        char? ucuncuChar = simdikiChariAl(pValue, 2);
+                        char? ucuncuChar = getCurrentChar(pValue, 2);
                         if (ucuncuChar.HasValue
                             && !char.IsPunctuation(ucuncuChar.Value)
                             && !char.IsNumber(ucuncuChar.Value)
@@ -296,7 +296,7 @@ namespace Karkas.CodeGeneration.Helpers
                         i++;
                         i = tumKucukOlanCharlarIcinIlerle(pValue, i);
                         birOncekiChar = birOncekiChariAl(i, pValue);
-                        simdikiChar = simdikiChariAl(pValue, i);
+                        simdikiChar = getCurrentChar(pValue, i);
                         birSonrakiChar = GetBirSonrakiChariAl(i, pValue);
                         if (birOncekiChar.HasValue
                                 && simdikiChar.HasValue
@@ -321,7 +321,7 @@ namespace Karkas.CodeGeneration.Helpers
                     {
                         i = tumBuyukOlanCharlarIcinIlerle(pValue, i);
                         birOncekiChar = birOncekiChariAl(i, pValue);
-                        simdikiChar = simdikiChariAl(pValue, i);
+                        simdikiChar = getCurrentChar(pValue, i);
                         birSonrakiChar = GetBirSonrakiChariAl(i, pValue);
                         if (birOncekiChar.HasValue
                                 && simdikiChar.HasValue
@@ -347,7 +347,7 @@ namespace Karkas.CodeGeneration.Helpers
                     {
                         i = tumKucukOlanCharlarIcinIlerle(pValue, i);
                         birOncekiChar = birOncekiChariAl(i, pValue);
-                        simdikiChar = simdikiChariAl(pValue, i);
+                        simdikiChar = getCurrentChar(pValue, i);
                         birSonrakiChar = GetBirSonrakiChariAl(i, pValue);
                         if (birOncekiChar.HasValue
                             && simdikiChar.HasValue
