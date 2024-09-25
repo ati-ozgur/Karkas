@@ -1,3 +1,3 @@
-global using Karkas.Examples.Chinook.TypeLibrary;
-global using Karkas.Examples.Chinook.Dal;
-global using Karkas.Examples.Chinook.Bs;
+global using Karkas.Examples.DataTypes.TypeLibrary;
+global using Karkas.Examples.DataTypes.Dal;
+global using Karkas.Examples.DataTypes.Bs;
