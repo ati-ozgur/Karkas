@@ -23,7 +23,9 @@ Here, it should other where operators.
 - Put to config? think about it
 
 
+5. docker SQL error checking
 
+ERROR at line 7:
 
 
 3. Refactoring methods to English Only Names
