@@ -145,19 +145,19 @@ public abstract class BsGenerator : BaseGenerator
     private void Write_QueryByPkName()
     {
         ITable table = container as ITable;
-        string variableName = "p" + pkName;
+        string variableName = "p" + pkNamePascalCase;
         if (table != null)
         {
             if (table.PrimaryKeyColumnCount == 1)
             {
 
                 string classLine = "public " + classNameTypeLibrary + " QueryBy"
-                                + pkName + "(" + pkType
+                                + pkNamePascalCase + "(" + pkType
                                 + " " + variableName +  ")";
                 output.AutoTabLine(classLine);
                 output.AutoTabLine("{");
                 output.IncreaseTab();
-                output.AutoTabLine("return dal.QueryBy" + pkName + "("+ variableName + ");");
+                output.AutoTabLine("return dal.QueryBy" + pkNamePascalCase + "("+ variableName + ");");
                 output.DecreaseTab();
                 output.AutoTabLine("}");
             }
