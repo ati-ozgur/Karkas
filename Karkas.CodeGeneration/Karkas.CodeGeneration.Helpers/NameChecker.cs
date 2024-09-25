@@ -118,62 +118,62 @@ namespace Karkas.CodeGeneration.Helpers
             nonStandardChars.Add(')', "");
         }
 
-        public string SetPascalCase(string degistirilecekString)
+        public string SetPascalCase(string pValue)
         {
-            string result = solveLanguageSpecificProblems(degistirilecekString, false);
+            string result = solveLanguageSpecificProblems(pValue, false);
             result = solveReservedWordIssues(result);
             result = caseHelper.SetPascalCase(result);
             return result;
         }
 
-        public string SetCamelCase(string degistirilecekString)
+        public string SetCamelCase(string pValue)
         {
-            string result = solveLanguageSpecificProblems(degistirilecekString, false);
+            string result = solveLanguageSpecificProblems(pValue, false);
             result = solveReservedWordIssues(result);
             result = caseHelper.SetCamelCase(result);
             return result;
         }
 
-        private string solveLanguageSpecificProblems(string degistirilecekString, bool isCamelCase)
+        private string solveLanguageSpecificProblems(string pValue, bool isCamelCase)
         {
-            return cleanNonStandardChars(degistirilecekString);
+            return cleanNonStandardChars(pValue);
         }
 
 
-        private string cleanNonStandardChars(string degistirilecekString)
+        private string cleanNonStandardChars(string pValue)
         {
             bool isCapitalFlag = false;
-            StringBuilder temizlenmisHali = new StringBuilder();
-            foreach (char c in degistirilecekString)
+            StringBuilder clearedValues = new StringBuilder();
+            foreach (char c in pValue)
             {
                 if (nonStandardChars.ContainsKey(c))
                 {   // Non standard char seen
-                    temizlenmisHali.Append(nonStandardChars[c] + "_");
+                    clearedValues.Append(nonStandardChars[c] + "_");
                     isCapitalFlag = true;
                 }
                 else
                 {
                     if (isCapitalFlag)
                     {
-                        temizlenmisHali.Append(Char.ToUpperInvariant(c));
+                        clearedValues.Append(Char.ToUpperInvariant(c));
                         isCapitalFlag = false;
                     }
                     else
                     {
-                        temizlenmisHali.Append(c);
+                        clearedValues.Append(c);
                     }
                 }
             }
 
-            addInitialLetterForNumericInitialLetteredVariables(temizlenmisHali);
+            addInitialLetterForNumericInitialLetteredVariables(clearedValues);
 
-            return temizlenmisHali.ToString();
+            return clearedValues.ToString();
         }
 
-        private string solveReservedWordIssues(string degistirilecekString)
+        private string solveReservedWordIssues(string pValue)
         {
-            string reservedWordControl = degistirilecekString.ToLowerInvariant();
-            string result = (reservedWordsForCSharp.Contains(reservedWordControl)) ? reservedWordControl + RESERVED_WORD_KEYWORD : degistirilecekString;
+            string reservedWordControl = pValue.ToLowerInvariant();
+            string result = (reservedWordsForCSharp.Contains(reservedWordControl)) ? reservedWordControl + RESERVED_WORD_KEYWORD : pValue;
             return result;
         }
 
@@ -194,28 +194,28 @@ namespace Karkas.CodeGeneration.Helpers
 
         private class CaseHelper
         {
-            public string SetCamelCase(string degistirilecekString)
+            public string SetCamelCase(string pValue)
             {
-                string text = SetPascalCase(degistirilecekString);
+                string text = SetPascalCase(pValue);
                 char[] arr = text.ToCharArray();
                 arr[0] = char.ToLowerInvariant(arr[0]);
                 return new string(arr);
             }
 
             public const char degisicekChar = '_';
-            private string kotuKarakterlerdenAyir(string degistirilecekString)
+            private string kotuKarakterlerdenAyir(string pValue)
             {
-                degistirilecekString = degistirilecekString.Replace('-', degisicekChar);
-                degistirilecekString = degistirilecekString.Replace('(', degisicekChar);
-                degistirilecekString = degistirilecekString.Replace(')', degisicekChar);
-                degistirilecekString = degistirilecekString.Replace('/', degisicekChar);
-                return degistirilecekString;
+                pValue = pValue.Replace('-', degisicekChar);
+                pValue = pValue.Replace('(', degisicekChar);
+                pValue = pValue.Replace(')', degisicekChar);
+                pValue = pValue.Replace('/', degisicekChar);
+                return pValue;
             }
 
-            public string SetPascalCase(string degistirilecekString)
+            public string SetPascalCase(string pValue)
             {
-                degistirilecekString = kotuKarakterlerdenAyir(degistirilecekString);
-                List<string> kelimeler = kelimelereAyir(degistirilecekString);
+                pValue = kotuKarakterlerdenAyir(pValue);
+                List<string> kelimeler = kelimelereAyir(pValue);
 
                 string sonKelime = "";
 
@@ -235,11 +235,11 @@ namespace Karkas.CodeGeneration.Helpers
                 return sonKelime;
             }
 
-            private char? simdikiChariAl(string degistirilecekString, int i)
+            private char? simdikiChariAl(string pValue, int i)
             {
-                if (i >= 0 && i < degistirilecekString.Length)
+                if (i >= 0 && i < pValue.Length)
                 {
-                    return degistirilecekString[i];
+                    return pValue[i];
                 }
                 else
                 {
@@ -247,16 +247,16 @@ namespace Karkas.CodeGeneration.Helpers
                 }
             }
 
-            private List<string> kelimelereAyir(string degistirilecekString)
+            private List<string> kelimelereAyir(string pValue)
             {
                 List<int> kelimelerinYerleri = new List<int>();
 
 
-                for (int i = 0; i < degistirilecekString.Length; i++)
+                for (int i = 0; i < pValue.Length; i++)
                 {
-                    char? birOncekiChar = birOncekiChariAl(i, degistirilecekString);
-                    char? simdikiChar = simdikiChariAl(degistirilecekString, i);
-                    char? birSonrakiChar = GetBirSonrakiChariAl(i, degistirilecekString);
+                    char? birOncekiChar = birOncekiChariAl(i, pValue);
+                    char? simdikiChar = simdikiChariAl(pValue, i);
+                    char? birSonrakiChar = GetBirSonrakiChariAl(i, pValue);
                     // UKullaniciKey gibi kelimeler icin kontrol
 
                     if (i == 0
@@ -266,7 +266,7 @@ namespace Karkas.CodeGeneration.Helpers
                         && char.IsUpper(birSonrakiChar.Value)
                         )
                     {
-                        char? ucuncuChar = simdikiChariAl(degistirilecekString, 2);
+                        char? ucuncuChar = simdikiChariAl(pValue, 2);
                         if (ucuncuChar.HasValue
                             && !char.IsPunctuation(ucuncuChar.Value)
                             && !char.IsNumber(ucuncuChar.Value)
@@ -294,10 +294,10 @@ namespace Karkas.CodeGeneration.Helpers
                         )
                     {
                         i++;
-                        i = tumKucukOlanCharlarIcinIlerle(degistirilecekString, i);
-                        birOncekiChar = birOncekiChariAl(i, degistirilecekString);
-                        simdikiChar = simdikiChariAl(degistirilecekString, i);
-                        birSonrakiChar = GetBirSonrakiChariAl(i, degistirilecekString);
+                        i = tumKucukOlanCharlarIcinIlerle(pValue, i);
+                        birOncekiChar = birOncekiChariAl(i, pValue);
+                        simdikiChar = simdikiChariAl(pValue, i);
+                        birSonrakiChar = GetBirSonrakiChariAl(i, pValue);
                         if (birOncekiChar.HasValue
                                 && simdikiChar.HasValue
                                 && !char.IsPunctuation(simdikiChar.Value)
@@ -319,10 +319,10 @@ namespace Karkas.CodeGeneration.Helpers
                         && !char.IsNumber(simdikiChar.Value)
                         && char.IsUpper(simdikiChar.Value))
                     {
-                        i = tumBuyukOlanCharlarIcinIlerle(degistirilecekString, i);
-                        birOncekiChar = birOncekiChariAl(i, degistirilecekString);
-                        simdikiChar = simdikiChariAl(degistirilecekString, i);
-                        birSonrakiChar = GetBirSonrakiChariAl(i, degistirilecekString);
+                        i = tumBuyukOlanCharlarIcinIlerle(pValue, i);
+                        birOncekiChar = birOncekiChariAl(i, pValue);
+                        simdikiChar = simdikiChariAl(pValue, i);
+                        birSonrakiChar = GetBirSonrakiChariAl(i, pValue);
                         if (birOncekiChar.HasValue
                                 && simdikiChar.HasValue
                                 && !char.IsPunctuation(simdikiChar.Value)
@@ -345,10 +345,10 @@ namespace Karkas.CodeGeneration.Helpers
                         && !char.IsNumber(simdikiChar.Value)
                         && char.IsLower(simdikiChar.Value))
                     {
-                        i = tumKucukOlanCharlarIcinIlerle(degistirilecekString, i);
-                        birOncekiChar = birOncekiChariAl(i, degistirilecekString);
-                        simdikiChar = simdikiChariAl(degistirilecekString, i);
-                        birSonrakiChar = GetBirSonrakiChariAl(i, degistirilecekString);
+                        i = tumKucukOlanCharlarIcinIlerle(pValue, i);
+                        birOncekiChar = birOncekiChariAl(i, pValue);
+                        simdikiChar = simdikiChariAl(pValue, i);
+                        birSonrakiChar = GetBirSonrakiChariAl(i, pValue);
                         if (birOncekiChar.HasValue
                             && simdikiChar.HasValue
                             && !char.IsPunctuation(simdikiChar.Value)
@@ -379,7 +379,7 @@ namespace Karkas.CodeGeneration.Helpers
 
                     if (char.IsNumber(simdikiChar.Value))
                     {
-                        tumNumaraOlanCharlarIcinIlerle(degistirilecekString, i);
+                        tumNumaraOlanCharlarIcinIlerle(pValue, i);
                         if (birOncekiChar.HasValue
                             && !char.IsNumber(birOncekiChar.Value)
                             )
@@ -413,13 +413,13 @@ namespace Karkas.CodeGeneration.Helpers
                     }
                 }
 
-                kelimelerinYerleri.Add(degistirilecekString.Length);
+                kelimelerinYerleri.Add(pValue.Length);
                 int kesmeBaslangic = 0;
                 List<String> parcalanmisKelimeler = new List<string>();
 
                 for (int i = 0; i < kelimelerinYerleri.Count; i++)
                 {
-                    string s = degistirilecekString.Substring(kesmeBaslangic, kelimelerinYerleri[i] - kesmeBaslangic);
+                    string s = pValue.Substring(kesmeBaslangic, kelimelerinYerleri[i] - kesmeBaslangic);
                     s = s.Replace("_", "");
                     parcalanmisKelimeler.Add(s);
                     kesmeBaslangic = kelimelerinYerleri[i];
@@ -430,32 +430,32 @@ namespace Karkas.CodeGeneration.Helpers
             }
 
 
-            private char? birOncekiChariAl(int i, string degistirilecekString)
+            private char? birOncekiChariAl(int i, string pValue)
             {
                 char? birOncekiChar = null;
                 if (i != 0)
                 {
-                    birOncekiChar = degistirilecekString[i - 1];
+                    birOncekiChar = pValue[i - 1];
                 }
                 return birOncekiChar;
             }
 
-            private char? GetBirSonrakiChariAl(int i, string degistirilecekString)
+            private char? GetBirSonrakiChariAl(int i, string pValue)
             {
                 char? birSonrakiChar = null;
-                if ((i < degistirilecekString.Length-1))
+                if ((i < pValue.Length-1))
                 {
-                    birSonrakiChar = degistirilecekString[i + 1];
+                    birSonrakiChar = pValue[i + 1];
                 }
                 return birSonrakiChar;
             }
 
-            private int tumNumaraOlanCharlarIcinIlerle(string degistirilecekString, int charYeri)
+            private int tumNumaraOlanCharlarIcinIlerle(string pValue, int charYeri)
             {
                 int i = charYeri;
-                for (; i < degistirilecekString.Length; i++)
+                for (; i < pValue.Length; i++)
                 {
-                    char simdikiChar = degistirilecekString[i];
+                    char simdikiChar = pValue[i];
                     if (char.IsNumber(simdikiChar))
                     {
                         continue;
@@ -465,13 +465,13 @@ namespace Karkas.CodeGeneration.Helpers
             }
 
 
-            private int tumKucukOlanCharlarIcinIlerle(string degistirilecekString, int charYeri)
+            private int tumKucukOlanCharlarIcinIlerle(string pValue, int charYeri)
             {
                 int i = charYeri;
                 char simdikiChar = ' ';
-                for (; i < degistirilecekString.Length; i++)
+                for (; i < pValue.Length; i++)
                 {
-                    simdikiChar = degistirilecekString[i];
+                    simdikiChar = pValue[i];
                     if (char.IsPunctuation(simdikiChar)
                         ||
                         char.IsNumber(simdikiChar)
@@ -483,13 +483,13 @@ namespace Karkas.CodeGeneration.Helpers
                 }
                 return i;
             }
-            private int tumBuyukOlanCharlarIcinIlerle(string degistirilecekString, int charYeri)
+            private int tumBuyukOlanCharlarIcinIlerle(string pValue, int charYeri)
             {
                 int i = charYeri;
                 char simdikiChar = ' ';
-                for (; i < degistirilecekString.Length; i++)
+                for (; i < pValue.Length; i++)
                 {
-                    simdikiChar = degistirilecekString[i];
+                    simdikiChar = pValue[i];
                     if (char.IsPunctuation(simdikiChar)
                         ||
                         char.IsNumber(simdikiChar)
