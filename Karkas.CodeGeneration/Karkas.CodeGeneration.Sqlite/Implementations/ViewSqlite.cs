@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.Data;
+
+using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
+
 
 namespace Karkas.CodeGeneration.Sqlite.Implementations
 {
@@ -20,6 +23,14 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         IAdoTemplate<IParameterBuilder> template;
         string viewName;
         string schemaName;
+
+        public CodeGenerationConfig CodeGenerationConfig
+        {
+            get
+            {
+                return database.CodeGenerationConfig;
+            }
+        }
 
 
         public string Alias

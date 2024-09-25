@@ -7,17 +7,21 @@ using Karkas.CodeGeneration.Helpers.BaseClasses;
 using Karkas.Data;
 using System.Data;
 using Karkas.CodeGeneration.Helpers;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 namespace Karkas.CodeGeneration.Oracle.Implementations
 {
     class ColumnOracle : IColumn
     {
+        CodeGenerationConfig codeGenerationConfig;
         public ColumnOracle(IAdoTemplate<IParameterBuilder> pTemplate, IContainer pTableOrView,string pColumnName)
         {
 
             template = pTemplate;
             tableOrView = pTableOrView;
             this.columnName = pColumnName;
+            
+            //codeGenerationConfig= this.tableOrView.database.CodeGenerationConfig;
         }
 
         private string columnName;
@@ -245,7 +249,9 @@ OWNER,
 TABLE_NAME,
 COLUMN_NAME,
 DATA_TYPE,
-DATA_LENGTH, 
+DATA_LENGTH,
+DATA_PRECISION,
+DATA_SCALE, 
 NULLABLE,
 GET_VARCHAR_DATA_DEFAULT(C.OWNER,C.TABLE_NAME,C.COLUMN_NAME)  DATA_DEFAULT,
 VIRTUAL_COLUMN,
@@ -495,6 +501,24 @@ AND
 
         // Helper functions
 
+
+        // List of from
+        // SELECT DISTINCT DATA_TYPE from ALL_TAB_COLS WHERE (NOT DATA_TYPE LIKE '%$%') ORDER BY 1
+        // ANYDATA
+        // BINARY_DOUBLE
+        // BLOB
+        // FLOAT
+        // INTERVAL DAY(3) TO SECOND(0)
+        // LONG
+        // LONG RAW
+        // NUMBER
+        // RAW
+        // ROWID
+        // TIMESTAMP(0)
+        // TIMESTAMP(0) WITH TIME ZONE
+        // UNDEFINED
+
+
         public string sqlTypeToDotnetCSharpType(string pSqlTypeName)
         {
 
@@ -502,70 +526,36 @@ AND
             if (
                     pSqlTypeName.Equals("varchar") ||
                     pSqlTypeName.Equals("nvarchar") ||
+                    pSqlTypeName.Equals("nvarchar2") ||
                     pSqlTypeName.Equals("varchar2") ||
                     pSqlTypeName.Equals("clob") ||
                     pSqlTypeName.Equals("nclob") ||
                     pSqlTypeName.Equals("char") ||
                     pSqlTypeName.Equals("nchar") ||
                     pSqlTypeName.Equals("ntext") ||
-                    pSqlTypeName.Equals("Xml") ||
-                    pSqlTypeName.Equals("text")
+                    pSqlTypeName.Equals("xml") ||
+                    pSqlTypeName.Equals("text") ||
+                    pSqlTypeName.Equals("xmltype") ||
+                    pSqlTypeName.Equals("xmltypeextra") ||
+                    pSqlTypeName.Equals("xmltypepi") 
 
                 )
             {
 
                 return "string";
             }
-            if (pSqlTypeName.Equals("uniqueidentifier"))
-            {
-                return "Guid";
-            }
-            if (pSqlTypeName.Equals("int"))
-            {
-                return "int";
-            }
-            if (pSqlTypeName.Equals("tinyint"))
-            {
-                return "byte";
-            }
-            if (pSqlTypeName.Equals("smallint"))
-            {
-                return "short";
-            }
-            if (pSqlTypeName.Equals("bigint"))
-            {
-                return "long";
-            }
+
             if (
-                pSqlTypeName.Equals("date") ||
-                pSqlTypeName.Equals("datetime") ||
-                pSqlTypeName.Equals("smalldatetime") ||
-                pSqlTypeName.Contains("timestamp")
+                pSqlTypeName.Equals("date") 
                 )
             {
                 return "DateTime";
             }
-            if (pSqlTypeName.Equals("bit"))
-            {
-                return "bool";
-            }
-            if (pSqlTypeName.Equals("bit"))
-            {
-                return "bool";
-            }
-
-
-
             if (
-                pSqlTypeName.Equals("number") ||
-                pSqlTypeName.Equals("numeric") ||
-                pSqlTypeName.Equals("decimal") ||
-                pSqlTypeName.Equals("money") ||
-                pSqlTypeName.Equals("smallmoney") ||
-                pSqlTypeName.Equals("binary_float") ||
-                pSqlTypeName.Equals("binary_double")
-                )
-            {
+            
+            // TODO HERE
+            pSqlTypeName.Equals("number"))
+            {                
                 return "decimal";
             }
             if (pSqlTypeName.Equals("float"))

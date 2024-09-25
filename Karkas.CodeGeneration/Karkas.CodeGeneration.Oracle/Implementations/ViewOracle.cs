@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.CodeGeneration.Helpers.Interfaces;
+
 using Karkas.Data;
 using System.Data;
+
+using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 namespace Karkas.CodeGeneration.Oracle.Implementations
 {
@@ -25,6 +28,14 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
         public string Alias
         {
             get { throw new NotImplementedException(); }
+        }
+
+        public CodeGenerationConfig CodeGenerationConfig
+        {
+            get
+            {
+                return database.CodeGenerationConfig;
+            }
         }
 
         public List<IColumn> columns = null;

@@ -43,7 +43,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
                     {
                         string schemaName = row[SCHEMA_NAME_IN_TABLE_SQL_QUERIES].ToString();
                         string tableName = row[TABLE_NAME_IN_TABLE_SQL_QUERIES].ToString();
-                        ITable t = new TableSqlServer(Template, tableName, schemaName);
+                        ITable t = new TableSqlServer(this,Template, tableName, schemaName);
                         _tableList.Add(t);
                     }
 
@@ -66,7 +66,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
                     List<Dictionary<string,object>>  dtViews = getViewListFromSchema(null);
                     foreach (var row in dtViews)
                     {
-                        IView t = new ViewSqlServer(Template, row["TABLE_NAME"].ToString(), row["TABLE_SCHEMA"].ToString());
+                        IView t = new ViewSqlServer(this, Template, row["TABLE_NAME"].ToString(), row["TABLE_SCHEMA"].ToString());
                         _viewList.Add(t);
                     }
                 }
@@ -84,7 +84,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 
         public override ITable getTable(string pTableName, string pSchemaName)
         {
-            ITable t = new TableSqlServer(Template, pTableName, pSchemaName);
+            ITable t = new TableSqlServer(this, Template, pTableName, pSchemaName);
             return t;
         }
 
@@ -267,7 +267,7 @@ ORDER BY SEQUENCE_NAME
 
         public override IView GetView(string pViewName, string pSchemaName)
         {
-            return new ViewSqlServer( Template, pViewName, pSchemaName);
+            return new ViewSqlServer(this, Template, pViewName, pSchemaName);
         }
 
 

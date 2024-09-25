@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.CodeGeneration.Helpers.Interfaces;
 using System.Data;
 using Karkas.Data;
+
+using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 namespace Karkas.CodeGeneration.SqlServer.Implementations
 {
@@ -13,13 +15,14 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
         private string tableName;
         private string schemaName;
 
+        CodeGenerationSqlServer database;
 
-
-        public TableSqlServer(IAdoTemplate<IParameterBuilder> template,  string pTableName,string pSchemaName)
+        public TableSqlServer(CodeGenerationSqlServer database, IAdoTemplate<IParameterBuilder> template,  string pTableName,string pSchemaName)
         {
             this.template = template;
             this.tableName = pTableName;
             this.schemaName = pSchemaName;
+            this.database = database;
         }
 
         private IAdoTemplate<IParameterBuilder> template;
@@ -28,6 +31,15 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
         {
             get { return template; }
             set { template = value; }
+        }
+
+
+        public CodeGenerationConfig CodeGenerationConfig
+        {
+            get
+            {
+                return database.CodeGenerationConfig;
+            }
         }
 
         public int FindIndexFromName(string name)

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
+
 
 namespace Karkas.CodeGeneration.Helpers
 {
@@ -14,6 +16,8 @@ namespace Karkas.CodeGeneration.Helpers
         string Description { get; }
         string Name { get; }
         string Schema { get; }
+
+        CodeGenerationConfig CodeGenerationConfig { get; }
 
 
     }

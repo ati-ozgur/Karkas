@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Karkas.CodeGeneration.Helpers.Interfaces;
+
 using Karkas.Data;
 using System.Data;
+
+using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 namespace Karkas.CodeGeneration.Oracle.Implementations
 {
@@ -19,7 +22,16 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
             this.schemaName = pSchemaName;
         }
 
-        CodeGenerationOracle database;
+        protected CodeGenerationOracle database;
+
+        public CodeGenerationConfig CodeGenerationConfig 
+        { 
+            get
+            {
+                return database.CodeGenerationConfig;
+            } 
+        }
+
 
         IAdoTemplate<IParameterBuilder> template;
         String tableName;
