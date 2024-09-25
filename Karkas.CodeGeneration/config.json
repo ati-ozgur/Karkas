@@ -17,6 +17,7 @@
     "UseFileScopedNamespace": true,
     "GenerateForeignKeyQueries": true,
     "TableCodeGenerate": true,
+    "OracleChangedNumericToIntOrLong": true,
     "ViewCodeGenerate": false,
     "StoredProcedureCodeGenerate": false,
     "SequenceCodeGenerate": false,
