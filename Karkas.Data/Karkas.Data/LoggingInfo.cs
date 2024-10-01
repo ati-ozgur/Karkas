@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data.Common;
@@ -58,12 +58,12 @@ namespace Karkas.Data
             logger.Log(LogLevel.Information, this.ToString() + $"{pLoggingType}: {message}");
         }
 
-        internal void LogInfo(Type pLoggingType, DbException ex, string pMesaj)
+        public void LogInfo(Type pLoggingType, DbException ex, string pMesaj)
         {
             logger.Log(LogLevel.Information, this.ToString() + pMesaj, ex);
         }
 
-        internal void LogDebug(Type pLoggingType, Exception ex)
+		public void LogDebug(Type pLoggingType, Exception ex)
         {
             logger.Log(LogLevel.Debug, this.ToString() , ex);
         }

@@ -23,11 +23,11 @@ public abstract class BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMP
         where ADOTEMPLATE_DB_TYPE : IAdoTemplate<IParameterBuilder>, new()
         where PARAMETER_BUILDER : IParameterBuilder, new()
 {
+	
+	public BaseDalForIdentity(ExceptionChanger pExceptionChanger) : base(pExceptionChanger)
+	{
+	}
 
-    public BaseDalForIdentity()
-    {
-
-    }
 
 
 

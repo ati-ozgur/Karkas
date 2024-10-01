@@ -1,4 +1,4 @@
-﻿using Karkas.Data;
+using Karkas.Data;
 using Karkas.Data.Base;
 using Microsoft.Data.SqlClient;
 using System.Data;
@@ -13,7 +13,12 @@ namespace Karkas.Data.SqlServer
         where PARAMETER_BUILDER : IParameterBuilder, new()
     {
 
-        private ADOTEMPLATE_DB_TYPE templateSqlServer;
+		public BaseDalSqlServer(): base(new ExceptionChangerSqlServer())
+		{
+			
+		}
+
+		private ADOTEMPLATE_DB_TYPE templateSqlServer;
         public override ADOTEMPLATE_DB_TYPE Template
         {
             get

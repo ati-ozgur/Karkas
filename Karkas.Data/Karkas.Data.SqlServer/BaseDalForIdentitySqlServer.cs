@@ -21,7 +21,12 @@ namespace Karkas.Data.SqlServer
         where ADOTEMPLATE_DB_TYPE : IAdoTemplate<IParameterBuilder>, new()
         where PARAMETER_BUILDER : IParameterBuilder, new()
     {
-        public override string DbProviderName
+
+		public BaseDalForIdentitySqlServer() : base(new ExceptionChangerSqlServer())
+		{
+			
+		}
+		public override string DbProviderName
         {
             get 
                 { 
@@ -73,7 +78,7 @@ namespace Karkas.Data.SqlServer
             }
             catch (DbException ex)
             {
-                ExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
+                CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
             }
             catch (Exception ex)
             {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +15,12 @@ namespace Karkas.Data.Oracle
         where PARAMETER_BUILDER : IParameterBuilder, new()
 
     {
-        public override string DbProviderName
+
+		public BaseDalOracle() : base(new ExceptionChangerOracle())
+		{
+			
+		}
+		public override string DbProviderName
         {
             get { return "Oracle.DataAccess.Client"; }
         }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,8 +22,12 @@ namespace Karkas.Data.Sqlite
         where ADOTEMPLATE_DB_TYPE : IAdoTemplate<IParameterBuilder>, new()
         where PARAMETER_BUILDER : IParameterBuilder, new()
     {
+		public BaseDalSqlite() : base(new ExceptionChangerSqlite())
+		{
+			
+		}
 
-        private ADOTEMPLATE_DB_TYPE templateSqlite;
+		private ADOTEMPLATE_DB_TYPE templateSqlite;
         public override ADOTEMPLATE_DB_TYPE Template
         {
             get

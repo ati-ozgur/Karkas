@@ -19,11 +19,10 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         where ADOTEMPLATE_DB_TYPE: IAdoTemplate<IParameterBuilder>, new()
         where PARAMETER_BUILDER : IParameterBuilder, new()
 {
+	public BaseDal(ExceptionChanger pExceptionChanger) : base(pExceptionChanger)
+	{
+	}
 
-
-	public BaseDal()
-    {
-    }
 
 
 

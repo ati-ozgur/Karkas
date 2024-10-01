@@ -13,9 +13,9 @@ public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE,PARAMETER_BUILDER
     where PARAMETER_BUILDER : IParameterBuilder, new()
 {
 
-    public BaseDalWithoutEntity()
+    public BaseDalWithoutEntity(ExceptionChanger pExceptionChanger)
     {
-
+		_currentExceptionChanger = pExceptionChanger;
     }
 
 
@@ -170,7 +170,7 @@ public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE,PARAMETER_BUILDER
         get { return "@"; }
     }
 
-	private ExceptionChanger _currentExceptionChanger = new ExceptionChanger();
+	private ExceptionChanger _currentExceptionChanger;
 
 	protected virtual ExceptionChanger CurrentExceptionChanger
 	{

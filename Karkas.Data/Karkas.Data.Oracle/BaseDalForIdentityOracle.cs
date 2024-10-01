@@ -1,4 +1,4 @@
-﻿using Karkas.Data.Base;
+using Karkas.Data.Base;
 using Karkas.Data.Exceptions;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,11 @@ namespace Karkas.Data.Oracle
         where PARAMETER_BUILDER : IParameterBuilder, new()
     {
 
-        public override string DbProviderName
+		public BaseDalForIdentityOracle() : base(new ExceptionChangerOracle())
+		{
+		}
+
+		public override string DbProviderName
         {
             get { return "Oracle.DataAccess.Client"; }
         }
@@ -70,7 +74,7 @@ namespace Karkas.Data.Oracle
             }
             catch (DbException ex)
             {
-                ExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
+                CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
             }
             catch (Exception ex)
             {

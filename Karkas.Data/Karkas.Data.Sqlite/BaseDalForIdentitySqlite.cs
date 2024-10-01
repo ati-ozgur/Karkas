@@ -21,7 +21,12 @@ namespace Karkas.Data.Sqlite
         where ADOTEMPLATE_DB_TYPE : IAdoTemplate<IParameterBuilder>, new()
         where PARAMETER_BUILDER : IParameterBuilder, new()
     {
-        public override string DbProviderName
+
+		public BaseDalForIdentitySqlite() : base(new ExceptionChangerSqlite())
+		{
+			
+		}
+		public override string DbProviderName
         {
             get 
                 { 
@@ -74,7 +79,7 @@ namespace Karkas.Data.Sqlite
             }
             catch (DbException ex)
             {
-                ExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
+                CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
             }
             catch (Exception ex)
             {
