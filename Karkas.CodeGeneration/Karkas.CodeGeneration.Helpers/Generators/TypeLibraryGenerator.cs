@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Karkas.CodeGeneration.Helpers;
@@ -295,7 +295,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             {
                 output.AutoTabLine("[Key]");
             }
-            if (column.isStringType && column.CharacterMaxLength < CHARACTER_MAX_LENGTH_IN_DATABASE && column.CharacterMaxLength > 0)
+            if (column.isStringType &&
+				!column.isStringTypeWithoutLength  &&
+				column.CharacterMaxLength < CHARACTER_MAX_LENGTH_IN_DATABASE && column.CharacterMaxLength > 0)
             {
                 string annotationString = string.Format("[StringLength({0})]", column.CharacterMaxLength);
                 output.AutoTabLine(annotationString);

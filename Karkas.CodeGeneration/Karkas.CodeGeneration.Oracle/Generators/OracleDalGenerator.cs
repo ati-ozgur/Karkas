@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -193,17 +193,34 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         }
 
         private void builderParameterAddStringDbType(IColumn column)
-        {
-            string s = "builder.AddParameter(\"" + parameterSymbol
-                        + column.Name
-                        + "\","
-                        + getDbTargetType(column)
-                        + ", row."
-                        + utils.getPropertyVariableName(column)
-                        + ","
-                        + Convert.ToString(column.CharacterMaxLength)
-                        + ");";
-            output.AutoTabLine(s);
+		{
+			string s;
+
+			if (column.isStringTypeWithoutLength)
+			{
+				s = "builder.AddParameter(\"" + parameterSymbol
+						   + column.Name
+						   + "\","
+						   + getDbTargetType(column)
+						   + ", row."
+						   + utils.getPropertyVariableName(column)
+						   + ");";
+
+			}
+			else
+			{
+				 s = "builder.AddParameter(\"" + parameterSymbol
+							+ column.Name
+							+ "\","
+							+ getDbTargetType(column)
+							+ ", row."
+							+ utils.getPropertyVariableName(column)
+							+ ","
+							+ Convert.ToString(column.CharacterMaxLength)
+							+ ");";
+
+			}
+			output.AutoTabLine(s);
         }
 
         private void builderParameterAddOutputForIdentity(IColumn column)
