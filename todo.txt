@@ -33,6 +33,7 @@ Here, it should other where operators.
 
 ERROR at line 7:
 
+6. Add ExceptionChanger tests for DB specific codes
 
 3. Refactoring methods to English Only Names
 
