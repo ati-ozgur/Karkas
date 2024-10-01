@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
@@ -6,7 +6,6 @@ using Karkas.Data.Exceptions;
 using System.Reflection;
 using System.Runtime.Remoting;
 using System.Data.Common;
-using Karkas.Data;
 
 namespace Karkas.Data.Base;
 
@@ -22,8 +21,7 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
 {
 
 
-
-    public BaseDal()
+	public BaseDal()
     {
     }
 
@@ -355,7 +353,7 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         }
         catch (DbException ex)
         {
-            ExceptionChanger.Change(ex);
+			CurrentExceptionChanger.Change(ex);
         }
         finally
         {
@@ -424,7 +422,7 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         }
     }
 
-    protected abstract void ProcessRow(IDataReader dr, TYPE_LIBRARY_TYPE row);
+	protected abstract void ProcessRow(IDataReader dr, TYPE_LIBRARY_TYPE row);
     protected abstract void InsertCommandParametersAdd(DbCommand Cmd, TYPE_LIBRARY_TYPE row);
     protected abstract void UpdateCommandParametersAdd(DbCommand Cmd, TYPE_LIBRARY_TYPE row);
     protected abstract void DeleteCommandParametersAdd(DbCommand Cmd, TYPE_LIBRARY_TYPE row);

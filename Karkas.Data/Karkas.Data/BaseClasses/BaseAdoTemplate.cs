@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Globalization;
 using System.Data.Common;
+using Karkas.Data.Exceptions;
 
 namespace Karkas.Data.Base;
 
@@ -199,7 +200,7 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         }
         catch (DbException ex)
         {
-            ExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
+            CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
         }
         finally
         {
@@ -228,7 +229,7 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         }
         catch (DbException ex)
         {
-            ExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
+			CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
         }
         finally
         {
@@ -459,7 +460,7 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         }
         catch (DbException ex)
         {
-            ExceptionChanger.Change(ex);
+			CurrentExceptionChanger.Change(ex);
         }
         finally
         {
@@ -685,6 +686,21 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     {
         get { return "@"; }
     }
+
+
+	private ExceptionChanger _currentExceptionChanger;
+	protected virtual ExceptionChanger CurrentExceptionChanger
+	{
+		get
+		{
+			return _currentExceptionChanger;
+		}
+		set
+		{
+			_currentExceptionChanger = value;
+		}
+	}
+
 
 }
 

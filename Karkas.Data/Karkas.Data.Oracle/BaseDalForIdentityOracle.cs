@@ -1,5 +1,5 @@
-﻿using Karkas.Data;
-using Karkas.Data.Base;
+﻿using Karkas.Data.Base;
+using Karkas.Data.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Karkas.Data.Oracle
 {
 
-    public abstract class BaseDalForIdentityOracle<TYPE_LIBRARY_TYPE,PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> :
+	public abstract class BaseDalForIdentityOracle<TYPE_LIBRARY_TYPE,PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> :
         BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>
         where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
         where PRIMARY_KEY : struct

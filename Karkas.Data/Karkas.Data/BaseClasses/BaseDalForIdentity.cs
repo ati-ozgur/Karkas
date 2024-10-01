@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Data.Common;
+using Karkas.Data.Exceptions;
 
 namespace Karkas.Data.Base;
 
@@ -68,7 +69,7 @@ public abstract class BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMP
         }
         catch (DbException ex)
         {
-            ExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
+			CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
         }
         catch (Exception ex)
         {

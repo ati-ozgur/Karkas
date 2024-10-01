@@ -1,15 +1,32 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Data.Common;
+using Karkas.Data.Exceptions;
 
 namespace Karkas.Data
 {
-    internal class HelperFunctions
+	internal class HelperFunctions
     {
+		public HelperFunctions(ExceptionChanger pExceptionChanger)
+		{
+			_currentExceptionChanger = pExceptionChanger;
+		}
+		private ExceptionChanger _currentExceptionChanger;
+		protected virtual ExceptionChanger CurrentExceptionChanger
+		{
+			get
+			{
+				return _currentExceptionChanger;
+			}
+			set
+			{
+				_currentExceptionChanger = value;
+			}
+		}
 
-        private IAdoTemplate<IParameterBuilder> template;
+		private IAdoTemplate<IParameterBuilder> template;
 
         public IAdoTemplate<IParameterBuilder> Template
         {
@@ -80,7 +97,7 @@ namespace Karkas.Data
             }
             catch (DbException ex)
             {
-                ExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
+                CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
             }
             finally
             {
@@ -112,7 +129,7 @@ namespace Karkas.Data
             }
             catch (DbException ex)
             {
-                ExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
+				CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
 
             }
             finally

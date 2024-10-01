@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-
-using Karkas.Data;
 using Karkas.Data.Base;
 using System.Data;
 using System.Data.Common;
 
 
 using Microsoft.Data.Sqlite;
+using Karkas.Data.Exceptions;
 
 
 namespace Karkas.Data.Sqlite
 {
-        public abstract class BaseDalForIdentitySqlite<TYPE_LIBRARY_TYPE,PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> :
+	public abstract class BaseDalForIdentitySqlite<TYPE_LIBRARY_TYPE,PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> :
         BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>
         where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
         where PRIMARY_KEY : struct

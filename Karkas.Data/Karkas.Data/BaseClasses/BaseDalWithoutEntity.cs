@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.Common;
+using Karkas.Data.Exceptions;
 
 namespace Karkas.Data.Base;
 
@@ -126,7 +127,7 @@ public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE,PARAMETER_BUILDER
             {
                 currentTransaction.Rollback();
             }
-            ExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
+            CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
         }
         finally
         {
@@ -168,5 +169,20 @@ public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE,PARAMETER_BUILDER
     {
         get { return "@"; }
     }
+
+	private ExceptionChanger _currentExceptionChanger = new ExceptionChanger();
+
+	protected virtual ExceptionChanger CurrentExceptionChanger
+	{
+		get
+		{
+			return _currentExceptionChanger;
+		}
+		set
+		{
+			_currentExceptionChanger = value;
+		}
+	}
+
 }
 
