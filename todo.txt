@@ -4,6 +4,13 @@
 
 ## First to look
 
+Validation code için yazdım.
+Bunun için test yaz.
+Kontrol et.
+IsStringTypeWithoutLength kontrol et.
+1. CLOB,BLOB does not work
+
+
 1. For oracle, force decimal to int,long
 oracle code generation number to long
 10,0
@@ -14,7 +21,6 @@ oracle code generation number to long
 Here, it should other where operators.
 
 
-2. CLOB,BLOB does not work
 
 3. 
 
