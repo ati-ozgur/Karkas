@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,9 +37,9 @@ namespace Karkas.CodeGeneration.Helpers.Interfaces
 
         int CharacterMaxLength { get;  }
 
-        bool isStringType { get; }
-        bool isStringTypeWithoutLength { get; }
-        bool isNumericType { get; }
+        bool IsStringType { get; }
+        bool IsStringTypeWithoutLength { get; }
+        bool IsNumericType { get; }
 
         string ContainerName { get; }
         string ContainerSchemaName { get; }

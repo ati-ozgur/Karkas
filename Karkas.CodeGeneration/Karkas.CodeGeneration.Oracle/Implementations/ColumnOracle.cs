@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -468,7 +468,7 @@ AND
             }
         }
 
-        public bool isStringType
+        public bool IsStringType
         {
             get 
             {
@@ -483,7 +483,7 @@ AND
             }
         }
 
-        public bool isStringTypeWithoutLength
+        public bool IsStringTypeWithoutLength
         {
             get 
             {
@@ -502,7 +502,7 @@ AND
             }
         }
 
-        public bool isNumericType
+        public bool IsNumericType
         {
             get 
             {

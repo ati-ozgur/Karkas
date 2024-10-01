@@ -206,7 +206,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             }
         }
 
-        public bool isStringType
+        public bool IsStringType
         {
             get 
             {
@@ -221,7 +221,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             }
         }
 
-        public bool isStringTypeWithoutLength
+        public bool IsStringTypeWithoutLength
         {
             get 
             {
@@ -231,11 +231,11 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             }
         }
 
-        public bool isNumericType
+        public bool IsNumericType
         {
             get 
             {
-                return !isStringType;
+                return !IsStringType;
             }
         }
 

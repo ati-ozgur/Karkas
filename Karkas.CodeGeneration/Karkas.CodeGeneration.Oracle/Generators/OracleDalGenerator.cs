@@ -182,7 +182,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         }
         public override void builderParameterAdd(IColumn column)
         {
-            if (!column.isStringTypeWithoutLength && column.isStringType)
+            if (!column.IsStringTypeWithoutLength && column.IsStringType)
             {
                 builderParameterAddStringDbType( column);
             }
@@ -196,7 +196,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 		{
 			string s;
 
-			if (column.isStringTypeWithoutLength)
+			if (column.IsStringTypeWithoutLength)
 			{
 				s = "builder.AddParameter(\"" + parameterSymbol
 						   + column.Name

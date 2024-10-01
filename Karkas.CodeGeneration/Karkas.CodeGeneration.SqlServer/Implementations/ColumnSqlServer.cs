@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -620,7 +620,7 @@ AND KCU1.COLUMN_NAME = @COLUMN_NAME
             {
 
                 int charMaxLength = 0;
-                if (isStringType)
+                if (IsStringType)
                 {
                     charMaxLength = Convert.ToInt32(columnValuesFromInformationSchema["CHARACTER_MAXIMUM_LENGTH"]);
                 }
@@ -628,11 +628,11 @@ AND KCU1.COLUMN_NAME = @COLUMN_NAME
             }
         }
 
-        public bool isStringTypeWithoutLength
+        public bool IsStringTypeWithoutLength
         {
             get
             {
-                if (isStringType)
+                if (IsStringType)
                 {
                     string lowerDataType = this.SqlDataTypeName.ToLowerInvariant();
                     if (
@@ -647,7 +647,7 @@ AND KCU1.COLUMN_NAME = @COLUMN_NAME
             }
         }
 
-        public bool isStringType
+        public bool IsStringType
         {
             get
             {
@@ -670,7 +670,7 @@ AND KCU1.COLUMN_NAME = @COLUMN_NAME
         }
 
 
-        public bool isNumericType
+        public bool IsNumericType
         {
             get
             {

@@ -773,7 +773,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         public virtual void builderParameterAdd(IColumn column)
         {
-            if (!column.isStringTypeWithoutLength && column.isStringType)
+            if (!column.IsStringTypeWithoutLength && column.IsStringType)
             {
                 builderParameterAddStringDbType(column);
             }
