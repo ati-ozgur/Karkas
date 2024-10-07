@@ -1,5 +1,8 @@
 # todo
 
+1. Use events for database logging.
+
+
 
 
 ## First to look
