@@ -1,8 +1,15 @@
 # todo
 
+1. Code metrics
+https://learn.microsoft.com/en-us/visualstudio/code-quality/how-to-generate-code-metrics-data?view=vs-2022
+https://www.nuget.org/packages/Microsoft.CodeAnalysis.Metrics/
+
 1. Use events for database logging.
+or logging and if wanted they will use db or others.
+https://elmah.github.io/
+https://github.com/elmah/Elmah
 
-
+2. docker commit???
 
 
 ## First to look
