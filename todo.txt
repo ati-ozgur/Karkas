@@ -1,5 +1,11 @@
 # todo
 
+1. dotnet tool install
+dotnet pack /property:Version=0.0.1 
+
+https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools-how-to-create
+
+
 1. Code metrics
 https://learn.microsoft.com/en-us/visualstudio/code-quality/how-to-generate-code-metrics-data?view=vs-2022
 https://www.nuget.org/packages/Microsoft.CodeAnalysis.Metrics/
