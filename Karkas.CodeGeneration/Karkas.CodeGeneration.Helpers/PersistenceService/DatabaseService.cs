@@ -18,15 +18,30 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
         public static List<CodeGenerationConfig> getAllDatabaseEntries(string configFileName)
         {
             string json_filename;
-            if(Path.IsPathRooted(configFileName))
+			string tool_install_directory = AppDomain.CurrentDomain.BaseDirectory;
+			string process_start_directory = Directory.GetCurrentDirectory();
+
+			process_start_directory += "/";
+
+			if (Path.IsPathRooted(configFileName))
             {
                 json_filename = configFileName;
             }
             else
             {
-                json_filename = $"{AppDomain.CurrentDomain.BaseDirectory}{configFileName}";
-            }
-            string jsonString = File.ReadAllText(json_filename);
+                json_filename = $"{tool_install_directory}{configFileName}";
+				if(!File.Exists(json_filename))
+				{
+					Console.WriteLine($"file {json_filename} is not found using tool install directory:{tool_install_directory} ");
+				}
+				json_filename = $"{process_start_directory}{configFileName}";
+				if (!File.Exists(json_filename))
+				{
+					Console.WriteLine($"file {json_filename} is not found using process start directory:{process_start_directory} ");
+					throw new ArgumentException("config filename does not exits");
+				}
+			}
+			string jsonString = File.ReadAllText(json_filename);
             List<CodeGenerationConfig> entries = new List<CodeGenerationConfig>();
             if (string.IsNullOrWhiteSpace(jsonString))
             {
@@ -53,14 +68,14 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
         public static CodeGenerationConfig GetByConnectionName(string configFileName,string connectionName)
         {
-            var liste = getAllDatabaseEntries(configFileName);            
+            var liste = getAllDatabaseEntries(configFileName);
             foreach (var e in liste)
             {
                 if(e.ConnectionName == connectionName)
                 {
                     return e;
                 }
-                
+
             }
             throw new Exception($"connection {connectionName} is not found");
         }
@@ -74,7 +89,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
             de.ProjectNameSpace = "Karkas.Example";
             de.ConnectionDatabaseType = DatabaseType.SqlServer;
             de.ConnectionName = "KARKAS_EXAMPLE";
-            
+
             de.ConnectionString = "Integrated Security = SSPI; Persist Security Info=False;Initial Catalog=KARKAS_EXAMPLE;Data Source=localhost";
             de.setTimeValues();
             return de;

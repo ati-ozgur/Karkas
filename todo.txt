@@ -1,7 +1,13 @@
 # todo
 
 1. dotnet tool install
+
 dotnet pack /property:Version=0.0.1 
+
+dotnet tool install --global --add-source ./Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp/nupkg/ Karkas.CodeGeneration.ConsoleApp
+
+dotnet tool uninstall --global karkas.codegeneration.consoleapp
+
 
 https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools-how-to-create
 
