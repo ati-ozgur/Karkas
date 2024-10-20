@@ -14,33 +14,41 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
     {
 
 
-
-        public static List<CodeGenerationConfig> getAllDatabaseEntries(string configFileName)
-        {
-            string json_filename;
+		private static string findJsonFileNamePath(string configFileName)
+		{
+			string json_filename;
 			string tool_install_directory = AppDomain.CurrentDomain.BaseDirectory;
 			string process_start_directory = Directory.GetCurrentDirectory();
 
 			process_start_directory += "/";
 
 			if (Path.IsPathRooted(configFileName))
-            {
-                json_filename = configFileName;
-            }
-            else
-            {
-                json_filename = $"{tool_install_directory}{configFileName}";
-				if(!File.Exists(json_filename))
-				{
-					Console.WriteLine($"file {json_filename} is not found using tool install directory:{tool_install_directory} ");
-				}
-				json_filename = $"{process_start_directory}{configFileName}";
-				if (!File.Exists(json_filename))
-				{
-					Console.WriteLine($"file {json_filename} is not found using process start directory:{process_start_directory} ");
-					throw new ArgumentException("config filename does not exits");
-				}
+			{
+				json_filename = configFileName;
+				return json_filename;
 			}
+			json_filename = $"{tool_install_directory}{configFileName}";
+			if (File.Exists(json_filename))
+			{
+				return json_filename;
+			}
+			else
+			{
+				Console.WriteLine($"file {json_filename} is not found using tool install directory:{tool_install_directory} ");
+			}
+			json_filename = $"{process_start_directory}{configFileName}";
+			if (File.Exists(json_filename))
+			{
+				return json_filename;
+			}
+			Console.WriteLine($"file {json_filename} is not found using process start directory:{process_start_directory} ");
+			throw new ArgumentException($"config filename: {configFileName} does not exits");
+		}
+
+
+		public static List<CodeGenerationConfig> getAllDatabaseEntries(string configFileName)
+        {
+			string json_filename = findJsonFileNamePath(configFileName);
 			string jsonString = File.ReadAllText(json_filename);
             List<CodeGenerationConfig> entries = new List<CodeGenerationConfig>();
             if (string.IsNullOrWhiteSpace(jsonString))
