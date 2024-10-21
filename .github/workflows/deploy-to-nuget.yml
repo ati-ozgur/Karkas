@@ -3,9 +3,6 @@ name: deploy-to-nuget
 on:
   workflow_dispatch:
   push:
-    branches: [ "master" ]
-on:
-  push:
     tags:
       - v1.**
 
