@@ -9,6 +9,8 @@
   <Description>A code generation framework for data operations</Description>    
   <PackageLicenseExpression>MIT</PackageLicenseExpression>
   <PackageReadmeFile>README.md</PackageReadmeFile>  
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+      
   </PropertyGroup>
 
   
