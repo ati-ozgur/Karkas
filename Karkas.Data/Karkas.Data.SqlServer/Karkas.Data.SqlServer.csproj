@@ -4,6 +4,11 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
+  <PackageId>Karkas.Data.SqlServer</PackageId>
+  <Authors>Atilla Özgür</Authors>
+  <Description>A code generation framework for data operations</Description>    
+  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  <PackageReadmeFile>README.md</PackageReadmeFile>  
   </PropertyGroup>
 
   <ItemGroup>

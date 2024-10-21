@@ -5,7 +5,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
   <PackageId>Karkas.Data</PackageId>
-  <Version>1.0.0</Version>
   <Authors>Atilla Özgür</Authors>
   <Description>A code generation framework for data operations</Description>    
   <PackageLicenseExpression>MIT</PackageLicenseExpression>
