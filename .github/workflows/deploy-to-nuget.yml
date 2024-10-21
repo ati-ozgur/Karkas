@@ -1,0 +1,30 @@
+name: deploy-to-nuget
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "master" ]
+on:
+  push:
+    tags:
+      - v1.**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: deploy nuget bash
+      shell: bash
+      run: ./deploy_nuget_packages.bash
+      env:
+        KARKAS_NUGET_API_KEY: ${{ secrets.KARKAS_NUGET_API_KEY }}
+
+
+
+
