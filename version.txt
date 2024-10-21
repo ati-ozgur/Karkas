@@ -1,2 +1,3 @@
 KarkasDataVersion=1.0.1
-KarkasCodeGenVersion=1.0.2
+KarkasCodeGenVersion=1.0.1
+
