@@ -27,6 +27,12 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 				json_filename = configFileName;
 				return json_filename;
 			}
+			json_filename = $"{process_start_directory}{configFileName}";
+			if (File.Exists(json_filename))
+			{
+				return json_filename;
+			}
+			Console.WriteLine($"file {json_filename} is not found using process start directory:{process_start_directory} ");
 			json_filename = $"{tool_install_directory}{configFileName}";
 			if (File.Exists(json_filename))
 			{
@@ -36,12 +42,6 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 			{
 				Console.WriteLine($"file {json_filename} is not found using tool install directory:{tool_install_directory} ");
 			}
-			json_filename = $"{process_start_directory}{configFileName}";
-			if (File.Exists(json_filename))
-			{
-				return json_filename;
-			}
-			Console.WriteLine($"file {json_filename} is not found using process start directory:{process_start_directory} ");
 			throw new ArgumentException($"config filename: {configFileName} does not exits");
 		}
 
