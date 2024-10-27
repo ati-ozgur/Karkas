@@ -3,8 +3,8 @@ name: deploy-to-nuget
 on:
   workflow_dispatch:
   push:
-    tags:
-      - v1.**
+    paths:
+      - 'version.txt'
 
 jobs:
   build:
