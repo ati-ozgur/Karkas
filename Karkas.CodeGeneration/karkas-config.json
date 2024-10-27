@@ -5,7 +5,7 @@
     "ConnectionName": "ChinookSqliteAutoIncrement",
     "ConnectionDatabaseType": "sqlite",
     "ConnectionDbProviderName": "Microsoft.Data.Sqlite",
-    "ConnectionString": "Data Source=./Karkas.Examples/Chinook/Chinook-auto-increment.db;Mode=ReadWrite;",
+    "ConnectionString": "Data Source=./Karkas.Examples/Chinook/Chinook-auto-increment.sqlite;Mode=ReadWrite;",
     "UseMultipleDatabaseNames": false,
     "ProjectNameSpace": "Karkas.Examples.Chinook",
     "CodeGenerationDirectory": "./Karkas.Examples/GeneratedProjects/ChinookSqliteAutoIncrement",

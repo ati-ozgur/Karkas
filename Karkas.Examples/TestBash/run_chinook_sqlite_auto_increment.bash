@@ -26,7 +26,7 @@ cp --recursive ../../TestCSharp/Helpers/ .
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqlite.cs ConnectionHelper.cs
 cp --recursive ../../TestCSharp/Bs/ .
 cp --recursive ../../TestCSharp/Dal/ .
-cp ../../Chinook/Chinook-auto-increment.db Chinook.db
+cp ../../Chinook/Chinook-auto-increment.sqlite Chinook.sqlite
 dotnet build
 dotnet run
 
