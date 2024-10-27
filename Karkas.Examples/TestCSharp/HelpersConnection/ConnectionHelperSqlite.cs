@@ -19,7 +19,7 @@ namespace Karkas.Examples
 
         public static void SetupDatabaseConnection()
         {
-            string dbConnectionString = "Data Source=Chinook.db;Mode=ReadWrite;";
+            string dbConnectionString = "Data Source=Chinook.sqlite;Mode=ReadWrite;";
             string dbProviderName = "Microsoft.Data.Sqlite";
             DbProviderFactories.RegisterFactory(dbProviderName, Microsoft.Data.Sqlite.SqliteFactory.Instance);
             ConnectionSingleton.Instance.AddConnection("Main", dbProviderName, dbConnectionString);
