@@ -36,6 +36,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 			json_filename = $"{tool_install_directory}{configFileName}";
 			if (File.Exists(json_filename))
 			{
+				Console.WriteLine($"file {json_filename} is found using tool install directory:{process_start_directory} ");
 				return json_filename;
 			}
 			else
