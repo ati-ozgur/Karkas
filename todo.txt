@@ -1,4 +1,9 @@
 # todo
+1. Sqlite datatypes hata veriyor onu düzelt.
+
+2. Sqlite date time handling için gerekli conversion kodlarını yaz ve ekle.
+
+
 
 1. dotnet tool install
 
