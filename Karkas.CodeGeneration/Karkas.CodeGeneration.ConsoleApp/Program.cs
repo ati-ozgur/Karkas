@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Data;
-using System.Data.Common;
-using System.Drawing.Text;
 
 
 using Karkas.CodeGeneration.Helpers;
@@ -102,7 +99,7 @@ namespace Karkas.CodeGeneration.ConsoleApp
                     Console.WriteLine($"NOT Supported yet in command line {codeGenerationConfig.ConnectionDatabaseType}");
                     break;
             }
-            
+
 
             string result = generator.CodeGenerateAllTables();
             Console.WriteLine("Code generation finished");
