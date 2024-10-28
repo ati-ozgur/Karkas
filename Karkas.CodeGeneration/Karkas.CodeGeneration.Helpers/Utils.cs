@@ -201,6 +201,9 @@ namespace Karkas.CodeGeneration.Helpers
                 case "DateTime":
                     result = $"Convert.ToDateTime({pValue})";
                     break;
+                case "bool":
+	                result = $"Convert.ToBoolean({pValue})";
+	                break;
 
                 default:
                     throw new Exception($"Not Supported type: {pType} in GetConvertToSyntax value: {pValue}");
