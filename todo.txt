@@ -1,4 +1,10 @@
 # todo
+
+1. tek connection varsa. connection ismi istemeden çalış.
+
+2. tablo ismi veya listesi ile çalışma
+
+
 1. Sqlite datatypes hata veriyor onu düzelt.
 
 2. Sqlite date time handling için gerekli conversion kodlarını yaz ve ekle.
