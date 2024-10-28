@@ -19,7 +19,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
     public class CodeGenerationOracle : BaseCodeGenerationDatabase
     {
 
-        public CodeGenerationOracle(IAdoTemplate<IParameterBuilder> template, CodeGenerationConfig pCodeGenerationConfig): base(template,pCodeGenerationConfig)        
+        public CodeGenerationOracle(IAdoTemplate<IParameterBuilder> template, CodeGenerationConfig pCodeGenerationConfig): base(template,pCodeGenerationConfig)
         {
 
         }
@@ -31,7 +31,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
         List<ITable> _tables;
         public override List<ITable> Tables
         {
-            get 
+            get
             {
                 if (_tables == null)
                 {
@@ -67,7 +67,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
                 {
                     _viewList = new List<IView>();
 
-                    List<Dictionary<string,object>>  dtViews = getViewListFromSchema(null);
+                    List<Dictionary<string,object>>  dtViews = GetViewListFromSchema(null);
                     foreach (var row in dtViews)
                     {
                         IView t = new ViewOracle(this, Template, row["TABLE_NAME"].ToString(), row["TABLE_SCHEMA"].ToString());
@@ -82,7 +82,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
 
 
 
-        public override ITable getTable(string pTableName, string pSchemaName)
+        public override ITable GetTable(string pTableName, string pSchemaName)
         {
             return new TableOracle(this,Template, pTableName, pSchemaName);
         }
@@ -98,7 +98,7 @@ select username from ALL_users
 ORDER BY SCHEMA_NAME";
         private const string SQL_FOR_TABLE_LIST = @"
 SELECT OWNER AS TABLE_SCHEMA, TABLE_NAME,OWNER || '.' || TABLE_NAME  AS FULL_TABLE_NAME  FROM  ALL_TABLES T
-WHERE  
+WHERE
 (:TABLE_SCHEMA IS NULL) OR ( lower(OWNER) = lower(:TABLE_SCHEMA))
 
 ORDER BY FULL_TABLE_NAME
@@ -106,7 +106,7 @@ ORDER BY FULL_TABLE_NAME
 
 
 
-        public override List<Dictionary<string,object>>  getTableListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  GetTableListFromSchema(string schemaName)
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":TABLE_SCHEMA", DbType.String, schemaName);
@@ -117,11 +117,11 @@ ORDER BY FULL_TABLE_NAME
         private const string SQL_FOR_VIEW_LIST = @"
 SELECT OWNER AS VIEW_SCHEMA, VIEW_NAME,OWNER || '.' || VIEW_NAME  AS FULL_VIEW_NAME
 FROM  ALL_VIEWS V
-WHERE  
+WHERE
 (:TABLE_SCHEMA IS NULL) OR ( lower(OWNER) = lower(:TABLE_SCHEMA))
 ORDER BY FULL_VIEW_NAME
 ";
-        public override List<Dictionary<string,object>>  getViewListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  GetViewListFromSchema(string schemaName)
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":TABLE_SCHEMA", DbType.String, schemaName);
@@ -133,11 +133,11 @@ ORDER BY FULL_VIEW_NAME
 SELECT AO.owner AS SP_SCHEMA_NAME, AO.object_name AS STORED_PROCEDURE_NAME
 FROM all_objects AO
 WHERE object_type = 'PROCEDURE'
-AND  
+AND
 ( (:SP_SCHEMA_NAME IS NULL) OR ( lower(OWNER) = lower(:SP_SCHEMA_NAME)))
 ORDER BY STORED_PROCEDURE_NAME
 ";
-        public override List<Dictionary<string,object>>  getStoredProcedureListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  GetStoredProcedureListFromSchema(string schemaName)
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":SP_SCHEMA_NAME", DbType.String, schemaName);
@@ -148,13 +148,13 @@ ORDER BY STORED_PROCEDURE_NAME
         private const string SQL_FOR_SEQUENCES_LIST = @"
 SELECT AO.owner AS SEQ_SCHEMA_NAME, AO.object_name AS SEQUENCE_NAME
 FROM all_objects AO
-WHERE 
+WHERE
  object_type = 'SEQUENCE'
- AND  
+ AND
 ( (:SEQ_SCHEMA_NAME IS NULL) OR ( lower(OWNER) = lower(:SEQ_SCHEMA_NAME)))
 ORDER BY SEQUENCE_NAME
 ";
-        public override List<Dictionary<string,object>>  getSequenceListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  GetSequenceListFromSchema(string schemaName)
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter(":SEQ_SCHEMA_NAME", DbType.String, schemaName);
@@ -162,9 +162,9 @@ ORDER BY SEQUENCE_NAME
             return dtTableList;
         }
 
-        
 
-        public override string[] getSchemaList()
+
+        public override string[] GetSchemaList()
         {
             var dt = Template.GetRows(SQL_FOR_SCHEMA_LIST);
             var schemaList = new List<string>();

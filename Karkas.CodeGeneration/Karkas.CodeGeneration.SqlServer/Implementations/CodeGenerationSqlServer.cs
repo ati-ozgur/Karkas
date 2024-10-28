@@ -20,7 +20,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
     {
 
         public CodeGenerationSqlServer(IAdoTemplate<IParameterBuilder> pTemplate,CodeGenerationConfig pCodeGenerationConfig)
-        : base(pTemplate,pCodeGenerationConfig)        
+        : base(pTemplate,pCodeGenerationConfig)
         {
 
         }
@@ -63,7 +63,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
                 {
                     _viewList = new List<IView>();
 
-                    List<Dictionary<string,object>>  dtViews = getViewListFromSchema(null);
+                    List<Dictionary<string,object>>  dtViews = GetViewListFromSchema(null);
                     foreach (var row in dtViews)
                     {
                         IView t = new ViewSqlServer(this, Template, row["TABLE_NAME"].ToString(), row["TABLE_SCHEMA"].ToString());
@@ -82,7 +82,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
         }
 
 
-        public override ITable getTable(string pTableName, string pSchemaName)
+        public override ITable GetTable(string pTableName, string pSchemaName)
         {
             ITable t = new TableSqlServer(this, Template, pTableName, pSchemaName);
             return t;
@@ -116,7 +116,7 @@ SELECT DISTINCT TABLE_CATALOG FROM INFORMATION_SCHEMA.TABLES
 ";
 
 
-        public override List<Dictionary<string,object>>  getTableListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  GetTableListFromSchema(string schemaName)
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@TABLE_SCHEMA", DbType.String, schemaName);
@@ -133,7 +133,7 @@ ORDER BY FULL_VIEW_NAME
 ";
 
 
-        public override List<Dictionary<string,object>>  getViewListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  GetViewListFromSchema(string schemaName)
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@TABLE_SCHEMA", DbType.String, schemaName);
@@ -155,7 +155,7 @@ ORDER BY STORED_PROCEDURE_NAME
 ";
 
 
-        public override List<Dictionary<string,object>>  getStoredProcedureListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  GetStoredProcedureListFromSchema(string schemaName)
         {
             IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("@SP_SCHEMA_NAME", DbType.String, schemaName);
@@ -179,7 +179,7 @@ ORDER BY SEQUENCE_NAME
 
         private bool? isSequenceSupported;
 
-        public override List<Dictionary<string,object>>  getSequenceListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  GetSequenceListFromSchema(string schemaName)
         {
             List<Dictionary<string,object>>  dt = new List<Dictionary<string,object>>();
             if (!isSequenceSupported.HasValue)
@@ -243,7 +243,7 @@ ORDER BY SEQUENCE_NAME
         }
 
 
-        public override string[] getSchemaList()
+        public override string[] GetSchemaList()
         {
             List<Dictionary<string,object>>  dt = Template.GetRows(SQL_FOR_SCHEMA_LIST);
             string[] schemaList = new string[dt.Count];
@@ -254,7 +254,7 @@ ORDER BY SEQUENCE_NAME
             }
             return schemaList;
         }
-    
+
 
 
         public override void CodeGenerateOneSequence(string sequenceName, string schemaName)

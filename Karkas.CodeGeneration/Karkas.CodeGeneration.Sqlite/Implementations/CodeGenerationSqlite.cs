@@ -20,23 +20,23 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
     {
 
 
-        public CodeGenerationSqlite(IAdoTemplate<IParameterBuilder> template,CodeGenerationConfig pCodeGenerationConfig): base(template,pCodeGenerationConfig) 
+        public CodeGenerationSqlite(IAdoTemplate<IParameterBuilder> template,CodeGenerationConfig pCodeGenerationConfig): base(template,pCodeGenerationConfig)
         {
 
         }
 
 
-        private const string TABLE_LIST_SQL = @"SELECT '' AS TABLE_SCHEMA, 
+        private const string TABLE_LIST_SQL = @"SELECT '' AS TABLE_SCHEMA,
                                                 name AS TABLE_NAME,
-                                                name AS FULL_TABLE_NAME 
+                                                name AS FULL_TABLE_NAME
                                                  FROM sqlite_master
                                                 WHERE type='table'
                                                  ORDER BY name;";
 
 
-        private const string VIEW_LIST_SQL = @"SELECT '' AS TABLE_SCHEMA, 
+        private const string VIEW_LIST_SQL = @"SELECT '' AS TABLE_SCHEMA,
                                                 name AS VIEW_NAME,
-                                                name AS FULL_VIEW_NAME 
+                                                name AS FULL_VIEW_NAME
                                                 FROM sqlite_master
                                                 WHERE type='view'
                                                 ORDER BY name;";
@@ -46,7 +46,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         public override List<ITable> Tables
         {
-            get 
+            get
             {
                 if (_tableList == null)
                 {
@@ -60,7 +60,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                     }
                 }
                 return _tableList;
-                
+
             }
         }
         List<IView> _viewList;
@@ -73,7 +73,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                 {
                     _viewList = new List<IView>();
 
-                    var dtViews = getViewListFromSchema(null);
+                    var dtViews = GetViewListFromSchema(null);
                     foreach (var row in dtViews)
                     {
                         IView t = new ViewSqlite(this, Template, row["TABLE_NAME"].ToString(), row["TABLE_SCHEMA"].ToString());
@@ -98,7 +98,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         }
 
 
-        public override ITable getTable(string pTableName, string pSchemaName)
+        public override ITable GetTable(string pTableName, string pSchemaName)
         {
             return new TableSqlite(this, Template, pTableName, pSchemaName);
         }
@@ -115,32 +115,32 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             return "";
         }
 
-        public override List<Dictionary<string,object>>  getTableListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  GetTableListFromSchema(string schemaName)
         {
             return getTableList();
         }
 
-        public override List<Dictionary<string,object>>  getViewListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>>  GetViewListFromSchema(string schemaName)
         {
             List<Dictionary<string,object>>  dtView = Template.GetRows(TABLE_LIST_SQL);
             return dtView;
 
         }
 
-        public override List<Dictionary<string,object>> getStoredProcedureListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>> GetStoredProcedureListFromSchema(string schemaName)
         {
             // sqlite does not support stored procedures
             return new List<Dictionary<string,object>>();
         }
 
-        public override List<Dictionary<string,object>> getSequenceListFromSchema(string schemaName)
+        public override List<Dictionary<string,object>> GetSequenceListFromSchema(string schemaName)
         {
             // sqlite does not support sequences
             return new List<Dictionary<string,object>>();
         }
 
 
-        public override string[] getSchemaList()
+        public override string[] GetSchemaList()
         {
             return new string[] { "main"};
         }

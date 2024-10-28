@@ -26,9 +26,9 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
             {
                 return template;
             }
-            set 
-            { 
-                template = value; 
+            set
+            {
+                template = value;
             }
         }
 
@@ -39,13 +39,13 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         public abstract List<ITable> Tables { get; }
         public abstract List<IView> Views { get; }
 
-        public abstract List<Dictionary<string,object>>  getTableListFromSchema(string schemaName);
-        public abstract List<Dictionary<string,object>>  getViewListFromSchema(string schemaName);
-        public abstract List<Dictionary<string,object>>  getStoredProcedureListFromSchema(string schemaName);
-        public abstract List<Dictionary<string,object>>  getSequenceListFromSchema(string schemaName);
-        
+        public abstract List<Dictionary<string,object>>  GetTableListFromSchema(string schemaName);
+        public abstract List<Dictionary<string,object>>  GetViewListFromSchema(string schemaName);
+        public abstract List<Dictionary<string,object>>  GetStoredProcedureListFromSchema(string schemaName);
+        public abstract List<Dictionary<string,object>>  GetSequenceListFromSchema(string schemaName);
 
-        public abstract ITable getTable(string pTableName, string pSchemaName);
+
+        public abstract ITable GetTable(string pTableName, string pSchemaName);
 
         public string CodeGenerateAllTables()
         {
@@ -74,7 +74,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
             }
             else
             {
-                var dtTables = getTableListFromSchema(pSchemaName);
+                var dtTables = GetTableListFromSchema(pSchemaName);
 
                 foreach (var item in dtTables)
                 {
@@ -94,7 +94,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         public string CodeGenerateAllViewsInSchema(string pSchemaName)
         {
             StringBuilder exceptionMessages = new StringBuilder();
-            var dtViews = getViewListFromSchema(pSchemaName);
+            var dtViews = GetViewListFromSchema(pSchemaName);
             foreach (var item in dtViews )
             {
                 try
@@ -134,9 +134,9 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         public abstract IView GetView(string pViewName, string pSchemaName);
 
         public abstract bool CheckIfCodeShouldBeGenerated(string pTableName, string pSchemaName);
-        
 
-        
+
+
 
         public void CodeGenerateOneTable(string pTableName, string pSchemaName)
         {
@@ -146,7 +146,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
                 DalGenerator dalGen = this.DalGenerator;
                 BsGenerator bsGen =  this.BsGenerator;
 
-                ITable table = this.getTable(pTableName, pSchemaName);
+                ITable table = this.GetTable(pTableName, pSchemaName);
 
 
                 typeGen.Render(table);
@@ -182,7 +182,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         public string CodeGenerateAllSequencesInSchema(string schemaName)
         {
             StringBuilder exceptionMessages = new StringBuilder();
-            var dtSequenceList = getSequenceListFromSchema(schemaName);
+            var dtSequenceList = GetSequenceListFromSchema(schemaName);
             foreach (var row in dtSequenceList)
             {
                 try
@@ -202,7 +202,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         public string CodeGenerateAllSequences()
         {
             StringBuilder exceptionMessages = new StringBuilder();
-            var dtSequenceList = getSequenceListFromSchema(getDefaultSchema());
+            var dtSequenceList = GetSequenceListFromSchema(getDefaultSchema());
             foreach (var row in dtSequenceList)
             {
                 try
@@ -226,14 +226,14 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         {
             get;
         }
-        public abstract TypeLibraryGenerator TypeLibraryGenerator 
-        { 
-            get; 
+        public abstract TypeLibraryGenerator TypeLibraryGenerator
+        {
+            get;
         }
 
 
 
-        public abstract string[] getSchemaList();
+        public abstract string[] GetSchemaList();
 
         public abstract string getDefaultSchema();
 
