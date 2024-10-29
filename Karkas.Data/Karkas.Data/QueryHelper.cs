@@ -13,7 +13,7 @@ namespace Karkas.Data
         }
 
 
-        public string ParameterCharacter { get; set; }
+        public string ParameterCharacter { get;  }
 
         List<OrderBy> listOrderBy = new List<OrderBy>();
         List<WhereCriteria> listWhere = new List<WhereCriteria>();
@@ -83,7 +83,7 @@ namespace Karkas.Data
             WhereCriteria wk = new WhereCriteria(pColumnName,WhereOperatorEnum.Equals , ParameterCharacter + pColumnName);
             listWhere.Add(wk);
         }
-        
+
         public void AddWhereCriteria(string pColumnName, WhereOperatorEnum whereOperator)
         {
             WhereCriteria wk = new WhereCriteria(pColumnName, whereOperator, ParameterCharacter + pColumnName);

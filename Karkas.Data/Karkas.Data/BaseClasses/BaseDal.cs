@@ -152,7 +152,7 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
     public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string[] pListFilterColumnNames, object[] pListValues, WhereOperatorEnum[] pWhereOperators)
     {
         List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
-        QueryHelper sy = QueryHelper;
+        QueryHelper sy = GetNewQueryHelper();
         IParameterBuilder builder = getParameterBuilder();
         for (int i = 0; i < pListFilterColumnNames.Length; i++)
         {
@@ -173,19 +173,16 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
     public abstract string ParameterCharacter { get;  }
 
 
-    public virtual QueryHelper QueryHelper
+    public virtual QueryHelper GetNewQueryHelper()
     {
-        get
-        {
             return new QueryHelper(this.ParameterCharacter);
-        }
     }
 
 
     public virtual List<TYPE_LIBRARY_TYPE> QueryAllOrderBy(params string[] pListOrderBy)
     {
         List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
-        QueryHelper sy = QueryHelper;
+        QueryHelper sy = GetNewQueryHelper();
         int listeUzunluk = pListOrderBy.Length;
         for (int i = 0; i < listeUzunluk; i++)
         {
