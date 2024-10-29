@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Collections;
-using System.Data;
-using System.Data.SqlClient;
-using System.Xml;
-using Karkas.CodeGeneration.Helpers.Generators;
-using System.IO;
-using System.Globalization;
-using Karkas.CodeGeneration.Helpers.Interfaces;
+﻿using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 namespace Karkas.CodeGeneration.Helpers
@@ -28,7 +18,7 @@ namespace Karkas.CodeGeneration.Helpers
 
 
 
-  
+
 
 
         public string FindPrimaryKeyColumnName(IContainer container)
