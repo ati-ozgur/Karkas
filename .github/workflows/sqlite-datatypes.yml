@@ -1,4 +1,4 @@
-name: chinook-datatypes
+name: sqlite-datatypes
 
 on:
   workflow_dispatch:
