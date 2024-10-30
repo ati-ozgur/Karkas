@@ -1,4 +1,4 @@
-name: chinook-oracle-data-types
+name: oracle-data-types
 
 on:
   workflow_dispatch:

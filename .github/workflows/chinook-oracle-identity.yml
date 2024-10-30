@@ -1,4 +1,4 @@
-name: chinook-oracle-identity
+name: oracle-chinook-identity
 
 on:
   workflow_dispatch:

@@ -1,4 +1,4 @@
-name: chinook-oracle-normal
+name: oracle-chinook-normal
 
 on:
   workflow_dispatch:

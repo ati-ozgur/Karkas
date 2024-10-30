@@ -1,4 +1,4 @@
-name: chinook-sqlserver
+name: sqlserver-chinook
 
 on:
   workflow_dispatch:

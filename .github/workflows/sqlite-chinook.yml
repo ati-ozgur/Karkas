@@ -1,4 +1,4 @@
-name: chinook-sqlite
+name: sqlite-chinook
 
 on:
   workflow_dispatch:
