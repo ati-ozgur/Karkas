@@ -7,13 +7,16 @@
 # The -o pipefail option sets the exit code of a pipeline to 
 # that of the rightmost command to exit with a non-zero status.
 
+
+STOP=${1-false}
+
 set -euo pipefail
 
 CONTAINER_NAME="datatypes-sqlserver-container1"
 IMAGE_NAME="datatypes-sqlserver-image1"
 DB_PASSWORD="Karkas@Passw0rd"
 
-#!/bin/bash
+
 
 WORKING_DIR=$PWD
 echo $PWD
@@ -78,4 +81,10 @@ cp --recursive ../../TestCSharp/Dal/ .
 
 dotnet build
 dotnet run
+
+if [ $STOP = "stop" ]; then
+  echo "stopping and removing containers"
+  docker stop "$CONTAINER_NAME" &>/dev/null && echo "Stopped container $CONTAINER_NAME"
+  docker rm "$CONTAINER_NAME"
+fi
 

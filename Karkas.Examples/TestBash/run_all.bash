@@ -16,10 +16,10 @@ echo "dirname : [$current_script_directory]"
 echo "pwd     : [$(pwd)]"
 
 $current_script_directory/run_chinook_sqlite_auto_increment.bash
-$current_script_directory/run_chinook_oracle_auto_increment.bash
-$current_script_directory/run_chinook_oracle_normal.bash
-$current_script_directory/run_chinook_sqlserver_auto_increment.bash
+$current_script_directory/run_chinook_oracle_auto_increment.bash stop
+$current_script_directory/run_chinook_oracle_normal.bash stop
+$current_script_directory/run_chinook_sqlserver_auto_increment.bash  stop
 $current_script_directory/run_datatypes_sqlite.bash
-$current_script_directory/run_datatypes_oracle.bash
-$current_script_directory/run_datatypes_sqlserver.bash
+$current_script_directory/run_datatypes_oracle.bash stop
+$current_script_directory/run_datatypes_sqlserver.bash stop
 
