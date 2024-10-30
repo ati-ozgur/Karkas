@@ -17,7 +17,7 @@ dotnet add package Microsoft.Data.Sqlite
 dotnet add reference "../../../Karkas.Data/Karkas.Data/Karkas.Data.csproj"
 dotnet add reference "../../../Karkas.Data/Karkas.Data.Sqlite/Karkas.Data.Sqlite.csproj"
 
-cp ../../TestCSharp/Programs/ProgramDataTypes.cs Program.cs
+cp ../../TestCSharp/Programs/ProgramDataTypesSqlite.cs Program.cs
 cp ../../TestCSharp/GlobalUsings/GlobalUsings.cs GlobalUsings.cs
 cp ../../TestCSharp/GlobalUsings/GlobalUsingsDataTypes.cs GlobalUsingsDataTypes.cs
 
