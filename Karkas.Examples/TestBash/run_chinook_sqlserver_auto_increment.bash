@@ -78,8 +78,8 @@ cp --recursive ../../TestCSharp/Helpers/ .
 cp ../../TestCSharp/HelpersTest/TestHelperChinook.cs TestHelperChinook.cs
 
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqlServerChinook.cs ConnectionHelper.cs
-cp --recursive ../../TestCSharp/Bs/ .
-cp --recursive ../../TestCSharp/Dal/ .
+cp --recursive ../../TestCSharp/Bs/Karkas.Examples.Chinook.Bs .
+cp --recursive ../../TestCSharp/Dal/Karkas.Examples.Chinook.Dal .
 
 
 dotnet build
