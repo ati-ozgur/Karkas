@@ -1,12 +1,7 @@
 
-global using System;
-global using System.Data.Common;
 global using Microsoft.Data.Sqlite;
-
-global using Karkas.Data;
 global using Karkas.Data.Sqlite;
 
-using Karkas.Data.Sqlite;
 
 namespace Karkas.Examples
 {

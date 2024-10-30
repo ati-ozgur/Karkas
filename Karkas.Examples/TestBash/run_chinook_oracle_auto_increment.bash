@@ -19,7 +19,7 @@ WORKING_DIR=$PWD
 echo $PWD
 
 
-cd ./Karkas.Examples/TestBash/chinook-oracle
+cd ./Karkas.Examples/Databases/chinook-oracle
 
 docker build -f DockerfileAutoIncrement -t $IMAGE_NAME .
 
@@ -57,13 +57,13 @@ dotnet add package Oracle.ManagedDataAccess.Core
 dotnet add reference "../../../Karkas.Data/Karkas.Data/Karkas.Data.csproj"
 dotnet add reference "../../../Karkas.Data/Karkas.Data.Oracle/Karkas.Data.Oracle.csproj"
 
-cp ../../TestCSharp/ProgramChinookAutoIncrement.cs Program.cs
-cp ../../TestCSharp/GlobalUsings.cs GlobalUsings.cs
-cp ../../TestCSharp/GlobalUsingsChinook.cs GlobalUsingsChinook.cs
+cp ../../TestCSharp/Programs/ProgramChinookAutoIncrement.cs Program.cs
+cp ../../TestCSharp/GlobalUsings/GlobalUsings.cs GlobalUsings.cs
+cp ../../TestCSharp/GlobalUsings/GlobalUsingsChinook.cs GlobalUsingsChinook.cs
 
 
 cp --recursive ../../TestCSharp/Helpers/ .
-cp ../../TestCSharp/HelpersConnection/ConnectionHelperOracle.cs ConnectionHelper.cs
+cp ../../TestCSharp/HelpersConnection/ConnectionHelperOracleChinook.cs ConnectionHelper.cs
 cp --recursive ../../TestCSharp/Bs/ .
 cp --recursive ../../TestCSharp/Dal/ .
 

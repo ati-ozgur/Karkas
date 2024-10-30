@@ -1,11 +1,6 @@
-global using System;
-global using System.Data.Common;
 global using System.Data.SqlClient;
-
-global using Karkas.Data;
 global using Karkas.Data.SqlServer;
 
-using Karkas.Data.SqlServer;
 
 namespace Karkas.Examples
 {

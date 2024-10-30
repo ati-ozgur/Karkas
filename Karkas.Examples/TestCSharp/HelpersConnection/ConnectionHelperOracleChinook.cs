@@ -1,9 +1,6 @@
-global using System;
-global using System.Data.Common;
 global using Oracle.ManagedDataAccess.Client;
-
-global using Karkas.Data;
 global using Karkas.Data.Oracle;
+
 
 
 
