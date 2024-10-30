@@ -26,7 +26,7 @@ cp --recursive ../../TestCSharp/Helpers/ .
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqlite.cs ConnectionHelper.cs
 cp --recursive ../../TestCSharp/Bs/ .
 cp --recursive ../../TestCSharp/Dal/ .
-cp ../../TestBash/datatypes.sqlite DataTypes.sqlite
+cp ../../Databases/datatypes.sqlite DataTypes.sqlite
 dotnet build
 dotnet run
 
