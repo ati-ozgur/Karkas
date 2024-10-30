@@ -3,7 +3,7 @@ name: sqlserver-chinook
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["chinook-sqlite"]
+    workflows: ["sqlite-chinook"]
     branches: [master]
     types: 
       - completed

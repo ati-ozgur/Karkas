@@ -3,7 +3,7 @@ name: oracle-data-types
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["chinook-oracle-normal"]
+    workflows: ["oracle-chinook-normal"]
     branches: [master]
     types: 
       - completed
