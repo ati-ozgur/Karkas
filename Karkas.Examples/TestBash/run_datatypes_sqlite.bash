@@ -24,8 +24,8 @@ cp ../../TestCSharp/GlobalUsings/GlobalUsingsDataTypes.cs GlobalUsingsDataTypes.
 
 cp --recursive ../../TestCSharp/Helpers/ .
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqliteDataTypes.cs ConnectionHelper.cs
-cp --recursive ../../TestCSharp/Bs/ .
-cp --recursive ../../TestCSharp/Dal/ .
+#cp --recursive ../../TestCSharp/Bs/ .
+#cp --recursive ../../TestCSharp/Dal/ .
 cp ../../Databases/datatypes.sqlite DataTypes.sqlite
 dotnet build
 dotnet run

@@ -23,9 +23,11 @@ cp ../../TestCSharp/GlobalUsings/GlobalUsingsChinook.cs GlobalUsingsChinook.cs
 
 
 cp --recursive ../../TestCSharp/Helpers/ .
+cp ../../TestCSharp/HelpersTest/TestHelperChinook.cs TestHelperChinook.cs
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqliteChinook.cs ConnectionHelper.cs
-cp --recursive ../../TestCSharp/Bs/ .
-cp --recursive ../../TestCSharp/Dal/ .
+cp --recursive ../../TestCSharp/Bs/Karkas.Examples.Chinook.Bs .
+cp --recursive ../../TestCSharp/Dal/Karkas.Examples.Chinook.Dal .
+
 cp ../../Databases/Chinook-auto-increment.sqlite Chinook.sqlite
 dotnet build
 dotnet run

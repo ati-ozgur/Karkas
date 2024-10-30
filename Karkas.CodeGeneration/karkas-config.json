@@ -7,7 +7,7 @@
     "ConnectionDbProviderName": "Microsoft.Data.Sqlite",
     "ConnectionString": "Data Source=./Karkas.Examples/Databases/datatypes.sqlite;Mode=ReadWrite;",
     "UseMultipleDatabaseNames": false,
-    "ProjectNameSpace": "Karkas.Examples.",
+    "ProjectNameSpace": "Karkas.Examples.DataTypes",
     "CodeGenerationDirectory": "./Karkas.Examples/GeneratedProjects/DataTypesSqlite",
     "UseSchemaNameInNamespaces": false,
     "UseSchemaNameInSqlQueries": false,
