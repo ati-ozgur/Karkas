@@ -30,7 +30,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         private IContainer tableOrView;
 
-        
+
 
 
         private string name;
@@ -39,7 +39,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         public bool IsAutoKey
         {
-            get 
+            get
             {
                 // TODO fix this one later
                 return isAutoKey;
@@ -108,7 +108,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         private bool? isNullable = null;
         public bool IsNullable
         {
-            get 
+            get
             {
                 if (!isNullable.HasValue)
                 {
@@ -140,7 +140,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         public string LanguageType
         {
-            get 
+            get
             {
                 if (languageType == null)
                 {
@@ -156,9 +156,9 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         private bool? isComputed = false;
         public bool IsComputed
         {
-            get 
+            get
             {
-                return isComputed.Value; 
+                return isComputed.Value;
             }
         }
 
@@ -183,12 +183,12 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                 }
                 return "DbType.String";
             }
-        
+
         }
 
         public string DataTypeName
         {
-            get 
+            get
             {
                 return sqlTypeToDotnetCommonDbType(DataTypeInDatabase);
             }
@@ -200,7 +200,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         private bool isInPrimaryKey;
         public int CharacterMaxLength
         {
-            get 
+            get
             {
                 return 0;
             }
@@ -208,7 +208,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         public bool IsStringType
         {
-            get 
+            get
             {
                 if (LanguageType == "string")
                 {
@@ -223,7 +223,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         public bool IsStringTypeWithoutLength
         {
-            get 
+            get
             {
                 // Sql lite string types all without length
                 return true;
@@ -233,7 +233,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         public bool IsNumericType
         {
-            get 
+            get
             {
                 return !IsStringType;
             }
@@ -252,9 +252,10 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             if (
                     pSqlTypeName.Equals("text")
                     || pSqlTypeName.Equals("varchar")
-                    || pSqlTypeName.Contains("varchar")
-                )
-            {
+					|| pSqlTypeName.Contains("varchar")
+					|| pSqlTypeName.StartsWith("text")
+				)
+			{
 
                 return "string";
             }
@@ -352,5 +353,11 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         }
 
         public string DataTypeInDatabase { get => dataTypeInDatabase; }
-    }
+
+
+		public override string ToString()
+		{
+			return $"{Name} {DataTypeInDatabase}";
+		}
+	}
 }
