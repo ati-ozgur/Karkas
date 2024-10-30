@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Karkas.Data;
-using Karkas.Data.Base;
 
 namespace Karkas.Data.Oracle
 {

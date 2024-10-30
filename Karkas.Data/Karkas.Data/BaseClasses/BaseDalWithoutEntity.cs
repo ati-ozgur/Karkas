@@ -6,7 +6,7 @@ using System.Data;
 using System.Data.Common;
 using Karkas.Data.Exceptions;
 
-namespace Karkas.Data.Base;
+namespace Karkas.Data;
 
 public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE,PARAMETER_BUILDER>
     where ADOTEMPLATE_DB_TYPE : IAdoTemplate<IParameterBuilder>, new()
@@ -21,7 +21,7 @@ public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE,PARAMETER_BUILDER
 
     private bool automaticConnectionManagement = true;
     /// <summary>
-    /// Eger varsayılan deger, true bırakılırsa, connection yonetimi 
+    /// Eger varsayılan deger, true bırakılırsa, connection yonetimi
     /// BaseDal tarafından yapılır. Komutlar cagrılmadan once, connection getirme
     /// Connection'u acma ve kapama BaseDal kontrolundedir.
     /// Eger false ise connection olusturma, acma Kapama Kullanıcıya aittir.

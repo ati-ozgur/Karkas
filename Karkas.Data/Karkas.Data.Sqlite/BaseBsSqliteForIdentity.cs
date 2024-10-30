@@ -1,5 +1,4 @@
 using Karkas.Data;
-using Karkas.Data.Base;
 
 
 using Microsoft.Data.Sqlite;

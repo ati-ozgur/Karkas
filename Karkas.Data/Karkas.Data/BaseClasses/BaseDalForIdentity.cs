@@ -5,7 +5,7 @@ using System.Data;
 using System.Data.Common;
 using Karkas.Data.Exceptions;
 
-namespace Karkas.Data.Base;
+namespace Karkas.Data;
 
 
 
@@ -16,14 +16,14 @@ namespace Karkas.Data.Base;
 /// </summary>
 /// <typeparam name="TYPE_LIBRARY_TYPE"></typeparam>
 /// <typeparam name="PRIMARY_KEY"></typeparam>
-public abstract class BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> 
-        : BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> 
+public abstract class BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>
+        : BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>
         where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
         where PRIMARY_KEY :  struct
         where ADOTEMPLATE_DB_TYPE : IAdoTemplate<IParameterBuilder>, new()
         where PARAMETER_BUILDER : IParameterBuilder, new()
 {
-	
+
 	public BaseDalForIdentity(ExceptionChanger pExceptionChanger) : base(pExceptionChanger)
 	{
 	}

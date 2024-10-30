@@ -4,7 +4,7 @@ using System.Text;
 using System.Data;
 using System.Xml.Serialization;
 
-namespace Karkas.Data.Base;
+namespace Karkas.Data;
 
 [Serializable]
 public abstract class BaseTypeLibrary
@@ -18,16 +18,16 @@ public abstract class BaseTypeLibrary
 
 
 
-    
+
     [XmlIgnore, SoapIgnore]
     private DataRowState rowState;
 
     [XmlIgnore, SoapIgnore]
     public DataRowState RowState
     {
-        get 
+        get
         {
-            return rowState; 
+            return rowState;
         }
         set { rowState = value; }
     }

@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Runtime.Remoting;
 using System.Data.Common;
 
-namespace Karkas.Data.Base;
+namespace Karkas.Data;
 
 /// <summary>
 /// TYPE_LIBRARY_TYPE TypeLibrary Class

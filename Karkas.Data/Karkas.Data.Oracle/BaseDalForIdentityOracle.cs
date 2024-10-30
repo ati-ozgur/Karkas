@@ -1,4 +1,3 @@
-using Karkas.Data.Base;
 using Karkas.Data.Exceptions;
 using System;
 using System.Collections.Generic;

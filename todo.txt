@@ -1,7 +1,5 @@
 # todo
 
-1. No need for remove this namespace
-global using Karkas.Data.Base;
 
 
 1. SqlServer code gen and data.

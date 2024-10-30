@@ -6,7 +6,7 @@ using System.Globalization;
 using System.Data.Common;
 using Karkas.Data.Exceptions;
 
-namespace Karkas.Data.Base;
+namespace Karkas.Data;
 
 public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParameterBuilder>
     where PARAMETER_BUILDER : IParameterBuilder, new()
@@ -243,7 +243,7 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
 
 
     [Obsolete("BringOneValue is deprecated, please use GetOneValue instead.")]
-    /// 
+    ///
     public object BringOneValue(DbCommand cmd)
     {
         return GetOneValue(cmd);
@@ -253,16 +253,16 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     /// Wrapper for ADO.NET ExecuteScalar
     /// If you expect only one result from your query, you could use this command.
     /// example SELECT COUNT(*) FROM COMMON.USERS
-    /// return type of ExecuteScalar is object therefore you need to cast it, 
+    /// return type of ExecuteScalar is object therefore you need to cast it,
     /// for example (int) for above query.
     /// </summary>
     /// <example>
-    /// 
-    /// 
+    ///
+    ///
     /// </example>
     /// <param name="cmd"></param>
     /// <returns></returns>
-    /// 
+    ///
     public object GetOneValue(DbCommand cmd)
     {
         cmd.Connection = Connection;
@@ -360,7 +360,7 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     /// <param name="sql"></param>
     /// <param name="prmListesi"></param>
     /// <returns></returns>
-    /// 
+    ///
     public abstract bool ExecuteAsExists(String pSql, DbParameter[] pParamList);
 
     public abstract bool ExecuteAsExists(string pSql);
@@ -384,7 +384,7 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     protected virtual string getSqlForTopRows(string pSql, int count)
     {
         string sqlToExecute = string.Format(@"SELECT * FROM
-                                    (  
+                                    (
                                     {0}
                                     )
                                     FETCH FIRST {1} ROWS ONLY", pSql,count);

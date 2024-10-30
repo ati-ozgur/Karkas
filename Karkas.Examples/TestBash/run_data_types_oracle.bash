@@ -58,9 +58,9 @@ dotnet add package Oracle.ManagedDataAccess.Core
 dotnet add reference "../../../Karkas.Data/Karkas.Data/Karkas.Data.csproj"
 dotnet add reference "../../../Karkas.Data/Karkas.Data.Oracle/Karkas.Data.Oracle.csproj"
 
-cp ../../TestCSharp/ProgramDataTypes.cs Program.cs
-cp ../../TestCSharp/GlobalUsings.cs GlobalUsings.cs
-cp ../../TestCSharp/GlobalUsingsDataTypes.cs GlobalUsingsDataTypes.cs
+cp ../../TestCSharp/Programs/ProgramDataTypes.cs Program.cs
+cp ../../TestCSharp/GlobalUsings/GlobalUsings.cs GlobalUsings.cs
+cp ../../TestCSharp/GlobalUsings/GlobalUsingsDataTypes.cs GlobalUsingsDataTypes.cs
 
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperOracleDataTypes.cs ConnectionHelper.cs
 

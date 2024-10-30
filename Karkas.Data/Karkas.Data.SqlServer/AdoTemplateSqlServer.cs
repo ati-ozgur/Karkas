@@ -8,7 +8,6 @@ using System.Data.Common;
 using System.Data;
 
 
-using Karkas.Data.Base;
 
 namespace Karkas.Data.SqlServer
 {

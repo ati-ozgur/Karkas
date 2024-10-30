@@ -9,7 +9,6 @@ using System.Data;
 
 
 using Karkas.Data;
-using Karkas.Data.Base;
 
 
 namespace Karkas.Data.Oracle;
