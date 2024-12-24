@@ -15,6 +15,7 @@
     "UseQuotesInQueries": false,
     "UseGlobalUsings": true,
     "UseFileScopedNamespace": true,
+    "DateRegex": "*.Date*.",
     "GenerateForeignKeyQueries": true,
     "TableCodeGenerate": true,
     "ViewCodeGenerate": false,

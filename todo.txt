@@ -1,5 +1,12 @@
 # todo
 
+1. Sqlite datatypes hata veriyor onu düzelt.
+
+2. Sqlite bool, date time handling için gerekli conversion kodlarını yaz ve ekle.
+https://www.sqlite.org/datatype3.html
+
+
+
 paging sqlite
 https://www.sqlite.org/rowvalue.html
 
@@ -12,10 +19,6 @@ Fix System.Data.SqlClient and Microsoft.Data.SqlClient issue.
 2. tablo ismi veya listesi ile çalışma
 
 
-1. Sqlite datatypes hata veriyor onu düzelt.
-
-2. Sqlite bool, date time handling için gerekli conversion kodlarını yaz ve ekle.
-https://www.sqlite.org/datatype3.html
 
 
 1. dotnet tool install

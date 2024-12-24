@@ -9,7 +9,7 @@ using Karkas.CodeGeneration.Helpers.Interfaces;
 
 namespace Karkas.CodeGeneration.Helpers.PersistenceService
 {
-    public class CodeGenerationConfig 
+    public class CodeGenerationConfig
     {
 
         public CodeGenerationConfig()
@@ -24,7 +24,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
         {
             this.LastWriteTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss"); ;
             this.LastAccessTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss"); ;
-            
+
         }
 
         public string[] getSchemaList()
@@ -73,7 +73,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		private string schemaList;
 
 		private bool useQuotesInQueries = false;
-
+		private string dateRegex = "";
 
 		private string abbreviationsAsString;
 		private string creationTime;
@@ -131,261 +131,261 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 			}
 		}
 
-		
 
-		
 
-		
+
+
+
 		public string ProjectNameSpace
 		{
-			
+
 			get
 			{
 				return projectNameSpace;
 			}
-			
+
 			set
 			{
-				
+
 				projectNameSpace = value;
 			}
 		}
 
-		
+
 		public string CodeGenerationDirectory
 		{
-			
+
 			get
 			{
 				return codeGenerationDirectory;
 			}
-			
+
 			set
 			{
-				
+
 				codeGenerationDirectory = value;
 			}
 		}
-		
+
 		public bool TableCodeGenerate
 		{
-			
+
 			get
 			{
 				return tableCodeGenerate;
 			}
-			
+
 			set
 			{
-				
+
 				tableCodeGenerate = value;
 			}
 		}
 
-		
+
 		public bool ViewCodeGenerate
 		{
-			
+
 			get
 			{
 				return viewCodeGenerate;
 			}
-			
+
 			set
 			{
-				
+
 				viewCodeGenerate = value;
 			}
 		}
 
-		
+
 		public bool StoredProcedureCodeGenerate
 		{
-			
+
 			get
 			{
 				return storedProcedureCodeGenerate;
 			}
-			
+
 			set
 			{
-				
+
 				storedProcedureCodeGenerate = value;
 			}
 		}
 
-		
+
 		public bool SequenceCodeGenerate
 		{
-			
+
 			get
 			{
 				return sequenceCodeGenerate;
 			}
-			
+
 			set
 			{
-				
+
 				sequenceCodeGenerate = value;
 			}
 		}
 
-		
+
 
         public bool UseSchemaNameInNamespaces
 		{
-			
+
 			get
 			{
 				return useSchemaNameInNamespaces;
 			}
-			
+
 			set
 			{
-				
+
 				useSchemaNameInNamespaces = value;
 			}
 		}
-        
+
 		public bool UseSchemaNameInSqlQueries
 		{
-			
+
 			get
 			{
 				return useSchemaNameInSqlQueries;
 			}
-			
+
 			set
 			{
-				
+
 				useSchemaNameInSqlQueries = value;
 			}
 		}
 
-		
+
 		public bool UseSchemaNameInFolders
 		{
-			
+
 			get
 			{
 				return useSchemaNameInFolders;
 			}
-			
+
 			set
 			{
-				
+
 				useSchemaNameInFolders = value;
 			}
 		}
 
-		
+
 		public bool IgnoreSystemTables
 		{
-			
+
 			get
 			{
 				return ignoreSystemTables;
 			}
-			
+
 			set
 			{
-				
+
 				ignoreSystemTables = value;
 			}
 		}
 
-		
+
 		public string IgnoredSchemaList
 		{
-			
+
 			get
 			{
 				return ignoredSchemaList;
 			}
-			
+
 			set
 			{
-				
+
 				ignoredSchemaList = value;
 			}
 		}
 
-		
+
 		public string SchemaList
 		{
-			
+
 			get
 			{
 				return schemaList;
 			}
-			
+
 			set
 			{
-				
+
 				schemaList = value;
 			}
 		}
 
-		
+
 		public string AbbreviationsAsString
 		{
-			
+
 			get
 			{
 				return abbreviationsAsString;
 			}
-			
+
 			set
 			{
-				
+
 				abbreviationsAsString = value;
 			}
 		}
 
-		
+
 		public string CreationTime
 		{
-			
+
 			get
 			{
 				return creationTime;
 			}
-			
+
 			set
 			{
-				
+
 				creationTime = value;
 			}
 		}
 
-		
+
 		public string LastAccessTime
 		{
-			
+
 			get
 			{
 				return lastAccessTime;
 			}
-			
+
 			set
 			{
-				
+
 				lastAccessTime = value;
 			}
 		}
 
-		
+
 		public string LastWriteTime
 		{
-			
+
 			get
 			{
 				return lastWriteTime;
 			}
-			
+
 			set
 			{
-				
+
 				lastWriteTime = value;
 			}
 		}
@@ -416,19 +416,30 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
         public bool UseQuotesInQueries { get => useQuotesInQueries; set => useQuotesInQueries = value; }
 
 		private bool useGlobalUsings;
-		
+
 		public bool UseGlobalUsings { get => useGlobalUsings; set => useGlobalUsings = value; }
 		private bool useFileScopedNamespace;
-		
+
 		public bool UseFileScopedNamespace { get => useFileScopedNamespace; set => useFileScopedNamespace = value; }
 		private bool generateForeignKeyQueries = false;
-		
+
 		public bool GenerateForeignKeyQueries { get => generateForeignKeyQueries; set => generateForeignKeyQueries = value; }
 
 		private bool oracleChangeNumericToLong;
-		
+
 		public bool OracleChangeNumericToLong { get => oracleChangeNumericToLong; set => oracleChangeNumericToLong = value; }
 
+		public string DateRegex
+		{
+			get
+			{
+				return dateRegex;
+			}
+			set
+			{
+				dateRegex = value;
+			}
+		}
 
 
 		public override bool Equals(object obj)
