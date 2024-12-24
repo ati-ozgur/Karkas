@@ -150,8 +150,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         public override void CodeGenerateOneSequence(string sequenceName, string schemaName)
         {
-            // sqlite does not support sequences
-            throw new NotSupportedException();
+            throw new NotSupportedException("sqlite does not support sequences");
         }
 
 
