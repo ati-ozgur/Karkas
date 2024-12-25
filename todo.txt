@@ -38,8 +38,7 @@ dotnet tool uninstall --global karkas.codegeneration.consoleapp
 
 https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools-how-to-create
 
-3. sqlite error codes
-https://www.sqlite.org/rescode.html
+
 
 1. Code metrics
 https://learn.microsoft.com/en-us/visualstudio/code-quality/how-to-generate-code-metrics-data?view=vs-2022

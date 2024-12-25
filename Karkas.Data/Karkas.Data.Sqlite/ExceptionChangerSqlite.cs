@@ -10,6 +10,11 @@ namespace Karkas.Data.Sqlite
 {
 	public class ExceptionChangerSqlite : ExceptionChanger
 	{
+		// sqlite error codes are below
+		// but it seems that only SQLite Error 1 is useful for normal sql errors.
+		// I will add more exception chanegs while adding more tests
+		// https://www.sqlite.org/rescode.html
+
 		protected override void ChangeDbSpecific(DbException ex, string pMessage = "NO SQL QUERY")
 		{
 			Exception exceptionToThrow = null;
