@@ -16,10 +16,8 @@ namespace Karkas.Data.Sqlite
 {
     public class AdoTemplateSqlite : BaseAdoTemplate<ParameterBuilderSqlite>
     {
-        public AdoTemplateSqlite()
+        public AdoTemplateSqlite(): base("Microsoft.Data.Sqlite")
         {
-            this.DbProviderName = "Microsoft.Data.Sqlite";
-
 
         }
 

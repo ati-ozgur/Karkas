@@ -13,11 +13,6 @@ namespace Karkas.Data.Exceptions
         {
 
         }
-        public ForeignKeyException(SerializationInfo pInfo, StreamingContext pContext)
-            : base(pInfo, pContext)
-        {
-
-        }
         public ForeignKeyException(string pMessage)
             : base(pMessage)
         {

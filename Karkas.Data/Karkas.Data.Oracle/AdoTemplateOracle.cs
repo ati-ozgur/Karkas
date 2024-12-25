@@ -15,9 +15,9 @@ namespace Karkas.Data.Oracle;
 
 public class AdoTemplateOracle : BaseAdoTemplate<ParameterBuilderOracle>
 {
-    public AdoTemplateOracle()
+    private const string DB_PROVIDER_ORACLE = "Oracle.ManagedDataAccess.Client";
+    public AdoTemplateOracle() : base(DB_PROVIDER_ORACLE)
     {
-
     }
 
     public AdoTemplateOracle(string dbProviderName) : base(dbProviderName)

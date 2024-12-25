@@ -13,11 +13,7 @@ namespace Karkas.Data.Exceptions
         {
 
         }
-        public WrongSQLQueryException(SerializationInfo pInfo, StreamingContext pContext)
-            : base(pInfo, pContext)
-        {
 
-        }
         public WrongSQLQueryException(string pMessage)
             : base(pMessage)
         {

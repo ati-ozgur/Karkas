@@ -16,10 +16,7 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     private bool useConnectionSingleton = true;
 
 
-    public BaseAdoTemplate()
-    {
 
-    }
     public BaseAdoTemplate(string dbProviderName)
     {
         this.dbProviderName = dbProviderName;

@@ -14,6 +14,18 @@ namespace Karkas.Data.SqlServer
     public class AdoTemplateSqlServer : BaseAdoTemplate<ParameterBuilderSqlServer>
     {
 
+    private const string DB_PROVIDER_ORACLE = "Microsoft.Data.SqlClient";
+    public AdoTemplateSqlServer() : base(DB_PROVIDER_ORACLE)
+    {
+    }
+
+    public AdoTemplateSqlServer(string dbProviderName) : base(dbProviderName)
+    {
+    }
+
+
+
+
         private string getSqlForExecuteAsExists(string pSql)
         {
             string sqlToExecute = string.Format(@"IF EXISTS

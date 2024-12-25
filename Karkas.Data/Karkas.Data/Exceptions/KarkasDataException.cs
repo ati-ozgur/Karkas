@@ -13,11 +13,7 @@ namespace Karkas.Data.Exceptions
         {
 
         }
-        public KarkasDataException(SerializationInfo pInfo, StreamingContext pContext)
-            : base(pInfo, pContext)
-        {
 
-        }
         public KarkasDataException(string pMessage)
             : base(pMessage)
         {

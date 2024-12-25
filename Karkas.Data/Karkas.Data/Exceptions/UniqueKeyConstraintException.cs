@@ -12,11 +12,7 @@ namespace Karkas.Data.Exceptions
         {
 
         }
-        public UniqueKeyConstraintException(SerializationInfo pInfo, StreamingContext pContext)
-            : base(pInfo, pContext)
-        {
 
-        }
         public UniqueKeyConstraintException(string pMessage)
             : base(pMessage)
         {
