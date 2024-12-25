@@ -6,26 +6,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Karkas.Data.Oracle
+using Oracle.ManagedDataAccess.Client;
+
+namespace Karkas.Data.Oracle;
+
+public class ExceptionChangerOracle : ExceptionChanger
 {
-	public class ExceptionChangerOracle : ExceptionChanger
+
+	private Exception translateException(OracleException ex)
 	{
-		protected override void ChangeDbSpecific(DbException ex, string pMessage = "NO SQL QUERY")
+		Exception exceptionToThrow = null;
+		// TODO Need to change this for Oracle
+		switch (ex.Number)
 		{
-			Exception exceptionToThrow = null;
-			// TODO Need to change this for Oracle
-			switch (ex.ErrorCode)
-			{
-				//case 208:
-				//	exceptionToThrow = new DatabaseConnectionException(string.Format("Cannot connect to database. Please verify connection string correctness and server is working. Connection String = {0}, Error Message = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message));
-				//	break;
-				default:
-					exceptionToThrow = new KarkasDataException(string.Format("Unknown Data Exception , Messsage = {0}", ex.Message), ex);
-					break;
-			}
-			new LoggingInfo().LogInfo(Type.GetType("Karkas.DataUtil.ExceptionChanger"), ex, pMessage);
-			throw exceptionToThrow;
+			case 942:
+			case 904:
+				exceptionToThrow = new WrongSQLQueryException(ex.Message,ex);
+				break;
+			default:
+				exceptionToThrow = new KarkasDataException(string.Format("Unknown Data Exception , Messsage = {0}", ex.Message), ex);
+				break;
 		}
+		return exceptionToThrow;
+	}
+	protected override void ChangeDbSpecific(DbException ex, string pMessage = "NO SQL QUERY")
+	{
+
+		Exception exceptionToThrow = null;
+
+		if(ex is OracleException)
+		{
+			OracleException sqlEx = ex as OracleException;
+			exceptionToThrow = translateException(sqlEx);
+		}
+		else
+		{
+			exceptionToThrow = ex;
+		}
+
+		new LoggingInfo().LogInfo(Type.GetType("Karkas.Data.Oracle.ExceptionChanger"), ex, pMessage);
+		throw exceptionToThrow;
 
 	}
 }

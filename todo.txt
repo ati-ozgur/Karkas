@@ -1,5 +1,7 @@
 # todo
 
+1. Add Tests for Queries using Wrong Table names
+
 1. sqlite DateOnly test
 2. sqlite DateTime test
 

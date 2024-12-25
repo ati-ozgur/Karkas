@@ -5,16 +5,20 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
+
 
 namespace Karkas.Data.SqlServer
 {
 	public class ExceptionChangerSqlServer : ExceptionChanger
 	{
-		protected override void ChangeDbSpecific(DbException ex, string pMessage = "NO SQL QUERY")
+
+
+		private Exception translateException(SqlException ex,string pMessage)
 		{
 			Exception exceptionToThrow = null;
 			// TODO Need to change this for oracle and other databases
-			switch (ex.ErrorCode)
+			switch (ex.Number)
 			{
 				default:
 					exceptionToThrow = new KarkasDataException(string.Format("Unknown Data Exception , Messsage = {0}", ex.Message), ex);
@@ -60,7 +64,24 @@ namespace Karkas.Data.SqlServer
 					exceptionToThrow = new DatabaseConnectionException(string.Format("Cannot connect to database. Please verify connection string correctness and server is working. Connection String = {0}, Error Message = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message));
 					break;
 			}
-			new LoggingInfo().LogInfo(Type.GetType("Karkas.DataUtil.ExceptionChanger"), ex, pMessage);
+			return exceptionToThrow;
+
+		}
+
+		protected override void ChangeDbSpecific(DbException ex, string pMessage = "NO SQL QUERY")
+		{
+			Exception exceptionToThrow = null;
+			if(ex is SqlException)
+			{
+				SqlException sqlEx = ex as SqlException;
+				exceptionToThrow = translateException(sqlEx,pMessage);
+			}
+			else
+			{
+				exceptionToThrow = ex;
+			}
+
+			new LoggingInfo().LogInfo(Type.GetType("Karkas.Data.SqlServer.ExceptionChanger"), ex, pMessage);
 			throw exceptionToThrow;
 		}
 

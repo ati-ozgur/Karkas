@@ -18,7 +18,7 @@ public class TestHelper
         try
         {
             AlbumDal dal = new AlbumDal();
-            var list = dal.Template.GetRows("SELECT X FROM ALBUM");
+            var list = dal.Template.GetRows(@"SELECT X FROM ""Album""");
             PrintHelper.printList(list);    
         }
         catch (WrongSQLQueryException ex)
