@@ -1,6 +1,9 @@
 # todo
 
-1. Sqlite datatypes hata veriyor onu düzelt.
+1. Multiple Dotnet TargetFrameworks .net 4.8, dotnet6,dotnet8
+
+
+
 
 2. Sqlite bool, date time handling için gerekli conversion kodlarını yaz ve ekle.
 https://www.sqlite.org/datatype3.html
