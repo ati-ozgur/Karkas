@@ -13,9 +13,9 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
     {
 
 
-        public ColumnSqlite(IAdoTemplate<IParameterBuilder> template, IContainer pTableOrView, string columnName, string columnType, bool columnNotNull, string columnDefaultValue, bool columnPK,bool isColumnAutoIncrement)
+        public ColumnSqlite(IAdoTemplate<IParameterBuilder> template, IContainer pTableOrView, string columnName,
+         string columnType, bool columnNotNull, string columnDefaultValue, bool columnPK,bool isColumnAutoIncrement)
         {
-            // TODO: Complete member initialization
             this.template = template;
             this.tableOrView = pTableOrView;
             this.name = columnName;
