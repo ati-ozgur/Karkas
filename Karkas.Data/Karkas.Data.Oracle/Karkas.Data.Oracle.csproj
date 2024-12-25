@@ -19,7 +19,7 @@
 
   
   <ItemGroup>
-    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.90" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="23.7.0" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>
 
@@ -29,7 +29,7 @@
 
   <ItemGroup>
 
-  <None Include="README.md" Pack="true" PackagePath="\"/>    
+  <None Include="README.md" Pack="true" PackagePath="\" />    
   
   </ItemGroup>
 
