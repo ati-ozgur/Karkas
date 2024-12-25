@@ -326,7 +326,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                 {
                     return (ITable)tableOrView;
                 }
-                throw new NotSupportedException("Bu column bir view'a ait.");
+                throw new NotSupportedException("This column belongs to a View.");
             }
         }
 
