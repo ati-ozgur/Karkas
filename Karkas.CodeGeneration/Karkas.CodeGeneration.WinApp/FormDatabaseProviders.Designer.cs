@@ -54,7 +54,7 @@
 
 ---SQL Server---
 Provider Name:  
-System.Data.SqlClient
+Microsoft.Data.SqlClient
 
 Example Connection String
 Integrated Security = SSPI; Persist Security Info=False;Initial Catalog=KARKAS_EXAMPLE;Data Source=localhost

@@ -8,7 +8,7 @@ namespace Karkas.Data
 {
     public class DbProviderFactoryHelper
     {
-        public const string DbProviderSqlServer = "System.Data.SqlClient";
+        public const string DbProviderSqlServer = "Microsoft.Data.SqlClient";
 
         // TODO cache factoryHelper
         public static DbProviderFactoryHelper Create(string dbProviderName)
@@ -22,7 +22,7 @@ namespace Karkas.Data
         {
             if (String.IsNullOrEmpty(ConnectionSingleton.Instance.ProviderName))
             {
-                factory = DbProviderFactories.GetFactory("System.Data.SqlClient");
+                factory = DbProviderFactories.GetFactory("Microsoft.Data.SqlClient");
 
             }
             else

@@ -1,5 +1,7 @@
 # todo
 
+
+
 1. Multiple Dotnet TargetFrameworks .net 4.8, dotnet6,dotnet8
 
 
@@ -14,8 +16,7 @@ paging sqlite
 https://www.sqlite.org/rowvalue.html
 
 
-1. SqlServer code gen and data.
-Fix System.Data.SqlClient and Microsoft.Data.SqlClient issue.
+
 
 1. tek connection varsa. connection ismi istemeden çalış.
 

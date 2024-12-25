@@ -79,7 +79,7 @@ namespace Karkas.Data.SqlServer
         {
             get
             {
-                return "System.Data.SqlClient";
+                return "Microsoft.Data.SqlClient";
             }
         }
         

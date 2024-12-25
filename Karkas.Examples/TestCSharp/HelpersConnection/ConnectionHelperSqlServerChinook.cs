@@ -1,4 +1,4 @@
-global using System.Data.SqlClient;
+global using Microsoft.Data.SqlClient;
 global using Karkas.Data.SqlServer;
 
 
@@ -14,7 +14,7 @@ namespace Karkas.Examples
         public static void SetupDatabaseConnection()
         {
             string dbConnectionString = "User Id=sa;Password=Karkas@Passw0rd;Persist Security Info=False;Initial Catalog=Chinook_AutoIncrement;Data Source=localhost;encrypt=False;";
-            string dbProviderName = "System.Data.SqlClient";
+            string dbProviderName = "Microsoft.Data.SqlClient";
             string dbName = "ChinookSqlServerAutoIncrement";
 
             DbProviderFactories.RegisterFactory(dbProviderName, Microsoft.Data.SqlClient.SqlClientFactory.Instance);

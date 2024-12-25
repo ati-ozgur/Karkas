@@ -47,7 +47,7 @@ namespace Karkas.CodeGeneration.SqlServer.Generators
         protected override void Write_UsingsDatabaseSpecific()
         {
             output.AutoTabLine("using Karkas.Data.SqlServer;");
-            output.AutoTabLine("using System.Data.SqlClient;");
+            output.AutoTabLine("using Microsoft.Data.SqlClient;");
 
 
         }

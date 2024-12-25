@@ -171,7 +171,7 @@ namespace Karkas.CodeGeneration.WinApp
 
         private void testSqlServer(string connectionString,string databaseName)
         {
-            const string providerName = "System.Data.SqlClient";
+            const string providerName = "Microsoft.Data.SqlClient";
 
             DbProviderFactories.TryGetFactory(providerName, out var factory);
 

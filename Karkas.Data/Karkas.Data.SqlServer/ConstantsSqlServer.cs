@@ -8,6 +8,6 @@ namespace Karkas.Data.SqlServer
 {
     public class ConstantsSqlServer
     {
-        public const string DbProviderName = "System.Data.SqlClient";
+        public const string DbProviderName = "Microsoft.Data.SqlClient";
     }
 }

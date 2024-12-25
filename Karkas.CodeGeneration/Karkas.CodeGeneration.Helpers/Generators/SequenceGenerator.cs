@@ -104,7 +104,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.AutoTabLine("using System.Collections.Generic;");
             output.AutoTabLine("using System.Data;");
             output.AutoTabLine("using System.Data.Common;");
-            output.AutoTabLine("using System.Data.SqlClient;");
+            output.AutoTabLine("using Microsoft.Data.SqlClient;");
             output.AutoTabLine("using System.Text;");
             output.AutoTabLine("using Karkas.Data;");
             output.AutoTabLine("using Karkas.Data.Oracle;");
