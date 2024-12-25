@@ -1,21 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
-	<PackageId>Karkas.Data.Sqlite</PackageId>
-	<Authors>Atilla Özgür</Authors>
-	<Description>A code generation framework for data operations</Description>
-	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<PackageReadmeFile> README.md </PackageReadmeFile>
-
+    <PackageId>Karkas.Data.Sqlite</PackageId>
+    <Authors>Atilla Özgür</Authors>
+    <Description>A code generation framework for data operations</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile> README.md </PackageReadmeFile>
     <PackageOutputPath>./nupkg</PackageOutputPath>  
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <EnableSourceLink>true</EnableSourceLink>
+
   </PropertyGroup>
 
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.8" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>
 
 
