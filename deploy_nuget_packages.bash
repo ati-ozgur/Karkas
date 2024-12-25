@@ -5,10 +5,10 @@ echo "KarkasCodeGenVersion: $KarkasCodeGenVersion"
 
 echo "KARKAS_NUGET_API_KEY: $KARKAS_NUGET_API_KEY"
 
-dotnet pack Karkas.Data/Karkas.Data/Karkas.Data.csproj /property:Version=$KarkasDataVersion --include-symbols
-dotnet pack Karkas.Data/Karkas.Data.Sqlite/Karkas.Data.Sqlite.csproj /property:Version=$KarkasDataVersion --include-symbols
-dotnet pack Karkas.Data/Karkas.Data.Oracle/Karkas.Data.Oracle.csproj /property:Version=$KarkasDataVersion --include-symbols
-dotnet pack Karkas.Data/Karkas.Data.SqlServer/Karkas.Data.SqlServer.csproj /property:Version=$KarkasDataVersion --include-symbols
+dotnet pack Karkas.Data/Karkas.Data/Karkas.Data.csproj /property:Version=$KarkasDataVersion --include-symbols --include-source
+dotnet pack Karkas.Data/Karkas.Data.Sqlite/Karkas.Data.Sqlite.csproj /property:Version=$KarkasDataVersion --include-symbols --include-source
+dotnet pack Karkas.Data/Karkas.Data.Oracle/Karkas.Data.Oracle.csproj /property:Version=$KarkasDataVersion --include-symbols --include-source
+dotnet pack Karkas.Data/Karkas.Data.SqlServer/Karkas.Data.SqlServer.csproj /property:Version=$KarkasDataVersion --include-symbols --include-source
 
 dotnet pack Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp/Karkas.CodeGeneration.ConsoleApp.csproj /property:Version=$KarkasCodeGenVersion --include-symbols
 echo "packing works"
