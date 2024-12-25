@@ -1,5 +1,7 @@
 # todo
 
+1. sqlite DateOnly test
+2. sqlite DateTime test
 
 
 1. Multiple Dotnet TargetFrameworks .net 4.8, dotnet6,dotnet8
