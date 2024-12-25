@@ -94,7 +94,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
                     List<Dictionary<string,object>>  dtColumns = template.GetRows(columnSql);
 
-                    IColumn column;
+                    
                     foreach (var rowColumn in dtColumns)
                     {
                         // cid|name|type|notnull|dflt_value|pk
@@ -109,8 +109,8 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                         // Short answer: A column declared INTEGER PRIMARY KEY will autoincrement.
                         bool isAutoIncrement = isColumnInteger && isColumnPK;
 
-                        column = new ColumnSqlite(template, this, columnName, columnType, isColumnNotNull, columnDefaultValue, isColumnPK, isAutoIncrement);
-                        columns.Add(column);
+                        IColumn columnSqlite = new ColumnSqlite(template, this, columnName, columnType, isColumnNotNull, columnDefaultValue, isColumnPK, isAutoIncrement);
+                        columns.Add(columnSqlite);
                     }
 
                 }
