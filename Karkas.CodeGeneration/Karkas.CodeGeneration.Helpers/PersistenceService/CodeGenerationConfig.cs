@@ -73,7 +73,6 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		private string schemaList;
 
 		private bool useQuotesInQueries = false;
-		private string dateRegex = "";
 
 		private string abbreviationsAsString;
 		private string creationTime;
@@ -429,6 +428,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
 		public bool OracleChangeNumericToLong { get => oracleChangeNumericToLong; set => oracleChangeNumericToLong = value; }
 
+		private string dateRegex = "";
 		public string DateRegex
 		{
 			get
@@ -438,6 +438,18 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 			set
 			{
 				dateRegex = value;
+			}
+		}
+		private string dateTimeRegex = "";
+		public string DateTimeRegex
+		{
+			get
+			{
+				return dateTimeRegex;
+			}
+			set
+			{
+				dateTimeRegex = value;
 			}
 		}
 

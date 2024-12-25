@@ -264,6 +264,10 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             {
                 return "long";
             }
+            if (pSqlTypeName.Equals("dateonly"))
+            {
+                return "DateOnly";
+            }
             if (pSqlTypeName.Equals("datetime"))
             {
                 return "DateTime";

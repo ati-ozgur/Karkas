@@ -739,9 +739,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             {
                 IColumn column = container.Columns[i];
                 propertyVariableName = utils.getPropertyVariableName(column);
-                string line = "row." + propertyVariableName + " = " +
-                                utils.GetDataReaderSyntax(column)
-                                + "(" + i + ");";
+                string drGetSyntax = utils.GetDataReaderSyntax(column,i);
+                string line = $"row.{propertyVariableName}  = {drGetSyntax};"; 
+                                
                 if (column.IsNullable)
                 {
                     output.AutoTabLine("if (!dr.IsDBNull(" + i + "))");

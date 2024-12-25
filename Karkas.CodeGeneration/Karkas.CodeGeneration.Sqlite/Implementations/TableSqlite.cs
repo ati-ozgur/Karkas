@@ -5,6 +5,8 @@ using System.Text;
 using Karkas.Data;
 using System.Data;
 
+using System.Text.RegularExpressions;
+
 using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.CodeGeneration.Helpers.PersistenceService;
 
@@ -98,8 +100,26 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                     foreach (var rowColumn in dtColumns)
                     {
                         // cid|name|type|notnull|dflt_value|pk
-                        String columnName = rowColumn["name"].ToString();
-                        String columnType = rowColumn["type"].ToString();
+                        string columnName = rowColumn["name"].ToString();
+
+                        string columnType = rowColumn["type"].ToString();
+                        if( !string.IsNullOrWhiteSpace(CodeGenerationConfig.DateRegex) )
+                        {
+                            bool isMatch = Regex.IsMatch(columnName, CodeGenerationConfig.DateRegex);
+                            if(isMatch)
+                            {
+                                columnType = "DateOnly";
+                            }
+                        }
+                        if( !string.IsNullOrWhiteSpace(CodeGenerationConfig.DateTimeRegex) )
+                        {
+                            bool isMatch = Regex.IsMatch(columnName, CodeGenerationConfig.DateTimeRegex);
+                            if(isMatch)
+                            {
+                                columnType = "DateTime";
+                            }
+                        }
+
                         bool isColumnInteger = columnType.ToLowerInvariant() == "integer";
                         bool isColumnPK = Convert.ToInt32(rowColumn["pk"]) > 0;
                         bool isColumnNotNull = isColumnPK || Convert.ToInt32(rowColumn["notnull"]) != 0;

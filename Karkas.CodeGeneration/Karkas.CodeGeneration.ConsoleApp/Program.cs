@@ -15,6 +15,7 @@ using Karkas.Data;
 
 
 using CommandLine;
+using System.Globalization;
 
 
 namespace Karkas.CodeGeneration.ConsoleApp
@@ -23,6 +24,8 @@ namespace Karkas.CodeGeneration.ConsoleApp
     {
         public static void Main(string[] args)
         {
+
+
             // check launch.json for arguments
             var parsedOptions = Parser.Default.ParseArguments<CommandLineOptions>(args);
             if( parsedOptions.Value is null)

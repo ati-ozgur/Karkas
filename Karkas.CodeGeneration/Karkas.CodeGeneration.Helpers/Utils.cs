@@ -188,6 +188,9 @@ namespace Karkas.CodeGeneration.Helpers
                 case "decimal":
                     result = $"Convert.ToDecimal({pValue})";
                     break;
+                case "DateOnly":
+                    result = $"DateOnly.Parse({pValue}.ToString())";
+                    break;
                 case "DateTime":
                     result = $"Convert.ToDateTime({pValue})";
                     break;
@@ -290,69 +293,70 @@ namespace Karkas.CodeGeneration.Helpers
         }
 
 
-        public string GetDataReaderSyntax(IColumn column)
+        public string GetDataReaderSyntax(IColumn column, int index)
         {
             //            return column.LanguageType;
             if (column.LanguageType == "Guid")
             {
-                return "dr.GetGuid";
+                return $"dr.GetGuid({index})";
             }
             else if (column.LanguageType == "int")
             {
-                return "dr.GetInt32";
+                return $"dr.GetInt32({index})";
             }
             else if (column.LanguageType == "byte")
             {
-                return "dr.GetByte";
+                return $"dr.GetByte({index})";
             }
             else if (column.LanguageType == "bool")
             {
-                return "dr.GetBoolean";
+                return $"dr.GetBoolean({index})";
+            }
+            else if (column.LanguageType == "DateOnly")
+            {
+                return $"DateOnly.FromDateTime(dr.GetDateTime({index}))";
             }
             else if (column.LanguageType == "DateTime")
             {
-                return "dr.GetDateTime";
+                return $"dr.GetDateTime({index})";
             }
             else if (column.LanguageType == "string")
             {
-                return "dr.GetString";
+                return $"dr.GetString({index})";
             }
             else if (column.LanguageType == "short")
             {
-                return "dr.GetInt16";
+                return $"dr.GetInt16({index})";
             }
             else if (column.LanguageType == "long")
             {
-                return "dr.GetInt64";
+                return $"dr.GetInt64({index})";
             }
             else if (column.LanguageType == "decimal")
             {
-                return "dr.GetDecimal";
+                return $"dr.GetDecimal({index})";
             }
             else if (column.LanguageType == "byte[]")
             {
-                return "(Byte[])dr.GetValue";
+                return $"(Byte[])dr.GetValue({index})";
             }
             else if (column.LanguageType == "double")
             {
-                return "dr.GetDouble";
+                return $"dr.GetDouble({index})";
             }
             else if (column.LanguageType == "float")
             {
-                return "dr.GetFloat";
+                return $"dr.GetFloat({index})";
             }
             else if (column.LanguageType == "object")
             {
-                return "dr.GetValue";
+                return $"dr.GetValue({index})";
             }
             else if (column.LanguageType == "Unknown")
             {
-                return "dr.GetString";
+                return $"dr.GetString({index})";
             }
-
-
-
-            return column.LanguageType;
+            throw new ArgumentException($"Not known language type {column.LanguageType}");
         }
 
 
