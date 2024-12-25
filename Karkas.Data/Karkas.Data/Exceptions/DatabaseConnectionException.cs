@@ -13,11 +13,6 @@ namespace Karkas.Data.Exceptions
         {
 
         }
-        public DatabaseConnectionException(SerializationInfo pInfo, StreamingContext pContext)
-            : base(pInfo, pContext)
-        {
-
-        }
         public DatabaseConnectionException(string pMessage)
             : base(pMessage)
         {
