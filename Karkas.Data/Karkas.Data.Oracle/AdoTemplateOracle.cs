@@ -9,6 +9,7 @@ using System.Data;
 
 
 using Karkas.Data;
+using Karkas.Data.Exceptions;
 
 
 namespace Karkas.Data.Oracle;
@@ -16,8 +17,11 @@ namespace Karkas.Data.Oracle;
 public class AdoTemplateOracle : BaseAdoTemplate<ParameterBuilderOracle>
 {
     private const string DB_PROVIDER_ORACLE = "Oracle.ManagedDataAccess.Client";
+
+    private ExceptionChanger exceptionChanger = new ExceptionChangerOracle();
     public AdoTemplateOracle() : base(DB_PROVIDER_ORACLE)
     {
+        
     }
 
     public AdoTemplateOracle(string dbProviderName) : base(dbProviderName)
@@ -74,6 +78,13 @@ public class AdoTemplateOracle : BaseAdoTemplate<ParameterBuilderOracle>
         get { return ":"; }
     }
 
+	protected override ExceptionChanger CurrentExceptionChanger
+    {
+        get
+        {
+            return exceptionChanger;
+        }
+    }
 
 }
 

@@ -685,17 +685,9 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     }
 
 
-	private ExceptionChanger _currentExceptionChanger;
-	protected virtual ExceptionChanger CurrentExceptionChanger
+	protected abstract ExceptionChanger CurrentExceptionChanger
 	{
-		get
-		{
-			return _currentExceptionChanger;
-		}
-		set
-		{
-			_currentExceptionChanger = value;
-		}
+		get;
 	}
 
 

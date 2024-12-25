@@ -11,6 +11,17 @@ public class TestHelper
         }
     }
 
+
+    public static void TestQueryUsingWrongColumnName()
+    {
+
+        AlbumDal dal = new AlbumDal();
+        var list = dal.Template.GetRows("SELECT X FROM ALBUM");
+        PrintHelper.printList(list);
+
+
+    }
+    
     public static void TestQueryByForeignKey1()
     {
         AlbumBs albumBs = new AlbumBs();
