@@ -15,13 +15,18 @@ public class TestHelper
     public static void TestQueryUsingWrongColumnName()
     {
 
-        AlbumDal dal = new AlbumDal();
-        var list = dal.Template.GetRows("SELECT X FROM ALBUM");
-        PrintHelper.printList(list);
-
-
+        try
+        {
+            AlbumDal dal = new AlbumDal();
+            var list = dal.Template.GetRows("SELECT X FROM ALBUM");
+            PrintHelper.printList(list);    
+        }
+        catch (WrongSQLQueryException ex)
+        {
+            Console.WriteLine("Query with Wrong column name throws exception works");            
+        }
     }
-    
+
     public static void TestQueryByForeignKey1()
     {
         AlbumBs albumBs = new AlbumBs();

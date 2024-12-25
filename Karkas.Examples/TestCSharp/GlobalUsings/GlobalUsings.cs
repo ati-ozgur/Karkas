@@ -10,6 +10,6 @@ global using System.ComponentModel.DataAnnotations;
 global using Karkas.Examples;
 
 global using Karkas.Data;
-
+global using Karkas.Data.Exceptions;
 global using System.Data.Common;
 

@@ -13,17 +13,22 @@ namespace Karkas.Data.Sqlite
 		protected override void ChangeDbSpecific(DbException ex, string pMessage = "NO SQL QUERY")
 		{
 			Exception exceptionToThrow = null;
-			// TODO Need to change this for sqlite
-			switch (ex.ErrorCode)
+			string sqliteMessage = ex.Message;
+
+			switch(sqliteMessage)
 			{
-				//case 208:
-				//	exceptionToThrow = new DatabaseConnectionException(string.Format("Cannot connect to database. Please verify connection string correctness and server is working. Connection String = {0}, Error Message = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message));
-				//	break;
-				default:
-					exceptionToThrow = new KarkasDataException(string.Format("Unknown Data Exception , Messsage = {0}", ex.Message), ex);
+				case string a when a.Contains("SQLite Error 1: 'no such column"): 
+					exceptionToThrow = new WrongSQLQueryException(ex.Message, ex);
 					break;
+				case string b when b.Contains("SQLite Error 1"): 
+					exceptionToThrow = new KarkasDataException(string.Format("SQLITE Exception , Messsage = {0}", ex.Message), ex);
+					break;
+				default:
+					exceptionToThrow = new KarkasDataException(string.Format("SQLITE Exception , Messsage = {0}", ex.Message), ex);
+					break;				
 			}
-			new LoggingInfo().LogInfo(Type.GetType("Karkas.DataUtil.ExceptionChanger"), ex, pMessage);
+
+			new LoggingInfo().LogInfo(Type.GetType("Karkas.Data.Sqlite.ExceptionChangerSqlite"), ex, pMessage);
 			throw exceptionToThrow;
 		}
 
