@@ -1,9 +1,10 @@
 # karkas
 ======
 
-## Database first
+## Database first principle
 
 Karkas works according to **database first** principle.
+Given a database schema, **karkas-codegen** console application generates data application code.
 
 
 ## Supported databases 
@@ -19,15 +20,19 @@ Karkas supports following databases:
 
 Code generation has following interfaces:
 
-- console app
+- console app (suggested)
 - windows forms (Windows only)
 - Asp.Net (planned)
 
-Using above interfaces and given database schema, karkas generates following code libraries for every table.
+Using above interfaces and given database schema, karkas generates following classes for every table.
 
-- TypeLibrary (POCO plain ordinary csharp objects)
+- TypeLibrary/POCO Plain ordinary C#/CLR objects)
 - Dal (Data Access Layer)
+    * CRUD Code
+    * QueryByPrimaryKey
+    * QueryByForeignKey
 - Bs (Business Services)
+    * Transaction for multiple tables
 
 
 
@@ -46,10 +51,6 @@ sequenceDiagram
 ```
 
 
-
-
-
-
 ## Usage
 
 ...
@@ -62,7 +63,7 @@ Clone the project and run the Karkas.CodeGeneration.WinApp project in Visual Stu
 
 ## Requirements
 
-Karkas uses Visual Studio 2022 but generated code is usable from .NET 4, .Net Core 1-3 and .Net 6, and .Net 7 and .Net 8.
+Karkas currently uses and supports .Net 8/.Net 9 but generated code is usable from .NET 4, .Net Core 1-3 and .Net 6,7,8,9.
 
 
 ## Contributing
@@ -71,7 +72,18 @@ See CONTRIBUTING file.
 
 ## Running the Tests
 
-TODO
+See [github actions](https://github.com/ati-ozgur/Karkas/actions).
+
+- Oracle and Sql Server tests are run using docker containers.
+- Sqlite tests are run on github runners itself.
+
+Tests 
+
+- check code generation
+- CRUD for tables
+- Queries
+- Transaction commit/rollback
+
 
 ## Credits
 
