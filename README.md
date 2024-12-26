@@ -51,10 +51,6 @@ sequenceDiagram
 ```
 
 
-## Usage
-
-...
-
 ## Installation & Usage
 
 See following tutorials:

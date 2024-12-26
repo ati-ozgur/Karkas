@@ -20,7 +20,7 @@ Required option 'c, connectionname' is missing.
   --version               Display version information.   
 ```
 
-3. Create following karkas-config.json file. You can [download](Karkas.Examples/karkas-config-sample.json) it also. 
+3. Create following karkas-config.json file. You can [download](../Karkas.Examples/karkas-config-sample.json) it also. 
 
 
 ```json
@@ -37,10 +37,10 @@ Required option 'c, connectionname' is missing.
 ```
 
 Above attributes in karkas-config.json is obvious.
-More information could be found in [docs](docs/karkas-config.md).
+More information could be found in [docs](../docs/karkas-config.md).
 
 4. ConnectionString attribute in karkas-config.json points to sqlite sample database with a Blog table. 
-You can also [download this sqlite database](Karkas.Examples/Databases/sample.sqlite).
+You can also [download this sqlite database](../Karkas.Examples/Databases/sample.sqlite).
 
 
 
