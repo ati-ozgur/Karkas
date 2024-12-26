@@ -55,11 +55,47 @@ sequenceDiagram
 
 ...
 
-## Installation 
+## Installation & Usage
 
-Unfortunately, there is no easy installation right now.
-Clone the project and run the Karkas.CodeGeneration.WinApp project in Visual Studio
+1. Install karkas-codegen
 
+    dotnet tool install --global Karkas.CodeGeneration.ConsoleApp
+
+
+2. Check it is installed correctly by running **karkas-codegen** in your shell, cmd or bash.
+
+```bash
+$ karkas-codegen
+Karkas.CodeGeneration.ConsoleApp 1.0.3+eaac63ca88056d611bbe10f434fc9ebcc67aad00
+Copyright (C) 2024 Karkas.CodeGeneration.ConsoleApp
+ERROR(S):
+Required option 'c, connectionname' is missing.
+  -v, --verbose           Enable verbose output.
+  -c, --connectionname    Required. Which connection name will be used in config.json
+  -f, --configfilename    default configuration filename is karkas-config.json
+  --help                  Display this help screen.
+  --version               Display version information.   
+```
+
+2. Create following karkas-config.json file. You can [download](Karkas.Examples/karkas-config-sample.json) it also. 
+
+
+```json
+[
+    {
+    "ConnectionName": "sample",
+    "ConnectionDatabaseType": "sqlite",
+    "ConnectionDbProviderName": "Microsoft.Data.Sqlite",
+    "ConnectionString": "Data Source=Databases/sample.sqlite;Mode=ReadWrite;",
+    "ProjectNameSpace": "Karkas.Examples.Sample",
+    "CodeGenerationDirectory": "./GeneratedProjects/sample"
+    }
+]
+```
+
+This file points to sqlite sample database with a Blog table.
+
+3. run following command
 
 ## Requirements
 

@@ -1,0 +1,10 @@
+[
+    {
+    "ConnectionName": "sample",
+    "ConnectionDatabaseType": "sqlite",
+    "ConnectionDbProviderName": "Microsoft.Data.Sqlite",
+    "ConnectionString": "Data Source=Databases/sample.sqlite;Mode=ReadWrite;",
+    "ProjectNameSpace": "Karkas.Examples.Sample",
+    "CodeGenerationDirectory": "./GeneratedProjects/sample"
+    }
+]
