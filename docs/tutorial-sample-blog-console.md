@@ -98,4 +98,15 @@ cd ./GeneratedProjects/sample
 7 directories, 7 files
 ```
 
-9. 
+9. run dotnet new
+
+```bash
+dotnet new console
+```
+
+10. Add Karkas packages
+
+```bash
+dotnet add package Karkas.Data
+dotnet add package Karkas.Data.Sqlite
+```
