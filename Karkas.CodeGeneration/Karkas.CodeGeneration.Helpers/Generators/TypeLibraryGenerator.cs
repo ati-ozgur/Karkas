@@ -162,6 +162,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.AutoTabLine("using System.Xml.Serialization;");
                 output.AutoTabLine("using System.Collections.Generic;");
                 output.AutoTabLine("using System.ComponentModel.DataAnnotations;");
+
+
+                output.AutoTabLine("using Karkas.Data;");
                 output.AutoTabLine("");
             }
         }
