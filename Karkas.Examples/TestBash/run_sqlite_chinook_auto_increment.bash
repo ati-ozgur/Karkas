@@ -9,6 +9,15 @@
 
 set -euxo pipefail
 
+export current_script_directory=$(dirname "$0")
+echo "The script you are running has:"
+echo "basename: [$(basename "$0")]"
+echo "dirname : [$current_script_directory]"
+echo "pwd     : [$(pwd)]"
+
+cd "$current_script_directory/../.."
+
+
 rm -rf Karkas.Examples/GeneratedProjects/ChinookSqliteAutoIncrement
 dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname ChinookSqliteAutoIncrement
 cd Karkas.Examples/GeneratedProjects/ChinookSqliteAutoIncrement
