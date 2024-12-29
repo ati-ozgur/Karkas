@@ -19,7 +19,7 @@ jobs:
           docs/tutorial-sample-blog
         sparse-checkout-cone-mode: false
     - name: check file
-      run: ls -al
+      run: ls -al docs/tutorial-sample-blog
 
 
 

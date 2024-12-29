@@ -32,7 +32,7 @@ You can [download](../docs/tutorial-sample-blog/karkas-config-sample-blog.json) 
     "ConnectionName": "sample",
     "ConnectionDatabaseType": "sqlite",
     "ConnectionDbProviderName": "Microsoft.Data.Sqlite",
-    "ConnectionString": "Data Source=Databases/sample.sqlite;Mode=ReadWrite;",
+    "ConnectionString": "Data Source=sample-blog.sqlite;Mode=ReadWrite;",
     "ProjectNameSpace": "Karkas.Examples.Sample",
     "CodeGenerationDirectory": "./GeneratedProjects/sample"
     }
