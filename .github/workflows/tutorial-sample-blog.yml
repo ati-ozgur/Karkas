@@ -23,11 +23,11 @@ jobs:
       uses: actions/upload-artifact@v4
       id: artifact-upload-step
       with:
-        name: upload output file sample-blog.zip
+        name: sample-blog
         path: docs/tutorial-sample-blog/GeneratedProjects/sample-blog/
         if-no-files-found: error
         include-hidden-files: true
-        compression-level: 9 # maximum compression
+        compression-level: 9
     - name: Output artifact ID
-      run:  echo 'Compressed project files name is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
+      run:  echo 'Compressed project files could be downloaded from ${{ steps.artifact-upload-step.outputs.artifact-url }}'
 
