@@ -22,7 +22,8 @@ Required option 'c, connectionname' is missing.
   --version               Display version information.   
 ```
 
-3. Create following karkas-config.json file. You can [download](../Karkas.Examples/karkas-config-sample.json) it also. 
+3. Create following karkas-config.json file. 
+You can [download](../docs/tutorial-sample-blog/karkas-config-sample-blog.json) it also. 
 
 
 ```json
