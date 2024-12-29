@@ -8,11 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: install karkas-code-gen
-      run: dotnet tool install --global Karkas.CodeGeneration.ConsoleApp
-    - name: check karkas-code-gen
-      run: karkas-codegen
-    - name: checkout karkas-config.json
+    - name: checkout docs/tutorial-sample-blog
       uses: actions/checkout@v4
       with:
         sparse-checkout: |
@@ -20,6 +16,9 @@ jobs:
         sparse-checkout-cone-mode: false
     - name: check file
       run: ls -al docs/tutorial-sample-blog
+    - name: run create_sample_blog.bash
+      run: ./create_sample_blog.bash
+      working-directory: docs/tutorial-sample-blog
 
 
 

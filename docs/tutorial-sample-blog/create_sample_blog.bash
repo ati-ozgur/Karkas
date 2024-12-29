@@ -1,3 +1,5 @@
+dotnet tool install --global Karkas.CodeGeneration.ConsoleApp
+karkas-codegen
 rm -rf sample-blog.sqlite
 rm -rf GeneratedProjects
 cat blog.sql | sqlite3 sample-blog.sqlite
@@ -7,3 +9,4 @@ tree
 dotnet new console
 dotnet add package Karkas.Data
 dotnet add package Karkas.Data.Sqlite
+dotnet run
