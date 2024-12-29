@@ -1,4 +1,8 @@
-# tutorial-sample-blog-console
+# Karkas Tutorial Sample Blog Console App
+
+You could see how below [tutorial runs in github actions](https://github.com/ati-ozgur/Karkas/actions/workflows/tutorial-sample-blog.yml) and download the created project file from there.
+
+
 
 1. Install karkas-codegen
 
@@ -112,4 +116,10 @@ dotnet new console
 ```bash
 dotnet add package Karkas.Data
 dotnet add package Karkas.Data.Sqlite
+```
+
+11. Run dotnet run to see project compiles and runs
+
+```bash
+dotnet run
 ```
