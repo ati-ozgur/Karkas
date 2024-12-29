@@ -2,7 +2,9 @@
 
 1. Install karkas-codegen
 
-    dotnet tool install --global Karkas.CodeGeneration.ConsoleApp
+```bash
+dotnet tool install --global Karkas.CodeGeneration.ConsoleApp
+```
 
 
 2. Check it is installed correctly by running **karkas-codegen** in your shell, cmd or bash.

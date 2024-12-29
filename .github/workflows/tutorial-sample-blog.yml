@@ -1,0 +1,17 @@
+name: tutorial-sample-blog-console
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: install karkas-code-gen
+      run: dotnet tool install --global Karkas.CodeGeneration.ConsoleApp
+
+
+
+
+
