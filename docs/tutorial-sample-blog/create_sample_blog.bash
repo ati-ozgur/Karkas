@@ -12,4 +12,3 @@ dotnet add package Karkas.Data.Sqlite
 dotnet run
 rm -rf bin/
 rm -rf obj
-zip -r sample-blog.zip .

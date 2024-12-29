@@ -19,13 +19,15 @@ jobs:
     - name: run create_sample_blog.bash
       run: ./create_sample_blog.bash
       working-directory: docs/tutorial-sample-blog
-    - name: Upload the zip file as an artifact
-      uses: actions/upload-artifact@v3
+    - name: Upload the project folder as an artifact
+      uses: actions/upload-artifact@v4
+      id: artifact-upload-step
       with:
         name: upload output file sample-blog.zip
-        path: docs/tutorial-sample-blog/GeneratedProjects/sample-blog/sample-blog.zip
+        path: docs/tutorial-sample-blog/GeneratedProjects/sample-blog/
         if-no-files-found: error
         include-hidden-files: true
-
-
+        compression-level: 9 # maximum compression
+    - name: Output artifact ID
+      run:  echo 'Compressed project files name is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
 
