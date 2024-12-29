@@ -28,6 +28,6 @@ jobs:
         if-no-files-found: error
         include-hidden-files: true
         compression-level: 9
-    - name: Output artifact ID
+    - name: Output artifact Download URL
       run:  echo 'Compressed project files could be downloaded from ${{ steps.artifact-upload-step.outputs.artifact-url }}'
 
