@@ -22,9 +22,10 @@ jobs:
     - name: Upload the zip file as an artifact
       uses: actions/upload-artifact@v3
       with:
-        name: docs/tutorial-sample-blog/GeneratedProjects/sample-blog/sample-blog.zip
-        path: sample-blog.zip
-          
+        name: upload output file sample-blog.zip
+        path: docs/tutorial-sample-blog/GeneratedProjects/sample-blog/sample-blog.zip
+        if-no-files-found: error
+          include-hidden-files: true
 
 
 
