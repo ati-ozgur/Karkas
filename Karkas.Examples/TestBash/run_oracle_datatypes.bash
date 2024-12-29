@@ -11,14 +11,22 @@ STOP=${1-false}
 
 set -euo pipefail
 
+export current_script_directory=$(dirname "$0")
+echo "The script you are running has:"
+echo "basename: [$(basename "$0")]"
+echo "dirname : [$current_script_directory]"
+echo "pwd     : [$(pwd)]"
+
+export BASE_REPO_DIRECTORY="$current_script_directory/../.."
+echo "BASE_REPO_DIRECTORY: $BASE_REPO_DIRECTORY"
+cd $BASE_REPO_DIRECTORY
+
 CONTAINER_NAME="datatypes-oracle-container1"
 IMAGE_NAME="datatypes-oracle-image1"
 DB_PASSWORD="Karkas@Passw0rd"
 
 
 
-WORKING_DIR=$PWD
-echo $PWD
 
 cd ./Karkas.Examples/Databases/data-types-oracle
 
@@ -37,7 +45,7 @@ if docker ps -a --format '{{.Names}}' | grep -q "^$CONTAINER_NAME\$"; then
 
 echo "starting docker container $CONTAINER_NAME with image $IMAGE_NAME"
 
-docker run --detach -p 1521:1521 --name $CONTAINER_NAME  --hostname $CONTAINER_NAME  $IMAGE_NAME
+docker run --detach -p 1522:1521 --name $CONTAINER_NAME  --hostname $CONTAINER_NAME  $IMAGE_NAME
 
 CONTAINER_ID=$(docker inspect --format="{{.Id}}" "$CONTAINER_NAME")
 echo "CONTAINER_ID $CONTAINER_ID"
@@ -46,8 +54,14 @@ echo "CONTAINER_ID $CONTAINER_ID"
 timeout 60s grep -q 'DATABASE IS READY TO USE!' <(docker logs -f $CONTAINER_ID) || exit 1
 
 
-echo "go to ${WORKING_DIR}"
-cd $WORKING_DIR
+
+pwd
+
+echo "go to ${BASE_REPO_DIRECTORY}"
+cd ..
+cd ..
+cd ..
+pwd
 
 rm -rf Karkas.Examples/GeneratedProjects/DataTypesOracle
 

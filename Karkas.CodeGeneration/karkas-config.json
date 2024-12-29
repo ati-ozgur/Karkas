@@ -174,7 +174,7 @@
     "ConnectionName": "DataTypesOracle",
     "ConnectionDatabaseType": "Oracle",
     "ConnectionDbProviderName": "Oracle.ManagedDataAccess.Client",
-    "ConnectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xe)));User Id=datatypes;Password=datatypes;",
+    "ConnectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1522))(CONNECT_DATA=(SERVICE_NAME=xe)));User Id=datatypes;Password=datatypes;",
     "ProjectNameSpace": "Karkas.Examples.DataTypes",
     "CodeGenerationDirectory": "./Karkas.Examples/GeneratedProjects/DataTypesOracle",
     "UseSchemaNameInNamespaces": false,
