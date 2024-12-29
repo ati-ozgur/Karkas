@@ -1,5 +1,4 @@
-# karkas
-======
+# karkas code generation based .NET Framework
 
 ## Database first principle
 
@@ -34,6 +33,11 @@ Using above interfaces and given database schema, karkas generates following cla
 - Bs (Business Services)
     * Transaction for multiple tables
 
+## Installation & Usage
+
+See following tutorials:
+
+- [tutorial-sample-blog-console](docs/tutorial-sample-blog-console.md)
 
 
 ## How it works after code generation 1
@@ -51,11 +55,6 @@ sequenceDiagram
 ```
 
 
-## Installation & Usage
-
-See following tutorials:
-
-- [tutorial-sample-blog-console](docs/tutorial-sample-blog-console.md)
 
 ## Requirements
 
