@@ -18,6 +18,8 @@ jobs:
         sparse-checkout: |
           docs/tutorial-sample-blog
         sparse-checkout-cone-mode: false
+    - name: check file
+      run: ls -al
 
 
 
