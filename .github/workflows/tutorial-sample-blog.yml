@@ -25,7 +25,7 @@ jobs:
         name: upload output file sample-blog.zip
         path: docs/tutorial-sample-blog/GeneratedProjects/sample-blog/sample-blog.zip
         if-no-files-found: error
-          include-hidden-files: true
+        include-hidden-files: true
 
 
 
