@@ -4,9 +4,6 @@ on:
   workflow_dispatch:
   push:
     branches: [ "master" ]
-    paths:
-      - 'Karkas.Data'
-      - 'Karkas.CodeGeneration'
 
 jobs:
   build:
