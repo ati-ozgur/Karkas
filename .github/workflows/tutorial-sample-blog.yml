@@ -19,7 +19,12 @@ jobs:
     - name: run create_sample_blog.bash
       run: ./create_sample_blog.bash
       working-directory: docs/tutorial-sample-blog
-
+    - name: Upload the zip file as an artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: docs/tutorial-sample-blog/GeneratedProjects/sample-blog/sample-blog.zip
+        path: sample-blog.zip
+          
 
 
 

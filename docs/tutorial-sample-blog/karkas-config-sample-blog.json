@@ -1,10 +1,10 @@
 [
     {
-    "ConnectionName": "sample",
+    "ConnectionName": "sample-blog",
     "ConnectionDatabaseType": "sqlite",
     "ConnectionDbProviderName": "Microsoft.Data.Sqlite",
     "ConnectionString": "Data Source=sample-blog.sqlite;Mode=ReadWrite;",
-    "ProjectNameSpace": "Karkas.Examples.Sample",
-    "CodeGenerationDirectory": "./GeneratedProjects/sample"
+    "ProjectNameSpace": "Karkas.Examples.SampleBlog",
+    "CodeGenerationDirectory": "./GeneratedProjects/sample-blog"
     }
 ]
