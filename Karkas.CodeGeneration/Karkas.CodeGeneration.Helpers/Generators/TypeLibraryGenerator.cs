@@ -123,9 +123,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.AutoTab("public class ");
             output.AutoTabLine(classNameValidation);
             AtStartCurlyBraceletIncreaseTab();
-            string mainArticleHelpImage = "http://weblogs.asp.net/blogs/scottgu/image_5F336E46.png";
-            string mainArticleUrl  = "http://weblogs.asp.net/scottgu/archive/2010/01/15/asp-net-mvc-2-model-validation.aspx";
-            string msDataAnnotationsHelpUrl = "http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx";
+            string mainArticleHelpImage = "https://weblogs.asp.net/blogs/scottgu/image_5F336E46.png";
+            string mainArticleUrl  = "https://weblogs.asp.net/scottgu/archive/2010/01/15/asp-net-mvc-2-model-validation.aspx";
+            string msDataAnnotationsHelpUrl = "https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx";
 
             if (CodeGenerationConfig.GenerateNormalClassValidationExamples)
             {
@@ -365,7 +365,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         }
 
 
-        
+
 
 
         private void Write_ToString()
