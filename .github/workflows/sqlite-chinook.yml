@@ -17,4 +17,4 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: code generate for chinook_sqlite database and run simple tests
-      run: ./Karkas.Examples/TestBash/run_chinook_sqlite_auto_increment.bash
+      run: ./Karkas.Examples/TestBash/run_sqlite_chinook_auto_increment.bash

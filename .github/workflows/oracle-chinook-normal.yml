@@ -20,4 +20,4 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: code generate for chinook Oracle database and run simple tests
-      run: ./Karkas.Examples/TestBash/run_chinook_oracle_normal.bash
+      run: ./Karkas.Examples/TestBash/run_oracle_chinook_normal.bash

@@ -20,4 +20,4 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: code generate for DataTypes Oracle database and run simple tests
-      run: ./Karkas.Examples/TestBash/run_data_types_oracle.bash
+      run: ./Karkas.Examples/TestBash/run_oracle_data_types.bash
