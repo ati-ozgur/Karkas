@@ -1,12 +1,3 @@
-using System;
-using System.Data;
-using System.Text;
-using System.Configuration;
-using System.Diagnostics;
-using System.Xml.Serialization;
-using System.Collections.Generic;
-using Karkas.CodeGeneration.Helpers.Interfaces;
-
 namespace Karkas.CodeGeneration.Helpers.PersistenceService
 {
     public class CodeGenerationConfig
@@ -22,8 +13,8 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
         public void setTimeValues()
         {
-            this.LastWriteTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss"); ;
-            this.LastAccessTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss"); ;
+            this.LastWriteTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
+            this.LastAccessTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
 
         }
 
@@ -73,6 +64,8 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		private string schemaList;
 
 		private bool useQuotesInQueries = false;
+		private string dateRegex = "";
+		private string dateTimeRegex = "";
 
 		private string abbreviationsAsString;
 		private string creationTime;
@@ -428,7 +421,6 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
 		public bool OracleChangeNumericToLong { get => oracleChangeNumericToLong; set => oracleChangeNumericToLong = value; }
 
-		private string dateRegex = "";
 		public string DateRegex
 		{
 			get
@@ -440,7 +432,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 				dateRegex = value;
 			}
 		}
-		private string dateTimeRegex = "";
+
 		public string DateTimeRegex
 		{
 			get
@@ -452,8 +444,6 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 				dateTimeRegex = value;
 			}
 		}
-
-
 		public override bool Equals(object obj)
         {
             // If the passed object is null
