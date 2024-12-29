@@ -10,7 +10,13 @@ jobs:
     steps:
     - name: install karkas-code-gen
       run: dotnet tool install --global Karkas.CodeGeneration.ConsoleApp
-
+    - name: check karkas-code-gen
+      run: karkas-codegen
+    - name: checkout karkas-config.json
+    with:
+      sparse-checkout: |
+        docs/tutorial-sample-blog
+      sparse-checkout-cone-mode: false
 
 
 
