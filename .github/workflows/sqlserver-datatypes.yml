@@ -20,4 +20,4 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: code generate for datatypes SQL Server database and run simple tests
-      run: ./Karkas.Examples/TestBash/run_sqlserver_datatypes_auto_increment.bash
+      run: ./Karkas.Examples/TestBash/run_sqlserver_datatypes.bash
