@@ -58,7 +58,7 @@
     "ConnectionDatabaseType": "SqlServer",
     "ConnectionDbProviderName": "Microsoft.Data.SqlClient",
     "ConnectionString":  "User Id=sa;Password=Karkas@Passw0rd;Persist Security Info=False;Initial Catalog=DataTypes;Data Source=localhost,1434;encrypt=False",
-    "ProjectNameSpace": "Karkas.Examples.DataTypesSqlServer",
+    "ProjectNameSpace": "Karkas.Examples.DataTypes",
     "CodeGenerationDirectory": "./Karkas.Examples/GeneratedProjects/DataTypesSqlServer",
     "UseSchemaNameInNamespaces": false,
     "UseSchemaNameInSqlQueries": false,
