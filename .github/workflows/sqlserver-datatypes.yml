@@ -1,0 +1,23 @@
+name: sqlserver-datatypes
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["sqlite-datatypes"]
+    branches: [master]
+    types: 
+      - completed
+
+jobs:
+  build:
+
+    runs-on: ubuntu-24.04
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: code generate for datatypes SQL Server database and run simple tests
+      run: ./Karkas.Examples/TestBash/run_sqlserver_datatypes_auto_increment.bash
