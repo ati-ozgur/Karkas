@@ -12,17 +12,22 @@ STOP=${1-false}
 
 set -euo pipefail
 
+export current_script_directory=$(dirname "$0")
+echo "The script you are running has:"
+echo "basename: [$(basename "$0")]"
+echo "dirname : [$current_script_directory]"
+echo "pwd     : [$(pwd)]"
+
+export BASE_REPO_DIRECTORY="$current_script_directory/../.."
+echo "BASE_REPO_DIRECTORY: $BASE_REPO_DIRECTORY"
+cd $BASE_REPO_DIRECTORY
+
+
 CONTAINER_NAME="datatypes-sqlserver-container1"
 IMAGE_NAME="datatypes-sqlserver-image1"
 DB_PASSWORD="Karkas@Passw0rd"
 
-
-
-WORKING_DIR=$PWD
-echo $PWD
-
-
-cd ./Karkas.Examples/TestBash/datatypes-sqlserver
+cd ./Karkas.Examples/Databases/datatypes-sqlserver
 
 docker build -t $IMAGE_NAME .
 
@@ -39,7 +44,7 @@ if docker ps -a --format '{{.Names}}' | grep -q "^$CONTAINER_NAME\$"; then
 
 echo "starting docker container $CONTAINER_NAME with image $IMAGE_NAME"
 
-docker run --detach -p 1433:1433 --name $CONTAINER_NAME  --hostname $CONTAINER_NAME  $IMAGE_NAME
+docker run --detach -p 1434:1433 --name $CONTAINER_NAME  --hostname $CONTAINER_NAME  $IMAGE_NAME
 
 
 
@@ -52,8 +57,15 @@ timeout 60s grep -q 'Recovery is complete' <(docker logs -f $CONTAINER_ID) || ex
 docker exec $CONTAINER_ID bash /home/create_datatypes_sqlserver.bash
 
 
-echo "go to ${WORKING_DIR}"
-cd $WORKING_DIR
+
+pwd
+echo "go to ${BASE_REPO_DIRECTORY}"
+cd ..
+cd ..
+cd ..
+pwd
+
+
 
 CONTAINER_ID=$(docker inspect --format="{{.Id}}" "$CONTAINER_NAME")
 echo "CONTAINER_ID ${CONTAINER_ID}"
@@ -63,18 +75,18 @@ echo "CONTAINER_ID ${CONTAINER_ID}"
 rm -rf Karkas.Examples/GeneratedProjects/DataTypesSqlServer
 
 dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname DataTypesSqlServer
-cd Karkas.Examples/GeneratedProjects/datatypesSqlServer
+cd Karkas.Examples/GeneratedProjects/DataTypesSqlServer
 dotnet new console
 dotnet add package Microsoft.Data.SqlClient
 dotnet add reference "../../../Karkas.Data/Karkas.Data/Karkas.Data.csproj"
 dotnet add reference "../../../Karkas.Data/Karkas.Data.SqlServer/Karkas.Data.SqlServer.csproj"
 
-cp ../../TestCSharp/Programdatatypes.cs Program.cs
-cp ../../TestCSharp/GlobalUsings.cs GlobalUsings.cs
-cp ../../TestCSharp/GlobalUsingsdatatypes.cs GlobalUsingsdatatypes.cs
+cp ../../TestCSharp/Programs/ProgramDataTypesSqlServer.cs Program.cs
+cp ../../TestCSharp/GlobalUsings/GlobalUsings.cs GlobalUsings.cs
+cp ../../TestCSharp/GlobalUsings/GlobalUsingsDataTypes.cs GlobalUsingsDataTypes.cs
 
 cp --recursive ../../TestCSharp/Helpers/ .
-cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqlServer.cs ConnectionHelper.cs
+cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqlServerDataTypes.cs ConnectionHelper.cs
 cp --recursive ../../TestCSharp/Bs/ .
 cp --recursive ../../TestCSharp/Dal/ .
 

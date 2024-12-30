@@ -12,14 +12,25 @@ STOP=${1-false}
 
 set -euo pipefail
 
+
+export current_script_directory=$(dirname "$0")
+echo "The script you are running has:"
+echo "basename: [$(basename "$0")]"
+echo "dirname : [$current_script_directory]"
+echo "pwd     : [$(pwd)]"
+
+export BASE_REPO_DIRECTORY="$current_script_directory/../.."
+echo "BASE_REPO_DIRECTORY: $BASE_REPO_DIRECTORY"
+cd $BASE_REPO_DIRECTORY
+
+
+
 CONTAINER_NAME="chinook-sqlserver-container1"
 IMAGE_NAME="chinook-sqlserver-image1"
 DB_PASSWORD="Karkas@Passw0rd"
 
 
 
-WORKING_DIR=$PWD
-echo $PWD
 
 
 cd ./Karkas.Examples/Databases/chinook-sqlserver
@@ -50,8 +61,15 @@ echo "CONTAINER_ID $CONTAINER_ID"
 timeout 60s grep -q 'Recovery is complete' <(docker logs -f $CONTAINER_ID) || exit 1
 
 
-echo "go to ${WORKING_DIR}"
-cd $WORKING_DIR
+
+pwd
+
+echo "go to ${BASE_REPO_DIRECTORY}"
+cd ..
+cd ..
+cd ..
+pwd
+
 
 CONTAINER_ID=$(docker inspect --format="{{.Id}}" "$CONTAINER_NAME")
 echo "CONTAINER_ID ${CONTAINER_ID}"
