@@ -87,8 +87,9 @@ cp ../../TestCSharp/GlobalUsings/GlobalUsingsDataTypes.cs GlobalUsingsDataTypes.
 
 cp --recursive ../../TestCSharp/Helpers/ .
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqlServerDataTypes.cs ConnectionHelper.cs
-cp --recursive ../../TestCSharp/Bs/ .
-cp --recursive ../../TestCSharp/Dal/ .
+
+#cp --recursive ../../TestCSharp/Bs/Karkas.Examples.DataTypes.Bs .
+#cp --recursive ../../TestCSharp/Dal/Karkas.Examples.DataTypes.Dal .
 
 
 dotnet build
