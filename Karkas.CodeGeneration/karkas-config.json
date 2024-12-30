@@ -23,11 +23,7 @@
     "SequenceCodeGenerate": false,
     "IgnoreSystemTables": true,
     "IgnoredSchemaList": "",
-    "AbbrevationsAsString": "",
-    "CreationTime": "2024-10-27 18:43:28",
-    "LastAccessTime": "2024-10-27 18:43:28",
-    "LastWriteTime": "2024-10-27 18:43:28",
-    "RowState": 4
+    "AbbrevationsAsString": ""
   },
   {
     "GenerateNormalClassValidationExamples": true,
@@ -52,11 +48,7 @@
     "SequenceCodeGenerate": false,
     "IgnoreSystemTables": true,
     "IgnoredSchemaList": "",
-    "AbbrevationsAsString": "",
-    "CreationTime": "2022-03-25 18:43:28",
-    "LastAccessTime": "2022-03-25 18:43:28",
-    "LastWriteTime": "2022-03-25 18:43:28",
-    "RowState": 4
+    "AbbrevationsAsString": ""
   },
   
   {
@@ -80,11 +72,7 @@
     "SequenceCodeGenerate": false,
     "IgnoreSystemTables": true,
     "IgnoredSchemaList": "",
-    "AbbrevationsAsString": "",
-    "CreationTime": "2022-03-25 18:43:05",
-    "LastAccessTime": "2022-03-25 18:43:05",
-    "LastWriteTime": "2022-03-25 18:43:05",
-    "RowState": 4
+    "AbbrevationsAsString": ""
   },
   {
     "GenerateNormalClassValidationExamples": false,
@@ -107,11 +95,7 @@
     "SequenceCodeGenerate": false,
     "IgnoreSystemTables": true,
     "IgnoredSchemaList": "",
-    "AbbrevationsAsString": "",
-    "CreationTime": "2022-03-25 18:43:05",
-    "LastAccessTime": "2022-03-25 18:43:05",
-    "LastWriteTime": "2022-03-25 18:43:05",
-    "RowState": 4
+    "AbbrevationsAsString": ""
   },
   {
     "GenerateNormalClassValidationExamples": false,
@@ -135,11 +119,7 @@
     "SequenceCodeGenerate": false,
     "IgnoreSystemTables": false,
     "IgnoredSchemaList": "",
-    "AbbrevationsAsString": "",
-    "CreationTime": "2022-03-25 18:43:05",
-    "LastAccessTime": "2022-03-25 18:43:05",
-    "LastWriteTime": "2022-03-25 18:43:05",
-    "RowState": 4
+    "AbbrevationsAsString": ""
   },
   {
     "GenerateNormalClassValidationExamples": false,
@@ -162,11 +142,7 @@
     "SequenceCodeGenerate": false,
     "IgnoreSystemTables": false,
     "IgnoredSchemaList": "",
-    "AbbrevationsAsString": "",
-    "CreationTime": "2022-03-25 18:43:05",
-    "LastAccessTime": "2022-03-25 18:43:05",
-    "LastWriteTime": "2022-03-25 18:43:05",
-    "RowState": 4
+    "AbbrevationsAsString": ""
   },
   {
     "GenerateNormalClassValidationExamples": false,
@@ -190,11 +166,7 @@
     "SequenceCodeGenerate": false,
     "IgnoreSystemTables": false,
     "IgnoredSchemaList": "",
-    "AbbrevationsAsString": "",
-    "CreationTime": "2022-03-25 18:43:05",
-    "LastAccessTime": "2022-03-25 18:43:05",
-    "LastWriteTime": "2022-03-25 18:43:05",
-    "RowState": 4
+    "AbbrevationsAsString": ""
   }  
 
 ]
