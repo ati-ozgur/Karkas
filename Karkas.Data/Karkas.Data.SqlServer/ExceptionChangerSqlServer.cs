@@ -20,9 +20,6 @@ namespace Karkas.Data.SqlServer
 			// TODO Need to change this for oracle and other databases
 			switch (ex.Number)
 			{
-				default:
-					exceptionToThrow = new KarkasDataException(string.Format("Unknown Data Exception , Messsage = {0}", ex.Message), ex);
-					break;
 				case 137:
 					exceptionToThrow = new WrongSQLQueryException(string.Format("Sql statement parameters are not defined/added correctly, sql statement = {0}, orjinal error message = {1}", pMessage, ex.Message), ex);
 					break;
@@ -63,6 +60,13 @@ namespace Karkas.Data.SqlServer
 				case 208:
 					exceptionToThrow = new DatabaseConnectionException(string.Format("Cannot connect to database. Please verify connection string correctness and server is working. Connection String = {0}, Error Message = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message));
 					break;
+				case 4060:
+					exceptionToThrow = new DatabaseConnectionException(string.Format("Server is OK but cannot connect to database. Please verify connection string correctness. Connection String = {0}, Error Message = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message));
+					break;
+				default:
+					exceptionToThrow = new KarkasDataException(string.Format("Unknown Data Exception , Messsage = {0}", ex.Message), ex);
+					break;
+
 			}
 			return exceptionToThrow;
 
