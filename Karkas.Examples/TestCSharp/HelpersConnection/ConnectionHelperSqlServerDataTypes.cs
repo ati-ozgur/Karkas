@@ -13,7 +13,7 @@ namespace Karkas.Examples
 
         public static void SetupDatabaseConnection()
         {
-            string dbConnectionString = "User Id=sa;Password=Karkas@Passw0rd;Persist Security Info=False;Initial Catalog=Chinook_AutoIncrement;Data Source=localhost,1434;encrypt=False;";
+            string dbConnectionString = "User Id=sa;Password=Karkas@Passw0rd;Persist Security Info=False;Initial Catalog=DataTypes;Data Source=localhost,1434;encrypt=False;";
             string dbProviderName = "Microsoft.Data.SqlClient";
             string dbName = "DataTypes";
 
