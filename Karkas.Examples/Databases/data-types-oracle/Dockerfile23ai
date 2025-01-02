@@ -1,0 +1,3 @@
+FROM oracle/database:23.5.0-free
+COPY 0DDL.sql /container-entrypoint-initdb.d
+ENV ORACLE_PWD=Karkas@Passw0rd
