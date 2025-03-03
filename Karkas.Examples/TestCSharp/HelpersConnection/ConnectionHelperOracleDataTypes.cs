@@ -15,7 +15,7 @@ namespace Karkas.Examples
 
         public static void SetupDatabaseConnection()
         {
-            string dbConnectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xe)));User Id=datatypes;Password=datatypes;";
+            string dbConnectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1522))(CONNECT_DATA=(SERVICE_NAME=xe)));User Id=datatypes;Password=datatypes;";
             string dbProviderName = "Oracle.ManagedDataAccess.Client";
             string dbName = "DataTypes";
 
