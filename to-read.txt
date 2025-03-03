@@ -1,9 +1,8 @@
 to-read.txt
 
-## Cross Platform UI
-
-https://platform.uno/how-it-works/
-
+Compile SQL to type-safe code;
+catch failures before they happen. 
+https://sqlc.dev/
 
 
 ## Logging 
