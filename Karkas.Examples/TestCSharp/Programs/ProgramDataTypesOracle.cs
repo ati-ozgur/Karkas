@@ -2,6 +2,13 @@
 ConnectionHelper.SetupDatabaseConnection();
 
 
+string maxInt64 = Int64.MaxValue.ToString();
+Console.WriteLine(maxInt64.Length);
+
+string maxInt128 = Int128.MaxValue.ToString();
+Console.WriteLine(maxInt128.Length);
+
+
 DecimalTablesBs bs1 = new DecimalTablesBs();
 
 int rowCount = 10;
