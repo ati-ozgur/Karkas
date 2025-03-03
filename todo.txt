@@ -11,7 +11,6 @@ write comment so that it is understandable if column is auto number.
 2. sqlite DateTime test
 
 
-1. Multiple Dotnet TargetFrameworks .net 4.8, dotnet6,dotnet8
 
 
 
@@ -165,10 +164,7 @@ JsonNamingPolicy includes new naming policies for snake_case (with an underscore
 
 3. Read logging and fix it
 
-4. Later check multiple .net SDK versions
-For now, we work with .net6
-    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
-https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file
+
 
 
 5. https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file
@@ -177,6 +173,14 @@ think about multiple version support
 6. change logging
 https://learn.microsoft.com/en-us/dotnet/core/extensions/logger-message-generator
 https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-7.0
+
+
+## Multiple .NET SDK Version
+ Later check multiple .net SDK versions
+For now, we work with .net6
+    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file
+Multiple Dotnet TargetFrameworks .net 4.8, dotnet6,dotnet8
 
 
 
