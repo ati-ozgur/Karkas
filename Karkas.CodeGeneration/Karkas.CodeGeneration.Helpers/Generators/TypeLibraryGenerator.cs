@@ -191,7 +191,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 {
                     if (column.IsInPrimaryKey || column.IsAutoKey || column.IsInForeignKey)
                     {
-                        sentence += utils.getPropertyVariableName(column) + " = {" + utils.getPropertyVariableName(column) + "}";
+                        sentence += utils.GetPropertyVariableName(column) + " = {" + utils.GetPropertyVariableName(column) + "}";
                     }
 
                 }
@@ -209,7 +209,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             string columnName = "";
             foreach (IColumn column in container.Columns)
             {
-                columnName = utils.getPropertyVariableName(column);
+                columnName = utils.GetPropertyVariableName(column);
                 string line = $"d[{classNameTypeLibrary}.ColumnNames.{columnName}] = {columnName};";
                 output.AutoTabLine(line);
             }
@@ -225,7 +225,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             string columnName = "";
             foreach (IColumn column in container.Columns)
             {
-                columnName = utils.getPropertyVariableName(column);
+                columnName = utils.GetPropertyVariableName(column);
                 string dictWord = $"d[{classNameTypeLibrary}.ColumnNames.{columnName}]";
                 string dictWordExists = $"d.ContainsKey({ classNameTypeLibrary}.ColumnNames.{columnName})";
                 string ifLine = $"if({dictWordExists} && ({dictWord} != null))";
@@ -248,7 +248,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             string columnName = "";
             foreach (IColumn column in container.Columns)
             {
-                columnName = utils.getPropertyVariableName(column);
+                columnName = utils.GetPropertyVariableName(column);
                 string sentence = string.Format("public const string {0} = \"{1}\";", columnName, column.Name);
                 output.AutoTabLine(sentence);
             }
@@ -261,7 +261,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             foreach (IColumn column in container.Columns)
             {
                 string memberVariableName = utils.GetCamelCase(column.Name);
-                string propertyVariableName = utils.getPropertyVariableName(column);
+                string propertyVariableName = utils.GetPropertyVariableName(column);
 
                 AddDataAnnotations(output, column);
                 output.AutoTabLine("[DebuggerBrowsable(DebuggerBrowsableState.Never)]");
@@ -326,7 +326,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                     continue;
                 }
                 string memberVariableName = utils.GetCamelCase(column.Name);
-                string propertyVariableName = utils.getPropertyVariableName(column);
+                string propertyVariableName = utils.GetPropertyVariableName(column);
                 output.AutoTabLine("[DebuggerBrowsable(DebuggerBrowsableState.Never)]");
                 output.AutoTabLine("[XmlIgnore, SoapIgnore]");
                 output.AutoTabLine("[ScaffoldColumn(false)]");

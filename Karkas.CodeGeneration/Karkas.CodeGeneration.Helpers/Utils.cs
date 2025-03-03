@@ -397,7 +397,7 @@ namespace Karkas.CodeGeneration.Helpers
             }
         }
 
-        public string getPropertyVariableName(IColumn pColumn)
+        public string GetPropertyVariableName(IColumn pColumn)
         {
 
                 if (

@@ -203,7 +203,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 						   + "\","
 						   + getDbTargetType(column)
 						   + ", row."
-						   + utils.getPropertyVariableName(column)
+						   + utils.GetPropertyVariableName(column)
 						   + ");";
 
 			}
@@ -214,7 +214,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
 							+ "\","
 							+ getDbTargetType(column)
 							+ ", row."
-							+ utils.getPropertyVariableName(column)
+							+ utils.GetPropertyVariableName(column)
 							+ ","
 							+ Convert.ToString(column.CharacterMaxLength)
 							+ ");";
@@ -251,7 +251,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                         + "\","
                         + getDbTargetType(column)
                         + ", row."
-                        + utils.getPropertyVariableName(column)
+                        + utils.GetPropertyVariableName(column)
                         + ");";
             output.AutoTabLine(s);
         }

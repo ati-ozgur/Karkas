@@ -172,7 +172,7 @@ public abstract class BsGenerator : BaseGenerator
             if (table.PrimaryKeyColumnCount == 1)
             {
                 IColumn pkColumn = utils.FindPrimaryKeyColumnNameIfOneColumn(container);
-                string pkPropertyName = utils.getPropertyVariableName(pkColumn);
+                string pkPropertyName = utils.GetPropertyVariableName(pkColumn);
                 output.AutoTabLine(string.Format("public void Delete({0} p{1})", pkType, pkPropertyName));
                 AtStartCurlyBraceletIncreaseTab();
                 // output.autoTabLn(string.Format("{0} row = new {0}();", classNameTypeLibrary));

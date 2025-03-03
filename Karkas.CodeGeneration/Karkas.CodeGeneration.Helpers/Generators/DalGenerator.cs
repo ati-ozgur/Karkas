@@ -254,7 +254,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 if (table.PrimaryKeyColumnCount == 1)
                 {
                     IColumn pkColumn = utils.FindPrimaryKeyColumnNameIfOneColumn(container);
-                    string pkPropertyName = utils.getPropertyVariableName(pkColumn);
+                    string pkPropertyName = utils.GetPropertyVariableName(pkColumn);
                     output.AutoTabLine(string.Format("public virtual void Delete({0} {1})", pkType, pkPropertyName));
                     AtStartCurlyBraceletIncreaseTab();
                     output.AutoTabLine(string.Format("{0} row = new {0}();", classNameTypeLibrary));
@@ -738,7 +738,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             for (int i = 0; i < container.Columns.Count; i++)
             {
                 IColumn column = container.Columns[i];
-                propertyVariableName = utils.getPropertyVariableName(column);
+                propertyVariableName = utils.GetPropertyVariableName(column);
                 string drGetSyntax = utils.GetDataReaderSyntax(column,i);
                 string line = $"row.{propertyVariableName}  = {drGetSyntax};"; 
                                 
@@ -789,7 +789,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                         + "\","
                         + getDbTargetType(column)
                         + ", row."
-                        + utils.getPropertyVariableName(column)
+                        + utils.GetPropertyVariableName(column)
                         + ","
                         + Convert.ToString(column.CharacterMaxLength)
                         + ");";
@@ -806,7 +806,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                         + "\","
                         + getDbTargetType(column)
                         + ", row."
-                        + utils.getPropertyVariableName(column)
+                        + utils.GetPropertyVariableName(column)
                         + ");";
             output.AutoTabLine(s);
         }
