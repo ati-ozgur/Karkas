@@ -185,6 +185,9 @@ namespace Karkas.CodeGeneration.Helpers
                 case "long":
                     result = $"Convert.ToInt64({pValue})";
                     break;
+                case "Int128":
+	                result =  $"Int128.Parse({pValue}.ToString())";
+	                break;
                 case "decimal":
                     result = $"Convert.ToDecimal({pValue})";
                     break;
@@ -332,6 +335,11 @@ namespace Karkas.CodeGeneration.Helpers
             {
                 return $"dr.GetInt64({index})";
             }
+			else if (column.LanguageType == "Int128")
+			{
+				return $"Int128.Parse(dr.GetDecimal({index}).ToString())";
+
+			}
             else if (column.LanguageType == "decimal")
             {
                 return $"dr.GetDecimal({index})";
