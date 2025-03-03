@@ -1,4 +1,5 @@
 -- random data for DECIMAL_TABLES
+conn datatypes/datatypes
 
 DECLARE
     i INTEGER := 1;
@@ -26,5 +27,6 @@ BEGIN
         );
         i := i + 1;
     END LOOP;
+    DBMS_OUTPUT.put_line('INSERT DECIMAL_TABLES FINISHED');
     COMMIT;
 END;
