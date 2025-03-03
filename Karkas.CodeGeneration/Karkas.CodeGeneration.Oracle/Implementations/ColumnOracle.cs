@@ -20,7 +20,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
             template = pTemplate;
             tableOrView = pTableOrView;
             this.columnName = pColumnName;
-            
+
             codeGenerationConfig = this.tableOrView.CodeGenerationConfig;
         }
 
@@ -91,7 +91,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
         private const string SQL_PRIMARY_KEY = @" SELECT
   COUNT(*)
     FROM all_constraints cons
-    INNER JOIN 
+    INNER JOIN
     all_cons_columns cols
 ON
    cons.constraint_name = cols.constraint_name
@@ -130,19 +130,19 @@ AND cons.owner = cols.owner
             }
 
         }
-        private const string SQL_FOREIGN_KEY_FROM = @" 
+        private const string SQL_FOREIGN_KEY_FROM = @"
 FROM ALL_CONS_COLUMNS a
-JOIN ALL_CONSTRAINTS c ON a.owner = c.owner 
+JOIN ALL_CONSTRAINTS c ON a.owner = c.owner
                       AND a.constraint_name = c.constraint_name
 JOIN ALL_CONSTRAINTS c_pk ON c.r_owner = c_pk.owner
                          AND c.r_constraint_name = c_pk.constraint_name
-WHERE c.constraint_type = 'R'   
+WHERE c.constraint_type = 'R'
 AND a.table_name = :tableName
 AND a.OWNER = :schemaName
 AND a.COLUMN_NAME =  :columnName
 ";
         private const string SQL_FOREIGN_KEY_EXISTS = " SELECT COUNT(*) " + SQL_FOREIGN_KEY_FROM;
-        private const string SQL_FOREIGN_KEY_INFO = @"SELECT a.table_name, 
+        private const string SQL_FOREIGN_KEY_INFO = @"SELECT a.table_name,
        a.column_name,
        a.constraint_name,
        c.owner,
@@ -199,7 +199,7 @@ AND a.COLUMN_NAME =  :columnName
         private bool? isNullable = null;
         public bool IsNullable
         {
-            get 
+            get
             {
                 if (!isNullable.HasValue)
                 {
@@ -239,27 +239,27 @@ WITH FUNCTION GET_VARCHAR_DATA_DEFAULT(p_schema_name IN varchar2,p_table_name IN
 BEGIN
 		select C.data_default into s_data_default
 		FROM ALL_TAB_COLS C
-		WHERE 
+		WHERE
 		C.table_name = p_table_name
 		 AND C.OWNER = p_schema_name
 		 AND C.COLUMN_NAME =  p_column_name;
-		
+
 		return s_data_default;
 END;
 
-select 
+select
 OWNER,
 TABLE_NAME,
 COLUMN_NAME,
 DATA_TYPE,
 DATA_LENGTH,
 DATA_PRECISION,
-DATA_SCALE, 
+DATA_SCALE,
 NULLABLE,
 GET_VARCHAR_DATA_DEFAULT(C.OWNER,C.TABLE_NAME,C.COLUMN_NAME)  DATA_DEFAULT,
 VIRTUAL_COLUMN,
 IDENTITY_COLUMN
-from ALL_TAB_COLS  C 
+from ALL_TAB_COLS  C
    WHERE
    1 = 1
 AND
@@ -313,18 +313,26 @@ AND
                 return dataTypeInDatabase;
             }
         }
-            
 
+
+        readonly static int MAX_INT32_LENGTH = Int32.MaxValue.ToString().Length;
+        readonly static int MAX_INT64_LENGTH = Int64.MaxValue.ToString().Length;
+        readonly static int MAX_INT128_LENGTH = Int128.MaxValue.ToString().Length;
 
         public string LanguageType
         {
-            get 
+            get
             {
                 if (languageType == null)
                 {
 
                     dataTypeInDatabase = ColumnValuesInDatabase["DATA_TYPE"].ToString();
                     string strDataScale = ColumnValuesInDatabase["DATA_SCALE"].ToString();
+                    // int32 max 10 bytes
+                    // int64 max 19 bytes
+                    // int128 max 39 bytes
+
+                    int dataLength = Convert.ToInt32(ColumnValuesInDatabase["DATA_LENGTH"].ToString());
                     int dataScale = 0;
                     if (!string.IsNullOrEmpty( strDataScale))
                     {
@@ -332,14 +340,28 @@ AND
                     }
                     languageType = sqlTypeToDotnetCSharpType(dataTypeInDatabase);
                     if(codeGenerationConfig.OracleChangeNumericToLong
-                    && languageType == "decimal" 
+                    && languageType == "decimal"
                     && dataTypeInDatabase == "NUMBER"
                     && dataScale == 0
                     )
                     {
-                        languageType = "long";
+	                    if (dataLength <= MAX_INT32_LENGTH)
+	                    {
+		                    languageType = "int";
+	                    }
+	                    else if (dataLength <= MAX_INT64_LENGTH)
+	                    {
+		                    languageType = "long";
+	                    }
+	                    else if (dataLength <= MAX_INT128_LENGTH)
+	                    {
+		                    languageType = "Int128";
+	                    }
+	                    else
+	                    {
+		                    languageType = "decimal";
+	                    }
                     }
-
                 }
                 return languageType;
             }
@@ -347,7 +369,7 @@ AND
 
         public ITable Table
         {
-            get 
+            get
             {
                 if (tableOrView is ITable)
                 {
@@ -359,7 +381,7 @@ AND
 
         public IView View
         {
-            get 
+            get
             {
                 if (tableOrView is IView)
                 {
@@ -374,7 +396,7 @@ AND
         private bool? isComputed = null;
         public bool IsComputed
         {
-            get 
+            get
             {
                 if (!isComputed.HasValue)
                 {
@@ -388,7 +410,7 @@ AND
                         isComputed = false;
                     }
                 }
-                return isComputed.Value; 
+                return isComputed.Value;
             }
         }
 
@@ -400,7 +422,7 @@ AND
                 string lowerDataTypeInDatabase = dataTypeInDatabase.ToLowerInvariant();
                 if (
                     lowerDataTypeInDatabase == "number"
-                    
+
                     )
                 {
 
@@ -433,12 +455,12 @@ AND
                 return "Unknown";
 
             }
-        
+
         }
 
         public string DataTypeName
         {
-            get 
+            get
             {
                 return sqlTypeToDotnetCommonDbType(dataTypeInDatabase);
             }
@@ -448,8 +470,8 @@ AND
         private int? characterMaxLenth = null;
         public int CharacterMaxLength
         {
-            get 
-            { 
+            get
+            {
                 if (!characterMaxLenth.HasValue)
                 {
                     if (ColumnValuesInDatabase["DATA_LENGTH"] == DBNull.Value)
@@ -461,16 +483,16 @@ AND
                         characterMaxLenth = Convert.ToInt32(ColumnValuesInDatabase["DATA_LENGTH"]);
                     }
 
-                    
+
                 }
 
-                return characterMaxLenth.Value; 
+                return characterMaxLenth.Value;
             }
         }
 
         public bool IsStringType
         {
-            get 
+            get
             {
                 if (LanguageType == "string")
                 {
@@ -485,7 +507,7 @@ AND
 
         public bool IsStringTypeWithoutLength
         {
-            get 
+            get
             {
                 if (
                     dataTypeInDatabase == "CLOB"
@@ -504,7 +526,7 @@ AND
 
         public bool IsNumericType
         {
-            get 
+            get
             {
                 if (dataTypeInDatabase == "NUMBER")
                 {
@@ -555,7 +577,7 @@ AND
                     pSqlTypeName.Equals("text") ||
                     pSqlTypeName.Equals("xmltype") ||
                     pSqlTypeName.Equals("xmltypeextra") ||
-                    pSqlTypeName.Equals("xmltypepi") 
+                    pSqlTypeName.Equals("xmltypepi")
 
                 )
             {
@@ -564,16 +586,16 @@ AND
             }
 
             if (
-                pSqlTypeName.Equals("date") 
+                pSqlTypeName.Equals("date")
                 )
             {
                 return "DateTime";
             }
             if (
-            
+
             // TODO HERE
             pSqlTypeName.Equals("number"))
-            {                
+            {
                 return "decimal";
             }
             if (pSqlTypeName.Equals("float"))
