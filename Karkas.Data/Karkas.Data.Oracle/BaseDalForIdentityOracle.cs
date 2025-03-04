@@ -78,6 +78,7 @@ namespace Karkas.Data.Oracle
             catch (Exception ex)
             {
                 new LoggingInfo(cmd).LogInfo(this.GetType(), ex.ToString());
+				throw;
             }
 
             finally
