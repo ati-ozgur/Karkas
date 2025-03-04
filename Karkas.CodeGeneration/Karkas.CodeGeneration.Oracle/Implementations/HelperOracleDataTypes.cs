@@ -77,9 +77,28 @@ public class HelperOracleDataTypes
 			{
 				return "decimal";
 			}
-			else
+			else if (dataScale > 0 && dataLength > 29)
 			{
 				return "OracleDecimal";
+			}
+			else
+			{
+				if (dataLength <= MAX_INT32_LENGTH)
+				{
+					return  "int";
+				}
+				else if (dataLength <= MAX_INT64_LENGTH)
+				{
+					return "long";
+				}
+				else if (dataLength <= MAX_INT128_LENGTH)
+				{
+					return "Int128";
+				}
+				else
+				{
+					return "OracleDecimal";
+				}
 			}
 		}
 
