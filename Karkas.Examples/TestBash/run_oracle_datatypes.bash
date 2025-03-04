@@ -77,6 +77,7 @@ dotnet add reference "../../../Karkas.Data/Karkas.Data.Oracle/Karkas.Data.Oracle
 cp ../../TestCSharp/Programs/ProgramDataTypesOracle.cs Program.cs
 cp ../../TestCSharp/GlobalUsings/GlobalUsings.cs GlobalUsings.cs
 cp ../../TestCSharp/GlobalUsings/GlobalUsingsDataTypes.cs GlobalUsingsDataTypes.cs
+cp ../../TestCSharp/GlobalUsings/GlobalUsingsDataTypesOracle.cs GlobalUsingsDataTypesOracle.cs
 
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperOracleDataTypes.cs ConnectionHelper.cs
 

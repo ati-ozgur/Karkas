@@ -11,7 +11,7 @@ public class HelperOracleDataTypes
 	// int64 max 19 bytes
 	// int128 max 39 bytes
 
-	public static string GetDotNetType(string dataTypeInDatabase,int dataScale = 0,int dataLength = 0, bool changeNumericToLong = true)
+	public static string GetDotNetType(string dataTypeInDatabase,int dataScale = 0,int dataPrecision = 0, bool changeNumericToLong = true)
 	{
 		dataTypeInDatabase = dataTypeInDatabase.ToLowerInvariant();
 		if (
@@ -67,31 +67,31 @@ public class HelperOracleDataTypes
 
 		if (dataTypeInDatabase.Equals("number"))
 		{
-			if (dataLength == 0 && dataScale == 0)
+			if (dataPrecision == 0 && dataScale == 0)
 			{
 				throw new ArgumentException("number data length and data scale cannot be 0");
 			}
 			// .net decimal supports 28-29 digits
 			// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types
-			if (dataScale > 0 && dataLength < 29)
+			if (dataScale > 0 && dataPrecision < 29)
 			{
 				return "decimal";
 			}
-			else if (dataScale > 0 && dataLength > 29)
+			else if (dataScale > 0 && dataPrecision > 29)
 			{
 				return "OracleDecimal";
 			}
 			else
 			{
-				if (dataLength <= MAX_INT32_LENGTH)
+				if (dataPrecision <= MAX_INT32_LENGTH)
 				{
 					return  "int";
 				}
-				else if (dataLength <= MAX_INT64_LENGTH)
+				else if (dataPrecision <= MAX_INT64_LENGTH)
 				{
 					return "long";
 				}
-				else if (dataLength <= MAX_INT128_LENGTH)
+				else if (dataPrecision <= MAX_INT128_LENGTH)
 				{
 					return "Int128";
 				}

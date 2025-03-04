@@ -200,6 +200,9 @@ namespace Karkas.CodeGeneration.Helpers
                 case "bool":
 	                result = $"Convert.ToBoolean({pValue})";
 	                break;
+				case "OracleDecimal":
+					result = $"OracleDecimal.Parse({pValue})";
+					break;
 
                 default:
                     throw new Exception($"Not Supported type: {pType} in GetConvertToSyntax value: {pValue}");
@@ -360,7 +363,11 @@ namespace Karkas.CodeGeneration.Helpers
             {
                 return $"dr.GetValue({index})";
             }
-            else if (column.LanguageType == "Unknown")
+			else if (column.LanguageType == "OracleDecimal")
+			{
+				return $"(dr as OracleDataReader).GetOracleDecimal({index})";
+			}
+			else if (column.LanguageType == "Unknown")
             {
                 return $"dr.GetString({index})";
             }

@@ -321,7 +321,20 @@ AND
             {
 	            if (languageType == null)
 	            {
-		            languageType = HelperOracleDataTypes.GetDotNetType(DataTypeInDatabase);
+		            int dataPrecision = 38;
+					string strDataPrecision = ColumnValuesInDatabase["DATA_PRECISION"].ToString();
+					if (!string.IsNullOrEmpty(strDataPrecision))
+					{
+						dataPrecision = Convert.ToInt32(strDataPrecision);
+					}
+
+		            string strDataScale = ColumnValuesInDatabase["DATA_SCALE"].ToString();
+		            int dataScale = 0;
+		            if (!string.IsNullOrEmpty( strDataScale))
+		            {
+			            dataScale = Convert.ToInt32(strDataScale);
+		            }
+		            languageType = HelperOracleDataTypes.GetDotNetType(DataTypeInDatabase, dataScale,dataPrecision,codeGenerationConfig.OracleChangeNumericToLong);
 	            }
 
 	            return languageType;
@@ -423,7 +436,7 @@ AND
         {
             get
             {
-                return sqlTypeToDotnetCommonDbType(dataTypeInDatabase);
+                return dataTypeInDatabase;
             }
         }
 
@@ -520,95 +533,6 @@ AND
         // UNDEFINED
 
 
-
-
-        private string sqlTypeToDotnetCommonDbType(string dataTypeInDatabase)
-        {
-            dataTypeInDatabase = dataTypeInDatabase.ToLowerInvariant();
-            if (
-                    dataTypeInDatabase.Equals("varchar") ||
-                    dataTypeInDatabase.Equals("varchar2") ||
-                    dataTypeInDatabase.Equals("nvarchar") ||
-                    dataTypeInDatabase.Equals("char") ||
-                    dataTypeInDatabase.Equals("nchar") ||
-                    dataTypeInDatabase.Equals("ntext") ||
-                    dataTypeInDatabase.Equals("text")
-
-                )
-            {
-
-                return "DbType.String";
-            }
-            if (dataTypeInDatabase.Equals("uniqueidentifier"))
-            {
-                return "Guid";
-            }
-            if (dataTypeInDatabase.Equals("int"))
-            {
-                return "int";
-            }
-            if (dataTypeInDatabase.Equals("tinyint"))
-            {
-                return "byte";
-            }
-            if (dataTypeInDatabase.Equals("smallint"))
-            {
-                return "short";
-            }
-            if (dataTypeInDatabase.Equals("bigint"))
-            {
-                return "long";
-            }
-            if (
-                dataTypeInDatabase.Equals("datetime") ||
-                dataTypeInDatabase.Equals("smalldatetime")
-                )
-            {
-                return "DateTime";
-            }
-            if (dataTypeInDatabase.Equals("bit"))
-            {
-                return "bool";
-            }
-            if (dataTypeInDatabase.Equals("bit"))
-            {
-                return "bool";
-            }
-
-
-
-            if (
-                dataTypeInDatabase.Equals("numeric") ||
-                dataTypeInDatabase.Equals("decimal") ||
-                dataTypeInDatabase.Equals("money") ||
-                dataTypeInDatabase.Equals("smallmoney")
-                )
-            {
-                return "decimal";
-            }
-            if (dataTypeInDatabase.Equals("float"))
-            {
-                return "double";
-            }
-            if (dataTypeInDatabase.Equals("real"))
-            {
-                return "float";
-            }
-            if (
-                dataTypeInDatabase.Equals("image") ||
-                dataTypeInDatabase.Equals("binary") ||
-                dataTypeInDatabase.Equals("varbinary") ||
-                dataTypeInDatabase.Equals("timestamp")
-                )
-            {
-                return "byte[]";
-            }
-            if (dataTypeInDatabase.Equals("sql_variant"))
-            {
-                return "object";
-            }
-            return "Unknown";
-        }
 
 
 
