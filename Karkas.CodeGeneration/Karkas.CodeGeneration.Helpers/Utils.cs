@@ -100,27 +100,6 @@ namespace Karkas.CodeGeneration.Helpers
             return result;
         }
 
-        public string GetCSharpTypeFromDotNetType(string pDotNetType)
-        {
-            string result = "";
-            switch (pDotNetType)
-            {
-                case "System.Int16":
-                    result = "short";
-                    break;
-
-                case "System.Int32":
-                    result = "int";
-                    break;
-                case "System.Int64":
-                    result = "long";
-                    break;
-                case "System.Byte":
-                    result = "byte";
-                    break;
-            }
-            return result;
-        }
 
         public bool IsColumnNullable(IColumn pColumn)
         {
