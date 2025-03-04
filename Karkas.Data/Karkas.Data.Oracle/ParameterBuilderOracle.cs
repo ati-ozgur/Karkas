@@ -14,13 +14,30 @@ namespace Karkas.Data.Oracle
 
         public ParameterBuilderOracle() : this("Oracle.ManagedDataAccess.Client")
         {
-            
+
         }
         public ParameterBuilderOracle(string providerName) : base(providerName)
         {
         }
 
-        private OracleParameter getParameterValue(string parameterName, OracleDbType dbType)
+
+		public void AddParameter(string parameterName, OracleDbType dbType, object value)
+		{
+			OracleParameter prm = getParameterValue(parameterName, dbType);
+			if (value == null)
+			{
+				prm.Value = DBNull.Value;
+			}
+			else
+			{
+				prm.Value = value;
+			}
+            AddParameterToCommandOrList(prm);            
+		}
+
+
+
+		private OracleParameter getParameterValue(string parameterName, OracleDbType dbType)
         {
             OracleParameter prm = new OracleParameter();
             prm.ParameterName = parameterName;
