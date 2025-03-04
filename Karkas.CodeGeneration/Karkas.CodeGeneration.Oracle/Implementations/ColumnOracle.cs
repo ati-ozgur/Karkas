@@ -308,62 +308,23 @@ AND
                 {
 
                     dataTypeInDatabase = ColumnValuesInDatabase["DATA_TYPE"].ToString();
-                    languageType = sqlTypeToDotnetCSharpType(dataTypeInDatabase);
                 }
                 return dataTypeInDatabase;
             }
         }
 
 
-        readonly static int MAX_INT32_LENGTH = Int32.MaxValue.ToString().Length;
-        readonly static int MAX_INT64_LENGTH = Int64.MaxValue.ToString().Length;
-        readonly static int MAX_INT128_LENGTH = Int128.MaxValue.ToString().Length;
 
         public string LanguageType
         {
             get
             {
-                if (languageType == null)
-                {
+	            if (languageType == null)
+	            {
+		            languageType = HelperOracleDataTypes.GetDotNetType(DataTypeInDatabase);
+	            }
 
-                    dataTypeInDatabase = ColumnValuesInDatabase["DATA_TYPE"].ToString();
-                    string strDataScale = ColumnValuesInDatabase["DATA_SCALE"].ToString();
-                    // int32 max 10 bytes
-                    // int64 max 19 bytes
-                    // int128 max 39 bytes
-
-                    int dataLength = Convert.ToInt32(ColumnValuesInDatabase["DATA_LENGTH"].ToString());
-                    int dataScale = 0;
-                    if (!string.IsNullOrEmpty( strDataScale))
-                    {
-                        dataScale = Convert.ToInt32(strDataScale);
-                    }
-                    languageType = sqlTypeToDotnetCSharpType(dataTypeInDatabase);
-                    if(codeGenerationConfig.OracleChangeNumericToLong
-                    && languageType == "decimal"
-                    && dataTypeInDatabase == "NUMBER"
-                    && dataScale == 0
-                    )
-                    {
-	                    if (dataLength <= MAX_INT32_LENGTH)
-	                    {
-		                    languageType = "int";
-	                    }
-	                    else if (dataLength <= MAX_INT64_LENGTH)
-	                    {
-		                    languageType = "long";
-	                    }
-	                    else if (dataLength <= MAX_INT128_LENGTH)
-	                    {
-		                    languageType = "Int128";
-	                    }
-	                    else
-	                    {
-		                    languageType = "decimal";
-	                    }
-                    }
-                }
-                return languageType;
+	            return languageType;
             }
         }
 
@@ -559,11 +520,7 @@ AND
         // UNDEFINED
 
 
-        public string sqlTypeToDotnetCSharpType(string pSqlTypeName)
-        {
-	        //TODO Fix later
-			return HelperOracleDataTypes.GetDotNetType(pSqlTypeName);
-        }
+
 
         private string sqlTypeToDotnetCommonDbType(string dataTypeInDatabase)
         {
