@@ -7,6 +7,9 @@ public class HelperOracleDataTypes
 	readonly static int MAX_INT32_LENGTH = Int32.MaxValue.ToString().Length;
 	readonly static int MAX_INT64_LENGTH = Int64.MaxValue.ToString().Length;
 	readonly static int MAX_INT128_LENGTH = Int128.MaxValue.ToString().Length;
+	// int32 max 10 bytes
+	// int64 max 19 bytes
+	// int128 max 39 bytes
 
 	public static string GetDotNetType(string dataTypeInDatabase,int dataScale = 0,int dataLength = 0, bool changeNumericToLong = true)
 	{
