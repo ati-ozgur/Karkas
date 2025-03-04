@@ -5,33 +5,32 @@ namespace Karkas.CodeGeneration.Oracle.Implementations;
 public class HelperOracleDataTypes
 {
 
-	public static string GetDotNetType(string pSqlTypeName)
+	public static string GetDotNetType(string dataTypeInDatabase)
 	{
-		pSqlTypeName = pSqlTypeName.ToLowerInvariant();
+		dataTypeInDatabase = dataTypeInDatabase.ToLowerInvariant();
 		if (
-			pSqlTypeName.Equals("varchar") ||
-			pSqlTypeName.Equals("nvarchar") ||
-			pSqlTypeName.Equals("nvarchar2") ||
-			pSqlTypeName.Equals("varchar2") ||
-			pSqlTypeName.Equals("clob") ||
-			pSqlTypeName.Equals("nclob") ||
-			pSqlTypeName.Equals("char") ||
-			pSqlTypeName.Equals("nchar") ||
-			pSqlTypeName.Equals("ntext") ||
-			pSqlTypeName.Equals("xml") ||
-			pSqlTypeName.Equals("text") ||
-			pSqlTypeName.Equals("xmltype") ||
-			pSqlTypeName.Equals("xmltypeextra") ||
-			pSqlTypeName.Equals("xmltypepi")
+			dataTypeInDatabase.Equals("varchar") ||
+			dataTypeInDatabase.Equals("nvarchar") ||
+			dataTypeInDatabase.Equals("nvarchar2") ||
+			dataTypeInDatabase.Equals("varchar2") ||
+			dataTypeInDatabase.Equals("clob") ||
+			dataTypeInDatabase.Equals("nclob") ||
+			dataTypeInDatabase.Equals("char") ||
+			dataTypeInDatabase.Equals("nchar") ||
+			dataTypeInDatabase.Equals("ntext") ||
+			dataTypeInDatabase.Equals("xml") ||
+			dataTypeInDatabase.Equals("text") ||
+			dataTypeInDatabase.Equals("xmltype") ||
+			dataTypeInDatabase.Equals("xmltypeextra") ||
+			dataTypeInDatabase.Equals("xmltypepi")
 
 		)
 		{
-
 			return "string";
 		}
 
 		if (
-			pSqlTypeName.Equals("date")
+			dataTypeInDatabase.Equals("date")
 		)
 		{
 			return "DateTime";
@@ -39,30 +38,34 @@ public class HelperOracleDataTypes
 		if (
 
 			// TODO HERE
-			pSqlTypeName.Equals("number"))
+			//
+			dataTypeInDatabase.Equals("number"))
 		{
 			return "decimal";
 		}
-		if (pSqlTypeName.Equals("float"))
+
+
+
+		if (dataTypeInDatabase.Equals("float"))
 		{
 			return "double";
 		}
-		if (pSqlTypeName.Equals("real"))
+		if (dataTypeInDatabase.Equals("real"))
 		{
 			return "float";
 		}
 		if (
-			pSqlTypeName.Equals("image") ||
-			pSqlTypeName.Equals("long") ||
-			pSqlTypeName.Equals("blob") ||
-			pSqlTypeName.Equals("binary") ||
-			pSqlTypeName.Equals("varbinary") ||
-			pSqlTypeName.Equals("timestamp")
+			dataTypeInDatabase.Equals("image") ||
+			dataTypeInDatabase.Equals("long") ||
+			dataTypeInDatabase.Equals("blob") ||
+			dataTypeInDatabase.Equals("binary") ||
+			dataTypeInDatabase.Equals("varbinary") ||
+			dataTypeInDatabase.Equals("timestamp")
 		)
 		{
 			return "byte[]";
 		}
-		if (pSqlTypeName.Equals("sql_variant"))
+		if (dataTypeInDatabase.Equals("sql_variant"))
 		{
 			return "object";
 		}
