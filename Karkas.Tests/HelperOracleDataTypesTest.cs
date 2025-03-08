@@ -46,6 +46,8 @@ public class HelperOracleDataTypesTest
 		Assert.Equal(expectedDotNetType, result);
 	}
 
+	// Even though following data types are supported by Oracle Database in CREATE TABLE statements,
+	// They are STILL changed to internal oracle types.
 	// | { NUMERIC | DECIMAL | DEC }
 	// [(precision[, scale])]
 	// | { INTEGER | INT | SMALLINT }
@@ -53,7 +55,43 @@ public class HelperOracleDataTypesTest
 	// | DOUBLE PRECISION
 	// | REAL
 	// }
+	// FOR example
+	// CREATE TABLE ANSI_NUMERIC(
+	// 	C01 NUMERIC,
+	// 	C02 DECIMAL,
+	// 	C03 DEC,
+	// 	C04 INTEGER,
+	// 	C05 INT,
+	// 	C06 INTEGER,
+	// 	C07 SMALLINT,
+	// 	C08 FLOAT,
+	// 	C09 DOUBLE PRECISION,
+	// 	C10 REAL
+	// );
+	// CREATE TABLE ANSI_NUMERIC
+	// 	(C01 NUMBER(38,0),
+	// 	C02 NUMBER(38,0),
+	// 	C03 NUMBER(38,0),
+	// 	C04 NUMBER(38,0),
+	// 	C05 NUMBER(38,0),
+	// 	C06 NUMBER(38,0),
+	// 	C07 NUMBER(38,0),
+	// 	C08 FLOAT(126),
+	// 	C09 FLOAT(126),
+	// 	C10 FLOAT(63)
+	//    ) ;
+	// Thus we only need to test for NUMBER and FLOAT
 
+	[Theory]
+	[InlineData("NUMBER", 38, 0, "OracleDecimal")]
+	public void ANSISupportWholeNumbers_ShouldReturnWholeNumbers(string oracleType,  int dataPrecision, int dataScale, string expectedDotNetType)
+	{
+		// Act
+		var result = HelperOracleDataTypes.GetDotNetType(oracleType, dataScale, dataPrecision);
+
+		// Assert
+		Assert.Equal(expectedDotNetType, result);
+	}
 
 
 
@@ -80,12 +118,12 @@ public class HelperOracleDataTypesTest
 
 
 	[Theory]
-	[InlineData("NUMBER",1,10, "decimal")]
-	[InlineData("NUMBER",1,20, "decimal")]
-	[InlineData("NUMBER",1,25, "decimal")]
-	[InlineData("NUMBER",1,5, "decimal")]
-	[InlineData("NUMBER",1,30, "OracleDecimal")]
-	public void GetDotNetType_ShouldReturnDecimal1(string oracleType,int dataScale, int dataLength, string expectedDotNetType)
+	[InlineData("NUMBER",10,1, "decimal")]
+	[InlineData("NUMBER",20,1, "decimal")]
+	[InlineData("NUMBER",25,1, "decimal")]
+	[InlineData("NUMBER",5,1, "decimal")]
+	[InlineData("NUMBER",30,1, "OracleDecimal")]
+	public void GetDotNetType_ShouldReturnDecimal1(string oracleType, int dataLength, int dataScale, string expectedDotNetType)
 	{
 		// Act
 		var result = HelperOracleDataTypes.GetDotNetType(oracleType,dataScale,dataLength);
@@ -113,9 +151,9 @@ public class HelperOracleDataTypesTest
 	[Theory]
 	[InlineData("NUMBER",0,10, "int")]
 	[InlineData("NUMBER",0,15, "long")]
-	[InlineData("NUMBER",0,20, "Int128")]
-	[InlineData("NUMBER",0,25, "Int128")]
-	[InlineData("NUMBER",0,38, "Int128")]
+	[InlineData("NUMBER",0,20, "decimal")]
+	[InlineData("NUMBER",0,25, "decimal")]
+	[InlineData("NUMBER",0,38, "OracleDecimal")]
 	public void GetDotNetType_ShouldReturnIntTypes2(string oracleType,int dataScale, int dataLength, string expectedDotNetType)
 	{
 
