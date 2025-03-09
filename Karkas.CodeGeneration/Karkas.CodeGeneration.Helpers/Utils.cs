@@ -155,7 +155,13 @@ namespace Karkas.CodeGeneration.Helpers
                 case "string":
                     result = $"{pValue}.ToString()";
                     break;
-                case "byte":
+				case "float":
+					result = $"Convert.ToSingle({pValue})";
+					break;
+				case "double":
+					result = $"Convert.ToDouble({pValue})";
+					break;
+				case "byte":
                     result = $"Convert.ToByte({pValue})";
                     break;
                 case "int":
