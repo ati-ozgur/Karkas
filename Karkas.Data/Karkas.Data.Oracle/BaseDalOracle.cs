@@ -42,7 +42,7 @@ namespace Karkas.Data.Oracle
 		{
 			get
 			{
-				return SelectString + "ROWNUM < :maxRowCount";
+				return SelectString + " WHERE ROWNUM <= :maxRowCount";
 			}
 		}
 
