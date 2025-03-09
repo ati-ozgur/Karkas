@@ -186,7 +186,7 @@ namespace Karkas.CodeGeneration.Helpers
 	                result = $"Convert.ToBoolean({pValue})";
 	                break;
 				case "OracleDecimal":
-					result = $"OracleDecimal.Parse({pValue})";
+					result = $"OracleDecimal.Parse({pValue}.ToString())";
 					break;
 
                 default:
