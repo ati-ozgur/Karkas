@@ -26,6 +26,7 @@ public class HelperOracleDataTypes
 			dataTypeInDatabase.Equals("char") ||
 			dataTypeInDatabase.Equals("nchar") ||
 			dataTypeInDatabase.Equals("ntext") ||
+			dataTypeInDatabase.Equals("long") ||  // long is deprecated
 			dataTypeInDatabase.Equals("xml") ||
 			dataTypeInDatabase.Equals("text") ||
 			dataTypeInDatabase.Equals("xmltype") ||
@@ -57,7 +58,6 @@ public class HelperOracleDataTypes
 		}
 		if (
 			dataTypeInDatabase.Equals("image") ||
-			dataTypeInDatabase.Equals("long") ||
 			dataTypeInDatabase.Equals("blob") ||
 			dataTypeInDatabase.Equals("binary") ||
 			dataTypeInDatabase.Equals("varbinary") ||

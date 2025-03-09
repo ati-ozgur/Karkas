@@ -216,6 +216,19 @@ public class HelperOracleDataTypesTest
 		Assert.Equal(expectedDotNetType, result);
 	}
 
+	// 	long_and_raw_datatypes
+	// { LONG | LONG RAW | RAW(size) }
+	[Fact]
+	public void OracleLong_ShouldReturnString()
+	{
+		string oracleType = "LONG";
+		string expectedDotNetType = "string";
+		// Act
+		var result = HelperOracleDataTypes.GetDotNetType(oracleType);
+
+		// Assert
+		Assert.Equal(expectedDotNetType, result);
+	}
 
 }
 
