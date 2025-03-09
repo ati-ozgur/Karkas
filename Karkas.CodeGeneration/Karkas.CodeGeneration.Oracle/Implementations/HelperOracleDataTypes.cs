@@ -41,6 +41,14 @@ public class HelperOracleDataTypes
 		{
 			return "OracleBFile";
 		}
+		if (dataTypeInDatabase == "binary_float")
+		{
+			return "float";
+		}
+		if (dataTypeInDatabase == "binary_double")
+		{
+			return "double";
+		}
 
 		if (
 			dataTypeInDatabase.Equals("date")

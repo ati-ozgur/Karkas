@@ -240,5 +240,26 @@ public class HelperOracleDataTypesTest
 		// Assert
 		Assert.Equal(expectedDotNetType, result);
 	}
+
+	// 	number_datatypes
+	// { NUMBER[(precision[, scale])]
+	// | FLOAT[(precision)]
+	// | BINARY_FLOAT
+	// | BINARY_DOUBLE
+	// }
+
+	[Theory]
+	[InlineData("BINARY_FLOAT", "float")]
+	[InlineData("BINARY_DOUBLE", "double")]
+	public void BinaryFloatDouble_ShouldReturnFloatDouble(string oracleType, string expectedDotNetType)
+	{
+		// Act
+		var result = HelperOracleDataTypes.GetDotNetType(oracleType);
+
+		// Assert
+		Assert.Equal(expectedDotNetType, result);
+	}
+
+
 }
 
