@@ -57,6 +57,7 @@ public class HelperOracleDataTypes
 			return "float";
 		}
 		if (
+			dataTypeInDatabase.Equals("blob") ||
 			dataTypeInDatabase.Equals("raw") ||
 			dataTypeInDatabase.Equals("long raw")
 		)
