@@ -33,13 +33,7 @@ namespace Karkas.Data.Sqlite
                 }
         }
 
-        public override string ParameterCharacter
-        {
-            get
-            {
-                return ":";
-            }
-        }
+
 
 
 
@@ -101,8 +95,20 @@ namespace Karkas.Data.Sqlite
 			{
 				return SelectString + " LIMIT @maxRowCount";
 			}
-		}
 
+		}
+		/// <summary>
+		/// @ is choosen
+		/// https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/parameters
+		/// Parameters can be prefixed with either :, @, or $.
+		/// </summary>
+		public override string ParameterCharacter
+		{
+			get
+			{
+				return "@";
+			}
+		}
 
 
 	}
