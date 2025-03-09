@@ -105,19 +105,13 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         return liste;
     }
 
-    public virtual List<TYPE_LIBRARY_TYPE> QueryAll(int maxRowCount)
-    {
-        // TODO does it work with all databases, this does not seem to work with even SQL Server
-        List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
-        ExecuteQuery(liste);
-        return liste;
-    }
+
 
     /// <summary>
     /// Query using Column Name.
     /// Example: Given Customer table
     /// CustomerDal and Customer are generated. &#60;br /&#62;
-    /// List&#60;Customer&#62; l1 = QueryUsingColumnName(Kisi.ColumnNames.Email,"example@example.com")
+    /// List&#60;Customer&#62; l1 = QueryUsingColumnName(Customer.ColumnNames.Email,"example@example.com")
     /// &#60;br /&#62;This will bring Customers with a given email.
     /// </summary>
     /// <param name="pFilter">ColumnName to filter.
@@ -281,39 +275,41 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
     public void ExecuteQuery(List<TYPE_LIBRARY_TYPE> liste, String pFilterString, DbParameter[] parameterArray, bool otomatikWhereEkle)
     {
         DbCommand cmd = Template.getDatabaseCommand(Connection);
-        setFilterString(pFilterString, otomatikWhereEkle, cmd);
+		cmd.CommandText = getFilterString(pFilterString, otomatikWhereEkle);
         foreach (DbParameter prm in parameterArray)
         {
             cmd.Parameters.Add(prm);
         }
         ExecuteQueryInternal(liste, cmd);
-
     }
 
     public void ExecuteQuery(List<TYPE_LIBRARY_TYPE> liste, String pFilterString, bool otomatikWhereEkle)
     {
         DbCommand cmd = Template.getDatabaseCommand(Connection);
-        setFilterString(pFilterString, otomatikWhereEkle, cmd);
+		cmd.CommandText = getFilterString(pFilterString, otomatikWhereEkle);
         ExecuteQueryInternal(liste, cmd);
     }
 
-    private void setFilterString(String pFilterString, bool otomatikWhereEkle, DbCommand cmd)
+    private string getFilterString(String pFilterString, bool otomatikWhereEkle)
     {
-        if (String.IsNullOrEmpty(pFilterString))
+		string cmdCommandText;
+
+		if (String.IsNullOrEmpty(pFilterString))
         {
-            cmd.CommandText = SelectString;
+            cmdCommandText = SelectString;
         }
         else
         {
             if (otomatikWhereEkle)
             {
-                cmd.CommandText = $"{SelectString}  WHERE  {pFilterString}";
+                cmdCommandText = $"{SelectString}  WHERE  {pFilterString}";
             }
             else
             {
-                cmd.CommandText = $"{SelectString} {pFilterString}";
+                cmdCommandText = $"{SelectString} {pFilterString}";
             }
         }
+		return cmdCommandText;
     }
 
     public void ExecuteQuery(List<TYPE_LIBRARY_TYPE> liste, String pFilterString)
@@ -321,7 +317,7 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         ExecuteQuery(liste, pFilterString, true);
     }
 
-    private void ExecuteQueryInternal(List<TYPE_LIBRARY_TYPE> liste, DbCommand cmd)
+    protected void ExecuteQueryInternal(List<TYPE_LIBRARY_TYPE> liste, DbCommand cmd)
     {
         DbDataReader reader = null;
         try
@@ -365,7 +361,11 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         return;
     }
 
-    protected abstract string SelectString
+	protected abstract string SelectStringWithLimit
+	{
+		get;
+	}
+	protected abstract string SelectString
     {
         get;
     }
@@ -394,9 +394,9 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
     {
         get;
     }
+	public abstract List<TYPE_LIBRARY_TYPE> QueryAll(int maxRowCount);
 
-
-    public List<T1> QueryDetailTable<T1>(object degeri) where T1 : new()
+	public List<T1> QueryDetailTable<T1>(object degeri) where T1 : new()
     {
         T1 t = new T1();
 
