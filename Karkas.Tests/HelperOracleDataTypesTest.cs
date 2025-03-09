@@ -229,6 +229,16 @@ public class HelperOracleDataTypesTest
 		// Assert
 		Assert.Equal(expectedDotNetType, result);
 	}
+	[Theory]
+	[InlineData("LONG RAW", "byte[]")]
+	[InlineData("RAW", "byte[]")]
+	public void Raws_ShouldReturnByteArray(string oracleType, string expectedDotNetType)
+	{
+		// Act
+		var result = HelperOracleDataTypes.GetDotNetType(oracleType);
 
+		// Assert
+		Assert.Equal(expectedDotNetType, result);
+	}
 }
 

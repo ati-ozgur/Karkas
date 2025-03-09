@@ -57,19 +57,13 @@ public class HelperOracleDataTypes
 			return "float";
 		}
 		if (
-			dataTypeInDatabase.Equals("image") ||
-			dataTypeInDatabase.Equals("blob") ||
-			dataTypeInDatabase.Equals("binary") ||
-			dataTypeInDatabase.Equals("varbinary") ||
-			dataTypeInDatabase.Equals("timestamp")
+			dataTypeInDatabase.Equals("raw") ||
+			dataTypeInDatabase.Equals("long raw")
 		)
 		{
 			return "byte[]";
 		}
-		if (dataTypeInDatabase.Equals("sql_variant"))
-		{
-			return "object";
-		}
+
 
 		if (dataTypeInDatabase.Equals("number"))
 		{

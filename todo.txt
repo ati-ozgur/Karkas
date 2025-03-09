@@ -1,6 +1,6 @@
 # todo
 
-1. OracleBFile in Docker Test
+1. OracleBFile, raw  in Docker Test
 
 
 1. Properties, especially PK
