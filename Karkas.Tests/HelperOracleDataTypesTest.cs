@@ -5,10 +5,11 @@ namespace Karkas.Tests.CodeGeneration.Oracle.Tests;
 
 public class HelperOracleDataTypesTest
 {
-
-	// ANSI Supported Data Types
+	// Following two links are useful to understand the mapping between Oracle and .NET data types
+	// https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/oracle-data-type-mappings
 	// https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlqr/Data-Types.html
 
+	// ANSI Supported Data Types
 	// Even though following data types are supported by Oracle Database in CREATE TABLE statements,
 	// They are STILL changed to internal oracle types.
 	// { CHARACTER[VARYING] (size)
@@ -114,20 +115,7 @@ public class HelperOracleDataTypesTest
 		Assert.Throws<ArgumentException>(() =>  HelperOracleDataTypes.GetDotNetType("NUMBER",0,0));
 	}
 
-	[Theory]
-	[InlineData("VARCHAR2", "string")]
-	[InlineData("DATE", "DateTime")]
-	[InlineData("CHAR", "string")]
-	[InlineData("CLOB", "string")]
-	[InlineData("BLOB", "byte[]")]
-	public void GetDotNetType_ShouldReturnCorrectDotNetType(string oracleType, string expectedDotNetType)
-	{
-		// Act
-		var result = HelperOracleDataTypes.GetDotNetType(oracleType);
 
-		// Assert
-		Assert.Equal(expectedDotNetType, result);
-	}
 
 
 	[Theory]
@@ -180,6 +168,54 @@ public class HelperOracleDataTypesTest
 		// Assert
 		Assert.Equal(expectedDotNetType, result);
 	}
+
+	// 	datetime_datatypes
+
+	// { DATE
+	// | TIMESTAMP[(fractional_seconds_precision)]
+	// 	 [WITH[LOCAL] TIME ZONE]
+	// | INTERVAL YEAR[(year_precision)] TO MONTH
+	// | INTERVAL DAY[(day_precision)] TO SECOND
+	// 	 [(fractional_seconds_precision)]
+	// }
+	[Theory]
+	[InlineData("DATE", "DateTime")]
+	public void Date_ShouldReturnDatetime(string oracleType, string expectedDotNetType)
+	{
+		// Act
+		var result = HelperOracleDataTypes.GetDotNetType(oracleType);
+
+		// Assert
+		Assert.Equal(expectedDotNetType, result);
+	}
+
+	// large_object_datatypes
+	//  BLOB | CLOB | NCLOB | BFILE
+	[Theory]
+	[InlineData("CLOB", "string")]
+	[InlineData("NCLOB", "string")]
+	[InlineData("BLOB", "byte[]")]
+	public void LargeObjectTypes_ShouldReturnStringOrByte(string oracleType, string expectedDotNetType)
+	{
+		// Act
+		var result = HelperOracleDataTypes.GetDotNetType(oracleType);
+
+		// Assert
+		Assert.Equal(expectedDotNetType, result);
+	}
+
+	[Fact]
+	public void OracleBFile()
+	{
+		string oracleType = "BFILE";
+		string expectedDotNetType = "OracleBFile";
+		// Act
+		var result = HelperOracleDataTypes.GetDotNetType(oracleType);
+
+		// Assert
+		Assert.Equal(expectedDotNetType, result);
+	}
+
 
 }
 

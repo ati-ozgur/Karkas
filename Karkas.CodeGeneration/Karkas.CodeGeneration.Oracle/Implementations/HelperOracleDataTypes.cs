@@ -36,6 +36,10 @@ public class HelperOracleDataTypes
 		{
 			return "string";
 		}
+		if (dataTypeInDatabase == "bfile")
+		{
+			return "OracleBFile";
+		}
 
 		if (
 			dataTypeInDatabase.Equals("date")

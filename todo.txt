@@ -1,5 +1,8 @@
 # todo
 
+1. OracleBFile in Docker Test
+
+
 1. Properties, especially PK
 write comment so that it is understandable if column is auto number.
 
