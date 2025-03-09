@@ -14,12 +14,11 @@ foreach (var row in resultList)
 }
 
 
-static void AssertEquals(int p1, int p2, string message = "should be equal")
+static void assertEquals(object p1, object p2, string message)
 {
-    if (p1 != p2)
+    if (!p1.Equals(p2))
     {
         throw new Exception($"Assertion error, {p1} != {p2} {message}");
     }
 }
-
 
