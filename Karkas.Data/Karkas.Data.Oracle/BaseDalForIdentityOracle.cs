@@ -91,8 +91,14 @@ namespace Karkas.Data.Oracle
 
             return result;
         }
+		protected override string SelectStringWithLimit
+		{
+			get
+			{
+				return SelectString + "ROWNUM < :maxRowCount";
+			}
+		}
 
 
-
-    }
+	}
 }

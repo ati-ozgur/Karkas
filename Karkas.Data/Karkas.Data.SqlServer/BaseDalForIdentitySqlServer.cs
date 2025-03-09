@@ -23,13 +23,13 @@ namespace Karkas.Data.SqlServer
 
 		public BaseDalForIdentitySqlServer() : base(new ExceptionChangerSqlServer())
 		{
-			
+
 		}
 		public override string DbProviderName
         {
-            get 
-                { 
-                    return "Microsoft.Data.SqlClient"; 
+            get
+                {
+                    return "Microsoft.Data.SqlClient";
                 }
         }
 
@@ -96,7 +96,13 @@ namespace Karkas.Data.SqlServer
         }
 
 
+		protected override string SelectStringWithLimit
+		{
+			get
+			{
+				return SelectString.Replace("SELECT", "SELECT TOP @maxRowCount");
+			}
+		}
 
-
-    }
+	}
 }

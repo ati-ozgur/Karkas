@@ -23,13 +23,13 @@ namespace Karkas.Data.Sqlite
 
 		public BaseDalForIdentitySqlite() : base(new ExceptionChangerSqlite())
 		{
-			
+
 		}
 		public override string DbProviderName
         {
-            get 
-                { 
-                    return "Microsoft.Data.Sqlite"; 
+            get
+                {
+                    return "Microsoft.Data.Sqlite";
                 }
         }
 
@@ -95,9 +95,15 @@ namespace Karkas.Data.Sqlite
 
             return result;
         }
+		protected override string SelectStringWithLimit
+		{
+			get
+			{
+				return SelectString + " LIMIT @maxRowCount";
+			}
+		}
 
 
 
-
-    }
+	}
 }
