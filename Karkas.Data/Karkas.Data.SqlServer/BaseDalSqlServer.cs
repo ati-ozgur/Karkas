@@ -79,7 +79,7 @@ namespace Karkas.Data.SqlServer
 		{
 			get
 			{
-				return SelectString.Replace("SELECT", "SELECT TOP @maxRowCount");
+				return SelectString.Replace("SELECT", "SELECT TOP (@maxRowCount) ");
 			}
 		}
 

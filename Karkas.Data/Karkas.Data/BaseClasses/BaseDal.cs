@@ -383,6 +383,7 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
 		DbParameter prm = cmd.CreateParameter();
 		prm.ParameterName = ParameterCharacter + "maxRowCount";
 		prm.Value = maxRowCount;
+		prm.DbType = DbType.Int32;
 		cmd.Parameters.Add(prm);
 		List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
 		ExecuteQueryInternal(liste, cmd);
