@@ -11,7 +11,20 @@ public class TestHelper
         }
     }
 
+    public static void TestQueryAll()
+    {
 
+        CustomerDal dal = new CustomerDal();
+        var allCustomers = dal.QueryAll();
+        if(allCustomers.Count > 0)
+        {
+            Console.WriteLine("QueryAll works");
+        }
+
+        int maxRowCount = 10;
+        var list = dal.QueryAll(10);
+        assertEquals(list.Count, maxRowCount, "QueryAll works");
+    }
     public static void TestQueryUsingWrongColumnName()
     {
 

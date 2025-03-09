@@ -9,6 +9,9 @@ using Karkas.Examples.Chinook.TypeLibrary;
 
 ConnectionHelper.SetupDatabaseConnection();
 
+TestHelper.TestQueryAll();
+
+
 TestHelper.TestQueryUsingWrongColumnName();
 
 TestHelper.TestQueryByForeignKey1();
