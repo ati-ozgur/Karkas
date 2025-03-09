@@ -170,7 +170,6 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         ExecuteQuery(liste, sy.GetCriteriaResultsWithoutWhere(), builder.GetParameterArray());
         return liste;
     }
-    public abstract string ParameterCharacter { get;  }
 
 
     public virtual QueryHelper GetNewQueryHelper()
@@ -367,39 +366,8 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         return;
     }
 
-	protected abstract string SelectStringWithLimit
-	{
-		get;
-	}
-	protected abstract string SelectString
-    {
-        get;
-    }
-    protected abstract string InsertString
-    {
-        get;
-    }
-    protected abstract string UpdateString
-    {
-        get;
-    }
-    protected abstract string DeleteString
-    {
-        get;
-    }
-    protected abstract string SelectCountString
-    {
-        get;
-    }
-    protected abstract bool IdentityExists
-    {
-        get;
-    }
 
-    protected abstract bool IsPkGuid
-    {
-        get;
-    }
+
 
 	/// <summary>
 	/// Runs
@@ -442,11 +410,50 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         }
     }
 
-	protected abstract void ProcessRow(IDataReader dr, TYPE_LIBRARY_TYPE row);
-    protected abstract void InsertCommandParametersAdd(DbCommand Cmd, TYPE_LIBRARY_TYPE row);
-    protected abstract void UpdateCommandParametersAdd(DbCommand Cmd, TYPE_LIBRARY_TYPE row);
-    protected abstract void DeleteCommandParametersAdd(DbCommand Cmd, TYPE_LIBRARY_TYPE row);
+	#region "Abstract"
+	protected abstract string SelectStringWithLimit
+	{
+		get;
+	}
+	protected abstract string SelectString
+	{
+		get;
+	}
+	protected abstract string InsertString
+	{
+		get;
+	}
+	protected abstract string UpdateString
+	{
+		get;
+	}
+	protected abstract string DeleteString
+	{
+		get;
+	}
+	protected abstract string SelectCountString
+	{
+		get;
+	}
+	protected abstract bool IdentityExists
+	{
+		get;
+	}
 
+	protected abstract bool IsPkGuid
+	{
+		get;
+	}
+	public abstract string ParameterCharacter { get; }
+
+	protected abstract void ProcessRow(IDataReader dr, TYPE_LIBRARY_TYPE row);
+	protected abstract void InsertCommandParametersAdd(DbCommand Cmd, TYPE_LIBRARY_TYPE row);
+	protected abstract void UpdateCommandParametersAdd(DbCommand Cmd, TYPE_LIBRARY_TYPE row);
+	protected abstract void DeleteCommandParametersAdd(DbCommand Cmd, TYPE_LIBRARY_TYPE row);
+
+
+
+	#endregion
 
 
 
