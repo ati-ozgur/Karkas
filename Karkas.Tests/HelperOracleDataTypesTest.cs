@@ -93,8 +93,21 @@ public class HelperOracleDataTypesTest
 		Assert.Equal(expectedDotNetType, result);
 	}
 
+	//Oracle Built-In Data Types
+	// character_datatypes
+	[Theory]
+	[InlineData("CHAR", "string")]
+	[InlineData("VARCHAR2", "string")]
+	[InlineData("NCHAR", "string")]
+	[InlineData("NVARCHAR2", "string")]
+	public void CharacterDataTypesShouldReturnString(string oracleType, string expectedDotNetType)
+	{
+		// Act
+		var result = HelperOracleDataTypes.GetDotNetType(oracleType);
 
-
+		// Assert
+		Assert.Equal(expectedDotNetType, result);
+	}
 	[Fact]
 	public void GetDotNetType_ShouldThrowException()
 	{
