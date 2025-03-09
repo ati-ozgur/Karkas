@@ -52,7 +52,7 @@ CONTAINER_ID=$(docker inspect --format="{{.Id}}" "$CONTAINER_NAME")
 echo "CONTAINER_ID $CONTAINER_ID"
 
 
-timeout 60s grep -q 'Recovery is complete' <(docker logs -f $CONTAINER_ID) || exit 1
+timeout 240s grep -q 'Recovery is complete' <(docker logs -f $CONTAINER_ID) ||  { echo "docker takes too long time to run"; exit 1; }
 
 docker exec $CONTAINER_ID bash /home/create_datatypes_sqlserver.bash
 

@@ -51,7 +51,7 @@ CONTAINER_ID=$(docker inspect --format="{{.Id}}" "$CONTAINER_NAME")
 echo "CONTAINER_ID $CONTAINER_ID"
 
 
-timeout 60s grep -q 'DATABASE IS READY TO USE!' <(docker logs -f $CONTAINER_ID) || exit 1
+timeout 240s grep -q 'DATABASE IS READY TO USE!' <(docker logs -f $CONTAINER_ID) ||  { echo "docker takes too long time to run"; exit 1; }
 
 pwd
 
