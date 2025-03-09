@@ -98,7 +98,13 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         }
     }
 
-    public virtual List<TYPE_LIBRARY_TYPE> QueryAll()
+
+	/// <summary>
+	/// Runs
+	/// SELECT * FROM TYPE_LIBRARY_TYPE
+	/// </summary>
+	/// <returns>List of TYPE_LIBRARY_TYPE </returns>
+	public virtual List<TYPE_LIBRARY_TYPE> QueryAll()
     {
         List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
         ExecuteQuery(liste);
@@ -394,8 +400,26 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
     {
         get;
     }
-	public abstract List<TYPE_LIBRARY_TYPE> QueryAll(int maxRowCount);
 
+	/// <summary>
+	/// Runs
+	/// SELECT * FROM TYPE_LIBRARY_TYPE
+	/// but limits the result to maxRowCount according to database specific syntax
+	/// </summary>
+	/// <param name="maxRowCount"></param>
+	/// <returns>List of TYPE_LIBRARY_TYPE </returns>
+	public List<TYPE_LIBRARY_TYPE> QueryAll(int maxRowCount)
+	{
+		DbCommand cmd = Template.getDatabaseCommand(Connection);
+		cmd.CommandText = SelectStringWithLimit;
+		DbParameter prm = cmd.CreateParameter();
+		prm.ParameterName = ParameterCharacter + "maxRowCount";
+		prm.Value = maxRowCount;
+		cmd.Parameters.Add(prm);
+		List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
+		ExecuteQueryInternal(liste, cmd);
+		return liste;
+	}
 	public List<T1> QueryDetailTable<T1>(object degeri) where T1 : new()
     {
         T1 t = new T1();

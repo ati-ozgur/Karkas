@@ -23,7 +23,7 @@ namespace Karkas.Data.Sqlite
     {
 		public BaseDalSqlite() : base(new ExceptionChangerSqlite())
 		{
-			
+
 		}
 
 		private ADOTEMPLATE_DB_TYPE templateSqlite;
@@ -87,7 +87,7 @@ namespace Karkas.Data.Sqlite
             //}
         }
 
-        // 
+        //
         /// <summary>
         /// https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/parameters
         /// Parameters can be prefixed with either :, @, or $.
@@ -100,5 +100,13 @@ namespace Karkas.Data.Sqlite
             }
         }
 
-    }
+		protected override string SelectStringWithLimit
+		{
+			get
+			{
+				return SelectString + " LIMIT @maxRowCount";
+			}
+		}
+
+	}
 }

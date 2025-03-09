@@ -5,7 +5,7 @@ using System.Data.Common;
 
 namespace Karkas.Data.SqlServer
 {
-    public abstract class BaseDalSqlServer<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> : 
+    public abstract class BaseDalSqlServer<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> :
         BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>
         where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new ()
         where ADOTEMPLATE_DB_TYPE : IAdoTemplate<IParameterBuilder>, new()
@@ -14,7 +14,7 @@ namespace Karkas.Data.SqlServer
 
 		public BaseDalSqlServer(): base(new ExceptionChangerSqlServer())
 		{
-			
+
 		}
 
 		private ADOTEMPLATE_DB_TYPE templateSqlServer;
@@ -75,15 +75,23 @@ namespace Karkas.Data.SqlServer
             }
         }
 
-        public override string DbProviderName 
+		protected override string SelectStringWithLimit
+		{
+			get
+			{
+				return SelectString.Replace("SELECT", "SELECT TOP @maxRowCount");
+			}
+		}
+
+		public override string DbProviderName
         {
             get
             {
                 return "Microsoft.Data.SqlClient";
             }
         }
-        
-        
+
+
 
 
     }
