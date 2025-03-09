@@ -13,7 +13,7 @@ public class HelperOracleDataTypes
 
 	const int MAX_DIGIT_DOTNET_DECIMAL = 28;
 
-	public static string GetDotNetType(string dataTypeInDatabase,int dataScale = 0,int dataPrecision = 0, bool changeNumericToLong = true)
+	public static string GetDotNetType(string dataTypeInDatabase,int dataPrecision = 0, int dataScale = 0, bool changeNumericToLong = true)
 	{
 		dataTypeInDatabase = dataTypeInDatabase.ToLowerInvariant();
 		if (

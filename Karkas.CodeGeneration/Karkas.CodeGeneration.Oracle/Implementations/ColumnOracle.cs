@@ -335,7 +335,7 @@ AND
 		            {
 			            dataScale = Convert.ToInt32(strDataScale);
 		            }
-		            languageType = HelperOracleDataTypes.GetDotNetType(DataTypeInDatabase, dataScale,dataPrecision,codeGenerationConfig.OracleChangeNumericToLong);
+		            languageType = HelperOracleDataTypes.GetDotNetType(DataTypeInDatabase, dataPrecision, dataScale, codeGenerationConfig.OracleChangeNumericToLong);
 	            }
 
 	            return languageType;
