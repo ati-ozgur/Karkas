@@ -6,6 +6,8 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 
 namespace Karkas.Data.Oracle
 {
@@ -21,6 +23,10 @@ namespace Karkas.Data.Oracle
 		public BaseDalForIdentityOracle() : base(new ExceptionChangerOracle())
 		{
 		}
+
+		readonly Type TYPE_PrimaryKey = typeof(PRIMARY_KEY);
+		readonly Type TYPE_OracleDecimal = typeof(OracleDecimal);
+
 
 		public override string DbProviderName
         {
@@ -62,9 +68,19 @@ namespace Karkas.Data.Oracle
                 {
                     new LoggingInfo(cmd).LogInfo(this.GetType());
                     cmd.ExecuteNonQuery();
-                    object o = cmd.Parameters[IdentityParameterName].Value;
-                    result = (PRIMARY_KEY)Convert.ChangeType(o, result.GetType());
-                    setIdentityColumnValue(row, result);
+					object o = null;
+					if (TYPE_PrimaryKey == TYPE_OracleDecimal)
+					{
+						o = (cmd as OracleCommand).Parameters[IdentityParameterName].Value;
+						result = (PRIMARY_KEY) o ;
+					}
+					else
+					{
+						o = cmd.Parameters[IdentityParameterName].Value;
+						result = (PRIMARY_KEY)Convert.ChangeType(o, result.GetType());
+					}
+
+					setIdentityColumnValue(row, result);
                 }
                 else
                 {

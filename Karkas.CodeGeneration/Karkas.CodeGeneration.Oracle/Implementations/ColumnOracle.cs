@@ -388,19 +388,27 @@ AND
             }
         }
 
+
+		string _DbTargetType = null;
         public string DbTargetType
         {
 
             get
             {
-                string lowerDataTypeInDatabase = dataTypeInDatabase.ToLowerInvariant();
-                if (
-                    lowerDataTypeInDatabase == "number"
-
-                    )
+				if (_DbTargetType != null)
+				{
+					return _DbTargetType;
+				}
+				if (languageType == "OracleDecimal")
+				{
+					_DbTargetType = "OracleDbType.Decimal";
+					return _DbTargetType;
+				}
+				string lowerDataTypeInDatabase = dataTypeInDatabase.ToLowerInvariant();
+                if (lowerDataTypeInDatabase == "number")
                 {
-
-                    return "DbType.Decimal";
+					_DbTargetType= "DbType.Decimal";
+					return _DbTargetType;
                 }
                 if (
                     lowerDataTypeInDatabase == "nchar"
@@ -412,21 +420,28 @@ AND
                     lowerDataTypeInDatabase == "varchar"
                     )
                 {
-                    return "DbType.String";
-                }
-                if (lowerDataTypeInDatabase == "date")
+					_DbTargetType = "DbType.String";
+					return _DbTargetType;
+
+				}
+				if (lowerDataTypeInDatabase == "date")
                 {
-                    return "DbType.DateTime";
-                }
-                if (lowerDataTypeInDatabase.StartsWith("timestamp"))
+					_DbTargetType = "DbType.DateTime";
+					return _DbTargetType;
+				}
+				if (lowerDataTypeInDatabase.StartsWith("timestamp"))
                 {
-                    return "DbType.DateTime";
-                }
-                if (lowerDataTypeInDatabase == "binary_float" || lowerDataTypeInDatabase == "binary_double")
+					_DbTargetType = "DbType.DateTime";
+					return _DbTargetType;
+				}
+				// TODO check if this is working
+				if (lowerDataTypeInDatabase == "binary_float" || lowerDataTypeInDatabase == "binary_double")
                 {
-                    return "DbType.Decimal";
-                }
-                return "Unknown";
+					_DbTargetType = "DbType.Decimal";
+					return _DbTargetType;
+				}
+				_DbTargetType = "DbType.String";
+				return _DbTargetType;
 
             }
 

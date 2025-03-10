@@ -9,6 +9,7 @@ using Karkas.CodeGeneration.Helpers.Interfaces;
 using Karkas.CodeGeneration.Helpers.Generators;
 using Karkas.CodeGeneration.Helpers.PersistenceService;
 
+using Karkas.CodeGeneration.Oracle.Implementations;
 
 namespace Karkas.CodeGeneration.Oracle.Generators
 {
@@ -16,7 +17,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
     {
 
 
-        public OracleDalGenerator(CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)        
+        public OracleDalGenerator(CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)
         {
 
         }
@@ -26,17 +27,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             get { return ":"; }
         }
 
-        protected override string getDbTargetType(IColumn column)
-        {
-            if (column.DbTargetType == "Unknown")
-            {
-                return "DbType.String";
-            }
-            else
-            {
-                return column.DbTargetType;
-            }
-        }
+
 
         protected override string getAutoIncrementKeySql()
         {
@@ -131,7 +122,7 @@ namespace Karkas.CodeGeneration.Oracle.Generators
                     if(CodeGenerationConfig.UseSchemaNameInSqlQueries)
                     {
                         insert = "return  @\"" + $"INSERT INTO {schemaNameForQueries}.{tableName} {insertString}\";";
-                    } 
+                    }
                     else
                     {
                         insert = "return  @\"" + $"INSERT INTO {tableName} {insertString}\";";
@@ -226,12 +217,10 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         private void builderParameterAddOutputForIdentity(IColumn column)
         {
             string variableName = column.Name.ToLowerInvariant();
+			string dbTargetType = getDbTargetType(column);
 
-            string s = "builder.AddParameterOutput(\"" + parameterSymbol
-                        + variableName
-                        + "\","
-                        + getDbTargetType(column)
-                        + ");";
+
+			string s = $"builder.AddParameterOutput(\"{parameterSymbol}{variableName}\",{dbTargetType});";
             output.AutoTabLine(s);
         }
 
@@ -299,32 +288,32 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             AtEndCurlyBraceletDecreaseTab();
         }
 
-        private static string[] reservedKeyWordsArray = {  "ACCESS", "ADD", "ALL", "ALTER", "AND", 
-            "ANY", "AS", "ASC", "AUDIT", "BETWEEN", "BY", "CHAR", "CHECK", "CLUSTER", "COLUMN", 
-            "COLUMN_VALUE", "COMMENT", "COMPRESS", "CONNECT", "CREATE", "CURRENT", "DATE", 
-            "DECIMAL", "DEFAULT", "DELETE", "DESC", "DISTINCT", "DROP", "ELSE", "EXCLUSIVE", 
+        private static string[] reservedKeyWordsArray = {  "ACCESS", "ADD", "ALL", "ALTER", "AND",
+            "ANY", "AS", "ASC", "AUDIT", "BETWEEN", "BY", "CHAR", "CHECK", "CLUSTER", "COLUMN",
+            "COLUMN_VALUE", "COMMENT", "COMPRESS", "CONNECT", "CREATE", "CURRENT", "DATE",
+            "DECIMAL", "DEFAULT", "DELETE", "DESC", "DISTINCT", "DROP", "ELSE", "EXCLUSIVE",
             "EXISTS", "FILE", "FLOAT", "FOR", "FROM", "GRANT", "GROUP", "HAVING", "IDENTIFIED",
-            "IMMEDIATE", "IN", "INCREMENT", "INDEX", "INITIAL", "INSERT", "INTEGER", "INTERSECT", 
-            "INTO", "IS", "LEVEL", "LIKE", "LOCK", "LONG", "MAXEXTENTS", "MINUS", "MLSLABEL", 
+            "IMMEDIATE", "IN", "INCREMENT", "INDEX", "INITIAL", "INSERT", "INTEGER", "INTERSECT",
+            "INTO", "IS", "LEVEL", "LIKE", "LOCK", "LONG", "MAXEXTENTS", "MINUS", "MLSLABEL",
             "MODE", "MODIFY", "NESTED_TABLE_ID", "NOAUDIT", "NOCOMPRESS", "NOT", "NOWAIT",
-            "NULL", "NUMBER", "OF", "OFFLINE", "ON", "ONLINE", "OPTION", "OR", "ORDER", 
-            "PCTFREE", "PRIOR", "PUBLIC", "RAW", "RENAME", "RESOURCE", "REVOKE", "ROW", 
-            "ROWID ", "ROWNUM", "ROWS", "SELECT", "SESSION", "SET", "SHARE", "SIZE", "SMALLINT", 
-            "START", "SUCCESSFUL", "SYNONYM", "SYSDATE", "TABLE", "THEN", "TO", "TRIGGER", "UID", 
-            "UNION", "UNIQUE", "UPDATE", "USER", "VALIDATE", "VALUES", "VARCHAR", "VARCHAR2", 
+            "NULL", "NUMBER", "OF", "OFFLINE", "ON", "ONLINE", "OPTION", "OR", "ORDER",
+            "PCTFREE", "PRIOR", "PUBLIC", "RAW", "RENAME", "RESOURCE", "REVOKE", "ROW",
+            "ROWID ", "ROWNUM", "ROWS", "SELECT", "SESSION", "SET", "SHARE", "SIZE", "SMALLINT",
+            "START", "SUCCESSFUL", "SYNONYM", "SYSDATE", "TABLE", "THEN", "TO", "TRIGGER", "UID",
+            "UNION", "UNIQUE", "UPDATE", "USER", "VALIDATE", "VALUES", "VARCHAR", "VARCHAR2",
             "VIEW", "WHENEVER", "WHERE", "WITH",
-            "access", "add", "all", "alter", "and", "any", "as", "asc", "audit", "between", 
-            "by", "char", "check", "cluster", "column", "column_value", "comment", "compress", 
-            "connect", "create", "current", "date", "decimal", "default", "delete", "desc", 
-            "distinct", "drop", "else", "exclusive", "exists", "file", "float", "for", "from", 
+            "access", "add", "all", "alter", "and", "any", "as", "asc", "audit", "between",
+            "by", "char", "check", "cluster", "column", "column_value", "comment", "compress",
+            "connect", "create", "current", "date", "decimal", "default", "delete", "desc",
+            "distinct", "drop", "else", "exclusive", "exists", "file", "float", "for", "from",
             "grant", "group", "having", "identified", "immediate", "in", "increment", "index",
             "initial", "insert", "integer", "intersect", "into", "is", "level", "like", "lock",
-            "long", "maxextents", "minus", "mlslabel", "mode", "modify", "nested_table_id", 
-            "noaudit", "nocompress", "not", "nowait", "null", "number", "of", "offline", "on", 
-            "online", "option", "or", "order", "pctfree", "prior", "public", "raw", "rename", 
-            "resource", "revoke", "row", "rowid ", "rownum", "rows", "select", "session", "set", 
-            "share", "size", "smallint", "start", "successful", "synonym", "sysdate", "table", 
-            "then", "to", "trigger", "uid", "union", "unique", "update", "user", "validate", 
+            "long", "maxextents", "minus", "mlslabel", "mode", "modify", "nested_table_id",
+            "noaudit", "nocompress", "not", "nowait", "null", "number", "of", "offline", "on",
+            "online", "option", "or", "order", "pctfree", "prior", "public", "raw", "rename",
+            "resource", "revoke", "row", "rowid ", "rownum", "rows", "select", "session", "set",
+            "share", "size", "smallint", "start", "successful", "synonym", "sysdate", "table",
+            "then", "to", "trigger", "uid", "union", "unique", "update", "user", "validate",
             "values", "varchar", "varchar2", "view", "whenever", "where", "with"  };
 
         private static List<string> reservedKeyWordsList = new List<string>(reservedKeyWordsArray);
@@ -334,7 +323,13 @@ namespace Karkas.CodeGeneration.Oracle.Generators
         }
 
 
-    }
+		// TODO not necessary remove later
+		protected override string getDbTargetType(IColumn column)
+		{
+			return column.DbTargetType;
+		}
+
+	}
 
 }
 

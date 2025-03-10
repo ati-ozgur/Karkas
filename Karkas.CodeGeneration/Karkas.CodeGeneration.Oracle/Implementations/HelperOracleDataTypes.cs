@@ -6,10 +6,12 @@ public class HelperOracleDataTypes
 {
 	readonly static int MAX_INT32_LENGTH = Int32.MaxValue.ToString().Length;
 	readonly static int MAX_INT64_LENGTH = Int64.MaxValue.ToString().Length;
+	readonly static int MAX_DECIMAL_LENGTH = Int64.MaxValue.ToString().Length;
 	readonly static int MAX_INT128_LENGTH = Int128.MaxValue.ToString().Length;
-	// int32 max 10 bytes
-	// int64 max 19 bytes
-	// int128 max 39 bytes
+	// int32 max 10 digits
+	// int64 max 19 digits
+	// decimal max 28 digits
+	// int128 max 39 digits
 
 	const int MAX_DIGIT_DOTNET_DECIMAL = 28;
 
