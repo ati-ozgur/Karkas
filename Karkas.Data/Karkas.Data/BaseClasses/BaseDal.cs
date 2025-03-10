@@ -389,18 +389,32 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
 		ExecuteQueryInternal(liste, cmd);
 		return liste;
 	}
-	public List<T1> QueryDetailTable<T1>(object degeri) where T1 : new()
+	public List<T1> QueryDetailTable<T1>(object value) where T1 : new()
     {
         T1 t = new T1();
 
-        string typeLibraryName = t.ToString();
+        string typeLibraryName = t.GetType().ToString();
         string dalName = typeLibraryName.Replace("TypeLibrary", "Dal") + "Dal";
-        string assemblyName = dalName.Remove(dalName.IndexOf("Dal") + 3);
-        Type type = Type.GetType(dalName + "," + assemblyName);
-        MethodInfo methodInfo = type.GetMethod("QueryUsingColumnName");
-        ObjectHandle oh = Activator.CreateInstance(assemblyName, dalName);
+		Type type = Type.GetType(dalName);
+		if( type == null)
+		{
+			type = Assembly.GetEntryAssembly().GetType(dalName);
+		}
+		if (type == null)
+		{
+			string assemblyName = dalName.Remove(dalName.IndexOf("Dal") + 3);
+			type = Type.GetType(dalName + "," + assemblyName);
+		}
+		if (type == null)
+		{
+			throw new Exception("Cannot find the type " + dalName);
+		}
 
-        object result = methodInfo.Invoke(oh.Unwrap(), new object[] { PrimaryKey, degeri });
+
+		//MethodInfo methodInfo = type.GetMethod("QueryUsingColumnName");
+        dynamic oh = Activator.CreateInstance(type);
+
+        object result = oh.QueryUsingColumnName(PrimaryKey, value);
         return (List<T1>)result;
     }
     public virtual string PrimaryKey
