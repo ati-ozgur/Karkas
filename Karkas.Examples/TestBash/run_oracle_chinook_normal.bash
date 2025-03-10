@@ -78,7 +78,8 @@ cp ../../TestCSharp/GlobalUsings/GlobalUsingsOracle.cs GlobalUsingsOracle.cs
 
 
 cp --recursive ../../TestCSharp/Helpers/ .
-cp ../../TestCSharp/HelpersTest/TestHelperChinook.cs TestHelperChinook.cs
+cp ../../TestCSharp/HelpersTest/TestHelperChinook*.cs .
+
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperOracleChinook.cs ConnectionHelper.cs
 cp --recursive ../../TestCSharp/Bs/Karkas.Examples.Chinook.Bs .
 cp --recursive ../../TestCSharp/Dal/Karkas.Examples.Chinook.Dal .

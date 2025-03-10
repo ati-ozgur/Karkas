@@ -93,7 +93,8 @@ cp ../../TestCSharp/GlobalUsings/GlobalUsings.cs GlobalUsings.cs
 cp ../../TestCSharp/GlobalUsings/GlobalUsingsChinook.cs GlobalUsingsChinook.cs
 
 cp --recursive ../../TestCSharp/Helpers/ .
-cp ../../TestCSharp/HelpersTest/TestHelperChinook.cs TestHelperChinook.cs
+cp ../../TestCSharp/HelpersTest/TestHelperChinook*.cs .
+
 
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqlServerChinook.cs ConnectionHelper.cs
 cp --recursive ../../TestCSharp/Bs/Karkas.Examples.Chinook.Bs .
