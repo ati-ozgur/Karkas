@@ -158,6 +158,7 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         {
 
             string filtreColumnName = pListFilterColumnNames[i];
+			filtreColumnName = filtreColumnName.Replace("\"", "");
             WhereOperatorEnum wOp = WhereOperatorEnum.Equals;
             if(pWhereOperators != null)
             {

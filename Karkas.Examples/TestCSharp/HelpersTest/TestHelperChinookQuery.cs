@@ -3,6 +3,23 @@ namespace Karkas.Examples;
 public partial class TestHelper
 {
 
+	public static void TestQuery_QueryDetailTable1()
+	{
+		CustomerBs bs = new CustomerBs();
+
+		var list = bs.QueryDetailTable<Invoice>(56);
+
+		if (list.Count > 0)
+		{
+			Console.WriteLine("QueryDetailTable works");
+		}
+		else
+		{
+			throw new Exception("QueryDetailTable DOES NOT work");
+		}
+
+	}
+
 
 	public static void TestQueryUsingColumnName_StringDateTimeColumns()
 	{
