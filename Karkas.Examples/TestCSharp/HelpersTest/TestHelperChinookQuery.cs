@@ -2,6 +2,27 @@ namespace Karkas.Examples;
 
 public partial class TestHelper
 {
+	public static void TestQueryUsingColumnName_TwoStringColumnsWithLike()
+	{
+
+		EmployeeDal dal = new EmployeeDal();
+		var liste = dal.QueryUsingColumnName(
+			new string[] { Employee.ColumnNames.FirstName, Employee.ColumnNames.LastName },
+			new object[] { "A%", "A%" },
+			new WhereOperatorEnum[] { WhereOperatorEnum.Like, WhereOperatorEnum.Like }
+			);
+
+		if (liste.Count == 1)
+		{
+			Console.WriteLine("QueryUsing simple two string columns with LIKE works");
+		}
+		else
+		{
+			throw new Exception("QueryUsing simple two string columns with LIKE  DOES NOT work");
+		}
+
+	}
+
 
 	public static void TestQueryUsingColumnName_TwoStringColumns()
 	{
