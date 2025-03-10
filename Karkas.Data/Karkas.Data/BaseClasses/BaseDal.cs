@@ -393,12 +393,12 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
     {
         T1 t = new T1();
 
-        string typeLibrary = t.ToString();
-        string dal = typeLibrary.Replace("TypeLibrary", "Dal") + "Dal";
-        string assemblyName = dal.Remove(dal.IndexOf("Dal") + 3);
-        Type type = Type.GetType(dal + "," + assemblyName);
+        string typeLibraryName = t.ToString();
+        string dalName = typeLibraryName.Replace("TypeLibrary", "Dal") + "Dal";
+        string assemblyName = dalName.Remove(dalName.IndexOf("Dal") + 3);
+        Type type = Type.GetType(dalName + "," + assemblyName);
         MethodInfo methodInfo = type.GetMethod("QueryUsingColumnName");
-        ObjectHandle oh = Activator.CreateInstance(assemblyName, dal);
+        ObjectHandle oh = Activator.CreateInstance(assemblyName, dalName);
 
         object result = methodInfo.Invoke(oh.Unwrap(), new object[] { PrimaryKey, degeri });
         return (List<T1>)result;
