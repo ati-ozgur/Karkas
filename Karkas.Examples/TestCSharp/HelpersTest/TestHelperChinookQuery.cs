@@ -3,6 +3,26 @@ namespace Karkas.Examples;
 public partial class TestHelper
 {
 
+	public static void TestQueryUsingColumnName_TwoStringColumns()
+	{
+
+		EmployeeDal dal = new EmployeeDal();
+		var liste = dal.QueryUsingColumnName(
+			new string[] { Employee.ColumnNames.City, Employee.ColumnNames.Country },
+			new object[] { "Calgary", "Canada" }
+			);
+
+		if (liste.Count == 5)
+		{
+			Console.WriteLine("QueryUsing simple two string columns works");
+		}
+		else
+		{
+			throw new Exception("QueryUsing simple two string columns DOES NOT work");
+		}
+
+	}
+
 	public static void TestQueryAll()
 	{
 
@@ -12,7 +32,10 @@ public partial class TestHelper
 		{
 			Console.WriteLine("QueryAll works");
 		}
-
+		else
+		{
+			throw new Exception("QueryAll DOES NOT work");
+		}
 		int maxRowCount = 10;
 		var list = dal.QueryAll(10);
 		assertEquals(list.Count, maxRowCount, "QueryAll works");

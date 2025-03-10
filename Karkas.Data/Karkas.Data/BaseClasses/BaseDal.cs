@@ -147,7 +147,7 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
     }
     public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string[] pListFilterColumnNames, object[] pListValues)
     {
-        return QueryUsingColumnName(pListFilterColumnNames, pListValues);
+        return QueryUsingColumnName(pListFilterColumnNames, pListValues, null);
     }
     public virtual List<TYPE_LIBRARY_TYPE> QueryUsingColumnName(string[] pListFilterColumnNames, object[] pListValues, WhereOperatorEnum[] pWhereOperators)
     {
