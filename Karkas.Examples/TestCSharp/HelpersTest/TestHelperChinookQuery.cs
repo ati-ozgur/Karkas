@@ -2,6 +2,29 @@ namespace Karkas.Examples;
 
 public partial class TestHelper
 {
+
+
+	public static void TestQueryUsingColumnName_StringDateTimeColumns()
+	{
+
+		EmployeeDal dal = new EmployeeDal();
+		var liste = dal.QueryUsingColumnName(
+			new string[] { Employee.ColumnNames.FirstName, Employee.ColumnNames.HireDate },
+			new object[] { "A%", new DateTime(2002, 8, 14) },
+			new WhereOperatorEnum[] { WhereOperatorEnum.Like, WhereOperatorEnum.Equals }
+			);
+
+		if (liste.Count == 1)
+		{
+			Console.WriteLine("QueryUsing string + datetime columns works");
+		}
+		else
+		{
+			throw new Exception("QueryUsing string + datetime columns DOES NOT work");
+		}
+
+	}
+
 	public static void TestQueryUsingColumnName_TwoStringColumnsWithLike()
 	{
 

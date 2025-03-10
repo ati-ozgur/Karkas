@@ -102,6 +102,18 @@ namespace Karkas.Data
             {
                 prm = setParameterValue(parameterName, DbType.Int64, value);
             }
+			else if (value is DateTime)
+			{
+				prm = setParameterValue(parameterName, DbType.DateTime, value);
+			}
+			else if (value is Decimal)
+			{
+				prm = setParameterValue(parameterName, DbType.Decimal, value);
+			}
+			else if (value is Guid)
+			{
+				prm = setParameterValue(parameterName, DbType.Guid, value);
+			}
             else
             {
                 prm = setParameterValue(parameterName, DbType.Object, value);
