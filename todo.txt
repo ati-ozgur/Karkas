@@ -1,5 +1,9 @@
 # todo
 
+1. https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/sql-server-data-type-mappings
+Add All Mappings
+
+
 1. OracleBFile, raw  in Docker Test
 
 
