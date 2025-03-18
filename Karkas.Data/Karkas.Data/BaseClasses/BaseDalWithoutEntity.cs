@@ -61,6 +61,12 @@ public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE,PARAMETER_BUILDER
         return t;
     }
 
+    /// <summary>
+    /// This is the class name for database provider.
+    /// It is normally overridden in the corresponding Karkas.Data.X as most used provider,
+    /// such as System.Data.SqlClient,Oracle.DataAccess.Client or Microsoft.Data.Sqlite.
+    /// But you can use custom data providers in the code generation.
+    /// </summary>
     public abstract string DbProviderName
     {
         get;
