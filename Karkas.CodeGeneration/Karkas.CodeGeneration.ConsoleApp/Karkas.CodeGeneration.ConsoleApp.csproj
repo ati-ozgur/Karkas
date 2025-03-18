@@ -8,6 +8,7 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>karkas-codegen</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
   </PropertyGroup>
   <ItemGroup>
