@@ -1,5 +1,25 @@
 # todo
 
+1. Quarto + XML documentation to create the examples
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/documentation-comments
+
+
+xml to markdown
+1. https://charlesdevandiere.github.io/xmldoc2md/
+can add examples
+https://github.com/charlesdevandiere/xmldoc2md
+
+xmldoc2md --member-accessibility-level public --structure tree --back-button --output md Karkas.Data.dll
+
+
+
+--examples-path
+
+
+inheritdoc does not work with xmldoc2md
+https://www.webdevtutor.net/blog/c-sharp-xml-documentation-inheritdoc
+
+
 1. https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/sql-server-data-type-mappings
 Add All Mappings
 
