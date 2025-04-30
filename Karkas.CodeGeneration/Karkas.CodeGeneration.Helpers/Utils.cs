@@ -185,6 +185,18 @@ namespace Karkas.CodeGeneration.Helpers
                 case "bool":
 	                result = $"Convert.ToBoolean({pValue})";
 	                break;
+				case "byte[]":
+					result = $"new UTF8Encoding().GetString({pValue})";
+					break;
+				case "object":
+					result = $"(object){pValue}";
+					break;
+				case "Guid":
+					result = $"new Guid({pValue})";
+					break;
+				case "Unknown":
+					result = $"{pValue}";
+					break;
 				case "OracleDecimal":
 					result = $"OracleDecimal.Parse({pValue}.ToString())";
 					break;
