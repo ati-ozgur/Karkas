@@ -186,7 +186,7 @@ namespace Karkas.CodeGeneration.Helpers
 	                result = $"Convert.ToBoolean({pValue})";
 	                break;
 				case "byte[]":
-					result = $"new UTF8Encoding().GetString({pValue})";
+					result = $"(byte[]) {pValue}";
 					break;
 				case "object":
 					result = $"(object){pValue}";
