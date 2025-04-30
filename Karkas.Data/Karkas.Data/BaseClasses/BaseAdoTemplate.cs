@@ -523,19 +523,34 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     }
 
     [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
-    public List<Dictionary<String, Object>> GetListOfDictionary(string sql, DbParameter[] parameters)
+    public List<Dictionary<String, Object>> GetListOfDictionary(string sql, DbParameter[] parameters, int? timeOut = null)
     {
-        return GetRows(sql,parameters);
+        return GetRows(sql,parameters,timeOut);
     }
-    public List<Dictionary<String, Object>> GetRows(string sql, DbParameter[] parameters)
-    {
-        DbCommand cmd = getDatabaseCommand(sql, Connection);
-        foreach (var param in parameters)
-        {
-            cmd.Parameters.Add(param);
-        }
-        return GetRows(cmd);
-    }
+
+	/// <summary>
+	/// GetRows method is used to get rows from database and return them as a list of dictionaries.
+	/// Each dictionary represents a row, and the keys are the column names in sql statement.
+	/// It is especially useful for dynamic queries.
+	/// It is also useful for json rest services since ASP.NET automatically converts dictionaries to json.
+	/// </summary>
+	/// <param name="sql"> your sql statement</param>
+	/// <param name="parameters"> parameters used in the sql @ or : according to database syntax</param>
+	/// <param name="timeOut">optional timeout value for long running queries. This parameter should be used for only some queries. Default timeout set in connection string normally.</param>
+	/// <returns></returns>
+	public List<Dictionary<String, Object>> GetRows(string sql, DbParameter[] parameters, int? timeOut = null)
+	{
+		DbCommand cmd = getDatabaseCommand(sql, Connection);
+		if(timeOut.HasValue)
+		{
+			cmd.CommandTimeout = timeOut.Value;
+		}
+		foreach (var param in parameters)
+		{
+			cmd.Parameters.Add(param);
+		}
+		return GetRows(cmd);
+	}
 
 
 
