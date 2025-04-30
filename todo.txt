@@ -1,4 +1,7 @@
 # todo
+1. Oracle blob types, clob... add the tests
+
+2. raw as guid example and test
 
 1. Quarto + XML documentation to create the examples
 https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/documentation-comments
