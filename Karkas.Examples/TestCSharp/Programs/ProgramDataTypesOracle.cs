@@ -14,6 +14,17 @@ foreach (var row in resultList)
 }
 
 
+BlobExample1 b1 = new BlobExample1();
+b1.Url = "http://localhost:5000/api/BlobExample1";
+b1.Username = "admin";
+b1.RequestJson = new UTF8Encoding().GetBytes("{\"key\":1}");
+b1.ResponseJson = new UTF8Encoding().GetBytes("{\"key\":1}");
+
+BlobExample1Bs bs2 = new BlobExample1Bs();
+bs2.Insert(b1);
+Console.WriteLine("BlobExample1 insert works");
+
+
 static void AssertEquals(object p1, object p2, string message)
 {
     if (!p1.Equals(p2))
