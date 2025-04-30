@@ -5,7 +5,7 @@ DecimalTablesBs bs1 = new DecimalTablesBs();
 
 int rowCount = 10;
 var resultList = bs1.QueryAll(rowCount);
-AssertEquals(resultList.Count,rowCount);
+AssertEquals(resultList.Count,rowCount,"QueryAll rowCount works");
 Console.WriteLine("QueryAll maxRowCount works");
 
 foreach (var row in resultList)
@@ -14,7 +14,7 @@ foreach (var row in resultList)
 }
 
 
-static void assertEquals(object p1, object p2, string message)
+static void AssertEquals(object p1, object p2, string message)
 {
     if (!p1.Equals(p2))
     {
