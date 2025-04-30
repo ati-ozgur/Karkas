@@ -42,15 +42,15 @@ public interface IAdoTemplate<IParameterBuilder>
 
     Dictionary<string, object> GetOneRow(string sql);
     Dictionary<string, object> GetOneRow(string sql, DbParameter[] parameters);
-    
+
 
     List<Dictionary<string, object>> GetRows(DbCommand cmd);
     List<Dictionary<string, object>> GetRows(string sql);
     List<Dictionary<string, object>> GetRows(string sql, CommandType commandType);
     List<Dictionary<string, object>> GetRows(string sql, CommandType commandType, DbParameter[] parameters);
-    List<Dictionary<string, object>> GetRows(string sql, DbParameter[] parameters);
+    List<Dictionary<string, object>> GetRows(string sql, DbParameter[] parameters, int? timeout = null);
 
-    
+
     IParameterBuilder getParameterBuilder();
 
 
