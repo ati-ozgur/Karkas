@@ -395,6 +395,7 @@ AND
 
             get
             {
+				string lowerDataTypeInDatabase = dataTypeInDatabase.ToLowerInvariant();
 				if (_DbTargetType != null)
 				{
 					return _DbTargetType;
@@ -404,12 +405,16 @@ AND
 					_DbTargetType = "OracleDbType.Decimal";
 					return _DbTargetType;
 				}
-				string lowerDataTypeInDatabase = dataTypeInDatabase.ToLowerInvariant();
-                if (lowerDataTypeInDatabase == "number")
-                {
-					_DbTargetType= "DbType.Decimal";
+				if (lowerDataTypeInDatabase == "blob")
+				{
+					_DbTargetType = "OracleDbType.Blob";
 					return _DbTargetType;
-                }
+				}
+                if (lowerDataTypeInDatabase == "number")
+					{
+						_DbTargetType = "DbType.Decimal";
+						return _DbTargetType;
+					}
                 if (
                     lowerDataTypeInDatabase == "nchar"
                     ||
