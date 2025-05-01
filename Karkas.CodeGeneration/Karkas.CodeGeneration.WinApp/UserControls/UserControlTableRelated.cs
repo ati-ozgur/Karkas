@@ -100,8 +100,15 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         public void fillTablesInListBox()
         {
-            //DataTable dtTableList = ParentMainForm.DatabaseHelper.getTableListFromSchema(comboBoxSchemaList.Text);
-            //listBoxTables.DataSource = dtTableList;
+            var dtTableList = ParentMainForm.DatabaseHelper.GetTableListFromSchema(comboBoxSchemaList.Text);
+			List<string> displayList = new List<string>();
+			foreach (var d in dtTableList)
+			{
+				string fullTableName = d["FULL_TABLE_NAME"].ToString();
+				displayList.Add(fullTableName);
+			}
+
+			listBoxTables.DataSource = displayList;
         }
 
 

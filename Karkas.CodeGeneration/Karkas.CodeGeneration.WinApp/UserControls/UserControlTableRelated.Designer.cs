@@ -20,140 +20,144 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+		#region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            this.buttonSeciliTablolariUret = new System.Windows.Forms.Button();
-            this.buttonTumTablolariUret = new System.Windows.Forms.Button();
-            this.listBoxTables = new System.Windows.Forms.ListBox();
-            this.labelTabloListesi = new System.Windows.Forms.Label();
-            this.labelSchemaList = new System.Windows.Forms.Label();
-            this.comboBoxSchemaList = new System.Windows.Forms.ComboBox();
-            this.buttonSeciliSemaTablolariUret = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // buttonSeciliTablolariUret
-            // 
-            this.buttonSeciliTablolariUret.AutoSize = true;
-            this.buttonSeciliTablolariUret.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSeciliTablolariUret.Location = new System.Drawing.Point(560, 97);
-            this.buttonSeciliTablolariUret.Name = "buttonSeciliTablolariUret";
-            this.buttonSeciliTablolariUret.Size = new System.Drawing.Size(136, 277);
-            this.buttonSeciliTablolariUret.TabIndex = 11;
-            this.buttonSeciliTablolariUret.Text = "Create Selected Tables";
-            this.buttonSeciliTablolariUret.UseVisualStyleBackColor = true;
-            this.buttonSeciliTablolariUret.Click += new System.EventHandler(this.buttonGenerateSelectedTables_Click);
-            // 
-            // buttonTumTablolariUret
-            // 
-            this.buttonTumTablolariUret.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonTumTablolariUret.Location = new System.Drawing.Point(3, 3);
-            this.buttonTumTablolariUret.Name = "buttonTumTablolariUret";
-            this.buttonTumTablolariUret.Size = new System.Drawing.Size(133, 88);
-            this.buttonTumTablolariUret.TabIndex = 10;
-            this.buttonTumTablolariUret.Text = "Create All Tables";
-            this.buttonTumTablolariUret.UseVisualStyleBackColor = true;
-            this.buttonTumTablolariUret.Click += new System.EventHandler(this.buttonGenerateAllTables_Click);
-            // 
-            // listBoxTableListesi
-            // 
-            this.listBoxTables.DisplayMember = "FULL_TABLE_NAME";
-            this.listBoxTables.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxTables.FormattingEnabled = true;
-            this.listBoxTables.ItemHeight = 20;
-            this.listBoxTables.Location = new System.Drawing.Point(281, 97);
-            this.listBoxTables.Name = "listBoxTableListesi";
-            this.listBoxTables.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxTables.Size = new System.Drawing.Size(273, 277);
-            this.listBoxTables.TabIndex = 9;
-            // 
-            // labelTabloListesi
-            // 
-            this.labelTabloListesi.AutoSize = true;
-            this.labelTabloListesi.Location = new System.Drawing.Point(142, 94);
-            this.labelTabloListesi.Name = "labelTabloListesi";
-            this.labelTabloListesi.Size = new System.Drawing.Size(70, 20);
-            this.labelTabloListesi.TabIndex = 8;
-            this.labelTabloListesi.Text = "Table List";
-            // 
-            // labelSchemaList
-            // 
-            this.labelSchemaList.AutoSize = true;
-            this.labelSchemaList.Location = new System.Drawing.Point(142, 0);
-            this.labelSchemaList.Name = "labelSchemaList";
-            this.labelSchemaList.Size = new System.Drawing.Size(87, 20);
-            this.labelSchemaList.TabIndex = 7;
-            this.labelSchemaList.Text = "Schema List";
-            // 
-            // comboBoxSchemaList
-            // 
-            this.comboBoxSchemaList.DisplayMember = "SCHEMA_NAME";
-            this.comboBoxSchemaList.FormattingEnabled = true;
-            this.comboBoxSchemaList.Location = new System.Drawing.Point(281, 3);
-            this.comboBoxSchemaList.Name = "comboBoxSchemaList";
-            this.comboBoxSchemaList.Size = new System.Drawing.Size(241, 28);
-            this.comboBoxSchemaList.TabIndex = 6;
-            this.comboBoxSchemaList.SelectedValueChanged += new System.EventHandler(this.comboBoxSchemaList_SelectedValueChanged);
-            // 
-            // buttonSeciliSemaTablolariUret
-            // 
-            this.buttonSeciliSemaTablolariUret.AutoSize = true;
-            this.buttonSeciliSemaTablolariUret.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSeciliSemaTablolariUret.Location = new System.Drawing.Point(560, 3);
-            this.buttonSeciliSemaTablolariUret.Name = "buttonSeciliSemaTablolariUret";
-            this.buttonSeciliSemaTablolariUret.Size = new System.Drawing.Size(136, 88);
-            this.buttonSeciliSemaTablolariUret.TabIndex = 12;
-            this.buttonSeciliSemaTablolariUret.Text = "Create Tables in Schema";
-            this.buttonSeciliSemaTablolariUret.UseVisualStyleBackColor = true;
-            this.buttonSeciliSemaTablolariUret.Click += new System.EventHandler(this.buttonGenerateTablesForSelectedSchema_Click);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.buttonTumTablolariUret, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.labelSchemaList, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxSchemaList, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.listBoxTables, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.labelTabloListesi, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.buttonSeciliSemaTablolariUret, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonSeciliTablolariUret, 3, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(699, 377);
-            this.tableLayoutPanel1.TabIndex = 13;
-            // 
-            // UserControlTableRelated
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "UserControlTableRelated";
-            this.Size = new System.Drawing.Size(699, 377);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.ResumeLayout(false);
+		/// <summary> 
+		/// Required method for Designer support - do not modify 
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+			buttonSeciliTablolariUret = new Button();
+			buttonTumTablolariUret = new Button();
+			listBoxTables = new ListBox();
+			labelTabloListesi = new Label();
+			labelSchemaList = new Label();
+			comboBoxSchemaList = new ComboBox();
+			buttonSeciliSemaTablolariUret = new Button();
+			tableLayoutPanel1 = new TableLayoutPanel();
+			tableLayoutPanel1.SuspendLayout();
+			SuspendLayout();
+			// 
+			// buttonSeciliTablolariUret
+			// 
+			buttonSeciliTablolariUret.AutoSize = true;
+			buttonSeciliTablolariUret.Dock = DockStyle.Fill;
+			buttonSeciliTablolariUret.Location = new Point(491, 72);
+			buttonSeciliTablolariUret.Margin = new Padding(3, 2, 3, 2);
+			buttonSeciliTablolariUret.Name = "buttonSeciliTablolariUret";
+			buttonSeciliTablolariUret.Size = new Size(118, 209);
+			buttonSeciliTablolariUret.TabIndex = 11;
+			buttonSeciliTablolariUret.Text = "Create Selected Tables";
+			buttonSeciliTablolariUret.UseVisualStyleBackColor = true;
+			buttonSeciliTablolariUret.Click += buttonGenerateSelectedTables_Click;
+			// 
+			// buttonTumTablolariUret
+			// 
+			buttonTumTablolariUret.Dock = DockStyle.Fill;
+			buttonTumTablolariUret.Location = new Point(3, 2);
+			buttonTumTablolariUret.Margin = new Padding(3, 2, 3, 2);
+			buttonTumTablolariUret.Name = "buttonTumTablolariUret";
+			buttonTumTablolariUret.Size = new Size(116, 66);
+			buttonTumTablolariUret.TabIndex = 10;
+			buttonTumTablolariUret.Text = "Create All Tables";
+			buttonTumTablolariUret.UseVisualStyleBackColor = true;
+			buttonTumTablolariUret.Click += buttonGenerateAllTables_Click;
+			// 
+			// listBoxTables
+			// 
+			listBoxTables.Dock = DockStyle.Fill;
+			listBoxTables.FormattingEnabled = true;
+			listBoxTables.ItemHeight = 15;
+			listBoxTables.Location = new Point(247, 72);
+			listBoxTables.Margin = new Padding(3, 2, 3, 2);
+			listBoxTables.Name = "listBoxTables";
+			listBoxTables.SelectionMode = SelectionMode.MultiExtended;
+			listBoxTables.Size = new Size(238, 209);
+			listBoxTables.TabIndex = 9;
+			// 
+			// labelTabloListesi
+			// 
+			labelTabloListesi.AutoSize = true;
+			labelTabloListesi.Location = new Point(125, 70);
+			labelTabloListesi.Name = "labelTabloListesi";
+			labelTabloListesi.Size = new Size(55, 15);
+			labelTabloListesi.TabIndex = 8;
+			labelTabloListesi.Text = "Table List";
+			// 
+			// labelSchemaList
+			// 
+			labelSchemaList.AutoSize = true;
+			labelSchemaList.Location = new Point(125, 0);
+			labelSchemaList.Name = "labelSchemaList";
+			labelSchemaList.Size = new Size(70, 15);
+			labelSchemaList.TabIndex = 7;
+			labelSchemaList.Text = "Schema List";
+			// 
+			// comboBoxSchemaList
+			// 
+			comboBoxSchemaList.DisplayMember = "SCHEMA_NAME";
+			comboBoxSchemaList.FormattingEnabled = true;
+			comboBoxSchemaList.Location = new Point(247, 2);
+			comboBoxSchemaList.Margin = new Padding(3, 2, 3, 2);
+			comboBoxSchemaList.Name = "comboBoxSchemaList";
+			comboBoxSchemaList.Size = new Size(211, 23);
+			comboBoxSchemaList.TabIndex = 6;
+			comboBoxSchemaList.SelectedValueChanged += comboBoxSchemaList_SelectedValueChanged;
+			// 
+			// buttonSeciliSemaTablolariUret
+			// 
+			buttonSeciliSemaTablolariUret.AutoSize = true;
+			buttonSeciliSemaTablolariUret.Dock = DockStyle.Fill;
+			buttonSeciliSemaTablolariUret.Location = new Point(491, 2);
+			buttonSeciliSemaTablolariUret.Margin = new Padding(3, 2, 3, 2);
+			buttonSeciliSemaTablolariUret.Name = "buttonSeciliSemaTablolariUret";
+			buttonSeciliSemaTablolariUret.Size = new Size(118, 66);
+			buttonSeciliSemaTablolariUret.TabIndex = 12;
+			buttonSeciliSemaTablolariUret.Text = "Create Tables in Schema";
+			buttonSeciliSemaTablolariUret.UseVisualStyleBackColor = true;
+			buttonSeciliSemaTablolariUret.Click += buttonGenerateTablesForSelectedSchema_Click;
+			// 
+			// tableLayoutPanel1
+			// 
+			tableLayoutPanel1.ColumnCount = 4;
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+			tableLayoutPanel1.Controls.Add(buttonTumTablolariUret, 0, 0);
+			tableLayoutPanel1.Controls.Add(labelSchemaList, 1, 0);
+			tableLayoutPanel1.Controls.Add(comboBoxSchemaList, 2, 0);
+			tableLayoutPanel1.Controls.Add(listBoxTables, 2, 1);
+			tableLayoutPanel1.Controls.Add(labelTabloListesi, 1, 1);
+			tableLayoutPanel1.Controls.Add(buttonSeciliSemaTablolariUret, 3, 0);
+			tableLayoutPanel1.Controls.Add(buttonSeciliTablolariUret, 3, 1);
+			tableLayoutPanel1.Dock = DockStyle.Fill;
+			tableLayoutPanel1.Location = new Point(0, 0);
+			tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
+			tableLayoutPanel1.Name = "tableLayoutPanel1";
+			tableLayoutPanel1.RowCount = 2;
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 75F));
+			tableLayoutPanel1.Size = new Size(612, 283);
+			tableLayoutPanel1.TabIndex = 13;
+			// 
+			// UserControlTableRelated
+			// 
+			AutoScaleDimensions = new SizeF(7F, 15F);
+			AutoScaleMode = AutoScaleMode.Font;
+			Controls.Add(tableLayoutPanel1);
+			Margin = new Padding(4, 4, 4, 4);
+			Name = "UserControlTableRelated";
+			Size = new Size(612, 283);
+			tableLayoutPanel1.ResumeLayout(false);
+			tableLayoutPanel1.PerformLayout();
+			ResumeLayout(false);
+		}
 
-        }
+		#endregion
 
-        #endregion
-
-        private System.Windows.Forms.Button buttonSeciliTablolariUret;
+		private System.Windows.Forms.Button buttonSeciliTablolariUret;
         private System.Windows.Forms.Button buttonTumTablolariUret;
         private System.Windows.Forms.ListBox listBoxTables;
         private System.Windows.Forms.Label labelTabloListesi;
