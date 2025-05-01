@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -46,14 +46,14 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             {
                 if (schemaList.Length == 0)
                 {
-                    hatalar = ParentMainForm.DatabaseHelper.CodeGenerateAllTables();
+					hatalar = "";// ParentMainForm.DatabaseHelper.CodeGenerateAllTables();
                     message = "Code generated for all tables in database";
                 }
                 else
                 {
                     foreach (string schemaName in schemaList)
                     {
-                        hatalar = hatalar + ParentMainForm.DatabaseHelper.CodeGenerateAllTablesInSchema(schemaName);
+						hatalar = hatalar; //+ ParentMainForm.DatabaseHelper.CodeGenerateAllTablesInSchema(schemaName);
                     }
                     message = "Code generated for all tables in following schemas: " + string.Join(",", schemaList);
 
@@ -84,7 +84,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
                     string tableSchema = view["TABLE_SCHEMA"].ToString();
                     string tableName = view["TABLE_NAME"].ToString();
 
-                    ParentMainForm.DatabaseHelper.CodeGenerateOneTable(tableName, tableSchema);
+                    //ParentMainForm.DatabaseHelper.CodeGenerateOneTable(tableName, tableSchema);
 
                 }
                 MessageBox.Show("Codes are generated for selected tables");
@@ -100,8 +100,8 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         public void fillTablesInListBox()
         {
-            DataTable dtTableList = ParentMainForm.DatabaseHelper.getTableListFromSchema(comboBoxSchemaList.Text);
-            listBoxTables.DataSource = dtTableList;
+            //DataTable dtTableList = ParentMainForm.DatabaseHelper.getTableListFromSchema(comboBoxSchemaList.Text);
+            //listBoxTables.DataSource = dtTableList;
         }
 
 
@@ -109,7 +109,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
         public void fillComboBoxSchemaList(string[] schemaList)
         {
             comboBoxSchemaList.DataSource = schemaList;
-            string defaultSchema = ParentMainForm.DatabaseHelper.getDefaultSchema();
+			string defaultSchema = ""; //= ParentMainForm.DatabaseHelper.getDefaultSchema();
             if (schemaList.Contains(defaultSchema))
             {
                 comboBoxSchemaList.Text = defaultSchema;
@@ -141,7 +141,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             {
                 string selectedSchemaName = getSelectedSchemaName();
 
-                String errorMessages = ParentMainForm.DatabaseHelper.CodeGenerateAllTablesInSchema(selectedSchemaName);
+				String errorMessages = ""; // ParentMainForm.DatabaseHelper.CodeGenerateAllTablesInSchema(selectedSchemaName);
                 string message = "Code genereated for all tables in selected schema: " + selectedSchemaName;
                 if (!string.IsNullOrEmpty(errorMessages))
                 {

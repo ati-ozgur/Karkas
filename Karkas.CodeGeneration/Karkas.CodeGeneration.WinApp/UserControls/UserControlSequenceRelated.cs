@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -30,7 +30,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
         public void fillComboBoxSchemaList(string[] schemaList)
         {
             comboBoxSchemaList.DataSource = schemaList;
-            string defaultSchema = ParentMainForm.DatabaseHelper.getDefaultSchema();
+			string defaultSchema = "";//ParentMainForm.DatabaseHelper.getDefaultSchema();
             if (schemaList.Contains(defaultSchema))
             {
                 comboBoxSchemaList.Text = defaultSchema;
@@ -47,8 +47,8 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             string selectedSchema = comboBoxSchemaList.Text;
             if(!string.IsNullOrWhiteSpace(selectedSchema))
             {
-                DataTable dtSequenceList = ParentMainForm.DatabaseHelper.getSequenceListFromSchema(selectedSchema);
-                listBoxSequences.DataSource = dtSequenceList;
+                //DataTable dtSequenceList = ParentMainForm.DatabaseHelper.getSequenceListFromSchema(selectedSchema);
+                //listBoxSequences.DataSource = dtSequenceList;
             }
 
         }
@@ -65,7 +65,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
                 DataRowView view = (DataRowView)item;
                 string schemaName = view["SEQ_SCHEMA_NAME"].ToString();
                 string sequenceName = view["SEQUENCE_NAME"].ToString();
-                ParentMainForm.DatabaseHelper.CodeGenerateOneSequence(schemaName,sequenceName);
+                //ParentMainForm.DatabaseHelper.CodeGenerateOneSequence(schemaName,sequenceName);
 
             }
 
@@ -89,7 +89,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
                     string selectedSchemaName = comboBoxSchemaList.SelectedValue.ToString();
 
 
-                    string errors = ParentMainForm.DatabaseHelper.CodeGenerateAllSequencesInSchema(selectedSchemaName);
+					string errors = "";//ParentMainForm.DatabaseHelper.CodeGenerateAllSequencesInSchema(selectedSchemaName);
                     string message = $"Sequences created in schema {selectedSchemaName}";
                     if (!string.IsNullOrEmpty(errors))
                     {

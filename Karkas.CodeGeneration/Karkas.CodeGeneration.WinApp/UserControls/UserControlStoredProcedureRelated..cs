@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -30,7 +30,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
         public void fillComboBoxSchemaList(string[] schemaList)
         {
             comboBoxSchemaList.DataSource = schemaList;
-            string defaultSchema = ParentMainForm.DatabaseHelper.getDefaultSchema();
+			string defaultSchema = ""; // ParentMainForm.DatabaseHelper.getDefaultSchema();
             if (schemaList.Contains(defaultSchema))
             {
                 comboBoxSchemaList.Text = defaultSchema;
@@ -45,8 +45,8 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         internal void fillListBoxStoredProcedures()
         {
-            DataTable dtStoredProcedureList = ParentMainForm.DatabaseHelper.getStoredProcedureListFromSchema(comboBoxSchemaList.Text);
-            listBoxStoredProcedureListesi.DataSource = dtStoredProcedureList;
+            //DataTable dtStoredProcedureList = ParentMainForm.DatabaseHelper.getStoredProcedureListFromSchema(comboBoxSchemaList.Text);
+            //listBoxStoredProcedureListesi.DataSource = dtStoredProcedureList;
 
         }
 

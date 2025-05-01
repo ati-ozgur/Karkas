@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,13 +15,13 @@ using System.Runtime.Remoting;
 using Karkas.CodeGeneration.Helpers;
 using Karkas.CodeGeneration.Oracle;
 using Karkas.CodeGeneration.Helpers.Interfaces;
-using Karkas.CodeGeneration.WinApp.PersistenceService;
 using Karkas.CodeGeneration.Oracle.Implementations;
 using Karkas.CodeGeneration.Sqlite.Implementations;
 using Karkas.CodeGeneration.SqlServer.Implementations;
 using Karkas.Data.Oracle;
 using Karkas.Data.SqlServer;
 using Karkas.Data.Sqlite;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 namespace Karkas.CodeGeneration.WinApp
 {
@@ -37,26 +37,26 @@ namespace Karkas.CodeGeneration.WinApp
 
         DbConnection connection;
         IAdoTemplate<IParameterBuilder> template;
-        private IDatabase databaseHelper;
+        private CodeGenerationConfig databaseHelper;
 
-        public IDatabase DatabaseHelper
+        public CodeGenerationConfig DatabaseHelper
         {
             get
             {
-                CurrentDatabaseEntry.setIDatabaseValues(databaseHelper);
+                //CurrentDatabaseEntry.setIDatabaseValues(databaseHelper);
                 return databaseHelper;
             }
             set
             {
                 databaseHelper = value;
-                CurrentDatabaseEntry.setIDatabaseValues(databaseHelper);
+                //CurrentDatabaseEntry.setIDatabaseValues(databaseHelper);
             }
         }
 
 
 
-        DatabaseEntry entry;
-        private DatabaseEntry CurrentDatabaseEntry
+		CodeGenerationConfig entry;
+        private CodeGenerationConfig CurrentDatabaseEntry
         {
             get
             {
@@ -99,7 +99,7 @@ namespace Karkas.CodeGeneration.WinApp
                 }
                 else if (type == DatabaseType.Sqlite)
                 {
-                    testSqlite(connectionString);
+                    //testSqlite(connectionString);
 
                 }
 
@@ -158,7 +158,7 @@ namespace Karkas.CodeGeneration.WinApp
                 template = new AdoTemplateOracle();
                 template.Connection = connection;
                 template.DbProviderName = ConnectionDbProviderName;
-                DatabaseHelper = new CodeGenerationOracle( template);
+                //DatabaseHelper = new CodeGenerationOracle( template);
                 DbProviderFactories.RegisterFactory(ConnectionDbProviderName, factory);
 
 
@@ -187,7 +187,7 @@ namespace Karkas.CodeGeneration.WinApp
             template.Connection = connection;
             template.DbProviderName = providerName;
 
-            DatabaseHelper = new SqlServerDalGenerator(template);
+            //DatabaseHelper = new SqlServerDalGenerator(template);
 
         }
 
@@ -202,7 +202,7 @@ namespace Karkas.CodeGeneration.WinApp
 
         private void fillInformation( )
         {
-            userControlCodeGenerationOptions1.databaseNameLabelDoldur(DatabaseHelper);
+            //userControlCodeGenerationOptions1.databaseNameLabelDoldur(DatabaseHelper);
             fillSchema();
 
             userControlTableRelated1.fillTablesInListBox();
@@ -294,7 +294,7 @@ namespace Karkas.CodeGeneration.WinApp
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DatabaseService.InsertOrUpdate(CurrentDatabaseEntry);
+            //DatabaseService.InsertOrUpdate(CurrentDatabaseEntry);
 
             MessageBox.Show("Values saved;");
         }
