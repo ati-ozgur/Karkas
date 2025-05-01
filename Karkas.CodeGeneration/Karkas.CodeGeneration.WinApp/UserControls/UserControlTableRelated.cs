@@ -149,7 +149,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             {
                 string selectedSchemaName = getSelectedSchemaName();
 
-				String errorMessages = ""; // ParentMainForm.DatabaseHelper.CodeGenerateAllTablesInSchema(selectedSchemaName);
+				String errorMessages = ParentMainForm.DatabaseHelper.CodeGenerateAllTablesInSchema(selectedSchemaName);
                 string message = "Code genereated for all tables in selected schema: " + selectedSchemaName;
                 if (!string.IsNullOrEmpty(errorMessages))
                 {
