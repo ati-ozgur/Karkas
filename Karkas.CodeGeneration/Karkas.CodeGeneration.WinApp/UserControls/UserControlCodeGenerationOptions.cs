@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Karkas.CodeGeneration.Helpers;
-using Karkas.CodeGeneration.WinApp.PersistenceService;
 using Karkas.CodeGeneration.Helpers.Interfaces;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 namespace Karkas.CodeGeneration.WinApp.UserControls
 {
@@ -25,12 +25,12 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         public void getLastAccessedConnectionToTextbox()
         {
-            DatabaseEntry entry = DatabaseService.getLastAccessedDatabaseEntry();
+            //DatabaseEntry entry = DatabaseService.getLastAccessedDatabaseEntry();
 
-            if (entry != null)
-            {
-                databaseEntryToForm(entry);
-            }
+            //if (entry != null)
+            //{
+            //    databaseEntryToForm(entry);
+            //}
         }
 
 
@@ -53,10 +53,10 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             return codeGenerationDirectory;
         }
 
-        public DatabaseEntry getDatabaseEntry()
+        public CodeGenerationConfig getDatabaseEntry()
         {
 
-            DatabaseEntry entry = new DatabaseEntry();
+			CodeGenerationConfig entry = new CodeGenerationConfig();
             entry.ConnectionName = textBoxConnectionName.Text;
             entry.ConnectionDatabaseType = comboBoxDatabaseType.SelectedValue.ToString();
             entry.ConnectionDbProviderName = textBoxDbProviderName.Text;
@@ -67,23 +67,18 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             entry.ProjectNameSpace = textBoxProjectNamespace.Text;
             entry.CodeGenerationDirectory = getCodeGenerationDirectory();
 
-            entry.ViewCodeGenerate = checkBoxViewCodeGenerate.Checked.ToString();
-            entry.SequenceCodeGenerate = checkBoxSequenceCodeGenerate.Checked.ToString();
+            entry.ViewCodeGenerate = checkBoxViewCodeGenerate.Checked;
+            entry.SequenceCodeGenerate = checkBoxSequenceCodeGenerate.Checked;
+            entry.StoredProcedureCodeGenerate = checkBoxStoredProcedureCodeGenerate.Checked;
 
-            entry.StoredProcedureCodeGenerate = checkBoxStoredProcedureCodeGenerate.Checked.ToString();
-            entry.UseSchemaNameInSqlQueries = checkBoxUseSchemaNameInSql.Checked.ToString();
-            entry.UseSchemaNameInFolders = checkBoxUseSchemaNameInFolders.Checked.ToString();
-            entry.IgnoreSystemTables = checkBoxIgnoreSystemTables.Checked.ToString();
+            entry.UseSchemaNameInSqlQueries = checkBoxUseSchemaNameInSql.Checked;
+            entry.UseSchemaNameInFolders = checkBoxUseSchemaNameInFolders.Checked;
+			entry.UseSchemaNameInNamespaces = checkBoxUseSchemaNameInNamespaces.Checked;
+
+			entry.IgnoreSystemTables = checkBoxIgnoreSystemTables.Checked;
             entry.IgnoredSchemaList = textBoxIgnoredSchemaList.Text;
             entry.SchemaList = textBoxSchemaList.Text;
-            if (string.IsNullOrEmpty(textBoxAbbrevationsAsString.Text))
-            {
-                entry.AbbrevationsAsString = null;
-            }
-            else
-            {
-                entry.AbbrevationsAsString = textBoxAbbrevationsAsString.Text;
-            }
+
 
 
             entry.GenerateNormalClassAgain = checkBoxGenerateNormalClassAgain.Checked;
@@ -109,7 +104,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
         }
 
 
-        public void databaseEntryToForm(DatabaseEntry entry)
+        public void databaseEntryToForm(CodeGenerationConfig entry)
         {
             textBoxConnectionName.Text = entry.ConnectionName;
             comboBoxDatabaseType.SelectedItem = entry.ConnectionDatabaseType;
@@ -132,35 +127,18 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
                 textBoxCodeGenerationFolder.Text = entry.CodeGenerationDirectory;
             }
 
-            bool parsedValue;
-            if (bool.TryParse(entry.ViewCodeGenerate, out parsedValue))
-            {
-                checkBoxViewCodeGenerate.Checked = parsedValue;
-            }
-            if (bool.TryParse(entry.StoredProcedureCodeGenerate, out parsedValue))
-            {
-                checkBoxStoredProcedureCodeGenerate.Checked = parsedValue;
-            }
-            if (bool.TryParse(entry.UseSchemaNameInSqlQueries, out parsedValue))
-            {
-                checkBoxUseSchemaNameInSql.Checked = parsedValue;
-            }
-            if (bool.TryParse(entry.UseSchemaNameInFolders, out parsedValue))
-            {
-                checkBoxUseSchemaNameInFolders.Checked = parsedValue;
-            }
-            if (bool.TryParse(entry.IgnoreSystemTables, out parsedValue))
-            {
-                checkBoxIgnoreSystemTables.Checked = parsedValue;
-            }
-            if (bool.TryParse(entry.SequenceCodeGenerate, out parsedValue))
-            {
-                checkBoxSequenceCodeGenerate.Checked = parsedValue;
-            }
+			checkBoxViewCodeGenerate.Checked = entry.ViewCodeGenerate;
+			checkBoxStoredProcedureCodeGenerate.Checked = entry.StoredProcedureCodeGenerate;
 
-            textBoxIgnoredSchemaList.Text = entry.IgnoredSchemaList;
+			checkBoxUseSchemaNameInSql.Checked = entry.UseSchemaNameInSqlQueries;
+			checkBoxUseSchemaNameInFolders.Checked = entry.UseSchemaNameInFolders;
+			checkBoxUseSchemaNameInNamespaces.Checked = entry.UseSchemaNameInNamespaces;
+
+			checkBoxIgnoreSystemTables.Checked = entry.IgnoreSystemTables;
+			checkBoxSequenceCodeGenerate.Checked = entry.SequenceCodeGenerate;
+
+			textBoxIgnoredSchemaList.Text = entry.IgnoredSchemaList;
             textBoxSchemaList.Text = entry.SchemaList;
-            textBoxAbbrevationsAsString.Text = entry.AbbrevationsAsString;
 
 
         }

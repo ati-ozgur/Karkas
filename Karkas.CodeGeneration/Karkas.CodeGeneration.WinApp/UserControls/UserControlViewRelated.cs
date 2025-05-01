@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -31,7 +31,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
         public void fillComboBoxSchemaList(string[] schemaList)
         {
             comboBoxSchemaList.DataSource = schemaList;
-            string defaultSchema = ParentMainForm.DatabaseHelper.getDefaultSchema();
+			string defaultSchema = ""; // ParentMainForm.DatabaseHelper.getDefaultSchema();
             if (schemaList.Contains(defaultSchema))
             {
                 comboBoxSchemaList.Text = defaultSchema;
@@ -45,8 +45,8 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         public void listBoxViewListDoldur()
         {
-            DataTable dtViewList = ParentMainForm.DatabaseHelper.getViewListFromSchema(comboBoxSchemaList.Text);
-            listBoxViewListesi.DataSource = dtViewList;
+            //DataTable dtViewList = ParentMainForm.DatabaseHelper.getViewListFromSchema(comboBoxSchemaList.Text);
+            //listBoxViewListesi.DataSource = dtViewList;
         }
 
         private void comboBoxSchemaList_SelectedValueChanged(object sender, EventArgs e)
@@ -66,7 +66,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
                     try
                     {
-                        ParentMainForm.DatabaseHelper.CodeGenerateOneView(viewName, viewSchema);
+                        //ParentMainForm.DatabaseHelper.CodeGenerateOneView(viewName, viewSchema);
 
                     }
                     catch (Exception ex)
@@ -91,7 +91,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
                 {
 
 
-                    String hatalar = ParentMainForm.DatabaseHelper.CodeGenerateAllViews();
+					String hatalar = "";//ParentMainForm.DatabaseHelper.CodeGenerateAllViews();
                     string message = "TÜM TABLOLAR İÇİN KOD ÜRETİLDİ";
                     if (!string.IsNullOrEmpty(hatalar))
                     {
@@ -113,7 +113,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             {
                 string selectedSchemaName = getSelectedSchemaName();
 
-                String hatalar = ParentMainForm.DatabaseHelper.CodeGenerateAllViewsInSchema(selectedSchemaName);
+				String hatalar = ""; // ParentMainForm.DatabaseHelper.CodeGenerateAllViewsInSchema(selectedSchemaName);
                 string message = string.Format("Secilen ŞEMA {0} için , TÜM TABLOLAR İÇİN KOD ÜRETİLDİ", selectedSchemaName);
                 if (!string.IsNullOrEmpty(hatalar))
                 {

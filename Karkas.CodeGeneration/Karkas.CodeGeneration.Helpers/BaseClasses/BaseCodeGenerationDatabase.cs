@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,14 +13,25 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
     public abstract class BaseCodeGenerationDatabase : BaseGenerator
     {
         IAdoTemplate<IParameterBuilder> template;
+		CodeGenerationConfig codeGenerationConfig;
 
 
-        public BaseCodeGenerationDatabase(IAdoTemplate<IParameterBuilder> pTemplate, CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)
+		public BaseCodeGenerationDatabase(IAdoTemplate<IParameterBuilder> pTemplate, CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)
         {
             this.template = pTemplate;
-        }
+			this.codeGenerationConfig = pCodeGenerationConfig;
 
-        public IAdoTemplate<IParameterBuilder> Template
+		}
+
+		public CodeGenerationConfig CodeGenerationConfig
+		{
+			get
+			{
+				return this.codeGenerationConfig;
+			}
+		}
+
+		public IAdoTemplate<IParameterBuilder> Template
         {
             get
             {

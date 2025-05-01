@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 using Karkas.CodeGeneration.Helpers;
-using Karkas.CodeGeneration.WinApp.PersistenceService;
+using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 namespace Karkas.CodeGeneration.WinApp
 {
@@ -17,7 +17,7 @@ namespace Karkas.CodeGeneration.WinApp
 
 
 
-        public FormAbbreviations(DatabaseEntry pDatabaseEntry)
+        public FormAbbreviations(CodeGenerationConfig pDatabaseEntry)
         {
             this.DatabaseEntry = pDatabaseEntry;
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace Karkas.CodeGeneration.WinApp
         }
 
 
-        public DatabaseEntry DatabaseEntry { get; set; }
+        public CodeGenerationConfig DatabaseEntry { get; set; }
 
         private void buttonInsert_Click(object sender, EventArgs e)
         {

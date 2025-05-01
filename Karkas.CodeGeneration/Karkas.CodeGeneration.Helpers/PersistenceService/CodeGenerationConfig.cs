@@ -1,472 +1,471 @@
-namespace Karkas.CodeGeneration.Helpers.PersistenceService
+namespace Karkas.CodeGeneration.Helpers.PersistenceService;
+
+public class CodeGenerationConfig
 {
-    public class CodeGenerationConfig
-    {
 
-        public CodeGenerationConfig()
-        {
-            this.CreationTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
-            setTimeValues();
-        }
+	public CodeGenerationConfig()
+	{
+		this.CreationTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
+		setTimeValues();
+	}
 
 
 
-        public void setTimeValues()
-        {
-            this.LastWriteTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
-            this.LastAccessTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
+	public void setTimeValues()
+	{
+		this.LastWriteTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
+		this.LastAccessTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
 
-        }
+	}
 
-        public string[] getSchemaList()
-        {
-            return this.SchemaList.Split(",");
-        }
-
-
-        private bool generateNormalClassValidationExamples = false;
-
-        public bool GenerateNormalClassValidationExamples
-        {
-            get { return generateNormalClassValidationExamples; }
-            set { generateNormalClassValidationExamples = value; }
-        }
-
-        private bool generateNormalClassAgain = false;
-        public bool GenerateNormalClassAgain
-        {
-            get
-            {
-                return generateNormalClassAgain;
-            }
-            set
-            {
-                generateNormalClassAgain = value;
-            }
-
-        }
-
-		private string connectionName;
-		private string connectionDatabaseType;
-		private string connectionDbProviderName;
-		private string connectionString;
-		private string projectNameSpace;
-		private string codeGenerationDirectory;
-		private bool tableCodeGenerate;
-		private bool viewCodeGenerate;
-		private bool storedProcedureCodeGenerate;
-		private bool sequenceCodeGenerate;
-		private bool useSchemaNameInNamespaces;
-		private bool useSchemaNameInSqlQueries;
-		private bool useSchemaNameInFolders;
-		private bool ignoreSystemTables;
-		private string ignoredSchemaList;
-		private string schemaList;
-
-		private bool useQuotesInQueries = false;
-		private string dateRegex = "";
-		private string dateTimeRegex = "";
-
-		private string abbreviationsAsString;
-		private string creationTime;
-		private string lastAccessTime;
-		private string lastWriteTime;
+	public string[] getSchemaList()
+	{
+		return this.SchemaList.Split(",");
+	}
 
 
-		public string ConnectionName
+	private bool generateNormalClassValidationExamples = false;
+
+	public bool GenerateNormalClassValidationExamples
+	{
+		get { return generateNormalClassValidationExamples; }
+		set { generateNormalClassValidationExamples = value; }
+	}
+
+	private bool generateNormalClassAgain = false;
+	public bool GenerateNormalClassAgain
+	{
+		get
 		{
-
-			get
-			{
-				return connectionName;
-			}
-
-			set
-			{
-				connectionName = value;
-			}
+			return generateNormalClassAgain;
+		}
+		set
+		{
+			generateNormalClassAgain = value;
 		}
 
-		public string ConnectionDatabaseType
+	}
+
+	private string connectionName;
+	private string connectionDatabaseType;
+	private string connectionDbProviderName;
+	private string connectionString;
+	private string projectNameSpace;
+	private string codeGenerationDirectory;
+	private bool tableCodeGenerate;
+	private bool viewCodeGenerate;
+	private bool storedProcedureCodeGenerate;
+	private bool sequenceCodeGenerate;
+	private bool useSchemaNameInNamespaces;
+	private bool useSchemaNameInSqlQueries;
+	private bool useSchemaNameInFolders;
+	private bool ignoreSystemTables = true;
+	private string ignoredSchemaList;
+	private string schemaList;
+
+	private bool useQuotesInQueries = false;
+	private string dateRegex = "";
+	private string dateTimeRegex = "";
+
+	private string abbreviationsAsString;
+	private string creationTime;
+	private string lastAccessTime;
+	private string lastWriteTime;
+
+
+	public string ConnectionName
+	{
+
+		get
 		{
-			get
-			{
-				return connectionDatabaseType;
-			}
-			set
-			{
-				connectionDatabaseType = value;
-			}
+			return connectionName;
 		}
 
-		public string ConnectionDbProviderName
+		set
 		{
-			get
-			{
-				return connectionDbProviderName;
-			}
-			set
-			{
-				connectionDbProviderName = value;
-			}
+			connectionName = value;
+		}
+	}
+
+	public string ConnectionDatabaseType
+	{
+		get
+		{
+			return connectionDatabaseType;
+		}
+		set
+		{
+			connectionDatabaseType = value;
+		}
+	}
+
+	public string ConnectionDbProviderName
+	{
+		get
+		{
+			return connectionDbProviderName;
+		}
+		set
+		{
+			connectionDbProviderName = value;
+		}
+	}
+
+	public string ConnectionString
+	{
+		get
+		{
+			return connectionString;
+		}
+		set
+		{
+			connectionString = value;
+		}
+	}
+
+
+
+
+
+
+	public string ProjectNameSpace
+	{
+
+		get
+		{
+			return projectNameSpace;
 		}
 
-		public string ConnectionString
-		{
-			get
-			{
-				return connectionString;
-			}
-			set
-			{
-				connectionString = value;
-			}
-		}
-
-
-
-
-
-
-		public string ProjectNameSpace
+		set
 		{
 
-			get
-			{
-				return projectNameSpace;
-			}
+			projectNameSpace = value;
+		}
+	}
 
-			set
-			{
 
-				projectNameSpace = value;
-			}
+	public string CodeGenerationDirectory
+	{
+
+		get
+		{
+			return codeGenerationDirectory;
 		}
 
-
-		public string CodeGenerationDirectory
+		set
 		{
 
-			get
-			{
-				return codeGenerationDirectory;
-			}
+			codeGenerationDirectory = value;
+		}
+	}
 
-			set
-			{
+	public bool TableCodeGenerate
+	{
 
-				codeGenerationDirectory = value;
-			}
+		get
+		{
+			return tableCodeGenerate;
 		}
 
-		public bool TableCodeGenerate
+		set
 		{
 
-			get
-			{
-				return tableCodeGenerate;
-			}
+			tableCodeGenerate = value;
+		}
+	}
 
-			set
-			{
 
-				tableCodeGenerate = value;
-			}
+	public bool ViewCodeGenerate
+	{
+
+		get
+		{
+			return viewCodeGenerate;
 		}
 
-
-		public bool ViewCodeGenerate
+		set
 		{
 
-			get
-			{
-				return viewCodeGenerate;
-			}
+			viewCodeGenerate = value;
+		}
+	}
 
-			set
-			{
 
-				viewCodeGenerate = value;
-			}
+	public bool StoredProcedureCodeGenerate
+	{
+
+		get
+		{
+			return storedProcedureCodeGenerate;
 		}
 
-
-		public bool StoredProcedureCodeGenerate
+		set
 		{
 
-			get
-			{
-				return storedProcedureCodeGenerate;
-			}
+			storedProcedureCodeGenerate = value;
+		}
+	}
 
-			set
-			{
 
-				storedProcedureCodeGenerate = value;
-			}
+	public bool SequenceCodeGenerate
+	{
+
+		get
+		{
+			return sequenceCodeGenerate;
 		}
 
-
-		public bool SequenceCodeGenerate
+		set
 		{
 
-			get
-			{
-				return sequenceCodeGenerate;
-			}
+			sequenceCodeGenerate = value;
+		}
+	}
 
-			set
-			{
 
-				sequenceCodeGenerate = value;
-			}
+
+	public bool UseSchemaNameInNamespaces
+	{
+
+		get
+		{
+			return useSchemaNameInNamespaces;
 		}
 
-
-
-        public bool UseSchemaNameInNamespaces
+		set
 		{
 
-			get
-			{
-				return useSchemaNameInNamespaces;
-			}
+			useSchemaNameInNamespaces = value;
+		}
+	}
 
-			set
-			{
+	public bool UseSchemaNameInSqlQueries
+	{
 
-				useSchemaNameInNamespaces = value;
-			}
+		get
+		{
+			return useSchemaNameInSqlQueries;
 		}
 
-		public bool UseSchemaNameInSqlQueries
+		set
 		{
 
-			get
-			{
-				return useSchemaNameInSqlQueries;
-			}
+			useSchemaNameInSqlQueries = value;
+		}
+	}
 
-			set
-			{
 
-				useSchemaNameInSqlQueries = value;
-			}
+	public bool UseSchemaNameInFolders
+	{
+
+		get
+		{
+			return useSchemaNameInFolders;
 		}
 
-
-		public bool UseSchemaNameInFolders
+		set
 		{
 
-			get
-			{
-				return useSchemaNameInFolders;
-			}
+			useSchemaNameInFolders = value;
+		}
+	}
 
-			set
-			{
 
-				useSchemaNameInFolders = value;
-			}
+	public bool IgnoreSystemTables
+	{
+
+		get
+		{
+			return ignoreSystemTables;
 		}
 
-
-		public bool IgnoreSystemTables
+		set
 		{
 
-			get
-			{
-				return ignoreSystemTables;
-			}
+			ignoreSystemTables = value;
+		}
+	}
 
-			set
-			{
 
-				ignoreSystemTables = value;
-			}
+	public string IgnoredSchemaList
+	{
+
+		get
+		{
+			return ignoredSchemaList;
 		}
 
-
-		public string IgnoredSchemaList
+		set
 		{
 
-			get
-			{
-				return ignoredSchemaList;
-			}
+			ignoredSchemaList = value;
+		}
+	}
 
-			set
-			{
 
-				ignoredSchemaList = value;
-			}
+	public string SchemaList
+	{
+
+		get
+		{
+			return schemaList;
 		}
 
-
-		public string SchemaList
+		set
 		{
 
-			get
-			{
-				return schemaList;
-			}
+			schemaList = value;
+		}
+	}
 
-			set
-			{
 
-				schemaList = value;
-			}
+	public string AbbreviationsAsString
+	{
+
+		get
+		{
+			return abbreviationsAsString;
 		}
 
-
-		public string AbbreviationsAsString
+		set
 		{
 
-			get
-			{
-				return abbreviationsAsString;
-			}
+			abbreviationsAsString = value;
+		}
+	}
 
-			set
-			{
 
-				abbreviationsAsString = value;
-			}
+	public string CreationTime
+	{
+
+		get
+		{
+			return creationTime;
 		}
 
-
-		public string CreationTime
+		set
 		{
 
-			get
-			{
-				return creationTime;
-			}
+			creationTime = value;
+		}
+	}
 
-			set
-			{
 
-				creationTime = value;
-			}
+	public string LastAccessTime
+	{
+
+		get
+		{
+			return lastAccessTime;
 		}
 
-
-		public string LastAccessTime
+		set
 		{
 
-			get
-			{
-				return lastAccessTime;
-			}
+			lastAccessTime = value;
+		}
+	}
 
-			set
-			{
 
-				lastAccessTime = value;
-			}
+	public string LastWriteTime
+	{
+
+		get
+		{
+			return lastWriteTime;
 		}
 
-
-		public string LastWriteTime
+		set
 		{
 
-			get
-			{
-				return lastWriteTime;
-			}
-
-			set
-			{
-
-				lastWriteTime = value;
-			}
+			lastWriteTime = value;
 		}
+	}
 
 
-        public override int GetHashCode()
-        {
-            return ConnectionName.GetHashCode();
-        }
+	public override int GetHashCode()
+	{
+		return ConnectionName.GetHashCode();
+	}
 
-        string DatabaseAbbreviations { get; set; }
+	string DatabaseAbbreviations { get; set; }
 
-		private bool useMultipleDatabaseNames = false;
+	private bool useMultipleDatabaseNames = false;
 
-		public bool UseMultipleDatabaseNames
+	public bool UseMultipleDatabaseNames
+	{
+		get
 		{
-			get
-			{
-				return useMultipleDatabaseNames;
-			}
-
-			set
-			{
-				useMultipleDatabaseNames = value;
-			}
+			return useMultipleDatabaseNames;
 		}
 
-        public bool UseQuotesInQueries { get => useQuotesInQueries; set => useQuotesInQueries = value; }
-
-		private bool useGlobalUsings;
-
-		public bool UseGlobalUsings { get => useGlobalUsings; set => useGlobalUsings = value; }
-		private bool useFileScopedNamespace;
-
-		public bool UseFileScopedNamespace { get => useFileScopedNamespace; set => useFileScopedNamespace = value; }
-		private bool generateForeignKeyQueries = false;
-
-		public bool GenerateForeignKeyQueries { get => generateForeignKeyQueries; set => generateForeignKeyQueries = value; }
-
-		private bool oracleChangeNumericToLong;
-
-		public bool OracleChangeNumericToLong { get => oracleChangeNumericToLong; set => oracleChangeNumericToLong = value; }
-
-		public string DateRegex
+		set
 		{
-			get
-			{
-				return dateRegex;
-			}
-			set
-			{
-				dateRegex = value;
-			}
+			useMultipleDatabaseNames = value;
 		}
+	}
 
-		public string DateTimeRegex
+	public bool UseQuotesInQueries { get => useQuotesInQueries; set => useQuotesInQueries = value; }
+
+	private bool useGlobalUsings;
+
+	public bool UseGlobalUsings { get => useGlobalUsings; set => useGlobalUsings = value; }
+	private bool useFileScopedNamespace;
+
+	public bool UseFileScopedNamespace { get => useFileScopedNamespace; set => useFileScopedNamespace = value; }
+	private bool generateForeignKeyQueries = false;
+
+	public bool GenerateForeignKeyQueries { get => generateForeignKeyQueries; set => generateForeignKeyQueries = value; }
+
+	private bool oracleChangeNumericToLong;
+
+	public bool OracleChangeNumericToLong { get => oracleChangeNumericToLong; set => oracleChangeNumericToLong = value; }
+
+	public string DateRegex
+	{
+		get
 		{
-			get
-			{
-				return dateTimeRegex;
-			}
-			set
-			{
-				dateTimeRegex = value;
-			}
+			return dateRegex;
 		}
-		public override bool Equals(object obj)
-        {
-            // If the passed object is null
-            if (obj == null)
-            {
-                return false;
-            }
-            if (!(obj is CodeGenerationConfig))
-            {
-                return false;
-            }
-            return (this.ConnectionName == ((CodeGenerationConfig)obj).ConnectionName);
-        }
+		set
+		{
+			dateRegex = value;
+		}
+	}
+
+	public string DateTimeRegex
+	{
+		get
+		{
+			return dateTimeRegex;
+		}
+		set
+		{
+			dateTimeRegex = value;
+		}
+	}
+	public override bool Equals(object obj)
+	{
+		// If the passed object is null
+		if (obj == null)
+		{
+			return false;
+		}
+		if (!(obj is CodeGenerationConfig))
+		{
+			return false;
+		}
+		return (this.ConnectionName == ((CodeGenerationConfig)obj).ConnectionName);
+	}
 
 
 
 
-		public override string ToString()
-        {
-            return $"{this.ConnectionName}, {this.ConnectionDatabaseType}, {this.ConnectionString}, {this.CodeGenerationDirectory} ";
-        }
+	public override string ToString()
+	{
+		return $"{this.ConnectionName}, {this.ConnectionDatabaseType}, {this.ConnectionString}, {this.CodeGenerationDirectory} ";
+	}
 
 
 
-    }
 }
