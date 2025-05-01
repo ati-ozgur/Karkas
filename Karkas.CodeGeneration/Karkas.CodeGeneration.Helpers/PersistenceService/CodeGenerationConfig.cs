@@ -1,50 +1,50 @@
 namespace Karkas.CodeGeneration.Helpers.PersistenceService;
 
-    public class CodeGenerationConfig
-    {
+public class CodeGenerationConfig
+{
 
-        public CodeGenerationConfig()
-        {
-            this.CreationTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
-            setTimeValues();
-        }
-
-
-
-        public void setTimeValues()
-        {
-            this.LastWriteTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
-            this.LastAccessTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
-
-        }
-
-        public string[] getSchemaList()
-        {
-            return this.SchemaList.Split(",");
-        }
+	public CodeGenerationConfig()
+	{
+		this.CreationTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
+		setTimeValues();
+	}
 
 
-        private bool generateNormalClassValidationExamples = false;
 
-        public bool GenerateNormalClassValidationExamples
-        {
-            get { return generateNormalClassValidationExamples; }
-            set { generateNormalClassValidationExamples = value; }
-        }
+	public void setTimeValues()
+	{
+		this.LastWriteTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
+		this.LastAccessTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
 
-        private bool generateNormalClassAgain = false;
-        public bool GenerateNormalClassAgain
-        {
-            get
-            {
-                return generateNormalClassAgain;
-            }
-            set
-            {
-                generateNormalClassAgain = value;
-            }
+	}
 
-        }
+	public string[] getSchemaList()
+	{
+		return this.SchemaList.Split(",");
+	}
+
+
+	private bool generateNormalClassValidationExamples = false;
+
+	public bool GenerateNormalClassValidationExamples
+	{
+		get { return generateNormalClassValidationExamples; }
+		set { generateNormalClassValidationExamples = value; }
+	}
+
+	private bool generateNormalClassAgain = false;
+	public bool GenerateNormalClassAgain
+	{
+		get
+		{
+			return generateNormalClassAgain;
+		}
+		set
+		{
+			generateNormalClassAgain = value;
+		}
+
+	}
 
 	private string connectionName;
 	private string connectionDatabaseType;
@@ -224,7 +224,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService;
 
 
 
-        public bool UseSchemaNameInNamespaces
+	public bool UseSchemaNameInNamespaces
 	{
 
 		get
@@ -383,12 +383,12 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService;
 	}
 
 
-        public override int GetHashCode()
-        {
-            return ConnectionName.GetHashCode();
-        }
+	public override int GetHashCode()
+	{
+		return ConnectionName.GetHashCode();
+	}
 
-        string DatabaseAbbreviations { get; set; }
+	string DatabaseAbbreviations { get; set; }
 
 	private bool useMultipleDatabaseNames = false;
 
@@ -405,7 +405,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService;
 		}
 	}
 
-        public bool UseQuotesInQueries { get => useQuotesInQueries; set => useQuotesInQueries = value; }
+	public bool UseQuotesInQueries { get => useQuotesInQueries; set => useQuotesInQueries = value; }
 
 	private bool useGlobalUsings;
 
@@ -445,27 +445,27 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService;
 		}
 	}
 	public override bool Equals(object obj)
-        {
-            // If the passed object is null
-            if (obj == null)
-            {
-                return false;
-            }
-            if (!(obj is CodeGenerationConfig))
-            {
-                return false;
-            }
-            return (this.ConnectionName == ((CodeGenerationConfig)obj).ConnectionName);
-        }
+	{
+		// If the passed object is null
+		if (obj == null)
+		{
+			return false;
+		}
+		if (!(obj is CodeGenerationConfig))
+		{
+			return false;
+		}
+		return (this.ConnectionName == ((CodeGenerationConfig)obj).ConnectionName);
+	}
 
 
 
 
 	public override string ToString()
-        {
-            return $"{this.ConnectionName}, {this.ConnectionDatabaseType}, {this.ConnectionString}, {this.CodeGenerationDirectory} ";
-        }
+	{
+		return $"{this.ConnectionName}, {this.ConnectionDatabaseType}, {this.ConnectionString}, {this.CodeGenerationDirectory} ";
+	}
 
 
 
-    }
+}
