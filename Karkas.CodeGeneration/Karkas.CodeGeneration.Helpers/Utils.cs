@@ -455,7 +455,8 @@ namespace Karkas.CodeGeneration.Helpers
             // scan value types
             switch (column.LanguageType)
             {
-                case "DateTime":
+				case "OracleDecimal":
+				case "DateTime":
                 case "decimal":
                 case "bool":
                 case "byte":
