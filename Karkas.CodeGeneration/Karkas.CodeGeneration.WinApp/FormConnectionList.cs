@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Karkas.CodeGeneration.Helpers.PersistenceService;
-using Karkas.CodeGeneration.Helpers.PersistenceService;
 
 namespace Karkas.CodeGeneration.WinApp
 {
@@ -25,9 +24,9 @@ namespace Karkas.CodeGeneration.WinApp
 
         private void bindListBox()
         {
-            //var list = DatabaseService.getAllDatabaseEntriesSortedByName();
+            var list = DatabaseService.getAllDatabaseEntries();
 
-            //listBoxConnectionList.DataSource = list;
+            listBoxConnectionList.DataSource = list;
         }
         public CodeGenerationConfig SelectedDatabaseEntry { get; set; }
 

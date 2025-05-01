@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +14,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
     {
 
 
-		private static string findJsonFileNamePath(string configFileName)
+		private static string findJsonFileNamePath(string configFileName = "karkas-config.json")
 		{
 			string json_filename;
 			string tool_install_directory = AppDomain.CurrentDomain.BaseDirectory;
@@ -47,7 +47,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		}
 
 
-		public static List<CodeGenerationConfig> getAllDatabaseEntries(string configFileName)
+		public static List<CodeGenerationConfig> getAllDatabaseEntries(string configFileName = "karkas-config.json")
         {
 			string json_filename = findJsonFileNamePath(configFileName);
 			string jsonString = File.ReadAllText(json_filename);
