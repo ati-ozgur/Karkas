@@ -69,21 +69,16 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
             entry.ViewCodeGenerate = checkBoxViewCodeGenerate.Checked;
             entry.SequenceCodeGenerate = checkBoxSequenceCodeGenerate.Checked;
-
             entry.StoredProcedureCodeGenerate = checkBoxStoredProcedureCodeGenerate.Checked;
+
             entry.UseSchemaNameInSqlQueries = checkBoxUseSchemaNameInSql.Checked;
             entry.UseSchemaNameInFolders = checkBoxUseSchemaNameInFolders.Checked;
-            entry.IgnoreSystemTables = checkBoxIgnoreSystemTables.Checked;
+			entry.UseSchemaNameInNamespaces = checkBoxUseSchemaNameInNamespaces.Checked;
+
+			entry.IgnoreSystemTables = checkBoxIgnoreSystemTables.Checked;
             entry.IgnoredSchemaList = textBoxIgnoredSchemaList.Text;
             entry.SchemaList = textBoxSchemaList.Text;
-            //if (string.IsNullOrEmpty(textBoxAbbrevationsAsString.Text))
-            //{
-            //    entry.AbbrevationsAsString = null;
-            //}
-            //else
-            //{
-            //    entry.AbbrevationsAsString = textBoxAbbrevationsAsString.Text;
-            //}
+
 
 
             entry.GenerateNormalClassAgain = checkBoxGenerateNormalClassAgain.Checked;
@@ -132,35 +127,18 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
                 textBoxCodeGenerationFolder.Text = entry.CodeGenerationDirectory;
             }
 
-            bool parsedValue;
-            //if (bool.TryParse(entry.ViewCodeGenerate, out parsedValue))
-            //{
-            //    checkBoxViewCodeGenerate.Checked = parsedValue;
-            //}
-            //if (bool.TryParse(entry.StoredProcedureCodeGenerate, out parsedValue))
-            //{
-            //    checkBoxStoredProcedureCodeGenerate.Checked = parsedValue;
-            //}
-            //if (bool.TryParse(entry.UseSchemaNameInSqlQueries, out parsedValue))
-            //{
-            //    checkBoxUseSchemaNameInSql.Checked = parsedValue;
-            //}
-            //if (bool.TryParse(entry.UseSchemaNameInFolders, out parsedValue))
-            //{
-            //    checkBoxUseSchemaNameInFolders.Checked = parsedValue;
-            //}
-            //if (bool.TryParse(entry.IgnoreSystemTables, out parsedValue))
-            //{
-            //    checkBoxIgnoreSystemTables.Checked = parsedValue;
-            //}
-            //if (bool.TryParse(entry.SequenceCodeGenerate, out parsedValue))
-            //{
-            //    checkBoxSequenceCodeGenerate.Checked = parsedValue;
-            //}
+			checkBoxViewCodeGenerate.Checked = entry.ViewCodeGenerate;
+			checkBoxStoredProcedureCodeGenerate.Checked = entry.StoredProcedureCodeGenerate;
 
-            textBoxIgnoredSchemaList.Text = entry.IgnoredSchemaList;
+			checkBoxUseSchemaNameInSql.Checked = entry.UseSchemaNameInSqlQueries;
+			checkBoxUseSchemaNameInFolders.Checked = entry.UseSchemaNameInFolders;
+			checkBoxUseSchemaNameInNamespaces.Checked = entry.UseSchemaNameInNamespaces;
+
+			checkBoxIgnoreSystemTables.Checked = entry.IgnoreSystemTables;
+			checkBoxSequenceCodeGenerate.Checked = entry.SequenceCodeGenerate;
+
+			textBoxIgnoredSchemaList.Text = entry.IgnoredSchemaList;
             textBoxSchemaList.Text = entry.SchemaList;
-            //textBoxAbbrevationsAsString.Text = entry.AbbrevationsAsString;
 
 
         }
