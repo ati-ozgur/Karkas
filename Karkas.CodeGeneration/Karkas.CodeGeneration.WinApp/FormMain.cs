@@ -22,6 +22,7 @@ using Karkas.Data.Oracle;
 using Karkas.Data.SqlServer;
 using Karkas.Data.Sqlite;
 using Karkas.CodeGeneration.Helpers.PersistenceService;
+using Karkas.CodeGeneration.Helpers.BaseClasses;
 
 namespace Karkas.CodeGeneration.WinApp
 {
@@ -37,9 +38,9 @@ namespace Karkas.CodeGeneration.WinApp
 
         DbConnection connection;
         IAdoTemplate<IParameterBuilder> template;
-        private CodeGenerationConfig databaseHelper;
+        private BaseCodeGenerationDatabase databaseHelper;
 
-        public CodeGenerationConfig DatabaseHelper
+        public BaseCodeGenerationDatabase DatabaseHelper
         {
             get
             {
@@ -158,8 +159,9 @@ namespace Karkas.CodeGeneration.WinApp
                 template = new AdoTemplateOracle();
                 template.Connection = connection;
                 template.DbProviderName = ConnectionDbProviderName;
-                //DatabaseHelper = new CodeGenerationOracle( template);
-                DbProviderFactories.RegisterFactory(ConnectionDbProviderName, factory);
+				
+                DatabaseHelper = new CodeGenerationOracle(template, entry);
+				DbProviderFactories.RegisterFactory(ConnectionDbProviderName, factory);
 
 
 
@@ -216,7 +218,7 @@ namespace Karkas.CodeGeneration.WinApp
             string[] schemaList = userControlCodeGenerationOptions1.GetSchemaList();
             if(schemaList == null || schemaList.Length == 0)
             {
-                schemaList = DatabaseHelper.getSchemaList();
+                schemaList = DatabaseHelper.GetSchemaList();
             }
             userControlTableRelated1.fillComboBoxSchemaList(schemaList);
             userControlViewRelated1.fillComboBoxSchemaList(schemaList);
