@@ -59,7 +59,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		private bool useSchemaNameInNamespaces;
 		private bool useSchemaNameInSqlQueries;
 		private bool useSchemaNameInFolders;
-		private bool ignoreSystemTables;
+		private bool ignoreSystemTables = true;
 		private string ignoredSchemaList;
 		private string schemaList;
 

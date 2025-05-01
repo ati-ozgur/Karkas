@@ -160,7 +160,7 @@ namespace Karkas.CodeGeneration.WinApp
                 template.Connection = connection;
                 template.DbProviderName = ConnectionDbProviderName;
 				
-                DatabaseHelper = new CodeGenerationOracle(template, entry);
+                DatabaseHelper = new CodeGenerationOracle(template, CurrentDatabaseEntry);
 				DbProviderFactories.RegisterFactory(ConnectionDbProviderName, factory);
 
 
