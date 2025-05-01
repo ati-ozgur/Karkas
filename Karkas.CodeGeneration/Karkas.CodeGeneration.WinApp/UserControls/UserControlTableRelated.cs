@@ -80,11 +80,12 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             {
                 foreach (var item in listBoxTables.SelectedItems)
                 {
-                    DataRowView view = (DataRowView)item;
-                    string tableSchema = view["TABLE_SCHEMA"].ToString();
-                    string tableName = view["TABLE_NAME"].ToString();
+                    string full_table_name = item.ToString();
+					string[] l = full_table_name.Split(".");
+                    string tableSchema = l[0];
+                    string tableName = l[1];
 
-                    //ParentMainForm.DatabaseHelper.CodeGenerateOneTable(tableName, tableSchema);
+                    ParentMainForm.DatabaseHelper.CodeGenerateOneTable(tableName, tableSchema);
 
                 }
                 MessageBox.Show("Codes are generated for selected tables");
