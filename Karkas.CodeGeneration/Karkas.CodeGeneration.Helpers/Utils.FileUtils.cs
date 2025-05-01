@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -100,23 +100,27 @@ namespace Karkas.CodeGeneration.Helpers
 
             public string getBaseNameForTypeLibraryGenerated(CodeGenerationConfig codeGenerationConfig, string schemaName, string className, bool semaIsminiDizinlerdeKullan)
             {
-                // TODO refactor for $ usage later
-                if (semaIsminiDizinlerdeKullan)
+				string mainDirectory = GetProjectMainDirectory() + Path.DirectorySeparatorChar;
+				string typeLibraryDirectory = mainDirectory + "TypeLibrary" + Path.DirectorySeparatorChar; 
+				string projectNamescape = codeGenerationConfig.ProjectNameSpace + ".TypeLibrary" + Path.DirectorySeparatorChar;
+				string fileName = className + ".generated.cs";
+
+				// TODO refactor for $ usage later
+				if (semaIsminiDizinlerdeKullan)
                 {
-                    return Path.Combine(GetProjectMainDirectory() + 
-                    Path.DirectorySeparatorChar + "TypeLibrary"  + codeGenerationConfig.ProjectNameSpace 
-                    + ".TypeLibrary" + Path.DirectorySeparatorChar + schemaName, className + ".generated.cs");
-                }
+
+                    return $"{typeLibraryDirectory}{projectNamescape}{schemaName}{Path.DirectorySeparatorChar}{fileName}";
+
+				}
                 else
                 {
-                    return Path.Combine(GetProjectMainDirectory() + 
-                    Path.DirectorySeparatorChar +  "TypeLibrary" + Path.DirectorySeparatorChar + 
-                    codeGenerationConfig.ProjectNameSpace + ".TypeLibrary" + Path.DirectorySeparatorChar , className + ".generated.cs");
-                }
-            }
-            public string getBaseNameForTypeLibrary(CodeGenerationConfig codeGenerationConfig, string schemaName, string className, bool semaIsminiDizinlerdeKullan)
+					return $"{typeLibraryDirectory}{projectNamescape}{Path.DirectorySeparatorChar}{fileName}";
+
+				}
+			}
+            public string getBaseNameForTypeLibrary(CodeGenerationConfig codeGenerationConfig, string schemaName, string className, bool useSchemaNameInFolders)
             {
-                if (semaIsminiDizinlerdeKullan)
+                if (useSchemaNameInFolders)
                 {
                     return Path.Combine(GetProjectMainDirectory() 
                     + Path.DirectorySeparatorChar + 
