@@ -98,15 +98,14 @@ namespace Karkas.CodeGeneration.Helpers
             }
 
 
-            public string getBaseNameForTypeLibraryGenerated(CodeGenerationConfig codeGenerationConfig, string schemaName, string className, bool semaIsminiDizinlerdeKullan)
+            public string getBaseNameForTypeLibraryGenerated(CodeGenerationConfig codeGenerationConfig, string schemaName, string className, bool useSchemaNameInFolders)
             {
 				string mainDirectory = GetProjectMainDirectory() + Path.DirectorySeparatorChar;
 				string typeLibraryDirectory = mainDirectory + "TypeLibrary" + Path.DirectorySeparatorChar; 
 				string projectNamescape = codeGenerationConfig.ProjectNameSpace + ".TypeLibrary" + Path.DirectorySeparatorChar;
 				string fileName = className + ".generated.cs";
 
-				// TODO refactor for $ usage later
-				if (semaIsminiDizinlerdeKullan)
+				if (useSchemaNameInFolders)
                 {
 
                     return $"{typeLibraryDirectory}{projectNamescape}{schemaName}{Path.DirectorySeparatorChar}{fileName}";
