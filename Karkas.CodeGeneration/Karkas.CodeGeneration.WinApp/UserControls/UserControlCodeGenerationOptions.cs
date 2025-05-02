@@ -75,7 +75,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             entry.UseSchemaNameInFolders = checkBoxUseSchemaNameInFolders.Checked;
 			entry.UseSchemaNameInNamespaces = checkBoxUseSchemaNameInNamespaces.Checked;
 			entry.OracleForceIdentityNumericToLong = checkBoxOracleForceIdentityToLong.Checked;
-
+			entry.ForceOracleDecimalToIntegersAndDecimal = checkBoxForceOracleDecimalToIntegersAndDecimal.Checked;
 			entry.IgnoreSystemTables = checkBoxIgnoreSystemTables.Checked;
             entry.IgnoredSchemaList = textBoxIgnoredSchemaList.Text;
             entry.SchemaList = textBoxSchemaList.Text;
@@ -135,7 +135,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			checkBoxUseSchemaNameInFolders.Checked = entry.UseSchemaNameInFolders;
 			checkBoxUseSchemaNameInNamespaces.Checked = entry.UseSchemaNameInNamespaces;
 			checkBoxOracleForceIdentityToLong.Checked = entry.OracleForceIdentityNumericToLong;
-
+			checkBoxForceOracleDecimalToIntegersAndDecimal.Checked = entry.OracleForceIdentityNumericToLong;
 			checkBoxIgnoreSystemTables.Checked = entry.IgnoreSystemTables;
 			checkBoxSequenceCodeGenerate.Checked = entry.SequenceCodeGenerate;
 

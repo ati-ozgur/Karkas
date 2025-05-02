@@ -58,6 +58,7 @@
 			labelAdditionalSchemaList = new Label();
 			textBoxSchemaList = new TextBox();
 			checkBoxOracleForceIdentityToLong = new CheckBox();
+			checkBoxForceOracleDecimalToIntegersAndDecimal = new CheckBox();
 			tableLayoutPanel1.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -300,6 +301,7 @@
 			tableLayoutPanel1.Controls.Add(labelAdditionalSchemaList, 0, 9);
 			tableLayoutPanel1.Controls.Add(textBoxSchemaList, 1, 9);
 			tableLayoutPanel1.Controls.Add(checkBoxOracleForceIdentityToLong, 1, 14);
+			tableLayoutPanel1.Controls.Add(checkBoxForceOracleDecimalToIntegersAndDecimal, 0, 14);
 			tableLayoutPanel1.Dock = DockStyle.Fill;
 			tableLayoutPanel1.Location = new Point(0, 0);
 			tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
@@ -387,6 +389,16 @@
 			checkBoxOracleForceIdentityToLong.Text = "Oracle Force Identity To Long";
 			checkBoxOracleForceIdentityToLong.UseVisualStyleBackColor = true;
 			// 
+			// checkBoxForceOracleDecimalToIntegersAndDecimal
+			// 
+			checkBoxForceOracleDecimalToIntegersAndDecimal.AutoSize = true;
+			checkBoxForceOracleDecimalToIntegersAndDecimal.Location = new Point(3, 409);
+			checkBoxForceOracleDecimalToIntegersAndDecimal.Name = "checkBoxForceOracleDecimalToIntegersAndDecimal";
+			checkBoxForceOracleDecimalToIntegersAndDecimal.Size = new Size(247, 14);
+			checkBoxForceOracleDecimalToIntegersAndDecimal.TabIndex = 62;
+			checkBoxForceOracleDecimalToIntegersAndDecimal.Text = "Force Oracle Decimal To Integers And Decimal";
+			checkBoxForceOracleDecimalToIntegersAndDecimal.UseVisualStyleBackColor = true;
+			// 
 			// UserControlCodeGenerationOptions
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -433,5 +445,6 @@
 		private CheckBox checkBoxGenerateNormalClassValidationExamples;
 		private CheckBox checkBoxUseSchemaNameInNamespaces;
 		private CheckBox checkBoxOracleForceIdentityToLong;
+		private CheckBox checkBoxForceOracleDecimalToIntegersAndDecimal;
 	}
 }
