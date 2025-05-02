@@ -36,7 +36,7 @@ namespace Karkas.CodeGeneration.ConsoleApp
 
             Console.WriteLine($"arguments {options}");
 
-            CodeGenerationConfig db = DatabaseService.GetByConnectionName(options.ConfigFileName, options.ConnectionName);
+            CodeGenerationConfig db = DatabaseService.GetByConnectionName(options.ConnectionName,options.ConfigFileName);
             Console.WriteLine($"DatabaseEntry {db}");
 
             string homeDirectory = Environment.GetEnvironmentVariable("HOME")!;
