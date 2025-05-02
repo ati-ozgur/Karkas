@@ -57,6 +57,7 @@
 			checkBoxGenerateNormalClassValidationExamples = new CheckBox();
 			labelAdditionalSchemaList = new Label();
 			textBoxSchemaList = new TextBox();
+			checkBoxOracleForceIdentityToLong = new CheckBox();
 			tableLayoutPanel1.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -298,6 +299,7 @@
 			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassValidationExamples, 2, 15);
 			tableLayoutPanel1.Controls.Add(labelAdditionalSchemaList, 0, 9);
 			tableLayoutPanel1.Controls.Add(textBoxSchemaList, 1, 9);
+			tableLayoutPanel1.Controls.Add(checkBoxOracleForceIdentityToLong, 1, 14);
 			tableLayoutPanel1.Dock = DockStyle.Fill;
 			tableLayoutPanel1.Location = new Point(0, 0);
 			tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
@@ -375,6 +377,16 @@
 			textBoxSchemaList.Size = new Size(357, 23);
 			textBoxSchemaList.TabIndex = 59;
 			// 
+			// checkBoxOracleForceIdentityToLong
+			// 
+			checkBoxOracleForceIdentityToLong.AutoSize = true;
+			checkBoxOracleForceIdentityToLong.Location = new Point(256, 409);
+			checkBoxOracleForceIdentityToLong.Name = "checkBoxOracleForceIdentityToLong";
+			checkBoxOracleForceIdentityToLong.Size = new Size(180, 14);
+			checkBoxOracleForceIdentityToLong.TabIndex = 61;
+			checkBoxOracleForceIdentityToLong.Text = "Oracle Force Identity To Long";
+			checkBoxOracleForceIdentityToLong.UseVisualStyleBackColor = true;
+			// 
 			// UserControlCodeGenerationOptions
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -420,5 +432,6 @@
 		private CheckBox checkBoxGenerateNormalClassAgain;
 		private CheckBox checkBoxGenerateNormalClassValidationExamples;
 		private CheckBox checkBoxUseSchemaNameInNamespaces;
+		private CheckBox checkBoxOracleForceIdentityToLong;
 	}
 }
