@@ -421,8 +421,8 @@ public class CodeGenerationConfig
 
 	public bool ForceOracleDecimalToIntegersAndDecimal { get => oracleChangeNumericToLong; set => oracleChangeNumericToLong = value; }
 
-	private bool oracleForceIdentityNumericToLong;
-	public bool OracleForceIdentityNumericToLong { get => oracleForceIdentityNumericToLong; set => oracleForceIdentityNumericToLong = value; }
+	private bool oracleForceNumericPKFKColumnsToLong;
+	public bool OracleForceNumericPKFKColumnsToLong { get => oracleForceNumericPKFKColumnsToLong; set => oracleForceNumericPKFKColumnsToLong = value; }
 
 	public string DateRegex
 	{

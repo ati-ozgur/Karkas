@@ -57,7 +57,7 @@
 			checkBoxGenerateNormalClassValidationExamples = new CheckBox();
 			labelAdditionalSchemaList = new Label();
 			textBoxSchemaList = new TextBox();
-			checkBoxOracleForceIdentityToLong = new CheckBox();
+			checkBoxOracleForceNumericPKFKColumnsToLong = new CheckBox();
 			checkBoxForceOracleDecimalToIntegersAndDecimal = new CheckBox();
 			tableLayoutPanel1.SuspendLayout();
 			SuspendLayout();
@@ -300,7 +300,7 @@
 			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassValidationExamples, 2, 15);
 			tableLayoutPanel1.Controls.Add(labelAdditionalSchemaList, 0, 9);
 			tableLayoutPanel1.Controls.Add(textBoxSchemaList, 1, 9);
-			tableLayoutPanel1.Controls.Add(checkBoxOracleForceIdentityToLong, 1, 14);
+			tableLayoutPanel1.Controls.Add(checkBoxOracleForceNumericPKFKColumnsToLong, 1, 14);
 			tableLayoutPanel1.Controls.Add(checkBoxForceOracleDecimalToIntegersAndDecimal, 0, 14);
 			tableLayoutPanel1.Dock = DockStyle.Fill;
 			tableLayoutPanel1.Location = new Point(0, 0);
@@ -379,15 +379,15 @@
 			textBoxSchemaList.Size = new Size(357, 23);
 			textBoxSchemaList.TabIndex = 59;
 			// 
-			// checkBoxOracleForceIdentityToLong
+			// checkBoxOracleForceNumericPKFKColumnsToLong
 			// 
-			checkBoxOracleForceIdentityToLong.AutoSize = true;
-			checkBoxOracleForceIdentityToLong.Location = new Point(256, 409);
-			checkBoxOracleForceIdentityToLong.Name = "checkBoxOracleForceIdentityToLong";
-			checkBoxOracleForceIdentityToLong.Size = new Size(180, 14);
-			checkBoxOracleForceIdentityToLong.TabIndex = 61;
-			checkBoxOracleForceIdentityToLong.Text = "Oracle Force Identity To Long";
-			checkBoxOracleForceIdentityToLong.UseVisualStyleBackColor = true;
+			checkBoxOracleForceNumericPKFKColumnsToLong.AutoSize = true;
+			checkBoxOracleForceNumericPKFKColumnsToLong.Location = new Point(256, 409);
+			checkBoxOracleForceNumericPKFKColumnsToLong.Name = "checkBoxOracleForceNumericPKFKColumnsToLong";
+			checkBoxOracleForceNumericPKFKColumnsToLong.Size = new Size(180, 14);
+			checkBoxOracleForceNumericPKFKColumnsToLong.TabIndex = 61;
+			checkBoxOracleForceNumericPKFKColumnsToLong.Text = "Oracle Force Identity To Long";
+			checkBoxOracleForceNumericPKFKColumnsToLong.UseVisualStyleBackColor = true;
 			// 
 			// checkBoxForceOracleDecimalToIntegersAndDecimal
 			// 
@@ -444,7 +444,7 @@
 		private CheckBox checkBoxGenerateNormalClassAgain;
 		private CheckBox checkBoxGenerateNormalClassValidationExamples;
 		private CheckBox checkBoxUseSchemaNameInNamespaces;
-		private CheckBox checkBoxOracleForceIdentityToLong;
+		private CheckBox checkBoxOracleForceNumericPKFKColumnsToLong;
 		private CheckBox checkBoxForceOracleDecimalToIntegersAndDecimal;
 	}
 }

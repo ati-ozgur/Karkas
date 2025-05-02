@@ -74,7 +74,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             entry.UseSchemaNameInSqlQueries = checkBoxUseSchemaNameInSql.Checked;
             entry.UseSchemaNameInFolders = checkBoxUseSchemaNameInFolders.Checked;
 			entry.UseSchemaNameInNamespaces = checkBoxUseSchemaNameInNamespaces.Checked;
-			entry.OracleForceIdentityNumericToLong = checkBoxOracleForceIdentityToLong.Checked;
+			entry.OracleForceNumericPKFKColumnsToLong = checkBoxOracleForceNumericPKFKColumnsToLong.Checked;
 			entry.ForceOracleDecimalToIntegersAndDecimal = checkBoxForceOracleDecimalToIntegersAndDecimal.Checked;
 			entry.IgnoreSystemTables = checkBoxIgnoreSystemTables.Checked;
             entry.IgnoredSchemaList = textBoxIgnoredSchemaList.Text;
@@ -134,8 +134,8 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			checkBoxUseSchemaNameInSql.Checked = entry.UseSchemaNameInSqlQueries;
 			checkBoxUseSchemaNameInFolders.Checked = entry.UseSchemaNameInFolders;
 			checkBoxUseSchemaNameInNamespaces.Checked = entry.UseSchemaNameInNamespaces;
-			checkBoxOracleForceIdentityToLong.Checked = entry.OracleForceIdentityNumericToLong;
-			checkBoxForceOracleDecimalToIntegersAndDecimal.Checked = entry.OracleForceIdentityNumericToLong;
+			checkBoxOracleForceNumericPKFKColumnsToLong.Checked = entry.OracleForceNumericPKFKColumnsToLong;
+			checkBoxForceOracleDecimalToIntegersAndDecimal.Checked = entry.OracleForceNumericPKFKColumnsToLong;
 			checkBoxIgnoreSystemTables.Checked = entry.IgnoreSystemTables;
 			checkBoxSequenceCodeGenerate.Checked = entry.SequenceCodeGenerate;
 

@@ -160,7 +160,7 @@
     "UseGlobalUsings": true,
     "GenerateForeignKeyQueries": true,
     "ForceOracleDecimalToIntegersAndDecimal": false,
-    "OracleForceIdentityNumericToLong": true,
+    "OracleForceNumericPKFKColumnsToLong": true,
     "TableCodeGenerate": true,
     "ViewCodeGenerate": false,
     "StoredProcedureCodeGenerate": false,
