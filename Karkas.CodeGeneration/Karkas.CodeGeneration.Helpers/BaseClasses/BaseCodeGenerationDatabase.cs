@@ -91,7 +91,8 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
                 {
                     try
                     {
-                        CodeGenerateOneTable(item["TABLE_NAME"].ToString(), pSchemaName);
+						string tableName = item["TABLE_NAME"].ToString();
+						CodeGenerateOneTable(tableName, pSchemaName);
                     }
                     catch (Exception ex)
                     {

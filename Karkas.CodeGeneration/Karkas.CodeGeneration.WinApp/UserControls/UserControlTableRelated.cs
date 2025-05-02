@@ -46,7 +46,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             {
                 if (schemaList.Length == 0)
                 {
-					hatalar = "";// ParentMainForm.DatabaseHelper.CodeGenerateAllTables();
+					hatalar = ParentMainForm.DatabaseHelper.CodeGenerateAllTables();
                     message = "Code generated for all tables in database";
                 }
                 else
