@@ -85,10 +85,10 @@ public class HelperOracleDataTypesTest
 
 	[Theory]
 	[InlineData("NUMBER", 38, 0, "OracleDecimal")]
-	public void ANSISupportWholeNumbers_ShouldReturnWholeNumbers(string oracleType,  int dataPrecision, int dataScale, string expectedDotNetType)
+	public void ANSISupportWholeNumbers_ShouldReturnWholeNumbers_NoIdentity(string oracleType,  int dataPrecision, int dataScale, string expectedDotNetType)
 	{
 		// Act
-		var result = HelperOracleDataTypes.GetDotNetType(oracleType, dataPrecision,dataScale);
+		var result = HelperOracleDataTypes.GetDotNetType(oracleType, false,dataPrecision,dataScale);
 
 		// Assert
 		Assert.Equal(expectedDotNetType, result);
@@ -112,7 +112,7 @@ public class HelperOracleDataTypesTest
 	[Fact]
 	public void GetDotNetType_ShouldThrowException()
 	{
-		Assert.Throws<ArgumentException>(() =>  HelperOracleDataTypes.GetDotNetType("NUMBER",0,0));
+		Assert.Throws<ArgumentException>(() =>  HelperOracleDataTypes.GetDotNetType("NUMBER",false,0,0));
 	}
 
 
@@ -124,10 +124,10 @@ public class HelperOracleDataTypesTest
 	[InlineData("NUMBER",25,1, "decimal")]
 	[InlineData("NUMBER",5,1, "decimal")]
 	[InlineData("NUMBER",30,1, "OracleDecimal")]
-	public void GetDotNetType_ShouldReturnDecimal1(string oracleType, int dataPrecision, int dataScale, string expectedDotNetType)
+	public void GetDotNetType_ShouldReturnDecimal1_NoIdentity(string oracleType, int dataPrecision, int dataScale, string expectedDotNetType)
 	{
 		// Act
-		var result = HelperOracleDataTypes.GetDotNetType(oracleType, dataPrecision,dataScale);
+		var result = HelperOracleDataTypes.GetDotNetType(oracleType,false, dataPrecision,dataScale);
 
 		// Assert
 		Assert.Equal(expectedDotNetType, result);
@@ -139,11 +139,11 @@ public class HelperOracleDataTypesTest
 	[InlineData("NUMBER",25,1, "decimal")]
 	[InlineData("NUMBER",5, 1, "decimal")]
 	[InlineData("NUMBER",30,1, "OracleDecimal")]
-	public void Number_ShouldReturnIntTypes1(string oracleType, int dataPrecision, int dataScale, string expectedDotNetType)
+	public void Number_ShouldReturnIntTypes1_NoIdentity(string oracleType, int dataPrecision, int dataScale, string expectedDotNetType)
 	{
 		// Act
 		// since we have datascale 1, change number to true does not affect the result
-		var result = HelperOracleDataTypes.GetDotNetType(oracleType,dataPrecision, dataScale,true);
+		var result = HelperOracleDataTypes.GetDotNetType(oracleType,false,dataPrecision, dataScale,true);
 
 		// Assert
 		Assert.Equal(expectedDotNetType, result);
@@ -155,7 +155,7 @@ public class HelperOracleDataTypesTest
 	[InlineData("NUMBER",20,0, "decimal")]
 	[InlineData("NUMBER",25,0, "decimal")]
 	[InlineData("NUMBER",38,0, "OracleDecimal")]
-	public void Number_ShouldReturnIntTypes2(string oracleType, int dataPrecision, int dataScale, string expectedDotNetType)
+	public void Number_ShouldReturnIntTypes2_NoIdentity(string oracleType, int dataPrecision, int dataScale, string expectedDotNetType)
 	{
 
 		// int32 max 10 bytes
@@ -163,7 +163,7 @@ public class HelperOracleDataTypesTest
 		// int128 max 39 bytes
 
 		// since we have datascale 0, change number to true should make them int,long, Int128
-		var result = HelperOracleDataTypes.GetDotNetType(oracleType, dataPrecision, dataScale,true);
+		var result = HelperOracleDataTypes.GetDotNetType(oracleType, false, dataPrecision, dataScale,true);
 
 		// Assert
 		Assert.Equal(expectedDotNetType, result);

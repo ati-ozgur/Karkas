@@ -15,7 +15,11 @@ public class HelperOracleDataTypes
 
 	const int MAX_DIGIT_DOTNET_DECIMAL = 28;
 
-	public static string GetDotNetType(string dataTypeInDatabase,int dataPrecision = 0, int dataScale = 0, bool changeNumericToLong = true)
+	public static string GetDotNetType(string dataTypeInDatabase,
+				bool forceIdentityToNumeric = false,
+				int dataPrecision = 0,
+				int dataScale = 0,
+				bool changeNumericToLong = true)
 	{
 		dataTypeInDatabase = dataTypeInDatabase.ToLowerInvariant();
 		if (
@@ -78,14 +82,18 @@ public class HelperOracleDataTypes
 
 		if (dataTypeInDatabase.Equals("number"))
 		{
-			//  Precision is the total number of digits, can be between 1 and 38.
-			// Scale is the number of digits after the decimal point
-			// may also be set as negative for rounding.
-
-			if (dataPrecision <= 0 )
+			if (forceIdentityToNumeric)
 			{
-				throw new ArgumentException("number data precision must be at least 1");
+				return "long";
 			}
+			//  Precision is the total number of digits, can be between 1 and 38.
+				// Scale is the number of digits after the decimal point
+				// may also be set as negative for rounding.
+
+				if (dataPrecision <= 0)
+				{
+					throw new ArgumentException("number data precision must be at least 1");
+				}
 			if(dataScale <= 0)
 			{
 				if (dataPrecision <= MAX_INT32_LENGTH)
