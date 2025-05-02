@@ -49,11 +49,11 @@ namespace Karkas.CodeGeneration.Oracle.Generators
             }
             else
             {
-                ClassWriteNormal();
+                ClassWriteNotIdentity();
             }
         }
 
-        protected void ClassWriteNormal()
+        protected void ClassWriteNotIdentity()
         {
             output.AutoTab("public partial class ");
             output.Write(classNameTypeLibrary);
