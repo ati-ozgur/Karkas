@@ -159,7 +159,7 @@
     "UseQuotesInQueries": true,    
     "UseGlobalUsings": true,
     "GenerateForeignKeyQueries": true,
-    "ForceOracleDecimalToIntegersAndDecimal": true,
+    "ForceOracleDecimalToIntegersAndDecimal": false,
     "OracleForceIdentityNumericToLong": true,
     "TableCodeGenerate": true,
     "ViewCodeGenerate": false,
