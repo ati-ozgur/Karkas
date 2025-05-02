@@ -334,9 +334,9 @@ AND
 		            {
 			            dataScale = Convert.ToInt32(strDataScale);
 		            }
-					bool forceIdentity1 = IsIdentity && codeGenerationConfig.OracleForceNumericPKFKColumnsToLong;
+					bool forPrimaryKey = IsInPrimaryKey && codeGenerationConfig.OracleForceNumericPKFKColumnsToLong;
 					bool forForeignKey1 = IsInForeignKey && codeGenerationConfig.OracleForceNumericPKFKColumnsToLong;
-					bool forceIdentityToNumeric = forceIdentity1 || forForeignKey1;
+					bool forceIdentityToNumeric = forPrimaryKey || forForeignKey1;
 					languageType = HelperOracleDataTypes.GetDotNetType(DataTypeInDatabase, forceIdentityToNumeric, dataPrecision, dataScale, codeGenerationConfig.ForceOracleDecimalToIntegersAndDecimal);
 	            }
 
