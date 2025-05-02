@@ -97,14 +97,10 @@ IsStringTypeWithoutLength kontrol et.
 1. CLOB,BLOB does not work
 
 
-1. For oracle, force decimal to int,long
-oracle code generation number to long
-10,0
-38,0
 
 2. dal.QueryUsingColumnName(Album.ColumnNames.AlbumId,)
 
-Here, it should other where operators.
+Here, should there be other where operators?
 
 
 
