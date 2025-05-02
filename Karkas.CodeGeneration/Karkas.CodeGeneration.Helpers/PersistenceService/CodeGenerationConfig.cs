@@ -421,6 +421,9 @@ public class CodeGenerationConfig
 
 	public bool OracleChangeNumericToLong { get => oracleChangeNumericToLong; set => oracleChangeNumericToLong = value; }
 
+	private bool oracleForceIdentityNumericToLong;
+	public bool OracleForceIdentityNumericToLong { get => oracleForceIdentityNumericToLong; set => oracleForceIdentityNumericToLong = value; }
+
 	public string DateRegex
 	{
 		get
@@ -444,6 +447,8 @@ public class CodeGenerationConfig
 			dateTimeRegex = value;
 		}
 	}
+
+
 	public override bool Equals(object obj)
 	{
 		// If the passed object is null
