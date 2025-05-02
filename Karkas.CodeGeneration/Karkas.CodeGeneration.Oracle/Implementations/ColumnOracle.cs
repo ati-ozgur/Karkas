@@ -334,8 +334,10 @@ AND
 		            {
 			            dataScale = Convert.ToInt32(strDataScale);
 		            }
-					bool forceIdentityToNumeric = IsIdentity && codeGenerationConfig.OracleForceIdentityNumericToLong;
-		            languageType = HelperOracleDataTypes.GetDotNetType(DataTypeInDatabase, forceIdentityToNumeric,dataPrecision, dataScale, codeGenerationConfig.OracleChangeNumericToLong);
+					bool forceIdentity1 = IsIdentity && codeGenerationConfig.OracleForceIdentityNumericToLong;
+					bool forForeignKey1 = IsInForeignKey && codeGenerationConfig.OracleForceIdentityNumericToLong;
+					bool forceIdentityToNumeric = forceIdentity1 || forForeignKey1;
+					languageType = HelperOracleDataTypes.GetDotNetType(DataTypeInDatabase, forceIdentityToNumeric, dataPrecision, dataScale, codeGenerationConfig.OracleChangeNumericToLong);
 	            }
 
 	            return languageType;
