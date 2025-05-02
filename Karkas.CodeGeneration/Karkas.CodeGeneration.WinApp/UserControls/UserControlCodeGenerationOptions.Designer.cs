@@ -1,4 +1,4 @@
-﻿namespace Karkas.CodeGeneration.WinApp.UserControls
+namespace Karkas.CodeGeneration.WinApp.UserControls
 {
     partial class UserControlCodeGenerationOptions
     {
@@ -67,7 +67,7 @@
 			checkBoxIgnoreSystemTables.AutoSize = true;
 			checkBoxIgnoreSystemTables.Checked = true;
 			checkBoxIgnoreSystemTables.CheckState = CheckState.Checked;
-			checkBoxIgnoreSystemTables.Location = new Point(256, 321);
+			checkBoxIgnoreSystemTables.Location = new Point(340, 282);
 			checkBoxIgnoreSystemTables.Margin = new Padding(3, 2, 3, 2);
 			checkBoxIgnoreSystemTables.Name = "checkBoxIgnoreSystemTables";
 			checkBoxIgnoreSystemTables.Size = new Size(155, 19);
@@ -78,7 +78,7 @@
 			// checkBoxStoredProcedureCodeGenerate
 			// 
 			checkBoxStoredProcedureCodeGenerate.AutoSize = true;
-			checkBoxStoredProcedureCodeGenerate.Location = new Point(3, 350);
+			checkBoxStoredProcedureCodeGenerate.Location = new Point(3, 317);
 			checkBoxStoredProcedureCodeGenerate.Margin = new Padding(3, 2, 3, 2);
 			checkBoxStoredProcedureCodeGenerate.Name = "checkBoxStoredProcedureCodeGenerate";
 			checkBoxStoredProcedureCodeGenerate.Size = new Size(198, 19);
@@ -89,7 +89,7 @@
 			// checkBoxViewCodeGenerate
 			// 
 			checkBoxViewCodeGenerate.AutoSize = true;
-			checkBoxViewCodeGenerate.Location = new Point(3, 321);
+			checkBoxViewCodeGenerate.Location = new Point(3, 282);
 			checkBoxViewCodeGenerate.Margin = new Padding(3, 2, 3, 2);
 			checkBoxViewCodeGenerate.Name = "checkBoxViewCodeGenerate";
 			checkBoxViewCodeGenerate.Size = new Size(132, 19);
@@ -103,10 +103,10 @@
 			checkBoxUseSchemaNameInFolders.Checked = true;
 			checkBoxUseSchemaNameInFolders.CheckState = CheckState.Checked;
 			checkBoxUseSchemaNameInFolders.Dock = DockStyle.Fill;
-			checkBoxUseSchemaNameInFolders.Location = new Point(256, 379);
+			checkBoxUseSchemaNameInFolders.Location = new Point(340, 352);
 			checkBoxUseSchemaNameInFolders.Margin = new Padding(3, 2, 3, 2);
 			checkBoxUseSchemaNameInFolders.Name = "checkBoxUseSchemaNameInFolders";
-			checkBoxUseSchemaNameInFolders.Size = new Size(500, 25);
+			checkBoxUseSchemaNameInFolders.Size = new Size(416, 31);
 			checkBoxUseSchemaNameInFolders.TabIndex = 29;
 			checkBoxUseSchemaNameInFolders.Text = "Use Schema Name in Folders (ignored for sqlite)";
 			checkBoxUseSchemaNameInFolders.UseVisualStyleBackColor = true;
@@ -116,7 +116,7 @@
 			checkBoxUseSchemaNameInSql.AutoSize = true;
 			checkBoxUseSchemaNameInSql.Checked = true;
 			checkBoxUseSchemaNameInSql.CheckState = CheckState.Checked;
-			checkBoxUseSchemaNameInSql.Location = new Point(256, 350);
+			checkBoxUseSchemaNameInSql.Location = new Point(340, 317);
 			checkBoxUseSchemaNameInSql.Margin = new Padding(3, 2, 3, 2);
 			checkBoxUseSchemaNameInSql.Name = "checkBoxUseSchemaNameInSql";
 			checkBoxUseSchemaNameInSql.Size = new Size(282, 19);
@@ -126,7 +126,7 @@
 			// 
 			// textBoxDbProviderName
 			// 
-			textBoxDbProviderName.Location = new Point(257, 62);
+			textBoxDbProviderName.Location = new Point(341, 74);
 			textBoxDbProviderName.Margin = new Padding(4);
 			textBoxDbProviderName.Name = "textBoxDbProviderName";
 			textBoxDbProviderName.Size = new Size(148, 23);
@@ -135,7 +135,7 @@
 			// labelDbProviderName
 			// 
 			labelDbProviderName.AutoSize = true;
-			labelDbProviderName.Location = new Point(4, 58);
+			labelDbProviderName.Location = new Point(4, 70);
 			labelDbProviderName.Margin = new Padding(4, 0, 4, 0);
 			labelDbProviderName.Name = "labelDbProviderName";
 			labelDbProviderName.Size = new Size(98, 15);
@@ -145,7 +145,7 @@
 			// labelDatabaseType
 			// 
 			labelDatabaseType.AutoSize = true;
-			labelDatabaseType.Location = new Point(4, 29);
+			labelDatabaseType.Location = new Point(4, 35);
 			labelDatabaseType.Margin = new Padding(4, 0, 4, 0);
 			labelDatabaseType.Name = "labelDatabaseType";
 			labelDatabaseType.Size = new Size(82, 15);
@@ -155,7 +155,7 @@
 			// comboBoxDatabaseType
 			// 
 			comboBoxDatabaseType.FormattingEnabled = true;
-			comboBoxDatabaseType.Location = new Point(257, 33);
+			comboBoxDatabaseType.Location = new Point(341, 39);
 			comboBoxDatabaseType.Margin = new Padding(4);
 			comboBoxDatabaseType.Name = "comboBoxDatabaseType";
 			comboBoxDatabaseType.Size = new Size(140, 23);
@@ -163,7 +163,7 @@
 			// 
 			// textBoxConnectionName
 			// 
-			textBoxConnectionName.Location = new Point(257, 4);
+			textBoxConnectionName.Location = new Point(341, 4);
 			textBoxConnectionName.Margin = new Padding(4);
 			textBoxConnectionName.Name = "textBoxConnectionName";
 			textBoxConnectionName.Size = new Size(148, 23);
@@ -180,7 +180,7 @@
 			// 
 			// textBoxProjectNamespace
 			// 
-			textBoxProjectNamespace.Location = new Point(256, 176);
+			textBoxProjectNamespace.Location = new Point(340, 142);
 			textBoxProjectNamespace.Margin = new Padding(3, 2, 3, 2);
 			textBoxProjectNamespace.Name = "textBoxProjectNamespace";
 			textBoxProjectNamespace.Size = new Size(357, 23);
@@ -189,7 +189,7 @@
 			// labelProjectNamespace
 			// 
 			labelProjectNamespace.AutoSize = true;
-			labelProjectNamespace.Location = new Point(3, 174);
+			labelProjectNamespace.Location = new Point(3, 140);
 			labelProjectNamespace.Name = "labelProjectNamespace";
 			labelProjectNamespace.Size = new Size(109, 15);
 			labelProjectNamespace.TabIndex = 39;
@@ -198,17 +198,17 @@
 			// buttonFolderDialog
 			// 
 			buttonFolderDialog.Dock = DockStyle.Fill;
-			buttonFolderDialog.Location = new Point(762, 205);
+			buttonFolderDialog.Location = new Point(762, 177);
 			buttonFolderDialog.Margin = new Padding(3, 2, 3, 2);
 			buttonFolderDialog.Name = "buttonFolderDialog";
-			buttonFolderDialog.Size = new Size(79, 25);
+			buttonFolderDialog.Size = new Size(79, 31);
 			buttonFolderDialog.TabIndex = 38;
 			buttonFolderDialog.Text = "...";
 			buttonFolderDialog.UseVisualStyleBackColor = true;
 			// 
 			// textBoxCodeGenerationFolder
 			// 
-			textBoxCodeGenerationFolder.Location = new Point(256, 205);
+			textBoxCodeGenerationFolder.Location = new Point(340, 177);
 			textBoxCodeGenerationFolder.Margin = new Padding(3, 2, 3, 2);
 			textBoxCodeGenerationFolder.Name = "textBoxCodeGenerationFolder";
 			textBoxCodeGenerationFolder.Size = new Size(357, 23);
@@ -217,7 +217,7 @@
 			// labelCodeGenerationFolder
 			// 
 			labelCodeGenerationFolder.AutoSize = true;
-			labelCodeGenerationFolder.Location = new Point(3, 203);
+			labelCodeGenerationFolder.Location = new Point(3, 175);
 			labelCodeGenerationFolder.Name = "labelCodeGenerationFolder";
 			labelCodeGenerationFolder.Size = new Size(132, 15);
 			labelCodeGenerationFolder.TabIndex = 36;
@@ -225,7 +225,7 @@
 			// 
 			// textBoxConnectionString
 			// 
-			textBoxConnectionString.Location = new Point(256, 89);
+			textBoxConnectionString.Location = new Point(340, 107);
 			textBoxConnectionString.Margin = new Padding(3, 2, 3, 2);
 			textBoxConnectionString.Name = "textBoxConnectionString";
 			textBoxConnectionString.Size = new Size(357, 23);
@@ -234,7 +234,7 @@
 			// labelConnectionString
 			// 
 			labelConnectionString.AutoSize = true;
-			labelConnectionString.Location = new Point(3, 87);
+			labelConnectionString.Location = new Point(3, 105);
 			labelConnectionString.Name = "labelConnectionString";
 			labelConnectionString.Size = new Size(103, 15);
 			labelConnectionString.TabIndex = 34;
@@ -242,7 +242,7 @@
 			// 
 			// textBoxIgnoredSchemaList
 			// 
-			textBoxIgnoredSchemaList.Location = new Point(256, 234);
+			textBoxIgnoredSchemaList.Location = new Point(340, 212);
 			textBoxIgnoredSchemaList.Margin = new Padding(3, 2, 3, 2);
 			textBoxIgnoredSchemaList.Name = "textBoxIgnoredSchemaList";
 			textBoxIgnoredSchemaList.Size = new Size(357, 23);
@@ -251,7 +251,7 @@
 			// labelIgnoredSchemaList
 			// 
 			labelIgnoredSchemaList.AutoSize = true;
-			labelIgnoredSchemaList.Location = new Point(3, 232);
+			labelIgnoredSchemaList.Location = new Point(3, 210);
 			labelIgnoredSchemaList.Name = "labelIgnoredSchemaList";
 			labelIgnoredSchemaList.Size = new Size(128, 15);
 			labelIgnoredSchemaList.TabIndex = 51;
@@ -260,7 +260,7 @@
 			// checkBoxSequenceCodeGenerate
 			// 
 			checkBoxSequenceCodeGenerate.AutoSize = true;
-			checkBoxSequenceCodeGenerate.Location = new Point(3, 379);
+			checkBoxSequenceCodeGenerate.Location = new Point(3, 352);
 			checkBoxSequenceCodeGenerate.Margin = new Padding(3, 2, 3, 2);
 			checkBoxSequenceCodeGenerate.Name = "checkBoxSequenceCodeGenerate";
 			checkBoxSequenceCodeGenerate.Size = new Size(158, 19);
@@ -271,59 +271,55 @@
 			// tableLayoutPanel1
 			// 
 			tableLayoutPanel1.ColumnCount = 3;
-			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInNamespaces, 0, 15);
+			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInNamespaces, 0, 12);
 			tableLayoutPanel1.Controls.Add(textBoxConnectionName, 1, 0);
-			tableLayoutPanel1.Controls.Add(checkBoxSequenceCodeGenerate, 0, 13);
-			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInFolders, 1, 13);
+			tableLayoutPanel1.Controls.Add(checkBoxSequenceCodeGenerate, 0, 10);
+			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInFolders, 1, 10);
 			tableLayoutPanel1.Controls.Add(labelDatabaseType, 0, 1);
-			tableLayoutPanel1.Controls.Add(checkBoxStoredProcedureCodeGenerate, 0, 12);
-			tableLayoutPanel1.Controls.Add(checkBoxIgnoreSystemTables, 1, 11);
-			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInSql, 1, 12);
+			tableLayoutPanel1.Controls.Add(checkBoxStoredProcedureCodeGenerate, 0, 9);
+			tableLayoutPanel1.Controls.Add(checkBoxIgnoreSystemTables, 1, 8);
+			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInSql, 1, 9);
 			tableLayoutPanel1.Controls.Add(comboBoxDatabaseType, 1, 1);
-			tableLayoutPanel1.Controls.Add(checkBoxViewCodeGenerate, 0, 11);
+			tableLayoutPanel1.Controls.Add(checkBoxViewCodeGenerate, 0, 8);
 			tableLayoutPanel1.Controls.Add(textBoxDbProviderName, 1, 2);
 			tableLayoutPanel1.Controls.Add(labelConnectionString, 0, 3);
-			tableLayoutPanel1.Controls.Add(textBoxIgnoredSchemaList, 1, 8);
+			tableLayoutPanel1.Controls.Add(textBoxIgnoredSchemaList, 1, 6);
 			tableLayoutPanel1.Controls.Add(textBoxConnectionString, 1, 3);
-			tableLayoutPanel1.Controls.Add(labelIgnoredSchemaList, 0, 8);
-			tableLayoutPanel1.Controls.Add(textBoxProjectNamespace, 1, 6);
-			tableLayoutPanel1.Controls.Add(buttonFolderDialog, 2, 7);
-			tableLayoutPanel1.Controls.Add(textBoxCodeGenerationFolder, 1, 7);
-			tableLayoutPanel1.Controls.Add(labelProjectNamespace, 0, 6);
-			tableLayoutPanel1.Controls.Add(labelCodeGenerationFolder, 0, 7);
-			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassAgain, 1, 15);
+			tableLayoutPanel1.Controls.Add(labelIgnoredSchemaList, 0, 6);
+			tableLayoutPanel1.Controls.Add(textBoxProjectNamespace, 1, 4);
+			tableLayoutPanel1.Controls.Add(buttonFolderDialog, 2, 5);
+			tableLayoutPanel1.Controls.Add(textBoxCodeGenerationFolder, 1, 5);
+			tableLayoutPanel1.Controls.Add(labelProjectNamespace, 0, 4);
+			tableLayoutPanel1.Controls.Add(labelCodeGenerationFolder, 0, 5);
+			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassAgain, 1, 12);
 			tableLayoutPanel1.Controls.Add(labelConnectionName, 0, 0);
 			tableLayoutPanel1.Controls.Add(labelDbProviderName, 0, 2);
-			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassValidationExamples, 2, 15);
-			tableLayoutPanel1.Controls.Add(labelAdditionalSchemaList, 0, 9);
-			tableLayoutPanel1.Controls.Add(textBoxSchemaList, 1, 9);
-			tableLayoutPanel1.Controls.Add(checkBoxOracleForceNumericPKFKColumnsToLong, 1, 14);
-			tableLayoutPanel1.Controls.Add(checkBoxForceOracleDecimalToIntegersAndDecimal, 0, 14);
+			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassValidationExamples, 2, 12);
+			tableLayoutPanel1.Controls.Add(labelAdditionalSchemaList, 0, 7);
+			tableLayoutPanel1.Controls.Add(textBoxSchemaList, 1, 7);
+			tableLayoutPanel1.Controls.Add(checkBoxOracleForceNumericPKFKColumnsToLong, 1, 11);
+			tableLayoutPanel1.Controls.Add(checkBoxForceOracleDecimalToIntegersAndDecimal, 0, 11);
 			tableLayoutPanel1.Dock = DockStyle.Fill;
 			tableLayoutPanel1.Location = new Point(0, 0);
 			tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
 			tableLayoutPanel1.Name = "tableLayoutPanel1";
-			tableLayoutPanel1.RowCount = 16;
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.666667F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.666667F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.666667F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.666667F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.666667F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.666667F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.666667F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.666667F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.666667F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.666667F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.666667F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.666667F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.666667F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.666667F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.666667F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+			tableLayoutPanel1.RowCount = 13;
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.677165F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.677165F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.677165F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.677165F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.677165F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.677165F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.677165F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.677165F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.677165F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.677165F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.677165F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.87401533F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.677165F));
 			tableLayoutPanel1.Size = new Size(844, 466);
 			tableLayoutPanel1.TabIndex = 58;
 			// 
@@ -333,10 +329,10 @@
 			checkBoxUseSchemaNameInNamespaces.Checked = true;
 			checkBoxUseSchemaNameInNamespaces.CheckState = CheckState.Checked;
 			checkBoxUseSchemaNameInNamespaces.Dock = DockStyle.Fill;
-			checkBoxUseSchemaNameInNamespaces.Location = new Point(3, 428);
+			checkBoxUseSchemaNameInNamespaces.Location = new Point(3, 423);
 			checkBoxUseSchemaNameInNamespaces.Margin = new Padding(3, 2, 3, 2);
 			checkBoxUseSchemaNameInNamespaces.Name = "checkBoxUseSchemaNameInNamespaces";
-			checkBoxUseSchemaNameInNamespaces.Size = new Size(247, 36);
+			checkBoxUseSchemaNameInNamespaces.Size = new Size(331, 41);
 			checkBoxUseSchemaNameInNamespaces.TabIndex = 60;
 			checkBoxUseSchemaNameInNamespaces.Text = "Use Schema Name in Namespaces (ignored for sqlite)";
 			checkBoxUseSchemaNameInNamespaces.UseVisualStyleBackColor = true;
@@ -344,7 +340,7 @@
 			// checkBoxGenerateNormalClassAgain
 			// 
 			checkBoxGenerateNormalClassAgain.AutoSize = true;
-			checkBoxGenerateNormalClassAgain.Location = new Point(256, 428);
+			checkBoxGenerateNormalClassAgain.Location = new Point(340, 423);
 			checkBoxGenerateNormalClassAgain.Margin = new Padding(3, 2, 3, 2);
 			checkBoxGenerateNormalClassAgain.Name = "checkBoxGenerateNormalClassAgain";
 			checkBoxGenerateNormalClassAgain.Size = new Size(154, 19);
@@ -355,7 +351,7 @@
 			// checkBoxGenerateNormalClassValidationExamples
 			// 
 			checkBoxGenerateNormalClassValidationExamples.AutoSize = true;
-			checkBoxGenerateNormalClassValidationExamples.Location = new Point(762, 428);
+			checkBoxGenerateNormalClassValidationExamples.Location = new Point(762, 423);
 			checkBoxGenerateNormalClassValidationExamples.Margin = new Padding(3, 2, 3, 2);
 			checkBoxGenerateNormalClassValidationExamples.Name = "checkBoxGenerateNormalClassValidationExamples";
 			checkBoxGenerateNormalClassValidationExamples.Size = new Size(79, 19);
@@ -366,7 +362,7 @@
 			// labelAdditionalSchemaList
 			// 
 			labelAdditionalSchemaList.AutoSize = true;
-			labelAdditionalSchemaList.Location = new Point(3, 261);
+			labelAdditionalSchemaList.Location = new Point(3, 245);
 			labelAdditionalSchemaList.Name = "labelAdditionalSchemaList";
 			labelAdditionalSchemaList.Size = new Size(84, 15);
 			labelAdditionalSchemaList.TabIndex = 58;
@@ -374,7 +370,7 @@
 			// 
 			// textBoxSchemaList
 			// 
-			textBoxSchemaList.Location = new Point(256, 264);
+			textBoxSchemaList.Location = new Point(340, 248);
 			textBoxSchemaList.Name = "textBoxSchemaList";
 			textBoxSchemaList.Size = new Size(357, 23);
 			textBoxSchemaList.TabIndex = 59;
@@ -382,19 +378,19 @@
 			// checkBoxOracleForceNumericPKFKColumnsToLong
 			// 
 			checkBoxOracleForceNumericPKFKColumnsToLong.AutoSize = true;
-			checkBoxOracleForceNumericPKFKColumnsToLong.Location = new Point(256, 409);
+			checkBoxOracleForceNumericPKFKColumnsToLong.Location = new Point(340, 388);
 			checkBoxOracleForceNumericPKFKColumnsToLong.Name = "checkBoxOracleForceNumericPKFKColumnsToLong";
-			checkBoxOracleForceNumericPKFKColumnsToLong.Size = new Size(180, 14);
+			checkBoxOracleForceNumericPKFKColumnsToLong.Size = new Size(193, 19);
 			checkBoxOracleForceNumericPKFKColumnsToLong.TabIndex = 61;
-			checkBoxOracleForceNumericPKFKColumnsToLong.Text = "Oracle Force Identity To Long";
+			checkBoxOracleForceNumericPKFKColumnsToLong.Text = "Oracle Force PK and FK To Long";
 			checkBoxOracleForceNumericPKFKColumnsToLong.UseVisualStyleBackColor = true;
 			// 
 			// checkBoxForceOracleDecimalToIntegersAndDecimal
 			// 
 			checkBoxForceOracleDecimalToIntegersAndDecimal.AutoSize = true;
-			checkBoxForceOracleDecimalToIntegersAndDecimal.Location = new Point(3, 409);
+			checkBoxForceOracleDecimalToIntegersAndDecimal.Location = new Point(3, 388);
 			checkBoxForceOracleDecimalToIntegersAndDecimal.Name = "checkBoxForceOracleDecimalToIntegersAndDecimal";
-			checkBoxForceOracleDecimalToIntegersAndDecimal.Size = new Size(247, 14);
+			checkBoxForceOracleDecimalToIntegersAndDecimal.Size = new Size(269, 19);
 			checkBoxForceOracleDecimalToIntegersAndDecimal.TabIndex = 62;
 			checkBoxForceOracleDecimalToIntegersAndDecimal.Text = "Force Oracle Decimal To Integers And Decimal";
 			checkBoxForceOracleDecimalToIntegersAndDecimal.UseVisualStyleBackColor = true;
@@ -441,10 +437,10 @@
         private Label label2;
         private Label labelAdditionalSchemaList;
         private TextBox textBoxSchemaList;
-		private CheckBox checkBoxGenerateNormalClassAgain;
-		private CheckBox checkBoxGenerateNormalClassValidationExamples;
-		private CheckBox checkBoxUseSchemaNameInNamespaces;
 		private CheckBox checkBoxOracleForceNumericPKFKColumnsToLong;
 		private CheckBox checkBoxForceOracleDecimalToIntegersAndDecimal;
+		private CheckBox checkBoxUseSchemaNameInNamespaces;
+		private CheckBox checkBoxGenerateNormalClassAgain;
+		private CheckBox checkBoxGenerateNormalClassValidationExamples;
 	}
 }
