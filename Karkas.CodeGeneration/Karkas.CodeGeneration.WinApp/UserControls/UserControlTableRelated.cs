@@ -53,7 +53,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
                 {
                     foreach (string schemaName in schemaList)
                     {
-						hatalar = hatalar; //+ ParentMainForm.DatabaseHelper.CodeGenerateAllTablesInSchema(schemaName);
+						hatalar = hatalar + ParentMainForm.DatabaseHelper.CodeGenerateAllTablesInSchema(schemaName);
                     }
                     message = "Code generated for all tables in following schemas: " + string.Join(",", schemaList);
 
