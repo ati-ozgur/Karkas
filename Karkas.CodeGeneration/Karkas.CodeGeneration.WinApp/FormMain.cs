@@ -296,7 +296,7 @@ namespace Karkas.CodeGeneration.WinApp
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //DatabaseService.InsertOrUpdate(CurrentDatabaseEntry);
+            DatabaseService.InsertOrUpdate(CurrentDatabaseEntry);
 
             MessageBox.Show("Values saved;");
         }

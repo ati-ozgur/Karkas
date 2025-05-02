@@ -13,8 +13,9 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
     public class DatabaseService
     {
 
+		private const string CONFIG_FILENAME = "karkas-config.json";
 
-		private static string findJsonFileNamePath(string configFileName = "karkas-config.json")
+		private static string findJsonFileNamePath(string configFileName = CONFIG_FILENAME)
 		{
 			string json_filename;
 			string tool_install_directory = AppDomain.CurrentDomain.BaseDirectory;
@@ -47,7 +48,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 		}
 
 
-		public static List<CodeGenerationConfig> getAllDatabaseEntries(string configFileName = "karkas-config.json")
+		public static List<CodeGenerationConfig> getAllDatabaseEntries(string configFileName = CONFIG_FILENAME)
         {
 			string json_filename = findJsonFileNamePath(configFileName);
 			string jsonString = File.ReadAllText(json_filename);
@@ -66,7 +67,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
             return entries;
         }
 
-        public static void SaveDatabaseEntries(string configFileName,List<CodeGenerationConfig> entries)
+        public static void SaveDatabaseEntries(List<CodeGenerationConfig> entries,string configFileName= CONFIG_FILENAME)
         {
             var options = new JsonSerializerOptions { WriteIndented = true };
             string jsonString = JsonSerializer.Serialize(entries, options);
@@ -75,7 +76,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
         }
 
 
-        public static CodeGenerationConfig GetByConnectionName(string configFileName,string connectionName)
+        public static CodeGenerationConfig GetByConnectionName(string connectionName, string configFileName = CONFIG_FILENAME)
         {
             var liste = getAllDatabaseEntries(configFileName);
             foreach (var e in liste)
@@ -107,23 +108,23 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService
 
 
 
-        internal static void deleteDatabase(string configFileName,CodeGenerationConfig databaseEntry)
+		public static void DeleteDatabase(CodeGenerationConfig databaseEntry, string configFileName = CONFIG_FILENAME)
         {
 
             var entries = getAllDatabaseEntries(configFileName);
             entries.Remove(databaseEntry);
-            SaveDatabaseEntries(configFileName,entries);
+            SaveDatabaseEntries(entries,configFileName);
 
         }
 
 
 
-        internal static void InsertOrUpdate(string configFileName,CodeGenerationConfig databaseEntry)
+        public static void InsertOrUpdate(CodeGenerationConfig databaseEntry, string configFileName = CONFIG_FILENAME)
         {
             var entries = getAllDatabaseEntries(configFileName);
             entries.Remove(databaseEntry);
             entries.Add(databaseEntry);
-            SaveDatabaseEntries(configFileName, entries);
+            SaveDatabaseEntries(entries,configFileName);
         }
     }
 }
