@@ -419,7 +419,7 @@ public class CodeGenerationConfig
 
 	private bool oracleChangeNumericToLong;
 
-	public bool OracleChangeNumericToLong { get => oracleChangeNumericToLong; set => oracleChangeNumericToLong = value; }
+	public bool ForceOracleDecimalToIntegersAndDecimal { get => oracleChangeNumericToLong; set => oracleChangeNumericToLong = value; }
 
 	private bool oracleForceIdentityNumericToLong;
 	public bool OracleForceIdentityNumericToLong { get => oracleForceIdentityNumericToLong; set => oracleForceIdentityNumericToLong = value; }

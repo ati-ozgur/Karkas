@@ -337,7 +337,7 @@ AND
 					bool forceIdentity1 = IsIdentity && codeGenerationConfig.OracleForceIdentityNumericToLong;
 					bool forForeignKey1 = IsInForeignKey && codeGenerationConfig.OracleForceIdentityNumericToLong;
 					bool forceIdentityToNumeric = forceIdentity1 || forForeignKey1;
-					languageType = HelperOracleDataTypes.GetDotNetType(DataTypeInDatabase, forceIdentityToNumeric, dataPrecision, dataScale, codeGenerationConfig.OracleChangeNumericToLong);
+					languageType = HelperOracleDataTypes.GetDotNetType(DataTypeInDatabase, forceIdentityToNumeric, dataPrecision, dataScale, codeGenerationConfig.ForceOracleDecimalToIntegersAndDecimal);
 	            }
 
 	            return languageType;

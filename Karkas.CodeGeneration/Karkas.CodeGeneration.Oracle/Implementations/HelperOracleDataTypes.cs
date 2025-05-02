@@ -19,7 +19,7 @@ public class HelperOracleDataTypes
 				bool forceIdentityToNumeric = false,
 				int dataPrecision = 0,
 				int dataScale = 0,
-				bool changeNumericToLong = true)
+				bool forceOracleDecimalToIntegersAndDecimal = true)
 	{
 		dataTypeInDatabase = dataTypeInDatabase.ToLowerInvariant();
 		if (
@@ -96,11 +96,11 @@ public class HelperOracleDataTypes
 				}
 			if(dataScale <= 0)
 			{
-				if (dataPrecision <= MAX_INT32_LENGTH)
+				if (dataPrecision <= MAX_INT32_LENGTH && forceOracleDecimalToIntegersAndDecimal)
 				{
 					return "int";
 				}
-				else if (dataPrecision <= MAX_INT64_LENGTH)
+				else if (dataPrecision <= MAX_INT64_LENGTH && forceOracleDecimalToIntegersAndDecimal)
 				{
 					return "long";
 				}
@@ -108,6 +108,10 @@ public class HelperOracleDataTypes
 			// .net decimal supports 28-29 digits
 			// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types
 			if (dataPrecision < MAX_DIGIT_DOTNET_DECIMAL)
+			{
+				return "decimal";
+			}
+			if (forceOracleDecimalToIntegersAndDecimal)
 			{
 				return "decimal";
 			}
