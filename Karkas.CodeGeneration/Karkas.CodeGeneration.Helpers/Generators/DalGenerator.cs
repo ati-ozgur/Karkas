@@ -175,8 +175,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void write_QueryByForeignKey(string columnName)
         {
-            string toWrite1 = $"public List<{classNameTypeLibrary}> QueryBy{columnName}(int p{columnName})";
-            string toWrite2 = $"\treturn this.QueryUsingColumnName({classNameTypeLibrary}.ColumnNames.{columnName},p{columnName});";
+			string variableName = utils.GetPascalCase(columnName);
+			string toWrite1 = $"public List<{classNameTypeLibrary}> QueryBy{variableName}(int p{variableName})";
+            string toWrite2 = $"\treturn this.QueryUsingColumnName({classNameTypeLibrary}.ColumnNames.{variableName},p{variableName});";
             output.AutoTabLine(toWrite1);
             output.AutoTabLine("{");
             output.AutoTabLine(toWrite2);
@@ -385,8 +386,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab();
             output.AutoTabLine("get");
             AtStartCurlyBraceletIncreaseTab();
-            string sentence = "return @\"SELECT COUNT(*) FROM " 
-                            + GetSchemaNameForQueries() 
+            string sentence = "return @\"SELECT COUNT(*) FROM "
+                            + GetSchemaNameForQueries()
                             + getTableName() + "\";";
             output.AutoTabLine(sentence);
             AtEndCurlyBraceletDecreaseTab();
@@ -424,7 +425,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.AutoTabLine("return null;");
                 AtEndCurlyBraceletDecreaseTab();
                 AtEndCurlyBraceletDecreaseTab();
-                
+
                 return;
             }
             string sentence = "";
@@ -451,8 +452,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                     }
                 }
                 whereClause = whereClause.Remove(whereClause.Length - 4) + "\"";
-                sentence += "  FROM " 
-                        + GetSchemaNameForQueries() 
+                sentence += "  FROM "
+                        + GetSchemaNameForQueries()
                         + getTableName() + " WHERE ";
             }
             else
@@ -500,8 +501,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab();
             if (container is ITable)
             {
-                string firstLine = "return @\"UPDATE " 
-                    + GetSchemaNameForQueries() 
+                string firstLine = "return @\"UPDATE "
+                    + GetSchemaNameForQueries()
                     + getTableName();
                 output.AutoTabLine(firstLine);
                 output.AutoTabLine(" SET ");
@@ -548,11 +549,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             string lowerName = column.Name.ToLowerInvariant();
             string upperName = column.Name.ToUpperInvariant();
 
-            if(GetReservedKeywords().Contains(lowerName) 
+            if(GetReservedKeywords().Contains(lowerName)
                 || GetReservedKeywords().Contains(upperName)
                 || CodeGenerationConfig.UseQuotesInQueries)
             {
-                return StringEscapeCharacterStart 
+                return StringEscapeCharacterStart
                     + column.Name
                     + StringEscapeCharacterEnd
                     ;
@@ -666,7 +667,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 defineList(output);
                 if(CodeGenerationConfig.UseQuotesInQueries)
                 {
-                    pkName = "\\\"" + pkName + "\\\"";                    
+                    pkName = "\\\"" + pkName + "\\\"";
                 }
                 output.AutoTab("ExecuteQuery(list,String.Format(\" " + pkName + " = '{0}'\"," +variableName+ "));");
                 output.AutoTabLine("");
@@ -740,8 +741,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 IColumn column = container.Columns[i];
                 propertyVariableName = utils.GetPropertyVariableName(column);
                 string drGetSyntax = utils.GetDataReaderSyntax(column,i);
-                string line = $"row.{propertyVariableName}  = {drGetSyntax};"; 
-                                
+                string line = $"row.{propertyVariableName}  = {drGetSyntax};";
+
                 if (column.IsNullable)
                 {
                     output.AutoTabLine("if (!dr.IsDBNull(" + i + "))");
@@ -796,7 +797,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.AutoTabLine(s);
         }
         protected abstract string getDbTargetType(IColumn column);
-        
+
 
 
         private void builderParameterAddNormal(IColumn column)
