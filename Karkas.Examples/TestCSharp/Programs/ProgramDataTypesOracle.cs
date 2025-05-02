@@ -1,6 +1,22 @@
 ﻿
 ConnectionHelper.SetupDatabaseConnection();
 
+
+Deneme d1 = new Deneme();
+d1.CInt = 1;
+d1.CInteger = 2;
+d1.CClob = "test";
+
+DenemeBs bsDeneme = new DenemeBs();
+long pk = bsDeneme.Insert(d1);
+
+Deneme d2 = bsDeneme.QueryByPkId(pk);
+AssertEquals(d1.CInt, d2.CInt, "CInt works");
+AssertEquals(d1.CInteger, d2.CInteger, "CInteger works");
+AssertEquals(d1.CClob, d2.CClob, "CClob works");
+
+Console.WriteLine("Deneme table insert works");
+
 DecimalTablesBs bs1 = new DecimalTablesBs();
 
 int rowCount = 10;
