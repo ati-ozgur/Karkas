@@ -63,7 +63,7 @@ public abstract class BsGenerator : BaseGenerator
         Write_ClassGeneratedDatabaseSpecific();
 
         AtStartCurlyBraceletIncreaseTab();
-        
+
         Write_OverrideDatabaseName();
         if (container is ITable && (!string.IsNullOrEmpty(pkName)))
         {
@@ -235,9 +235,10 @@ public abstract class BsGenerator : BaseGenerator
 
     private void write_QueryByForeignKey(string columnName)
     {
-        string methodName = $"QueryBy{columnName}";
-        string toWrite1 = $"public List<{classNameTypeLibrary}> {methodName}(int p{columnName})";
-        string toWrite2 = $"\treturn dal.{methodName}(p{columnName});";
+		string variableName = utils.GetPascalCase(columnName);
+		string methodName = $"QueryBy{variableName}";
+        string toWrite1 = $"public List<{classNameTypeLibrary}> {methodName}(int p{variableName})";
+        string toWrite2 = $"\treturn dal.{methodName}(p{variableName});";
         output.AutoTabLine(toWrite1);
         output.AutoTabLine("{");
         output.AutoTabLine(toWrite2);
