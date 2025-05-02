@@ -79,6 +79,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			entry.IgnoreSystemTables = checkBoxIgnoreSystemTables.Checked;
             entry.IgnoredSchemaList = textBoxIgnoredSchemaList.Text;
             entry.SchemaList = textBoxSchemaList.Text;
+			entry.GenerateForeignKeyQueries = checkBoxGenerateForeignKeyQueries.Checked;
 
 
 
@@ -138,6 +139,8 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			checkBoxForceOracleDecimalToIntegersAndDecimal.Checked = entry.OracleForceNumericPKFKColumnsToLong;
 			checkBoxIgnoreSystemTables.Checked = entry.IgnoreSystemTables;
 			checkBoxSequenceCodeGenerate.Checked = entry.SequenceCodeGenerate;
+
+			checkBoxGenerateForeignKeyQueries.Checked = entry.GenerateForeignKeyQueries;
 
 			textBoxIgnoredSchemaList.Text = entry.IgnoredSchemaList;
             textBoxSchemaList.Text = entry.SchemaList;
