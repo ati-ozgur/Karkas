@@ -1,4 +1,4 @@
-name: oracle-data-types
+name: oracle-datatypes
 
 on:
   workflow_dispatch:
