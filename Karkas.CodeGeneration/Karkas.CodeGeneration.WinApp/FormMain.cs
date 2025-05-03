@@ -24,305 +24,304 @@ using Karkas.Data.Sqlite;
 using Karkas.CodeGeneration.Helpers.PersistenceService;
 using Karkas.CodeGeneration.Helpers.BaseClasses;
 
-namespace Karkas.CodeGeneration.WinApp
+namespace Karkas.CodeGeneration.WinApp;
+
+public partial class FormMain : Form
 {
-    public partial class FormMain : Form
+    public FormMain()
     {
-        public FormMain()
+        InitializeComponent();
+        userControlCodeGenerationOptions1.getLastAccessedConnectionToTextbox();
+        this.WindowState = FormWindowState.Maximized;
+    }
+
+
+    DbConnection connection;
+    IAdoTemplate<IParameterBuilder> template;
+    private BaseCodeGenerationDatabase databaseHelper;
+
+    public BaseCodeGenerationDatabase DatabaseHelper
+    {
+        get
         {
-            InitializeComponent();
-            userControlCodeGenerationOptions1.getLastAccessedConnectionToTextbox();
-            this.WindowState = FormWindowState.Maximized;
+            //CurrentDatabaseEntry.setIDatabaseValues(databaseHelper);
+            return databaseHelper;
         }
-
-
-        DbConnection connection;
-        IAdoTemplate<IParameterBuilder> template;
-        private BaseCodeGenerationDatabase databaseHelper;
-
-        public BaseCodeGenerationDatabase DatabaseHelper
+        set
         {
-            get
-            {
-                //CurrentDatabaseEntry.setIDatabaseValues(databaseHelper);
-                return databaseHelper;
-            }
-            set
-            {
-                databaseHelper = value;
-                //CurrentDatabaseEntry.setIDatabaseValues(databaseHelper);
-            }
+            databaseHelper = value;
+            //CurrentDatabaseEntry.setIDatabaseValues(databaseHelper);
         }
+    }
 
 
 
-		CodeGenerationConfig entry;
-        private CodeGenerationConfig CurrentDatabaseEntry
+CodeGenerationConfig entry;
+    private CodeGenerationConfig CurrentDatabaseEntry
+    {
+        get
         {
-            get
-            {
-                entry = userControlCodeGenerationOptions1.getDatabaseEntry();
-                return entry;
+            entry = userControlCodeGenerationOptions1.getDatabaseEntry();
+            return entry;
 
-            }
         }
+    }
         
-        public string[] GetSchemaList()
-        {
-            return CurrentDatabaseEntry.getSchemaList();
-        }
+    public string[] GetSchemaList()
+    {
+        return CurrentDatabaseEntry.getSchemaList();
+    }
 
         
-        private void buttonTestConnectionString_Click(object sender, EventArgs e)
-        {
-            string type = userControlCodeGenerationOptions1.SelectedDatabaseType;
-            string connectionString = userControlCodeGenerationOptions1.ConnectionString;
-            string connectionName = userControlCodeGenerationOptions1.ConnectionName;
-            string ConnectionDbProviderName = userControlCodeGenerationOptions1.ConnectionDbProviderName;
+    private void buttonTestConnectionString_Click(object sender, EventArgs e)
+    {
+        string type = userControlCodeGenerationOptions1.SelectedDatabaseType;
+        string connectionString = userControlCodeGenerationOptions1.ConnectionString;
+        string connectionName = userControlCodeGenerationOptions1.ConnectionName;
+        string ConnectionDbProviderName = userControlCodeGenerationOptions1.ConnectionDbProviderName;
 
-            userControlTableRelated1.setComboBoxSchemaListText("");
+        userControlTableRelated1.setComboBoxSchemaListText("");
             
-            try
-            {
-                if (connection != null && connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-                if (type == null || type == DatabaseType.SqlServer)
-                {
-                    testSqlServer(connectionString, connectionName);
-                }
-                else if (type == DatabaseType.Oracle)
-                {
-
-                    testOracle(connectionString, connectionName, ConnectionDbProviderName);
-
-                }
-                else if (type == DatabaseType.Sqlite)
-                {
-                    //testSqlite(connectionString);
-
-                }
-
-                labelConnectionStatus.ForeColor = Color.Black;
-                labelConnectionStatus.Text = "Connection is SUCCESFULL";
-                fillInformation();
-                this.tabControlDatabase.Enabled = true;
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                labelConnectionStatus.ForeColor = Color.Red;
-                labelConnectionStatus.Text = "!!!!Connection is NOT succesfull!!!!";
-            }
-
-        }
-
-
-        private void testOracle(string connectionString,string databaseName, string ConnectionDbProviderName)
+        try
         {
-            if (ConnectionDbProviderName == null)
+            if (connection != null && connection.State == ConnectionState.Open)
             {
-                throw new Exception("Please set the Connection DB Provider name");
-            }
-            string dllName = ConnectionDbProviderName.Replace(".Client", "");
-            //Assembly oracleAssembly = Assembly.LoadWithPartialName(ConnectionDbProviderName);
-            Assembly oracleAssembly = Assembly.LoadWithPartialName(dllName);
-            string connectionClassName = ConnectionDbProviderName + ".OracleConnection";
-            string factoryClassName = ConnectionDbProviderName + ".OracleClientFactory";
-            Object objReflectionConnection = Activator.CreateInstance(oracleAssembly.FullName, connectionClassName);
-            Object objReflectionFactory = Activator.CreateInstance(oracleAssembly.FullName, factoryClassName);
-
-            if (objReflectionConnection != null
-                && objReflectionConnection is ObjectHandle
-                && objReflectionFactory != null
-                && objReflectionFactory is ObjectHandle
-                )
-            {
-                ObjectHandle handleConnection = (ObjectHandle)objReflectionConnection;
-                Object objConnection = handleConnection.Unwrap();
-                connection = (DbConnection)objConnection;
-
-                ObjectHandle handleFactory = (ObjectHandle)objReflectionFactory;
-                Object objFactory = handleFactory.Unwrap();
-                DbProviderFactory factory = (DbProviderFactory)objFactory;
-
-                //Object objFactory = 
-
-                connection.ConnectionString = connectionString;
-                connection.Open();
                 connection.Close();
-
-
-                template = new AdoTemplateOracle();
-                template.Connection = connection;
-                template.DbProviderName = ConnectionDbProviderName;
-				
-                DatabaseHelper = new CodeGenerationOracle(template, CurrentDatabaseEntry);
-				DbProviderFactories.RegisterFactory(ConnectionDbProviderName, factory);
-
-
-
             }
-        }
-
-
-
-
-        private void testSqlServer(string connectionString,string databaseName)
-        {
-            const string providerName = "Microsoft.Data.SqlClient";
-
-            DbProviderFactories.TryGetFactory(providerName, out var factory);
-
-            if(factory == null)
+            if (type == null || type == DatabaseType.SqlServer)
             {
-                DbProviderFactories.RegisterFactory(providerName, SqlClientFactory.Instance);
+                testSqlServer(connectionString, connectionName);
             }
-
-            connection = new SqlConnection(connectionString);
-            connection.Open();
-            connection.Close();
-            template = new AdoTemplateSqlServer();
-            template.Connection = connection;
-            template.DbProviderName = providerName;
-
-            //DatabaseHelper = new SqlServerDalGenerator(template);
-
-        }
-
-
-
-
-
-
-
-
-
-
-        private void fillInformation( )
-        {
-            //userControlCodeGenerationOptions1.databaseNameLabelDoldur(DatabaseHelper);
-            fillSchema();
-
-            userControlTableRelated1.fillTablesInListBox();
-            userControlViewRelated1.listBoxViewListDoldur();
-            userControlStoredProcedureRelated1.fillListBoxStoredProcedures();
-            userControlSequenceRelated1.fillListBoxSequences();
-        }
-
-        private void fillSchema()
-        {
-            string[] schemaList = userControlCodeGenerationOptions1.GetSchemaList();
-            if(schemaList == null || schemaList.Length == 0)
+            else if (type == DatabaseType.Oracle)
             {
-                schemaList = DatabaseHelper.GetSchemaList();
+
+                testOracle(connectionString, connectionName, ConnectionDbProviderName);
+
             }
-            userControlTableRelated1.fillComboBoxSchemaList(schemaList);
-            userControlViewRelated1.fillComboBoxSchemaList(schemaList);
-            userControlStoredProcedureRelated1.fillComboBoxSchemaList(schemaList);
-            userControlSequenceRelated1.fillComboBoxSchemaList(schemaList);
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-        private void buttonOtherConnections_Click(object sender, EventArgs e)
-        {
-            FormConnectionList frm = new FormConnectionList();
-            frm.ShowDialog();
-
-            if (frm.SelectedDatabaseEntry != null)
+            else if (type == DatabaseType.Sqlite)
             {
-                userControlCodeGenerationOptions1.databaseEntryToForm(frm.SelectedDatabaseEntry);
-            }
-        }
+                //testSqlite(connectionString);
 
-
-
-        private void buttonNewConnection_Click(object sender, EventArgs e)
-        {
-            userControlCodeGenerationOptions1.ClearInputControlValues();
-
-        }
-
-
-        public bool ProduceAllTablesAreYouSure()
-        {
-            string databaseType = entry.ConnectionDatabaseType;
-            if (databaseType == DatabaseType.Oracle && string.IsNullOrEmpty(entry.SchemaList))
-            {
-                string message = "Normally, codes are produced for only some schemas in Oracle database. May be you should fill TEXTBOX SCHEMA LIST. Are you sure to generate tables for all schemas in oracle?";
-                string caption = "PRODUCE CODE FOR ALL DATABASE";
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result;
-
-                // Displays the MessageBox.
-
-                result = MessageBox.Show(this, message, caption, buttons);
-
-                if (result == DialogResult.Yes)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return true;
             }
 
-        }
+            labelConnectionStatus.ForeColor = Color.Black;
+            labelConnectionStatus.Text = "Connection is SUCCESFULL";
+            fillInformation();
+            this.tabControlDatabase.Enabled = true;
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormAbout formAbout = new FormAbout();
-            formAbout.ShowDialog();
-        }
-
-        private void saveToLocalWorkingDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DatabaseService.InsertOrUpdate(CurrentDatabaseEntry);
-			string workingDirectory = Path.GetDirectoryName(Application.ExecutablePath);
-			MessageBox.Show($"Values saved to working directory; {workingDirectory}");
-        }
-
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            userControlCodeGenerationOptions1.ClearInputControlValues();
 
         }
-
-        private void openFromLocalDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+        catch (Exception ex)
         {
-            FormConnectionList frm = new FormConnectionList();
-            frm.ShowDialog();
-
-            if (frm.SelectedDatabaseEntry != null)
-            {
-                userControlCodeGenerationOptions1.databaseEntryToForm(frm.SelectedDatabaseEntry);
-            }
-        }
-
-        private void databaseProvidersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormDatabaseProviders form = new FormDatabaseProviders();
-            form.ShowDialog();
+            MessageBox.Show(ex.Message);
+            labelConnectionStatus.ForeColor = Color.Red;
+            labelConnectionStatus.Text = "!!!!Connection is NOT succesfull!!!!";
         }
 
     }
+
+
+    private void testOracle(string connectionString,string databaseName, string ConnectionDbProviderName)
+    {
+        if (ConnectionDbProviderName == null)
+        {
+            throw new Exception("Please set the Connection DB Provider name");
+        }
+        string dllName = ConnectionDbProviderName.Replace(".Client", "");
+        //Assembly oracleAssembly = Assembly.LoadWithPartialName(ConnectionDbProviderName);
+        Assembly oracleAssembly = Assembly.LoadWithPartialName(dllName);
+        string connectionClassName = ConnectionDbProviderName + ".OracleConnection";
+        string factoryClassName = ConnectionDbProviderName + ".OracleClientFactory";
+        Object objReflectionConnection = Activator.CreateInstance(oracleAssembly.FullName, connectionClassName);
+        Object objReflectionFactory = Activator.CreateInstance(oracleAssembly.FullName, factoryClassName);
+
+        if (objReflectionConnection != null
+            && objReflectionConnection is ObjectHandle
+            && objReflectionFactory != null
+            && objReflectionFactory is ObjectHandle
+            )
+        {
+            ObjectHandle handleConnection = (ObjectHandle)objReflectionConnection;
+            Object objConnection = handleConnection.Unwrap();
+            connection = (DbConnection)objConnection;
+
+            ObjectHandle handleFactory = (ObjectHandle)objReflectionFactory;
+            Object objFactory = handleFactory.Unwrap();
+            DbProviderFactory factory = (DbProviderFactory)objFactory;
+
+            //Object objFactory = 
+
+            connection.ConnectionString = connectionString;
+            connection.Open();
+            connection.Close();
+
+
+            template = new AdoTemplateOracle();
+            template.Connection = connection;
+            template.DbProviderName = ConnectionDbProviderName;
+			
+            DatabaseHelper = new CodeGenerationOracle(template, CurrentDatabaseEntry);
+		DbProviderFactories.RegisterFactory(ConnectionDbProviderName, factory);
+
+
+
+        }
+    }
+
+
+
+
+    private void testSqlServer(string connectionString,string databaseName)
+    {
+        const string providerName = "Microsoft.Data.SqlClient";
+
+        DbProviderFactories.TryGetFactory(providerName, out var factory);
+
+        if(factory == null)
+        {
+            DbProviderFactories.RegisterFactory(providerName, SqlClientFactory.Instance);
+        }
+
+        connection = new SqlConnection(connectionString);
+        connection.Open();
+        connection.Close();
+        template = new AdoTemplateSqlServer();
+        template.Connection = connection;
+        template.DbProviderName = providerName;
+
+        //DatabaseHelper = new SqlServerDalGenerator(template);
+
+    }
+
+
+
+
+
+
+
+
+
+
+    private void fillInformation( )
+    {
+        //userControlCodeGenerationOptions1.databaseNameLabelDoldur(DatabaseHelper);
+        fillSchema();
+
+        userControlTableRelated1.fillTablesInListBox();
+        userControlViewRelated1.listBoxViewListDoldur();
+        userControlStoredProcedureRelated1.fillListBoxStoredProcedures();
+        userControlSequenceRelated1.fillListBoxSequences();
+    }
+
+    private void fillSchema()
+    {
+        string[] schemaList = userControlCodeGenerationOptions1.GetSchemaList();
+        if(schemaList == null || schemaList.Length == 0)
+        {
+            schemaList = DatabaseHelper.GetSchemaList();
+        }
+        userControlTableRelated1.fillComboBoxSchemaList(schemaList);
+        userControlViewRelated1.fillComboBoxSchemaList(schemaList);
+        userControlStoredProcedureRelated1.fillComboBoxSchemaList(schemaList);
+        userControlSequenceRelated1.fillComboBoxSchemaList(schemaList);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private void buttonOtherConnections_Click(object sender, EventArgs e)
+    {
+        FormConnectionList frm = new FormConnectionList();
+        frm.ShowDialog();
+
+        if (frm.SelectedDatabaseEntry != null)
+        {
+            userControlCodeGenerationOptions1.databaseEntryToForm(frm.SelectedDatabaseEntry);
+        }
+    }
+
+
+
+    private void buttonNewConnection_Click(object sender, EventArgs e)
+    {
+        userControlCodeGenerationOptions1.ClearInputControlValues();
+
+    }
+
+
+    public bool ProduceAllTablesAreYouSure()
+    {
+        string databaseType = entry.ConnectionDatabaseType;
+        if (databaseType == DatabaseType.Oracle && string.IsNullOrEmpty(entry.SchemaList))
+        {
+            string message = "Normally, codes are produced for only some schemas in Oracle database. May be you should fill TEXTBOX SCHEMA LIST. Are you sure to generate tables for all schemas in oracle?";
+            string caption = "PRODUCE CODE FOR ALL DATABASE";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+
+            // Displays the MessageBox.
+
+            result = MessageBox.Show(this, message, caption, buttons);
+
+            if (result == DialogResult.Yes)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return true;
+        }
+
+    }
+
+    private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        FormAbout formAbout = new FormAbout();
+        formAbout.ShowDialog();
+    }
+
+    private void saveToLocalWorkingDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        DatabaseService.InsertOrUpdate(CurrentDatabaseEntry);
+	string workingDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+	MessageBox.Show($"Values saved to working directory; {workingDirectory}");
+    }
+
+    private void newToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        userControlCodeGenerationOptions1.ClearInputControlValues();
+
+    }
+
+    private void openFromLocalDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        FormConnectionList frm = new FormConnectionList();
+        frm.ShowDialog();
+
+        if (frm.SelectedDatabaseEntry != null)
+        {
+            userControlCodeGenerationOptions1.databaseEntryToForm(frm.SelectedDatabaseEntry);
+        }
+    }
+
+    private void databaseProvidersToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        FormDatabaseProviders form = new FormDatabaseProviders();
+        form.ShowDialog();
+    }
+
 }
