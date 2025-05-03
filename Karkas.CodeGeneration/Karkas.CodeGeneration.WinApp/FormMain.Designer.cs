@@ -1,4 +1,4 @@
-﻿using Karkas.CodeGeneration.WinApp.UserControls;
+using Karkas.CodeGeneration.WinApp.UserControls;
 namespace Karkas.CodeGeneration.WinApp
 {
     partial class FormMain
@@ -41,10 +41,8 @@ namespace Karkas.CodeGeneration.WinApp
             this.userControlStoredProcedureRelated1 = new Karkas.CodeGeneration.WinApp.UserControls.UserControlStoredProcedureRelated();
             this.tabPageSequences = new System.Windows.Forms.TabPage();
             this.userControlSequenceRelated1 = new Karkas.CodeGeneration.WinApp.UserControls.UserControlSequenceRelated();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -57,7 +55,7 @@ namespace Karkas.CodeGeneration.WinApp
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseProvidersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userControlCodeGenerationOptions1 = new Karkas.CodeGeneration.WinApp.UserControls.UserControlCodeGenerationOptions();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -203,12 +201,6 @@ namespace Karkas.CodeGeneration.WinApp
             this.toolStripSeparator11.Name = "toolStripSeparator11";
             this.toolStripSeparator11.Size = new System.Drawing.Size(119, 6);
             // 
-            // aboutToolStripMenuItem1
-            // 
-            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
-            this.aboutToolStripMenuItem1.Text = "&About...";
-            // 
             // newToolStripMenuItem1
             // 
             this.newToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem1.Image")));
@@ -297,7 +289,7 @@ namespace Karkas.CodeGeneration.WinApp
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem2,
+            this.aboutToolStripMenuItem,
             this.databaseProvidersToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 19);
@@ -305,10 +297,10 @@ namespace Karkas.CodeGeneration.WinApp
             // 
             // aboutToolStripMenuItem2
             // 
-            this.aboutToolStripMenuItem2.Name = "aboutToolStripMenuItem2";
-            this.aboutToolStripMenuItem2.Size = new System.Drawing.Size(174, 22);
-            this.aboutToolStripMenuItem2.Text = "About";
-            this.aboutToolStripMenuItem2.Click += new System.EventHandler(this.aboutToolStripMenuItem2_Click);
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem2";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // databaseProvidersToolStripMenuItem
             // 
@@ -390,7 +382,6 @@ namespace Karkas.CodeGeneration.WinApp
         private UserControlSequenceRelated userControlSequenceRelated1;
         private System.Windows.Forms.ToolStripMenuItem contentsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem1;
@@ -406,7 +397,6 @@ namespace Karkas.CodeGeneration.WinApp
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem databaseProvidersToolStripMenuItem;
         private TableLayoutPanel tableLayoutPanel1;
     }
