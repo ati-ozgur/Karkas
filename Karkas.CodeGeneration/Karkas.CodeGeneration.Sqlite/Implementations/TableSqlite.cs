@@ -47,12 +47,12 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         private Decimal? primaryKeyColumnCount = null;
         public int PrimaryKeyColumnCount
         {
-            get 
+            get
             {
                 if (!primaryKeyColumnCount.HasValue)
                 {
                     primaryKeyColumnCount = 0;
-                    foreach (IColumn column in columns)
+                    foreach (IColumn column in Columns)
                     {
                         if (column.IsInPrimaryKey)
                         {
@@ -87,7 +87,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
         public List<IColumn> Columns
         {
-            get 
+            get
             {
                 if (columns == null)
                 {
@@ -96,7 +96,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
                     List<Dictionary<string,object>>  dtColumns = template.GetRows(columnSql);
 
-                    
+
                     foreach (var rowColumn in dtColumns)
                     {
                         // cid|name|type|notnull|dflt_value|pk
