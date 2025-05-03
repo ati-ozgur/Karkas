@@ -13,7 +13,7 @@ namespace Karkas.CodeGeneration.Helpers.PersistenceService;
 public class DatabaseService
 {
 
-	private const string CONFIG_FILENAME = "karkas-config.json";
+	public const string CONFIG_FILENAME = "karkas-config.json";
 
 	private static string findJsonFileNamePath(string configFileName = CONFIG_FILENAME)
 	{

@@ -59,6 +59,7 @@ namespace Karkas.CodeGeneration.WinApp
 			databaseProvidersToolStripMenuItem = new ToolStripMenuItem();
 			userControlCodeGenerationOptions1 = new UserControlCodeGenerationOptions();
 			tableLayoutPanel1 = new TableLayoutPanel();
+			backupToolStripMenuItem = new ToolStripMenuItem();
 			tabControlDatabase.SuspendLayout();
 			tabPageTableRelated.SuspendLayout();
 			tabPageViewRelated.SuspendLayout();
@@ -249,7 +250,7 @@ namespace Karkas.CodeGeneration.WinApp
 			// 
 			// fileToolStripMenuItem
 			// 
-			fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, openFromLocalDirectoryToolStripMenuItem, saveToLocalWorkingDirectoryToolStripMenuItem });
+			fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, openFromLocalDirectoryToolStripMenuItem, saveToLocalWorkingDirectoryToolStripMenuItem, backupToolStripMenuItem });
 			fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			fileToolStripMenuItem.Size = new Size(37, 19);
 			fileToolStripMenuItem.Text = "File";
@@ -326,6 +327,13 @@ namespace Karkas.CodeGeneration.WinApp
 			tableLayoutPanel1.Size = new Size(1069, 580);
 			tableLayoutPanel1.TabIndex = 24;
 			// 
+			// backupToolStripMenuItem
+			// 
+			backupToolStripMenuItem.Name = "backupToolStripMenuItem";
+			backupToolStripMenuItem.Size = new Size(256, 22);
+			backupToolStripMenuItem.Text = "Backup";
+			backupToolStripMenuItem.Click += backupToolStripMenuItem_Click;
+			// 
 			// FormMain
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -385,6 +393,7 @@ namespace Karkas.CodeGeneration.WinApp
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem databaseProvidersToolStripMenuItem;
         private TableLayoutPanel tableLayoutPanel1;
-    }
+		private ToolStripMenuItem backupToolStripMenuItem;
+	}
 }
 

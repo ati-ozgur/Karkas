@@ -324,4 +324,24 @@ public partial class FormMain : Form
 		form.ShowDialog();
 	}
 
+	private void backupToolStripMenuItem_Click(object sender, EventArgs e)
+	{
+		string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+		SaveFileDialog fileDialog = new SaveFileDialog();
+		fileDialog.Filter = "json files  (*.json)|*.json";
+		fileDialog.InitialDirectory = desktopPath;
+		string configFilenameNoExt = DatabaseService.CONFIG_FILENAME.Replace(".json","");
+		string currentDateOnly = DateTime.Now.ToString("yyyyMMd");
+		string initialFileName = $"{desktopPath}\\{configFilenameNoExt}{currentDateOnly}.json";
+		fileDialog.FileName = initialFileName;
+		DialogResult dr = fileDialog.ShowDialog();
+
+		if (dr == DialogResult.OK)
+		{
+			string newpath = fileDialog.FileName;
+			var entries = DatabaseService.GetAllDatabaseEntries();
+			DatabaseService.SaveDatabaseEntries(entries,newpath);
+			MessageBox.Show($"saved to {newpath}");
+		}
+	}
 }
