@@ -53,7 +53,7 @@ namespace Karkas.CodeGeneration.WinApp
 			fileToolStripMenuItem = new ToolStripMenuItem();
 			newToolStripMenuItem = new ToolStripMenuItem();
 			openFromLocalDirectoryToolStripMenuItem = new ToolStripMenuItem();
-			saveToolStripMenuItem = new ToolStripMenuItem();
+			saveToLocalWorkingDirectoryToolStripMenuItem = new ToolStripMenuItem();
 			helpToolStripMenuItem = new ToolStripMenuItem();
 			aboutToolStripMenuItem = new ToolStripMenuItem();
 			databaseProvidersToolStripMenuItem = new ToolStripMenuItem();
@@ -249,7 +249,7 @@ namespace Karkas.CodeGeneration.WinApp
 			// 
 			// fileToolStripMenuItem
 			// 
-			fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, openFromLocalDirectoryToolStripMenuItem, saveToolStripMenuItem });
+			fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, openFromLocalDirectoryToolStripMenuItem, saveToLocalWorkingDirectoryToolStripMenuItem });
 			fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			fileToolStripMenuItem.Size = new Size(37, 19);
 			fileToolStripMenuItem.Text = "File";
@@ -268,12 +268,12 @@ namespace Karkas.CodeGeneration.WinApp
 			openFromLocalDirectoryToolStripMenuItem.Text = "Open from local working directory";
 			openFromLocalDirectoryToolStripMenuItem.Click += openFromLocalDirectoryToolStripMenuItem_Click;
 			// 
-			// saveToolStripMenuItem
+			// saveToLocalWorkingDirectoryToolStripMenuItem
 			// 
-			saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-			saveToolStripMenuItem.Size = new Size(256, 22);
-			saveToolStripMenuItem.Text = "Save";
-			saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
+			saveToLocalWorkingDirectoryToolStripMenuItem.Name = "saveToLocalWorkingDirectoryToolStripMenuItem";
+			saveToLocalWorkingDirectoryToolStripMenuItem.Size = new Size(256, 22);
+			saveToLocalWorkingDirectoryToolStripMenuItem.Text = "Save to local working directory";
+			saveToLocalWorkingDirectoryToolStripMenuItem.Click += saveToLocalWorkingDirectoryToolStripMenuItem_Click;
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -381,7 +381,7 @@ namespace Karkas.CodeGeneration.WinApp
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openFromLocalDirectoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToLocalWorkingDirectoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem databaseProvidersToolStripMenuItem;
         private TableLayoutPanel tableLayoutPanel1;

@@ -294,11 +294,11 @@ namespace Karkas.CodeGeneration.WinApp
             formAbout.ShowDialog();
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saveToLocalWorkingDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DatabaseService.InsertOrUpdate(CurrentDatabaseEntry);
-
-            MessageBox.Show("Values saved;");
+			string workingDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+			MessageBox.Show($"Values saved to working directory; {workingDirectory}");
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
