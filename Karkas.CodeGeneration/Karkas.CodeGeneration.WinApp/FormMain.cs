@@ -307,7 +307,7 @@ namespace Karkas.CodeGeneration.WinApp
 
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openFromLocalDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormConnectionList frm = new FormConnectionList();
             frm.ShowDialog();
