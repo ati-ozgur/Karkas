@@ -38,7 +38,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         }
 
 
-        
+
 
         protected void AtStartCurlyBraceletIncreaseTab()
         {
@@ -52,7 +52,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         }
         protected void AtStartCurlyBracelet()
         {
-            output.AutoTabLine("{");            
+            output.AutoTabLine("{");
         }
         protected void AtEndCurlyBracelet()
         {
@@ -81,26 +81,44 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
             }
         }
 
-        protected void Write_NamespaceStart(string type)
+        /// <summary>
+        /// Checks if the provided container (table) has a primary key.
+		/// Throws an exception if no primary key exists.
+		/// This prevents code generation for tables without a primary key.
+        /// </summary>
+        /// <param name="container">The container to check, which must implement <see cref="IContainer"/>.</param>
+        /// <exception cref="Exception">Thrown when the container is a table without a primary key.</exception>
+        protected void checkPKExits(IContainer container)
         {
-            string nameSpaceToWrite = $"{baseNameSpace}.{type}";
-
-            if(CodeGenerationConfig.UseSchemaNameInNamespaces)
+            if (container is ITable && (!((ITable)container).HasPrimaryKey))
             {
-                nameSpaceToWrite += $".{schemaName}";
+                string warningMessage =
+                 "Chosen Table " + container.Name + " has NO Primary Key. Code Generation (DAL) only works with tables who has primaryKey.";
+                throw new Exception(warningMessage);
             }
 
-            output.AutoTab("namespace ");
-            output.AutoTab(nameSpaceToWrite);
-            if (CodeGenerationConfig.UseFileScopedNamespace)
-            {
-                output.writeLine(";");
-            }
-            else
-            {
-                AtStartCurlyBraceletIncreaseTab();
-            }
         }
+
+		protected void Write_NamespaceStart(string type)
+		{
+			string nameSpaceToWrite = $"{baseNameSpace}.{type}";
+
+			if (CodeGenerationConfig.UseSchemaNameInNamespaces)
+			{
+				nameSpaceToWrite += $".{schemaName}";
+			}
+
+			output.AutoTab("namespace ");
+			output.AutoTab(nameSpaceToWrite);
+			if (CodeGenerationConfig.UseFileScopedNamespace)
+			{
+				output.writeLine(";");
+			}
+			else
+			{
+				AtStartCurlyBraceletIncreaseTab();
+			}
+		}
     }
 }
 

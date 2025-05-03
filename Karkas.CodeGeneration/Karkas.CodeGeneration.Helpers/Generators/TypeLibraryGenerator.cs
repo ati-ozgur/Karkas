@@ -26,9 +26,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         public void Render(IContainer pContainer)
         {
             container = pContainer;
+			checkPKExits(container);
 
 
-            SetFields();
+			SetFields();
 
             Create_GeneratedClassFile();
 

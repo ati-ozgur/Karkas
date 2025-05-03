@@ -44,9 +44,12 @@ public abstract class BsGenerator : BaseGenerator
     {
         container = pContainer;
 
+		checkPKExits(container);
 
 
-        output.TabLevel = 0;
+
+
+		output.TabLevel = 0;
 
         SetFields();
 

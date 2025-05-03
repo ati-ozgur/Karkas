@@ -47,7 +47,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             container = pContainer;
 
-            SetFields();
+			checkPKExits(container);
+
+			SetFields();
 
             Create_GeneratedClass();
 
@@ -124,12 +126,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             pkName = utils.FindPrimaryKeyColumnName(container);
             pkNamePascalCase = utils.GetPascalCase(pkName);
 
-            if (container is ITable && (!((ITable)container).HasPrimaryKey))
-            {
-                string warningMessage =
-                 "Chosen Table " + container.Name + " has NO Primary Key. Code Generation (DAL) only works with tables who has primaryKey.";
-                throw new Exception(warningMessage);
-            }
 
 
             classNameTypeLibrary = utils.getClassNameForTypeLibrary(container.Name, listDatabaseAbbreviations);
