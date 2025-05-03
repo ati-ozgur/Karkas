@@ -48,7 +48,7 @@ public class DatabaseService
 	}
 
 
-	public static List<CodeGenerationConfig> getAllDatabaseEntries(string configFileName = CONFIG_FILENAME)
+	public static List<CodeGenerationConfig> GetAllDatabaseEntries(string configFileName = CONFIG_FILENAME)
 	{
 		string json_filename = findJsonFileNamePath(configFileName);
 		string jsonString = File.ReadAllText(json_filename);
@@ -78,7 +78,7 @@ public class DatabaseService
 
 	public static CodeGenerationConfig GetByConnectionName(string connectionName, string configFileName = CONFIG_FILENAME)
 	{
-		var liste = getAllDatabaseEntries(configFileName);
+		var liste = GetAllDatabaseEntries(configFileName);
 		foreach (var e in liste)
 		{
 			if (e.ConnectionName == connectionName)
@@ -111,7 +111,7 @@ public class DatabaseService
 	public static void DeleteDatabase(CodeGenerationConfig databaseEntry, string configFileName = CONFIG_FILENAME)
 	{
 
-		var entries = getAllDatabaseEntries(configFileName);
+		var entries = GetAllDatabaseEntries(configFileName);
 		entries.Remove(databaseEntry);
 		SaveDatabaseEntries(entries, configFileName);
 
@@ -121,7 +121,7 @@ public class DatabaseService
 
 	public static void InsertOrUpdate(CodeGenerationConfig databaseEntry, string configFileName = CONFIG_FILENAME)
 	{
-		var entries = getAllDatabaseEntries(configFileName);
+		var entries = GetAllDatabaseEntries(configFileName);
 		entries.Remove(databaseEntry);
 		entries.Add(databaseEntry);
 		SaveDatabaseEntries(entries, configFileName);

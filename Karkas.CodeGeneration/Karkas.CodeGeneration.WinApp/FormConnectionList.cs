@@ -24,7 +24,7 @@ namespace Karkas.CodeGeneration.WinApp
 
         private void bindListBox()
         {
-            var list = DatabaseService.getAllDatabaseEntries();
+            var list = DatabaseService.GetAllDatabaseEntries();
 
             listBoxConnectionList.DataSource = list;
         }
