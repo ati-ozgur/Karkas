@@ -67,6 +67,13 @@ public class DatabaseService
 		return entries;
 	}
 
+	public static CodeGenerationConfig GetLastAccessedDatabaseEntry()
+	{
+		var entries = GetAllDatabaseEntries();
+		var sortedList = entries.OrderBy(o => o.LastWriteTime).ToList();
+		return sortedList[sortedList.Count -1];
+	}
+
 	public static void SaveDatabaseEntries(List<CodeGenerationConfig> entries, string configFileName = CONFIG_FILENAME)
 	{
 		var options = new JsonSerializerOptions { WriteIndented = true };
@@ -126,4 +133,6 @@ public class DatabaseService
 		entries.Add(databaseEntry);
 		SaveDatabaseEntries(entries, configFileName);
 	}
+
+
 }

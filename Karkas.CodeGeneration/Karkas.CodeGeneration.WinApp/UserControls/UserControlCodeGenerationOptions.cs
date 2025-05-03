@@ -25,16 +25,16 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
         public void getLastAccessedConnectionToTextbox()
         {
-            //DatabaseEntry entry = DatabaseService.getLastAccessedDatabaseEntry();
+			CodeGenerationConfig entry = DatabaseService.GetLastAccessedDatabaseEntry();
 
-            //if (entry != null)
-            //{
-            //    databaseEntryToForm(entry);
-            //}
-        }
+			if (entry != null)
+			{
+				databaseEntryToForm(entry);
+			}
+		}
 
 
-        private string HomeDirectory
+		private string HomeDirectory
         {
             get
             {
