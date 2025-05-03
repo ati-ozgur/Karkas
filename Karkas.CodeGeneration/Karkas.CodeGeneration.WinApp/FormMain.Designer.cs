@@ -54,12 +54,13 @@ namespace Karkas.CodeGeneration.WinApp
 			newToolStripMenuItem = new ToolStripMenuItem();
 			openFromLocalDirectoryToolStripMenuItem = new ToolStripMenuItem();
 			saveToLocalWorkingDirectoryToolStripMenuItem = new ToolStripMenuItem();
+			backupToolStripMenuItem = new ToolStripMenuItem();
 			helpToolStripMenuItem = new ToolStripMenuItem();
 			aboutToolStripMenuItem = new ToolStripMenuItem();
 			databaseProvidersToolStripMenuItem = new ToolStripMenuItem();
 			userControlCodeGenerationOptions1 = new UserControlCodeGenerationOptions();
 			tableLayoutPanel1 = new TableLayoutPanel();
-			backupToolStripMenuItem = new ToolStripMenuItem();
+			loadFromBackupToolStripMenuItem = new ToolStripMenuItem();
 			tabControlDatabase.SuspendLayout();
 			tabPageTableRelated.SuspendLayout();
 			tabPageViewRelated.SuspendLayout();
@@ -250,7 +251,7 @@ namespace Karkas.CodeGeneration.WinApp
 			// 
 			// fileToolStripMenuItem
 			// 
-			fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, openFromLocalDirectoryToolStripMenuItem, saveToLocalWorkingDirectoryToolStripMenuItem, backupToolStripMenuItem });
+			fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, openFromLocalDirectoryToolStripMenuItem, saveToLocalWorkingDirectoryToolStripMenuItem, backupToolStripMenuItem, loadFromBackupToolStripMenuItem });
 			fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			fileToolStripMenuItem.Size = new Size(37, 19);
 			fileToolStripMenuItem.Text = "File";
@@ -275,6 +276,13 @@ namespace Karkas.CodeGeneration.WinApp
 			saveToLocalWorkingDirectoryToolStripMenuItem.Size = new Size(256, 22);
 			saveToLocalWorkingDirectoryToolStripMenuItem.Text = "Save to local working directory";
 			saveToLocalWorkingDirectoryToolStripMenuItem.Click += saveToLocalWorkingDirectoryToolStripMenuItem_Click;
+			// 
+			// backupToolStripMenuItem
+			// 
+			backupToolStripMenuItem.Name = "backupToolStripMenuItem";
+			backupToolStripMenuItem.Size = new Size(256, 22);
+			backupToolStripMenuItem.Text = "Backup";
+			backupToolStripMenuItem.Click += backupToolStripMenuItem_Click;
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -327,12 +335,12 @@ namespace Karkas.CodeGeneration.WinApp
 			tableLayoutPanel1.Size = new Size(1069, 580);
 			tableLayoutPanel1.TabIndex = 24;
 			// 
-			// backupToolStripMenuItem
+			// loadFromBackupToolStripMenuItem
 			// 
-			backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-			backupToolStripMenuItem.Size = new Size(256, 22);
-			backupToolStripMenuItem.Text = "Backup";
-			backupToolStripMenuItem.Click += backupToolStripMenuItem_Click;
+			loadFromBackupToolStripMenuItem.Name = "loadFromBackupToolStripMenuItem";
+			loadFromBackupToolStripMenuItem.Size = new Size(256, 22);
+			loadFromBackupToolStripMenuItem.Text = "Load from backup";
+			loadFromBackupToolStripMenuItem.Click += loadFromBackupToolStripMenuItem_Click;
 			// 
 			// FormMain
 			// 
@@ -394,6 +402,7 @@ namespace Karkas.CodeGeneration.WinApp
         private System.Windows.Forms.ToolStripMenuItem databaseProvidersToolStripMenuItem;
         private TableLayoutPanel tableLayoutPanel1;
 		private ToolStripMenuItem backupToolStripMenuItem;
+		private ToolStripMenuItem loadFromBackupToolStripMenuItem;
 	}
 }
 

@@ -330,7 +330,7 @@ public partial class FormMain : Form
 		SaveFileDialog fileDialog = new SaveFileDialog();
 		fileDialog.Filter = "json files  (*.json)|*.json";
 		fileDialog.InitialDirectory = desktopPath;
-		string configFilenameNoExt = DatabaseService.CONFIG_FILENAME.Replace(".json","");
+		string configFilenameNoExt = DatabaseService.CONFIG_FILENAME.Replace(".json", "");
 		string currentDateOnly = DateTime.Now.ToString("yyyyMMd");
 		string initialFileName = $"{desktopPath}\\{configFilenameNoExt}{currentDateOnly}.json";
 		fileDialog.FileName = initialFileName;
@@ -340,8 +340,30 @@ public partial class FormMain : Form
 		{
 			string newpath = fileDialog.FileName;
 			var entries = DatabaseService.GetAllDatabaseEntries();
-			DatabaseService.SaveDatabaseEntries(entries,newpath);
+			DatabaseService.SaveDatabaseEntries(entries, newpath);
 			MessageBox.Show($"saved to {newpath}");
+		}
+	}
+
+	private void loadFromBackupToolStripMenuItem_Click(object sender, EventArgs e)
+	{
+		string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+		OpenFileDialog fileDialog = new OpenFileDialog();
+		fileDialog.Filter = "json files  (*.json)|*.json";
+		fileDialog.InitialDirectory = desktopPath;
+		DialogResult dr = fileDialog.ShowDialog();
+
+		if (dr == DialogResult.OK)
+		{
+			string newpath = fileDialog.FileName;
+			var entries = DatabaseService.GetAllDatabaseEntries(newpath);
+			if(entries != null && entries.Count > 0)
+			{
+				string workingDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+				DatabaseService.SaveDatabaseEntries(entries);
+				MessageBox.Show($"loaded from  {newpath} and saved to working directory; {workingDirectory}");
+
+			}
 		}
 	}
 }
