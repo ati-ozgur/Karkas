@@ -68,7 +68,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			checkBoxIgnoreSystemTables.AutoSize = true;
 			checkBoxIgnoreSystemTables.Checked = true;
 			checkBoxIgnoreSystemTables.CheckState = CheckState.Checked;
-			checkBoxIgnoreSystemTables.Location = new Point(340, 274);
+			checkBoxIgnoreSystemTables.Location = new Point(3, 342);
 			checkBoxIgnoreSystemTables.Margin = new Padding(3, 2, 3, 2);
 			checkBoxIgnoreSystemTables.Name = "checkBoxIgnoreSystemTables";
 			checkBoxIgnoreSystemTables.Size = new Size(155, 19);
@@ -79,12 +79,12 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			// checkBoxStoredProcedureCodeGenerate
 			// 
 			checkBoxStoredProcedureCodeGenerate.AutoSize = true;
-			checkBoxStoredProcedureCodeGenerate.Location = new Point(3, 308);
+			checkBoxStoredProcedureCodeGenerate.Location = new Point(340, 274);
 			checkBoxStoredProcedureCodeGenerate.Margin = new Padding(3, 2, 3, 2);
 			checkBoxStoredProcedureCodeGenerate.Name = "checkBoxStoredProcedureCodeGenerate";
-			checkBoxStoredProcedureCodeGenerate.Size = new Size(198, 19);
+			checkBoxStoredProcedureCodeGenerate.Size = new Size(172, 19);
 			checkBoxStoredProcedureCodeGenerate.TabIndex = 31;
-			checkBoxStoredProcedureCodeGenerate.Text = "Stored Procedure Code Generate";
+			checkBoxStoredProcedureCodeGenerate.Text = "Generate Stored Procedures";
 			checkBoxStoredProcedureCodeGenerate.UseVisualStyleBackColor = true;
 			// 
 			// checkBoxViewCodeGenerate
@@ -93,9 +93,9 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			checkBoxViewCodeGenerate.Location = new Point(3, 274);
 			checkBoxViewCodeGenerate.Margin = new Padding(3, 2, 3, 2);
 			checkBoxViewCodeGenerate.Name = "checkBoxViewCodeGenerate";
-			checkBoxViewCodeGenerate.Size = new Size(132, 19);
+			checkBoxViewCodeGenerate.Size = new Size(106, 19);
 			checkBoxViewCodeGenerate.TabIndex = 30;
-			checkBoxViewCodeGenerate.Text = "View Code Generate";
+			checkBoxViewCodeGenerate.Text = "Generate Views";
 			checkBoxViewCodeGenerate.UseVisualStyleBackColor = true;
 			// 
 			// checkBoxUseSchemaNameInFolders
@@ -261,12 +261,12 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			// checkBoxSequenceCodeGenerate
 			// 
 			checkBoxSequenceCodeGenerate.AutoSize = true;
-			checkBoxSequenceCodeGenerate.Location = new Point(3, 342);
+			checkBoxSequenceCodeGenerate.Location = new Point(762, 274);
 			checkBoxSequenceCodeGenerate.Margin = new Padding(3, 2, 3, 2);
 			checkBoxSequenceCodeGenerate.Name = "checkBoxSequenceCodeGenerate";
-			checkBoxSequenceCodeGenerate.Size = new Size(158, 19);
+			checkBoxSequenceCodeGenerate.Size = new Size(79, 19);
 			checkBoxSequenceCodeGenerate.TabIndex = 56;
-			checkBoxSequenceCodeGenerate.Text = "Sequence Code Generate";
+			checkBoxSequenceCodeGenerate.Text = "Generate Sequences";
 			checkBoxSequenceCodeGenerate.UseVisualStyleBackColor = true;
 			// 
 			// tableLayoutPanel1
@@ -277,11 +277,8 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
 			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInNamespaces, 0, 13);
 			tableLayoutPanel1.Controls.Add(textBoxConnectionName, 1, 0);
-			tableLayoutPanel1.Controls.Add(checkBoxSequenceCodeGenerate, 0, 10);
 			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInFolders, 1, 10);
 			tableLayoutPanel1.Controls.Add(labelDatabaseType, 0, 1);
-			tableLayoutPanel1.Controls.Add(checkBoxStoredProcedureCodeGenerate, 0, 9);
-			tableLayoutPanel1.Controls.Add(checkBoxIgnoreSystemTables, 1, 8);
 			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInSql, 1, 9);
 			tableLayoutPanel1.Controls.Add(comboBoxDatabaseType, 1, 1);
 			tableLayoutPanel1.Controls.Add(checkBoxViewCodeGenerate, 0, 8);
@@ -304,6 +301,9 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			tableLayoutPanel1.Controls.Add(checkBoxOracleForceNumericPKFKColumnsToLong, 1, 11);
 			tableLayoutPanel1.Controls.Add(checkBoxForceOracleDecimalToIntegersAndDecimal, 0, 11);
 			tableLayoutPanel1.Controls.Add(checkBoxGenerateForeignKeyQueries, 1, 12);
+			tableLayoutPanel1.Controls.Add(checkBoxStoredProcedureCodeGenerate, 1, 8);
+			tableLayoutPanel1.Controls.Add(checkBoxSequenceCodeGenerate, 2, 8);
+			tableLayoutPanel1.Controls.Add(checkBoxIgnoreSystemTables, 0, 10);
 			tableLayoutPanel1.Dock = DockStyle.Fill;
 			tableLayoutPanel1.Location = new Point(0, 0);
 			tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
