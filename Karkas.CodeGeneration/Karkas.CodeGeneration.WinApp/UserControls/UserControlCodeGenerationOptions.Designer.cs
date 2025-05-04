@@ -60,6 +60,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			checkBoxGenerateForeignKeyQueries = new CheckBox();
 			checkBoxGenerateNormalClassAgain = new CheckBox();
 			checkBoxGenerateNormalClassValidationExamples = new CheckBox();
+			checkBoxUseFileScopedNamespace = new CheckBox();
 			tableLayoutPanel1.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -68,7 +69,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			checkBoxIgnoreSystemTables.AutoSize = true;
 			checkBoxIgnoreSystemTables.Checked = true;
 			checkBoxIgnoreSystemTables.CheckState = CheckState.Checked;
-			checkBoxIgnoreSystemTables.Location = new Point(3, 332);
+			checkBoxIgnoreSystemTables.Location = new Point(3, 417);
 			checkBoxIgnoreSystemTables.Margin = new Padding(3, 2, 3, 2);
 			checkBoxIgnoreSystemTables.Name = "checkBoxIgnoreSystemTables";
 			checkBoxIgnoreSystemTables.Size = new Size(155, 19);
@@ -79,7 +80,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			// checkBoxStoredProcedureCodeGenerate
 			// 
 			checkBoxStoredProcedureCodeGenerate.AutoSize = true;
-			checkBoxStoredProcedureCodeGenerate.Location = new Point(256, 266);
+			checkBoxStoredProcedureCodeGenerate.Location = new Point(3, 299);
 			checkBoxStoredProcedureCodeGenerate.Margin = new Padding(3, 2, 3, 2);
 			checkBoxStoredProcedureCodeGenerate.Name = "checkBoxStoredProcedureCodeGenerate";
 			checkBoxStoredProcedureCodeGenerate.Size = new Size(172, 19);
@@ -114,7 +115,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			// checkBoxUseSchemaNameInSql
 			// 
 			checkBoxUseSchemaNameInSql.AutoSize = true;
-			checkBoxUseSchemaNameInSql.Location = new Point(3, 299);
+			checkBoxUseSchemaNameInSql.Location = new Point(256, 266);
 			checkBoxUseSchemaNameInSql.Margin = new Padding(3, 2, 3, 2);
 			checkBoxUseSchemaNameInSql.Name = "checkBoxUseSchemaNameInSql";
 			checkBoxUseSchemaNameInSql.Size = new Size(181, 19);
@@ -259,7 +260,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			// checkBoxSequenceCodeGenerate
 			// 
 			checkBoxSequenceCodeGenerate.AutoSize = true;
-			checkBoxSequenceCodeGenerate.Location = new Point(593, 266);
+			checkBoxSequenceCodeGenerate.Location = new Point(3, 332);
 			checkBoxSequenceCodeGenerate.Margin = new Padding(3, 2, 3, 2);
 			checkBoxSequenceCodeGenerate.Name = "checkBoxSequenceCodeGenerate";
 			checkBoxSequenceCodeGenerate.Size = new Size(132, 19);
@@ -271,10 +272,10 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			// 
 			checkBoxUseSchemaNameInNamespaces.AutoSize = true;
 			checkBoxUseSchemaNameInNamespaces.Dock = DockStyle.Fill;
-			checkBoxUseSchemaNameInNamespaces.Location = new Point(3, 417);
+			checkBoxUseSchemaNameInNamespaces.Location = new Point(256, 299);
 			checkBoxUseSchemaNameInNamespaces.Margin = new Padding(3, 2, 3, 2);
 			checkBoxUseSchemaNameInNamespaces.Name = "checkBoxUseSchemaNameInNamespaces";
-			checkBoxUseSchemaNameInNamespaces.Size = new Size(247, 22);
+			checkBoxUseSchemaNameInNamespaces.Size = new Size(331, 29);
 			checkBoxUseSchemaNameInNamespaces.TabIndex = 60;
 			checkBoxUseSchemaNameInNamespaces.Text = "Use Schema  in Namespaces";
 			toolTipCodeGenerationOptions.SetToolTip(checkBoxUseSchemaNameInNamespaces, "(ignored for sqlite)");
@@ -286,7 +287,6 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-
 			tableLayoutPanel1.Controls.Add(labelConnectionName, 0, 0);
 			tableLayoutPanel1.Controls.Add(labelDatabaseType, 0, 1);
 			tableLayoutPanel1.Controls.Add(labelDbProviderName, 0, 2);
@@ -295,7 +295,6 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			tableLayoutPanel1.Controls.Add(labelCodeGenerationFolder, 0, 5);
 			tableLayoutPanel1.Controls.Add(labelIgnoredSchemaList, 0, 6);
 			tableLayoutPanel1.Controls.Add(labelAdditionalSchemaList, 0, 7);
-
 			tableLayoutPanel1.Controls.Add(textBoxConnectionName, 1, 0);
 			tableLayoutPanel1.Controls.Add(comboBoxDatabaseType, 1, 1);
 			tableLayoutPanel1.Controls.Add(textBoxDbProviderName, 1, 2);
@@ -304,27 +303,20 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			tableLayoutPanel1.Controls.Add(textBoxCodeGenerationFolder, 1, 5);
 			tableLayoutPanel1.Controls.Add(textBoxIgnoredSchemaList, 1, 6);
 			tableLayoutPanel1.Controls.Add(textBoxSchemaList, 1, 7);
-
 			tableLayoutPanel1.Controls.Add(buttonFolderDialog, 2, 5);
-
-
 			tableLayoutPanel1.Controls.Add(checkBoxViewCodeGenerate, 0, 8);
 			tableLayoutPanel1.Controls.Add(checkBoxStoredProcedureCodeGenerate, 0, 9);
 			tableLayoutPanel1.Controls.Add(checkBoxSequenceCodeGenerate, 0, 10);
-
 			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInSql, 1, 8);
 			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInNamespaces, 1, 9);
 			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInFolders, 1, 10);
-
 			tableLayoutPanel1.Controls.Add(checkBoxOracleForceNumericPKFKColumnsToLong, 2, 8);
 			tableLayoutPanel1.Controls.Add(checkBoxForceOracleDecimalToIntegersAndDecimal, 2, 9);
 			tableLayoutPanel1.Controls.Add(checkBoxGenerateForeignKeyQueries, 2, 10);
-
-			tableLayoutPanel1.Controls.Add(checkBoxIgnoreSystemTables, 0, 12);
-			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassAgain, 1, 12);
-			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassValidationExamples, 2, 12);
-
-
+			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassAgain, 0, 11);
+			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassValidationExamples, 0, 12);
+			tableLayoutPanel1.Controls.Add(checkBoxIgnoreSystemTables, 0, 13);
+			tableLayoutPanel1.Controls.Add(checkBoxUseFileScopedNamespace, 1, 11);
 			tableLayoutPanel1.Dock = DockStyle.Fill;
 			tableLayoutPanel1.Location = new Point(0, 0);
 			tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
@@ -367,7 +359,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			// checkBoxOracleForceNumericPKFKColumnsToLong
 			// 
 			checkBoxOracleForceNumericPKFKColumnsToLong.AutoSize = true;
-			checkBoxOracleForceNumericPKFKColumnsToLong.Location = new Point(256, 366);
+			checkBoxOracleForceNumericPKFKColumnsToLong.Location = new Point(593, 267);
 			checkBoxOracleForceNumericPKFKColumnsToLong.Name = "checkBoxOracleForceNumericPKFKColumnsToLong";
 			checkBoxOracleForceNumericPKFKColumnsToLong.Size = new Size(193, 19);
 			checkBoxOracleForceNumericPKFKColumnsToLong.TabIndex = 61;
@@ -377,7 +369,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			// checkBoxForceOracleDecimalToIntegersAndDecimal
 			// 
 			checkBoxForceOracleDecimalToIntegersAndDecimal.AutoSize = true;
-			checkBoxForceOracleDecimalToIntegersAndDecimal.Location = new Point(3, 366);
+			checkBoxForceOracleDecimalToIntegersAndDecimal.Location = new Point(593, 300);
 			checkBoxForceOracleDecimalToIntegersAndDecimal.Name = "checkBoxForceOracleDecimalToIntegersAndDecimal";
 			checkBoxForceOracleDecimalToIntegersAndDecimal.Size = new Size(195, 19);
 			checkBoxForceOracleDecimalToIntegersAndDecimal.TabIndex = 62;
@@ -387,7 +379,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			// checkBoxGenerateForeignKeyQueries
 			// 
 			checkBoxGenerateForeignKeyQueries.AutoSize = true;
-			checkBoxGenerateForeignKeyQueries.Location = new Point(256, 392);
+			checkBoxGenerateForeignKeyQueries.Location = new Point(593, 333);
 			checkBoxGenerateForeignKeyQueries.Name = "checkBoxGenerateForeignKeyQueries";
 			checkBoxGenerateForeignKeyQueries.Size = new Size(181, 19);
 			checkBoxGenerateForeignKeyQueries.TabIndex = 63;
@@ -397,7 +389,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			// checkBoxGenerateNormalClassAgain
 			// 
 			checkBoxGenerateNormalClassAgain.AutoSize = true;
-			checkBoxGenerateNormalClassAgain.Location = new Point(256, 443);
+			checkBoxGenerateNormalClassAgain.Location = new Point(3, 365);
 			checkBoxGenerateNormalClassAgain.Margin = new Padding(3, 2, 3, 2);
 			checkBoxGenerateNormalClassAgain.Name = "checkBoxGenerateNormalClassAgain";
 			checkBoxGenerateNormalClassAgain.Size = new Size(154, 19);
@@ -408,13 +400,23 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			// checkBoxGenerateNormalClassValidationExamples
 			// 
 			checkBoxGenerateNormalClassValidationExamples.AutoSize = true;
-			checkBoxGenerateNormalClassValidationExamples.Location = new Point(593, 443);
+			checkBoxGenerateNormalClassValidationExamples.Location = new Point(3, 391);
 			checkBoxGenerateNormalClassValidationExamples.Margin = new Padding(3, 2, 3, 2);
 			checkBoxGenerateNormalClassValidationExamples.Name = "checkBoxGenerateNormalClassValidationExamples";
 			checkBoxGenerateNormalClassValidationExamples.Size = new Size(175, 19);
 			checkBoxGenerateNormalClassValidationExamples.TabIndex = 33;
 			checkBoxGenerateNormalClassValidationExamples.Text = "Create Main Validation Class";
 			checkBoxGenerateNormalClassValidationExamples.UseVisualStyleBackColor = true;
+			// 
+			// checkBoxUseFileScopedNamespace
+			// 
+			checkBoxUseFileScopedNamespace.AutoSize = true;
+			checkBoxUseFileScopedNamespace.Location = new Point(256, 366);
+			checkBoxUseFileScopedNamespace.Name = "checkBoxUseFileScopedNamespace";
+			checkBoxUseFileScopedNamespace.Size = new Size(173, 19);
+			checkBoxUseFileScopedNamespace.TabIndex = 64;
+			checkBoxUseFileScopedNamespace.Text = "Use File Scoped Namespace";
+			checkBoxUseFileScopedNamespace.UseVisualStyleBackColor = true;
 			// 
 			// UserControlCodeGenerationOptions
 			// 
@@ -464,5 +466,6 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 		private CheckBox checkBoxGenerateNormalClassAgain;
 		private CheckBox checkBoxGenerateNormalClassValidationExamples;
 		private CheckBox checkBoxGenerateForeignKeyQueries;
+		private CheckBox checkBoxUseFileScopedNamespace;
 	}
 }
