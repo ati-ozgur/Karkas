@@ -1,4 +1,14 @@
 # todo
+
+1. Check if I should add following config properties to WinUI
+
+- AbbreviationsAsString // Also how this one should be used?
+- UseMultipleDatabaseNames // How this one should be used?
+- DateRegex // used for sqlite
+- DateTimeRegex // used for sqlite
+
+
+
 1. Oracle blob types, clob... add the tests
 
 2. raw as guid example and test
