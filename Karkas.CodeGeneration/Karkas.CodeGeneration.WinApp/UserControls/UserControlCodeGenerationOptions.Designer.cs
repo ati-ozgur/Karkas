@@ -62,6 +62,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			checkBoxGenerateNormalClassValidationExamples = new CheckBox();
 			checkBoxUseFileScopedNamespace = new CheckBox();
 			checkBoxUseGlobalUsings = new CheckBox();
+			checkBoxUseQuotesInQueries = new CheckBox();
 			tableLayoutPanel1.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -319,6 +320,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			tableLayoutPanel1.Controls.Add(checkBoxIgnoreSystemTables, 0, 13);
 			tableLayoutPanel1.Controls.Add(checkBoxUseFileScopedNamespace, 1, 11);
 			tableLayoutPanel1.Controls.Add(checkBoxUseGlobalUsings, 1, 12);
+			tableLayoutPanel1.Controls.Add(checkBoxUseQuotesInQueries, 1, 13);
 			tableLayoutPanel1.Dock = DockStyle.Fill;
 			tableLayoutPanel1.Location = new Point(0, 0);
 			tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
@@ -430,6 +432,16 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			checkBoxUseGlobalUsings.Text = "Use Global Usings";
 			checkBoxUseGlobalUsings.UseVisualStyleBackColor = true;
 			// 
+			// checkBoxUseQuotesInQueries
+			// 
+			checkBoxUseQuotesInQueries.AutoSize = true;
+			checkBoxUseQuotesInQueries.Location = new Point(256, 418);
+			checkBoxUseQuotesInQueries.Name = "checkBoxUseQuotesInQueries";
+			checkBoxUseQuotesInQueries.Size = new Size(142, 19);
+			checkBoxUseQuotesInQueries.TabIndex = 66;
+			checkBoxUseQuotesInQueries.Text = "Use Quotes In Queries";
+			checkBoxUseQuotesInQueries.UseVisualStyleBackColor = true;
+			// 
 			// UserControlCodeGenerationOptions
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -480,5 +492,6 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 		private CheckBox checkBoxGenerateForeignKeyQueries;
 		private CheckBox checkBoxUseFileScopedNamespace;
 		private CheckBox checkBoxUseGlobalUsings;
+		private CheckBox checkBoxUseQuotesInQueries;
 	}
 }
