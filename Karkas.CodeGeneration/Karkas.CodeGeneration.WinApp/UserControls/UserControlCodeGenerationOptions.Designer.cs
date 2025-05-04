@@ -61,6 +61,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			checkBoxGenerateNormalClassAgain = new CheckBox();
 			checkBoxGenerateNormalClassValidationExamples = new CheckBox();
 			checkBoxUseFileScopedNamespace = new CheckBox();
+			checkBoxUseGlobalUsings = new CheckBox();
 			tableLayoutPanel1.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -317,6 +318,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassValidationExamples, 0, 12);
 			tableLayoutPanel1.Controls.Add(checkBoxIgnoreSystemTables, 0, 13);
 			tableLayoutPanel1.Controls.Add(checkBoxUseFileScopedNamespace, 1, 11);
+			tableLayoutPanel1.Controls.Add(checkBoxUseGlobalUsings, 1, 12);
 			tableLayoutPanel1.Dock = DockStyle.Fill;
 			tableLayoutPanel1.Location = new Point(0, 0);
 			tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
@@ -418,6 +420,16 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			checkBoxUseFileScopedNamespace.Text = "Use File Scoped Namespace";
 			checkBoxUseFileScopedNamespace.UseVisualStyleBackColor = true;
 			// 
+			// checkBoxUseGlobalUsings
+			// 
+			checkBoxUseGlobalUsings.AutoSize = true;
+			checkBoxUseGlobalUsings.Location = new Point(256, 392);
+			checkBoxUseGlobalUsings.Name = "checkBoxUseGlobalUsings";
+			checkBoxUseGlobalUsings.Size = new Size(120, 19);
+			checkBoxUseGlobalUsings.TabIndex = 65;
+			checkBoxUseGlobalUsings.Text = "Use Global Usings";
+			checkBoxUseGlobalUsings.UseVisualStyleBackColor = true;
+			// 
 			// UserControlCodeGenerationOptions
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -467,5 +479,6 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 		private CheckBox checkBoxGenerateNormalClassValidationExamples;
 		private CheckBox checkBoxGenerateForeignKeyQueries;
 		private CheckBox checkBoxUseFileScopedNamespace;
+		private CheckBox checkBoxUseGlobalUsings;
 	}
 }

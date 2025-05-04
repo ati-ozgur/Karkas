@@ -77,6 +77,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             entry.SequenceCodeGenerate = checkBoxSequenceCodeGenerate.Checked;
             entry.StoredProcedureCodeGenerate = checkBoxStoredProcedureCodeGenerate.Checked;
 			entry.UseFileScopedNamespace = checkBoxUseFileScopedNamespace.Checked;
+			entry.UseGlobalUsings = checkBoxUseGlobalUsings.Checked;
             entry.UseSchemaNameInFolders = checkBoxUseSchemaNameInFolders.Checked;
 			entry.UseSchemaNameInNamespaces = checkBoxUseSchemaNameInNamespaces.Checked;
             entry.UseSchemaNameInSqlQueries = checkBoxUseSchemaNameInSql.Checked;
@@ -134,6 +135,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			checkBoxSequenceCodeGenerate.Checked = entry.SequenceCodeGenerate;
 			checkBoxStoredProcedureCodeGenerate.Checked = entry.StoredProcedureCodeGenerate;
 			checkBoxUseFileScopedNamespace.Checked = entry.UseFileScopedNamespace;
+			checkBoxUseGlobalUsings.Checked = entry.UseGlobalUsings;
 			checkBoxUseSchemaNameInFolders.Checked = entry.UseSchemaNameInFolders;
 			checkBoxUseSchemaNameInNamespaces.Checked = entry.UseSchemaNameInNamespaces;
 			checkBoxUseSchemaNameInSql.Checked = entry.UseSchemaNameInSqlQueries;
