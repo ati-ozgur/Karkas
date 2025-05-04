@@ -307,19 +307,20 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
 
 			tableLayoutPanel1.Controls.Add(checkBoxViewCodeGenerate, 0, 8);
-			tableLayoutPanel1.Controls.Add(checkBoxStoredProcedureCodeGenerate, 1, 8);
-			tableLayoutPanel1.Controls.Add(checkBoxSequenceCodeGenerate, 2, 8);
+			tableLayoutPanel1.Controls.Add(checkBoxStoredProcedureCodeGenerate, 0, 9);
+			tableLayoutPanel1.Controls.Add(checkBoxSequenceCodeGenerate, 0, 10);
 
-			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInSql, 0, 9);
+			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInSql, 1, 8);
 			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInNamespaces, 1, 9);
-			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInFolders, 2, 9);
+			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInFolders, 1, 10);
 
-			tableLayoutPanel1.Controls.Add(checkBoxOracleForceNumericPKFKColumnsToLong, 1, 11);
-			tableLayoutPanel1.Controls.Add(checkBoxForceOracleDecimalToIntegersAndDecimal, 0, 11);
-			tableLayoutPanel1.Controls.Add(checkBoxGenerateForeignKeyQueries, 1, 12);
-			tableLayoutPanel1.Controls.Add(checkBoxIgnoreSystemTables, 0, 10);
-			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassAgain, 1, 14);
-			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassValidationExamples, 2, 14);
+			tableLayoutPanel1.Controls.Add(checkBoxOracleForceNumericPKFKColumnsToLong, 2, 8);
+			tableLayoutPanel1.Controls.Add(checkBoxForceOracleDecimalToIntegersAndDecimal, 2, 9);
+			tableLayoutPanel1.Controls.Add(checkBoxGenerateForeignKeyQueries, 2, 10);
+
+			tableLayoutPanel1.Controls.Add(checkBoxIgnoreSystemTables, 0, 12);
+			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassAgain, 1, 12);
+			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassValidationExamples, 2, 12);
 			tableLayoutPanel1.Dock = DockStyle.Fill;
 			tableLayoutPanel1.Location = new Point(0, 0);
 			tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
