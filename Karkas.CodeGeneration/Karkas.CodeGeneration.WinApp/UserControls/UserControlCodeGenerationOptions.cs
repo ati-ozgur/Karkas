@@ -57,35 +57,30 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
         {
 
 			CodeGenerationConfig entry = new CodeGenerationConfig();
-            entry.ConnectionName = textBoxConnectionName.Text;
+
+
+
+            entry.CodeGenerationDirectory = getCodeGenerationDirectory();
             entry.ConnectionDatabaseType = comboBoxDatabaseType.SelectedValue.ToString();
             entry.ConnectionDbProviderName = textBoxDbProviderName.Text;
-
+            entry.ConnectionName = textBoxConnectionName.Text;
             entry.ConnectionString = textBoxConnectionString.Text;
-
-
-            entry.ProjectNameSpace = textBoxProjectNamespace.Text;
-            entry.CodeGenerationDirectory = getCodeGenerationDirectory();
-
-            entry.ViewCodeGenerate = checkBoxViewCodeGenerate.Checked;
-            entry.SequenceCodeGenerate = checkBoxSequenceCodeGenerate.Checked;
-            entry.StoredProcedureCodeGenerate = checkBoxStoredProcedureCodeGenerate.Checked;
-
-            entry.UseSchemaNameInSqlQueries = checkBoxUseSchemaNameInSql.Checked;
-            entry.UseSchemaNameInFolders = checkBoxUseSchemaNameInFolders.Checked;
-			entry.UseSchemaNameInNamespaces = checkBoxUseSchemaNameInNamespaces.Checked;
-			entry.OracleForceNumericPKFKColumnsToLong = checkBoxOracleForceNumericPKFKColumnsToLong.Checked;
 			entry.ForceOracleDecimalToIntegersAndDecimal = checkBoxForceOracleDecimalToIntegersAndDecimal.Checked;
-			entry.IgnoreSystemTables = checkBoxIgnoreSystemTables.Checked;
-            entry.IgnoredSchemaList = textBoxIgnoredSchemaList.Text;
-            entry.SchemaList = textBoxSchemaList.Text;
 			entry.GenerateForeignKeyQueries = checkBoxGenerateForeignKeyQueries.Checked;
-
-			entry.UseFileScopedNamespace = checkBoxUseFileScopedNamespace.Checked;
-
-
             entry.GenerateNormalClassAgain = checkBoxGenerateNormalClassAgain.Checked;
             entry.GenerateNormalClassValidationExamples = checkBoxGenerateNormalClassValidationExamples.Checked;
+            entry.IgnoredSchemaList = textBoxIgnoredSchemaList.Text;
+			entry.IgnoreSystemTables = checkBoxIgnoreSystemTables.Checked;
+			entry.OracleForceNumericPKFKColumnsToLong = checkBoxOracleForceNumericPKFKColumnsToLong.Checked;
+            entry.ProjectNameSpace = textBoxProjectNamespace.Text;
+            entry.SchemaList = textBoxSchemaList.Text;
+            entry.SequenceCodeGenerate = checkBoxSequenceCodeGenerate.Checked;
+            entry.StoredProcedureCodeGenerate = checkBoxStoredProcedureCodeGenerate.Checked;
+			entry.UseFileScopedNamespace = checkBoxUseFileScopedNamespace.Checked;
+            entry.UseSchemaNameInFolders = checkBoxUseSchemaNameInFolders.Checked;
+			entry.UseSchemaNameInNamespaces = checkBoxUseSchemaNameInNamespaces.Checked;
+            entry.UseSchemaNameInSqlQueries = checkBoxUseSchemaNameInSql.Checked;
+            entry.ViewCodeGenerate = checkBoxViewCodeGenerate.Checked;
             entry.setTimeValues();
             return entry;
 
@@ -130,19 +125,19 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
                 textBoxCodeGenerationFolder.Text = entry.CodeGenerationDirectory;
             }
 
-			checkBoxViewCodeGenerate.Checked = entry.ViewCodeGenerate;
-			checkBoxStoredProcedureCodeGenerate.Checked = entry.StoredProcedureCodeGenerate;
 
-			checkBoxUseSchemaNameInSql.Checked = entry.UseSchemaNameInSqlQueries;
+
+			checkBoxForceOracleDecimalToIntegersAndDecimal.Checked = entry.OracleForceNumericPKFKColumnsToLong;
+			checkBoxGenerateForeignKeyQueries.Checked = entry.GenerateForeignKeyQueries;
+			checkBoxIgnoreSystemTables.Checked = entry.IgnoreSystemTables;
+			checkBoxOracleForceNumericPKFKColumnsToLong.Checked = entry.OracleForceNumericPKFKColumnsToLong;
+			checkBoxSequenceCodeGenerate.Checked = entry.SequenceCodeGenerate;
+			checkBoxStoredProcedureCodeGenerate.Checked = entry.StoredProcedureCodeGenerate;
+			checkBoxUseFileScopedNamespace.Checked = entry.UseFileScopedNamespace;
 			checkBoxUseSchemaNameInFolders.Checked = entry.UseSchemaNameInFolders;
 			checkBoxUseSchemaNameInNamespaces.Checked = entry.UseSchemaNameInNamespaces;
-			checkBoxOracleForceNumericPKFKColumnsToLong.Checked = entry.OracleForceNumericPKFKColumnsToLong;
-			checkBoxForceOracleDecimalToIntegersAndDecimal.Checked = entry.OracleForceNumericPKFKColumnsToLong;
-			checkBoxIgnoreSystemTables.Checked = entry.IgnoreSystemTables;
-			checkBoxSequenceCodeGenerate.Checked = entry.SequenceCodeGenerate;
-
-			checkBoxGenerateForeignKeyQueries.Checked = entry.GenerateForeignKeyQueries;
-			checkBoxUseFileScopedNamespace.Checked = entry.UseFileScopedNamespace;
+			checkBoxUseSchemaNameInSql.Checked = entry.UseSchemaNameInSqlQueries;
+			checkBoxViewCodeGenerate.Checked = entry.ViewCodeGenerate;
 
 
 			textBoxIgnoredSchemaList.Text = entry.IgnoredSchemaList;
