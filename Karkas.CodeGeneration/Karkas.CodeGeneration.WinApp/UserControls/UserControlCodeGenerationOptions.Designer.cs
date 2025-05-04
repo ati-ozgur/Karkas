@@ -286,12 +286,9 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInNamespaces, 0, 13);
 			tableLayoutPanel1.Controls.Add(textBoxConnectionName, 1, 0);
-			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInFolders, 1, 10);
 			tableLayoutPanel1.Controls.Add(labelDatabaseType, 0, 1);
 			tableLayoutPanel1.Controls.Add(comboBoxDatabaseType, 1, 1);
-			tableLayoutPanel1.Controls.Add(checkBoxViewCodeGenerate, 0, 8);
 			tableLayoutPanel1.Controls.Add(textBoxDbProviderName, 1, 2);
 			tableLayoutPanel1.Controls.Add(labelConnectionString, 0, 3);
 			tableLayoutPanel1.Controls.Add(textBoxIgnoredSchemaList, 1, 6);
@@ -306,13 +303,21 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			tableLayoutPanel1.Controls.Add(labelDbProviderName, 0, 2);
 			tableLayoutPanel1.Controls.Add(labelAdditionalSchemaList, 0, 7);
 			tableLayoutPanel1.Controls.Add(textBoxSchemaList, 1, 7);
+
+
+
+			tableLayoutPanel1.Controls.Add(checkBoxViewCodeGenerate, 0, 8);
+			tableLayoutPanel1.Controls.Add(checkBoxStoredProcedureCodeGenerate, 1, 8);
+			tableLayoutPanel1.Controls.Add(checkBoxSequenceCodeGenerate, 2, 8);
+
+			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInSql, 0, 9);
+			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInNamespaces, 1, 9);
+			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInFolders, 2, 9);
+
 			tableLayoutPanel1.Controls.Add(checkBoxOracleForceNumericPKFKColumnsToLong, 1, 11);
 			tableLayoutPanel1.Controls.Add(checkBoxForceOracleDecimalToIntegersAndDecimal, 0, 11);
 			tableLayoutPanel1.Controls.Add(checkBoxGenerateForeignKeyQueries, 1, 12);
-			tableLayoutPanel1.Controls.Add(checkBoxStoredProcedureCodeGenerate, 1, 8);
-			tableLayoutPanel1.Controls.Add(checkBoxSequenceCodeGenerate, 2, 8);
 			tableLayoutPanel1.Controls.Add(checkBoxIgnoreSystemTables, 0, 10);
-			tableLayoutPanel1.Controls.Add(checkBoxUseSchemaNameInSql, 0, 9);
 			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassAgain, 1, 14);
 			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassValidationExamples, 2, 14);
 			tableLayoutPanel1.Dock = DockStyle.Fill;
