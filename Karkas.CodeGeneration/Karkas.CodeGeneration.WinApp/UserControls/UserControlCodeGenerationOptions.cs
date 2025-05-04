@@ -81,6 +81,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             entry.SchemaList = textBoxSchemaList.Text;
 			entry.GenerateForeignKeyQueries = checkBoxGenerateForeignKeyQueries.Checked;
 
+			entry.UseFileScopedNamespace = checkBoxUseFileScopedNamespace.Checked;
 
 
             entry.GenerateNormalClassAgain = checkBoxGenerateNormalClassAgain.Checked;
@@ -141,6 +142,8 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			checkBoxSequenceCodeGenerate.Checked = entry.SequenceCodeGenerate;
 
 			checkBoxGenerateForeignKeyQueries.Checked = entry.GenerateForeignKeyQueries;
+			checkBoxUseFileScopedNamespace.Checked = entry.UseFileScopedNamespace;
+
 
 			textBoxIgnoredSchemaList.Text = entry.IgnoredSchemaList;
             textBoxSchemaList.Text = entry.SchemaList;
