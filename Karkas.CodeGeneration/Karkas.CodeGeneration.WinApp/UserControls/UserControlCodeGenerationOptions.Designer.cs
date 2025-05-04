@@ -286,24 +286,26 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-			tableLayoutPanel1.Controls.Add(textBoxConnectionName, 1, 0);
+
+			tableLayoutPanel1.Controls.Add(labelConnectionName, 0, 0);
 			tableLayoutPanel1.Controls.Add(labelDatabaseType, 0, 1);
-			tableLayoutPanel1.Controls.Add(comboBoxDatabaseType, 1, 1);
-			tableLayoutPanel1.Controls.Add(textBoxDbProviderName, 1, 2);
+			tableLayoutPanel1.Controls.Add(labelDbProviderName, 0, 2);
 			tableLayoutPanel1.Controls.Add(labelConnectionString, 0, 3);
-			tableLayoutPanel1.Controls.Add(textBoxIgnoredSchemaList, 1, 6);
-			tableLayoutPanel1.Controls.Add(textBoxConnectionString, 1, 3);
-			tableLayoutPanel1.Controls.Add(labelIgnoredSchemaList, 0, 6);
-			tableLayoutPanel1.Controls.Add(textBoxProjectNamespace, 1, 4);
-			tableLayoutPanel1.Controls.Add(buttonFolderDialog, 2, 5);
-			tableLayoutPanel1.Controls.Add(textBoxCodeGenerationFolder, 1, 5);
 			tableLayoutPanel1.Controls.Add(labelProjectNamespace, 0, 4);
 			tableLayoutPanel1.Controls.Add(labelCodeGenerationFolder, 0, 5);
-			tableLayoutPanel1.Controls.Add(labelConnectionName, 0, 0);
-			tableLayoutPanel1.Controls.Add(labelDbProviderName, 0, 2);
+			tableLayoutPanel1.Controls.Add(labelIgnoredSchemaList, 0, 6);
 			tableLayoutPanel1.Controls.Add(labelAdditionalSchemaList, 0, 7);
+
+			tableLayoutPanel1.Controls.Add(textBoxConnectionName, 1, 0);
+			tableLayoutPanel1.Controls.Add(comboBoxDatabaseType, 1, 1);
+			tableLayoutPanel1.Controls.Add(textBoxDbProviderName, 1, 2);
+			tableLayoutPanel1.Controls.Add(textBoxConnectionString, 1, 3);
+			tableLayoutPanel1.Controls.Add(textBoxProjectNamespace, 1, 4);
+			tableLayoutPanel1.Controls.Add(textBoxCodeGenerationFolder, 1, 5);
+			tableLayoutPanel1.Controls.Add(textBoxIgnoredSchemaList, 1, 6);
 			tableLayoutPanel1.Controls.Add(textBoxSchemaList, 1, 7);
 
+			tableLayoutPanel1.Controls.Add(buttonFolderDialog, 2, 5);
 
 
 			tableLayoutPanel1.Controls.Add(checkBoxViewCodeGenerate, 0, 8);
@@ -321,6 +323,8 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			tableLayoutPanel1.Controls.Add(checkBoxIgnoreSystemTables, 0, 12);
 			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassAgain, 1, 12);
 			tableLayoutPanel1.Controls.Add(checkBoxGenerateNormalClassValidationExamples, 2, 12);
+
+
 			tableLayoutPanel1.Dock = DockStyle.Fill;
 			tableLayoutPanel1.Location = new Point(0, 0);
 			tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
