@@ -418,7 +418,6 @@ public class CodeGenerationConfig
 
 	/// <summary>
 	/// If true, QueryByForeignKeyColumns queries will be generated.
-	///
 	/// </summary>
 	public bool GenerateForeignKeyQueries { get => generateForeignKeyQueries; set => generateForeignKeyQueries = value; }
 
