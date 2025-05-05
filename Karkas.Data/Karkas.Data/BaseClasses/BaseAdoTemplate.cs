@@ -240,7 +240,6 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
 
 
     [Obsolete("BringOneValue is deprecated, please use GetOneValue instead.")]
-    ///
     public object BringOneValue(DbCommand cmd)
     {
         return GetOneValue(cmd);
@@ -350,15 +349,15 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
 
     }
 
-    /// <summary>
-    /// Execute given sql statement inside IF EXISTS
-    /// If we have value, it return true otherwise false
-    /// </summary>
-    /// <param name="sql"></param>
-    /// <param name="prmListesi"></param>
-    /// <returns></returns>
-    ///
-    public abstract bool ExecuteAsExists(String pSql, DbParameter[] pParamList);
+	/// <summary>
+	/// Execute given sql statement inside IF EXISTS
+	/// If we have value, it return true otherwise false
+	/// </summary>
+	/// <param name="sql"></param>
+	/// <param name="pParamList"></param>
+	/// <returns></returns>
+	///
+	public abstract bool ExecuteAsExists(String sql, DbParameter[] pParamList);
 
     public abstract bool ExecuteAsExists(string pSql);
 

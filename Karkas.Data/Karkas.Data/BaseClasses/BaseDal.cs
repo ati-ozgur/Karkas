@@ -10,10 +10,12 @@ using System.Data.Common;
 namespace Karkas.Data;
 
 /// <summary>
-/// TYPE_LIBRARY_TYPE TypeLibrary Class
-/// M Type of Primary Key of TYPE_LIBRARY_TYPE
+/// Base class for all Data Access Layer classes.
+/// This class is used for all operations like insert, update, delete, query etc.
 /// </summary>
 /// <typeparam name="TYPE_LIBRARY_TYPE"></typeparam>
+/// <typeparam name="ADOTEMPLATE_DB_TYPE"></typeparam>
+/// <typeparam name="PARAMETER_BUILDER"></typeparam>
 public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> : BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>
         where TYPE_LIBRARY_TYPE : BaseTypeLibrary, new()
         where ADOTEMPLATE_DB_TYPE: IAdoTemplate<IParameterBuilder>, new()
