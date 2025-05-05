@@ -19,7 +19,7 @@ namespace Karkas.CodeGeneration.Helpers
         }
 
         /// <summary>
-        /// Case sensitive reserved words and does not 
+        /// Case sensitive reserved words and does not
         /// contain contextual words such as var, select, set etc.
         /// (Updated: November 2007 MSDN)
         /// </summary>
@@ -181,7 +181,6 @@ namespace Karkas.CodeGeneration.Helpers
         /// Add initial letter if it starts with number.
         /// </summary>
         /// <param name="cleanName">Cleaned name from non standard chars.</param>
-        /// <param name="isPascalCase">PascalCase or camelCase</param>
         private void addInitialLetterForNumericInitialLetteredVariables(StringBuilder cleanName)
         {
             if (Char.IsNumber(cleanName[0]))
@@ -277,7 +276,7 @@ namespace Karkas.CodeGeneration.Helpers
                             continue;
                         }
 
-                        
+
                     }
 
                     if (!simdikiChar.HasValue)
@@ -341,7 +340,7 @@ namespace Karkas.CodeGeneration.Helpers
 
 
 
-                    if (!char.IsPunctuation(simdikiChar.Value) 
+                    if (!char.IsPunctuation(simdikiChar.Value)
                         && !char.IsNumber(simdikiChar.Value)
                         && char.IsLower(simdikiChar.Value))
                     {
