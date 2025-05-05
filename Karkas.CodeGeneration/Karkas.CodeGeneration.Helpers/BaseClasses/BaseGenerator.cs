@@ -22,7 +22,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
         protected string outputFullFileNameGenerated;
         protected List<DatabaseAbbreviations> listDatabaseAbbreviations = null;
 
-        CodeGenerationConfig codeGenerationConfig;
+        protected CodeGenerationConfig codeGenerationConfig;
 
         public CodeGenerationConfig CodeGenerationConfig { get => codeGenerationConfig; set => codeGenerationConfig = value; }
 

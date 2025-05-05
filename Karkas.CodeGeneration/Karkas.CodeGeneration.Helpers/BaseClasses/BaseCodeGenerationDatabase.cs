@@ -13,7 +13,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
     public abstract class BaseCodeGenerationDatabase : BaseGenerator
     {
         IAdoTemplate<IParameterBuilder> template;
-		CodeGenerationConfig codeGenerationConfig;
+
 
 
 		public BaseCodeGenerationDatabase(IAdoTemplate<IParameterBuilder> pTemplate, CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)
@@ -23,13 +23,7 @@ namespace Karkas.CodeGeneration.Helpers.BaseClasses
 
 		}
 
-		public CodeGenerationConfig CodeGenerationConfig
-		{
-			get
-			{
-				return this.codeGenerationConfig;
-			}
-		}
+
 
 		public IAdoTemplate<IParameterBuilder> Template
         {
