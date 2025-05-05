@@ -421,6 +421,15 @@ public class CodeGenerationConfig
 	/// </summary>
 	public bool GenerateForeignKeyQueries { get => generateForeignKeyQueries; set => generateForeignKeyQueries = value; }
 
+	private bool generateIndexQueries = false;
+
+	/// <summary>
+	/// If true, QueryByIndexColumns queries will be generated.
+	/// If both index and fk exists, only one query will be generated.
+	/// </summary>
+	public bool GenerateIndexQueries { get => generateIndexQueries; set => generateIndexQueries = value; }
+
+
 	private bool oracleChangeNumericToLong;
 
 	public bool ForceOracleDecimalToIntegersAndDecimal { get => oracleChangeNumericToLong; set => oracleChangeNumericToLong = value; }
