@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,14 +35,14 @@ public class AdoTemplateOracle : BaseAdoTemplate<ParameterBuilderOracle>
                                     where exists({0})", pSql);
         return sqlToExecute;
     }
-    /// <summary>
-    /// Execute given sql statement inside IF EXISTS
-    /// If we have value, it return true otherwise false
-    /// </summary>
-    /// <param name="sql"></param>
-    /// <param name="prmListesi"></param>
-    /// <returns></returns>
-    public override bool ExecuteAsExists(String pSql, DbParameter[] pParamList)
+	/// <summary>
+	/// Execute given sql statement inside IF EXISTS
+	/// If we have value, it return true otherwise false
+	/// </summary>
+	/// <param name="pSql"></param>
+	/// <param name="pParamList"></param>
+	/// <returns></returns>
+	public override bool ExecuteAsExists(String pSql, DbParameter[] pParamList)
     {
 
         object o = GetOneValue(getSqlForExecuteAsExists(pSql),pParamList);
