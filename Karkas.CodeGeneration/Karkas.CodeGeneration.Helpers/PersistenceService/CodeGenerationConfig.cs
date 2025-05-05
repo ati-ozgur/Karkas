@@ -415,6 +415,11 @@ public class CodeGenerationConfig
 	public bool UseFileScopedNamespace { get => useFileScopedNamespace; set => useFileScopedNamespace = value; }
 	private bool generateForeignKeyQueries = false;
 
+
+	/// <summary>
+	/// If true, QueryByForeignKeyColumns queries will be generated.
+	///
+	/// </summary>
 	public bool GenerateForeignKeyQueries { get => generateForeignKeyQueries; set => generateForeignKeyQueries = value; }
 
 	private bool oracleChangeNumericToLong;
