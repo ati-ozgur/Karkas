@@ -64,6 +64,17 @@
             "externalConsole": false
         },
         {
+            "name": "C#: ConsoleApp DataTypeSqlServer",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp/bin/Debug/net8.0/Karkas.CodeGeneration.ConsoleApp.dll",
+            "args": ["--connectionname", "DataTypesSqlServer"],
+            "cwd": "${workspaceRoot}",
+            "stopAtEntry": false,
+            "externalConsole": false
+        },
+        {
             "name": "C#: ConsoleApp ChinookSqlServerAutoIncrement",
             "type": "coreclr",
             "request": "launch",
