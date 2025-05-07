@@ -110,8 +110,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             Write_ForeignKeyQueries();
 
+			Write_IndexQueries();
 
-            AtEndCurlyBraceletDecreaseTab();
+
+			AtEndCurlyBraceletDecreaseTab();
             Write_NamespaceEndCurlyBracelet();
 
             output.SaveEncoding(outputFullFileNameGenerated, "o", "utf8");
@@ -180,29 +182,38 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             output.AutoTabLine("}");
 
         }
-        public void Write_ForeignKeyQueries()
-        {
-            if(CodeGenerationConfig.GenerateForeignKeyQueries)
-            {
-                Dictionary<string,bool> generatedFKQueries = new Dictionary<string,bool>();
-                foreach (IColumn column in container.Columns)
-                {
-                    if (column.IsInForeignKey && !column.IsInPrimaryKey)
-                    {
-                        if(!generatedFKQueries.ContainsKey(column.Name))
-                        {
-                            ForeignKeyInformation info = column.ForeignKeyInformation;
-                            write_QueryByForeignKey(info.SourceColumn);
-                            generatedFKQueries[column.Name] = true;
-                        }
+		Dictionary<string, bool> generatedFKIndexQueries = new Dictionary<string, bool>();
 
-                    }
-                }
-            }
-        }
+		public void Write_ForeignKeyQueries()
+		{
+			if (CodeGenerationConfig.GenerateForeignKeyQueries)
+			{
+
+				foreach (IColumn column in container.Columns)
+				{
+					if (column.IsInForeignKey && !column.IsInPrimaryKey)
+					{
+						if (!generatedFKIndexQueries.ContainsKey(column.Name))
+						{
+							ForeignKeyInformation info = column.ForeignKeyInformation;
+							write_QueryByForeignKey(info.SourceColumn);
+							generatedFKIndexQueries[column.Name] = true;
+						}
+
+					}
+				}
+			}
+		}
+		public void Write_IndexQueries()
+		{
+			if (CodeGenerationConfig.GenerateIndexQueries)
+			{
+				// TODO: index queries
+			}
+		}
 
 
-        private void Write_OverrideDbProviderName()
+		private void Write_OverrideDbProviderName()
         {
             output.AutoTabLine("public override string DbProviderName");
             AtStartCurlyBraceletIncreaseTab();
