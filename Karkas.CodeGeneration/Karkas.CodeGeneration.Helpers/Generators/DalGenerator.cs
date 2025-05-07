@@ -106,7 +106,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             Write_UpdateCommandParametersAdd();
             Write_DeleteCommandParametersAdd();
 
-            //Write_OverrideDbProviderName();
 
             Write_ForeignKeyQueries();
 
@@ -215,16 +214,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 		}
 
 
-		private void Write_OverrideDbProviderName()
-        {
-            output.AutoTabLine("public override string DbProviderName");
-            AtStartCurlyBraceletIncreaseTab();
-            output.AutoTabLine("get");
-            AtStartCurlyBraceletIncreaseTab();
-            output.AutoTabLine(string.Format("return \"{0}\";",  CodeGenerationConfig.ConnectionDbProviderName));
-            AtEndCurlyBraceletDecreaseTab();
-            AtEndCurlyBraceletDecreaseTab();
-        }
+
 
 
         private void Write_PrimaryKey()

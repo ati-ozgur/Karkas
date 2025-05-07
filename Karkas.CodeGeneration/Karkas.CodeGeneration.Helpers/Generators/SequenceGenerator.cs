@@ -45,7 +45,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             Write_Usings(baseNameSpaceSequencesDal);
             Write_Class(sequenceDalName);
 
-            Write_OverrideDbProviderName();
 
 
 
@@ -122,16 +121,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab();
         }
 
-        private void Write_OverrideDbProviderName()
-        {
-            output.AutoTabLine("public override string DbProviderName");
-            AtStartCurlyBraceletIncreaseTab();
-            output.AutoTabLine("get");
-            AtStartCurlyBraceletIncreaseTab();
-            output.AutoTabLine(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionDbProviderName));
-            AtEndCurlyBraceletDecreaseTab();
-            AtEndCurlyBraceletDecreaseTab();
-        }
+
 
     }
 }
