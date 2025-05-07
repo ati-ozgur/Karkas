@@ -33,7 +33,27 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
         }
 
 
-		private const String SQL_INDEX_COLUMNS = "TODO";
+		private const String SQL_INDEX_COLUMNS = @"WITH T AS
+(
+SELECT
+s.name as SCHEMA_NAME,
+t.name As TABLE_NAME,
+ind.name AS INDEX_NAME,
+COL_NAME(ic.object_id,ic.column_id) AS ""name""
+FROM
+ sys.indexes ind
+ INNER JOIN sys.index_columns AS ic
+    ON ind.object_id = ic.object_id AND ind.index_id = ic.index_id
+ INNER JOIN
+ sys.tables t ON ind.object_id = t.object_id
+INNER JOIN
+sys.schemas s ON t.schema_id  = s.schema_id
+)
+SELECT * FROM T WHERE
+T.INDEX_NAME = '{0}' AND
+T.TABLE_NAME = '{1}' AND
+T.SCHEMA_NAME = '{2}'
+";
 
 
 		public string getSQL_Index_Columns(string indexName)
