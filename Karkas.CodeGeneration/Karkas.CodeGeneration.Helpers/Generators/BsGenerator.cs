@@ -153,9 +153,12 @@ public abstract class BsGenerator : BaseGenerator
 		{
 			if (table.PrimaryKeyColumnCount == 1)
 			{
+				string queryName = "QueryBy" + pkNamePascalCase;
+				generatedQueries[queryName] = true;
 
-				string classLine = "public " + classNameTypeLibrary + " QueryBy"
-								+ pkNamePascalCase + "(" + pkType
+
+				string classLine = "public " + classNameTypeLibrary + " "
+								+ queryName + "(" + pkType
 								+ " " + variableName + ")";
 				output.AutoTabLine(classLine);
 				output.AutoTabLine("{");

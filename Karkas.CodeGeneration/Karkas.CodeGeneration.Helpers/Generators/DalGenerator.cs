@@ -706,15 +706,19 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         private void Write_QueryByPk()
         {
+
             if (container is IView)
-            {
-                return;
-            }
+			{
+				return;
+			}
             if (!string.IsNullOrEmpty(pkName))
             {
-                string variableName = "p" + pkName;
-                string methodLine = "public " + classNameTypeLibrary + " QueryBy"
-                            + pkNamePascalCase + "(" + pkType
+				string queryName = "QueryBy" + pkNamePascalCase;
+				generatedQueries[queryName] = true;
+
+				string variableName = "p" + pkName;
+                string methodLine = "public " + classNameTypeLibrary + " "
+                            + queryName + "(" + pkType
                                 + " " + variableName +" )";
                 output.AutoTabLine(methodLine);
                 AtStartCurlyBraceletIncreaseTab();
