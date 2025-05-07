@@ -30,17 +30,23 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
         public IAdoTemplate<IParameterBuilder> Template
         {
             get { return template; }
-            set { template = value; }
         }
 
 
-        public CodeGenerationConfig CodeGenerationConfig
-        {
-            get
-            {
-                return database.CodeGenerationConfig;
-            }
-        }
+		private const String SQL_INDEX_COLUMNS = "TODO";
+
+		public string SQL_Index_Columns { get { return SQL_INDEX_COLUMNS; } }
+
+		private const String SQL_INDEX_NAMES = "TODO";
+		public string SQL_Index_Names { get { return SQL_INDEX_NAMES; } }
+
+		public CodeGenerationConfig CodeGenerationConfig
+		{
+			get
+			{
+				return database.CodeGenerationConfig;
+			}
+		}
 
 		public IIndex[] FindIndexList()
 		{

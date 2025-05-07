@@ -45,38 +45,10 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 
 		private const String SQL_INDEX_COLUMNS = "Pragma index_info({0});";
 
-		private string[] findIndexColumns(string indexName)
-		{
-			string sqlIndexColumns = string.Format(SQL_INDEX_COLUMNS, indexName);
-			List<Dictionary<string, object>> dtIndexColumns = Template.GetRows(sqlIndexColumns);
-			string[] columns = new string[dtIndexColumns.Count];
-			for (int i = 0; i < dtIndexColumns.Count; i++)
-			{
-				columns[i] = dtIndexColumns[i]["name"].ToString();
-			}
-			return columns;
-		}
+		public string SQL_Index_Columns { get { return SQL_INDEX_COLUMNS; } }
+
 		private const String SQL_INDEX_NAMES = "Pragma index_list({0});";
-
-		public IIndex[] FindIndexList()
-		{
-			var indexList = new List<IIndex>();
-			string tableName = this.Name;
-			string sqlIndexNamesForTable = string.Format(SQL_INDEX_NAMES, tableName);
-
-			List<Dictionary<string, object>> dtIndexNames = Template.GetRows(sqlIndexNamesForTable);
-			foreach (var row in dtIndexNames)
-			{
-				string indexName = row["name"].ToString();
-				bool IsUnique = Convert.ToBoolean(row["unique"]);
-				var index = new IndexInformation(indexName, tableName, IsUnique);
-				index.IndexColumns = findIndexColumns(indexName);
-				indexList.Add(index);
-			}
-			return indexList.ToArray();
-		}
-
-
+		public string SQL_Index_Names { get { return SQL_INDEX_NAMES; } }
 
 		private Decimal? primaryKeyColumnCount = null;
         public int PrimaryKeyColumnCount

@@ -45,7 +45,14 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
 		{
 			throw new NotImplementedException();
 		}
-        private const string SQL_PRIMARY_KEY = @" SELECT
+
+		private const String SQL_INDEX_COLUMNS = "TODO";
+
+		public string SQL_Index_Columns { get { return SQL_INDEX_COLUMNS; } }
+
+		private const String SQL_INDEX_NAMES = "TODO";
+		public string SQL_Index_Names { get { return SQL_INDEX_NAMES; } }
+		private const string SQL_PRIMARY_KEY = @" SELECT
   COUNT(*)
     FROM all_constraints cons
     INNER JOIN
