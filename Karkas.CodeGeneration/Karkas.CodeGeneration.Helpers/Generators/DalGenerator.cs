@@ -170,7 +170,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
-		private string getQueryNameByForeignKey(string columnName)
+		private string getQueryNameByColumn(string columnName)
 		{
 			string variableName = utils.GetPascalCase(columnName);
 			string queryName = $"QueryBy{variableName}";
@@ -180,7 +180,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 		private void write_QueryByForeignKey(string columnName)
 		{
 			string variableName = utils.GetPascalCase(columnName);
-			string queryName = getQueryNameByForeignKey(columnName);
+			string queryName = getQueryNameByColumn(columnName);
 			string toWrite1 = $"public List<{classNameTypeLibrary}> {queryName}(int p{variableName})";
 			string toWrite2 = $"\treturn this.QueryUsingColumnName({classNameTypeLibrary}.ColumnNames.{variableName},p{variableName});";
 			output.AutoTabLine(toWrite1);
@@ -199,7 +199,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 				{
 					if (column.IsInForeignKey && !column.IsInPrimaryKey)
 					{
-						string queryName = getQueryNameByForeignKey(column.Name);
+						string queryName = getQueryNameByColumn(column.Name);
 						if (!generatedFKIndexQueries.ContainsKey(queryName))
 						{
 							ForeignKeyInformation info = column.ForeignKeyInformation;
