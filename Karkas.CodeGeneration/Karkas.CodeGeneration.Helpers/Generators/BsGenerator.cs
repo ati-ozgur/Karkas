@@ -248,7 +248,7 @@ public abstract class BsGenerator : BaseGenerator
 		output.AutoTabLine("}");
 	}
 
-	Dictionary<string, bool> generatedFKIndexQueries = new Dictionary<string, bool>();
+	Dictionary<string, bool> generatedQueries = new Dictionary<string, bool>();
 
 	public void Write_ForeignKeyQueries()
 	{
@@ -258,11 +258,11 @@ public abstract class BsGenerator : BaseGenerator
 			{
 				if (column.IsInForeignKey && !column.IsInPrimaryKey)
 				{
-					if (!generatedFKIndexQueries.ContainsKey(column.Name))
+					if (!generatedQueries.ContainsKey(column.Name))
 					{
 						ForeignKeyInformation info = column.ForeignKeyInformation;
 						write_QueryByForeignKey(info.SourceColumn);
-						generatedFKIndexQueries[column.Name] = true;
+						generatedQueries[column.Name] = true;
 					}
 
 				}
@@ -275,7 +275,7 @@ public abstract class BsGenerator : BaseGenerator
 	{
 		string[] columnNameList = index.IndexColumns;
 		string queryName = getQueryNameByColumnList(columnNameList);
-		if (generatedFKIndexQueries.ContainsKey(queryName))
+		if (generatedQueries.ContainsKey(queryName))
 		{
 			return;
 		}
@@ -285,7 +285,7 @@ public abstract class BsGenerator : BaseGenerator
 			returnType = classNameTypeLibrary;
 		}
 
-		generatedFKIndexQueries[queryName] = true;
+		generatedQueries[queryName] = true;
 		string variableNameList = "";
 		string queryByColumnValueList = "";
 		foreach (var columnName in columnNameList)
