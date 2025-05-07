@@ -38,13 +38,14 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
             }
         }
 
-        public int FindIndexFromName(string name)
-        {
-            throw new NotImplementedException();
-        }
+		public string[] FindIndexNames()
+		{
+			throw new NotImplementedException();
+		}
 
 
-        private Decimal? primaryKeyColumnCount = null;
+
+		private Decimal? primaryKeyColumnCount = null;
         public int PrimaryKeyColumnCount
         {
             get

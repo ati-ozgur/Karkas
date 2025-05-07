@@ -42,13 +42,13 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
             }
         }
 
-        public int FindIndexFromName(string name)
-        {
-            throw new NotImplementedException();
-        }
+		public string[] FindIndexNames()
+		{
+			throw new NotImplementedException();
+		}
 
 
-        public string Schema
+		public string Schema
         {
             get
             {
@@ -64,7 +64,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
             }
         }
 
-        private const string SQL_COLUMN_LIST = @"SELECT * FROM 
+        private const string SQL_COLUMN_LIST = @"SELECT * FROM
 INFORMATION_SCHEMA.COLUMNS
 WHERE
 TABLE_SCHEMA = @TABLE_SCHEMA
@@ -161,7 +161,7 @@ TABLE_NAME = @TABLE_NAME
         int? _primaryKeyColumnCount;
         public int PrimaryKeyColumnCount
         {
-            get 
+            get
             {
                 if (_primaryKeyColumnCount.HasValue)
                 {
@@ -183,7 +183,7 @@ TABLE_NAME = @TABLE_NAME
 
         public bool HasPrimaryKey
         {
-            get 
+            get
             {
                 if (PrimaryKeyColumnCount > 0)
                 {
@@ -201,7 +201,7 @@ TABLE_NAME = @TABLE_NAME
 
         public bool IdentityExists
         {
-            get 
+            get
             {
                 if (!identityVarmi.HasValue)
                 {
@@ -218,7 +218,7 @@ TABLE_NAME = @TABLE_NAME
                         }
                     }
                 }
-                return identityVarmi.Value; 
+                return identityVarmi.Value;
             }
         }
 

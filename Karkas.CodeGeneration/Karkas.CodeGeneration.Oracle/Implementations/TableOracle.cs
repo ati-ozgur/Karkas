@@ -24,12 +24,12 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
 
         protected CodeGenerationOracle database;
 
-        public CodeGenerationConfig CodeGenerationConfig 
-        { 
+        public CodeGenerationConfig CodeGenerationConfig
+        {
             get
             {
                 return database.CodeGenerationConfig;
-            } 
+            }
         }
 
 
@@ -37,14 +37,15 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
         String tableName;
         String schemaName;
 
-        public int FindIndexFromName(string name)
-        {
-            throw new NotImplementedException();
-        }
+
+		public string[] FindIndexNames()
+		{
+			throw new NotImplementedException();
+		}
         private const string SQL_PRIMARY_KEY = @" SELECT
   COUNT(*)
     FROM all_constraints cons
-    INNER JOIN 
+    INNER JOIN
     all_cons_columns cols
 ON
    cons.constraint_name = cols.constraint_name
@@ -57,7 +58,7 @@ AND cons.owner = cols.owner
         private Decimal? primaryKeyColumnCount = null;
         public int PrimaryKeyColumnCount
         {
-            get 
+            get
             {
                 if (!primaryKeyColumnCount.HasValue)
                 {
@@ -86,8 +87,8 @@ AND cons.owner = cols.owner
         public List<IColumn> columns = null;
 
 
-        private const string SQL_FOR_COLUMN_LIST = @"select owner, column_name from all_tab_columns 
-where 
+        private const string SQL_FOR_COLUMN_LIST = @"select owner, column_name from all_tab_columns
+where
 table_name = :tableName
 AND
 OWNER = :schemaName
@@ -95,7 +96,7 @@ OWNER = :schemaName
 
         public List<IColumn> Columns
         {
-            get 
+            get
             {
                 if (columns == null)
                 {
@@ -145,7 +146,7 @@ OWNER = :schemaName
 
 
         private const string SQL_FOR_IDENTITY = @"
-select COUNT(*) from ALL_TAB_COLS  C 
+select COUNT(*) from ALL_TAB_COLS  C
    WHERE
    1 = 1
 AND
