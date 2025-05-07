@@ -43,9 +43,22 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
 
 
 
-		private const String SQL_INDEX_COLUMNS = "TODO";
+		private const String SQL_INDEX_COLUMNS = @" SELECT  TABLE_NAME, INDEX_NAME,
+		COLUMN_NAME AS ""name""
+		, COLUMN_POSITION
+FROM   ALL_IND_COLUMNS T
+WHERE
+T.INDEX_NAME = '{0}'
+AND T.TABLE_NAME = '{1}'
+AND T.TABLE_OWNER = '{2}'
+ORDER BY T.COLUMN_POSITION
+";
 
-		public string SQL_Index_Columns { get { return SQL_INDEX_COLUMNS; } }
+
+		public string getSQL_Index_Columns(string indexName)
+		{
+			return string.Format(SQL_INDEX_COLUMNS, indexName,Name,Schema);
+		}
 
 		public string getSQL_Index_Names()
 		{

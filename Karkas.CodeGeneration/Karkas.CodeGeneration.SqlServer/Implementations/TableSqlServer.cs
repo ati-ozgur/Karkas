@@ -35,8 +35,11 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 
 		private const String SQL_INDEX_COLUMNS = "TODO";
 
-		public string SQL_Index_Columns { get { return SQL_INDEX_COLUMNS; } }
 
+		public string getSQL_Index_Columns(string indexName)
+		{
+			return string.Format(SQL_INDEX_COLUMNS, indexName, Name, Schema);
+		}
 		private const String SQL_INDEX_NAMES = "TODO";
 		public string getSQL_Index_Names()
 		{

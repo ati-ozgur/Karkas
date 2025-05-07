@@ -16,11 +16,11 @@ public interface ITable : IContainer
 	IAdoTemplate<IParameterBuilder> Template { get; }
 
 
-	string SQL_Index_Columns { get; }
+	string getSQL_Index_Columns(string indexName);
 
 	private string[] findIndexColumns(string indexName)
 	{
-		string sqlIndexColumns = string.Format(SQL_Index_Columns, indexName);
+		string sqlIndexColumns = getSQL_Index_Columns(indexName);
 		List<Dictionary<string, object>> dtIndexColumns = Template.GetRows(sqlIndexColumns);
 		string[] columns = new string[dtIndexColumns.Count];
 		for (int i = 0; i < dtIndexColumns.Count; i++)
