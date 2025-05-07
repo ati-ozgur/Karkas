@@ -160,6 +160,7 @@
     "UseQuotesInQueries": true,    
     "UseGlobalUsings": true,
     "GenerateForeignKeyQueries": true,
+    "GenerateIndexQueries": true,
     "ForceOracleDecimalToIntegersAndDecimal": false,
     "OracleForceNumericPKFKColumnsToLong": true,
     "TableCodeGenerate": true,

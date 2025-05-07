@@ -41,16 +41,26 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
         String schemaName;
 
 
-		public IIndex[] FindIndexList()
-		{
-			throw new NotImplementedException();
-		}
+
 
 		private const String SQL_INDEX_COLUMNS = "TODO";
 
 		public string SQL_Index_Columns { get { return SQL_INDEX_COLUMNS; } }
 
-		private const String SQL_INDEX_NAMES = "TODO";
+		public string getSQL_Index_Names()
+		{
+			return string.Format(SQL_INDEX_NAMES, Name, Schema);
+		}
+
+		private const String SQL_INDEX_NAMES = @"SELECT INDEX_NAME AS ""name"",(CASE
+	WHEN T.UNIQUENESS = 'UNIQUE' THEN 1
+	ELSE 0
+END
+) AS ""unique""
+FROM ALL_INDEXES T
+WHERE TABLE_NAME = '{0}'
+AND TABLE_OWNER = '{1}'
+";
 		public string SQL_Index_Names { get { return SQL_INDEX_NAMES; } }
 		private const string SQL_PRIMARY_KEY = @" SELECT
   COUNT(*)

@@ -31,15 +31,13 @@ public interface ITable : IContainer
 
 	}
 
-	string SQL_Index_Names { get; }
-
+	string getSQL_Index_Names();
 	IIndex[] FindIndexList()
 	{
 		var indexList = new List<IIndex>();
 		string tableName = this.Name;
-		string sqlIndexNamesForTable = string.Format(SQL_Index_Names, tableName);
 
-		List<Dictionary<string, object>> dtIndexNames = Template.GetRows(sqlIndexNamesForTable);
+		List<Dictionary<string, object>> dtIndexNames = Template.GetRows(getSQL_Index_Names());
 		foreach (var row in dtIndexNames)
 		{
 			string indexName = row["name"].ToString();

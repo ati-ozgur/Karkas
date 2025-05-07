@@ -48,7 +48,10 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 		public string SQL_Index_Columns { get { return SQL_INDEX_COLUMNS; } }
 
 		private const String SQL_INDEX_NAMES = "Pragma index_list({0});";
-		public string SQL_Index_Names { get { return SQL_INDEX_NAMES; } }
+		public string getSQL_Index_Names()
+		{
+			return string.Format(SQL_INDEX_NAMES, Name);
+		}
 
 		private Decimal? primaryKeyColumnCount = null;
         public int PrimaryKeyColumnCount
