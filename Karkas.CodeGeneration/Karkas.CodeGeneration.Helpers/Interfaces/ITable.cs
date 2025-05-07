@@ -7,7 +7,7 @@ namespace Karkas.CodeGeneration.Helpers.Interfaces
 {
     public interface ITable : IContainer
     {
-        string[] FindIndexNames();
+		IIndex[] FindIndexList();
         int PrimaryKeyColumnCount { get; }
         bool HasPrimaryKey { get; }
         bool IdentityExists { get; }

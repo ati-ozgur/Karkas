@@ -42,7 +42,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
             }
         }
 
-		public string[] FindIndexNames()
+		public IIndex[] FindIndexList()
 		{
 			throw new NotImplementedException();
 		}

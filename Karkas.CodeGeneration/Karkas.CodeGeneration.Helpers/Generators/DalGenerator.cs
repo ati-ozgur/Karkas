@@ -206,8 +206,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 		}
 		public void Write_IndexQueries()
 		{
+			ITable table = container as ITable;
 			if (CodeGenerationConfig.GenerateIndexQueries)
 			{
+				var indexList = table.FindIndexList();
 				// TODO: index queries
 			}
 		}

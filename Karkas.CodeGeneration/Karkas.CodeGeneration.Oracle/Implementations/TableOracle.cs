@@ -38,7 +38,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
         String schemaName;
 
 
-		public string[] FindIndexNames()
+		public IIndex[] FindIndexList()
 		{
 			throw new NotImplementedException();
 		}

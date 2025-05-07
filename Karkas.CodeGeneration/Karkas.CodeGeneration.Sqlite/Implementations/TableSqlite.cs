@@ -37,10 +37,24 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                 return database.CodeGenerationConfig;
             }
         }
+		private const String SQL_INDEX_NAMES = "Pragma index_list({0});";
 
-		public string[] FindIndexNames()
+		private const String SQL_INDEX_COLUMNS = "Pragma index_list({0});";
+		public IIndex[] FindIndexList()
 		{
-			throw new NotImplementedException();
+			var indexList = new List<IIndex>();
+			string tableName = this.Name;
+			string sqlIndexNamesForTable = string.Format(SQL_INDEX_NAMES, tableName);
+
+			List<Dictionary<string, object>> dtIndexNames = template.GetRows(sqlIndexNamesForTable);
+			foreach (var row in dtIndexNames)
+			{
+				string indexName = row["name"].ToString();
+				bool IsUnique = Convert.ToBoolean(row["unique"]);
+				var index = new IndexInformation(indexName, tableName, IsUnique);
+				indexList.Add(index);
+			}
+			return indexList.ToArray();
 		}
 
 

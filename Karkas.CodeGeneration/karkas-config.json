@@ -17,6 +17,7 @@
     "UseFileScopedNamespace": true,
     "DateRegex": ".*Date.*",
     "GenerateForeignKeyQueries": true,
+    "GenerateIndexQueries": true,    
     "TableCodeGenerate": true,
     "ViewCodeGenerate": false,
     "StoredProcedureCodeGenerate": false,
