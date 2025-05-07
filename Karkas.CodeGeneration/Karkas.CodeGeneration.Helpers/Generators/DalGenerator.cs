@@ -254,7 +254,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 				{
 					write_QueryByIndexes(index);
 				}
-				// TODO: index queries
 			}
 		}
 
