@@ -189,7 +189,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 			output.AutoTabLine(toWrite2);
 			output.AutoTabLine("}");
 		}
-		Dictionary<string, bool> generatedFKIndexQueries = new Dictionary<string, bool>();
+		Dictionary<string, bool> generatedQueries = new Dictionary<string, bool>();
 
 		public void Write_ForeignKeyQueries()
 		{
@@ -201,11 +201,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 					if (column.IsInForeignKey && !column.IsInPrimaryKey)
 					{
 						string queryName = getQueryNameByColumn(column.Name);
-						if (!generatedFKIndexQueries.ContainsKey(queryName))
+						if (!generatedQueries.ContainsKey(queryName))
 						{
 							ForeignKeyInformation info = column.ForeignKeyInformation;
 							write_QueryByForeignKey(info.SourceColumn);
-							generatedFKIndexQueries[queryName] = true;
+							generatedQueries[queryName] = true;
 						}
 
 					}
@@ -217,7 +217,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 		{
 			string[] columnNameList = index.IndexColumns;
 			string queryName = getQueryNameByColumnList(columnNameList);
-			if(generatedFKIndexQueries.ContainsKey(queryName))
+			if(generatedQueries.ContainsKey(queryName))
 			{
 				return;
 			}
@@ -227,7 +227,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 				returnType = classNameTypeLibrary;
 			}
 
-			generatedFKIndexQueries[queryName] = true;
+			generatedQueries[queryName] = true;
 			string variableNameList = "";
 			string queryByColumnNameList = "new string[] { ";
 			string queryByColumnValueList = "new object[] { ";
