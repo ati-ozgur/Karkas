@@ -170,20 +170,24 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             }
         }
 
-		private string write_QueryByForeignKey(string columnName)
+		private string getQueryNameByForeignKey(string columnName)
 		{
 			string variableName = utils.GetPascalCase(columnName);
 			string queryName = $"QueryBy{variableName}";
+			return queryName;
+		}
+
+		private void write_QueryByForeignKey(string columnName)
+		{
+			string variableName = utils.GetPascalCase(columnName);
+			string queryName = getQueryNameByForeignKey(columnName);
 			string toWrite1 = $"public List<{classNameTypeLibrary}> {queryName}(int p{variableName})";
 			string toWrite2 = $"\treturn this.QueryUsingColumnName({classNameTypeLibrary}.ColumnNames.{variableName},p{variableName});";
 			output.AutoTabLine(toWrite1);
 			output.AutoTabLine("{");
 			output.AutoTabLine(toWrite2);
 			output.AutoTabLine("}");
-			return queryName;
-
-
-        }
+		}
 		Dictionary<string, bool> generatedFKIndexQueries = new Dictionary<string, bool>();
 
 		public void Write_ForeignKeyQueries()
@@ -195,10 +199,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 				{
 					if (column.IsInForeignKey && !column.IsInPrimaryKey)
 					{
-						if (!generatedFKIndexQueries.ContainsKey(column.Name))
+						string queryName = getQueryNameByForeignKey(column.Name);
+						if (!generatedFKIndexQueries.ContainsKey(queryName))
 						{
 							ForeignKeyInformation info = column.ForeignKeyInformation;
-							string queryName = write_QueryByForeignKey(info.SourceColumn);
+							write_QueryByForeignKey(info.SourceColumn);
 							generatedFKIndexQueries[queryName] = true;
 						}
 
@@ -206,6 +211,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 				}
 			}
 		}
+
+
 		public void Write_IndexQueries()
 		{
 			ITable table = container as ITable;
