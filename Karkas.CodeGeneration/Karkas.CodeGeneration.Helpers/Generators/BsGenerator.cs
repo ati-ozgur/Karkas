@@ -55,7 +55,7 @@ public abstract class BsGenerator : BaseGenerator
 
         Write_ClassGenerated();
 
-        Write_ClassNormal();
+        Write_NotGeneratedClass();
     }
 
     private void Write_ClassGenerated()
@@ -115,7 +115,7 @@ public abstract class BsGenerator : BaseGenerator
 
     }
 
-    private void Write_ClassNormal()
+    private void Write_NotGeneratedClass()
     {
         if (!File.Exists(outputFullFileName) || CodeGenerationConfig.GenerateNormalClassAgain)
         {

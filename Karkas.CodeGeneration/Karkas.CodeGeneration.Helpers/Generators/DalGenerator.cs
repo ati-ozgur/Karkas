@@ -51,16 +51,16 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 			SetFields();
 
-            Create_GeneratedClass();
+            Write_GeneratedClass();
 
-            Create_NormalClass();
+            Write_NotGeneratedClass();
 
             return "";
 
 
         }
 
-        private void Create_GeneratedClass()
+        private void Write_GeneratedClass()
         {
 
             output.Clear();
@@ -155,7 +155,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             outputFullFileName = utils.FileUtilsHelper.getBaseNameForDal(schemaName, classNameTypeLibrary, CodeGenerationConfig.UseSchemaNameInSqlQueries);
         }
 
-        private void Create_NormalClass()
+        private void Write_NotGeneratedClass()
         {
             if (!File.Exists(outputFullFileName) || CodeGenerationConfig.GenerateNormalClassAgain)
             {
