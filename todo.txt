@@ -4,6 +4,10 @@
  a. write for oracle
  b. write for Sql Server
 
+2. Add to readme github action results
+3. Add to readme nuget latest results
+
+
 1. Check if I should add following config properties to WinUI
 
 - AbbreviationsAsString // Also how this one should be used?
