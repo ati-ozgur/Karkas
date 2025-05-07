@@ -67,6 +67,7 @@
     "UseQuotesInQueries": true,    
     "UseGlobalUsings": true,
     "GenerateForeignKeyQueries": true,
+    "GenerateIndexQueries": true,
     "TableCodeGenerate": true,
     "ViewCodeGenerate": false,
     "StoredProcedureCodeGenerate": false,

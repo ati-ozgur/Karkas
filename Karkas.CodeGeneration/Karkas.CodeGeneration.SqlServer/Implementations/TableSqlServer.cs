@@ -40,7 +40,21 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 		{
 			return string.Format(SQL_INDEX_COLUMNS, indexName, Name, Schema);
 		}
-		private const String SQL_INDEX_NAMES = "TODO";
+		private const String SQL_INDEX_NAMES = @"WITH T AS
+(
+SELECT
+s.name as SCHEMA_NAME,
+t.name As TABLE_NAME,
+ind.name AS INDEX_NAME,
+ind.is_unique
+FROM
+ sys.indexes ind
+ INNER JOIN
+ sys.tables t ON ind.object_id = t.object_id
+INNER JOIN
+sys.schemas s ON t.schema_id  = s.schema_id
+)
+SELECT INDEX_NAME as ""name"", is_unique as ""unique"" FROM T WHERE TABLE_NAME = '{0}' AND SCHEMA_NAME = '{1}'  ";
 		public string getSQL_Index_Names()
 		{
 			return string.Format(SQL_INDEX_NAMES, Name,Schema);
@@ -53,10 +67,7 @@ namespace Karkas.CodeGeneration.SqlServer.Implementations
 			}
 		}
 
-		public IIndex[] FindIndexList()
-		{
-			throw new NotImplementedException();
-		}
+
 
 
 		public string Schema
