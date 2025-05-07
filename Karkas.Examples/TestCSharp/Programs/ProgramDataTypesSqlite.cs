@@ -4,16 +4,16 @@ ConnectionHelper.SetupDatabaseConnection();
 
 int pk = 1;
 
-CustomersDal dal = new CustomersDal();
+CustomersBs bs = new CustomersBs();
 
 Customers c1 = new Customers();
 c1.CustomerId = pk++;
 c1.FirstName = "Atilla";
 c1.LastName = "Özgür";
 
-dal.Insert(c1);
+bs.Insert(c1);
 
-var list = dal.QueryByFirstNameLastName("Atilla", "Özgür");
+var list = bs.QueryByFirstNameLastName("Atilla", "Özgür");
 
 if(list.Count > 0)
 {

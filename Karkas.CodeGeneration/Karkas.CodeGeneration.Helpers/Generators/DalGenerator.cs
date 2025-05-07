@@ -18,9 +18,9 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         public DalGenerator(CodeGenerationConfig pCodeGenerationConfig) : base(pCodeGenerationConfig)
         {
-            utils = new Utils(pCodeGenerationConfig);
+
         }
-        protected Utils utils;
+
 
 
         protected string baseNameSpaceTypeLibrary = "";
@@ -176,17 +176,7 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 			string queryName = $"QueryBy{variableName}";
 			return queryName;
 		}
-		private string getQueryNameByColumnList(string[] columnNameList)
-		{
-			string queryName = "QueryBy";
-			foreach (var columnName in columnNameList)
-			{
-				string variableName = utils.GetPascalCase(columnName);
-				queryName = $"{queryName}{variableName}";
-			}
-			return queryName;
 
-		}
 
 		private void write_QueryByForeignKey(string columnName)
 		{
