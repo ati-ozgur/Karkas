@@ -221,6 +221,12 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 			{
 				return;
 			}
+			string returnType = "List<" + classNameTypeLibrary + ">";
+			if(index.IsUnique)
+			{
+				returnType = classNameTypeLibrary;
+			}
+
 			generatedFKIndexQueries[queryName] = true;
 			string variableNameList = "";
 			string queryByColumnNameList = "new string[] { ";
@@ -236,8 +242,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 			variableNameList = variableNameList.TrimEnd(',');
 			queryByColumnNameList = queryByColumnNameList.TrimEnd(',') + " }";
 			queryByColumnValueList = queryByColumnValueList.TrimEnd(',') + " }";
-			string toWrite1 = $"public List<{classNameTypeLibrary}> {queryName}({variableNameList})";
+			string toWrite1 = $"public {returnType} {queryName}({variableNameList})";
 			string toWrite2 = $"\treturn this.QueryUsingColumnName({queryByColumnNameList},{queryByColumnValueList});";
+			if (index.IsUnique)
+			{
+				toWrite2 = toWrite2.TrimEnd(';');
+				toWrite2 = toWrite2 + ".FirstOrDefault();";
+			}
 			output.AutoTabLine(toWrite1);
 			output.AutoTabLine("{");
 			output.AutoTabLine(toWrite2);

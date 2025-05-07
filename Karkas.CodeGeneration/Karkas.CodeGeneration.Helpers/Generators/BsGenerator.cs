@@ -279,9 +279,14 @@ public abstract class BsGenerator : BaseGenerator
 		{
 			return;
 		}
+		string returnType = "List<" + classNameTypeLibrary + ">";
+		if (index.IsUnique)
+		{
+			returnType = classNameTypeLibrary;
+		}
+
 		generatedFKIndexQueries[queryName] = true;
 		string variableNameList = "";
-		string queryByColumnNameList = "new string[] { ";
 		string queryByColumnValueList = "";
 		foreach (var columnName in columnNameList)
 		{
@@ -292,7 +297,7 @@ public abstract class BsGenerator : BaseGenerator
 		}
 		variableNameList = variableNameList.TrimEnd(',');
 		queryByColumnValueList = queryByColumnValueList.TrimEnd(',') ;
-		string toWrite1 = $"public List<{classNameTypeLibrary}> {queryName}({variableNameList})";
+		string toWrite1 = $"public {returnType} {queryName}({variableNameList})";
 		string toWrite2 = $"\treturn dal.{queryName}({queryByColumnValueList});";
 		output.AutoTabLine(toWrite1);
 		output.AutoTabLine("{");

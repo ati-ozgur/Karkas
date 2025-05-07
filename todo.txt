@@ -3,8 +3,6 @@
 1. Write_IndexQueries
  a. write for oracle
  b. write for Sql Server
- c. Write for unique index version.
-  Instead of list, it will return a single TypeLibrary object.
 
 1. Check if I should add following config properties to WinUI
 
