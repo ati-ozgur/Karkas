@@ -236,38 +236,39 @@ public abstract class BsGenerator : BaseGenerator
         output.AutoTabLine("");
     }
 
-    private void write_QueryByForeignKey(string columnName)
-    {
+	private void write_QueryByForeignKey(string columnName)
+	{
 		string variableName = utils.GetPascalCase(columnName);
 		string methodName = $"QueryBy{variableName}";
-        string toWrite1 = $"public List<{classNameTypeLibrary}> {methodName}(int p{variableName})";
-        string toWrite2 = $"\treturn dal.{methodName}(p{variableName});";
-        output.AutoTabLine(toWrite1);
-        output.AutoTabLine("{");
-        output.AutoTabLine(toWrite2);
-        output.AutoTabLine("}");
-
+		string toWrite1 = $"public List<{classNameTypeLibrary}> {methodName}(int p{variableName})";
+		string toWrite2 = $"\treturn dal.{methodName}(p{variableName});";
+		output.AutoTabLine(toWrite1);
+		output.AutoTabLine("{");
+		output.AutoTabLine(toWrite2);
+		output.AutoTabLine("}");
     }
-    public void Write_ForeignKeyQueries()
-    {
-        if (CodeGenerationConfig.GenerateForeignKeyQueries)
-        {
-            Dictionary<string, bool> generatedFKIndexQueries = new Dictionary<string, bool>();
-            foreach (IColumn column in container.Columns)
-            {
-                if (column.IsInForeignKey && !column.IsInPrimaryKey)
-                {
-                    if (!generatedFKIndexQueries.ContainsKey(column.Name))
-                    {
-                        ForeignKeyInformation info = column.ForeignKeyInformation;
-                        write_QueryByForeignKey(info.SourceColumn);
-                        generatedFKIndexQueries[column.Name] = true;
-                    }
 
-                }
-            }
-        }
-    }
+	Dictionary<string, bool> generatedFKIndexQueries = new Dictionary<string, bool>();
+
+	public void Write_ForeignKeyQueries()
+	{
+		if (CodeGenerationConfig.GenerateForeignKeyQueries)
+		{
+			foreach (IColumn column in container.Columns)
+			{
+				if (column.IsInForeignKey && !column.IsInPrimaryKey)
+				{
+					if (!generatedFKIndexQueries.ContainsKey(column.Name))
+					{
+						ForeignKeyInformation info = column.ForeignKeyInformation;
+						write_QueryByForeignKey(info.SourceColumn);
+						generatedFKIndexQueries[column.Name] = true;
+					}
+
+				}
+			}
+		}
+	}
 
 
 }
