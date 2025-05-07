@@ -176,6 +176,17 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 			string queryName = $"QueryBy{variableName}";
 			return queryName;
 		}
+		private string getQueryNameByColumnList(string[] columnNameList)
+		{
+			string queryName = "QueryBy";
+			foreach (var columnName in columnNameList)
+			{
+				string variableName = utils.GetPascalCase(columnName);
+				queryName = $"{queryName}{variableName}";
+			}
+			return queryName;
+
+		}
 
 		private void write_QueryByForeignKey(string columnName)
 		{
@@ -212,6 +223,36 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 			}
 		}
 
+		private void write_QueryByIndexes(IIndex index)
+		{
+			string[] columnNameList = index.IndexColumns;
+			string queryName = getQueryNameByColumnList(columnNameList);
+			if(generatedFKIndexQueries.ContainsKey(queryName))
+			{
+				return;
+			}
+			generatedFKIndexQueries[queryName] = true;
+			string variableNameList = "";
+			string queryByColumnNameList = "new string[] { ";
+			string queryByColumnValueList = "new object[] { ";
+			foreach (var columnName in columnNameList)
+			{
+				string variableName = utils.GetPascalCase(columnName);
+				string variableType = container.GetColumnLanguageType(columnName);
+				variableNameList += $"{variableType} p{variableName},";
+				queryByColumnNameList += $"\"{columnName}\",";
+				queryByColumnValueList += $"p{variableName},";
+			}
+			variableNameList = variableNameList.TrimEnd(',');
+			queryByColumnNameList = queryByColumnNameList.TrimEnd(',') + " }";
+			queryByColumnValueList = queryByColumnValueList.TrimEnd(',') + " }";
+			string toWrite1 = $"public List<{classNameTypeLibrary}> {queryName}({variableNameList})";
+			string toWrite2 = $"\treturn this.QueryUsingColumnName({queryByColumnNameList},{queryByColumnValueList});";
+			output.AutoTabLine(toWrite1);
+			output.AutoTabLine("{");
+			output.AutoTabLine(toWrite2);
+			output.AutoTabLine("}");
+		}
 
 		public void Write_IndexQueries()
 		{
@@ -219,6 +260,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 			if (CodeGenerationConfig.GenerateIndexQueries)
 			{
 				var indexList = table.FindIndexList();
+				foreach (var index in indexList)
+				{
+					write_QueryByIndexes(index);
+				}
 				// TODO: index queries
 			}
 		}
