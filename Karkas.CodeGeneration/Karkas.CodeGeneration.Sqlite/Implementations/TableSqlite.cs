@@ -18,15 +18,17 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
         public TableSqlite(CodeGenerationSqlite pDatabase, IAdoTemplate<IParameterBuilder> template, String pTableName, String pSchemaName)
         {
             this.database = pDatabase;
-            this.template = template;
+            this._template = template;
             this.tableName = pTableName;
             this.schemaName = pSchemaName;
         }
 
         CodeGenerationSqlite database;
 
-        IAdoTemplate<IParameterBuilder> template;
-        String tableName;
+        IAdoTemplate<IParameterBuilder> _template;
+		public IAdoTemplate<IParameterBuilder> Template { get => _template; }
+
+		String tableName;
         String schemaName;
 
 
@@ -46,7 +48,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 		private string[] findIndexColumns(string indexName)
 		{
 			string sqlIndexColumns = string.Format(SQL_INDEX_COLUMNS, indexName);
-			List<Dictionary<string, object>> dtIndexColumns = template.GetRows(sqlIndexColumns);
+			List<Dictionary<string, object>> dtIndexColumns = Template.GetRows(sqlIndexColumns);
 			string[] columns = new string[dtIndexColumns.Count];
 			for (int i = 0; i < dtIndexColumns.Count; i++)
 			{
@@ -62,7 +64,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 			string tableName = this.Name;
 			string sqlIndexNamesForTable = string.Format(SQL_INDEX_NAMES, tableName);
 
-			List<Dictionary<string, object>> dtIndexNames = template.GetRows(sqlIndexNamesForTable);
+			List<Dictionary<string, object>> dtIndexNames = Template.GetRows(sqlIndexNamesForTable);
 			foreach (var row in dtIndexNames)
 			{
 				string indexName = row["name"].ToString();
@@ -126,7 +128,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                     columns = new List<IColumn>();
                     string columnSql = string.Format(COLUMN_SQL, tableName);
 
-                    List<Dictionary<string,object>>  dtColumns = template.GetRows(columnSql);
+                    List<Dictionary<string,object>>  dtColumns = Template.GetRows(columnSql);
 
 
                     foreach (var rowColumn in dtColumns)
@@ -161,7 +163,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                         // Short answer: A column declared INTEGER PRIMARY KEY will autoincrement.
                         bool isAutoIncrement = isColumnInteger && isColumnPK;
 
-                        IColumn columnSqlite = new ColumnSqlite(template, this, columnName, columnType, isColumnNotNull, columnDefaultValue, isColumnPK, isAutoIncrement);
+                        IColumn columnSqlite = new ColumnSqlite(Template, this, columnName, columnType, isColumnNotNull, columnDefaultValue, isColumnPK, isAutoIncrement);
                         columns.Add(columnSqlite);
                     }
 
@@ -226,5 +228,6 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                 return identityVarmi.Value;
             }
         }
-    }
+
+	}
 }

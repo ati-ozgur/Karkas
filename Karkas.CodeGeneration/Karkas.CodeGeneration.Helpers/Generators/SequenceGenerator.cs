@@ -19,15 +19,13 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         public SequenceGenerator(CodeGenerationConfig pCodeGenerationConfig): base(pCodeGenerationConfig)
         {
-            utils = new Utils(pCodeGenerationConfig);
         }
-        Utils utils = null;
 
 
         public string Render(string schemaName
             , string sequenceName)
         {
-            
+
             output.TabLevel = 0;
             baseNameSpace = CodeGenerationConfig.ProjectNameSpace;
 

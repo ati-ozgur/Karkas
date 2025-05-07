@@ -17,7 +17,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
         {
             utils = new Utils(pCodeGenerationConfig);
         }
-        Utils utils = null;
 
         protected string baseNameSpaceTypeLibrary;
 

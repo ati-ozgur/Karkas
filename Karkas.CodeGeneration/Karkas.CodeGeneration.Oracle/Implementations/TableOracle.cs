@@ -17,7 +17,7 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
         public TableOracle(CodeGenerationOracle pDatabase, IAdoTemplate<IParameterBuilder> template, String pTableName, String pSchemaName)
         {
             this.database = pDatabase;
-            this.template = template;
+            this._template = template;
             this.tableName = pTableName;
             this.schemaName = pSchemaName;
         }
@@ -33,8 +33,11 @@ namespace Karkas.CodeGeneration.Oracle.Implementations
         }
 
 
-        IAdoTemplate<IParameterBuilder> template;
-        String tableName;
+        IAdoTemplate<IParameterBuilder> _template;
+		public IAdoTemplate<IParameterBuilder> Template { get => _template;}
+
+
+		String tableName;
         String schemaName;
 
 
@@ -62,10 +65,10 @@ AND cons.owner = cols.owner
             {
                 if (!primaryKeyColumnCount.HasValue)
                 {
-                    IParameterBuilder builder = template.getParameterBuilder();
+                    IParameterBuilder builder = Template.getParameterBuilder();
                     builder.AddParameter("tableName", DbType.String, Name);
                     builder.AddParameter("schemaName", DbType.String, Schema);
-                    Object objResult = template.GetOneValue(SQL_PRIMARY_KEY, builder.GetParameterArray());
+                    Object objResult = Template.GetOneValue(SQL_PRIMARY_KEY, builder.GetParameterArray());
                      primaryKeyColumnCount = (Decimal)objResult;
 
                 }
@@ -101,15 +104,15 @@ OWNER = :schemaName
                 if (columns == null)
                 {
                     columns = new List<IColumn>();
-                    IParameterBuilder builder = template.getParameterBuilder();
+                    IParameterBuilder builder = Template.getParameterBuilder();
                     builder.AddParameter("tableName", DbType.String, Name);
                     builder.AddParameter("schemaName",DbType.String,Schema);
 
-                    var dtColumnList = template.GetRows(SQL_FOR_COLUMN_LIST, builder.GetParameterArray());
+                    var dtColumnList = Template.GetRows(SQL_FOR_COLUMN_LIST, builder.GetParameterArray());
                     foreach (var row in dtColumnList)
                     {
                         string columnName = row["COLUMN_NAME"].ToString();
-                        IColumn column = new ColumnOracle(template,this,columnName);
+                        IColumn column = new ColumnOracle(Template,this,columnName);
                         columns.Add(column);
                     }
                 }
@@ -157,11 +160,11 @@ AND
 
         private int getIdentityColumnCount()
         {
-            IParameterBuilder builder = template.getParameterBuilder();
+            IParameterBuilder builder = Template.getParameterBuilder();
             builder.AddParameter("tableName", DbType.String, Name);
             builder.AddParameter("schemaName", DbType.String, Schema);
 
-            int count = (int) template.GetOneValue(SQL_FOR_IDENTITY, builder.GetParameterArray());
+            int count = (int) Template.GetOneValue(SQL_FOR_IDENTITY, builder.GetParameterArray());
             return count;
 
         }
@@ -182,5 +185,5 @@ AND
             }
         }
 
-    }
+	}
 }
