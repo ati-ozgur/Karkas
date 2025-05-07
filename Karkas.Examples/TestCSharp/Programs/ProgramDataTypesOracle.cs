@@ -4,12 +4,11 @@ ConnectionHelper.SetupDatabaseConnection();
 EmployeeBs bsEmployee = new EmployeeBs();
 
 Employee c1 = new Employee();
-c1.CustomerId = pk++;
 c1.FirstName = "Atilla";
 c1.LastName = "Özgür";
 c1.Email = "deneme@karkas.com.tr";
 
-bsEmployee.Insert(c1);
+var pk = bsEmployee.Insert(c1);
 
 var list = bsEmployee.QueryByFirstNameLastName("Atilla", "Özgür");
 
@@ -20,7 +19,7 @@ if(list.Count > 0)
 
 foreach (var c in list)
 {
-    Console.WriteLine(c.CustomerId + " " + c.FirstName + " " + c.LastName);
+    Console.WriteLine(c.EmployeeId + " " + c.FirstName + " " + c.LastName);
 }
 
 var c2 = bsEmployee.QueryByEmail(c1.Email);
@@ -35,7 +34,7 @@ d1.CInteger = 2;
 d1.CClob = "test";
 
 DenemeBs bsDeneme = new DenemeBs();
-long pk = bsDeneme.Insert(d1);
+pk = bsDeneme.Insert(d1);
 
 Deneme d2 = bsDeneme.QueryByPkId(pk);
 AssertEquals(d1.CInt, d2.CInt, "CInt works");
