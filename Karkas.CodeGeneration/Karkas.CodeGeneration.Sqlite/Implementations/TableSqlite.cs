@@ -37,9 +37,25 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
                 return database.CodeGenerationConfig;
             }
         }
+
+
+
+
+		private const String SQL_INDEX_COLUMNS = "Pragma index_info({0});";
+
+		private string[] findIndexColumns(string indexName)
+		{
+			string sqlIndexColumns = string.Format(SQL_INDEX_COLUMNS, indexName);
+			List<Dictionary<string, object>> dtIndexColumns = template.GetRows(sqlIndexColumns);
+			string[] columns = new string[dtIndexColumns.Count];
+			for (int i = 0; i < dtIndexColumns.Count; i++)
+			{
+				columns[i] = dtIndexColumns[i]["name"].ToString();
+			}
+			return columns;
+		}
 		private const String SQL_INDEX_NAMES = "Pragma index_list({0});";
 
-		private const String SQL_INDEX_COLUMNS = "Pragma index_list({0});";
 		public IIndex[] FindIndexList()
 		{
 			var indexList = new List<IIndex>();
@@ -52,6 +68,7 @@ namespace Karkas.CodeGeneration.Sqlite.Implementations
 				string indexName = row["name"].ToString();
 				bool IsUnique = Convert.ToBoolean(row["unique"]);
 				var index = new IndexInformation(indexName, tableName, IsUnique);
+				index.IndexColumns = findIndexColumns(indexName);
 				indexList.Add(index);
 			}
 			return indexList.ToArray();
