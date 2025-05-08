@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Text;
 using System.Collections.Generic;
@@ -233,6 +233,10 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 			string queryByColumnValueList = "new object[] { ";
 			foreach (var columnName in columnNameList)
 			{
+				if(columnName.Contains("$"))
+				{
+					return;
+				}
 				string variableName = utils.GetPascalCase(columnName);
 				string variableType = container.GetColumnLanguageType(columnName);
 				variableNameList += $"{variableType} p{variableName},";
