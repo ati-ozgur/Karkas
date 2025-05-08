@@ -1,5 +1,6 @@
 ﻿using Karkas.Data;
 using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,6 +22,18 @@ namespace Karkas.Data.Oracle
         }
 
 
+		public override void AddParameter(string parameterName, object value)
+		{
+			if (value is OracleDecimal)
+			{
+				AddParameter(parameterName, OracleDbType.Decimal, value);
+			}
+			else
+			{
+				base.AddParameter(parameterName, value);
+			}
+		}
+
 		public void AddParameter(string parameterName, OracleDbType dbType, object value)
 		{
 			OracleParameter prm = getParameterValue(parameterName, dbType);
@@ -32,7 +45,7 @@ namespace Karkas.Data.Oracle
 			{
 				prm.Value = value;
 			}
-            AddParameterToCommandOrList(prm);            
+			AddParameterToCommandOrList(prm);
 		}
 
 

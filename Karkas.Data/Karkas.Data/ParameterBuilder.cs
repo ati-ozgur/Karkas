@@ -79,7 +79,7 @@ namespace Karkas.Data
             return prm;
         }
 
-        public void AddParameter(string parameterName, object value)
+        public virtual void AddParameter(string parameterName, object value)
         {
             DbParameter prm = null;
             if (value is Int32)
