@@ -63,6 +63,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			checkBoxUseFileScopedNamespace = new CheckBox();
 			checkBoxUseGlobalUsings = new CheckBox();
 			checkBoxUseQuotesInQueries = new CheckBox();
+			checkBoxGenerateIndexQueries = new CheckBox();
 			tableLayoutPanel1.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -321,6 +322,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			tableLayoutPanel1.Controls.Add(checkBoxUseFileScopedNamespace, 1, 11);
 			tableLayoutPanel1.Controls.Add(checkBoxUseGlobalUsings, 1, 12);
 			tableLayoutPanel1.Controls.Add(checkBoxUseQuotesInQueries, 1, 13);
+			tableLayoutPanel1.Controls.Add(checkBoxGenerateIndexQueries, 2, 11);
 			tableLayoutPanel1.Dock = DockStyle.Fill;
 			tableLayoutPanel1.Location = new Point(0, 0);
 			tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
@@ -442,6 +444,16 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 			checkBoxUseQuotesInQueries.Text = "Use Quotes In Queries";
 			checkBoxUseQuotesInQueries.UseVisualStyleBackColor = true;
 			// 
+			// checkBoxGenerateIndexQueries
+			// 
+			checkBoxGenerateIndexQueries.AutoSize = true;
+			checkBoxGenerateIndexQueries.Location = new Point(593, 366);
+			checkBoxGenerateIndexQueries.Name = "checkBoxGenerateIndexQueries";
+			checkBoxGenerateIndexQueries.Size = new Size(148, 19);
+			checkBoxGenerateIndexQueries.TabIndex = 67;
+			checkBoxGenerateIndexQueries.Text = "Generate Index Queries";
+			checkBoxGenerateIndexQueries.UseVisualStyleBackColor = true;
+			// 
 			// UserControlCodeGenerationOptions
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -493,5 +505,6 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 		private CheckBox checkBoxUseFileScopedNamespace;
 		private CheckBox checkBoxUseGlobalUsings;
 		private CheckBox checkBoxUseQuotesInQueries;
+		private CheckBox checkBoxGenerateIndexQueries;
 	}
 }

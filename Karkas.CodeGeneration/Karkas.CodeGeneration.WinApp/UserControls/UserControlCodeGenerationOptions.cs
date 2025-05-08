@@ -67,7 +67,9 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
             entry.ConnectionString = textBoxConnectionString.Text;
 			entry.ForceOracleDecimalToIntegersAndDecimal = checkBoxForceOracleDecimalToIntegersAndDecimal.Checked;
 			entry.GenerateForeignKeyQueries = checkBoxGenerateForeignKeyQueries.Checked;
-            entry.GenerateNormalClassAgain = checkBoxGenerateNormalClassAgain.Checked;
+			entry.GenerateIndexQueries = checkBoxGenerateIndexQueries.Checked;
+
+			entry.GenerateNormalClassAgain = checkBoxGenerateNormalClassAgain.Checked;
             entry.GenerateNormalClassValidationExamples = checkBoxGenerateNormalClassValidationExamples.Checked;
             entry.IgnoredSchemaList = textBoxIgnoredSchemaList.Text;
 			entry.IgnoreSystemTables = checkBoxIgnoreSystemTables.Checked;
@@ -131,6 +133,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
 			checkBoxForceOracleDecimalToIntegersAndDecimal.Checked = entry.OracleForceNumericPKFKColumnsToLong;
 			checkBoxGenerateForeignKeyQueries.Checked = entry.GenerateForeignKeyQueries;
+			checkBoxGenerateIndexQueries.Checked = entry.GenerateIndexQueries;
 			checkBoxIgnoreSystemTables.Checked = entry.IgnoreSystemTables;
 			checkBoxOracleForceNumericPKFKColumnsToLong.Checked = entry.OracleForceNumericPKFKColumnsToLong;
 			checkBoxSequenceCodeGenerate.Checked = entry.SequenceCodeGenerate;
