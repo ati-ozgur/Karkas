@@ -9,16 +9,16 @@ CREATE TABLE Deneme (
       BitColumn  bit,
 );
 
-CREATE TABLE Customer
+CREATE TABLE Customers
 (
-    CustomerId INT NOT NULL,
+    CustomersId INT NOT NULL,
     FirstName VARCHAR(40) NOT NULL,
     LastName VARCHAR(20) NOT NULL,
     Email NVARCHAR(60) NOT NULL,
-    CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED (CustomerId)
+    CONSTRAINT PK_Customer PRIMARY KEY CLUSTERED (CustomersId)
 );
 
 
-CREATE INDEX Customer_FirstName_IDX ON DataTypes.dbo.Customer (FirstName, LastName);
+CREATE INDEX Customers_FirstName_IDX ON Customers (FirstName, LastName);
 
-CREATE UNIQUE INDEX Customer_Email_IDX ON DataTypes.dbo.Customer (Email);
+CREATE UNIQUE INDEX Customers_Email_IDX ON Customers (Email);
