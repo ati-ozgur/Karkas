@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.IO;
 using System.Text;
@@ -293,6 +293,10 @@ public abstract class BsGenerator : BaseGenerator
 		string queryByColumnValueList = "";
 		foreach (var columnName in columnNameList)
 		{
+			if (columnName.Contains("$"))
+			{
+				return;
+			}
 			string variableName = utils.GetPascalCase(columnName);
 			string variableType = container.GetColumnLanguageType(columnName);
 			variableNameList += $"{variableType} p{variableName},";
