@@ -239,7 +239,7 @@ public abstract class BsGenerator : BaseGenerator
 		output.AutoTabLine("");
 	}
 
-	private void write_QueryByForeignKey(string columnName)
+	private string write_QueryByForeignKey(string columnName)
 	{
 		string variableName = utils.GetPascalCase(columnName);
 		string variableType = container.GetColumnLanguageType(columnName);
@@ -250,6 +250,7 @@ public abstract class BsGenerator : BaseGenerator
 		output.AutoTabLine("{");
 		output.AutoTabLine(toWrite2);
 		output.AutoTabLine("}");
+		return methodName;
 	}
 
 	Dictionary<string, bool> generatedQueries = new Dictionary<string, bool>();
@@ -265,8 +266,8 @@ public abstract class BsGenerator : BaseGenerator
 					if (!generatedQueries.ContainsKey(column.Name))
 					{
 						ForeignKeyInformation info = column.ForeignKeyInformation;
-						write_QueryByForeignKey(info.SourceColumn);
-						generatedQueries[column.Name] = true;
+						string queryName = write_QueryByForeignKey(info.SourceColumn);
+						generatedQueries[queryName] = true;
 					}
 
 				}
