@@ -181,8 +181,11 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 		private void write_QueryByForeignKey(string columnName)
 		{
 			string variableName = utils.GetPascalCase(columnName);
+			string variableType = container.GetColumnLanguageType(columnName);
+
+
 			string queryName = getQueryNameByColumn(columnName);
-			string toWrite1 = $"public List<{classNameTypeLibrary}> {queryName}(int p{variableName})";
+			string toWrite1 = $"public List<{classNameTypeLibrary}> {queryName}({variableType} p{variableName})";
 			string toWrite2 = $"\treturn this.QueryUsingColumnName({classNameTypeLibrary}.ColumnNames.{variableName},p{variableName});";
 			output.AutoTabLine(toWrite1);
 			output.AutoTabLine("{");

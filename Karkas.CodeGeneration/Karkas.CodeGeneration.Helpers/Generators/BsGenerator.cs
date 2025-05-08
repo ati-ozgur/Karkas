@@ -242,8 +242,9 @@ public abstract class BsGenerator : BaseGenerator
 	private void write_QueryByForeignKey(string columnName)
 	{
 		string variableName = utils.GetPascalCase(columnName);
+		string variableType = container.GetColumnLanguageType(columnName);
 		string methodName = $"QueryBy{variableName}";
-		string toWrite1 = $"public List<{classNameTypeLibrary}> {methodName}(int p{variableName})";
+		string toWrite1 = $"public List<{classNameTypeLibrary}> {methodName}({variableType} p{variableName})";
 		string toWrite2 = $"\treturn dal.{methodName}(p{variableName});";
 		output.AutoTabLine(toWrite1);
 		output.AutoTabLine("{");
