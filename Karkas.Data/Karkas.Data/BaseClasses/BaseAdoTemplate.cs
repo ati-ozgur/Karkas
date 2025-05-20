@@ -267,9 +267,16 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         return result;
     }
 
+	public T GetOneValue<T>(DbCommand cmd) where T : struct
+	{
+		cmd.Connection = Connection;
+		object objResult = ExecuteNonQueryCommandBringResultInternal(cmd);
+		var oChanged = Convert.ChangeType(objResult, typeof(T));
+		return (T)oChanged;
+	}
 
 
-    [Obsolete("BringOneValue is deprecated, please use GetOneValue instead.")]
+	[Obsolete("BringOneValue is deprecated, please use GetOneValue instead.")]
     public Object BringOneValue(string cmdText)
     {
         return GetOneValue(cmdText);
@@ -282,8 +289,16 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         return result;
     }
 
+	public T GetOneValue<T>(string cmdText) where T : struct
+	{
+		DbCommand cmd = getDatabaseCommand(cmdText, Connection);
+		object objResult = ExecuteNonQueryCommandBringResultInternal(cmd);
+		var oChanged = Convert.ChangeType(objResult, typeof(T));
+		return (T)oChanged;
+	}
 
-    [Obsolete("BringOneValue is deprecated, please use GetOneValue instead.")]
+
+	[Obsolete("BringOneValue is deprecated, please use GetOneValue instead.")]
     public Object BringOneValue(string cmdText, CommandType cmdType, DbParameter[] parameters)
     {
         return GetOneValue(cmdText,cmdType,parameters);
@@ -320,11 +335,24 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         return result;
     }
 
-    public void ExecuteNonQueryCommand(String cmdText)
-    {
-        DbCommand cmd = getDatabaseCommand(cmdText, Connection);
-        ExecuteNonQueryCommandInternal(cmd);
-    }
+	public T GetOneValue<T>(string cmdText, DbParameter[] parameters) where T : struct
+	{
+		DbCommand cmd = getDatabaseCommand(cmdText, Connection);
+		foreach (DbParameter p in parameters)
+		{
+			cmd.Parameters.Add(p);
+		}
+
+		object objResult = ExecuteNonQueryCommandBringResultInternal(cmd);
+		var oChanged = Convert.ChangeType(objResult, typeof(T));
+		return (T)oChanged;
+	}
+
+	public void ExecuteNonQueryCommand(String cmdText)
+	{
+		DbCommand cmd = getDatabaseCommand(cmdText, Connection);
+		ExecuteNonQueryCommandInternal(cmd);
+	}
 
 
 
