@@ -10,4 +10,5 @@ public partial class EmployeeDal
 		pb.AddParameter($"{ParameterCharacter}employeeId", employeeId);
 		return Template.GetOneValue<DateTime>(sql,pb.GetParameterArray());
 	}
+}
 
