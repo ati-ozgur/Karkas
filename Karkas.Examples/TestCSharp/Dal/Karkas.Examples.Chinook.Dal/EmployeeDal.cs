@@ -4,11 +4,10 @@ public partial class EmployeeDal
 {
 	public DateTime GetBirthDate(int employeeId)
 	{
-		string sql = @"SELECT ""BirthDate""
-		FROM ""Employee"" WHERE ""EmployeeId"" = :employeeId";
+		string sql = @$"SELECT ""BirthDate""
+		FROM ""Employee"" WHERE ""EmployeeId"" = {ParameterCharacter}employeeId";
 		var pb = getParameterBuilder();
-		pb.AddParameter(":employeeId", employeeId);
+		pb.AddParameter($"{ParameterCharacter}employeeId", employeeId);
 		return Template.GetOneValue<DateTime>(sql,pb.GetParameterArray());
 	}
-}
 
