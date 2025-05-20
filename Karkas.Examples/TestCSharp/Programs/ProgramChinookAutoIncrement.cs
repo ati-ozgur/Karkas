@@ -9,6 +9,8 @@ using Karkas.Examples.Chinook.TypeLibrary;
 
 ConnectionHelper.SetupDatabaseConnection();
 
+TestHelper.TestGetOneRowGenericVersion();
+
 TestHelper.TestQueryUsingColumnName_StringDateTimeColumns();
 TestHelper.TestQueryUsingColumnName_TwoStringColumnsWithLike();
 TestHelper.TestQueryUsingColumnName_TwoStringColumns();

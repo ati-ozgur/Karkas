@@ -156,5 +156,16 @@ public partial class TestHelper
 
 		}
 	}
+	
+	public static void TestGetOneRowGenericVersion()
+	{
+		AlbumDal dal = new AlbumDal();
+		int a = dal.GetMaxAlbumId();
+		Console.WriteLine("Max Album Id : " + a);
+
+		EmployeeDal employeeDal = new EmployeeDal();
+		DateTime birthDate = employeeDal.GetBirthDate(1);
+		Console.WriteLine("Birth Date : " + birthDate.ToString("yyyy-MM-dd"));
+	}
 
 }
