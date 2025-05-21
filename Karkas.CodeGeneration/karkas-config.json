@@ -171,6 +171,32 @@
     "IgnoreSystemTables": false,
     "IgnoredSchemaList": "",
     "AbbrevationsAsString": ""
+  },
+  {
+    "GenerateNormalClassValidationExamples": false,
+    "GenerateNormalClassAgain": false,
+    "ConnectionName": "DataTypesOracle23ai",
+    "ConnectionDatabaseType": "Oracle",
+    "ConnectionDbProviderName": "Oracle.ManagedDataAccess.Client",
+    "ConnectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1523))(CONNECT_DATA=(SERVICE_NAME=FREE)));User Id=datatypes;Password=datatypes;",
+    "ProjectNameSpace": "Karkas.Examples.DataTypes",
+    "CodeGenerationDirectory": "./Karkas.Examples/GeneratedProjects/DataTypesOracle",
+    "UseSchemaNameInNamespaces": false,
+    "UseSchemaNameInSqlQueries": false,
+    "UseSchemaNameInFolders": false,
+    "UseQuotesInQueries": true,    
+    "UseGlobalUsings": true,
+    "GenerateForeignKeyQueries": true,
+    "GenerateIndexQueries": true,
+    "ForceOracleDecimalToIntegersAndDecimal": false,
+    "OracleForceNumericPKFKColumnsToLong": true,
+    "TableCodeGenerate": true,
+    "ViewCodeGenerate": false,
+    "StoredProcedureCodeGenerate": false,
+    "SequenceCodeGenerate": false,
+    "IgnoreSystemTables": false,
+    "IgnoredSchemaList": "",
+    "AbbrevationsAsString": ""
   }  
 
 ]
