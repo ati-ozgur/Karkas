@@ -1,5 +1,9 @@
 # todo
 
+Oracle 23ai new datatypes
+
+
+
 1. Divide run docker scripts to two parts
   - start docker
   - code-gen
