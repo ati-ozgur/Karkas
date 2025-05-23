@@ -1,4 +1,4 @@
-﻿using Karkas.Data;
+using Karkas.Data;
 using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
 using System;
@@ -27,6 +27,10 @@ namespace Karkas.Data.Oracle
 			if (value is OracleDecimal)
 			{
 				AddParameter(parameterName, OracleDbType.Decimal, value);
+			}
+			else if (value is Guid) // Oracle problematic with Guid
+			{
+				AddParameter(parameterName, OracleDbType.Varchar2, value.ToString());
 			}
 			else
 			{
