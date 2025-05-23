@@ -6,7 +6,7 @@ EmployeeBs bsEmployee = new EmployeeBs();
 Employee c1 = new Employee();
 c1.FirstName = "Atilla";
 c1.LastName = "Özgür";
-c1.Email = "deneme@karkas.com.tr";
+c1.Email = "deneme" + Guid.NewGuid().ToString();
 
 var pk = bsEmployee.Insert(c1);
 
@@ -23,9 +23,14 @@ foreach (var c in list)
 }
 
 var c2 = bsEmployee.QueryByEmail(c1.Email);
-if(c1.FirstName == c2.FirstName)
+if (c2 != null && c1.FirstName == c2.FirstName)
 {
     Console.WriteLine("QueryByIndex UNIQUE generation works");
+}
+else
+{
+    Console.WriteLine("QueryByIndex UNIQUE generation does not work");
+    throw new Exception("QueryByIndex UNIQUE generation does not work");
 }
 
 Deneme d1 = new Deneme();

@@ -13,4 +13,11 @@ public partial class AlbumDal
         return Template.ExecuteAsExists(sql);
     }
 
+    public int GetMaxAlbumId()
+    {
+        string sql = @"SELECT MAX(""AlbumId"") FROM ""Album""";
+        return Template.GetOneValue<int>(sql);
+    }
+
+
 }
