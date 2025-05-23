@@ -344,6 +344,11 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
 		}
 
 		object objResult = ExecuteNonQueryCommandBringResultInternal(cmd);
+		if(typeof(T) == typeof(Guid))
+		{
+			Guid g = new Guid(objResult.ToString());
+			return (T) ((object)g);
+		}
 		var oChanged = Convert.ChangeType(objResult, typeof(T));
 		return (T)oChanged;
 	}
