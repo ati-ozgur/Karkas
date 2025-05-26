@@ -346,7 +346,15 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
 		object objResult = ExecuteNonQueryCommandBringResultInternal(cmd);
 		if(typeof(T) == typeof(Guid)) // TODO: check this one for SQL Server
 		{
-			Guid g = new Guid(objResult.ToString());
+			Guid g;
+			if (objResult == null)
+			{
+				g = Guid.Empty;
+			}
+			else
+			{
+				g = new Guid(objResult.ToString());
+			}
 			return (T) ((object)g);
 		}
 		var oChanged = Convert.ChangeType(objResult, typeof(T));
