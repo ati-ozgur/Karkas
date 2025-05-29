@@ -1,5 +1,12 @@
 # todo
 
+1. CurrentExceptionChanger.Change(ex,cmd.CommandText);
+veya
+  CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
+
+Karar ver.
+
+
 Oracle 23ai new datatypes
 
 
