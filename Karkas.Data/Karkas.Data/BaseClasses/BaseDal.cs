@@ -353,7 +353,7 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         }
         catch (DbException ex)
         {
-			CurrentExceptionChanger.Change(ex);
+			CurrentExceptionChanger.Change(ex,cmd.CommandText);
         }
         finally
         {
