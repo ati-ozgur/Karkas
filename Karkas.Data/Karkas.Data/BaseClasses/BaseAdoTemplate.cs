@@ -497,7 +497,7 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         }
         catch (DbException ex)
         {
-			CurrentExceptionChanger.Change(ex);
+			CurrentExceptionChanger.Change(ex,cmd.CommandText);
         }
         finally
         {
