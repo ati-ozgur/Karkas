@@ -1,8 +1,11 @@
 # todo
 
+1. .NET 4.x support so that code gen works
+later feature
+
 1. CurrentExceptionChanger.Change(ex,cmd.CommandText);
 veya
-  CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
+	CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
 
 Karar ver.
 
@@ -12,8 +15,8 @@ Oracle 23ai new datatypes
 
 
 1. Divide run docker scripts to two parts
-  - start docker
-  - code-gen
+	- start docker
+	- code-gen
 
 1. Write_IndexQueries
  a. write for oracle
@@ -200,12 +203,12 @@ https://learn.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-
 github secrets and other should be looked.
 PackageId and version how to automate??
 
-  <PropertyGroup>
-    <PackageId>Karkas.DataUtil.2024.09.22</PackageId>
-    <Version>2024.09.22</Version>
-    <Authors>Atilla Özgür</Authors>
-    <Company>Karkas</Company>
-  </PropertyGroup>
+	<PropertyGroup>
+		<PackageId>Karkas.DataUtil.2024.09.22</PackageId>
+		<Version>2024.09.22</Version>
+		<Authors>Atilla Özgür</Authors>
+		<Company>Karkas</Company>
+	</PropertyGroup>
 
 
 
@@ -237,7 +240,7 @@ https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetc
 ## Multiple .NET SDK Version
  Later check multiple .net SDK versions
 For now, we work with .net6
-    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+		<TargetFrameworks>net6.0;net8.0</TargetFrameworks>
 https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file
 Multiple Dotnet TargetFrameworks .net 4.8, dotnet6,dotnet8
 
@@ -256,8 +259,8 @@ https://mermaid-js.github.io/mermaid/
 ## Code Review
 
 1. Nullable compile warnings
-    <Nullable>enable</Nullable>
-    <Nullable>disable</Nullable>
+		<Nullable>enable</Nullable>
+		<Nullable>disable</Nullable>
 https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/nullable-warnings
 
 
