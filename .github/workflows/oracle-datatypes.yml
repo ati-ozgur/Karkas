@@ -3,7 +3,7 @@ name: oracle-datatypes
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["oracle-chinook-normal"]
+    workflows: ["sqlserver-datatypes"]
     branches: [master]
     types: 
       - completed
