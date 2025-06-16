@@ -498,9 +498,10 @@ namespace Karkas.CodeGeneration.Helpers
             string name = "";
             foreach (IColumn column in container.Columns)
             {
-                if (column.IsIdentity)
-                {
-                    name = column.Name;
+				if (column.IsIdentity)
+				{
+					name = column.Name;
+					break;
                 }
             }
             return name;
