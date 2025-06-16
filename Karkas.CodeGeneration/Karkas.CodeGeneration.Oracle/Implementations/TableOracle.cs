@@ -179,13 +179,39 @@ OWNER = :schemaName
 
 
         private const string SQL_FOR_IDENTITY = @"
-select COUNT(*) from ALL_TAB_COLS  C
+WITH
+FUNCTION GET_VARCHAR_DATA_DEFAULT(p_schema_name IN varchar2,p_table_name IN varchar2,p_column_name IN varchar2) RETURN varchar2 IS s_data_default varchar2(1000);
+BEGIN
+		select C.data_default into s_data_default
+		FROM ALL_TAB_COLS C
+		WHERE
+		C.table_name = p_table_name
+		 AND C.OWNER = p_schema_name
+		 AND C.COLUMN_NAME =  p_column_name;
+		return s_data_default;
+END;
+QUERY_DATA_DEFAULT AS
+(
+SELECT table_name, column_name,
+LOWER(GET_VARCHAR_DATA_DEFAULT(C.OWNER,C.table_name,C.column_name)) AS data_default
+FROM all_tab_columns C
+WHERE
+C.table_name = :tableName
+AND C.OWNER = :schemaName
+AND C.data_default IS NOT NULL
+AND C.IDENTITY_COLUMN !=  'YES'
+)
+SELECT
+(SELECT COUNT(*) FROM QUERY_DATA_DEFAULT WHERE DATA_DEFAULT LIKE '%nextval_')
++
+(select COUNT(*) from ALL_TAB_COLS  C
    WHERE
    1 = 1
 AND
         C.table_name = :tableName
          AND C.OWNER = :schemaName
-         AND C.IDENTITY_COLUMN =  'YES'
+         AND C.IDENTITY_COLUMN =  'YES')
+FROM DUAL;
 ";
 
         private int getIdentityColumnCount()

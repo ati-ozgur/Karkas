@@ -246,7 +246,6 @@ BEGIN
 
 		return s_data_default;
 END;
-
 select
 OWNER,
 TABLE_NAME,
@@ -576,14 +575,19 @@ AND
         {
             get
             {
-                if (!isIdentity.HasValue)
-                {
-                    isIdentity = false;
-                    string valIdentityColumn = ColumnValuesInDatabase["IDENTITY_COLUMN"].ToString();
-                    if (valIdentityColumn == "YES")
-                    {
-                        isIdentity = true;
-                    }
+				if (!isIdentity.HasValue)
+				{
+					isIdentity = false;
+					string valIdentityColumn = ColumnValuesInDatabase["IDENTITY_COLUMN"].ToString();
+					if (valIdentityColumn == "YES")
+					{
+						isIdentity = true;
+					}
+					string dataDefault = ColumnValuesInDatabase["DATA_DEFAULT"].ToString();
+					if (dataDefault != null && dataDefault.ToLowerInvariant().Contains("nextval"))
+					{
+						isIdentity = true;
+					}
 
 
                 }

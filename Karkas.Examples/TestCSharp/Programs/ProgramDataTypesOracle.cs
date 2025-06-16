@@ -1,6 +1,21 @@
 ﻿
 ConnectionHelper.SetupDatabaseConnection();
 
+TumIslemHataTakipBs bs = new TumIslemHataTakipBs();
+
+for (int i = 0; i < 10; i++)
+{
+    TumIslemHataTakip tt = new TumIslemHataTakip();
+    tt.IslemTip = "Test İşlem Tipi";
+    tt.IslemTarih = DateTime.Now;
+    tt.CreateUser = "TestUser";
+    tt.CreateDate = DateTime.Now;
+    tt.Sonuc = "test";
+    tt.HataMesaji = "Test hata mesajı" + i;
+    long key = bs.Insert(tt);
+    Console.WriteLine("Inserted TumIslemHataTakip with key: " + key);
+}
+
 EmployeeBs bsEmployee = new EmployeeBs();
 
 Employee c1 = new Employee();
