@@ -30,9 +30,9 @@ public interface IAdoTemplate<IParameterBuilder>
     DataTable CreateDataTableWithPaging(string sql, int pPageSize, int pStartRowIndex, string pOrderBy, DbParameter[] parameters);
     bool ExecuteAsExists(string pSql);
     bool ExecuteAsExists(string pSql, DbParameter[] pParamListesi);
-    void ExecuteNonQueryCommand(DbCommand cmd);
-    void ExecuteNonQueryCommand(string cmdText);
-    void ExecuteNonQueryCommand(string sql, DbParameter[] prmListesi);
+    int ExecuteNonQueryCommand(DbCommand cmd);
+    int ExecuteNonQueryCommand(string cmdText);
+    int ExecuteNonQueryCommand(string sql, DbParameter[] prmListesi);
     DbDataAdapter getDatabaseAdapter(DbCommand cmd);
     DbCommand getDatabaseCommand(DbConnection conn);
     DbCommand getDatabaseCommand(string sql, DbConnection conn);

@@ -208,33 +208,35 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         }
         return result;
     }
-    private void ExecuteNonQueryCommandInternal(DbCommand cmd)
-    {
-        try
-        {
-            new LoggingInfo(cmd).LogInfo(this.GetType());
-            if (ShouldOpenConnection())
-            {
-                Connection.Open();
-            }
-            else if (currentTransaction != null)
-            {
-                cmd.Transaction = currentTransaction;
-            }
+	private int ExecuteNonQueryCommandInternal(DbCommand cmd)
+	{
+		int rowCount = 0;
+		try
+		{
+			new LoggingInfo(cmd).LogInfo(this.GetType());
+			if (ShouldOpenConnection())
+			{
+				Connection.Open();
+			}
+			else if (currentTransaction != null)
+			{
+				cmd.Transaction = currentTransaction;
+			}
 
-            cmd.ExecuteNonQuery();
-        }
-        catch (DbException ex)
-        {
+			rowCount = cmd.ExecuteNonQuery();
+		}
+		catch (DbException ex)
+		{
 			CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
-        }
-        finally
-        {
-            if (AutomaticConnectionManagement)
-            {
-                Connection.Close();
-            }
-        }
+		}
+		finally
+		{
+			if (AutomaticConnectionManagement)
+			{
+				Connection.Close();
+			}
+		}
+		return rowCount;
     }
 
 
@@ -361,32 +363,35 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
 		return (T)oChanged;
 	}
 
-	public void ExecuteNonQueryCommand(String cmdText)
+	public int ExecuteNonQueryCommand(String cmdText)
 	{
 		DbCommand cmd = getDatabaseCommand(cmdText, Connection);
-		ExecuteNonQueryCommandInternal(cmd);
+		int rowCount = ExecuteNonQueryCommandInternal(cmd);
+		return rowCount;
 	}
 
 
 
-    public void ExecuteNonQueryCommand(DbCommand cmd)
-    {
-        cmd.Connection = Connection;
-        ExecuteNonQueryCommandInternal(cmd);
+	public int ExecuteNonQueryCommand(DbCommand cmd)
+	{
+		cmd.Connection = Connection;
+		int rowCount = ExecuteNonQueryCommandInternal(cmd);
+		return rowCount;
     }
 
 
 
-    public void ExecuteNonQueryCommand(string sql, DbParameter[] prmListesi)
-    {
-        DbCommand cmd = getDatabaseCommand(sql, Connection);
-        cmd.CommandType = CommandType.Text;
-        foreach (DbParameter p in prmListesi)
-        {
-            cmd.Parameters.Add(p);
-        }
+	public int ExecuteNonQueryCommand(string sql, DbParameter[] prmListesi)
+	{
+		DbCommand cmd = getDatabaseCommand(sql, Connection);
+		cmd.CommandType = CommandType.Text;
+		foreach (DbParameter p in prmListesi)
+		{
+			cmd.Parameters.Add(p);
+		}
 
-        ExecuteNonQueryCommandInternal(cmd);
+		int rowCount = ExecuteNonQueryCommandInternal(cmd);
+		return rowCount;
 
     }
 
