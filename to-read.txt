@@ -5,6 +5,12 @@ catch failures before they happen.
 https://sqlc.dev/
 
 
+## Other ORMs
+
+- https://db.apache.org/torque/torque-7.1/index.html
+- https://db.apache.org/jdo/
+
+
 ## Logging 
 
 
