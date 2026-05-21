@@ -22,3 +22,4 @@ https://docs.sqlc.dev/en/stable/overview/install.html
 SQLc is the perfect tool for those who don't like ORMs 
 https://www.youtube.com/watch?v=VX6KzpjaPp8
 
+https://github.com/pponec/ujorm/tree/ujorm3
