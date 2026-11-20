@@ -15,6 +15,10 @@ namespace Karkas.Data.Oracle
         where PRIMARY_KEY : struct
 
     {
+        protected BaseBsOracleForIdentity(System.Data.Common.DbConnection connection) : base(connection)
+        {
+        }
+
 
 
         protected new BaseDalForIdentityOracle<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> Dal

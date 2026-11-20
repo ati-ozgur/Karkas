@@ -22,6 +22,10 @@ namespace Karkas.Data.Oracle
 		{
 
 		}
+
+		public BaseDalOracle(DbConnection connection) : base(new ExceptionChangerOracle(), connection)
+		{
+		}
 		public override string DbProviderName
         {
             get { return "Oracle.DataAccess.Client"; }

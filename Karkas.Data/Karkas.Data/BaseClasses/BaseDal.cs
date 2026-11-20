@@ -25,6 +25,11 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
 	{
 	}
 
+	public BaseDal(ExceptionChanger pExceptionChanger, DbConnection connection)
+		: base(pExceptionChanger, connection)
+	{
+	}
+
 
 
 

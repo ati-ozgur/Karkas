@@ -75,19 +75,16 @@ public abstract class BaseBsWithoutEntity<ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER
     }
 
 
+    protected BaseBsWithoutEntity(DbConnection connection)
+    {
+        this.connection = connection ?? throw new ArgumentNullException(nameof(connection));
+    }
+
     private DbConnection connection;
     public DbConnection Connection
     {
-        get
-        {
-            if (connection == null)
-            {
-
-                connection = ConnectionSingleton.Instance.getConnection(DatabaseName);
-            }
-            return connection;
-        }
-        set { connection = value; }
+        get { return connection; }
+        set { connection = value ?? throw new ArgumentNullException(nameof(value)); }
     }
 }
 

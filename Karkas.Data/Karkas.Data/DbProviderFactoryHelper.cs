@@ -18,18 +18,17 @@ namespace Karkas.Data
         }
 
 
-        private DbProviderFactoryHelper()
+        /// <summary>
+        /// Creates a new, unopened connection for the given provider.
+        /// The provider must be registered with DbProviderFactories.RegisterFactory first.
+        /// </summary>
+        public static DbConnection CreateConnection(string dbProviderName, string connectionString)
         {
-            if (String.IsNullOrEmpty(ConnectionSingleton.Instance.ProviderName))
-            {
-                factory = DbProviderFactories.GetFactory("Microsoft.Data.SqlClient");
-
-            }
-            else
-            {
-                factory = DbProviderFactories.GetFactory(ConnectionSingleton.Instance.ProviderName);
-            }
+            DbConnection connection = Create(dbProviderName).Factory.CreateConnection();
+            connection.ConnectionString = connectionString;
+            return connection;
         }
+
         private DbProviderFactoryHelper(String providerName)
         {
             if (String.IsNullOrEmpty(providerName) || string.IsNullOrWhiteSpace(providerName)) 

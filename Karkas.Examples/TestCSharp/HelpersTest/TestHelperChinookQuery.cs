@@ -5,7 +5,7 @@ public partial class TestHelper
 
 	public static void TestQuery_QueryDetailTable1()
 	{
-		CustomerBs bs = new CustomerBs();
+		CustomerBs bs = new CustomerBs(ConnectionHelper.CreateConnection());
 
 		var list = bs.QueryDetailTable<Invoice>(56);
 
@@ -24,7 +24,7 @@ public partial class TestHelper
 	public static void TestQueryUsingColumnName_StringDateTimeColumns()
 	{
 
-		EmployeeDal dal = new EmployeeDal();
+		EmployeeDal dal = new EmployeeDal(ConnectionHelper.CreateConnection());
 		var liste = dal.QueryUsingColumnName(
 			new string[] { Employee.ColumnNames.FirstName, Employee.ColumnNames.HireDate },
 			new object[] { "A%", new DateTime(2002, 8, 14) },
@@ -45,7 +45,7 @@ public partial class TestHelper
 	public static void TestQueryUsingColumnName_TwoStringColumnsWithLike()
 	{
 
-		EmployeeDal dal = new EmployeeDal();
+		EmployeeDal dal = new EmployeeDal(ConnectionHelper.CreateConnection());
 		var liste = dal.QueryUsingColumnName(
 			new string[] { Employee.ColumnNames.FirstName, Employee.ColumnNames.LastName },
 			new object[] { "A%", "A%" },
@@ -67,7 +67,7 @@ public partial class TestHelper
 	public static void TestQueryUsingColumnName_TwoStringColumns()
 	{
 
-		EmployeeDal dal = new EmployeeDal();
+		EmployeeDal dal = new EmployeeDal(ConnectionHelper.CreateConnection());
 		var liste = dal.QueryUsingColumnName(
 			new string[] { Employee.ColumnNames.City, Employee.ColumnNames.Country },
 			new object[] { "Calgary", "Canada" }
@@ -87,7 +87,7 @@ public partial class TestHelper
 	public static void TestQueryAll()
 	{
 
-		CustomerDal dal = new CustomerDal();
+		CustomerDal dal = new CustomerDal(ConnectionHelper.CreateConnection());
 		var allCustomers = dal.QueryAll();
 		if (allCustomers.Count > 0)
 		{
@@ -106,7 +106,7 @@ public partial class TestHelper
 
 		try
 		{
-			AlbumDal dal = new AlbumDal();
+			AlbumDal dal = new AlbumDal(ConnectionHelper.CreateConnection());
 			var list = dal.Template.GetRows(@"SELECT X FROM ""Album""");
 			PrintHelper.printList(list);
 		}
@@ -118,7 +118,7 @@ public partial class TestHelper
 
 	public static void TestQueryByForeignKey1()
 	{
-		AlbumBs albumBs = new AlbumBs();
+		AlbumBs albumBs = new AlbumBs(ConnectionHelper.CreateConnection());
 
 		var listAlbums1 = albumBs.QueryByArtistId(2);
 		if (listAlbums1.Count > 0)
@@ -131,7 +131,7 @@ public partial class TestHelper
 
 	public static void TestQueryByColumnNameWhereOperators()
 	{
-		CustomerBs customerBs = new CustomerBs();
+		CustomerBs customerBs = new CustomerBs(ConnectionHelper.CreateConnection());
 
 		var customers1 = customerBs.QueryUsingColumnName(Customer.ColumnNames.CustomerId
 				, 10, WhereOperatorEnum.LesserAndEquals);
@@ -159,11 +159,11 @@ public partial class TestHelper
 	
 	public static void TestGetOneRowGenericVersion()
 	{
-		AlbumDal dal = new AlbumDal();
+		AlbumDal dal = new AlbumDal(ConnectionHelper.CreateConnection());
 		int a = dal.GetMaxAlbumId();
 		Console.WriteLine("Max Album Id : " + a);
 
-		EmployeeDal employeeDal = new EmployeeDal();
+		EmployeeDal employeeDal = new EmployeeDal(ConnectionHelper.CreateConnection());
 		DateTime birthDate = employeeDal.GetBirthDate(1);
 		Console.WriteLine("Birth Date : " + birthDate.ToString("yyyy-MM-dd"));
 	}

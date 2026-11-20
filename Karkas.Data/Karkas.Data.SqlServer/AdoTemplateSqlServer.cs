@@ -18,6 +18,10 @@ public class AdoTemplateSqlServer : BaseAdoTemplate<ParameterBuilderSqlServer>
     {
     }
 
+    public AdoTemplateSqlServer(DbConnection connection) : base(connection, DB_PROVIDER_ORACLE)
+    {
+    }
+
     public AdoTemplateSqlServer(string dbProviderName) : base(dbProviderName)
     {
     }

@@ -1,7 +1,7 @@
 ﻿ConnectionHelper.SetupDatabaseConnection();
 
 
-CustomersBs bsCustomers = new CustomersBs();
+CustomersBs bsCustomers = new CustomersBs(ConnectionHelper.CreateConnection());
 
 Customers c1 = new Customers();
 c1.FirstName = "Atilla";
@@ -29,7 +29,7 @@ if(c1.FirstName == c2.FirstName)
 }
 
 
-DenemeBs bsDeneme = new DenemeBs();
+DenemeBs bsDeneme = new DenemeBs(ConnectionHelper.CreateConnection());
 
 
 Deneme d1= new Deneme();

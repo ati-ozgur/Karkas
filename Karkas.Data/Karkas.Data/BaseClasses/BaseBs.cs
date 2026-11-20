@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
+using System.Data.Common;
 
 namespace Karkas.Data;
 
@@ -35,7 +36,7 @@ public abstract class BaseBs<TYPE_LIBRARY_TYPE, DAL_TYPE, ADOTEMPLATE_DB_TYPE, P
 
 
 
-    public BaseBs()
+    protected BaseBs(DbConnection connection) : base(connection)
     {
         dal = new DAL_TYPE();
         dal.Connection = Connection;
@@ -44,7 +45,7 @@ public abstract class BaseBs<TYPE_LIBRARY_TYPE, DAL_TYPE, ADOTEMPLATE_DB_TYPE, P
 
 
 
-    protected DAL_TYPE dal = new DAL_TYPE();
+    protected DAL_TYPE dal;
 
     protected override BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER> Dal
     {

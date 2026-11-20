@@ -6,21 +6,23 @@ namespace Karkas.Examples
 {
     public class ConnectionHelper
     {
+        private const string DbProviderName = "Microsoft.Data.SqlClient";
+        private const string DbConnectionString = "User Id=sa;Password=Karkas@Passw0rd;Persist Security Info=False;Initial Catalog=Chinook_AutoIncrement;Data Source=localhost;encrypt=False;";
+
+        /// <summary>Creates a new, unopened connection to the test database.</summary>
+        public static DbConnection CreateConnection()
+        {
+            return DbProviderFactoryHelper.CreateConnection(DbProviderName, DbConnectionString);
+        }
+
         public static AdoTemplateSqlServer GetAdoTemplate()
         {
-            return new AdoTemplateSqlServer();
+            return new AdoTemplateSqlServer(CreateConnection());
         }
 
         public static void SetupDatabaseConnection()
         {
-            string dbConnectionString = "User Id=sa;Password=Karkas@Passw0rd;Persist Security Info=False;Initial Catalog=Chinook_AutoIncrement;Data Source=localhost;encrypt=False;";
-            string dbProviderName = "Microsoft.Data.SqlClient";
-            string dbName = "ChinookSqlServerAutoIncrement";
-
-            DbProviderFactories.RegisterFactory(dbProviderName, Microsoft.Data.SqlClient.SqlClientFactory.Instance);
-            ConnectionSingleton.Instance.AddConnection(dbName, dbProviderName, dbConnectionString);
-            ConnectionSingleton.Instance.AddConnection("Main", dbProviderName, dbConnectionString);
-
+            DbProviderFactories.RegisterFactory(DbProviderName, Microsoft.Data.SqlClient.SqlClientFactory.Instance);
         }
 
     }

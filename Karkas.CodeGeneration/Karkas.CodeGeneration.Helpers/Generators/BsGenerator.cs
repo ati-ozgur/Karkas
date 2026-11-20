@@ -66,6 +66,7 @@ public abstract class BsGenerator : BaseGenerator
 
 		AtStartCurlyBraceletIncreaseTab();
 
+		Write_Constructor();
 		Write_OverrideDatabaseName();
 		if (container is ITable && (!string.IsNullOrEmpty(pkName)))
 		{
@@ -129,6 +130,14 @@ public abstract class BsGenerator : BaseGenerator
 	}
 
 
+
+	private void Write_Constructor()
+	{
+		output.AutoTabLine(string.Format("public {0}(System.Data.Common.DbConnection connection) : base(connection)", classNameBs));
+		AtStartCurlyBraceletIncreaseTab();
+		AtEndCurlyBraceletDecreaseTab();
+		output.AutoTabLine("");
+	}
 
 	private void Write_OverrideDatabaseName()
 	{

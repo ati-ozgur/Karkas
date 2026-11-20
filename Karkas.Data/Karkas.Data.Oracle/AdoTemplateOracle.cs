@@ -24,6 +24,10 @@ public class AdoTemplateOracle : BaseAdoTemplate<ParameterBuilderOracle>
         
     }
 
+    public AdoTemplateOracle(DbConnection connection) : base(connection, DB_PROVIDER_ORACLE)
+    {
+    }
+
     public AdoTemplateOracle(string dbProviderName) : base(dbProviderName)
     {
     }

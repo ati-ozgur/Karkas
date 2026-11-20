@@ -25,6 +25,10 @@ namespace Karkas.Data.SqlServer
 		{
 
 		}
+
+		public BaseDalForIdentitySqlServer(DbConnection connection) : base(new ExceptionChangerSqlServer(), connection)
+		{
+		}
 		public override string DbProviderName
         {
             get

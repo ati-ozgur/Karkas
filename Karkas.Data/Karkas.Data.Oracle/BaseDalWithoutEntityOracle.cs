@@ -12,6 +12,10 @@ namespace Karkas.Data.Oracle
 		{
 			
 		}
+
+		public BaseDalWithoutEntityOracle(System.Data.Common.DbConnection connection) : base(new ExceptionChangerOracle(), connection)
+		{
+		}
 		public override string ParameterSymbol
         {
             get { return ":"; }

@@ -24,6 +24,10 @@ namespace Karkas.Data.Oracle
 		{
 		}
 
+		public BaseDalForIdentityOracle(DbConnection connection) : base(new ExceptionChangerOracle(), connection)
+		{
+		}
+
 		readonly Type TYPE_PrimaryKey = typeof(PRIMARY_KEY);
 		readonly Type TYPE_OracleDecimal = typeof(OracleDecimal);
 

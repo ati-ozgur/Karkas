@@ -3,7 +3,7 @@ public partial class TestHelper
 {
 	public static void TestInsertAlbum()
 	{
-		AlbumBs albumBs = new AlbumBs();
+		AlbumBs albumBs = new AlbumBs(ConnectionHelper.CreateConnection());
 		string albumTitle = Guid.NewGuid().ToString();
 
 		Album a = new Album();
@@ -42,7 +42,7 @@ public partial class TestHelper
 		int newAlbumId = Convert.ToInt32(maxAlbumId) + 1;
 
 
-		AlbumBs albumBs = new AlbumBs();
+		AlbumBs albumBs = new AlbumBs(ConnectionHelper.CreateConnection());
 
 
 
@@ -117,7 +117,7 @@ public partial class TestHelper
 	}
 	public static void TestCrudCustomer()
 	{
-		CustomerBs customerBs = new CustomerBs();
+		CustomerBs customerBs = new CustomerBs(ConnectionHelper.CreateConnection());
 
 		Customer c1 = new Customer();
 		c1.FirstName = "Atilla";

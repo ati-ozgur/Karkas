@@ -3,8 +3,8 @@ public partial class TestHelper
 {
 	public static void TestTransactionWorks()
 	{
-		AlbumBs albumBs = new AlbumBs();
-		ArtistBs artistBs = new ArtistBs();
+		AlbumBs albumBs = new AlbumBs(ConnectionHelper.CreateConnection());
+		ArtistBs artistBs = new ArtistBs(ConnectionHelper.CreateConnection());
 		string artistName = "Atilla" + Guid.NewGuid().ToString(); ;
 		string titleToInsert = $"{artistName}'s new Title" + Guid.NewGuid().ToString();
 
@@ -26,8 +26,8 @@ public partial class TestHelper
 	}
 	public static void TestTransactionRollback()
 	{
-		ArtistBs artistBs = new ArtistBs();
-		AlbumBs albumBs = new AlbumBs();
+		ArtistBs artistBs = new ArtistBs(ConnectionHelper.CreateConnection());
+		AlbumBs albumBs = new AlbumBs(ConnectionHelper.CreateConnection());
 
 		string artistName = "Atilla" + Guid.NewGuid().ToString(); ;
 		string titleToInsert = $"{artistName}'s new Title" + Guid.NewGuid().ToString();

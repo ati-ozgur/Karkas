@@ -14,6 +14,10 @@ namespace Karkas.Data.Sqlite
         where PARAMETER_BUILDER : IParameterBuilder, new ()
 
     {
+        protected BaseBsSqlite(System.Data.Common.DbConnection connection) : base(connection)
+        {
+        }
+
 
 
         public new DIGER_DAL_TIPI GetDalInstance<DIGER_DAL_TIPI, DIGER_TYPE_LIBRARY_TIPI>()

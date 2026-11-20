@@ -16,6 +16,10 @@ namespace Karkas.Data.Sqlite
         where PRIMARY_KEY : struct
 
     {
+        protected BaseBsSqliteForIdentity(System.Data.Common.DbConnection connection) : base(connection)
+        {
+        }
+
         public new DIGER_DAL_TIPI GetDalInstance<DIGER_DAL_TIPI, DIGER_TYPE_LIBRARY_TIPI>()
             where DIGER_TYPE_LIBRARY_TIPI : BaseTypeLibrary, new()
             where DIGER_DAL_TIPI : BaseDal<DIGER_TYPE_LIBRARY_TIPI, ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER>, new()

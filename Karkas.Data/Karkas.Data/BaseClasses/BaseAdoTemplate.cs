@@ -13,10 +13,14 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
 {
     private string dbProviderName;
     private string connectionString;
-    private bool useConnectionSingleton = true;
 
 
 
+    /// <summary>
+    /// Creates a template without a connection. Required by the new() generic constraints;
+    /// the DAL assigns <see cref="Connection"/> right after construction.
+    /// If you create a template yourself, use a constructor that takes a DbConnection or a connection string.
+    /// </summary>
     public BaseAdoTemplate(string dbProviderName)
     {
         this.dbProviderName = dbProviderName;
@@ -25,7 +29,11 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     {
         this.connectionString = connectionString;
         this.dbProviderName = dbProviderName;
-        this.useConnectionSingleton = false;
+    }
+    public BaseAdoTemplate(DbConnection connection, string dbProviderName)
+    {
+        this.connection = connection ?? throw new ArgumentNullException(nameof(connection));
+        this.dbProviderName = dbProviderName;
     }
 
 
@@ -121,14 +129,15 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     {
         get
         {
-            if (this.useConnectionSingleton && connection == null)
+            if (connection == null)
             {
-                connection = ConnectionSingleton.Instance.getConnection("Main");
-            }
-            else if (connectionString != null && dbProviderName != null)
-            {
-                connection = DbProviderFactoryHelper.Create(dbProviderName).Factory.CreateConnection();
-                connection.ConnectionString = connectionString;
+                if (connectionString == null)
+                {
+                    throw new InvalidOperationException(string.Format(
+                        "{0} has no DbConnection. Pass a DbConnection or connection string to the constructor, or set the Connection property.",
+                        GetType().Name));
+                }
+                connection = DbProviderFactoryHelper.CreateConnection(dbProviderName, connectionString);
             }
             return connection;
         }
@@ -145,7 +154,7 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         set
         {
             this.connectionString = value;
-            this.useConnectionSingleton = false;
+            this.connection = null;
         }
     }
 

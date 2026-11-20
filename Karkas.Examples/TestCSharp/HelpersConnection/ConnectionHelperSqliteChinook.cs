@@ -7,18 +7,23 @@ namespace Karkas.Examples
 {
     public class ConnectionHelper
     {
+        private const string DbProviderName = "Microsoft.Data.Sqlite";
+        private const string DbConnectionString = "Data Source=Chinook.sqlite;Mode=ReadWrite;";
+
+        /// <summary>Creates a new, unopened connection to the test database.</summary>
+        public static DbConnection CreateConnection()
+        {
+            return DbProviderFactoryHelper.CreateConnection(DbProviderName, DbConnectionString);
+        }
+
         public static AdoTemplateSqlite GetAdoTemplate()
         {
-            return new AdoTemplateSqlite();
+            return new AdoTemplateSqlite(CreateConnection());
         }        
 
         public static void SetupDatabaseConnection()
         {
-            string dbConnectionString = "Data Source=Chinook.sqlite;Mode=ReadWrite;";
-            string dbProviderName = "Microsoft.Data.Sqlite";
-            DbProviderFactories.RegisterFactory(dbProviderName, Microsoft.Data.Sqlite.SqliteFactory.Instance);
-            ConnectionSingleton.Instance.AddConnection("Main", dbProviderName, dbConnectionString);
-
+            DbProviderFactories.RegisterFactory(DbProviderName, Microsoft.Data.Sqlite.SqliteFactory.Instance);
         }
 
     }

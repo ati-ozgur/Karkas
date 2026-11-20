@@ -14,6 +14,10 @@ namespace Karkas.Data.Oracle
         where PARAMETER_BUILDER : ParameterBuilderOracle, new ()
 
     {
+        protected BaseBsOracle(System.Data.Common.DbConnection connection) : base(connection)
+        {
+        }
+
 
 
         public new DIGER_DAL_TIPI GetDalInstance<DIGER_DAL_TIPI, DIGER_TYPE_LIBRARY_TIPI>()

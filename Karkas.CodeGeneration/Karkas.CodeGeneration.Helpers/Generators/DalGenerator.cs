@@ -73,6 +73,8 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             Write_ClassGenerated();
             output.AutoTabLine("");
 
+            Write_Constructors();
+
             Write_OverrideDatabaseName();
 
             Write_SetIdentityColumnValue();
@@ -353,6 +355,20 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
         }
 
+
+        private void Write_Constructors()
+        {
+            string classNameDal = classNameTypeLibrary + "Dal";
+            // Parameterless constructor is required by the new() constraints in BaseBs / GetDalInstance,
+            // which set Connection right after construction.
+            output.AutoTabLine(string.Format("public {0}()", classNameDal));
+            AtStartCurlyBraceletIncreaseTab();
+            AtEndCurlyBraceletDecreaseTab();
+            output.AutoTabLine(string.Format("public {0}(System.Data.Common.DbConnection connection) : base(connection)", classNameDal));
+            AtStartCurlyBraceletIncreaseTab();
+            AtEndCurlyBraceletDecreaseTab();
+            output.AutoTabLine("");
+        }
 
         private void Write_OverrideDatabaseName()
         {

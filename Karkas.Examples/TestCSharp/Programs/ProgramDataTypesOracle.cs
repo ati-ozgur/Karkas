@@ -1,7 +1,7 @@
 ﻿
 ConnectionHelper.SetupDatabaseConnection();
 
-TumIslemHataTakipBs bs = new TumIslemHataTakipBs();
+TumIslemHataTakipBs bs = new TumIslemHataTakipBs(ConnectionHelper.CreateConnection());
 
 for (int i = 0; i < 10; i++)
 {
@@ -16,7 +16,7 @@ for (int i = 0; i < 10; i++)
     Console.WriteLine("Inserted TumIslemHataTakip with key: " + key);
 }
 
-EmployeeBs bsEmployee = new EmployeeBs();
+EmployeeBs bsEmployee = new EmployeeBs(ConnectionHelper.CreateConnection());
 
 Employee c1 = new Employee();
 c1.FirstName = "Atilla";
@@ -53,7 +53,7 @@ d1.CInt = 1;
 d1.CInteger = 2;
 d1.CClob = "test";
 
-DenemeBs bsDeneme = new DenemeBs();
+DenemeBs bsDeneme = new DenemeBs(ConnectionHelper.CreateConnection());
 pk = bsDeneme.Insert(d1);
 
 Deneme d2 = bsDeneme.QueryByPkId(pk);
@@ -63,7 +63,7 @@ AssertEquals(d1.CClob, d2.CClob, "CClob works");
 
 Console.WriteLine("Deneme table insert works");
 
-DecimalTablesBs bs1 = new DecimalTablesBs();
+DecimalTablesBs bs1 = new DecimalTablesBs(ConnectionHelper.CreateConnection());
 
 int rowCount = 10;
 var resultList = bs1.QueryAll(rowCount);
@@ -82,7 +82,7 @@ b1.Username = "admin";
 b1.RequestJson = new UTF8Encoding().GetBytes("{\"key\":1}");
 b1.ResponseJson = new UTF8Encoding().GetBytes("{\"key\":1}");
 
-BlobExample1Bs bs2 = new BlobExample1Bs();
+BlobExample1Bs bs2 = new BlobExample1Bs(ConnectionHelper.CreateConnection());
 bs2.Insert(b1);
 Console.WriteLine("BlobExample1 insert works");
 

@@ -23,6 +23,10 @@ public class AdoTemplateSqlite : BaseAdoTemplate<ParameterBuilderSqlite>
 
     }
 
+    public AdoTemplateSqlite(DbConnection connection) : base(connection, "Microsoft.Data.Sqlite")
+    {
+    }
+
     public override bool ExecuteAsExists(String pSql, DbParameter[] pParamList)
     {
         string sqlToExecute = string.Format(@"select exists

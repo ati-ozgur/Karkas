@@ -17,6 +17,10 @@ namespace Karkas.Data.SqlServer
 
 		}
 
+		public BaseDalSqlServer(DbConnection connection) : base(new ExceptionChangerSqlServer(), connection)
+		{
+		}
+
 		private ADOTEMPLATE_DB_TYPE templateSqlServer;
         public override ADOTEMPLATE_DB_TYPE Template
         {

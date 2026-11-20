@@ -13,9 +13,21 @@ public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE,PARAMETER_BUILDER
     where PARAMETER_BUILDER : IParameterBuilder, new()
 {
 
+    /// <summary>
+    /// Creates a DAL without a connection. The parameterless path is required by the
+    /// new() generic constraints used throughout Karkas (e.g. BaseBs, GetDalInstance),
+    /// which assign <see cref="Connection"/> right after construction.
+    /// If you create a DAL yourself, prefer the constructor that takes a DbConnection.
+    /// </summary>
     public BaseDalWithoutEntity(ExceptionChanger pExceptionChanger)
     {
 		_currentExceptionChanger = pExceptionChanger;
+    }
+
+    public BaseDalWithoutEntity(ExceptionChanger pExceptionChanger, DbConnection connection)
+		: this(pExceptionChanger)
+    {
+		this.connection = connection ?? throw new ArgumentNullException(nameof(connection));
     }
 
 
@@ -87,14 +99,9 @@ public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE,PARAMETER_BUILDER
         {
             if (connection == null)
             {
-                if (string.IsNullOrEmpty(DatabaseName))
-                {
-                    connection =  ConnectionSingleton.Instance.getConnection("Main");
-                }
-                else
-                {
-                    connection = ConnectionSingleton.Instance.getConnection(DatabaseName);
-                }
+                throw new InvalidOperationException(string.Format(
+                    "{0} has no DbConnection. Pass one to the constructor or set the Connection property.",
+                    GetType().Name));
             }
             return connection;
         }

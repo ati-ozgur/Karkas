@@ -9,6 +9,10 @@ public abstract class BaseBsForIdentity<TYPE_LIBRARY_TYPE, DAL_TYPE, ADOTEMPLATE
     where PARAMETER_BUILDER : IParameterBuilder, new()
     where PRIMARY_KEY : struct
 {
+    protected BaseBsForIdentity(System.Data.Common.DbConnection connection) : base(connection)
+    {
+    }
+
     public new virtual PRIMARY_KEY Insert(TYPE_LIBRARY_TYPE k)
     {
         return dal.Insert(k);

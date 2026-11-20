@@ -22,8 +22,6 @@ namespace Karkas.CodeGeneration.WinApp
         {
             string dbProviderName = "Microsoft.Data.Sqlite";
             DbProviderFactories.RegisterFactory(dbProviderName, SqliteFactory.Instance);
-            ConnectionSingleton.Instance.ProviderName = dbProviderName;
-            ConnectionSingleton.Instance.ConnectionString = "Data Source=connectionsDb.sqlite";
 
 
 

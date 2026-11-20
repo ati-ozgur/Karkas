@@ -25,6 +25,10 @@ namespace Karkas.Data.Sqlite
 		{
 
 		}
+
+		public BaseDalForIdentitySqlite(DbConnection connection) : base(new ExceptionChangerSqlite(), connection)
+		{
+		}
 		public override string DbProviderName
         {
             get

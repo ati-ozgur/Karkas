@@ -4,7 +4,7 @@ ConnectionHelper.SetupDatabaseConnection();
 
 int pk = 1;
 
-CustomersBs bs = new CustomersBs();
+CustomersBs bs = new CustomersBs(ConnectionHelper.CreateConnection());
 
 Customers c1 = new Customers();
 c1.CustomerId = pk++;

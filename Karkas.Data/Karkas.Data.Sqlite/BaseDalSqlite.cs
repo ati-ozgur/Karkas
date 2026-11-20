@@ -26,6 +26,10 @@ namespace Karkas.Data.Sqlite
 
 		}
 
+		public BaseDalSqlite(DbConnection connection) : base(new ExceptionChangerSqlite(), connection)
+		{
+		}
+
 		private ADOTEMPLATE_DB_TYPE templateSqlite;
         public override ADOTEMPLATE_DB_TYPE Template
         {

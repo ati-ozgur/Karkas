@@ -58,7 +58,7 @@ sequenceDiagram
 
 ## Requirements
 
-Karkas currently uses and supports .Net 8/.Net 9 but generated code is usable from .NET 4, .Net Core 1-3 and .Net 6,7,8,9.
+Karkas currently uses and supports .Net 10 but generated code is usable from .NET 4, .Net Core 1-3 and .Net 6,7,8,9,10.
 
 
 ## Contributing

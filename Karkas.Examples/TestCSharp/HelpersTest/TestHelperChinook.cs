@@ -15,7 +15,7 @@ public partial class TestHelper
 
     public static void TestExits()
     {
-        AlbumBs albumBs = new AlbumBs();
+        AlbumBs albumBs = new AlbumBs(ConnectionHelper.CreateConnection());
 
         bool exists = albumBs.IsTitleExists("Fireball");
         if(exists)

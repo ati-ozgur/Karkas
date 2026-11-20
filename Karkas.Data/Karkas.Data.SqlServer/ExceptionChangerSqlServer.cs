@@ -24,7 +24,7 @@ namespace Karkas.Data.SqlServer
 					exceptionToThrow = new WrongSQLQueryException(string.Format("Sql statement parameters are not defined/added correctly, sql statement = {0}, orjinal error message = {1}", pMessage, ex.Message), ex);
 					break;
 				case -1:
-					exceptionToThrow = new DatabaseConnectionException(string.Format("Cannot connect to database using connection string: {0} . Error Message = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message), ex);
+					exceptionToThrow = new DatabaseConnectionException(string.Format("Cannot connect to database. Please verify connection string correctness and server is working. Error Message = {0}", ex.Message), ex);
 					break;
 				case 102:
 				case 207:
@@ -58,10 +58,10 @@ namespace Karkas.Data.SqlServer
 					exceptionToThrow = new ForeignKeyException(string.Format("Table constraints are violated."), ex);
 					break;
 				case 208:
-					exceptionToThrow = new DatabaseConnectionException(string.Format("Cannot connect to database. Please verify connection string correctness and server is working. Connection String = {0}, Error Message = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message));
+					exceptionToThrow = new DatabaseConnectionException(string.Format("Cannot connect to database. Please verify connection string correctness and server is working. Error Message = {0}", ex.Message));
 					break;
 				case 4060:
-					exceptionToThrow = new DatabaseConnectionException(string.Format("Server is OK but cannot connect to database. Please verify connection string correctness. Connection String = {0}, Error Message = {1}", ConnectionSingleton.Instance.ConnectionString, ex.Message));
+					exceptionToThrow = new DatabaseConnectionException(string.Format("Server is OK but cannot connect to database. Please verify connection string correctness. Error Message = {0}", ex.Message));
 					break;
 				default:
 					exceptionToThrow = new KarkasDataException(string.Format("Unknown Data Exception , Messsage = {0}", ex.Message), ex);

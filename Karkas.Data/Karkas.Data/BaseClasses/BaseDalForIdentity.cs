@@ -31,6 +31,11 @@ public abstract class BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMP
 	{
 	}
 
+	public BaseDalForIdentity(ExceptionChanger pExceptionChanger, DbConnection connection)
+		: base(pExceptionChanger, connection)
+	{
+	}
+
 
 
 
