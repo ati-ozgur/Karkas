@@ -39,12 +39,12 @@ Most of the real testing is done end to end by the scripts in `Karkas.Examples/T
 ./Karkas.Examples/TestBash/run_all.bash
 ```
 
-The GitHub Actions workflows (`.github/workflows/*.yml`) run these same scripts on .NET 8. SQLite runs first, and the other workflows are chained after it with `workflow_run`.
+The GitHub Actions workflows (`.github/workflows/*.yml`) run these same scripts on .NET 10. SQLite runs first, and the other workflows are chained after it with `workflow_run`.
 
 Other scripts:
 - `delete_bin_obj.bash` removes all bin/obj folders.
 - `deploy_nuget_packages.bash` packs and pushes to NuGet. It reads versions from `version.txt` and needs `KARKAS_NUGET_API_KEY`.
-- `Karkas.WinApp.sln` contains the Windows Forms front end (`net8.0-windows`, Windows only).
+- `Karkas.WinApp.sln` contains the Windows Forms front end (`net10.0-windows`, Windows only).
 
 ## Architecture
 
@@ -81,4 +81,4 @@ There are two independent halves, each split into a shared core plus one project
 
 - `.editorconfig`: tabs (size 4), CRLF line endings, max line length 120. `*.bash` files must stay LF.
 - Some identifiers and comments are in Turkish (for example `TurkishHelper`, and the `AbbrevationsAsString` config spelling). Keep existing names as they are.
-- Library projects target `net8.0`, but generated code is meant to stay usable on older .NET (4.x, Core 1–3). Avoid emitting newer-only C# unless it is behind a config flag such as `UseFileScopedNamespace` or `UseGlobalUsings`.
+- Library projects target `net10.0`, but generated code is meant to stay usable on older .NET (4.x, Core 1–3). Avoid emitting newer-only C# unless it is behind a config flag such as `UseFileScopedNamespace` or `UseGlobalUsings`.
