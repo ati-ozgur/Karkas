@@ -81,7 +81,10 @@ namespace Karkas.Data.Sqlite
             }
             catch (Exception ex)
             {
+                // e.g. the identity value can not be converted to PRIMARY_KEY;
+                // rethrow so the caller does not get a default key as if the insert worked
                 trace.Fail(ex);
+                throw;
             }
 
             finally
