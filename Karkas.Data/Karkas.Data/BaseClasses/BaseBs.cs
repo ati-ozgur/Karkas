@@ -64,10 +64,6 @@ public abstract class BaseBs<TYPE_LIBRARY_TYPE, DAL_TYPE, ADOTEMPLATE_DB_TYPE, P
     {
         dal.Delete(k);
     }
-    public void InsertUpdateDeleteAccordingToState(TYPE_LIBRARY_TYPE k)
-    {
-        dal.InsertUpdateDeleteAccordingToState(k);
-    }
     public List<TYPE_LIBRARY_TYPE> QueryAll()
     {
         return dal.QueryAll();
@@ -87,10 +83,6 @@ public abstract class BaseBs<TYPE_LIBRARY_TYPE, DAL_TYPE, ADOTEMPLATE_DB_TYPE, P
     public List<TYPE_LIBRARY_TYPE> QueryAllOrderBy(params OrderBy[] pListOrderBy)
     {
         return dal.QueryAllOrderBy(pListOrderBy);
-    }
-    public void BatchInsertUpdateDelete(List<TYPE_LIBRARY_TYPE> liste)
-    {
-        dal.BatchInsertUpdateDelete(liste);
     }
     public int TableRowCount
     {

@@ -65,9 +65,6 @@ namespace Karkas.Data.Oracle
             DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
             InsertCommandParametersAdd(cmd, row);
 
-
-            row.RowState = DataRowState.Unchanged;
-
             QueryTrace trace = QueryTrace.Start(cmd, QueryIdFor("Insert"), DbProviderName);
             try
             {

@@ -73,42 +73,10 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
     public virtual void Update(TYPE_LIBRARY_TYPE row)
     {
         ExecuteNonQueryUpdate(UpdateString, row);
-
-        row.RowState = DataRowState.Unchanged;
     }
     public virtual void Delete(TYPE_LIBRARY_TYPE row)
     {
         ExecuteNonQueryDelete(DeleteString, row);
-        row.RowState = DataRowState.Unchanged;
-    }
-
-
-    public virtual void BatchInsertUpdateDelete(List<TYPE_LIBRARY_TYPE> liste)
-    {
-        if (liste == null)
-        {
-            return;
-        }
-        foreach (TYPE_LIBRARY_TYPE t in liste)
-        {
-            InsertUpdateDeleteAccordingToState(t);
-        }
-    }
-
-    public virtual void InsertUpdateDeleteAccordingToState(TYPE_LIBRARY_TYPE t)
-    {
-        switch (t.RowState)
-        {
-            case DataRowState.Added:
-                Insert(t);
-                break;
-            case DataRowState.Deleted:
-                Delete(t);
-                break;
-            case DataRowState.Modified:
-                Update(t);
-                break;
-        }
     }
 
 
@@ -276,8 +244,6 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
         InsertCommandParametersAdd(cmd, row);
         int result = ExecuteNonQueryCommandInternal(cmd, nameof(Insert));
-
-        row.RowState = DataRowState.Unchanged;
         return result;
     }
     protected void ExecuteNonQueryUpdate(string cmdText, TYPE_LIBRARY_TYPE row,
@@ -288,9 +254,6 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         int rowCount = ExecuteNonQueryCommandInternal(cmd, queryId);
 
         bool updateResultuBasarisiz = (rowCount == 0);
-
-        // This code will blow in BatchInsertUpdateDelete
-        // Developers should write their own custom logic for this purpose
 
         if (updateResultuBasarisiz)
         {
@@ -424,7 +387,6 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
                 {
                     row = new TYPE_LIBRARY_TYPE();
                     ProcessRow(reader, row);
-                    row.RowState = DataRowState.Unchanged;
                     liste.Add(row);
                 }
 

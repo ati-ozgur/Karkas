@@ -277,10 +277,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.AutoTabLine("set");
                 output.AutoTabLine("{");
                 output.IncreaseTab();
-                output.AutoTabLine(string.Format("if ((this.RowState == DataRowState.Unchanged) && ({0}!= value))", memberVariableName));
-                output.AutoTabLine("{");
-                output.AutoTabLine("\tthis.RowState = DataRowState.Modified;");
-                output.AutoTabLine("}");
                 output.AutoTabLine(string.Format("{0} = value;", memberVariableName));
                 output.DecreaseTab();
                 output.AutoTabLine("}");

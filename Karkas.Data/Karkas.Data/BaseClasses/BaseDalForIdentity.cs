@@ -50,10 +50,6 @@ public abstract class BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMP
         DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
         InsertCommandParametersAdd(cmd, row);
 
-
-        //rowstate'i unchanged yapiyoruz
-        row.RowState = DataRowState.Unchanged;
-
         QueryTrace trace = QueryTrace.Start(cmd, QueryIdFor("Insert"), DbProviderName);
         try
         {
