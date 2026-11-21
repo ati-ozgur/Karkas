@@ -83,8 +83,9 @@ public class HelperOracleDataTypesTest
 	//    ) ;
 	// Thus we only need to test for NUMBER and FLOAT
 
+	// forceOracleDecimalToIntegersAndDecimal defaults to true: NUMBER(38) is forced to decimal, never OracleDecimal
 	[Theory]
-	[InlineData("NUMBER", 38, 0, "OracleDecimal")]
+	[InlineData("NUMBER", 38, 0, "decimal")]
 	public void ANSISupportWholeNumbers_ShouldReturnWholeNumbers_NoIdentity(string oracleType,  int dataPrecision, int dataScale, string expectedDotNetType)
 	{
 		// Act
@@ -123,7 +124,7 @@ public class HelperOracleDataTypesTest
 	[InlineData("NUMBER",20,1, "decimal")]
 	[InlineData("NUMBER",25,1, "decimal")]
 	[InlineData("NUMBER",5,1, "decimal")]
-	[InlineData("NUMBER",30,1, "OracleDecimal")]
+	[InlineData("NUMBER",30,1, "decimal")] // forced: default forceOracleDecimalToIntegersAndDecimal = true
 	public void GetDotNetType_ShouldReturnDecimal1_NoIdentity(string oracleType, int dataPrecision, int dataScale, string expectedDotNetType)
 	{
 		// Act
@@ -138,7 +139,7 @@ public class HelperOracleDataTypesTest
 	[InlineData("NUMBER",20,1, "decimal")]
 	[InlineData("NUMBER",25,1, "decimal")]
 	[InlineData("NUMBER",5, 1, "decimal")]
-	[InlineData("NUMBER",30,1, "OracleDecimal")]
+	[InlineData("NUMBER",30,1, "decimal")] // forced to decimal, see NotForced test below for OracleDecimal
 	public void Number_ShouldReturnIntTypes1_NoIdentity(string oracleType, int dataPrecision, int dataScale, string expectedDotNetType)
 	{
 		// Act
@@ -154,7 +155,7 @@ public class HelperOracleDataTypesTest
 	[InlineData("NUMBER",15,0, "long")]
 	[InlineData("NUMBER",20,0, "decimal")]
 	[InlineData("NUMBER",25,0, "decimal")]
-	[InlineData("NUMBER",38,0, "OracleDecimal")]
+	[InlineData("NUMBER",38,0, "decimal")]
 	public void Number_ShouldReturnIntTypes2_NoIdentity(string oracleType, int dataPrecision, int dataScale, string expectedDotNetType)
 	{
 
@@ -162,10 +163,28 @@ public class HelperOracleDataTypesTest
 		// int64 max 19 bytes
 		// int128 max 39 bytes
 
-		// since we have datascale 0, change number to true should make them int,long, Int128
+		// since we have datascale 0, forcing makes them int, long or decimal (never OracleDecimal)
 		var result = HelperOracleDataTypes.GetDotNetType(oracleType, false, dataPrecision, dataScale,true);
 
 		// Assert
+		Assert.Equal(expectedDotNetType, result);
+	}
+
+	// forceOracleDecimalToIntegersAndDecimal = false: no int/long mapping, and precisions that
+	// .NET decimal cannot hold become OracleDecimal. decimal holds every 28 digit value but not every 29 digit value.
+	[Theory]
+	[InlineData("NUMBER",10,0, "decimal")]
+	[InlineData("NUMBER",15,0, "decimal")]
+	[InlineData("NUMBER",20,1, "decimal")]
+	[InlineData("NUMBER",27,0, "decimal")]
+	[InlineData("NUMBER",28,0, "decimal")]
+	[InlineData("NUMBER",29,0, "OracleDecimal")]
+	[InlineData("NUMBER",30,1, "OracleDecimal")]
+	[InlineData("NUMBER",38,0, "OracleDecimal")]
+	public void Number_NotForced_ShouldReturnOracleDecimalAboveDecimalPrecision(string oracleType, int dataPrecision, int dataScale, string expectedDotNetType)
+	{
+		var result = HelperOracleDataTypes.GetDotNetType(oracleType, false, dataPrecision, dataScale, false);
+
 		Assert.Equal(expectedDotNetType, result);
 	}
 
