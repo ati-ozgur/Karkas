@@ -21,5 +21,6 @@ $current_script_directory/run_oracle_chinook_normal.bash stop
 $current_script_directory/run_sqlserver_chinook_auto_increment.bash  stop
 $current_script_directory/run_sqlite_datatypes.bash
 $current_script_directory/run_oracle_datatypes.bash stop
+$current_script_directory/run_oracle23ai_datatypes.bash stop
 $current_script_directory/run_sqlserver_datatypes.bash stop
 
