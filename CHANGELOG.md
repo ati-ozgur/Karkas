@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased
+
+### Fixed
+
+- Generated `QueryBy<PrimaryKey>` methods now pass the key as a parameter. Before, they formatted it into the SQL
+  text (`String.Format(" REGION_ID = '{0}'", p)`), so tables with string keys were open to SQL injection, and numeric
+  or date keys depended on the current culture (for example `1,5` instead of `1.5` on a Turkish system).
+  Regenerate your code to get the fix.
+- SQLite tables whose primary key is not auto-increment (for example a `TEXT` key) now compile: `BaseDalSqlite` was
+  missing the `DbProviderName` override.
+
 ## 2.1.0 (2026-11-21)
 
 ### Added

@@ -30,6 +30,14 @@ namespace Karkas.Data.Sqlite
 		{
 		}
 
+		public override string DbProviderName
+		{
+			get
+			{
+				return "Microsoft.Data.Sqlite";
+			}
+		}
+
 		private ADOTEMPLATE_DB_TYPE templateSqlite;
         public override ADOTEMPLATE_DB_TYPE Template
         {

@@ -730,12 +730,16 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.AutoTabLine(methodLine);
                 AtStartCurlyBraceletIncreaseTab();
                 defineList(output);
+                foreach (string statement in GetQueryByPkStatements(pkName, variableName, parameterSymbol,
+                             CodeGenerationConfig.UseQuotesInQueries))
+                {
+                    output.AutoTabLine(statement);
+                }
+                // Write_PrimaryKey (called later) relies on pkName being quoted when UseQuotesInQueries is set.
                 if(CodeGenerationConfig.UseQuotesInQueries)
                 {
                     pkName = "\\\"" + pkName + "\\\"";
                 }
-                output.AutoTab("ExecuteQuery(list,String.Format(\" " + pkName + " = '{0}'\"," +variableName+ "));");
-                output.AutoTabLine("");
                 output.AutoTabLine("if (list.Count > 0)");
                 output.AutoTabLine("{");
                 output.AutoTabLine("\treturn list[0];");
@@ -746,6 +750,24 @@ namespace Karkas.CodeGeneration.Helpers.Generators
                 output.AutoTabLine("}");
                 AtEndCurlyBraceletDecreaseTab();
                 }
+        }
+
+        /// <summary>
+        /// Statements for the body of the generated QueryBy&lt;Pk&gt; method. The key value is passed as a
+        /// parameter, never formatted into the SQL text, so the query is safe against SQL injection and does
+        /// not depend on the current culture's number/date format.
+        /// </summary>
+        public static string[] GetQueryByPkStatements(string pkColumnName, string variableName,
+            string parameterSymbol, bool useQuotesInQueries)
+        {
+            string columnInSql = useQuotesInQueries ? "\\\"" + pkColumnName + "\\\"" : pkColumnName;
+            string parameterName = parameterSymbol + pkColumnName;
+            return new[]
+            {
+                "IParameterBuilder builder = getParameterBuilder();",
+                $"builder.AddParameter(\"{parameterName}\", {variableName});",
+                $"ExecuteQuery(list, \" {columnInSql} = {parameterName}\", builder.GetParameterArray());",
+            };
         }
 
         private void Write_IdentityExists( )
