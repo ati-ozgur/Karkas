@@ -128,12 +128,27 @@ public partial class TestHelper
 	}
 
 	// repSign/idSign: 1 = ascending, -1 = descending; Convert because id types differ per database
+	// Keys are long (SQLite), int (SQL Server) or OracleDecimal (Oracle). OracleDecimal is not IConvertible,
+	// and this file is shared by all databases, so it is converted through its string form.
+	private static decimal toSortKey(object value)
+	{
+		if (value == null)
+		{
+			return 0;
+		}
+		if (value is IConvertible)
+		{
+			return Convert.ToDecimal(value, System.Globalization.CultureInfo.InvariantCulture);
+		}
+		return decimal.Parse(value.ToString() ?? "", System.Globalization.CultureInfo.InvariantCulture);
+	}
+
 	private static void assertSortedBy(List<Customer> list, int repSign, int idSign, string message)
 	{
 		for (int i = 1; i < list.Count; i++)
 		{
-			int repCompare = Convert.ToDecimal(list[i - 1].SupportRepId).CompareTo(Convert.ToDecimal(list[i].SupportRepId)) * repSign;
-			int idCompare = Convert.ToDecimal(list[i - 1].CustomerId).CompareTo(Convert.ToDecimal(list[i].CustomerId)) * idSign;
+			int repCompare = toSortKey(list[i - 1].SupportRepId).CompareTo(toSortKey(list[i].SupportRepId)) * repSign;
+			int idCompare = toSortKey(list[i - 1].CustomerId).CompareTo(toSortKey(list[i].CustomerId)) * idSign;
 			if (repCompare > 0 || (repCompare == 0 && idCompare > 0))
 			{
 				throw new Exception(message);

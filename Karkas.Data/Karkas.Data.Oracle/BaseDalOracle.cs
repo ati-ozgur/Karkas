@@ -31,6 +31,15 @@ namespace Karkas.Data.Oracle
             get { return "Oracle.DataAccess.Client"; }
         }
 
+        /// <summary>
+        /// Oracle turns an unquoted CustomerId into CUSTOMERID, so ORDER BY column names are quoted
+        /// to match tables created with quoted mixed-case names.
+        /// </summary>
+        protected override bool QuoteOrderByColumnNames
+        {
+            get { return true; }
+        }
+
         public override string ParameterCharacter
         {
             get

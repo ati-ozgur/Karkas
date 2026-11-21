@@ -186,9 +186,17 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
     }
 
 
+    /// <summary>
+    /// Whether QueryHelper quotes plain column names in ORDER BY. Default false; Oracle DALs return true.
+    /// </summary>
+    protected virtual bool QuoteOrderByColumnNames
+    {
+        get { return false; }
+    }
+
     public virtual QueryHelper GetNewQueryHelper()
     {
-            return new QueryHelper(this.ParameterCharacter);
+            return new QueryHelper(this.ParameterCharacter, QuoteOrderByColumnNames);
     }
 
 

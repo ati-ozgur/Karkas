@@ -12,6 +12,20 @@ namespace Karkas.Data
             this.ParameterCharacter = pParameterCharacter;
         }
 
+        /// <param name="pParameterCharacter">@ or : according to database syntax</param>
+        /// <param name="quoteOrderByColumnNames">see <see cref="QuoteOrderByColumnNames"/></param>
+        public QueryHelper(string pParameterCharacter, bool quoteOrderByColumnNames)
+            : this(pParameterCharacter)
+        {
+            this.QuoteOrderByColumnNames = quoteOrderByColumnNames;
+        }
+
+        /// <summary>
+        /// Whether plain column names in ORDER BY are quoted, e.g. ORDER BY "CustomerId".
+        /// Default false. Oracle DALs set it to true, because Oracle turns an unquoted CustomerId into CUSTOMERID.
+        /// </summary>
+        public bool QuoteOrderByColumnNames { get; set; }
+
 
         public string ParameterCharacter { get;  }
 
@@ -79,7 +93,7 @@ namespace Karkas.Data
             sb.Append("ORDER BY ");
             foreach (OrderBy s in listOrderBy)
             {
-                sb.Append(s.SqlForm + ",");
+                sb.Append(s.GetSqlForm(QuoteOrderByColumnNames) + ",");
             }
             sb.Remove(sb.Length - 1, 1);
             return sb.ToString();
