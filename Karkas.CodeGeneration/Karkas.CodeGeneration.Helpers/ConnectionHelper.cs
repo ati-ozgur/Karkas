@@ -85,23 +85,36 @@ namespace Karkas.CodeGeneration.Helpers
         {
             DbConnection connection;
             IAdoTemplate<IParameterBuilder> template;
-            switch (connectionDatabaseType)
+            // case-insensitive, same as the checks in the console app
+            switch (connectionDatabaseType.ToLowerInvariant())
             {
                 case "sqlite":
                     connection  = testSqlite(connectionString);
+                    if (connection == null)
+                    {
+                        return null;
+                    }
                     DbProviderFactories.RegisterFactory("Microsoft.Data.Sqlite", SqliteFactory.Instance);
                     template = new AdoTemplateSqlite();
                     template.Connection = connection; 
                     break;
-                case "SqlServer":
+                case "sqlserver":
                     connection  = testSqlserver(connectionString);
+                    if (connection == null)
+                    {
+                        return null;
+                    }
                     DbProviderFactories.RegisterFactory("Microsoft.Data.SqlClient", SqlClientFactory.Instance);
                     DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
                     template = new AdoTemplateSqlServer();
                     template.Connection = connection; 
                     break;
-                case "Oracle":
+                case "oracle":
                     connection  = testOracle(connectionString);
+                    if (connection == null)
+                    {
+                        return null;
+                    }
                     DbProviderFactories.RegisterFactory("Oracle.ManagedDataAccess.Client", OracleClientFactory.Instance);
                     //DbProviderFactories.RegisterFactory("System.Data.Oracle", OracleClientFactory.Instance);
                     template = new AdoTemplateOracle();

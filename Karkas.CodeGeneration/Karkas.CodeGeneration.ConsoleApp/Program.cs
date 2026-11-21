@@ -22,7 +22,8 @@ namespace Karkas.CodeGeneration.ConsoleApp
 {
     public class Program
     {
-        public static void Main(string[] args)
+        /// <returns>0 on success, 1 on invalid arguments, connection failure or code generation errors</returns>
+        public static int Main(string[] args)
         {
 
 
@@ -30,7 +31,8 @@ namespace Karkas.CodeGeneration.ConsoleApp
             var parsedOptions = Parser.Default.ParseArguments<CommandLineOptions>(args);
             if( parsedOptions.Value is null)
             {
-                return;
+                // --help and --version are not errors; missing or invalid arguments are
+                return parsedOptions.Errors.IsHelp() || parsedOptions.Errors.IsVersion() ? 0 : 1;
             }
             CommandLineOptions options = parsedOptions.Value;
 
@@ -57,18 +59,17 @@ namespace Karkas.CodeGeneration.ConsoleApp
                 case "sqlite":
                 case "sqlserver":
                 case "oracle":
-                    generateCode(db);
-                    break;
+                    return generateCode(db);
 
                 default:
-                    Console.WriteLine($"NOT Supported yet in command line {db.ConnectionDatabaseType}");
-                    break;
+                    Console.Error.WriteLine($"NOT Supported yet in command line {db.ConnectionDatabaseType}");
+                    return 1;
             }
 
         }
 
 
-        private static void generateCode(CodeGenerationConfig codeGenerationConfig)
+        private static int generateCode(CodeGenerationConfig codeGenerationConfig)
         {
 
             Console.WriteLine($"trying connection string {codeGenerationConfig.ConnectionString}");
@@ -76,8 +77,8 @@ namespace Karkas.CodeGeneration.ConsoleApp
             IAdoTemplate<IParameterBuilder> template =  ConnectionHelper.TestConnection(codeGenerationConfig.ConnectionDatabaseType, codeGenerationConfig.ConnectionString);
             if (template == null)
             {
-                Console.WriteLine($"error in connecting sqlite using connection string {codeGenerationConfig.ConnectionString}");
-                return;
+                Console.Error.WriteLine($"error in connecting {codeGenerationConfig.ConnectionDatabaseType} using connection string {codeGenerationConfig.ConnectionString}");
+                return 1;
             }
             else
             {
@@ -86,21 +87,22 @@ namespace Karkas.CodeGeneration.ConsoleApp
 
 
             BaseCodeGenerationDatabase generator = null;
-            switch (codeGenerationConfig.ConnectionDatabaseType)
+            // case-insensitive, same as the check in Main
+            switch (codeGenerationConfig.ConnectionDatabaseType.ToLowerInvariant())
             {
                 case "sqlite":
                     generator = new CodeGenerationSqlite(template,codeGenerationConfig);
                     break;
-                case "SqlServer":
+                case "sqlserver":
                     generator = new CodeGenerationSqlServer(template,codeGenerationConfig);
                     break;
-                case "Oracle":
+                case "oracle":
                     generator = new CodeGenerationOracle(template,codeGenerationConfig);
                     break;
 
                 default:
-                    Console.WriteLine($"NOT Supported yet in command line {codeGenerationConfig.ConnectionDatabaseType}");
-                    break;
+                    Console.Error.WriteLine($"NOT Supported yet in command line {codeGenerationConfig.ConnectionDatabaseType}");
+                    return 1;
             }
 
 
@@ -110,8 +112,10 @@ namespace Karkas.CodeGeneration.ConsoleApp
             Console.WriteLine(result);
             if (!string.IsNullOrEmpty(result))
             {
-                throw new Exception("There are errors in the code generation");
+                Console.Error.WriteLine("There are errors in the code generation");
+                return 1;
             }
+            return 0;
 
         }
 

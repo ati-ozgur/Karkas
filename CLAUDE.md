@@ -63,7 +63,7 @@ There are two independent halves, each split into a shared core plus one project
 - `Sqlite` / `SqlServer` / `Oracle` each contain:
   - `Implementations/`: `CodeGeneration<Db>`, plus `Table<Db>`, `Column<Db>` and `View<Db>`, which run metadata queries and map database types to C# types
   - `Generators/`: overrides that emit the database-specific base classes and generic parameters
-- `ConsoleApp` dispatches on `ConnectionDatabaseType`. The exact casing is `"sqlite"`, `"SqlServer"`, `"Oracle"`. When adding a database, wire it in both switch statements in `Program.cs`.
+- `ConsoleApp` dispatches on `ConnectionDatabaseType` (case-insensitive: `sqlite`, `SqlServer`, `Oracle`). When adding a database, wire it in both switch statements in `Program.cs`. It exits with 1 on invalid arguments, connection failure or generation errors.
 
 **`Karkas.Data/`** is the runtime library that generated code inherits from.
 - `Karkas.Data` defines generic base classes such as `BaseDal<TYPE_LIBRARY, ADOTEMPLATE, PARAMETER_BUILDER>`, `BaseDalForIdentity<…, PRIMARY_KEY>`, `BaseBs<…>`, `BaseBsForIdentity<…>`, `BaseTypeLibrary`, `BaseAdoTemplate` / `IAdoTemplate`, and `IParameterBuilder`. It also contains `QueryHelper`/`WhereCriteria`, paging, and `ExceptionChanger`, which maps provider errors to `ForeignKeyException`, `UniqueKeyConstraintException` and similar.

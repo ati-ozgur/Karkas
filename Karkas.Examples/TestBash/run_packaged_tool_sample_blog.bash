@@ -43,10 +43,7 @@ cp docs/tutorial-sample-blog/blog.sql docs/tutorial-sample-blog/karkas-config-sa
 cd "$APP"
 sqlite3 sample-blog.sqlite < blog.sql
 
-codegen_output=$("$TOOLS/karkas-codegen" -c sample-blog -f karkas-config-sample-blog.json)
-echo "$codegen_output"
-# karkas-codegen exits with 0 when it cannot connect, so also check that generation finished
-grep -q "Code generation finished" <<< "$codegen_output"
+"$TOOLS/karkas-codegen" -c sample-blog -f karkas-config-sample-blog.json
 
 cd GeneratedProjects/sample-blog
 dotnet new console
