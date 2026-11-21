@@ -35,6 +35,7 @@ Most of the real testing is done end to end by the scripts in `Karkas.Examples/T
 ```bash
 ./Karkas.Examples/TestBash/run_sqlite_chinook_auto_increment.bash   # no Docker needed; quickest check
 ./Karkas.Examples/TestBash/run_sqlite_datatypes.bash
+./Karkas.Examples/TestBash/run_sqlite_chinook_multi_tenant.bash   # one sqlite file per tenant (docs/multi-tenant.md)
 ./Karkas.Examples/TestBash/run_sqlserver_chinook_auto_increment.bash stop   # "stop" removes the container afterwards
 ./Karkas.Examples/TestBash/run_all.bash
 KARKAS_TEST_FRAMEWORK=net8.0 ./Karkas.Examples/TestBash/run_sqlite_chinook_auto_increment.bash   # test one target of the libraries

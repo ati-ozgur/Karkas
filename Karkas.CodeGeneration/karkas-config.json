@@ -49,6 +49,30 @@
     "IgnoredSchemaList": "",
     "AbbrevationsAsString": ""
   },
+  {
+    "GenerateNormalClassValidationExamples": true,
+    "GenerateNormalClassAgain": true,
+    "ConnectionName": "ChinookSqliteMultiTenant",
+    "ConnectionDatabaseType": "sqlite",
+    "ConnectionDbProviderName": "Microsoft.Data.Sqlite",
+    "ConnectionString": "Data Source=./Karkas.Examples/Databases/Chinook-auto-increment.sqlite;Mode=ReadWrite;",
+    "ProjectNameSpace": "Karkas.Examples.Chinook",
+    "CodeGenerationDirectory": "./Karkas.Examples/GeneratedProjects/ChinookSqliteMultiTenant",
+    "UseSchemaNameInNamespaces": false,
+    "UseSchemaNameInSqlQueries": false,
+    "UseSchemaNameInFolders": false,    
+    "UseQuotesInQueries": false,
+    "UseGlobalUsings": true,
+    "UseFileScopedNamespace": true,
+    "GenerateForeignKeyQueries": true,
+    "TableCodeGenerate": true,
+    "ViewCodeGenerate": false,
+    "StoredProcedureCodeGenerate": false,
+    "SequenceCodeGenerate": false,
+    "IgnoreSystemTables": true,
+    "IgnoredSchemaList": "",
+    "AbbrevationsAsString": ""
+  },
   
   {
     "GenerateNormalClassValidationExamples": false,

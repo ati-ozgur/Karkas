@@ -29,3 +29,5 @@ jobs:
           11.0.x
     - name: code generate for chinook_sqlite database and run simple tests
       run: ./Karkas.Examples/TestBash/run_sqlite_chinook_auto_increment.bash
+    - name: multi tenant (one sqlite file per tenant) tests
+      run: ./Karkas.Examples/TestBash/run_sqlite_chinook_multi_tenant.bash
