@@ -15,9 +15,9 @@ jobs:
       id-token: write
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v6
       with:
         # SDK 11 builds every target (net8.0-net11.0) of the multi-targeted packages
         dotnet-version: |

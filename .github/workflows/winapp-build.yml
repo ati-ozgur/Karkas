@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-24.04
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v6
       with:
         # SDK 11 also builds the net8.0-net11.0 targets of the Karkas.Data* projects in the solution
         dotnet-version: 11.0.x
