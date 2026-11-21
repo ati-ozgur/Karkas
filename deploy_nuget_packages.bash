@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
 source <(grep = version.txt)
 
 echo "KarkasDataVersion: $KarkasDataVersion"
