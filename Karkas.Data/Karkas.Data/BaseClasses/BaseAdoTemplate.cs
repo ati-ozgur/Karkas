@@ -532,9 +532,27 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     {
         for (int i = 0; i < reader.FieldCount; i++)
         {
-            string columnName = reader.GetName(i);
+            string columnName = GetUniqueColumnName(row, reader.GetName(i));
             row.Add(columnName, reader.GetValue(i));
         }
+    }
+
+    // When a select returns the same column name more than once (e.g. "select a.Name, b.Name ..."),
+    // the first one keeps its name and the following ones get a numeric suffix: Name, Name_2, Name_3 ...
+    private static string GetUniqueColumnName(Dictionary<string, object> row, string columnName)
+    {
+        if (!row.ContainsKey(columnName))
+        {
+            return columnName;
+        }
+        int suffix = 2;
+        string candidate = columnName + "_" + suffix;
+        while (row.ContainsKey(candidate))
+        {
+            suffix++;
+            candidate = columnName + "_" + suffix;
+        }
+        return candidate;
     }
     [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
     public List<Dictionary<String, Object>> GetListOfDictionary(string sql)
