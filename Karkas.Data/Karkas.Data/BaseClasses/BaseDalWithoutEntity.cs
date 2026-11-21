@@ -84,13 +84,6 @@ public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE,PARAMETER_BUILDER
         get;
     }
 
-    public virtual string DatabaseName
-    {
-        get
-        {
-            return "Main";
-        }
-    }
     private DbConnection connection = null;
 
     public DbConnection Connection

@@ -66,14 +66,6 @@ public abstract class BaseBsWithoutEntity<ADOTEMPLATE_DB_TYPE, PARAMETER_BUILDER
         transaction = null;
     }
 
-    public virtual string DatabaseName
-    {
-        get
-        {
-            return "";
-        }
-    }
-
 
     protected BaseBsWithoutEntity(DbConnection connection)
     {

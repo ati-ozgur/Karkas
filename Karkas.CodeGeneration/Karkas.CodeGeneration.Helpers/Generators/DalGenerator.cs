@@ -75,8 +75,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
             Write_Constructors();
 
-            Write_OverrideDatabaseName();
-
             Write_SetIdentityColumnValue();
 
 
@@ -368,20 +366,6 @@ namespace Karkas.CodeGeneration.Helpers.Generators
             AtStartCurlyBraceletIncreaseTab();
             AtEndCurlyBraceletDecreaseTab();
             output.AutoTabLine("");
-        }
-
-        private void Write_OverrideDatabaseName()
-        {
-            if (CodeGenerationConfig.UseMultipleDatabaseNames)
-            {
-                output.AutoTabLine("public override string DatabaseName");
-                AtStartCurlyBraceletIncreaseTab();
-                output.AutoTabLine("get");
-                AtStartCurlyBraceletIncreaseTab();
-                output.AutoTabLine(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionName));
-                AtEndCurlyBraceletDecreaseTab();
-                AtEndCurlyBraceletDecreaseTab();
-            }
         }
 
         protected abstract void Write_UsingDatabaseClient();

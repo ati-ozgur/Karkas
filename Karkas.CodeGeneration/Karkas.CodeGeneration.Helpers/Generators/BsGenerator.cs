@@ -67,7 +67,6 @@ public abstract class BsGenerator : BaseGenerator
 		AtStartCurlyBraceletIncreaseTab();
 
 		Write_Constructor();
-		Write_OverrideDatabaseName();
 		if (container is ITable && (!string.IsNullOrEmpty(pkName)))
 		{
 			Write_DeleteCommandWithPK();
@@ -137,20 +136,6 @@ public abstract class BsGenerator : BaseGenerator
 		AtStartCurlyBraceletIncreaseTab();
 		AtEndCurlyBraceletDecreaseTab();
 		output.AutoTabLine("");
-	}
-
-	private void Write_OverrideDatabaseName()
-	{
-		if (CodeGenerationConfig.UseMultipleDatabaseNames)
-		{
-			output.AutoTabLine("public override string DatabaseName");
-			AtStartCurlyBraceletIncreaseTab();
-			output.AutoTabLine("get");
-			AtStartCurlyBraceletIncreaseTab();
-			output.AutoTabLine(string.Format("return \"{0}\";", CodeGenerationConfig.ConnectionName));
-			AtEndCurlyBraceletDecreaseTab();
-			AtEndCurlyBraceletDecreaseTab();
-		}
 	}
 
 

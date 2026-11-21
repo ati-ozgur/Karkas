@@ -390,21 +390,6 @@ public class CodeGenerationConfig
 
 	string DatabaseAbbreviations { get; set; }
 
-	private bool useMultipleDatabaseNames = false;
-
-	public bool UseMultipleDatabaseNames
-	{
-		get
-		{
-			return useMultipleDatabaseNames;
-		}
-
-		set
-		{
-			useMultipleDatabaseNames = value;
-		}
-	}
-
 	public bool UseQuotesInQueries { get => useQuotesInQueries; set => useQuotesInQueries = value; }
 
 	private bool useGlobalUsings;
