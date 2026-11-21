@@ -27,9 +27,9 @@ jobs:
       uses: NuGet/login@v1
       id: login
       with:
-        # nuget.org profile name (not the email address); needs a Trusted Publishing policy on nuget.org
-        # for this repository and the workflow file deploy-to-nuget.yml
-        user: ${{ secrets.NUGET_USER }}
+        # nuget.org profile name (public, shown as package owner). Publishing is authorized by the
+        # Trusted Publishing policy on nuget.org for this repository and the workflow file deploy-to-nuget.yml
+        user: atilla_ozgur
     - name: deploy nuget bash
       shell: bash
       run: ./deploy_nuget_packages.bash
