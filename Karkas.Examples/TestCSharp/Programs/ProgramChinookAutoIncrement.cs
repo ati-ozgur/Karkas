@@ -16,6 +16,7 @@ TestHelper.TestQueryUsingColumnName_TwoStringColumnsWithLike();
 TestHelper.TestQueryUsingColumnName_TwoStringColumns();
 
 TestHelper.TestQueryAll();
+TestHelper.TestQueryAllOrderBy();
 
 
 TestHelper.TestQueryUsingWrongColumnName();

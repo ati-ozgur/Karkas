@@ -101,6 +101,46 @@ public partial class TestHelper
 		var list = dal.QueryAll(10);
 		assertEquals(list.Count, maxRowCount, "QueryAll works");
 	}
+
+	public static void TestQueryAllOrderBy()
+	{
+		CustomerBs bs = new CustomerBs(ConnectionHelper.CreateConnection());
+		// numeric sort keys so the check does not depend on database string collation
+		string rep = Customer.ColumnNames.SupportRepId;
+		string id = Customer.ColumnNames.CustomerId;
+
+		// bare columns default to ASC
+		var listBare = bs.QueryAllOrderBy(rep, id);
+		// direction strings, case-insensitive
+		var listDirection = bs.QueryAllOrderBy(rep, "asc", id, "DESC");
+		// OrderBy overload
+		var listObjects = bs.QueryAllOrderBy(new OrderBy(rep, OrderByEnum.DESC), new OrderBy(id));
+
+		int total = bs.QueryAll().Count;
+		assertEquals(listBare.Count, total, "QueryAllOrderBy bare columns row count");
+		assertEquals(listDirection.Count, total, "QueryAllOrderBy with direction row count");
+		assertEquals(listObjects.Count, total, "QueryAllOrderBy OrderBy objects row count");
+
+		assertSortedBy(listBare, 1, 1, "QueryAllOrderBy bare columns DOES NOT sort ASC, ASC");
+		assertSortedBy(listDirection, 1, -1, "QueryAllOrderBy with direction DOES NOT sort ASC, DESC");
+		assertSortedBy(listObjects, -1, 1, "QueryAllOrderBy OrderBy objects DOES NOT sort DESC, ASC");
+		Console.WriteLine("QueryAllOrderBy works");
+	}
+
+	// repSign/idSign: 1 = ascending, -1 = descending; Convert because id types differ per database
+	private static void assertSortedBy(List<Customer> list, int repSign, int idSign, string message)
+	{
+		for (int i = 1; i < list.Count; i++)
+		{
+			int repCompare = Convert.ToDecimal(list[i - 1].SupportRepId).CompareTo(Convert.ToDecimal(list[i].SupportRepId)) * repSign;
+			int idCompare = Convert.ToDecimal(list[i - 1].CustomerId).CompareTo(Convert.ToDecimal(list[i].CustomerId)) * idSign;
+			if (repCompare > 0 || (repCompare == 0 && idCompare > 0))
+			{
+				throw new Exception(message);
+			}
+		}
+	}
+
 	public static void TestQueryUsingWrongColumnName()
 	{
 

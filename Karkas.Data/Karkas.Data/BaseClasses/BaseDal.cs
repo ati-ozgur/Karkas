@@ -186,26 +186,65 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
     }
 
 
+    /// <summary>
+    /// Query all rows ordered by the given columns.
+    /// Each column may be followed by "ASC" or "DESC" (case-insensitive);
+    /// a column without a direction is sorted ascending.
+    /// Example: QueryAllOrderBy(Customer.ColumnNames.Country, Customer.ColumnNames.City, "DESC")
+    /// gives ORDER BY Country ASC, City DESC
+    /// </summary>
     public virtual List<TYPE_LIBRARY_TYPE> QueryAllOrderBy(params string[] pListOrderBy)
     {
-        List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
-        QueryHelper sy = GetNewQueryHelper();
+        List<OrderBy> orderByList = new List<OrderBy>();
         int listeUzunluk = pListOrderBy.Length;
         for (int i = 0; i < listeUzunluk; i++)
         {
-            if (i + 1 < listeUzunluk)
+            OrderByEnum direction = OrderByEnum.ASC;
+            if (i + 1 < listeUzunluk && TryParseOrderByDirection(pListOrderBy[i + 1], out direction))
             {
-                sy.AddOrderBy(pListOrderBy[i], pListOrderBy[i + 1]);
+                orderByList.Add(new OrderBy(pListOrderBy[i], direction));
                 i++;
             }
             else
             {
-                sy.AddOrderBy(pListOrderBy[i]);
+                orderByList.Add(new OrderBy(pListOrderBy[i], OrderByEnum.ASC));
             }
+        }
+        return QueryAllOrderBy(orderByList.ToArray());
+    }
+
+    /// <summary>
+    /// Query all rows ordered by the given columns.
+    /// Example: QueryAllOrderBy(new OrderBy(Customer.ColumnNames.Country, OrderByEnum.DESC))
+    /// </summary>
+    public virtual List<TYPE_LIBRARY_TYPE> QueryAllOrderBy(params OrderBy[] pListOrderBy)
+    {
+        List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
+        QueryHelper sy = GetNewQueryHelper();
+        foreach (OrderBy orderBy in pListOrderBy)
+        {
+            sy.AddOrderBy(orderBy);
         }
         // HACK Should find better solution to this;
         ExecuteQuery(liste, " 1 = 1 " + sy.GetCriteriaResultsWithoutWhere());
         return liste;
+    }
+
+    private static bool TryParseOrderByDirection(string value, out OrderByEnum direction)
+    {
+        string trimmed = value == null ? "" : value.Trim();
+        if (string.Equals(trimmed, "ASC", StringComparison.OrdinalIgnoreCase))
+        {
+            direction = OrderByEnum.ASC;
+            return true;
+        }
+        if (string.Equals(trimmed, "DESC", StringComparison.OrdinalIgnoreCase))
+        {
+            direction = OrderByEnum.DESC;
+            return true;
+        }
+        direction = OrderByEnum.ASC;
+        return false;
     }
 
 

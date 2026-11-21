@@ -84,6 +84,10 @@ public abstract class BaseBs<TYPE_LIBRARY_TYPE, DAL_TYPE, ADOTEMPLATE_DB_TYPE, P
     {
         return dal.QueryAllOrderBy(pSiraListesi);
     }
+    public List<TYPE_LIBRARY_TYPE> QueryAllOrderBy(params OrderBy[] pListOrderBy)
+    {
+        return dal.QueryAllOrderBy(pListOrderBy);
+    }
     public void BatchInsertUpdateDelete(List<TYPE_LIBRARY_TYPE> liste)
     {
         dal.BatchInsertUpdateDelete(liste);

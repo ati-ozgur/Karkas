@@ -7,7 +7,7 @@ namespace Karkas.Data
     public class OrderBy
     {
 
-        public OrderBy(string pColumnName) : this(pColumnName,"")
+        public OrderBy(string pColumnName) : this(pColumnName, OrderByEnum.ASC)
         {
         }
         public OrderBy(string pColumnName, OrderByEnum pOrderByType)

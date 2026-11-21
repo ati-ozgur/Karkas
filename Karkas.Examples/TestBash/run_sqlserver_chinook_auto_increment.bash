@@ -98,6 +98,7 @@ cp ../../TestCSharp/GlobalUsings/GlobalUsingsChinook.cs GlobalUsingsChinook.cs
 
 cp --recursive ../../TestCSharp/Helpers/ .
 cp ../../TestCSharp/HelpersTest/TestHelperChinook*.cs .
+rm TestHelperChinookMultiTenant.cs # sqlite-only, tested by run_sqlite_chinook_multi_tenant.bash
 
 
 cp ../../TestCSharp/HelpersConnection/ConnectionHelperSqlServerChinook.cs ConnectionHelper.cs

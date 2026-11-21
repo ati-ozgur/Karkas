@@ -45,6 +45,13 @@ namespace Karkas.Data
                 listOrderBy.Add(s);
             }
         }
+        public void AddOrderBy(OrderBy pOrderBy)
+        {
+            if (!listOrderBy.Contains(pOrderBy))
+            {
+                listOrderBy.Add(pOrderBy);
+            }
+        }
 
         public string GetCriteriaResultsWithWhere()
         {
