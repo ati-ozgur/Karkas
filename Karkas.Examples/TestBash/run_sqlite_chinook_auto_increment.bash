@@ -26,7 +26,7 @@ dotnet new console
 if [ -n "${KARKAS_TEST_FRAMEWORK:-}" ]; then
     sed -i -E "s#<TargetFramework>[^<]+</TargetFramework>#<TargetFramework>${KARKAS_TEST_FRAMEWORK}</TargetFramework>#" ./*.csproj
 fi
-dotnet add package Microsoft.Data.Sqlite
+# Microsoft.Data.Sqlite comes transitively from Karkas.Data.Sqlite (pinned there to a version that supports net8.0+)
 dotnet add reference "../../../Karkas.Data/Karkas.Data/Karkas.Data.csproj"
 dotnet add reference "../../../Karkas.Data/Karkas.Data.Sqlite/Karkas.Data.Sqlite.csproj"
 
