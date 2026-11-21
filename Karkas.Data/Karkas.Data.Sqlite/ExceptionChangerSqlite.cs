@@ -33,7 +33,6 @@ namespace Karkas.Data.Sqlite
 					break;				
 			}
 
-			new LoggingInfo().LogInfo(Type.GetType("Karkas.Data.Sqlite.ExceptionChangerSqlite"), ex, pMessage);
 			throw exceptionToThrow;
 		}
 

@@ -186,11 +186,30 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 
 			string queryName = getQueryNameByColumn(columnName);
 			string toWrite1 = $"public List<{classNameTypeLibrary}> {queryName}({variableType} p{variableName})";
-			string toWrite2 = $"\treturn this.QueryUsingColumnName({classNameTypeLibrary}.ColumnNames.{variableName},p{variableName});";
+			string call = $"this.QueryUsingColumnName({classNameTypeLibrary}.ColumnNames.{variableName},p{variableName})";
 			output.AutoTabLine(toWrite1);
 			output.AutoTabLine("{");
-			output.AutoTabLine(toWrite2);
+			foreach (string line in GetNamedQueryStatements(queryName, call))
+			{
+				output.AutoTabLine("\t" + line);
+			}
 			output.AutoTabLine("}");
+		}
+
+		/// <summary>
+		/// Body of a generated FK or index query. QueryUsingColumnName is shared by all of them,
+		/// so the call is wrapped in a tracing scope that names it after the generated method
+		/// (DalName.QueryByX). A KarkasTracing.BeginQuery scope opened by the caller still wins.
+		/// </summary>
+		public static string[] GetNamedQueryStatements(string queryName, string call)
+		{
+			return new[]
+			{
+				$"using (Karkas.Data.Tracing.KarkasTracing.BeginDefaultQuery(QueryIdFor(\"{queryName}\")))",
+				"{",
+				$"\treturn {call};",
+				"}",
+			};
 		}
 		Dictionary<string, bool> generatedQueries = new Dictionary<string, bool>();
 
@@ -250,15 +269,17 @@ namespace Karkas.CodeGeneration.Helpers.Generators
 			queryByColumnNameList = queryByColumnNameList.TrimEnd(',') + " }";
 			queryByColumnValueList = queryByColumnValueList.TrimEnd(',') + " }";
 			string toWrite1 = $"public {returnType} {queryName}({variableNameList})";
-			string toWrite2 = $"\treturn this.QueryUsingColumnName({queryByColumnNameList},{queryByColumnValueList});";
+			string call = $"this.QueryUsingColumnName({queryByColumnNameList},{queryByColumnValueList})";
 			if (index.IsUnique)
 			{
-				toWrite2 = toWrite2.TrimEnd(';');
-				toWrite2 = toWrite2 + ".FirstOrDefault();";
+				call = call + ".FirstOrDefault()";
 			}
 			output.AutoTabLine(toWrite1);
 			output.AutoTabLine("{");
-			output.AutoTabLine(toWrite2);
+			foreach (string line in GetNamedQueryStatements(queryName, call))
+			{
+				output.AutoTabLine("\t" + line);
+			}
 			output.AutoTabLine("}");
 		}
 

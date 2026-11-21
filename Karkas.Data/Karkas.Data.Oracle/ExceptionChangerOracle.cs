@@ -44,7 +44,6 @@ public class ExceptionChangerOracle : ExceptionChanger
 			exceptionToThrow = ex;
 		}
 
-		new LoggingInfo().LogInfo(Type.GetType("Karkas.Data.Oracle.ExceptionChanger"), ex, pMessage);
 		throw exceptionToThrow;
 
 	}

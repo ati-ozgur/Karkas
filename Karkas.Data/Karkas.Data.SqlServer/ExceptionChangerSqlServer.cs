@@ -85,7 +85,6 @@ namespace Karkas.Data.SqlServer
 				exceptionToThrow = ex;
 			}
 
-			new LoggingInfo().LogInfo(Type.GetType("Karkas.Data.SqlServer.ExceptionChanger"), ex, pMessage);
 			throw exceptionToThrow;
 		}
 

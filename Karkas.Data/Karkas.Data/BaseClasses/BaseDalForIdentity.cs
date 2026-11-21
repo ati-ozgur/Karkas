@@ -4,6 +4,7 @@ using System.Text;
 using System.Data;
 using System.Data.Common;
 using Karkas.Data.Exceptions;
+using Karkas.Data.Tracing;
 
 namespace Karkas.Data;
 
@@ -53,6 +54,7 @@ public abstract class BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMP
         //rowstate'i unchanged yapiyoruz
         row.RowState = DataRowState.Unchanged;
 
+        QueryTrace trace = QueryTrace.Start(cmd, QueryIdFor("Insert"), DbProviderName);
         try
         {
             if (ShouldOpenConnection())
@@ -65,7 +67,6 @@ public abstract class BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMP
             }
             if (IdentityExists)
             {
-                new LoggingInfo(cmd).LogInfo(this.GetType());
                 object o = cmd.ExecuteScalar();
                 result = (PRIMARY_KEY)Convert.ChangeType(o, result.GetType());
                 setIdentityColumnValue(row, result);
@@ -77,16 +78,17 @@ public abstract class BaseDalForIdentity<TYPE_LIBRARY_TYPE, PRIMARY_KEY, ADOTEMP
         }
         catch (DbException ex)
         {
-			CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
+			trace.ChangeException(CurrentExceptionChanger, ex, new LoggingInfo(cmd).ToString());
         }
         catch (Exception ex)
         {
-            new LoggingInfo(cmd).LogInfo(this.GetType(),ex);
+            trace.Fail(ex);
             throw;
         }
 
         finally
         {
+            trace.Dispose();
             if (ShouldCloseConnection())
             {
                 Connection.Close();

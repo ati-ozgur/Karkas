@@ -4,6 +4,7 @@ using System.Text;
 using System.Data;
 using System.Data.Common;
 using Karkas.Data.Exceptions;
+using Karkas.Data.Tracing;
 
 namespace Karkas.Data
 {
@@ -90,23 +91,7 @@ namespace Karkas.Data
             DbCommand cmd = Template.getDatabaseCommand(sql, conn);
             cmd.CommandType = cmdType;
 
-            DbDataAdapter adapter = AdapterDondur(cmd);
-            try
-            {
-                adapter.Fill(dt);
-            }
-            catch (DbException ex)
-            {
-                CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
-            }
-            finally
-            {
-                if (ConnectionKapatilacakMi())
-                {
-                    conn.Close();
-                }
-            }
-
+            ExecuteQuery(dt, cmd);
         }
         internal DbDataAdapter AdapterDondur(DbCommand cmd)
         {
@@ -123,20 +108,23 @@ namespace Karkas.Data
         {
             DbDataAdapter adapter = AdapterDondur(cmd);
 
-            try
+            using (QueryTrace trace = QueryTrace.StartForSql(cmd, template.GetType().Name, "FillDataTable",
+                template.DbProviderName))
             {
-                adapter.Fill(dt);
-            }
-            catch (DbException ex)
-            {
-				CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
-
-            }
-            finally
-            {
-                if (ConnectionKapatilacakMi())
+                try
                 {
-                    conn.Close();
+                    adapter.Fill(dt);
+                }
+                catch (DbException ex)
+                {
+                    trace.ChangeException(CurrentExceptionChanger, ex, new LoggingInfo(cmd).ToString());
+                }
+                finally
+                {
+                    if (ConnectionKapatilacakMi())
+                    {
+                        conn.Close();
+                    }
                 }
             }
 

@@ -12,11 +12,12 @@ namespace Karkas.Data
         private ILogger logger = null;
 
 
+        /// <summary>
+        /// Logs through <see cref="Karkas.Data.Tracing.KarkasTracing.LoggerFactory"/>; nothing is logged while it is null.
+        /// </summary>
         public LoggingInfo()
         {
-            LoggerFactory factory = new LoggerFactory();
-            logger = factory.CreateLogger("Dal");
-
+            logger = Karkas.Data.Tracing.KarkasTracing.Logger;
         }
         public LoggingInfo(DbCommand sqlCommand): this()
         {

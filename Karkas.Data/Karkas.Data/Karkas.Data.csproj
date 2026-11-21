@@ -37,4 +37,12 @@
   
   </ItemGroup>
 
+  <ItemGroup>
+    <!-- query tracing (Tracing/QueryTrace) is shared with the database specific libraries -->
+    <InternalsVisibleTo Include="Karkas.Data.Sqlite" />
+    <InternalsVisibleTo Include="Karkas.Data.SqlServer" />
+    <InternalsVisibleTo Include="Karkas.Data.Oracle" />
+    <InternalsVisibleTo Include="Karkas.Tests" />
+  </ItemGroup>
+
 </Project>

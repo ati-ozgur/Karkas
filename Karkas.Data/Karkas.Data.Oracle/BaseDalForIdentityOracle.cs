@@ -1,4 +1,5 @@
 using Karkas.Data.Exceptions;
+using Karkas.Data.Tracing;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -58,6 +59,7 @@ namespace Karkas.Data.Oracle
 
             row.RowState = DataRowState.Unchanged;
 
+            QueryTrace trace = QueryTrace.Start(cmd, QueryIdFor("Insert"), DbProviderName);
             try
             {
                 if (ShouldOpenConnection())
@@ -70,7 +72,6 @@ namespace Karkas.Data.Oracle
                 }
                 if (IdentityExists)
                 {
-                    new LoggingInfo(cmd).LogInfo(this.GetType());
                     cmd.ExecuteNonQuery();
 					object o = null;
 					if (TYPE_PrimaryKey == TYPE_OracleDecimal)
@@ -93,16 +94,17 @@ namespace Karkas.Data.Oracle
             }
             catch (DbException ex)
             {
-                CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
+                trace.ChangeException(CurrentExceptionChanger, ex, new LoggingInfo(cmd).ToString());
             }
             catch (Exception ex)
             {
-                new LoggingInfo(cmd).LogInfo(this.GetType(), ex.ToString());
+                trace.Fail(ex);
 				throw;
             }
 
             finally
             {
+                trace.Dispose();
                 if (ShouldCloseConnection())
                 {
                     Connection.Close();

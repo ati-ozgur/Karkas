@@ -5,6 +5,7 @@ using System.Data;
 using System.Globalization;
 using System.Data.Common;
 using Karkas.Data.Exceptions;
+using Karkas.Data.Tracing;
 
 namespace Karkas.Data;
 
@@ -191,28 +192,30 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     private object ExecuteNonQueryCommandBringResultInternal(DbCommand cmd)
     {
         object result = 0;
-        try
+        using (QueryTrace trace = QueryTrace.StartForSql(cmd, GetType().Name, "GetOneValue", DbProviderName))
         {
-            new LoggingInfo(cmd).LogInfo(this.GetType());
-            if (ShouldOpenConnection())
+            try
             {
-                Connection.Open();
+                if (ShouldOpenConnection())
+                {
+                    Connection.Open();
+                }
+                else if (currentTransaction != null)
+                {
+                    cmd.Transaction = currentTransaction;
+                }
+                result = cmd.ExecuteScalar();
             }
-            else if (currentTransaction != null)
+            catch (DbException ex)
             {
-                cmd.Transaction = currentTransaction;
+                trace.ChangeException(CurrentExceptionChanger, ex, new LoggingInfo(cmd).ToString());
             }
-            result = cmd.ExecuteScalar();
-        }
-        catch (DbException ex)
-        {
-            CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
-        }
-        finally
-        {
-            if (AutomaticConnectionManagement)
+            finally
             {
-                Connection.Close();
+                if (AutomaticConnectionManagement)
+                {
+                    Connection.Close();
+                }
             }
         }
         return result;
@@ -220,29 +223,31 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
 	private int ExecuteNonQueryCommandInternal(DbCommand cmd)
 	{
 		int rowCount = 0;
-		try
+		using (QueryTrace trace = QueryTrace.StartForSql(cmd, GetType().Name, "ExecuteNonQueryCommand", DbProviderName))
 		{
-			new LoggingInfo(cmd).LogInfo(this.GetType());
-			if (ShouldOpenConnection())
+			try
 			{
-				Connection.Open();
-			}
-			else if (currentTransaction != null)
-			{
-				cmd.Transaction = currentTransaction;
-			}
+				if (ShouldOpenConnection())
+				{
+					Connection.Open();
+				}
+				else if (currentTransaction != null)
+				{
+					cmd.Transaction = currentTransaction;
+				}
 
-			rowCount = cmd.ExecuteNonQuery();
-		}
-		catch (DbException ex)
-		{
-			CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
-		}
-		finally
-		{
-			if (AutomaticConnectionManagement)
+				rowCount = cmd.ExecuteNonQuery();
+			}
+			catch (DbException ex)
 			{
-				Connection.Close();
+				trace.ChangeException(CurrentExceptionChanger, ex, new LoggingInfo(cmd).ToString());
+			}
+			finally
+			{
+				if (AutomaticConnectionManagement)
+				{
+					Connection.Close();
+				}
 			}
 		}
 		return rowCount;
@@ -467,41 +472,44 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     {
         List<Dictionary<string, Object>> liste = new List<Dictionary<string, object>>();
         DbDataReader reader = null;
-        try
+        using (QueryTrace trace = QueryTrace.StartForSql(cmd, GetType().Name, "GetRows", DbProviderName))
         {
+            try
+            {
 
-            if (ShouldOpenConnection())
-            {
-                cmd.Connection.Open();
-            }
-            if (CurrentTransaction != null)
-            {
-                cmd.Transaction = CurrentTransaction;
-            }
-            reader = cmd.ExecuteReader();
+                if (ShouldOpenConnection())
+                {
+                    cmd.Connection.Open();
+                }
+                if (CurrentTransaction != null)
+                {
+                    cmd.Transaction = CurrentTransaction;
+                }
+                reader = cmd.ExecuteReader();
 
-            Dictionary<string, Object> row;
-            while (reader.Read())
-            {
-                row = new Dictionary<string, object>();
-                ProcessRow(reader, row, columnNameCase);
-                liste.Add(row);
-            }
+                Dictionary<string, Object> row;
+                while (reader.Read())
+                {
+                    row = new Dictionary<string, object>();
+                    ProcessRow(reader, row, columnNameCase);
+                    liste.Add(row);
+                }
 
-        }
-        catch (DbException ex)
-        {
-			CurrentExceptionChanger.Change(ex,cmd.CommandText);
-        }
-        finally
-        {
-            if (reader != null)
-            {
-                reader.Close();
             }
-            if (ShouldCloseConnection())
+            catch (DbException ex)
             {
-                Connection.Close();
+                trace.ChangeException(CurrentExceptionChanger, ex, cmd.CommandText);
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+                if (ShouldCloseConnection())
+                {
+                    Connection.Close();
+                }
             }
         }
 

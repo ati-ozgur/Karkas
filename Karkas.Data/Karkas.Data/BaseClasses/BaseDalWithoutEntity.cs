@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.Common;
+using System.Runtime.CompilerServices;
 using Karkas.Data.Exceptions;
+using Karkas.Data.Tracing;
 
 namespace Karkas.Data;
 
@@ -110,39 +112,54 @@ public abstract class BaseDalWithoutEntity<ADOTEMPLATE_DB_TYPE,PARAMETER_BUILDER
         set { currentTransaction = value; }
     }
 
-    protected int ExecuteNonQueryCommandInternal(DbCommand cmd)
+    /// <summary>
+    /// Runs the command with ExecuteNonQuery.
+    /// </summary>
+    /// <param name="cmd">command to run</param>
+    /// <param name="queryId">name used in tracing as DalName.queryId; defaults to the calling method name</param>
+    protected int ExecuteNonQueryCommandInternal(DbCommand cmd, [CallerMemberName] string queryId = null)
     {
         int resultRowCount = 0;
-        try
+        using (QueryTrace trace = QueryTrace.Start(cmd, QueryIdFor(queryId), DbProviderName))
         {
-            if (ShouldOpenConnection())
+            try
             {
-                Connection.Open();
-            }
-            else if (currentTransaction != null)
-            {
-                cmd.Transaction = currentTransaction;
-            }
-            new LoggingInfo( cmd).LogInfo(this.GetType());
+                if (ShouldOpenConnection())
+                {
+                    Connection.Open();
+                }
+                else if (currentTransaction != null)
+                {
+                    cmd.Transaction = currentTransaction;
+                }
 
-            resultRowCount = cmd.ExecuteNonQuery();
-        }
-        catch (DbException ex)
-        {
-            if (currentTransaction != null)
-            {
-                currentTransaction.Rollback();
+                resultRowCount = cmd.ExecuteNonQuery();
             }
-            CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
-        }
-        finally
-        {
-            if (ShouldCloseConnection())
+            catch (DbException ex)
             {
-                Connection.Close();
+                if (currentTransaction != null)
+                {
+                    currentTransaction.Rollback();
+                }
+                trace.ChangeException(CurrentExceptionChanger, ex, new LoggingInfo(cmd).ToString());
+            }
+            finally
+            {
+                if (ShouldCloseConnection())
+                {
+                    Connection.Close();
+                }
             }
         }
         return resultRowCount;
+    }
+
+    /// <summary>
+    /// Query id used for tracing: DalClassName.operation, for example CustomerDal.QueryByCustomerId.
+    /// </summary>
+    protected string QueryIdFor(string operation)
+    {
+        return string.IsNullOrEmpty(operation) ? GetType().Name : GetType().Name + "." + operation;
     }
 
     protected bool ShouldCloseConnection()

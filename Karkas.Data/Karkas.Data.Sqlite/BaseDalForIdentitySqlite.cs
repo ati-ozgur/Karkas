@@ -9,6 +9,7 @@ using System.Data.Common;
 
 using Microsoft.Data.Sqlite;
 using Karkas.Data.Exceptions;
+using Karkas.Data.Tracing;
 
 
 namespace Karkas.Data.Sqlite
@@ -52,6 +53,7 @@ namespace Karkas.Data.Sqlite
 
             row.RowState = DataRowState.Unchanged;
 
+            QueryTrace trace = QueryTrace.Start(cmd, QueryIdFor("Insert"), DbProviderName);
             try
             {
                 if (ShouldOpenConnection())
@@ -64,7 +66,6 @@ namespace Karkas.Data.Sqlite
                 }
                 if (IdentityExists)
                 {
-                    new LoggingInfo(cmd).LogInfo(this.GetType());
                     object o = cmd.ExecuteScalar();
                     result = (PRIMARY_KEY)Convert.ChangeType(o, result.GetType());
                     setIdentityColumnValue(row, result);
@@ -76,15 +77,16 @@ namespace Karkas.Data.Sqlite
             }
             catch (DbException ex)
             {
-                CurrentExceptionChanger.Change(ex, new LoggingInfo(cmd).ToString());
+                trace.ChangeException(CurrentExceptionChanger, ex, new LoggingInfo(cmd).ToString());
             }
             catch (Exception ex)
             {
-                new LoggingInfo(cmd).LogInfo(this.GetType(), ex.ToString());
+                trace.Fail(ex);
             }
 
             finally
             {
+                trace.Dispose();
                 if (ShouldCloseConnection())
                 {
                     Connection.Close();

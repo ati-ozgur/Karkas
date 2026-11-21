@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
+using System.Runtime.CompilerServices;
 using Karkas.Data.Exceptions;
+using Karkas.Data.Tracing;
 using System.Reflection;
 using System.Runtime.Remoting;
 using System.Data.Common;
@@ -58,8 +60,12 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
     {
         get
         {
-            object o = getNewAdoTemplate().GetOneValue(SelectCountString);
-            return Convert.ToInt32(o);
+            // the template does not know which Dal called it, so name the query here
+            using (KarkasTracing.BeginDefaultQuery(QueryIdFor("TableRowCount")))
+            {
+                object o = getNewAdoTemplate().GetOneValue(SelectCountString);
+                return Convert.ToInt32(o);
+            }
         }
     }
 
@@ -114,7 +120,7 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
 	public virtual List<TYPE_LIBRARY_TYPE> QueryAll()
     {
         List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
-        ExecuteQuery(liste);
+        ExecuteQuery(liste, "", true, nameof(QueryAll));
         return liste;
     }
 
@@ -226,7 +232,7 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
             sy.AddOrderBy(orderBy);
         }
         // HACK Should find better solution to this;
-        ExecuteQuery(liste, " 1 = 1 " + sy.GetCriteriaResultsWithoutWhere());
+        ExecuteQuery(liste, " 1 = 1 " + sy.GetCriteriaResultsWithoutWhere(), true);
         return liste;
     }
 
@@ -261,16 +267,17 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
     {
         DbCommand cmd = Template.getDatabaseCommand(InsertString, Connection);
         InsertCommandParametersAdd(cmd, row);
-        int result = ExecuteNonQueryCommandInternal(cmd);
+        int result = ExecuteNonQueryCommandInternal(cmd, nameof(Insert));
 
         row.RowState = DataRowState.Unchanged;
         return result;
     }
-    protected void ExecuteNonQueryUpdate(string cmdText, TYPE_LIBRARY_TYPE row)
+    protected void ExecuteNonQueryUpdate(string cmdText, TYPE_LIBRARY_TYPE row,
+        [CallerMemberName] string queryId = null)
     {
         DbCommand cmd = Template.getDatabaseCommand(cmdText, Connection);
         UpdateCommandParametersAdd(cmd, row);
-        int rowCount = ExecuteNonQueryCommandInternal(cmd);
+        int rowCount = ExecuteNonQueryCommandInternal(cmd, queryId);
 
         bool updateResultuBasarisiz = (rowCount == 0);
 
@@ -283,16 +290,17 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         }
     }
 
-    protected void ExecuteNonQueryDelete(string cmdText, TYPE_LIBRARY_TYPE row)
+    protected void ExecuteNonQueryDelete(string cmdText, TYPE_LIBRARY_TYPE row,
+        [CallerMemberName] string queryId = null)
     {
         DbCommand cmd = Template.getDatabaseCommand(cmdText, Connection);
         DeleteCommandParametersAdd(cmd, row);
-        ExecuteNonQueryCommandInternal(cmd);
+        ExecuteNonQueryCommandInternal(cmd, queryId);
     }
     public TYPE_LIBRARY_TYPE ExecuteQueryBringOneRow(String pFilterString)
     {
         List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
-        ExecuteQuery(liste, pFilterString);
+        ExecuteQuery(liste, pFilterString, true, nameof(ExecuteQueryBringOneRow));
         if (liste.Count > 0)
         {
             return liste[0];
@@ -302,10 +310,11 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
             return null;
         }
     }
-    public TYPE_LIBRARY_TYPE ExecuteQueryBringOneRow(String pFilterString, DbParameter[] parameterArray)
+    public TYPE_LIBRARY_TYPE ExecuteQueryBringOneRow(String pFilterString, DbParameter[] parameterArray,
+        [CallerMemberName] string queryId = null)
     {
         List<TYPE_LIBRARY_TYPE> liste = new List<TYPE_LIBRARY_TYPE>();
-        ExecuteQuery(liste, pFilterString, parameterArray);
+        ExecuteQuery(liste, pFilterString, parameterArray, true, queryId);
         if (liste.Count > 0)
         {
             return liste[0];
@@ -318,13 +327,20 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
 
     public void ExecuteQuery(List<TYPE_LIBRARY_TYPE> liste)
     {
-        ExecuteQuery(liste, "");
+        ExecuteQuery(liste, "", true, nameof(ExecuteQuery));
     }
-    public void ExecuteQuery(List<TYPE_LIBRARY_TYPE> liste, String pFilterString, DbParameter[] parameterArray)
+
+    // The [CallerMemberName] queryId parameters below give each calling method its own query id
+    // (DalName.CallerName) for tracing; see KarkasTracing. They are only on overloads where
+    // an extra optional string can not make an existing call ambiguous.
+
+    public void ExecuteQuery(List<TYPE_LIBRARY_TYPE> liste, String pFilterString, DbParameter[] parameterArray,
+        [CallerMemberName] string queryId = null)
     {
-        ExecuteQuery(liste, pFilterString, parameterArray, true);
+        ExecuteQuery(liste, pFilterString, parameterArray, true, queryId);
     }
-    public void ExecuteQuery(List<TYPE_LIBRARY_TYPE> liste, String pFilterString, DbParameter[] parameterArray, bool otomatikWhereEkle)
+    public void ExecuteQuery(List<TYPE_LIBRARY_TYPE> liste, String pFilterString, DbParameter[] parameterArray,
+        bool otomatikWhereEkle, [CallerMemberName] string queryId = null)
     {
         DbCommand cmd = Template.getDatabaseCommand(Connection);
 		cmd.CommandText = getFilterString(pFilterString, otomatikWhereEkle);
@@ -332,14 +348,15 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
         {
             cmd.Parameters.Add(prm);
         }
-        ExecuteQueryInternal(liste, cmd);
+        ExecuteQueryInternal(liste, cmd, queryId);
     }
 
-    public void ExecuteQuery(List<TYPE_LIBRARY_TYPE> liste, String pFilterString, bool otomatikWhereEkle)
+    public void ExecuteQuery(List<TYPE_LIBRARY_TYPE> liste, String pFilterString, bool otomatikWhereEkle,
+        [CallerMemberName] string queryId = null)
     {
         DbCommand cmd = Template.getDatabaseCommand(Connection);
 		cmd.CommandText = getFilterString(pFilterString, otomatikWhereEkle);
-        ExecuteQueryInternal(liste, cmd);
+        ExecuteQueryInternal(liste, cmd, queryId);
     }
 
     private string getFilterString(String pFilterString, bool otomatikWhereEkle)
@@ -366,48 +383,58 @@ public abstract class BaseDal<TYPE_LIBRARY_TYPE, ADOTEMPLATE_DB_TYPE, PARAMETER_
 
     public void ExecuteQuery(List<TYPE_LIBRARY_TYPE> liste, String pFilterString)
     {
-        ExecuteQuery(liste, pFilterString, true);
+        ExecuteQuery(liste, pFilterString, true, nameof(ExecuteQuery));
     }
 
-    protected void ExecuteQueryInternal(List<TYPE_LIBRARY_TYPE> liste, DbCommand cmd)
+    /// <summary>
+    /// Runs the select command and fills the list.
+    /// </summary>
+    /// <param name="liste">list to fill</param>
+    /// <param name="cmd">command to run</param>
+    /// <param name="queryId">name used in tracing as DalName.queryId; defaults to the calling method name</param>
+    protected void ExecuteQueryInternal(List<TYPE_LIBRARY_TYPE> liste, DbCommand cmd,
+        [CallerMemberName] string queryId = null)
     {
         DbDataReader reader = null;
-        try
+        using (QueryTrace trace = QueryTrace.Start(cmd, QueryIdFor(queryId), DbProviderName))
         {
+            try
+            {
 
-            if (ShouldOpenConnection())
-            {
-                Connection.Open();
-            }
-            if (CurrentTransaction != null)
-            {
-                cmd.Transaction = CurrentTransaction;
-            }
-            reader = cmd.ExecuteReader();
+                if (ShouldOpenConnection())
+                {
+                    Connection.Open();
+                }
+                if (CurrentTransaction != null)
+                {
+                    cmd.Transaction = CurrentTransaction;
+                }
+                reader = cmd.ExecuteReader();
 
-            TYPE_LIBRARY_TYPE row = default(TYPE_LIBRARY_TYPE);
-            while (reader.Read())
-            {
-                row = new TYPE_LIBRARY_TYPE();
-                ProcessRow(reader, row);
-                row.RowState = DataRowState.Unchanged;
-                liste.Add(row);
-            }
+                TYPE_LIBRARY_TYPE row = default(TYPE_LIBRARY_TYPE);
+                while (reader.Read())
+                {
+                    row = new TYPE_LIBRARY_TYPE();
+                    ProcessRow(reader, row);
+                    row.RowState = DataRowState.Unchanged;
+                    liste.Add(row);
+                }
 
-        }
-        catch (DbException ex)
-        {
-			CurrentExceptionChanger.Change(ex,cmd.CommandText);
-        }
-        finally
-        {
-            if (reader != null)
-            {
-                reader.Close();
             }
-            if (ShouldCloseConnection())
+            catch (DbException ex)
             {
-                Connection.Close();
+                trace.ChangeException(CurrentExceptionChanger, ex, cmd.CommandText);
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+                if (ShouldCloseConnection())
+                {
+                    Connection.Close();
+                }
             }
         }
         return;

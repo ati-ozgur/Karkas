@@ -23,6 +23,21 @@ public class QueryByPkGenerationTest
 	}
 
 	[Fact]
+	public void ForeignKeyAndIndexQueriesAreNamedForTracing()
+	{
+		string[] statements = DalGenerator.GetNamedQueryStatements("QueryByArtistId",
+			"this.QueryUsingColumnName(Album.ColumnNames.ArtistId,pArtistId)");
+
+		Assert.Equal(new[]
+		{
+			"using (Karkas.Data.Tracing.KarkasTracing.BeginDefaultQuery(QueryIdFor(\"QueryByArtistId\")))",
+			"{",
+			"\treturn this.QueryUsingColumnName(Album.ColumnNames.ArtistId,pArtistId);",
+			"}",
+		}, statements);
+	}
+
+	[Fact]
 	public void OracleStatementsUseColonParameter()
 	{
 		string[] statements = DalGenerator.GetQueryByPkStatements("REGION_ID", "pREGION_ID", ":", false);
