@@ -41,8 +41,8 @@ See following tutorials:
 
 ## Changes
 
-See [CHANGELOG.md](CHANGELOG.md) for release notes. Upgrading from 1.x to 2.0 is a breaking change;
-the changelog has a migration guide.
+See [CHANGELOG.md](CHANGELOG.md) for release notes.
+Upgrading from 1.x to 2.0 is a breaking change; the changelog has a migration guide.
 
 
 ## How it works after code generation 1
@@ -63,7 +63,8 @@ sequenceDiagram
 
 ## Requirements
 
-Karkas.Data runtime libraries target .Net 8, 9, 10 and 11 (building the repository needs the .Net 11 SDK). Generated code is usable from .NET 4, .Net Core 1-3 and .Net 6 and later.
+Karkas.Data runtime libraries target .Net 8, 9, 10 and 11 (building the repository needs the .Net 11 SDK).
+Generated code is usable from .NET 4, .Net Core 1-3 and .Net 6 and later.
 
 
 ## Contributing
@@ -77,7 +78,7 @@ See [github actions](https://github.com/ati-ozgur/Karkas/actions).
 - Oracle and Sql Server tests are run using docker containers.
 - Sqlite tests are run on github runners itself.
 
-Tests 
+Tests
 
 - check code generation
 - CRUD for tables
@@ -91,5 +92,5 @@ Tests
 
 ## License
 
-Karkas is released under the BSD-3 License. 
+Karkas is released under the BSD-3 License.
 See the bundled LICENSE file for details.
