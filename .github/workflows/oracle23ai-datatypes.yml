@@ -11,6 +11,8 @@ on:
 jobs:
   build:
     name: build (${{ matrix.framework }})
+    # workflow_run fires on success and failure alike: only continue the chain after success
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     strategy:
       fail-fast: false
       matrix:
