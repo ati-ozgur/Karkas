@@ -43,7 +43,7 @@ KARKAS_TEST_FRAMEWORK=net8.0 ./Karkas.Examples/TestBash/run_sqlite_chinook_auto_
 
 The other scripts use `dotnet run --project` and project references. Only `run_packaged_tool_sample_blog.bash` tests the NuGet packages and the `karkas-codegen` tool as users install them (nothing is published).
 
-The GitHub Actions workflows (`.github/workflows/*.yml`) run these same scripts as a matrix over `net8.0`, `net9.0`, `net10.0` and `net11.0` (via `KARKAS_TEST_FRAMEWORK`). SQLite runs first, and the other workflows are chained after it with `workflow_run`.
+The GitHub Actions workflows (`.github/workflows/*.yml`) run these same scripts as a matrix over `net8.0`, `net9.0`, `net10.0` and `net11.0` (via `KARKAS_TEST_FRAMEWORK`). SQLite runs first, and the other workflows are chained after it with `workflow_run`. A chained workflow only runs if the previous one succeeded (on every framework).
 
 Other scripts:
 - `delete_bin_obj.bash` removes all bin/obj folders.
