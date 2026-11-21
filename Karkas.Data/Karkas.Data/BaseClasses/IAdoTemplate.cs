@@ -37,18 +37,23 @@ public interface IAdoTemplate<IParameterBuilder>
     DbCommand getDatabaseCommand(DbConnection conn);
     DbCommand getDatabaseCommand(string sql, DbConnection conn);
 
-    List<Dictionary<string, object>> GetTopRows(string sql, int count);
-    List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters, int count);
+    List<Dictionary<string, object>> GetTopRows(string sql, int count, ColumnNameCase columnNameCase = ColumnNameCase.AsItIs);
+    List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters, int count,
+        ColumnNameCase columnNameCase = ColumnNameCase.AsItIs);
 
-    Dictionary<string, object> GetOneRow(string sql);
-    Dictionary<string, object> GetOneRow(string sql, DbParameter[] parameters);
+    Dictionary<string, object> GetOneRow(string sql, ColumnNameCase columnNameCase = ColumnNameCase.AsItIs);
+    Dictionary<string, object> GetOneRow(string sql, DbParameter[] parameters,
+        ColumnNameCase columnNameCase = ColumnNameCase.AsItIs);
 
 
-    List<Dictionary<string, object>> GetRows(DbCommand cmd);
-    List<Dictionary<string, object>> GetRows(string sql);
-    List<Dictionary<string, object>> GetRows(string sql, CommandType commandType);
-    List<Dictionary<string, object>> GetRows(string sql, CommandType commandType, DbParameter[] parameters);
-    List<Dictionary<string, object>> GetRows(string sql, DbParameter[] parameters, int? timeout = null);
+    List<Dictionary<string, object>> GetRows(DbCommand cmd, ColumnNameCase columnNameCase = ColumnNameCase.AsItIs);
+    List<Dictionary<string, object>> GetRows(string sql, ColumnNameCase columnNameCase = ColumnNameCase.AsItIs);
+    List<Dictionary<string, object>> GetRows(string sql, CommandType commandType,
+        ColumnNameCase columnNameCase = ColumnNameCase.AsItIs);
+    List<Dictionary<string, object>> GetRows(string sql, CommandType commandType, DbParameter[] parameters,
+        ColumnNameCase columnNameCase = ColumnNameCase.AsItIs);
+    List<Dictionary<string, object>> GetRows(string sql, DbParameter[] parameters, int? timeout = null,
+        ColumnNameCase columnNameCase = ColumnNameCase.AsItIs);
 
 
     IParameterBuilder getParameterBuilder();

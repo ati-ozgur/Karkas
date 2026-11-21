@@ -443,32 +443,35 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     }
 
 
-    public virtual List<Dictionary<string, object>> GetTopRows(string sql, int count)
+    public virtual List<Dictionary<string, object>> GetTopRows(string sql, int count,
+        ColumnNameCase columnNameCase = ColumnNameCase.AsItIs)
     {
         string sqlToExecute = getSqlForTopRows(sql,count);
-        return GetRows(sqlToExecute);
+        return GetRows(sqlToExecute, columnNameCase);
     }
-    public virtual List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters, int count)
+    public virtual List<Dictionary<string, object>> GetTopRows(string sql, DbParameter[] parameters, int count,
+        ColumnNameCase columnNameCase = ColumnNameCase.AsItIs)
     {
         string sqlToExecute = getSqlForTopRows(sql, count);
-        return GetRows(sqlToExecute,parameters);
+        return GetRows(sqlToExecute, parameters, null, columnNameCase);
     }
 
 
-    public Dictionary<string, object> GetOneRow(string sql)
+    public Dictionary<string, object> GetOneRow(string sql, ColumnNameCase columnNameCase = ColumnNameCase.AsItIs)
     {
         Dictionary<string, object> d = null;
-        List<Dictionary<string, object>> l1 = GetTopRows(sql,1);
+        List<Dictionary<string, object>> l1 = GetTopRows(sql, 1, columnNameCase);
         if(l1.Count == 1)
         {
             d = l1[0];
         }
         return d;
     }
-    public Dictionary<string, object> GetOneRow(string sql, DbParameter[] parameters)
+    public Dictionary<string, object> GetOneRow(string sql, DbParameter[] parameters,
+        ColumnNameCase columnNameCase = ColumnNameCase.AsItIs)
     {
         Dictionary<string, object> d = null;
-        List<Dictionary<string, object>> l1 = GetTopRows(sql,parameters, 1);
+        List<Dictionary<string, object>> l1 = GetTopRows(sql, parameters, 1, columnNameCase);
         if (l1.Count == 1)
         {
             d = l1[0];
@@ -483,7 +486,12 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         return GetRows(cmd);
     }
 
-    public List<Dictionary<String, Object>> GetRows(DbCommand cmd)
+    /// <summary>
+    /// Runs the command and returns each row as a dictionary keyed by column name.
+    /// </summary>
+    /// <param name="cmd">command to execute</param>
+    /// <param name="columnNameCase">how column names are written as dictionary keys: as returned by the database (default), lower case or upper case.</param>
+    public List<Dictionary<String, Object>> GetRows(DbCommand cmd, ColumnNameCase columnNameCase = ColumnNameCase.AsItIs)
     {
         List<Dictionary<string, Object>> liste = new List<Dictionary<string, object>>();
         DbDataReader reader = null;
@@ -504,7 +512,7 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
             while (reader.Read())
             {
                 row = new Dictionary<string, object>();
-                ProcessRow(reader, row);
+                ProcessRow(reader, row, columnNameCase);
                 liste.Add(row);
             }
 
@@ -528,12 +536,26 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         return liste;
     }
 
-    private void ProcessRow(DbDataReader reader, Dictionary<string, object> row)
+    private void ProcessRow(DbDataReader reader, Dictionary<string, object> row, ColumnNameCase columnNameCase)
     {
         for (int i = 0; i < reader.FieldCount; i++)
         {
-            string columnName = GetUniqueColumnName(row, reader.GetName(i));
+            string columnName = GetUniqueColumnName(row, ChangeColumnNameCase(reader.GetName(i), columnNameCase));
             row.Add(columnName, reader.GetValue(i));
+        }
+    }
+
+    // Invariant culture is used on purpose, so that "ID" does not become "ıd" under Turkish culture.
+    private static string ChangeColumnNameCase(string columnName, ColumnNameCase columnNameCase)
+    {
+        switch (columnNameCase)
+        {
+            case ColumnNameCase.ToLower:
+                return columnName.ToLowerInvariant();
+            case ColumnNameCase.ToUpper:
+                return columnName.ToUpperInvariant();
+            default:
+                return columnName;
         }
     }
 
@@ -559,10 +581,10 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     {
         return GetRows(sql);
     }
-    public List<Dictionary<String, Object>> GetRows(string sql)
+    public List<Dictionary<String, Object>> GetRows(string sql, ColumnNameCase columnNameCase = ColumnNameCase.AsItIs)
     {
         DbCommand cmd = getDatabaseCommand(sql, Connection);
-        return GetRows(cmd);
+        return GetRows(cmd, columnNameCase);
     }
 
     [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
@@ -571,11 +593,12 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         return GetRows(sql,commandType);
     }
 
-    public List<Dictionary<String, Object>> GetRows(string sql, CommandType commandType)
+    public List<Dictionary<String, Object>> GetRows(string sql, CommandType commandType,
+        ColumnNameCase columnNameCase = ColumnNameCase.AsItIs)
     {
         DbCommand cmd = getDatabaseCommand(sql, Connection);
         cmd.CommandType = commandType;
-        return GetRows(cmd);
+        return GetRows(cmd, columnNameCase);
     }
 
     [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
@@ -583,7 +606,8 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     {
         return GetRows(sql,commandType,parameters);
     }
-    public List<Dictionary<String, Object>> GetRows(string sql, CommandType commandType, DbParameter[] parameters)
+    public List<Dictionary<String, Object>> GetRows(string sql, CommandType commandType, DbParameter[] parameters,
+        ColumnNameCase columnNameCase = ColumnNameCase.AsItIs)
     {
         DbCommand cmd = getDatabaseCommand(sql, Connection);
         cmd.CommandType = commandType;
@@ -591,7 +615,7 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         {
             cmd.Parameters.Add(param);
         }
-        return GetRows(cmd);
+        return GetRows(cmd, columnNameCase);
     }
 
     [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
@@ -609,8 +633,10 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
 	/// <param name="sql"> your sql statement</param>
 	/// <param name="parameters"> parameters used in the sql @ or : according to database syntax</param>
 	/// <param name="timeOut">optional timeout value for long running queries. This parameter should be used for only some queries. Default timeout set in connection string normally.</param>
+	/// <param name="columnNameCase">how column names are written as dictionary keys: as returned by the database (default), lower case or upper case.</param>
 	/// <returns></returns>
-	public List<Dictionary<String, Object>> GetRows(string sql, DbParameter[] parameters, int? timeOut = null)
+	public List<Dictionary<String, Object>> GetRows(string sql, DbParameter[] parameters, int? timeOut = null,
+		ColumnNameCase columnNameCase = ColumnNameCase.AsItIs)
 	{
 		DbCommand cmd = getDatabaseCommand(sql, Connection);
 		if(timeOut.HasValue)
@@ -621,7 +647,7 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
 		{
 			cmd.Parameters.Add(param);
 		}
-		return GetRows(cmd);
+		return GetRows(cmd, columnNameCase);
 	}
 
 
