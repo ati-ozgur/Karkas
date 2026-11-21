@@ -68,7 +68,9 @@ There are two independent halves, each split into a shared core plus one project
 
 **`Karkas.Data/`** is the runtime library that generated code inherits from.
 - `Karkas.Data` defines generic base classes such as `BaseDal<TYPE_LIBRARY, ADOTEMPLATE, PARAMETER_BUILDER>`, `BaseDalForIdentity<…, PRIMARY_KEY>`, `BaseBs<…>`, `BaseBsForIdentity<…>`, `BaseTypeLibrary`, `BaseAdoTemplate` / `IAdoTemplate`, and `IParameterBuilder`. It also contains `QueryHelper`/`WhereCriteria`, paging, and `ExceptionChanger`, which maps provider errors to `ForeignKeyException`, `UniqueKeyConstraintException` and similar.
-- `Karkas.Data/Tracing/` holds query tracing (`KarkasTracing` settings, the internal `QueryTrace`; see `docs/query-tracing.md`). Every place that runs a command (`ExecuteReader`/`ExecuteScalar`/`ExecuteNonQuery`/`adapter.Fill`) must wrap it in a `QueryTrace` and translate errors with `trace.ChangeException(...)`. The `Karkas.Data.<Db>` projects see it through `InternalsVisibleTo`.
+- `Karkas.Data/Tracing/` holds query tracing (`KarkasTracing` settings, the internal `QueryTrace`; see `docs/query-tracing.md`).
+  Every place that runs a command (`ExecuteReader`/`ExecuteScalar`/`ExecuteNonQuery`/`adapter.Fill`) must wrap it in a `QueryTrace` and translate errors with `trace.ChangeException(...)`.
+  The `Karkas.Data.<Db>` projects see it through `InternalsVisibleTo`.
 - `Karkas.Data.<Db>` provides `AdoTemplate<Db>`, `ParameterBuilder<Db>`, `BaseDal<Db>`, `ExceptionChanger<Db>` and the `…ForIdentity` variants.
 - Tables with identity/auto-increment PKs use the `…ForIdentity` base classes. The generators choose this per table.
 
