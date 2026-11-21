@@ -3,7 +3,6 @@ source <(grep = version.txt)
 echo "KarkasDataVersion: $KarkasDataVersion"
 echo "KarkasCodeGenVersion: $KarkasCodeGenVersion"
 
-echo "KARKAS_NUGET_API_KEY: $KARKAS_NUGET_API_KEY"
 
 dotnet pack Karkas.Data/Karkas.Data/Karkas.Data.csproj /property:Version=$KarkasDataVersion --include-symbols --include-source
 dotnet pack Karkas.Data/Karkas.Data.Sqlite/Karkas.Data.Sqlite.csproj /property:Version=$KarkasDataVersion --include-symbols --include-source
