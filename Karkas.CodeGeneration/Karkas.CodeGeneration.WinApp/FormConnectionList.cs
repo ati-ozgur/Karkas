@@ -28,6 +28,8 @@ namespace Karkas.CodeGeneration.WinApp
 
             listBoxConnectionList.DataSource = list;
         }
+        // runtime state, not designer content (WFO1000)
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public CodeGenerationConfig SelectedDatabaseEntry { get; set; }
 
         private void listBoxConnectionList_DoubleClick(object sender, EventArgs e)

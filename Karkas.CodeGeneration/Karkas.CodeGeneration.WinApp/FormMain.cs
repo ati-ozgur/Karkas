@@ -40,6 +40,8 @@ public partial class FormMain : Form
 	IAdoTemplate<IParameterBuilder> template;
 	private BaseCodeGenerationDatabase databaseHelper;
 
+	// runtime state, not designer content (WFO1000)
+	[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 	public BaseCodeGenerationDatabase DatabaseHelper
 	{
 		get

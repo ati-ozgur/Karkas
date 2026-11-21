@@ -1,0 +1,22 @@
+name: winapp-build
+
+# Compile-only check for the Windows Forms front end (Karkas.WinApp.sln).
+# EnableWindowsTargeting lets the Linux runner build net10.0-windows; the app itself is not run.
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        # SDK 11 also builds the net8.0-net11.0 targets of the Karkas.Data* projects in the solution
+        dotnet-version: 11.0.x
+    - name: build Karkas.WinApp.sln
+      run: dotnet build Karkas.WinApp.sln -p:EnableWindowsTargeting=true

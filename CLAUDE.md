@@ -48,7 +48,7 @@ The GitHub Actions workflows (`.github/workflows/*.yml`) run these same scripts 
 Other scripts:
 - `delete_bin_obj.bash` removes all bin/obj folders.
 - `deploy_nuget_packages.bash` packs and pushes to NuGet. It reads versions from `version.txt` and needs `KARKAS_NUGET_API_KEY`.
-- `Karkas.WinApp.sln` contains the Windows Forms front end (`net10.0-windows`, Windows only).
+- `Karkas.WinApp.sln` contains the Windows Forms front end (`net10.0-windows`, runs on Windows only). It compiles on Linux with `dotnet build Karkas.WinApp.sln -p:EnableWindowsTargeting=true`, which the `winapp-build` workflow does on every push.
 
 ## Architecture
 

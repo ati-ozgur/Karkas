@@ -26,6 +26,8 @@ namespace Karkas.CodeGeneration.WinApp
         }
 
 
+        // runtime state, not designer content (WFO1000)
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public CodeGenerationConfig DatabaseEntry { get; set; }
 
         private void buttonInsert_Click(object sender, EventArgs e)
