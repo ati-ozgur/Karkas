@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0.0 (unreleased)
+## 2.0.0 (2026-11-21)
 
 2.0.0 removes the global connection singleton. Generated code now receives its database connection through
 its constructor. This is a breaking change: regenerate your code with `karkas-codegen` 2.0.0 and update the
