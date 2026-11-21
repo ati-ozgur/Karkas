@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Karkas.CodeGeneration\Karkas.CodeGeneration.Oracle\Karkas.CodeGeneration.Oracle.csproj" />
+    <ProjectReference Include="..\Karkas.Data\Karkas.Data.Sqlite\Karkas.Data.Sqlite.csproj" />
   </ItemGroup>
 
   <ItemGroup>
