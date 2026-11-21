@@ -1,0 +1,41 @@
+name: packaged-tool-sample-blog
+
+# Packs Karkas.Data* and karkas-codegen into a local NuGet feed, installs the tool from it
+# and runs the sample-blog tutorial against the packages. Nothing is published.
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["sqlite-chinook"]
+    branches: [master]
+    types:
+      - completed
+
+jobs:
+  build:
+    name: build (${{ matrix.framework }})
+    strategy:
+      fail-fast: false
+      matrix:
+        # Only the SDK for the target framework plus SDK 11 (needed to pack net11.0) is installed.
+        # Without a .NET 10 runtime, the net10.0-based tool only starts through RollForward=Major.
+        include:
+          - framework: net8.0
+            dotnet: "8.0.x\n11.0.x"
+          - framework: net9.0
+            dotnet: "9.0.x\n11.0.x"
+          - framework: net10.0
+            dotnet: "10.0.x\n11.0.x"
+          - framework: net11.0
+            dotnet: "11.0.x"
+    runs-on: ubuntu-24.04
+    env:
+      KARKAS_TEST_FRAMEWORK: ${{ matrix.framework }}
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ matrix.dotnet }}
+    - name: pack, install karkas-codegen from local feed and run sample-blog
+      run: ./Karkas.Examples/TestBash/run_packaged_tool_sample_blog.bash

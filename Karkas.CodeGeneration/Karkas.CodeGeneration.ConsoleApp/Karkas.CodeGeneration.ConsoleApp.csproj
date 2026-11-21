@@ -7,6 +7,8 @@
 
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>karkas-codegen</ToolCommandName>
+    <!-- Let the tool run on a newer major runtime (e.g. only .NET 11 installed) -->
+    <RollForward>Major</RollForward>
     <PackageOutputPath>./nupkg</PackageOutputPath>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
