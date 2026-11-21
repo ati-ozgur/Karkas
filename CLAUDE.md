@@ -37,9 +37,10 @@ Most of the real testing is done end to end by the scripts in `Karkas.Examples/T
 ./Karkas.Examples/TestBash/run_sqlite_datatypes.bash
 ./Karkas.Examples/TestBash/run_sqlserver_chinook_auto_increment.bash stop   # "stop" removes the container afterwards
 ./Karkas.Examples/TestBash/run_all.bash
+KARKAS_TEST_FRAMEWORK=net8.0 ./Karkas.Examples/TestBash/run_sqlite_chinook_auto_increment.bash   # test one target of the libraries
 ```
 
-The GitHub Actions workflows (`.github/workflows/*.yml`) run these same scripts on .NET 10. SQLite runs first, and the other workflows are chained after it with `workflow_run`.
+The GitHub Actions workflows (`.github/workflows/*.yml`) run these same scripts as a matrix over `net8.0`, `net9.0`, `net10.0` and `net11.0` (via `KARKAS_TEST_FRAMEWORK`). SQLite runs first, and the other workflows are chained after it with `workflow_run`.
 
 Other scripts:
 - `delete_bin_obj.bash` removes all bin/obj folders.
@@ -81,4 +82,4 @@ There are two independent halves, each split into a shared core plus one project
 
 - `.editorconfig`: tabs (size 4), CRLF line endings, max line length 120. `*.bash` files must stay LF.
 - Some identifiers and comments are in Turkish (for example `TurkishHelper`, and the `AbbrevationsAsString` config spelling). Keep existing names as they are.
-- Library projects target `net10.0`, but generated code is meant to stay usable on older .NET (4.x, Core 1–3). Avoid emitting newer-only C# unless it is behind a config flag such as `UseFileScopedNamespace` or `UseGlobalUsings`.
+- The `Karkas.Data*` runtime libraries multi-target `net8.0;net9.0;net10.0;net11.0` (building needs the .NET 11 SDK; net8/9 are past end of support but kept on purpose). The generator, WinApp and tests target `net10.0`. Generated code is meant to stay usable on older .NET (4.x, Core 1–3). Avoid emitting newer-only C# unless it is behind a config flag such as `UseFileScopedNamespace` or `UseGlobalUsings`.

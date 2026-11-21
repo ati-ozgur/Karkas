@@ -68,6 +68,10 @@ dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- -
 
 cd ./Karkas.Examples/GeneratedProjects/ChinookOracleAutoIncrement
 dotnet new console
+# Optional: test a specific target framework of the multi-targeted Karkas.Data libraries
+if [ -n "${KARKAS_TEST_FRAMEWORK:-}" ]; then
+    sed -i -E "s#<TargetFramework>[^<]+</TargetFramework>#<TargetFramework>${KARKAS_TEST_FRAMEWORK}</TargetFramework>#" ./*.csproj
+fi
 dotnet add package Oracle.ManagedDataAccess.Core
 dotnet add reference "../../../Karkas.Data/Karkas.Data/Karkas.Data.csproj"
 dotnet add reference "../../../Karkas.Data/Karkas.Data.Oracle/Karkas.Data.Oracle.csproj"

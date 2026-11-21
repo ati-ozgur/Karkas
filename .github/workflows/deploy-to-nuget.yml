@@ -15,7 +15,10 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 10.0.x
+        # SDK 11 builds every target (net8.0-net11.0) of the multi-targeted packages
+        dotnet-version: |
+          10.0.x
+          11.0.x
     - name: deploy nuget bash
       shell: bash
       run: ./deploy_nuget_packages.bash

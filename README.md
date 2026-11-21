@@ -58,7 +58,7 @@ sequenceDiagram
 
 ## Requirements
 
-Karkas currently uses and supports .Net 10 but generated code is usable from .NET 4, .Net Core 1-3 and .Net 6,7,8,9,10.
+Karkas.Data runtime libraries target .Net 8, 9, 10 and 11 (building the repository needs the .Net 11 SDK). Generated code is usable from .NET 4, .Net Core 1-3 and .Net 6 and later.
 
 
 ## Contributing

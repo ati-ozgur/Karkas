@@ -84,6 +84,10 @@ rm -rf Karkas.Examples/GeneratedProjects/ChinookSqlServerAutoIncrement
 dotnet run --project Karkas.CodeGeneration/Karkas.CodeGeneration.ConsoleApp -- --connectionname ChinookSqlServerAutoIncrement
 cd Karkas.Examples/GeneratedProjects/ChinookSqlServerAutoIncrement
 dotnet new console
+# Optional: test a specific target framework of the multi-targeted Karkas.Data libraries
+if [ -n "${KARKAS_TEST_FRAMEWORK:-}" ]; then
+    sed -i -E "s#<TargetFramework>[^<]+</TargetFramework>#<TargetFramework>${KARKAS_TEST_FRAMEWORK}</TargetFramework>#" ./*.csproj
+fi
 dotnet add package Microsoft.Data.SqlClient
 dotnet add reference "../../../Karkas.Data/Karkas.Data/Karkas.Data.csproj"
 dotnet add reference "../../../Karkas.Data/Karkas.Data.SqlServer/Karkas.Data.SqlServer.csproj"
