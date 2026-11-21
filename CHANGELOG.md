@@ -1,6 +1,16 @@
 # Changelog
 
-## Unreleased
+## 2.2.0 (2026-11-21)
+
+### Breaking changes
+
+- The obsolete `BringOneValue` and `GetListOfDictionary` methods are removed from the `AdoTemplate*` classes
+  (`BaseAdoTemplate`). Use `GetOneValue` and `GetRows` instead. They take the same arguments:
+
+  ```csharp
+  object count = template.GetOneValue("SELECT COUNT(*) FROM Album");   // was BringOneValue
+  var rows = template.GetRows("SELECT * FROM Album");                    // was GetListOfDictionary
+  ```
 
 ### Fixed
 

@@ -250,12 +250,6 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
 
 
 
-    [Obsolete("BringOneValue is deprecated, please use GetOneValue instead.")]
-    public object BringOneValue(DbCommand cmd)
-    {
-        return GetOneValue(cmd);
-    }
-
     /// <summary>
     /// Wrapper for ADO.NET ExecuteScalar
     /// If you expect only one result from your query, you could use this command.
@@ -287,11 +281,6 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
 	}
 
 
-	[Obsolete("BringOneValue is deprecated, please use GetOneValue instead.")]
-    public Object BringOneValue(string cmdText)
-    {
-        return GetOneValue(cmdText);
-    }
     public Object GetOneValue(string cmdText)
     {
         DbCommand cmd = getDatabaseCommand(cmdText, Connection);
@@ -309,11 +298,6 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
 	}
 
 
-	[Obsolete("BringOneValue is deprecated, please use GetOneValue instead.")]
-    public Object BringOneValue(string cmdText, CommandType cmdType, DbParameter[] parameters)
-    {
-        return GetOneValue(cmdText,cmdType,parameters);
-    }
     public Object GetOneValue(string cmdText, CommandType cmdType, DbParameter[] parameters)
     {
         DbCommand cmd = getDatabaseCommand(cmdText, Connection);
@@ -327,12 +311,6 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         return result;
     }
 
-
-    [Obsolete("BringOneValue is deprecated, please use GetOneValue instead.")]
-    public Object BringOneValue(string cmdText, DbParameter[] parameters)
-    {
-        return GetOneValue(cmdText, parameters);
-    }
 
     public Object GetOneValue(string cmdText, DbParameter[] parameters)
     {
@@ -480,12 +458,6 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
     }
 
 
-    [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
-    public List<Dictionary<String, Object>> GetListOfDictionary(DbCommand cmd)
-    {
-        return GetRows(cmd);
-    }
-
     /// <summary>
     /// Runs the command and returns each row as a dictionary keyed by column name.
     /// </summary>
@@ -576,21 +548,10 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         }
         return candidate;
     }
-    [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
-    public List<Dictionary<String, Object>> GetListOfDictionary(string sql)
-    {
-        return GetRows(sql);
-    }
     public List<Dictionary<String, Object>> GetRows(string sql, ColumnNameCase columnNameCase = ColumnNameCase.AsItIs)
     {
         DbCommand cmd = getDatabaseCommand(sql, Connection);
         return GetRows(cmd, columnNameCase);
-    }
-
-    [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
-    public List<Dictionary<String, Object>> GetListOfDictionary(string sql, CommandType commandType)
-    {
-        return GetRows(sql,commandType);
     }
 
     public List<Dictionary<String, Object>> GetRows(string sql, CommandType commandType,
@@ -601,11 +562,6 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
         return GetRows(cmd, columnNameCase);
     }
 
-    [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
-    public List<Dictionary<String, Object>> GetListOfDictionary(string sql, CommandType commandType, DbParameter[] parameters)
-    {
-        return GetRows(sql,commandType,parameters);
-    }
     public List<Dictionary<String, Object>> GetRows(string sql, CommandType commandType, DbParameter[] parameters,
         ColumnNameCase columnNameCase = ColumnNameCase.AsItIs)
     {
@@ -616,12 +572,6 @@ public abstract class BaseAdoTemplate<PARAMETER_BUILDER> : IAdoTemplate<IParamet
             cmd.Parameters.Add(param);
         }
         return GetRows(cmd, columnNameCase);
-    }
-
-    [Obsolete("GetListOfDictionary is deprecated, please use GetRows instead.")]
-    public List<Dictionary<String, Object>> GetListOfDictionary(string sql, DbParameter[] parameters, int? timeOut = null)
-    {
-        return GetRows(sql,parameters,timeOut);
     }
 
 	/// <summary>
