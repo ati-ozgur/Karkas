@@ -131,7 +131,7 @@ namespace Karkas.CodeGeneration.WinApp.UserControls
 
 
 
-			checkBoxForceOracleDecimalToIntegersAndDecimal.Checked = entry.OracleForceNumericPKFKColumnsToLong;
+			checkBoxForceOracleDecimalToIntegersAndDecimal.Checked = entry.ForceOracleDecimalToIntegersAndDecimal;
 			checkBoxGenerateForeignKeyQueries.Checked = entry.GenerateForeignKeyQueries;
 			checkBoxGenerateIndexQueries.Checked = entry.GenerateIndexQueries;
 			checkBoxIgnoreSystemTables.Checked = entry.IgnoreSystemTables;
