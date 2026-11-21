@@ -39,6 +39,11 @@ See following tutorials:
 
 - [tutorial-sample-blog-console](docs/tutorial-sample-blog-console.md)
 
+## Changes
+
+See [CHANGELOG.md](CHANGELOG.md) for release notes. Upgrading from 1.x to 2.0 is a breaking change;
+the changelog has a migration guide.
+
 
 ## How it works after code generation 1
 
